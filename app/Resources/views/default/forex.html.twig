@@ -1,0 +1,331 @@
+
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<div class="my-container">
+    <section class="brokers brokers-forex">
+        <div class="brokers-opaciti">
+            <h1 class="brokers_title">TOP 5 ONLINE BROKERS</h1>
+            <h2 class="brokers_text">TO BUY FOREX</h2>
+        </div>
+    </section>
+    <section class="table">
+        <div class="container">
+            <div class="row">
+                <div class="paupal">
+                    <p class="paupal_text">Our Brokers Accept:</p>
+                    <div class="img-pay paupal_img"></div>
+                    <div class="img-master paupal_img"></div>
+                </div>
+            </div>
+        </div>
+        <div class="content-table">
+            <div class="container">
+                <div class="row">
+                    <div class="content-table_container-title col-xs-none">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-2 col">
+                                <p>BROKER</p>
+                            </div>
+                            <div class="col-md-2 col-sm-none col">
+                                <p>MINIMUM DEPOSIT</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-2 col">
+                                <p>PROMOTION</p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4 col">
+                                <p>FEATURES WE LIKE</p>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-1 col">
+                                <p>RATING</p>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-1 col visit">
+                                <p>VISIT SITE</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-table_container-title">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-6 col_height">
+                                <div class="top-container-img">
+                                    <img class="tom-img" src="img/top_choice.png" alt="top_choice">
+                                </div>
+                                <div class="number active_number">
+                                    <p>1</p>
+                                </div>
+                                <div class="right-container-img">
+                                    <img class="right-img" src="img/download.png" alt="etoro">
+                                </div>
+                            </div>
+                            <div class=" col-xs-6 col-md-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-3" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9.8</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-none col_height">
+                                <p class="dollar">$200</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12 col-xs-none col_height">
+                                <p class="promotion">No bonus</p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 col_height">
+                                <div class="features-container">
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Social Trading lets you copy others</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Competitive Trading Fees</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Used by 6,000,000+ Traders</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-6 col-xs-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9.8</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-12 col col_height">
+                                <a class="visit-btn">VISIT SITE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-table_container-title">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-6 col col_height">
+                                <div class="top-container-img">
+
+                                </div>
+                                <div class="number">
+                                    <p>2</p>
+                                </div>
+                                <div class="right-container-img">
+                                    <img class="right-img" src="img/24option.png" alt="24option">
+                                </div>
+                            </div>
+                            <div class=" col-xs-6 col-md-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-6" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9.5</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-none col_height">
+                                <p class="dollar">$100</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12 col col_height">
+                                <p class="promotion">Zero Commissions<br>
+                                    <span class="color-aqua">Get Deal</span></p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 col col_height">
+                                <div class="features-container">
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Trade CFDs on Popular Cryptocurrencies</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> FREE trading Signals for Limited time</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Access all Financial Markets in one place</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <canvas class="progress-bar-rel" id="canvas-7" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9.5</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-12 col col_height">
+                                <a class="visit-btn">VISIT SITE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-table_container-title">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-6 col_height">
+                                <div class="top-container-img">
+                                    <img class="tom-img" src="img/trending.png" alt="trending">
+                                </div>
+                                <div class="number">
+                                    <p>3</p>
+                                </div>
+                                <div class="right-container-img">
+                                    <img class="right-img" src="img/alvexo.png" alt="24option">
+                                </div>
+                            </div>
+                            <div class=" col-xs-6 col-md-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-5" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-none col_height">
+                                <p class="dollar">$250</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12 col_height">
+                                <p class="promotion">All Cryptos Available</p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 col_height">
+                                <div class="features-container">
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Demo and Islamic Account Offered</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Regulated Broker</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Comprehensive Trading Tools</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col_height">
+                                <div class="progress-bar-conatiner">
+                                    <canvas class="progress-bar-rel" id="canvas-4" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-12 col_height">
+                                <a class="visit-btn">VISIT SITE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-table_container-title">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-6 col_height">
+                                <div class="top-container-img">
+
+                                </div>
+                                <div class="number">
+                                    <p>4</p>
+                                </div>
+                                <div class="right-container-img">
+                                    <img class="right-img" src="img/pepperstone.png" alt="pepperstone">
+                                </div>
+                            </div>
+                            <div class=" col-xs-6 col-md-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-8" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">8.9</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-none col_height">
+                                <p class="dollar">$200</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12 col_height">
+                                <p class="promotion">Earn Quanstas points on every Trage
+                                    <br>
+                                    <span class="color-aqua">Get Deal</span></p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 col_height">
+                                <div class="features-container">
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Award Winning CFD Broker</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> No Deposit or Withdrawal Fees</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Fee-Free Funding Options</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Razor Speads from 0.0 pips</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col_height">
+                                <div class="progress-bar-conatiner">
+                                    <canvas class="progress-bar-rel" id="canvas-9" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">8.9</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-12 col_height">
+                                <a class="visit-btn">VISIT SITE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-table_container-title">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-6 col_height">
+                                <div class="top-container-img">
+
+                                </div>
+                                <div class="number">
+                                    <p>5</p>
+                                </div>
+                                <div class="right-container-img">
+                                    <img class="right-img" src="img/markets-logo.jpg" alt="markets-logo">
+                                </div>
+                            </div>
+                            <div class=" col-xs-6 col-md-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-10" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">8.6</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-none col_height">
+                                <p class="dollar">$100</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12 col_height">
+                                <p class="promotion">Free 10k Demo Account<br>
+                                    <span class="color-aqua">Get Deal</span></p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 col_height">
+                                <div class="features-container">
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> No Commissions</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Tight Speads</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Sophisticated Trading Yools</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> FREE Demo Account</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col_height">
+                                <div class="progress-bar-conatiner">
+                                    <canvas class="progress-bar-rel" id="canvas-11" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">8.6</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-12 col_height">
+                                <a class="visit-btn">VISIT SITE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="table">
+        <div class="content-text">
+            <div class="container">
+                <div class="row">
+                    <h4 class="content-text_title center">The BeginnerÕs Guide To Forex Trading</h4>
+                    <p class="content-text_min-text">Forex trading is when you speculate about the price of <span class="color-aqua">one currency against another currency.</span>
+                        For example, if you think that the Euro will rise against the US Dollar, then you can purchase the EUR/USD currency pair at a low price and then, hopefully, you can sell it at a higher price and make a profit. If you buy the Euro against the Dollar (EUR/USD), and the Dollar strengthens, then youÕll be in a losing position.</p>
+                    <p class="content-text_min-text">There are different factors that influence forex prices. These factors include interest rates, inflation, employment figures, government policy, and the demand for imports and exports.
+                    </p>
+                    <p class="content-text_min-text">Because of the volume of currency traders and the amount of money that is exchanged in forex trading, the price movements can happen very quickly. Therefore, while there are many <span class="color-aqua">currency trading opportunities</span>, forex trading is incredibly volatile.</p>
+                    <h4 class="content-text_title ">How to choose an online broker for forex trading</h4>
+                    <p class="content-text_min-text">
+                        Since there are hundreds of different only <span class="color-aqua">forex brokers</span>, the choice can be overwhelming. Your moneyÕs security is the most important concern when getting involved in forex trading. You should be able to withdraw your money whenever you want to.
+                    </p>
+                    <h4 class="content-text_title ">Consider your tech needs and trading style</h4>
+                    <p class="content-text_min-text">
+                        <span class="color-aqua"> Beginners to forex trading</span> may not plan to trade as frequently as others. In this case, you should try to avoid the brokers that charge a fee for inactivity if you do not meet a specific minimum number of trades per month, quarter or year. You should look for the brokers that offer the types of investments that you want for forex trading at the most feasible price. At this stage, you probably will not need all the extras, such as an advanced trading platform. </p>
+                    <p class="content-text_min-text">On the other hand, active traders will want an online trader that supports that amount of frequency. This includes weighing the trading platforms of a broker, analysis tools, data and research offerings as well as commissions, and fees. </p>
+                    <p class="content-text_min-text">Because thereÕs so much competition in the Forex (FX) market as well as having countless brokers to choose from, it can be difficult to know which online FX Broker will be best for you. Beginners have different needs than more advanced traders, so these are a few key points we suggest keeping in mind when making your decision:
+                    </p>
+                    <h4 class="content-text_title ">Regulation</h4>
+                    <p class="content-text_min-text">Each country has its own regulatory body such as the Financial Conduct Authority (FCA), in the UK. The regulatory body develops rules, services and programs to protect the integrity of the market, traders, and investors as well as the brokers themselves, and to help members meet regulatory responsibilities. Due to potential safety concerns regarding deposit, accounts should exclusively be opened with firms that are regulated.
+                    </p>
+                    <h4 class="content-text_title ">Customer Service</h4>
+                    <p class="content-text_min-text">Online FX Trading takes place 24 hrs a day, so customer support should be available at all times. Ideally, you will want to speak with a live support person rather than a time-consuming auto-attendant. Give a quick call to the customer service centre to get an idea of the type of customer service provided. Check on wait times and find out the representativeÕs ability to answer questions regarding spreads and leverage, their trade volume, as well as company details.
+                    </p>
+                    <h4 class="content-text_title ">Account Types
+                    </h4>
+                    <p class="content-text_min-text">Your ideal FX broker should be able to offer either multiple account options or an element of customizability. Look for an online Forex Broker that offers competitive spreads and easy deposits/withdrawals. Find out if there are account options specifically for beginners and if so what that account offers to benefit new traders.
+                    </p>
+                    <h4 class="content-text_title ">Currency Pairs
+                    </h4>
+                    <p class="content-text_min-text">An online Forex Broker can provide a huge selection of forex pairs. However, it is most important is that they provide the variety of pairs that interest you. While there are many currencies available for trading, there are only a few get the majority of the attention, and as the result, trade with the highest liquidity.
+                    </p>
+                    <h4 class="content-text_title ">Tradeable Assets
+                    </h4>
+                    <p class="content-text_min-text">While selecting the best FX Trading Broker for you, itÕs possible just to concentrate on Forex trading. However, you should keep in mind there are many types of investment alternatives offered as well, such as Bitcoin and other popular cryptocurrencies, Stocks, CFDs, ETFs, or trading in options or futures.
+                    </p>
+                    <h4 class="content-text_title ">Platform Type
+                    </h4>
+                    <p class="content-text_min-text">The trading platform is the investorÕs portal to the markets. So with that in mind, look for a platform that is easy to use, straightforward and offers an advanced collection of analytical and technical and tools, to enhance your trading experience.
+                    </p>
+                    <p class="content-text_min-text">For more information, please see our tutorial: What is Forex?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
+
+
+

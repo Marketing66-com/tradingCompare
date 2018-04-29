@@ -1,0 +1,337 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="my-container">
+        <section class="brokers">
+            <div class="brokers-opaciti">
+                <h1 class="brokers_title">TOP 5 ONLINE BROKERS</h1>
+                <h2 class="brokers_text">TO BUY CRYPTOCURRENCY</h2>
+            </div>
+        </section>
+        <section class="table">
+            <div class="container">
+                <div class="row">
+                    <div class="paupal">
+                        <p class="paupal_text">Our Brokers Accept:</p>
+                        <div class="img-pay paupal_img"></div>
+                        <div class="img-master paupal_img"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-table">
+                <div class="container">
+                    <div class="row">
+                        <div class="content-table_container-title col-xs-none">
+                            <div class="min-margin">
+                                <div class="col-md-2 col-sm-2 col-xs-2 col">
+                                    <p>BROKER</p>
+                                </div>
+                                <div class="col-md-2 col-sm-none col">
+                                    <p>MINIMUM DEPOSIT</p>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 col">
+                                    <p>PROMOTION</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4 col">
+                                    <p>FEATURES WE LIKE</p>
+                                </div>
+                                <div class="col-md-1 col-sm-2 col-xs-1 col">
+                                    <p>RATING</p>
+                                </div>
+                                <div class="col-md-1 col-sm-2 col-xs-1 col visit">
+                                    <p>VISIT SITE</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-table_container-title">
+                            <div class="min-margin">
+                                <div class="col-md-2 col-sm-2 col-xs-6 col_height">
+                                    <div class="top-container-img">
+                                        <img class="tom-img" src="img/top_choice.png" alt="top_choice">
+                                    </div>
+                                    <div class="number active_number">
+                                        <p>1</p>
+                                    </div>
+                                    <div class="right-container-img">
+                                        <img class="right-img" src="img/download.png" alt="etoro">
+                                    </div>
+                                </div>
+                                <div class=" col-xs-6 col-md-none col col_height">
+                                    <div class="progress-bar-conatiner">
+                                        <p class="reting col-md-none">RATING</p>
+                                        <canvas class="progress-bar-rel" id="canvas-3" width="100" height="100"></canvas>
+                                        <p class="progress-bar_number">9.8</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-none col_height">
+                                    <p class="dollar">$200</p>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-12 col-xs-none col_height">
+                                    <p class="promotion">No bonus</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12 col_height">
+                                    <div class="features-container">
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Social Trading lets you copy others</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Competitive Trading Fees</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Used by 6,000,000+ Traders</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-2 col-xs-6 col-xs-none col col_height">
+                                    <div class="progress-bar-conatiner">
+                                        <p class="reting col-md-none">RATING</p>
+                                        <canvas class="progress-bar-rel" id="canvas" width="100" height="100"></canvas>
+                                        <p class="progress-bar_number">9.8</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-2 col-xs-12 col col_height">
+                                    <a class="visit-btn">VISIT SITE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-table_container-title">
+                            <div class="min-margin">
+                                <div class="col-md-2 col-sm-2 col-xs-6 col col_height">
+                                    <div class="top-container-img">
+
+                                    </div>
+                                    <div class="number">
+                                        <p>2</p>
+                                    </div>
+                                    <div class="right-container-img">
+                                        <img class="right-img" src="img/24option.png" alt="24option">
+                                    </div>
+                                </div>
+                                <div class=" col-xs-6 col-md-none col col_height">
+                                    <div class="progress-bar-conatiner">
+                                        <p class="reting col-md-none">RATING</p>
+                                        <canvas class="progress-bar-rel" id="canvas-6" width="100" height="100"></canvas>
+                                        <p class="progress-bar_number">9.5</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-none col_height">
+                                    <p class="dollar">$100</p>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-12 col col_height">
+                                    <p class="promotion">Zero Commissions<br>
+                                        <span class="color-aqua">Get Deal</span></p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12 col col_height">
+                                    <div class="features-container">
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Trade CFDs on Popular Cryptocurrencies</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> FREE trading Signals for Limited time</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Access all Financial Markets in one place</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col col_height">
+                                    <div class="progress-bar-conatiner">
+                                        <canvas class="progress-bar-rel" id="canvas-7" width="100" height="100"></canvas>
+                                        <p class="progress-bar_number">9.5</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-2 col-xs-12 col col_height">
+                                    <a class="visit-btn">VISIT SITE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-table_container-title">
+                            <div class="min-margin">
+                                <div class="col-md-2 col-sm-2 col-xs-6 col_height">
+                                    <div class="top-container-img">
+                                        <img class="tom-img" src="img/trending.png" alt="trending">
+                                    </div>
+                                    <div class="number">
+                                        <p>3</p>
+                                    </div>
+                                    <div class="right-container-img">
+                                        <img class="right-img" src="img/alvexo.png" alt="24option">
+                                    </div>
+                                </div>
+                                <div class=" col-xs-6 col-md-none col col_height">
+                                    <div class="progress-bar-conatiner">
+                                        <p class="reting col-md-none">RATING</p>
+                                        <canvas class="progress-bar-rel" id="canvas-5" width="100" height="100"></canvas>
+                                        <p class="progress-bar_number">9</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-none col_height">
+                                    <p class="dollar">$250</p>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-12 col_height">
+                                    <p class="promotion">All Cryptos Available</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12 col_height">
+                                    <div class="features-container">
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Demo and Islamic Account Offered</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Regulated Broker</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Comprehensive Trading Tools</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col_height">
+                                    <div class="progress-bar-conatiner">
+                                        <canvas class="progress-bar-rel" id="canvas-4" width="100" height="100"></canvas>
+                                        <p class="progress-bar_number">9</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-2 col-xs-12 col_height">
+                                    <a class="visit-btn">VISIT SITE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-table_container-title">
+                            <div class="min-margin">
+                                <div class="col-md-2 col-sm-2 col-xs-6 col_height">
+                                    <div class="top-container-img">
+
+                                    </div>
+                                    <div class="number">
+                                        <p>4</p>
+                                    </div>
+                                    <div class="right-container-img">
+                                        <img class="right-img" src="img/pepperstone.png" alt="pepperstone">
+                                    </div>
+                                </div>
+                                <div class=" col-xs-6 col-md-none col col_height">
+                                    <div class="progress-bar-conatiner">
+                                        <p class="reting col-md-none">RATING</p>
+                                        <canvas class="progress-bar-rel" id="canvas-8" width="100" height="100"></canvas>
+                                        <p class="progress-bar_number">8.9</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-none col_height">
+                                    <p class="dollar">$200</p>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-12 col_height">
+                                    <p class="promotion">Earn Quanstas points on every Trage
+                                        <br>
+                                        <span class="color-aqua">Get Deal</span></p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12 col_height">
+                                    <div class="features-container">
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Award Winning CFD Broker</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> No Deposit or Withdrawal Fees</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Fee-Free Funding Options</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Razor Speads from 0.0 pips</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col_height">
+                                    <div class="progress-bar-conatiner">
+                                        <canvas class="progress-bar-rel" id="canvas-9" width="100" height="100"></canvas>
+                                        <p class="progress-bar_number">8.9</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-2 col-xs-12 col_height">
+                                    <a class="visit-btn">VISIT SITE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-table_container-title">
+                            <div class="min-margin">
+                                <div class="col-md-2 col-sm-2 col-xs-6 col_height">
+                                    <div class="top-container-img">
+
+                                    </div>
+                                    <div class="number">
+                                        <p>5</p>
+                                    </div>
+                                    <div class="right-container-img">
+                                        <img class="right-img" src="img/markets-logo.jpg" alt="markets-logo">
+                                    </div>
+                                </div>
+                                <div class=" col-xs-6 col-md-none col col_height">
+                                    <div class="progress-bar-conatiner">
+                                        <p class="reting col-md-none">RATING</p>
+                                        <canvas class="progress-bar-rel" id="canvas-10" width="100" height="100"></canvas>
+                                        <p class="progress-bar_number">8.6</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-none col_height">
+                                    <p class="dollar">$100</p>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-12 col_height">
+                                    <p class="promotion">Free 10k Demo Account<br>
+                                        <span class="color-aqua">Get Deal</span></p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12 col_height">
+                                    <div class="features-container">
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> No Commissions</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Tight Speads</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Sophisticated Trading Yools</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> FREE Demo Account</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col_height">
+                                    <div class="progress-bar-conatiner">
+                                        <canvas class="progress-bar-rel" id="canvas-11" width="100" height="100"></canvas>
+                                        <p class="progress-bar_number">8.6</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-2 col-xs-12 col_height">
+                                    <a class="visit-btn">VISIT SITE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="table">
+            <div class="content-text">
+                <div class="container">
+                    <div class="row">
+                        <h4 class="content-text_title center">How to Get Started in Cryptocurrency Trading</h4>
+                        <p class="content-text_min-text">As the trade volumes are reaching billions of dollars a day and the market caps are hitting tens of billions of dollars, it is no wonder that cryptocurrencies fuel the modern day gold rush. Today is an age of digital currencies, with hundreds of cryptocurrencies birthed within the decade. There are already more than a thousand cryptocurrencies in the market, and almost daily a new initial coin offering (ICO) appears.
+                        </p>
+                        <h4 class="content-text_title ">What is Cryptocurrency?</h4>
+                        <p class="content-text_min-text">Today, the most famous cryptocurrency is Bitcoin. Its inventor attempted to build a Òpeer-to-peer electronic cash systemÓ. Many have tried this system many times before. However, the main difference between Bitcoin and the previous efforts, like Digicash, was that it was to be entirely decentralized. Since no overarching entity is controlling the currency, the notion of ÒtrustÓ would be eliminated from the system.
+                        </p>
+                        <p class="content-text_min-text">To combat Òdouble spendingÓ, the major problem in all the digital cash systems at that point, Satoshi Nakamoto, BitcoinÕs inventor, proposed the blockchain technology. The blockchain technology is a revolutionary technology that records all the transactions made with this currency.
+                        </p>
+                        <p class="content-text_min-text">For any single balance, transaction, or change to the network to take place, there needs to be a consensus amongst those who validate the network Ð the miners. Since the invention of Bitcoin, many programmers have attempted to use the model and change it to provide what they consider a more functional form of digital cash.
+                        </p>
+                        <p class="content-text_min-text">The other kinds of cryptocurrencies include Monero, New Economy Movement, Litecoin, and Ether. Many of these cryptocurrency efforts tailor their currency for an individual and particular purpose. Some of the most common purposes are speed, privacy, and price.
+                        </p>
+                        <h4 class="content-text_title ">What are cryptocurrencies used for?</h4>
+                        <p class="content-text_min-text">
+                            Since cryptocurrency is such a new technology, it may be that people have not used it yet for its eventual use. Still, today people utilize it for many various purposes. These purposes include, but arenÕt limited to the following: trading, remittances, payment for goods and services, investment, gambling, private monetary transactions, and as a hedge against national currencies which are suffering from rapid devaluation (Greece, Venezuela for example).
+                        </p>
+                        <p class="content-text_min-text">
+                            As the whole cryptocurrency space begins to expand, itÕs likely that we will see some additional applications joining the list of purposes for the crypto currency. There are already young services such as SteemIt, which aims to revolutionize the way people pay for content on social media, in addition to services like Musicoin which attempts to find a more equitable way to pay artists without the need for a middleman.
+                        </p>
+                        <p class="content-text_min-text">What is the difference between Bitcoin and Ethereum?
+                            All cryptocurrencies have their own characteristics. However, recently one coin has come to challenge Bitcoin more than ever before. Ethereum is the new player on the market. The reasons that it is a challenge to Bitcoin are easy to understand.
+                        </p>
+                        <p class="content-text_min-text">Ethereum emerged as an effort to try to correct some of the main criticisms made towards Bitcoin Ð especially regarding security.
+                        </p>
+                        <p class="content-text_min-text">What Ethereum has accomplished to do was to provide transactions that are safer, more flexible contracts that are compatible with any wallet, with short block times for negotiating (where the confirmations are easier). Also, Ethereum is available more than Bitcoin. Whereas more than two-thirds of Bitcoin has already been mined, access to ethereum is still widely available. Another main difference between these two cryptocurrencies is that Ethereum allows for different developers to raise funds for their projects. It can, therefore, be in itself a Kickstarter for some projects.
+                        </p>
+                        <p class="content-text_min-text">One of the main advantages to Ethereum is that itÕs a more secure, easy to use, flexible, and transact coin. In addition to this advantage, it has brought innovations in terms of entrepreneurship and investment. And this is posing a serious challenge to BitcoinÕs market cap.
+                        </p>
+                        <h4 class="content-text_title ">What is the difference between a Cryptocurrency Exchange and a Cryptocurrency Broker?</h4>
+                        <p class="content-text_min-text">You can invest in Cryptocurrency in two ways. First, cryptocurrency can be bought and sold at a cryptocurrency exchange and stored in a digital wallet. The second method would be to invest in crypto as a CFD with regulated cryptocurrency brokers. With CFD cryptocurrency trading, the digital currency is treated as a speculative investment and traded as a contract for difference (or CFD), through brokers.
+                        </p>
+                        <p class="content-text_min-text">Platforms that allow traders to buy and sell cryptocurrencies are cryptocurrency exchanges. Dues to the fact that it is a very recent Ð and booming Ð market, the majority of these platforms are relatively new. But, of course, one of the essential questions that people ask is how to know if a particular platform is safe or not.
+                        </p>
+                        <p class="content-text_min-text">The only way that you can find out is to check if the exchange provides transparent data of the coins that are in cold storage. What this means is, whether it has the reserves that it requires to provide liquidity to its activities. You can find check this easily by checking whether an exchange is regulated or not.
+                        </p>
+                        <h4 class="content-text_title ">Trade Cryptocurrency online using CFD services</h4>
+                        <p class="content-text_min-text">If you are interested in trading because of the opportunity to profit from the incredible volatility of cryptocurrency, your best option is to use an online trading platform that allows CFD services. Currently, there are very few CFD platforms that allow this kind of trade, so to see available options refer to our recommendations above.
+                        </p>
+                        <p class="content-text_min-text">CFD Brokers are a great option if you want to trade cryptocurrencies with the option to accept multiple forms of payment. If you want to buy cryptocurrency with Paypal, you can, and these forums also accept major credit cards and wire transfers as well. Furthermore, if you choose to trade through a forex or CFD platform, you will pay the lowest commissions possible. That is in comparison to other investment alternatives. CFD and Forex companies use an exchange rate that is an aggregate of different Crypto exchanges.
+                        </p>
+                        <h4 class="content-text_title ">Trading Cryptocurrencies Ð Getting started with CFDs (Contracts For Differences)</h4>
+                        <p class="content-text_min-text">Cryptocurrency CFDs allow you to trade digital coins without actually owning any. Crypto CFDs were generated to give traders exposure to the cryptocurrency market without the need for ownership.
+                        </p>
+                        <p class="content-text_min-text">Contracts For Differences, also known as ÒCFDs,Ó represent a contract between trader and exchange. CFDs declare that the difference between the price on entry and the price on exit will be a traderÕs profit or loss. Basically, CFDs are an agreement held between two parties that simulate an actual asset.
+                        </p>
+                        <h4 class="content-text_title ">How to make money trading Crypto
+                        </h4>
+                        <p class="content-text_min-text">There are several ways to make money crypto trading. The most popular is trading Bitcoin against the US dollar, known in market terms as the BTC/USD pair. The first method is to find a top cryptocurrency broker and to invest in a digital currency in the same way that you would do with a physical currency Ð by buying low and selling high. Since cryptocurrency is highly volatile, you should be able to identify the dip with studying and market research.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+
+
