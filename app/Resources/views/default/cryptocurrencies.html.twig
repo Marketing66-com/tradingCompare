@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
     <div class="my-container">
         <section class="brokers">
@@ -8,6 +9,7 @@
                 <h2 class="brokers_text">TO BUY CRYPTOCURRENCY</h2>
             </div>
         </section>
+
         <section class="table">
             <div class="container">
                 <div class="row">
@@ -18,42 +20,46 @@
                     </div>
                 </div>
             </div>
-            <div class="content-table">
-                <div class="container">
-                    <div class="row">
+
+            <div class="container">
+                <div class="row">
+                    <div class="content-table">
+
                         <div class="content-table_container-title col-xs-none">
                             <div class="min-margin">
                                 <div class="col-md-2 col-sm-2 col-xs-2 col">
-                                    <p>BROKER</p>
+                                    <p class="bold">BROKER</p>
                                 </div>
                                 <div class="col-md-2 col-sm-none col">
-                                    <p>MINIMUM DEPOSIT</p>
+                                    <p class="bold">MINIMUM DEPOSIT</p>
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-2 col">
-                                    <p>PROMOTION</p>
+                                    <p class="bold">PROMOTION</p>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-4 col">
-                                    <p>FEATURES WE LIKE</p>
+                                    <p class="bold">FEATURES WE LIKE</p>
                                 </div>
                                 <div class="col-md-1 col-sm-2 col-xs-1 col">
-                                    <p>RATING</p>
+                                    <p class="bold">RATING</p>
                                 </div>
                                 <div class="col-md-1 col-sm-2 col-xs-1 col visit">
-                                    <p>VISIT SITE</p>
+                                    <p  class="bold">VISIT SITE</p>
                                 </div>
                             </div>
                         </div>
+
                         <div class="content-table_container-title">
                             <div class="min-margin">
                                 <div class="col-md-2 col-sm-2 col-xs-6 col_height">
                                     <div class="top-container-img">
-                                        <img class="tom-img" src="img/top_choice.png" alt="top_choice">
+
+                                        <img class="tom-img" src="{{ asset('img/top_choice.png') }}" alt="top_choice">
                                     </div>
                                     <div class="number active_number">
                                         <p>1</p>
                                     </div>
                                     <div class="right-container-img">
-                                        <img class="right-img" src="img/download.png" alt="etoro">
+                                        <img class="right-img" src="{{ asset('img/download.png') }}" alt="etoro">
                                     </div>
                                 </div>
                                 <div class=" col-xs-6 col-md-none col col_height">
@@ -71,9 +77,9 @@
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 col_height">
                                     <div class="features-container">
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Social Trading lets you copy others</p>
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Competitive Trading Fees</p>
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Used by 6,000,000+ Traders</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Social Trading lets you copy others</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Competitive Trading Fees</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Used by 6,000,000+ Traders</p>
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-sm-2 col-xs-6 col-xs-none col col_height">
@@ -84,7 +90,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-sm-2 col-xs-12 col col_height">
-                                    <a class="visit-btn">VISIT SITE</a>
+                                    <a class="visit-btn" href="https://marketing66.go2cloud.org/aff_c?offer_id=4&aff_id=1099&url_id=881">VISIT SITE</a>
                                 </div>
                             </div>
                         </div>
@@ -92,13 +98,13 @@
                             <div class="min-margin">
                                 <div class="col-md-2 col-sm-2 col-xs-6 col col_height">
                                     <div class="top-container-img">
-
+                                        <!--<img class="tom-img" src="img/top_choice.png" alt="top_choice">-->
                                     </div>
                                     <div class="number">
                                         <p>2</p>
                                     </div>
                                     <div class="right-container-img">
-                                        <img class="right-img" src="img/24option.png" alt="24option">
+                                        <img class="right-img" src="{{ asset('img/24option.png') }}" alt="24option">
                                     </div>
                                 </div>
                                 <div class=" col-xs-6 col-md-none col col_height">
@@ -117,9 +123,9 @@
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 col col_height">
                                     <div class="features-container">
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Trade CFDs on Popular Cryptocurrencies</p>
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> FREE trading Signals for Limited time</p>
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Access all Financial Markets in one place</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Trade CFDs on Popular Cryptocurrencies</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  FREE Trading Signals for Limited time</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Access all Financial Markets in one place</p>
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col col_height">
@@ -129,7 +135,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-sm-2 col-xs-12 col col_height">
-                                    <a class="visit-btn">VISIT SITE</a>
+                                    <a class="visit-btn" href="http://marketing66.go2cloud.org/aff_c?offer_id=64&aff_id=1099&url_id=260">VISIT SITE</a>
                                 </div>
                             </div>
                         </div>
@@ -137,13 +143,13 @@
                             <div class="min-margin">
                                 <div class="col-md-2 col-sm-2 col-xs-6 col_height">
                                     <div class="top-container-img">
-                                        <img class="tom-img" src="img/trending.png" alt="trending">
+                                        <img class="tom-img" src="{{ asset('img/trending.png') }}" alt="trending">
                                     </div>
                                     <div class="number">
                                         <p>3</p>
                                     </div>
                                     <div class="right-container-img">
-                                        <img class="right-img" src="img/alvexo.png" alt="24option">
+                                        <img class="right-img" src="{{ asset('img/alvexo.png') }}" alt="24option">
                                     </div>
                                 </div>
                                 <div class=" col-xs-6 col-md-none col col_height">
@@ -161,9 +167,9 @@
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 col_height">
                                     <div class="features-container">
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Demo and Islamic Account Offered</p>
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Regulated Broker</p>
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Comprehensive Trading Tools</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Demo and Islamic Account Offered</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Regulated Broker</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Comprehensive Trading Tools</p>
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col_height">
@@ -173,7 +179,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-sm-2 col-xs-12 col_height">
-                                    <a class="visit-btn">VISIT SITE</a>
+                                    <a class="visit-btn" href="http://marketing66.go2cloud.org/aff_c?offer_id=97&aff_id=1099&url_id=831">VISIT SITE</a>
                                 </div>
                             </div>
                         </div>
@@ -181,13 +187,13 @@
                             <div class="min-margin">
                                 <div class="col-md-2 col-sm-2 col-xs-6 col_height">
                                     <div class="top-container-img">
-
+                                        <!--<img class="tom-img" src="img/trending.png" alt="trending">-->
                                     </div>
                                     <div class="number">
                                         <p>4</p>
                                     </div>
                                     <div class="right-container-img">
-                                        <img class="right-img" src="img/pepperstone.png" alt="pepperstone">
+                                        <img class="right-img" src="{{ asset('img/pepperstone.png') }}" alt="pepperstone">
                                     </div>
                                 </div>
                                 <div class=" col-xs-6 col-md-none col col_height">
@@ -201,16 +207,16 @@
                                     <p class="dollar">$200</p>
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-12 col_height">
-                                    <p class="promotion">Earn Quanstas points on every Trage
+                                    <p class="promotion">Earn Quantas Points on every Trade
                                         <br>
                                         <span class="color-aqua">Get Deal</span></p>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 col_height">
                                     <div class="features-container">
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Award Winning CFD Broker</p>
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> No Deposit or Withdrawal Fees</p>
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Fee-Free Funding Options</p>
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Razor Speads from 0.0 pips</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Award Winning CFD Broker</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  No Deposit or Withdrawal Fees</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Fee-Free Funding Options</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Razor Spreads from 0.0 pips</p>
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col_height">
@@ -220,21 +226,21 @@
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-sm-2 col-xs-12 col_height">
-                                    <a class="visit-btn">VISIT SITE</a>
+                                    <a class="visit-btn" href="http://marketing66.go2cloud.org/aff_c?offer_id=52&aff_id=1099&url_id=378">VISIT SITE</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="content-table_container-title">
+                        <div class="content-table_container-title border-none">
                             <div class="min-margin">
                                 <div class="col-md-2 col-sm-2 col-xs-6 col_height">
                                     <div class="top-container-img">
-
+                                        <!--<img class="tom-img" src="img/trending.png" alt="trending">-->
                                     </div>
                                     <div class="number">
                                         <p>5</p>
                                     </div>
                                     <div class="right-container-img">
-                                        <img class="right-img" src="img/markets-logo.jpg" alt="markets-logo">
+                                        <img class="right-img" src="{{ asset('img/markets-logo.jpg') }}" alt="markets-logo">
                                     </div>
                                 </div>
                                 <div class=" col-xs-6 col-md-none col col_height">
@@ -253,10 +259,10 @@
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 col_height">
                                     <div class="features-container">
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> No Commissions</p>
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Tight Speads</p>
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Sophisticated Trading Yools</p>
-                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> FREE Demo Account</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  No Commissions</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Tight Spreads</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Sophisticated Trading Tools</p>
+                                        <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  FREE Demo Account</p>
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col_height">
@@ -266,7 +272,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-sm-2 col-xs-12 col_height">
-                                    <a class="visit-btn">VISIT SITE</a>
+                                    <a class="visit-btn" href="http://marketing66.go2cloud.org/aff_c?offer_id=74&aff_id=1099&url_id=330">VISIT SITE</a>
                                 </div>
                             </div>
                         </div>
@@ -274,10 +280,11 @@
                 </div>
             </div>
         </section>
+
         <section class="table">
-            <div class="content-text">
-                <div class="container">
-                    <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="content-text">
                         <h4 class="content-text_title center">How to Get Started in Cryptocurrency Trading</h4>
                         <p class="content-text_min-text">As the trade volumes are reaching billions of dollars a day and the market caps are hitting tens of billions of dollars, it is no wonder that cryptocurrencies fuel the modern day gold rush. Today is an age of digital currencies, with hundreds of cryptocurrencies birthed within the decade. There are already more than a thousand cryptocurrencies in the market, and almost daily a new initial coin offering (ICO) appears.
                         </p>
@@ -307,6 +314,7 @@
                         <p class="content-text_min-text">One of the main advantages to Ethereum is that itÕs a more secure, easy to use, flexible, and transact coin. In addition to this advantage, it has brought innovations in terms of entrepreneurship and investment. And this is posing a serious challenge to BitcoinÕs market cap.
                         </p>
                         <h4 class="content-text_title ">What is the difference between a Cryptocurrency Exchange and a Cryptocurrency Broker?</h4>
+
                         <p class="content-text_min-text">You can invest in Cryptocurrency in two ways. First, cryptocurrency can be bought and sold at a cryptocurrency exchange and stored in a digital wallet. The second method would be to invest in crypto as a CFD with regulated cryptocurrency brokers. With CFD cryptocurrency trading, the digital currency is treated as a speculative investment and traded as a contract for difference (or CFD), through brokers.
                         </p>
                         <p class="content-text_min-text">Platforms that allow traders to buy and sell cryptocurrencies are cryptocurrency exchanges. Dues to the fact that it is a very recent Ð and booming Ð market, the majority of these platforms are relatively new. But, of course, one of the essential questions that people ask is how to know if a particular platform is safe or not.
@@ -314,11 +322,13 @@
                         <p class="content-text_min-text">The only way that you can find out is to check if the exchange provides transparent data of the coins that are in cold storage. What this means is, whether it has the reserves that it requires to provide liquidity to its activities. You can find check this easily by checking whether an exchange is regulated or not.
                         </p>
                         <h4 class="content-text_title ">Trade Cryptocurrency online using CFD services</h4>
+
                         <p class="content-text_min-text">If you are interested in trading because of the opportunity to profit from the incredible volatility of cryptocurrency, your best option is to use an online trading platform that allows CFD services. Currently, there are very few CFD platforms that allow this kind of trade, so to see available options refer to our recommendations above.
                         </p>
                         <p class="content-text_min-text">CFD Brokers are a great option if you want to trade cryptocurrencies with the option to accept multiple forms of payment. If you want to buy cryptocurrency with Paypal, you can, and these forums also accept major credit cards and wire transfers as well. Furthermore, if you choose to trade through a forex or CFD platform, you will pay the lowest commissions possible. That is in comparison to other investment alternatives. CFD and Forex companies use an exchange rate that is an aggregate of different Crypto exchanges.
                         </p>
                         <h4 class="content-text_title ">Trading Cryptocurrencies Ð Getting started with CFDs (Contracts For Differences)</h4>
+
                         <p class="content-text_min-text">Cryptocurrency CFDs allow you to trade digital coins without actually owning any. Crypto CFDs were generated to give traders exposure to the cryptocurrency market without the need for ownership.
                         </p>
                         <p class="content-text_min-text">Contracts For Differences, also known as ÒCFDs,Ó represent a contract between trader and exchange. CFDs declare that the difference between the price on entry and the price on exit will be a traderÕs profit or loss. Basically, CFDs are an agreement held between two parties that simulate an actual asset.
@@ -331,6 +341,7 @@
                 </div>
             </div>
         </section>
-    </div>
-{% endblock %}
 
+    </div>
+
+{% endblock %}
