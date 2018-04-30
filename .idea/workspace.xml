@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/web/css/compiled.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/forex.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/forex.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
-    </list>
+    <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,8 +40,8 @@
       <file leaf-file-name="cryptocurrencies.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-90">
-              <caret line="92" column="135" selection-start-line="92" selection-start-column="135" selection-end-line="92" selection-end-column="135" />
+            <state relative-caret-position="5754">
+              <caret line="274" column="135" selection-start-line="274" selection-start-column="135" selection-end-line="274" selection-end-column="135" />
             </state>
           </provider>
         </entry>
@@ -62,8 +54,8 @@
       <file leaf-file-name="forex.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+            <state relative-caret-position="651">
+              <caret line="283" column="135" selection-start-line="283" selection-start-column="135" selection-end-line="283" selection-end-column="135" />
             </state>
           </provider>
         </entry>
@@ -291,12 +283,12 @@
       <option name="presentableId" value="Default" />
       <updated>1524991475193</updated>
       <workItem from="1524991476340" duration="2451000" />
-      <workItem from="1525089062316" duration="7547000" />
+      <workItem from="1525089062316" duration="8356000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9998000" />
+    <option name="totallyTimeSpent" value="10807000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -425,13 +417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -446,10 +431,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="283" column="135" selection-start-line="283" selection-start-column="135" selection-end-line="283" selection-end-column="135" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/forex.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="92" column="135" selection-start-line="92" selection-start-column="135" selection-end-line="92" selection-end-column="135" />
+        <state relative-caret-position="5754">
+          <caret line="274" column="135" selection-start-line="274" selection-start-column="135" selection-end-line="274" selection-end-column="135" />
         </state>
       </provider>
     </entry>
