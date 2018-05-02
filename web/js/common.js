@@ -211,6 +211,48 @@ setTimeout(function draw(){
         setTimeout(draw ,20);
     }
 },200);
+
+// canvas7  = document.getElementById("canvas-7");
+// var ctx7   = canvas7.getContext('2d');
+// var color   = '#2af';
+// var width   = /*canvas.width*/ 100;
+// canvas7.height  = /*width*/  100;
+// var height = /*canvas.height*/ 100;
+// var percent_7 = 9.2;
+// var percent7 = percent_7 *10;
+// var counter = 0;
+//
+//
+// function baseCir7(){
+//     ctx7.beginPath();
+//     ctx7.lineWidth = width/14;
+//     ctx7.strokeStyle ="#e2e2e2";
+//     ctx7.arc(width/2 ,width/2, width/3, 0, Math.PI*2);
+//     ctx7.stroke();
+//     ctx7.closePath();
+// }
+// setTimeout(function draw(){
+//     var angle2 = Math.PI*1.5  + Math.PI *2* counter /100;
+//     ctx7.clearRect(0,0,width,height);
+//     baseCir7();
+//     ctx7.beginPath();
+//     ctx7.arc(width/2 ,width/2 ,width/3,1.5*Math.PI ,angle2);
+//     ctx7.strokeStyle = color;
+//     ctx7.stroke();
+//
+//     ctx7.fillStyle = color;
+//     ctx7.font = width/6 + "px Arial";
+//     ctx7.textAlign = 'center';
+//     ctx7.textBaseline = 'middle';
+//     // ctx.fillText( percent3 + "", width / 2, width / 2 );
+//     ctx7.transform = "rotate(90deg)";
+//     ctx7.fillText(status ,width/2, height -25);
+//     counter++;
+//     if (counter <= percent7) {
+//         setTimeout(draw ,20);
+//     }
+// },200);
+
 canvas7  = document.getElementById("canvas-7");
 var ctx7   = canvas7.getContext('2d');
 var color   = '#2af';
@@ -220,6 +262,7 @@ var height = /*canvas.height*/ 100;
 var percent_7 = 9.2;
 var percent7 = percent_7 *10;
 var counter = 0;
+
 
 
 function baseCir7(){
@@ -234,10 +277,10 @@ setTimeout(function draw(){
     var angle2 = Math.PI*1.5  + Math.PI *2* counter /100;
     ctx7.clearRect(0,0,width,height);
     baseCir7();
-    ctx7.beginPath();
-    ctx7.arc(width/2 ,width/2 ,width/3,1.5*Math.PI ,angle2);
-    ctx7.strokeStyle = color;
-    ctx7.stroke();
+    ctx13.beginPath();
+    ctx13.arc(width/2 ,width/2 ,width/3,1.5*Math.PI ,angle2);
+    ctx13.strokeStyle = color;
+    ctx13.stroke();
 
     ctx7.fillStyle = color;
     ctx7.font = width/6 + "px Arial";
@@ -251,7 +294,6 @@ setTimeout(function draw(){
         setTimeout(draw ,20);
     }
 },200);
-
 
 canvas8  = document.getElementById("canvas-8");
 var ctx8   = canvas8.getContext('2d');
