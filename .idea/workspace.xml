@@ -12,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <pharConfigPath />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -85,7 +85,7 @@
       <find>logo_white</find>
       <find>scr=&quot;</find>
       <find>common</find>
-      <find>img-pay paupal_img</find>
+      <find />
       <find>header{</find>
       <find>visit-btn</find>
       <find>etoro</find>
@@ -160,7 +160,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1907" />
     <option name="width" value="1941" />
     <option name="height" value="1056" />
