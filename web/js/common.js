@@ -388,26 +388,6 @@ var percent11 = percent_11 *10;
 var counter = 0;
 
 
-canvas12  = document.getElementById("canvas-12");
-var ctx12   = canvas12.getContext('2d');
-var color   = '#2af';
-var width   = /*canvas.width*/ 100;
-canvas12.height  = /*width*/  100;
-var height = /*canvas.height*/ 100;
-var percent_12 = 9.2;
-var percent12 = percent_12 *10;
-var counter = 0;
-
-canvas13  = document.getElementById("canvas-13");
-var ctx13   = canvas13.getContext('2d');
-var color   = '#2af';
-var width   = /*canvas.width*/ 100;
-canvas13.height  = /*width*/  100;
-var height = /*canvas.height*/ 100;
-var percent_13 = 9.2;
-var percent13 = percent_13 *10;
-var counter = 0;
-
 function baseCir11(){
     ctx11.beginPath();
     ctx11.lineWidth = width/14;
@@ -440,8 +420,89 @@ setTimeout(function draw(){
 
 
 
+canvas12  = document.getElementById("canvas-12");
+var ctx12   = canvas12.getContext('2d');
+var color   = '#2af';
+var width   = /*canvas.width*/ 100;
+canvas12.height  = /*width*/  100;
+var height = /*canvas.height*/ 100;
+var percent_12 = 9.2;
+var percent12 = percent_12 *10;
+var counter = 0;
 
 
+function baseCir12(){
+    ctx12.beginPath();
+    ctx12.lineWidth = width/14;
+    ctx12.strokeStyle ="#e2e2e2";
+    ctx12.arc(width/2 ,width/2, width/3, 0, Math.PI*2);
+    ctx12.stroke();
+    ctx12.closePath();
+}
+setTimeout(function draw(){
+    var angle2 = Math.PI*1.5  + Math.PI *2* counter /100;
+    ctx12.clearRect(0,0,width,height);
+    baseCir11();
+    ctx12.beginPath();
+    ctx12.arc(width/2 ,width/2 ,width/3,1.5*Math.PI ,angle2);
+    ctx12.strokeStyle = color;
+    ctx12.stroke();
+
+    ctx12.fillStyle = color;
+    ctx12.font = width/6 + "px Arial";
+    ctx12.textAlign = 'center';
+    ctx12.textBaseline = 'middle';
+    // ctx.fillText( percent3 + "", width / 2, width / 2 );
+    ctx12.transform = "rotate(90deg)";
+    ctx12.fillText(status ,width/2, height -25);
+    counter++;
+    if (counter <= percent12) {
+        setTimeout(draw ,20);
+    }
+},200);
+
+
+canvas13  = document.getElementById("canvas-13");
+var ctx13   = canvas13.getContext('2d');
+var color   = '#2af';
+var width   = /*canvas.width*/ 100;
+canvas13.height  = /*width*/  100;
+var height = /*canvas.height*/ 100;
+var percent_13 = 9.2;
+var percent13 = percent_13 *10;
+var counter = 0;
+
+
+
+function baseCir11(){
+    ctx13.beginPath();
+    ctx13.lineWidth = width/14;
+    ctx13.strokeStyle ="#e2e2e2";
+    ctx13.arc(width/2 ,width/2, width/3, 0, Math.PI*2);
+    ctx13.stroke();
+    ctx13.closePath();
+}
+setTimeout(function draw(){
+    var angle2 = Math.PI*1.5  + Math.PI *2* counter /100;
+    ctx13.clearRect(0,0,width,height);
+    baseCir11();
+    ctx13.beginPath();
+    ctx13.arc(width/2 ,width/2 ,width/3,1.5*Math.PI ,angle2);
+    ctx13.strokeStyle = color;
+    ctx13.stroke();
+
+    ctx13.fillStyle = color;
+    ctx13.font = width/6 + "px Arial";
+    ctx13.textAlign = 'center';
+    ctx13.textBaseline = 'middle';
+    // ctx.fillText( percent3 + "", width / 2, width / 2 );
+    ctx13.transform = "rotate(90deg)";
+    ctx13.fillText(status ,width/2, height -25);
+    counter++;
+    if (counter <= percent13) {
+        setTimeout(draw ,20);
+    }
+},200);
 
 
 
