@@ -442,7 +442,7 @@ function baseCir12(){
 setTimeout(function draw(){
     var angle2 = Math.PI*1.5  + Math.PI *2* counter /100;
     ctx12.clearRect(0,0,width,height);
-    baseCir11();
+    baseCir12();
     ctx12.beginPath();
     ctx12.arc(width/2 ,width/2 ,width/3,1.5*Math.PI ,angle2);
     ctx12.strokeStyle = color;
@@ -474,7 +474,7 @@ var counter = 0;
 
 
 
-function baseCir11(){
+function baseCir13(){
     ctx13.beginPath();
     ctx13.lineWidth = width/14;
     ctx13.strokeStyle ="#e2e2e2";
@@ -485,7 +485,7 @@ function baseCir11(){
 setTimeout(function draw(){
     var angle2 = Math.PI*1.5  + Math.PI *2* counter /100;
     ctx13.clearRect(0,0,width,height);
-    baseCir11();
+    baseCir13();
     ctx13.beginPath();
     ctx13.arc(width/2 ,width/2 ,width/3,1.5*Math.PI ,angle2);
     ctx13.strokeStyle = color;
