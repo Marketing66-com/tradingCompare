@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/web/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/common.js" afterDir="false" />
-    </list>
+    <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,41 +41,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forex.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="forex.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1212">
+            <state relative-caret-position="393">
               <caret line="159" column="69" lean-forward="true" selection-start-line="158" selection-start-column="42" selection-end-line="159" selection-end-column="69" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery-3.3.1.min.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/jquery-3.3.1.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-603">
-              <caret line="1" column="44392" selection-start-line="1" selection-start-column="44392" selection-end-line="1" selection-end-column="44392" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plugin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/plugin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="3443" selection-start-column="3437" selection-end-column="3443" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="common.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="232" column="1" lean-forward="true" selection-start-line="232" selection-start-column="1" selection-end-line="232" selection-end-column="1" />
+            <state relative-caret-position="378">
+              <caret line="269" column="21" lean-forward="true" selection-start-line="269" selection-start-column="21" selection-end-line="269" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -298,12 +275,12 @@
       <workItem from="1525089062316" duration="8356000" />
       <workItem from="1525152103690" duration="3814000" />
       <workItem from="1525238369241" duration="599000" />
-      <workItem from="1525258429714" duration="5350000" />
+      <workItem from="1525258429714" duration="5458000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20570000" />
+    <option name="totallyTimeSpent" value="20678000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -527,13 +504,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/jquery-3.3.1.min.js">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-603">
-          <caret line="1" column="44392" selection-start-line="1" selection-start-column="44392" selection-end-line="1" selection-end-column="44392" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="-111">
+          <caret line="132" column="71" selection-start-line="132" selection-start-column="55" selection-end-line="132" selection-end-column="71" />
         </state>
       </provider>
     </entry>
@@ -544,24 +518,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/common.js">
+    <entry file="file://$PROJECT_DIR$/web/js/jquery-3.3.1.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="232" column="1" lean-forward="true" selection-start-line="232" selection-start-column="1" selection-end-line="232" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-111">
-          <caret line="132" column="71" selection-start-line="132" selection-start-column="55" selection-end-line="132" selection-end-column="71" />
+        <state relative-caret-position="-6259">
+          <caret line="1" column="44392" selection-start-line="1" selection-start-column="44392" selection-end-line="1" selection-end-column="44392" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1212">
+        <state relative-caret-position="393">
           <caret line="159" column="69" lean-forward="true" selection-start-line="158" selection-start-column="42" selection-end-line="159" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="269" column="21" lean-forward="true" selection-start-line="269" selection-start-column="21" selection-end-line="269" selection-end-column="21" />
         </state>
       </provider>
     </entry>
