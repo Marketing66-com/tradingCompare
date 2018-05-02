@@ -388,6 +388,26 @@ var percent11 = percent_11 *10;
 var counter = 0;
 
 
+canvas12  = document.getElementById("canvas-12");
+var ctx6   = canvas6.getContext('2d');
+var color   = '#2af';
+var width   = /*canvas.width*/ 100;
+canvas6.height  = /*width*/  100;
+var height = /*canvas.height*/ 100;
+var percent_6 = 9.2;
+var percent6 = percent_6 *10;
+var counter = 0;
+
+canvas13  = document.getElementById("canvas-13");
+var ctx7   = canvas7.getContext('2d');
+var color   = '#2af';
+var width   = /*canvas.width*/ 100;
+canvas7.height  = /*width*/  100;
+var height = /*canvas.height*/ 100;
+var percent_7 = 9.2;
+var percent7 = percent_7 *10;
+var counter = 0;
+
 function baseCir11(){
     ctx11.beginPath();
     ctx11.lineWidth = width/14;
