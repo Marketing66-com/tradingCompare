@@ -37,16 +37,16 @@
       <file leaf-file-name="cryptocurrencies.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-363">
+            <state relative-caret-position="-111">
               <caret line="132" column="71" selection-start-line="132" selection-start-column="55" selection-end-line="132" selection-end-column="71" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forex.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="forex.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
+            <state relative-caret-position="1212">
               <caret line="159" column="69" lean-forward="true" selection-start-line="158" selection-start-column="42" selection-end-line="159" selection-end-column="69" />
             </state>
           </provider>
@@ -73,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="292" column="27" selection-start-line="292" selection-start-column="27" selection-end-line="292" selection-end-column="27" />
+            <state relative-caret-position="672">
+              <caret line="232" column="1" lean-forward="true" selection-start-line="232" selection-start-column="1" selection-end-line="232" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -298,12 +298,12 @@
       <workItem from="1525089062316" duration="8356000" />
       <workItem from="1525152103690" duration="3814000" />
       <workItem from="1525238369241" duration="599000" />
-      <workItem from="1525258429714" duration="4963000" />
+      <workItem from="1525258429714" duration="5350000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20183000" />
+    <option name="totallyTimeSpent" value="20570000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -520,13 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="159" column="69" lean-forward="true" selection-start-line="158" selection-start-column="42" selection-end-line="159" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/compiled.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-471">
@@ -551,17 +544,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="232" column="1" lean-forward="true" selection-start-line="232" selection-start-column="1" selection-end-line="232" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-363">
+        <state relative-caret-position="-111">
           <caret line="132" column="71" selection-start-line="132" selection-start-column="55" selection-end-line="132" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/common.js">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="292" column="27" selection-start-line="292" selection-start-column="27" selection-end-line="292" selection-end-column="27" />
+        <state relative-caret-position="1212">
+          <caret line="159" column="69" lean-forward="true" selection-start-line="158" selection-start-column="42" selection-end-line="159" selection-end-column="69" />
         </state>
       </provider>
     </entry>
