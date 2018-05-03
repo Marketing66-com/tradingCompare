@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/forex.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/forex.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/500.gif" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,20 +34,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cryptocurrencies.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="cryptocurrencies.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="383" column="74" selection-start-line="383" selection-start-column="74" selection-end-line="383" selection-end-column="74" />
+            <state relative-caret-position="288">
+              <caret line="152" column="108" selection-start-line="152" selection-start-column="105" selection-end-line="152" selection-end-column="108" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forex.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="forex.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
-              <caret line="160" column="82" selection-start-line="160" selection-start-column="82" selection-end-line="160" selection-end-column="82" />
+            <state relative-caret-position="410">
+              <caret line="153" column="67" selection-start-line="153" selection-start-column="67" selection-end-line="153" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -78,7 +76,7 @@
       <find>logo_white</find>
       <find>scr=&quot;</find>
       <find>common</find>
-      <find>img-pay paupal_img</find>
+      <find />
       <find>header{</find>
       <find>visit-btn</find>
       <find>etoro</find>
@@ -282,18 +280,18 @@
       <workItem from="1525258429714" duration="5934000" />
       <workItem from="1525324066960" duration="3000" />
       <workItem from="1525331043370" duration="639000" />
-      <workItem from="1525337207206" duration="1996000" />
+      <workItem from="1525337207206" duration="3798000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23792000" />
+    <option name="totallyTimeSpent" value="25594000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15260416" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -595,13 +593,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="18" column="64" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -637,17 +628,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="383" column="74" selection-start-line="383" selection-start-column="74" selection-end-line="383" selection-end-column="74" />
+        <state relative-caret-position="410">
+          <caret line="153" column="67" selection-start-line="153" selection-start-column="67" selection-end-line="153" selection-end-column="67" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="160" column="82" selection-start-line="160" selection-start-column="82" selection-end-line="160" selection-end-column="82" />
+        <state relative-caret-position="336">
+          <caret line="18" column="64" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="152" column="108" selection-start-line="152" selection-start-column="105" selection-end-line="152" selection-end-column="108" />
         </state>
       </provider>
     </entry>
