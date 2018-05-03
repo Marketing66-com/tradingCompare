@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/forex.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/forex.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +37,8 @@
       <file leaf-file-name="cryptocurrencies.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="213" column="72" selection-start-line="213" selection-start-column="69" selection-end-line="213" selection-end-column="72" />
+            <state relative-caret-position="624">
+              <caret line="92" column="136" selection-start-line="92" selection-start-column="136" selection-end-line="92" selection-end-column="136" />
             </state>
           </provider>
         </entry>
@@ -48,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="687">
-              <caret line="146" column="135" selection-start-line="146" selection-start-column="135" selection-end-line="146" selection-end-column="135" />
+              <caret line="146" column="125" selection-start-line="146" selection-start-column="125" selection-end-line="146" selection-end-column="125" />
             </state>
           </provider>
         </entry>
@@ -284,12 +283,12 @@
       <workItem from="1525258429714" duration="5934000" />
       <workItem from="1525324066960" duration="3000" />
       <workItem from="1525331043370" duration="639000" />
-      <workItem from="1525337207206" duration="4058000" />
+      <workItem from="1525337207206" duration="4730000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25854000" />
+    <option name="totallyTimeSpent" value="26526000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -641,15 +640,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="213" column="72" selection-start-line="213" selection-start-column="69" selection-end-line="213" selection-end-column="72" />
+        <state relative-caret-position="624">
+          <caret line="92" column="136" selection-start-line="92" selection-start-column="136" selection-end-line="92" selection-end-column="136" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="687">
-          <caret line="146" column="135" selection-start-line="146" selection-start-column="135" selection-end-line="146" selection-end-column="135" />
+          <caret line="146" column="125" selection-start-line="146" selection-start-column="125" selection-end-line="146" selection-end-column="125" />
         </state>
       </provider>
     </entry>
