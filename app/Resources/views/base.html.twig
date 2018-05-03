@@ -45,28 +45,30 @@
             .slct-2:hover, .slct-2:focus, .slct-2:active, .slct-3:hover, .slct-3:focus, .slct-3:active{color:white;text-decoration:none;}
             .slct, .selct-2{padding:0;width:110px;color:white;display:block;position:relative;}
             .menu{width:400px;display:block;margin:0 auto;}
-            .my-nav{width:400px;margin:0 auto;padding:0;z-index:1000;}
-            .my-nav li{float:left;display:inline-table;width:33.3333%;text-align:center;margin-bottom:10px;}
+            .my-nav{width:160%;margin:0 auto;padding:0;z-index:1000;}
+            .my-nav li{float:left;display:inline-table;width:20%;text-align:center;margin-bottom:10px;}
             .my-nav li a{color:white;text-decoration:none;font-size:14px;line-height:30px;font-family:'Open Sans', sans-serif;}
             .my-nav li a:hover{color:#6AE5F5;cursor:pointer;}
             .active{color:#6AE5F5!important;}
             .my-language{width:12.5%;float:left;}
-            .language{width:50px;margin:10px auto;padding:0;z-index:2;}
+            .language{width:50px;margin:10px 25px;padding:0;z-index:2;}
             .slct-2{display:block;margin-left:25px;}
             .img-language{width:35px;height:35px;margin:3px auto;display:block;object-fit:cover;}
             .drop-2{background-color:#1e375e;border-radius:3px;}
             .drop-2 li:hover{background-color:#12a6f9;}
-            .brokers{display:table;width:100%;background:url("{{ asset('img/bitcoin-1813503_1920.jpg') }}") no-repeat;background-position:center top;text-align:center;}
+            .brokers{display:table;width:100%;background:url("img/bitcoin-1813503_1920.jpg") no-repeat;background-position:center top;text-align:center;}
             .brokers-opaciti{width:100%;height:100%;display:table;background-color:rgba(0, 0, 0, 0.4);}
-            .brokers-forex{background:url("{{ asset('img/dollar-exchange.jpg') }}") no-repeat;background-position:center;}
+            .brokers-forex{background:url("img/dollar-exchange.jpg") no-repeat;background-position:center;}
+            .brokers-Stocks{background:url("img/chart.jpg") no-repeat;background-position:center;}
+            .brokers-commodities{background:url("img/commodities-banner.png") no-repeat;background-position:center;}
             .brokers_title{font-size:38px;line-height:38px;color:white;margin-top:50px;font-weight:bold;z-index:222;font-family:'Open Sans', sans-serif;}
             .brokers_text{font-size:24px;color:#6AE5F5;margin:35px 0; font-family:'Open Sans', sans-serif;}
             .table{display:table;width:100%;background-color:#f2f3f5;margin-bottom: 0!important;}
             .paupal{float:right;margin:10px 0;padding:5px;background-color:white;}
-            .paupal_text{float:left;margin-top:5px;font-family:'Open Sans', sans-serif; font-weight: 600;}
+            .paupal_text{float:left;line-height: 30px;font-family:'Open Sans', sans-serif; font-weight: 600;margin: 0;color:#1E375E;}
             .paupal_img{float:left;width:60px;height:30px;margin:0 5px;}
-            .img-pay{background:url("{{ asset('img/PayPal.png') }}") no-repeat;background-size:contain;background-position:center;}
-            .img-master{width:90px;background:url("{{ asset('img/visa-mastercard.png') }}") no-repeat;background-size:contain;background-position:center;}
+            .img-pay{background:url("img/PayPal.png") no-repeat;background-size:contain;background-position:center;}
+            .img-master{width:90px;background:url("img/visa-mastercard.png") no-repeat;background-size:contain;background-position:center;}
             .content-table{width:100%;display:table;background-color:white;padding: 5px 15px 15px 15px}
             .content-table_container-title{width:98%;display:table;margin:0 1%;border-bottom:1px solid #D8D8D8;text-align:center;}
             .content-table_container-title p{color:#2B2B2B;line-height:40px;margin:0;font-family:'Open Sans', sans-serif;}
@@ -104,12 +106,11 @@
             <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="cont-right">
                     <div class="select language">
-                        <a href="#" class="slct-2">  <img class="img-language" src="{{ asset('img/america.png') }}" alt="america"></a>
+                        <a href="#" class="slct-2">  <img class="img-language" src="{{ asset('img/uk_flag.png') }}" alt="america"></a>
                         <ul class="drop-2">
                             <li> <img class="img-language" src="{{ asset('img/america.png') }}" alt="america"></li>
                             <li> <img class="img-language" src="{{ asset('img/france.png') }}" alt="america"></li>
                             <li> <img class="img-language" src="{{ asset('img/italii.png') }}" alt="america"></li>
-                            <li> <img class="img-language" src="{{ asset('img/italy.png') }}" alt="america"></li>
                             <li> <img class="img-language" src="{{ asset('img/made.png') }}" alt="america"></li>
                         </ul>
 
@@ -124,6 +125,8 @@
             <li><a href="#about">Live Feed</a></li>
             <li ><a class="active" href="cryptocurrencies">Cryptocurrencies</a></li>
             <li><a href="forex">Forex</a></li>
+            <li><a href="stocks">Stocks</a></li>
+            <li><a href="commodities">Commodities</a></li>
 
         </ul>
     </div>
@@ -135,7 +138,12 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <p class="footer_title">Powered by Marketing66 © 2018 <span class="footer-right">Terms of Use</span></p>
+                <p class="footer_title">Powered by Marketing66 © 2018 -<span class="footer-plus">All trading involves risk. Only risk
+                    capital you’re prepared to lose.
+                    Past performance is not an
+                    indication of future results. This
+                    content is for educational purposes
+                    only and is not investment advice.</span><span class="footer-right">Terms of Use</span></p>
             </div>
         </div>
     </footer>

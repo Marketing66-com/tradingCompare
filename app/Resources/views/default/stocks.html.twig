@@ -1,12 +1,24 @@
-{% extends 'base.html.twig' %}
+{% extends '/base.html.twig' %}
+
+{% block menu_block %}
+    <div class="menu">
+        <ul class="my-nav">
+            <li><a  href="#about">Live Feed</a></li>
+            <li ><a  href="cryptocurrencies">Cryptocurrencies</a></li>
+            <li><a  href="forex">Forex</a></li>
+            <li><a class="active" href="stocks">Stocks</a></li>
+            <li><a href="commodities">Commodities</a></li>
+        </ul>
+    </div>
 
 
+{% endblock %}
 {% block body %}
     <div class="my-container">
-        <section class="brokers">
+        <section class="brokers brokers-Stocks">
             <div class="brokers-opaciti">
                 <h1 class="brokers_title">TOP 5 ONLINE BROKERS</h1>
-                <h2 class="brokers_text">TO BUY CRYPTOCURRENCY</h2>
+                <h2 class="brokers_text">TO BUY STOCKS</h2>
             </div>
         </section>
 
@@ -90,7 +102,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-sm-2 col-xs-12 col col_height">
-                                    <a class="visit-btn" href="http://marketing66.go2cloud.org/aff_c?offer_id=185&aff_id=1099&url_id=885" target="_blank">VISIT SITE</a>
+                                    <a class="visit-btn" href="http://marketing66.go2cloud.org/aff_c?offer_id=185&aff_id=1099&url_id=883" target="_blank">VISIT SITE</a>
                                 </div>
                             </div>
                         </div>

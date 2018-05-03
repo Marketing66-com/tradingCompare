@@ -1,12 +1,25 @@
 {% extends 'base.html.twig' %}
 
+{% block menu_block %}
+    <div class="menu">
+        <ul class="my-nav">
+            <li><a  href="#about">Live Feed</a></li>
+            <li ><a  href="cryptocurrencies">Cryptocurrencies</a></li>
+            <li><a  href="forex">Forex</a></li>
+            <li><a  href="stocks">Stocks</a></li>
+            <li><a class="active" href="commodities">Commodities</a></li>
 
+        </ul>
+    </div>
+
+
+{% endblock %}
 {% block body %}
     <div class="my-container">
-        <section class="brokers">
+        <section class="brokers brokers-commodities">
             <div class="brokers-opaciti">
                 <h1 class="brokers_title">TOP 5 ONLINE BROKERS</h1>
-                <h2 class="brokers_text">TO BUY CRYPTOCURRENCY</h2>
+                <h2 class="brokers_text">TO BUY COMMODITIES</h2>
             </div>
         </section>
 
@@ -106,7 +119,7 @@
                                     </div>
                                     <div class="right-container-img">
                                         <img class="right-img" src="{{ asset('img/download.png') }}" alt="etoro">
-                                        <div class="sentence">Your capital is at risk</div>
+                                        <div class="sentence">Your capital is at risk.</div>
                                     </div>
                                 </div>
                                 <div class=" col-xs-6 col-md-none col col_height">
@@ -164,6 +177,7 @@
                                 </div>
                                 <div class="col-md-2 col-sm-none col_height">
                                     <p class="dollar">$100</p>
+
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-12 col col_height">
                                     <p class="promotion">Demo account & tight spreads<br>
