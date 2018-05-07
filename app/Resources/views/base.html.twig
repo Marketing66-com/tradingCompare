@@ -31,6 +31,8 @@
         <link rel="icon" href="{{ asset('img/Group_17.png') }}" type="image/png" sizes="16x16">
         {% block stylesheets %}
         <style>
+
+
             body{margin:0;padding:0;font-family:'Open Sans', sans-serif;}
             header{background-color:#1e375e;z-index:2;display:table!important;width:100%;}
             .desctop-none{display:none;}
@@ -56,28 +58,30 @@
             .img-language{width:35px;height:35px;margin:3px auto;display:block;object-fit:cover;}
             .drop-2{background-color:#1e375e;border-radius:3px;}
             .drop-2 li:hover{background-color:#12a6f9;}
-            .brokers{display:table;width:100%;background:url("img/bitcoin-1813503_1920.jpg") no-repeat;background-position:center top;text-align:center;}
+            .brokers{display:table;width:100%;background:url("{{ asset('img/bitcoin-1813503_1920.jpg') }}") no-repeat;text-align:center;}
             .brokers-opaciti{width:100%;height:100%;display:table;background-color:rgba(0, 0, 0, 0.4);}
-            .brokers-forex{background:url("img/dollar-exchange.jpg") no-repeat;background-position:center;}
-            .brokers-Stocks{background:url("img/chart.jpg") no-repeat;background-position:center;}
-            .brokers-commodities{background:url("img/commodities-banner.png") no-repeat;background-position:center;}
+            .brokers-forex{background:url("{{ asset('img/dollar-exchange.jpg') }}") no-repeat;background-position:center;}
+            .brokers-Stocks{background:url("{{ asset('img/chart.jpg') }}") no-repeat;background-position:center;}
+            .brokers-commodities{background:url("{{ asset('img/commodities-banner.png') }}") no-repeat;background-position:center;}
             .brokers_title{font-size:38px;line-height:38px;color:white;margin-top:50px;font-weight:bold;z-index:222;font-family:'Open Sans', sans-serif;}
-            .brokers_text{font-size:24px;color:#6AE5F5;margin:35px 0; font-family:'Open Sans', sans-serif;}
-            .table{display:table;width:100%;background-color:#f2f3f5;margin-bottom: 0!important;}
+            .brokers_text{font-size:24px;color:#6AE5F5;margin:35px 0;font-family:'Open Sans', sans-serif;}
+            .table{display:table;width:100%;background-color:#f2f3f5;margin: 0!important;}
             .paupal{float:right;margin:10px 0;padding:5px;background-color:white;}
             .paupal_text{float:left;line-height: 30px;font-family:'Open Sans', sans-serif; font-weight: 600;margin: 0;color:#1E375E;}
             .paupal_img{float:left;width:60px;height:30px;margin:0 5px;}
-            .img-pay{background:url("img/PayPal.png") no-repeat;background-size:contain;background-position:center;}
-            .img-master{width:90px;background:url("img/visa-mastercard.png") no-repeat;background-size:contain;background-position:center;}
+            .img-pay{background:url("{{ asset('img/PayPal.png') }}") no-repeat;background-size:contain;background-position:center;}
+            .img-master{width:90px;background:url("{{ asset('img/visa-mastercard.png') }}") no-repeat;background-size:contain;background-position:center;}
             .content-table{width:100%;display:table;background-color:white;padding: 5px 15px 15px 15px}
             .content-table_container-title{width:98%;display:table;margin:0 1%;border-bottom:1px solid #D8D8D8;text-align:center;}
-            .content-table_container-title p{color:#2B2B2B;line-height:40px;margin:0;font-family:'Open Sans', sans-serif;}
+            .content-table_container-title p{color:#2B2B2B;line-height:40px;margin:0;font-family: 'Open Sans', sans-serif;width: 100%}
             .col{padding:0;}
             .content-table_container-information{width:100%;display:table;text-align:center;}
-            .top-container-img{display:table;width:60%;margin:0 20%;float:right;height:40px;position:relative;}
+            .top-container-img{width:60%;margin:0 20%;float:right;height:40px;position:relative;}
             .tom-img{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:auto;width:70%;object-fit:contain;}
             .number{width:20%;display:table;float:left;position:relative;height:65px;}
             .number p{width:30px;line-height:30px;color:white;font-weight:bold;font-size:20px;border-radius:50%;background-color:#9b9b9b;position:absolute;top:45%;left:50%;transform:translate(-50%, -50%);}
+            .brokers-Stocks{background:url("{{ asset('img/chart.jpg') }}") no-repeat;background-position:center;}
+            .brokers-commodities{background:url("{{ asset('img/commodities-banner.png') }}") no-repeat;background-position:center;}
 
         </style>
             {% endblock %}
@@ -106,12 +110,13 @@
             <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="cont-right">
                     <div class="select language">
-                        <a href="#" class="slct-2">  <img class="img-language" src="{{ asset('img/uk_flag.png') }}" alt="america"></a>
+                        <a href="#" class="slct-2">  <img class="img-language" src="{{ asset('img/uk_flag.png') }}" alt="uk_flag"></a>
                         <ul class="drop-2">
                             <li> <img class="img-language" src="{{ asset('img/america.png') }}" alt="america"></li>
                             <li> <img class="img-language" src="{{ asset('img/france.png') }}" alt="america"></li>
                             <li> <img class="img-language" src="{{ asset('img/italii.png') }}" alt="america"></li>
                             <li> <img class="img-language" src="{{ asset('img/made.png') }}" alt="america"></li>
+                            <li> <img class="img-language" src="{{ asset('img/uk_flag.png') }}" alt="uk_flag"></li>
                         </ul>
 
                     </div>

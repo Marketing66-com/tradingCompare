@@ -1,3 +1,5 @@
+var speed = 5;
+
 canvas  = document.getElementById("canvas");
 var ctx   = canvas.getContext('2d');
 var color   = '#2af';
@@ -39,7 +41,7 @@ setTimeout(function draw(){
     ctx.fillText(status ,width/2, height -25);
     counter++;
     if (counter <= percent2) {
-        setTimeout(draw ,20);
+        setTimeout(draw ,speed);
     }
 },200);
 
@@ -51,7 +53,7 @@ canvas3.height  = /*width*/  100;
 var height = /*canvas.height*/ 100;
 var percent_3 = 9.5;
 var percent3 = percent_3 *10;
-var counter = 0;
+var counter3 = 0;
 
 
 function baseCir3(){
@@ -63,7 +65,7 @@ function baseCir3(){
     ctx3.closePath();
 }
 setTimeout(function draw(){
-    var angle = Math.PI*1.5  + Math.PI *2* counter /100;
+    var angle = Math.PI*1.5  + Math.PI *2* counter3 /100;
     ctx3.clearRect(0,0,width,height);
     baseCir3();
     ctx3.beginPath();
@@ -80,11 +82,12 @@ setTimeout(function draw(){
     // ctx.fillText( percent3 + "", width / 2, width / 2 );
     ctx3.transform = "rotate(90deg)";
     ctx3.fillText(status ,width/2, height -25);
-    counter++;
-    if (counter <= percent3) {
-        setTimeout(draw ,20);
+    counter3++;
+    if (counter3 <= percent3) {
+        setTimeout(draw ,speed);
     }
 },200);
+
 
 canvas4  = document.getElementById("canvas-4");
 var ctx4   = canvas4.getContext('2d');
@@ -94,8 +97,7 @@ canvas4.height  = /*width*/  100;
 var height = /*canvas.height*/ 100;
 var percent_4 = 9.0;
 var percent4 = percent_4 *10;
-var counter = 0;
-var counter3 = 0;
+var counte4 = 0;
 
 function baseCir4(){
     ctx4.beginPath();
@@ -106,7 +108,7 @@ function baseCir4(){
     ctx4.closePath();
 }
 setTimeout(function draw(){
-    var angle2 = Math.PI*1.5  + Math.PI *2* counter /100;
+    var angle2 = Math.PI*1.5  + Math.PI *2* counte4 /100;
     ctx4.clearRect(0,0,width,height);
     baseCir4();
     ctx4.beginPath();
@@ -122,9 +124,9 @@ setTimeout(function draw(){
     // ctx.fillText( percent3 + "", width / 2, width / 2 );
     ctx4.transform = "rotate(90deg)";
     ctx4.fillText(status ,width/2, height -25);
-    counter++;
-    if (counter <= percent4) {
-        setTimeout(draw ,20);
+    counte4++;
+    if (counte4 <= percent4) {
+        setTimeout(draw ,speed);
     }
 },200);
 
@@ -133,11 +135,11 @@ canvas5  = document.getElementById("canvas-5");
 var ctx5   = canvas5.getContext('2d');
 var color   = '#2af';
 var width   = /*canvas.width*/ 100;
-canvas4.height  = /*width*/  100;
+canvas5.height  = /*width*/  100;
 var height = /*canvas.height*/ 100;
 var percent_5 = 9.0;
 var percent5 = percent_5 *10;
-var counter = 0;
+var counter5 = 0;
 
 
 function baseCir5(){
@@ -149,7 +151,7 @@ function baseCir5(){
     ctx5.closePath();
 }
 setTimeout(function draw(){
-    var angle2 = Math.PI*1.5  + Math.PI *2* counter /100;
+    var angle2 = Math.PI*1.5  + Math.PI *2* counter5 /100;
     ctx5.clearRect(0,0,width,height);
     baseCir5();
     ctx5.beginPath();
@@ -165,9 +167,9 @@ setTimeout(function draw(){
     // ctx.fillText( percent3 + "", width / 2, width / 2 );
     ctx5.transform = "rotate(90deg)";
     ctx5.fillText(status ,width/2, height -25);
-    counter++;
-    if (counter <= percent5) {
-        setTimeout(draw ,20);
+    counter5++;
+    if (counter5 <= percent5) {
+        setTimeout(draw ,speed);
     }
 },200);
 
@@ -177,9 +179,9 @@ var color   = '#2af';
 var width   = /*canvas.width*/ 100;
 canvas6.height  = /*width*/  100;
 var height = /*canvas.height*/ 100;
-var percent_6 = 9.2;
+var percent_6 = 9.9;
 var percent6 = percent_6 *10;
-var counter = 0;
+var counter6 = 0;
 
 
 function baseCir6(){
@@ -191,7 +193,7 @@ function baseCir6(){
     ctx6.closePath();
 }
 setTimeout(function draw(){
-    var angle2 = Math.PI*1.5  + Math.PI *2* counter /100;
+    var angle2 = Math.PI*1.5  + Math.PI *2* counter6 /100;
     ctx6.clearRect(0,0,width,height);
     baseCir6();
     ctx6.beginPath();
@@ -206,9 +208,9 @@ setTimeout(function draw(){
     // ctx.fillText( percent3 + "", width / 2, width / 2 );
     ctx6.transform = "rotate(90deg)";
     ctx6.fillText(status ,width/2, height -25);
-    counter++;
-    if (counter <= percent6) {
-        setTimeout(draw ,20);
+    counter6++;
+    if (counter6 <= percent6) {
+        setTimeout(draw ,speed);
     }
 },200);
 
@@ -218,9 +220,9 @@ var color   = '#2af';
 var width   = /*canvas.width*/ 100;
 canvas7.height  = /*width*/  100;
 var height = /*canvas.height*/ 100;
-var percent_7 = 9.2;
+var percent_7 = 9.9;
 var percent7 = percent_7 *10;
-var counter = 0;
+var counter7 = 0;
 
 
 function baseCir7(){
@@ -232,7 +234,7 @@ function baseCir7(){
     ctx7.closePath();
 }
 setTimeout(function draw(){
-    var angle2 = Math.PI*1.5  + Math.PI *2* counter /100;
+    var angle2 = Math.PI*1.5  + Math.PI *2* counter7 /100;
     ctx7.clearRect(0,0,width,height);
     baseCir7();
     ctx7.beginPath();
@@ -247,9 +249,9 @@ setTimeout(function draw(){
     // ctx.fillText( percent3 + "", width / 2, width / 2 );
     ctx7.transform = "rotate(90deg)";
     ctx7.fillText(status ,width/2, height -25);
-    counter++;
-    if (counter <= percent7) {
-        setTimeout(draw ,20);
+    counter7++;
+    if (counter7 <= percent7) {
+        setTimeout(draw ,speed);
     }
 },200);
 
@@ -263,7 +265,7 @@ canvas8.height  = /*width*/  100;
 var height = /*canvas.height*/ 100;
 var percent_8 = 8.9;
 var percent8 = percent_8 *10;
-var counter = 0;
+var counter8 = 0;
 
 
 function baseCir8(){
@@ -275,7 +277,7 @@ function baseCir8(){
     ctx8.closePath();
 }
 setTimeout(function draw(){
-    var angle = Math.PI*1.5  + Math.PI *2* counter /100;
+    var angle = Math.PI*1.5  + Math.PI *2* counter8 /100;
     ctx8.clearRect(0,0,width,height);
     baseCir8();
     ctx8.beginPath();
@@ -290,9 +292,9 @@ setTimeout(function draw(){
     // ctx.fillText( percent3 + "", width / 2, width / 2 );
     ctx8.transform = "rotate(90deg)";
     ctx8.fillText(status ,width/2, height -25);
-    counter++;
-    if (counter <= percent8) {
-        setTimeout(draw ,20);
+    counter8++;
+    if (counter8 <= percent8) {
+        setTimeout(draw ,speed);
     }
 },200);
 canvas9  = document.getElementById("canvas-9");
@@ -303,7 +305,7 @@ canvas9.height  = /*width*/  100;
 var height = /*canvas.height*/ 100;
 var percent_9 = 8.7;
 var percent9 = percent_9 *10;
-var counter = 0;
+var counter9 = 0;
 
 
 function baseCir9(){
@@ -315,7 +317,7 @@ function baseCir9(){
     ctx9.closePath();
 }
 setTimeout(function draw(){
-    var angle = Math.PI*1.5  + Math.PI *2* counter /100;
+    var angle = Math.PI*1.5  + Math.PI *2* counter9 /100;
     ctx9.clearRect(0,0,width,height);
     baseCir9();
     ctx9.beginPath();
@@ -330,9 +332,9 @@ setTimeout(function draw(){
     // ctx.fillText( percent3 + "", width / 2, width / 2 );
     ctx9.transform = "rotate(90deg)";
     ctx9.fillText(status ,width/2, height -25);
-    counter++;
-    if (counter <= percent9) {
-        setTimeout(draw ,20);
+    counter9++;
+    if (counter9 <= percent9) {
+        setTimeout(draw ,speed);
     }
 },200);
 
@@ -345,7 +347,7 @@ canvas10.height  = /*width*/  100;
 var height = /*canvas.height*/ 100;
 var percent_10 = 8.6;
 var percent10 = percent_10 *10;
-var counter = 0;
+var counter10 = 0;
 
 
 function baseCir10(){
@@ -357,7 +359,7 @@ function baseCir10(){
     ctx10.closePath();
 }
 setTimeout(function draw(){
-    var angle2 = Math.PI*1.5  + Math.PI *2* counter /100;
+    var angle2 = Math.PI*1.5  + Math.PI *2* counter10 /100;
     ctx10.clearRect(0,0,width,height);
     baseCir10();
     ctx10.beginPath();
@@ -372,9 +374,9 @@ setTimeout(function draw(){
     // ctx.fillText( percent3 + "", width / 2, width / 2 );
     ctx10.transform = "rotate(90deg)";
     ctx10.fillText(status ,width/2, height -25);
-    counter++;
-    if (counter <= percent10) {
-        setTimeout(draw ,20);
+    counter10++;
+    if (counter10 <= percent10) {
+        setTimeout(draw ,speed);
     }
 },200);
 
@@ -387,7 +389,7 @@ canvas11.height  = /*width*/  100;
 var height = /*canvas.height*/ 100;
 var percent_11 = 8.6;
 var percent11 = percent_11 *10;
-var counter = 0;
+var counter11 = 0;
 
 
 function baseCir11(){
@@ -399,7 +401,7 @@ function baseCir11(){
     ctx11.closePath();
 }
 setTimeout(function draw(){
-    var angle2 = Math.PI*1.5  + Math.PI *2* counter /100;
+    var angle2 = Math.PI*1.5  + Math.PI *2* counter11 /100;
     ctx11.clearRect(0,0,width,height);
     baseCir11();
     ctx11.beginPath();
@@ -414,9 +416,9 @@ setTimeout(function draw(){
     // ctx.fillText( percent3 + "", width / 2, width / 2 );
     ctx11.transform = "rotate(90deg)";
     ctx11.fillText(status ,width/2, height -25);
-    counter++;
-    if (counter <= percent11) {
-        setTimeout(draw ,20);
+    counter11++;
+    if (counter11 <= percent11) {
+        setTimeout(draw ,speed);
     }
 },200);
 
@@ -430,7 +432,7 @@ canvas12.height  = /*width*/  100;
 var height = /*canvas.height*/ 100;
 var percent_12 = 9.2;
 var percent12 = percent_12 *10;
-var counter = 0;
+var counter12 = 0;
 
 
 function baseCir12(){
@@ -442,7 +444,7 @@ function baseCir12(){
     ctx12.closePath();
 }
 setTimeout(function draw(){
-    var angle2 = Math.PI*1.5  + Math.PI *2* counter /100;
+    var angle2 = Math.PI*1.5  + Math.PI *2* counter12 /100;
     ctx12.clearRect(0,0,width,height);
     baseCir12();
     ctx12.beginPath();
@@ -457,9 +459,9 @@ setTimeout(function draw(){
     // ctx.fillText( percent3 + "", width / 2, width / 2 );
     ctx12.transform = "rotate(90deg)";
     ctx12.fillText(status ,width/2, height -25);
-    counter++;
-    if (counter <= percent12) {
-        setTimeout(draw ,20);
+    counter12++;
+    if (counter12 <= percent12) {
+        setTimeout(draw ,speed);
     }
 },200);
 
@@ -472,7 +474,7 @@ canvas13.height  = /*width*/  100;
 var height = /*canvas.height*/ 100;
 var percent_13 = 9.2;
 var percent13 = percent_13 *10;
-var counter = 0;
+var counter13 = 0;
 
 
 
@@ -485,7 +487,7 @@ function baseCir13(){
     ctx13.closePath();
 }
 setTimeout(function draw(){
-    var angle2 = Math.PI*1.5  + Math.PI *2* counter /100;
+    var angle2 = Math.PI*1.5  + Math.PI *2* counter13 /100;
     ctx13.clearRect(0,0,width,height);
     baseCir13();
     ctx13.beginPath();
@@ -500,12 +502,11 @@ setTimeout(function draw(){
     // ctx.fillText( percent3 + "", width / 2, width / 2 );
     ctx13.transform = "rotate(90deg)";
     ctx13.fillText(status ,width/2, height -25);
-    counter++;
-    if (counter <= percent13) {
-        setTimeout(draw ,20);
+    counter13++;
+    if (counter13 <= percent13) {
+        setTimeout(draw ,speed);
     }
 },200);
-
 
 
 
