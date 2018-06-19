@@ -1,0 +1,1829 @@
+{% extends 'test.html.twig' %}
+
+ {% block description %}
+     <title>Top 6 ONLINE BROKERS To Buy Commodities– Gold,Oil,Sugar and more.</title>
+     <meta name="description" content="Join the online trading revolution. Compare the best online trading brokers FREE & find the leading platforms to buy, sell & trade online. Compare fees, commissions, promotions,regulation and features all in one place">
+ {% endblock %}
+
+{#{% block menu_block %}#}
+    {#<div class="menu">#}
+        {#<ul class="my-nav">#}
+            {#<li class="my-hover"><a href="{{ path('services') }}" >Live Stock Feed</a></li>#}
+            {#<li class="my-hover"><a href="{{ path('services') }}" >Live Crypto Feed</a></li>#}
+            {#<li class="my-hover"><a  href="{{ path('services') }}" class="active">Live Forex Feed</a></li>#}
+            {#<li class="my-hover"><a href="{{ path('services') }}">Brokers <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>#}
+                {#<!--<li class="my-hover">Brokers <span class="hover_next-icon"><i class="fas fa-chevron-right"></i></span></a>-->#}
+                {#<ul>#}
+                    {#<li ><a href="{{ path('services') }}">Forex</a></li>#}
+                    {#<li ><a href="{{ path('services') }}">Crypto</a></li>#}
+                    {#<li ><a href="{{ path('services') }}">Stocks</a></li>#}
+                    {#<li ><a href="{{ path('services') }}" >Commodities</a>#}
+                {#</ul>#}
+            {#</li>#}
+            {#<li class="my-hover"><a href="#" class="my-active">Language <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>#}
+                {#<ul>#}
+                    {#<li><a><img class="language-img" src="img/small_flags/gb.png" alt="gb"> English</a></li>#}
+                    {#<li><a><img class="language-img" src="img/small_flags/es.png" alt="es"> Espanol</a></li>#}
+                    {#<li><a><img class="language-img" src="img/small_flags/fr.png" alt="fr"> Francias</a></li>#}
+                    {#<li><a><img class="language-img" src="img/small_flags/it.png" alt="it"> Italiano</a></li>#}
+                    {#<li><a><img class="language-img" src="img/small_flags/de.png" alt="de"> Deutsch</a></li>#}
+                {#</ul>#}
+            {#</li>#}
+        {#</ul>#}
+    {#</div>#}
+{#{% endblock %}#}
+
+{% block body %}
+
+    <div class="my-container">
+
+
+
+
+
+
+        <section class="table">
+
+            <div class="chart_search margin_bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="reviec_cont-sezrch">
+                            <div class="reviec_cont-sezrch_right">
+                                <div class="watchlist-cont">
+                                    <a class="watchlist-cont_all watchlist-cont_all_active">ALL</a>
+                                    <a class="watchlist-cont_all">WATCHLIST</a>
+                                </div>
+                                <div class="watchlist-cont watchlist-cont_right">
+                                    <a class="watchlist-cont_all list" ><i class="fas fa-list"></i></a>
+                                    <a class="watchlist-cont_all watchlist-cont_all_active grid"><i class="fas fa-th"></i></a>
+                                </div>
+                            </div>
+                            <input class="search_input" type="text" placeholder="Search Instruments">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="general-list">
+                <div class="container">
+                    <div class="row">
+                        <div class="review_list">
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title">Instrument</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text ">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title">Price</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title">Change %</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title">High</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title"><span class="mobile-block">High/</span>Low</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title">Sentiment</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title">Chart</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title">Trade</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/USD_EUR.png" alt="USD_EUR">
+                                            <h2 class="live_block_top_title">EUR/USD</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">-0.5%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold">6.14B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border">-6.41%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">6.14B</span>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">63% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-up "></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas  fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <a href="{{ path('chart') }}"> <img class="live_block_chart" src="img/chart_1.png" alt="chart_1"></a>
+
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start sm-none"><i class="far fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/USD_JPY.png" alt="USD_JPY">
+                                            <h2 class="live_block_top_title">USD/JPY</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block">-0.4%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border">-2.89%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">58% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like review_list_start_active"><i class="fas fa-thumbs-up "></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas  fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_long.png" alt="chart_5">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start sm-none"><i class="far fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/GBP_EUR.png" alt="GBP_EUR">
+                                            <h2 class="live_block_top_title">GBP/EUR</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block">-0.3%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold live_block_money_green">1.18B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right   live_block_money_border_green live_block_money_green">1.12%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B</span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">58% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like "><i class="fas fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas  fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_green"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_3.png" alt="chart_3">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start sm-none"><i class="far fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/USD_CAD.png" alt="USD_CAD">
+                                            <h2 class="live_block_top_title">USD/CAD</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block">-0.3%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold live_block_money_green">1.18B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right   live_block_money_border_green live_block_money_green">1.12%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B</span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">58% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like "><i class="fas fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_green"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_2.png" alt="chart_2">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start sm-none"><i class="far fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/USD_ZAR.png" alt="USD_ZAR">
+                                            <h2 class="live_block_top_title">USD/ZAR</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block">-0.4%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border">-2.89%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">58% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like review_list_start_active"><i class="fas  fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_2.png" alt="chart_2">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/ZAR_EUR.png" alt="ZAR_EUR">
+                                            <h2 class="live_block_top_title">ZAR/EUR</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">-0.5%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold">6.14B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border">-6.41%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">6.14B</span>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">63% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas  fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_4.png" alt="chart_4">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start sm-none"><i class="far fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/GBP_AUD.png" alt="GBP_AUD">
+                                            <h2 class="live_block_top_title">GBP/AUD</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block">-0.3%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold live_block_money_green">1.18B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right   live_block_money_border_green live_block_money_green">1.12%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B</span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">58% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like "><i class="fas  fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_green"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_1.png" alt="chart_1">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/JPY_EUR.png" alt="JPY_EUR">
+                                            <h2 class="live_block_top_title">JPY_EUR</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">-0.5%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold">6.14B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border">-6.41%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">6.14B</span>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">63% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas  fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_2.png" alt="chart_2">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start sm-none"><i class="far fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/AUD_USD.png" alt="AUD_USD">
+                                            <h2 class="live_block_top_title">AUD/USD</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block">-0.4%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border">-2.89%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">58% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like review_list_start_active"><i class="fas  fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_3.png" alt="chart_3">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start sm-none"><i class="far fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/USD_AUD.png" alt="USD_AUD">
+                                            <h2 class="live_block_top_title">USD/AUD</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block">-0.3%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold live_block_money_green">1.18B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right   live_block_money_border_green live_block_money_green">1.12%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B</span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">58% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like "><i class="fas fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas  fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_green"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_4.png" alt="chart_4">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/AUD_USD.png" alt="AUD_USD">
+                                            <h2 class="live_block_top_title">USD/NZD</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">-0.5%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold">6.14B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border">-6.41%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">6.14B</span>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">63% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas  fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_5.png" alt="chart_5">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start sm-none"><i class="far fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/GPG_NOK.png" alt="GPG_NOK">
+                                            <h2 class="live_block_top_title">GPG/NOK</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block">-0.4%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border">-2.89%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">58% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like review_list_start_active"><i class="fas fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_1.png" alt="chart_1">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/EUR_CAD.png" alt="EUR_CAD">
+                                            <h2 class="live_block_top_title">EUR/CAD</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">-0.5%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold">6.14B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border">-6.41%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">6.14B</span>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">63% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_3.png" alt="chart_3">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start sm-none"><i class="far fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/GPG_CAD.png" alt="GPG_CAD">
+                                            <h2 class="live_block_top_title">GPG/CAD</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block">-0.4%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border">-2.89%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">58% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like review_list_start_active"><i class="fas fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas  fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_4.png" alt="chart_4">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/USD_EUR.png" alt="USD_EUR">
+                                            <h2 class="live_block_top_title">USD/EUR</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">-0.5%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold">6.14B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border">-6.41%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">6.14B</span>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">63% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas  fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <a href="{{ path('chart') }}"> <img class="live_block_chart" src="img/chart_5.png" alt="chart_1"></a>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start sm-none"><i class="far fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/USD_ZAR.png" alt="USD_ZAR">
+                                            <h2 class="live_block_top_title">USD/ZAR</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block">-0.4%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border">-2.89%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">58% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like review_list_start_active"><i class="fas fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas  fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_1.png" alt="chart_1">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start sm-none"><i class="far fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/GBP_EUR.png" alt="GBP_EUR">
+                                            <h2 class="live_block_top_title">GBP/EUR</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block">-0.3%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold live_block_money_green">1.18B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right   live_block_money_border_green live_block_money_green">1.12%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B</span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">58% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like "><i class="fas  fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_green"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_2.png" alt="chart_2">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/ZAR_EUR.png" alt="ZAR_EUR">
+                                            <h2 class="live_block_top_title">ZAR/EUR</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">-0.5%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold">6.14B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border">-6.41%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">6.14B</span>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">63% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas  fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_3.png" alt="chart_3">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start sm-none"><i class="far fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/USD_JPY.png" alt="USD_JPY">
+                                            <h2 class="live_block_top_title">USD/JPY</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block">-0.4%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border">-2.89%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">58% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like review_list_start_active"><i class="fas fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-down "></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_4.png" alt="chart_4">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_start sm-none"><i class="far fa-star"></i></p>
+                                            <img class="live_block_top_img" src="img/forex_logos/GBP_AUD.png" alt="GBP_AUD">
+                                            <h2 class="live_block_top_title">GBP/AUD</h2>
+                                            <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block">-0.3%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold live_block_money_green">1.18B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right   live_block_money_border_green live_block_money_green">1.12%</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  "><span class="live_block_money_bold">1.71B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
+                                                <span class="live_block_money_bold mobile-block">6.14B</span>
+                                                <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="chart_bitcoin-reting_prozent">58% Selling
+                                                <span class="chart_bitcoin-reting_prozent_like "><i class="fas fa-thumbs-up"></i></span>
+                                                <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-down"></i></span>
+                                            </p>
+                                            <div class="chart_bitcoin-reting_progress-bar">
+                                                <div class="reting_progress-bar_click reting_progress-bar_click_green"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <img class="live_block_chart" src="img/chart_5.png" alt="chart_5">
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container general-grid">
+                <div class="row">
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/USD_EUR.png" alt="USD_EUR">
+                                <h2 class="live_block_top_title">USD/EUR</h2>
+                            </div>
+                            <p class="live_block_money-left"><span class="live_block_money_bold live_block_money_red">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border"><span class="live_block_money_bold live_block_money_red">-6.41%</span></p>
+
+                            <a href="{{ path('chart') }}"> <img class="live_block_chart" src="img/chart_long.png" alt="chart_1"></a>
+
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.14B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">$5.22B</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding ">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/USD_ZAR.png" alt="USD_ZAR">
+                                <h2 class="live_block_top_title">USD/ZAR</h2>
+                            </div>
+                            <p class="live_block_money-left"><span class="live_block_money_bold live_block_money_red">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border"><span class="live_block_money_bold live_block_money_red">-6.41%</span></p>
+                            <img class="live_block_chart" src="img/chart_2_long.png" alt="chart_2_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.14B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">$5.22B</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/GBP_EUR.png" alt="GBP_EUR">
+                                <h2 class="live_block_top_title">GBP/EUR</h2>
+                            </div>
+                            <p class="live_block_money-left "><span class="live_block_money_bold live_block_money_green">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border_green"><span class="live_block_money_bold live_block_money_green">1.44%</span></p>
+                            <img class="live_block_chart" src="img/chart_3_long.png" alt="chart_3_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">-6.41%</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin review_list_start_active"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right review_list_start_active"><i class="fas fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/ZAR_EUR.png" alt="ZAR_EUR">
+                                <h2 class="live_block_top_title">ZAR/EUR</h2>
+                            </div>
+                            <p class="live_block_money-left "><span class="live_block_money_bold ">$6.02B</span></p>
+                            <p class="live_block_money-right live_block_money_border_green "><span class="live_block_money_bold live_block_money_green">1.44%</span></p>
+                            <img class="live_block_chart" src="img/chart_4_long.png" alt="chart_4_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">-6.41%</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin review_list_start_active"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right review_list_start_active"><i class="fas fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/USD_JPY.png" alt="USD_JPY">
+                                <h2 class="live_block_top_title">USD/JPY</h2>
+                            </div>
+                            <p class="live_block_money-left "><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border"><span class="live_block_money_bold live_block_money_red">-6.41%</span></p>
+                            <img class="live_block_chart" src="img/chart_5_long.png" alt="chart_5_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.14B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">$5.22B</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/GBP_AUD.png" alt="GBP_AUD">
+                                <h2 class="live_block_top_title">GBP/AUD</h2>
+                            </div>
+                            <p class="live_block_money-left"><span class="live_block_money_bold live_block_money_red">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border"><span class="live_block_money_bold live_block_money_red">-6.41%</span></p>
+                            <img class="live_block_chart" src="img/chart_long.png" alt="chart_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.14B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">$5.22B</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/JPY_EUR.png" alt="JPY_EUR">
+                                <h2 class="live_block_top_title">JPY_EUR</h2>
+                            </div>
+                            <p class="live_block_money-left "><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border"><span class="live_block_money_bold live_block_money_red">-6.41%</span></p>
+                            <img class="live_block_chart" src="img/chart_2_long.png" alt="chart_2_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.14B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">$5.22B</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/Stock_Logos/facebook.png" alt="facebook">
+                                <h2 class="live_block_top_title">Facebook</h2>
+                            </div>
+                            <p class="live_block_money-left "><span class="live_block_money_bold live_block_money_green">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border_green"><span class="live_block_money_bold live_block_money_green">1.44%</span></p>
+                            <img class="live_block_chart" src="img/chart_3_long.png" alt="chart_3_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">-6.41%</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin review_list_start_active"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right review_list_start_active"><i class="fas fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/AUD_USD.png" alt="AUD_USD">
+                                <h2 class="live_block_top_title">AUD/USD</h2>
+                            </div>
+                            <p class="live_block_money-left "><span class="live_block_money_bold live_block_money_green">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border_green"><span class="live_block_money_bold live_block_money_green">1.44%</span></p>
+                            <img class="live_block_chart" src="img/chart_4_long.png" alt="chart_4_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">-6.41%</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin review_list_start_active"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right review_list_start_active"><i class="fas fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/USD_AUD.png" alt="USD_AUD">
+                                <h2 class="live_block_top_title">USD/AUD</h2>
+                            </div>
+                            <p class="live_block_money-left "><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border"><span class="live_block_money_bold live_block_money_red">-6.41%</span></p>
+                            <img class="live_block_chart" src="img/chart_5_long.png" alt="chart_5_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">-6.41%</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/AUD_USD.png" alt="AUD_USD">
+                                <h2 class="live_block_top_title">USD/NZD</h2>
+                            </div>
+                            <p class="live_block_money-left"><span class="live_block_money_bold live_block_money_red">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border"><span class="live_block_money_bold live_block_money_red">-6.41%</span></p>
+                            <img class="live_block_chart" src="img/chart_long.png" alt="chart_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.14B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">$5.22B</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/GPG_NOK.png" alt="GPG_NOK">
+                                <h2 class="live_block_top_title">GPG/NOK</h2>
+                            </div>
+                            <p class="live_block_money-left "><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border"><span class="live_block_money_bold live_block_money_red">-6.41%</span></p>
+                            <img class="live_block_chart" src="img/chart_2_long.png" alt="chart_2_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.14B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">$5.22B</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/USD_CAD.png" alt="USD_CAD">
+                                <h2 class="live_block_top_title">USD/CAD</h2>
+                            </div>
+                            <p class="live_block_money-left "><span class="live_block_money_bold live_block_money_green">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border_green"><span class="live_block_money_bold live_block_money_green">1.44%</span></p>
+                            <img class="live_block_chart" src="img/chart_3_long.png" alt="chart_3_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">-6.41%</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin review_list_start_active"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right review_list_start_active"><i class="fas fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/EUR_CAD.png" alt="EUR_CAD">
+                                <h2 class="live_block_top_title">EUR/CAD</h2>
+                            </div>
+                            <p class="live_block_money-left "><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border"><span class="live_block_money_bold live_block_money_red">-6.41%</span></p>
+                            <img class="live_block_chart" src="img/chart_4_long.png" alt="chart_4_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">-6.41%</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin review_list_start_active"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right review_list_start_active"><i class="fas fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/USD_EUR.png" alt="USD_EUR">
+                                <h2 class="live_block_top_title">USD/EUR</h2>
+                            </div>
+                            <p class="live_block_money-left"><span class="live_block_money_bold live_block_money_red">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border"><span class="live_block_money_bold live_block_money_red">-6.41%</span></p>
+                            <img class="live_block_chart" src="img/chart_5_long.png" alt="chart_5_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.14B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">$5.22B</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+
+                    <div class="live_cont-block-padding ">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/USD_ZAR.png" alt="USD_ZAR">
+                                <h2 class="live_block_top_title">USD/ZAR</h2>
+                            </div>
+                            <p class="live_block_money-left"><span class="live_block_money_bold live_block_money_red">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border"><span class="live_block_money_bold live_block_money_red">-6.41%</span></p>
+                            <img class="live_block_chart" src="img/chart_long.png" alt="chart_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.14B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">$5.22B</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/GBP_EUR.png" alt="GBP_EUR">
+                                <h2 class="live_block_top_title">GBP/EUR</h2>
+                            </div>
+                            <p class="live_block_money-left "><span class="live_block_money_bold live_block_money_green">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border_green"><span class="live_block_money_bold live_block_money_green">1.44%</span></p>
+                            <img class="live_block_chart" src="img/chart_2_long.png" alt="chart_2_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">-6.41%</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin review_list_start_active"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right review_list_start_active"><i class="fas fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/ZAR_EUR.png" alt="ZAR_EUR">
+                                <h2 class="live_block_top_title">ZAR/EUR</h2>
+                            </div>
+                            <p class="live_block_money-left "><span class="live_block_money_bold ">$6.02B</span></p>
+                            <p class="live_block_money-right live_block_money_border_green "><span class="live_block_money_bold live_block_money_green">1.44%</span></p>
+                            <img class="live_block_chart" src="img/chart_3_long.png" alt="chart_3_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">-6.41%</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin review_list_start_active"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right review_list_start_active"><i class="fas fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/USD_JPY.png" alt="USD_JPY">
+                                <h2 class="live_block_top_title">USD/JPY</h2>
+                            </div>
+                            <p class="live_block_money-left "><span class="live_block_money_bold">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border"><span class="live_block_money_bold live_block_money_red">-6.41%</span></p>
+                            <img class="live_block_chart" src="img/chart_4_long.png" alt="chart_4_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.14B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">$5.22B</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+                    <div class="live_cont-block-padding">
+                        <div class="live_cont-block">
+                            <div class="live_block_top">
+                                <img class="live_block_top_img" src="img/forex_logos/GBP_AUD.png" alt="GBP_AUD">
+                                <h2 class="live_block_top_title">GBP/AUD</h2>
+                            </div>
+                            <p class="live_block_money-left"><span class="live_block_money_bold live_block_money_red">$6.02B</span></p>
+                            <p class="live_block_money-right  live_block_money_border"><span class="live_block_money_bold live_block_money_red">-6.41%</span></p>
+                            <img class="live_block_chart" src="img/chart_5_long.png" alt="chart_5_long">
+                            <p class="live_block_money-left ">High <br><span class="live_block_money_bold">$6.14B</span></p>
+                            <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">$5.22B</span></p>
+                            <div class="live_cont-block_cont-like">
+                                <p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>
+                                <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                                <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                            </div>
+                            <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                            <div class="chart_bitcoin-reting_progress-bar">
+                                <div class="reting_progress-bar_click"></div>
+                            </div>
+                            <div class="live_cont-block_hover">
+                                <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                            </div>
+                        </div>
+
+
+                        <a class="live_trade-btn">TRADE NOW</a>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </section>
+
+
+
+
+    </div>
+
+
+{% endblock %}

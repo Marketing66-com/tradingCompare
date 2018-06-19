@@ -1,0 +1,206 @@
+{% extends 'test.html.twig' %}
+
+{#{% block menu_block %}#}
+    {#<div class="menu">#}
+        {#<ul class="my-nav">#}
+            {#<li><a href="#about">Live Feed</a></li>#}
+            {#<li ><a class="active" href="cryptocurrencies">Cryptocurrencies</a></li>#}
+            {#<li><a href="forex">Forex</a></li>#}
+            {#<li><a href="stocks">Stocks</a></li>#}
+            {#<li><a href="commodities">Commodities</a></li>#}
+
+        {#</ul>#}
+    {#</div>#}
+{#{% endblock %}#}
+
+{% block body %}
+    <div class="my-container">
+        <div class="my-modal modal_sigh-in">
+            <div class="modal_scroll">
+                <div class="my-modal_cont-left">
+                    <img class="my-modal_cont-left_img" src="img/bg_sign_in.png" alt="bg_sign_up">
+                    <a href="http://trading.venhrun.com" class="logo-text modal_header-left">
+                        <img src="img/logo_white.png" class="top-logo " alt="logo">
+                    </a>
+                    <div class="modal_left-content">
+                        <h1 class="modal_heder">Sign In</h1>
+                        <div class="modal-cont-text ms-none">
+                            <div class="modal_check-marks">
+                                <p><i class="fas fa-check"></i></p>
+                            </div>
+                            <p class="modal-text">Keep an eye on the Crypto, Forex, Stocks and Commodities Live feed</p>
+                        </div>
+                        <div class="modal-cont-text ms-none">
+                            <div class="modal_check-marks">
+                                <p><i class="fas fa-check"></i></p>
+                            </div>
+                            <p class="modal-text">Create a watchlist that allows you to keep track of your investments</p>
+                        </div>
+                        <div class="modal-cont-text ms-none">
+                            <div class="modal_check-marks">
+                                <p><i class="fas fa-check"></i></p>
+                            </div>
+                            <p class="modal-text">Follow the sentiment of professional traders to keep track of price patterns</p>
+                        </div>
+                        <div class="modal-cont-text ms-none">
+                            <div class="modal_check-marks">
+                                <p><i class="fas fa-check"></i></p>
+                            </div>
+                            <p class="modal-text">Participate in trading discussions with other fellow members</p>
+                        </div>
+                        <div class="modal-cont-text ms-none">
+                            <div class="modal_check-marks">
+                                <p><i class="fas fa-check"></i></p>
+                            </div>
+                            <p class="modal-text">Read a thorough review for each broker</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-modal_cont-right">
+                    <a class="close_modal"><i class="fas fa-plus"></i></a>
+                    <div class="modal_right-content">
+                        <form class="form-card">
+                            <div class="form-element form-input">
+                                <input  class="form-element-input" placeholder=" " type="email" required/>
+                                <div class="form-element-bar"></div>
+                                <label class="form-element-label" >EMAIL</label>
+                            </div>
+                            <div class="form-element form-input">
+                                <input  class="form-element-input form-element-input_password" placeholder=" " type="password" required/>
+                                <div class="form-element-bar"></div>
+                                <label class="form-element-label" >PASSWORD</label>
+                            </div>
+                            <div class="form-element form-input">
+                                <label class="remember"><input class="remember_input" type="checkbox"> <span class="remember_span">Remember Me</span></label>
+                            </div>
+                            <div class="form_bottom create_margin">
+                                <button class="form-btn" type="submit">SIGN IN</button>
+                                <a class="form_cliking create"><span class="form_cliking_decoration">Create a new account</span></a>
+                            </div>
+                        </form>
+                        <div class="form_soz-cont">
+                            <p class="form_soz-cont_text">Or connect with -</p>
+                            <a class="form_soz-cont_icon footer_soz_icon_youtube"><i class="fab fa-google"></i></a>
+                            <a class="form_soz-cont_icon footer_soz_icon_faceebook"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="table">
+            <div class="chart_search margin_bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="reviec_cont-sezrch input_absolut_after">
+                            <div class="reviec_cont-sezrch_right">
+                                <div class="watchlist-cont">
+                                    <a class="watchlist-cont_all watchlist-cont_all_active">ALL</a>
+                                    <a class="watchlist-cont_all">WATCHLIST</a>
+                                </div>
+                                <div class="watchlist-cont watchlist-cont_right grid_absolut_visible">
+                                    <a class="watchlist-cont_all watchlist-cont_all_active list" ><i class="fas fa-list"></i></a>
+                                    <a class="watchlist-cont_all  grid"><i class="fas fa-th"></i></a>
+                                    <div class="grid_absolut grid_absolut_none" >
+                                        <a class="grid_absolut_close">x</a>
+                                        <p class="grid_absolut_text">Toggle between list and grid view!</p>
+                                    </div>
+                                    <div class="grid_absolut list_absolut">
+                                        <a class="grid_absolut_close">x</a>
+                                        <p class="grid_absolut_text">Toggle between list and grid view!</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <input class="search_input" type="text" placeholder="Search Instruments">
+                            <div class="grid_absolut input_absolut">
+                                <a class="grid_absolut_close">x</a>
+                                <p class="grid_absolut_text">Use the search bar to find instruments!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="general-list new_general-list_space">
+                <div class="container">
+                    <div class="row">
+                        <div class="review_list">
+                            <div class="review_list_cont-heder">
+                                <div class="abs">
+                                    <div class="general_review_cont-block review_list_name">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title">Instrument</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text ">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title">Price</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title">Change %</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text sm-none">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title">High</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-text">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title"><span class="mobile-block">High/</span>Low</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title">Sentiment</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-chart">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title">Chart</p>
+                                        </div>
+                                    </div>
+                                    <div class="general_review_cont-block review_list_cont-btn">
+                                        <div class="review_list_center">
+                                            <p class="review_list_title">Trade</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review_list_cont-heder">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="general-list_space ">
+                    <div class="general-grid_space_absolut">
+                        <h2 class="general-grid_space_absolut_title">Oh No!</h2>
+                        <img class="general-grid_space_absolut_img" src="img/general-grid_space_absolut_img.png" alt="general-grid_space_absolut_img">
+                        <p class="general-grid_space_absolut_text">Your watchlist is empty!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class=" general-grid new_general-grid">
+                <div class="general-grid_space">
+                    <div class="general-grid_space_absolut">
+                        <h2 class="general-grid_space_absolut_title">Oh No!</h2>
+                        <img class="general-grid_space_absolut_img" src="img/general-grid_space_absolut_img.png" alt="general-grid_space_absolut_img">
+                        <p class="general-grid_space_absolut_text">Your watchlist is empty!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </section>
+<a class="what">hello</a>
+
+
+
+    </div>
+{% endblock %}
