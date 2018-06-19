@@ -2,30 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/default/Live_rates_crypto.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/default/Live_rates_forex.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/default/Live_rates_stocks.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/default/broker_review.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/default/chart.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/default/commodities2.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/default/crypto.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/default/forex2.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/default/forex_chart.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/default/stock_chart.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/default/stocks2.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/test.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compiled.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/compiled.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/Live_rates_crypto.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/Live_rates_crypto.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/Live_rates_forex.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/Live_rates_forex.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/Live_rates_stocks.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/Live_rates_stocks.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/broker_review.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/broker_review.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/commodities2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/commodities2.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/crypto.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/crypto.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/forex2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/forex2.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/stocks2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/stocks2.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/bitcoin-1813503_1920.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/web/img/bitcoin-1813503_1920.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/download.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/img/download.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/france.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/img/france.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/italy.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/img/italy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/uk_flag.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/img/uk_flag.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/plugin.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,8 +31,8 @@
             <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="831">
-                    <caret line="166" selection-start-line="166" selection-end-line="166" />
+                  <state relative-caret-position="336">
+                    <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
                   </state>
                 </provider>
               </entry>
@@ -67,29 +53,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="chart.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/chart.html.twig">
+      <file leaf-file-name="test.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/test.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="9" column="30" selection-end-line="210" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Live_rates_forex.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/Live_rates_forex.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="1268" column="52" selection-start-line="1268" selection-start-column="52" selection-end-line="1268" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="oh-no.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/js/oh-no.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+            <state relative-caret-position="12067">
+              <caret line="3014" column="17" lean-forward="true" selection-start-line="3014" selection-start-column="17" selection-end-line="3014" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -155,24 +123,24 @@
         <option value="$PROJECT_DIR$/app/Resources/views/default/oh_no.html" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/ho_no.html.twig" />
         <option value="$PROJECT_DIR$/web/js/oh-no.js" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/broker_review.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/commodities.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/forex.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/commodities2.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/crypto.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/forex2.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/stocks2.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/test.html.twig" />
         <option value="$PROJECT_DIR$/web/js/general.js" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/Live_rates_crypto.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/Live_rates_stocks.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/chart.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/forex_chart.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/stock_chart.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/Live_rates_stocks.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/Live_rates_forex.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/Live_rates_crypto.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/commodities2.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/broker_review.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/forex2.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/crypto.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/stocks2.html.twig" />
       </list>
     </option>
   </component>
@@ -238,6 +206,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -304,7 +273,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -372,12 +340,13 @@
       <workItem from="1529395872849" duration="2145000" />
       <workItem from="1529401336952" duration="2217000" />
       <workItem from="1529403913310" duration="1787000" />
-      <workItem from="1529405725175" duration="625000" />
+      <workItem from="1529405725175" duration="1636000" />
+      <workItem from="1529407532021" duration="406000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72491000" />
+    <option name="totallyTimeSpent" value="73908000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -407,19 +376,19 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15260416" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -598,24 +567,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/broker_review.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="11" column="19" selection-end-line="381" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex2.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -654,31 +609,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/test.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63000">
-          <caret line="3006" column="80" selection-start-line="3006" selection-start-column="50" selection-end-line="3006" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/commodities.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" selection-start-line="2" selection-end-line="5" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/crypto.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/commodities2.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -689,27 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/stocks2.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/Live_rates_stocks.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/Live_rates_crypto.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -717,20 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="218" selection-start-line="5" selection-start-column="218" selection-end-line="5" selection-end-column="218" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="831">
-          <caret line="166" selection-start-line="166" selection-end-line="166" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1827">
-          <caret line="87" column="131" selection-start-line="39" selection-start-column="12" selection-end-line="87" selection-end-column="131" />
         </state>
       </provider>
     </entry>
@@ -748,24 +647,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/chart.html.twig">
+    <entry file="file://$PROJECT_DIR$/web/js/oh-no.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="9" column="30" selection-end-line="210" />
+        <state relative-caret-position="84">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/Live_rates_forex.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="1268" column="52" selection-start-line="1268" selection-start-column="52" selection-end-line="1268" selection-end-column="52" />
+        <state relative-caret-position="530">
+          <caret line="46" column="66" selection-start-line="46" selection-start-column="66" selection-end-line="46" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/oh-no.js">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/Live_rates_crypto.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        <state relative-caret-position="494">
+          <caret line="46" column="67" selection-start-line="46" selection-start-column="67" selection-end-line="46" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/chart.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/Live_rates_stocks.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="33" column="3" selection-start-line="33" selection-start-column="3" selection-end-line="59" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1827">
+          <caret line="87" column="131" selection-start-line="39" selection-start-column="12" selection-end-line="87" selection-end-column="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/commodities2.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="6" selection-start-line="6" selection-end-line="32" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/crypto.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" selection-start-line="6" selection-end-line="32" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/stocks2.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="89" selection-start-line="17" selection-start-column="89" selection-end-line="17" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex2.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="72" selection-start-line="15" selection-start-column="72" selection-end-line="15" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/broker_review.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/test.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12067">
+          <caret line="3014" column="17" lean-forward="true" selection-start-line="3014" selection-start-column="17" selection-end-line="3014" selection-end-column="17" />
         </state>
       </provider>
     </entry>

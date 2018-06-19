@@ -1,7 +1,33 @@
 {% extends 'test.html.twig' %}
 
 
-
+  {% block menu_block %}
+      <div class="menu">
+          <ul class="my-nav">
+              <li class="my-hover"><a href="#" class="active">Live Stock Feed</a></li>
+              <li class="my-hover"><a href="{{ path('Live_rates_crypto') }}" >Live Crypto Feed</a></li>
+              <li class="my-hover"><a  href="{{ path('Live_rates_forex') }}" >Live Forex Feed</a></li>
+              <li class="my-hover"><a href="#" class="my-active">Brokers <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>
+                  <!--<li class="my-hover">Brokers <span class="hover_next-icon"><i class="fas fa-chevron-right"></i></span></a>-->
+                  <ul>
+                      <li ><a href="{{ path('forex2') }}" >Forex</a></li>
+                      <li ><a href="{{ path('crypto') }}">Crypto</a></li>
+                      <li ><a href="{{ path('stocks2') }}">Stocks</a></li>
+                      <li ><a href="{{ path('commodities2') }}" class="active">Commodities</a>
+                  </ul>
+              </li>
+              <li class="my-hover"><a href="#" class="my-active">Language <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>
+                  <ul>
+                      <li><a><img class="language-img" src="img/small_flags/gb.png" alt="gb"> English</a></li>
+                      <li><a><img class="language-img" src="img/small_flags/es.png" alt="es"> Espanol</a></li>
+                      <li><a><img class="language-img" src="img/small_flags/fr.png" alt="fr"> Francias</a></li>
+                      <li><a><img class="language-img" src="img/small_flags/it.png" alt="it"> Italiano</a></li>
+                      <li><a><img class="language-img" src="img/small_flags/de.png" alt="de"> Deutsch</a></li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+  {% endblock %}
 
 {% block body %}
 
