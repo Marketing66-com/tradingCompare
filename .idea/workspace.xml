@@ -11,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/crypto.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/crypto.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/forex2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/forex2.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/stocks2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/stocks2.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/test.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/test.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,8 +57,8 @@
       <file leaf-file-name="test.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/test.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12067">
-              <caret line="3014" column="17" lean-forward="true" selection-start-line="3014" selection-start-column="17" selection-end-line="3014" selection-end-column="17" />
+            <state relative-caret-position="57">
+              <caret line="2299" column="9" lean-forward="true" selection-start-line="2299" selection-start-column="9" selection-end-line="2313" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -126,7 +127,6 @@
         <option value="$PROJECT_DIR$/app/Resources/views/default/commodities.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/forex.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/test.html.twig" />
         <option value="$PROJECT_DIR$/web/js/general.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/chart.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/forex_chart.html.twig" />
@@ -141,6 +141,7 @@
         <option value="$PROJECT_DIR$/app/Resources/views/default/forex2.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/crypto.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/stocks2.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/test.html.twig" />
       </list>
     </option>
   </component>
@@ -341,12 +342,12 @@
       <workItem from="1529401336952" duration="2217000" />
       <workItem from="1529403913310" duration="1787000" />
       <workItem from="1529405725175" duration="1636000" />
-      <workItem from="1529407532021" duration="406000" />
+      <workItem from="1529407532021" duration="1170000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73908000" />
+    <option name="totallyTimeSpent" value="74672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -733,8 +734,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/test.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12067">
-          <caret line="3014" column="17" lean-forward="true" selection-start-line="3014" selection-start-column="17" selection-end-line="3014" selection-end-column="17" />
+        <state relative-caret-position="57">
+          <caret line="2299" column="9" lean-forward="true" selection-start-line="2299" selection-start-column="9" selection-end-line="2313" selection-end-column="15" />
         </state>
       </provider>
     </entry>
