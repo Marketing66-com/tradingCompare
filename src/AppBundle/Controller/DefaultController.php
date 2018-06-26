@@ -70,6 +70,17 @@ class DefaultController extends Controller
         return $this->render('test.html.twig');
     }
 
+
+    /**
+     * @Route("/mybar", name="mybar")
+     */
+    public function mybarAction()
+    {
+        $api =  $this->getParameter('crypto_api');
+        $first = "BTC"; $second = "ETH"; $third = "BCH"; $fourth = "LTC"; $fifth = "XRP"; $sixth = "DASH";
+        return $this->render('default\bar.html.twig',array("api"=>$api, "first"=>$first, "second"=>$second,  "third"=>$third,  "fourth"=>$fourth,  "fifth"=>$fifth,  "sixth"=>$sixth));
+    }
+
     /**
      * @Route("/ho_no", name="ho_no")
      */

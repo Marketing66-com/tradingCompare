@@ -1,8 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+    <div id="menu">
+        <ul id="onglets">
+            <li class="{{ app.request.get('_route') == 'crypto' ? 'active' }}"> crypto</li>
+            <li class="{{ app.request.get('_route') == 'Forex' ? 'active' }}"> forex</li>
+            <li class="{{ app.request.get('_route') == 'bar' ? 'active' }}"> bar</li>
+        </ul>
+    </div>
+
+
+</head>
+
+
+<body>
 <style>
+
+    body {margin: 0;padding: 0;font-family: 'Open Sans', sans-serif;}
+    .my-container {max-width: 100vw;overflow: hidden;}
+    header {background-color: #1e375e;z-index: 2;display: table !important;width: 100%;}
+
+    /*form*/
+    /*my-modal*/
+    /*statistics*/
+    .statistics {width: 100%;display: table;
+        background-color: #2A3041;
+        /*background-color: #fff;*/
+    }
+    .statistics_block {width: 16.6666%;padding: 5px 10px;display: table;float: left;border-right: 1px solid #707070;}
+    .statistics_block_green-text {font-family: 'Avenir';font-weight: 800;text-align: left;color: #9CD400;font-size: 20px;margin: 0;}
+    .statistics_block_min-text {font-size: 14px;}
+    .no-active {color: red;}
+    .active {color:red;}
+    /*statistics*/
+    .table {display: table;width: 100%;background-color: #f2f3f5;margin: 0 !important;}
+    .statistics_block_top-text {font-family: 'Avenir';font-weight: 800;width: 100%;color: white;font-size: 12px;}
+    .statistics_block_number {float: right;}
     .negative{color:red;}
     .positive{color:#9CD400;}
-    </style>
+    @media (max-width: 1200px) {}
+    @media (max-width: 991px) {
+        .ms-block {display: block;}
+        .ms-none, .menu {display: none;}
+        .comments-form {padding: 15px 0 0 0;}
+        .touch_your-comment {margin: 15px 0;}
+        .statistics_block {width: 25%;}
+    }
+    @media (max-width: 767px) {
+        .statistics_block {    width: 50%;    }
+    }
+    @media (max-width: 480px) {}
 
+</style>
 <div   class="statistics" ng-app="LiveBarApp" ng-controller="BarFeedsController"   ng-init="init('{{ api }}', '{{ first }}', '{{ second }}', '{{ third }}', '{{ fourth }}', '{{ fifth }}', '{{ sixth }}' )" >
     <div class="container">
         <div class="row">
@@ -54,3 +107,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-sortable/0.15.0/sortable.min.js"></script>
  <script src="{{ asset('js/bar.js') }}"></script>
+</body>
+</html>
