@@ -76,7 +76,8 @@ class DefaultController extends Controller
      */
     public function mybarAction()
     {
-        $api =  $this->getParameter('crypto_api');
+//        $api =  $this->getParameter('crypto_api');
+        $api = 'https://crypto-ws.herokuapp.com/All-Froms-and-Prices';
         $first = "BTC"; $second = "ETH"; $third = "BCH"; $fourth = "LTC"; $fifth = "XRP"; $sixth = "DASH";
         return $this->render('default\bar.html.twig',array("api"=>$api, "first"=>$first, "second"=>$second,  "third"=>$third,  "fourth"=>$fourth,  "fifth"=>$fifth,  "sixth"=>$sixth));
     }
