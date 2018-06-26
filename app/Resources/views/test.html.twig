@@ -3001,19 +3001,19 @@ margin: 0 ;
                 </div>
             </div>
 
-            {% block menu_block %}
+
             <div class="menu">
                 <ul class="my-nav">
-                    <li class="my-hover"><a href="{{ path('Live_rates_stocks') }}">Live Stock Feed</a></li>
-                    <li class="my-hover"><a href="{{ path('Live_rates_crypto') }}" >Live Crypto Feed</a></li>
-                    <li class="my-hover"><a  href="{{ path('Live_rates_forex') }}" >Live Forex Feed</a></li>
+                    <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_stocks' %}active{% endif %}" href="{{ path('Live_rates_stocks') }}">Live Stock Feed</a></li>
+                    <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_crypto' %}active{% endif %}" href="{{ path('Live_rates_crypto') }}" >Live Crypto Feed</a></li>
+                    <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_forex' %}active{% endif %}" href="{{ path('Live_rates_forex') }}" >Live Forex Feed</a></li>
                     <li class="my-hover"><a href="#" class="my-active">Brokers <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>
                         <!--<li class="my-hover">Brokers <span class="hover_next-icon"><i class="fas fa-chevron-right"></i></span></a>-->
                         <ul>
-                            <li ><a href="{{ path('forex2') }}" >Forex</a></li>
-                            <li ><a href="{{ path('crypto') }}">Crypto</a></li>
-                            <li ><a href="{{ path('stocks2') }}">Stocks</a></li>
-                            <li ><a href="{{ path('commodities2') }}" class="active">Commodities</a>
+                            <li ><a class="{% if app.request.attributes.get('_route') starts with 'forex2' %}active{% endif %}" href="{{ path('forex2') }}" >Forex</a></li>
+                            <li ><a class="{% if app.request.attributes.get('_route') starts with 'crypto' %}active{% endif %}" href="{{ path('crypto') }}">Crypto</a></li>
+                            <li ><a class="{% if app.request.attributes.get('_route') starts with 'stocks2' %}active{% endif %}" href="{{ path('stocks2') }}">Stocks</a></li>
+                            <li ><a class="{% if app.request.attributes.get('_route') starts with 'commodities2' %}active{% endif %}" href="{{ path('commodities2') }}" class="active">Commodities</a>
                         </ul>
                     </li>
                     <li class="my-hover"><a href="#" class="my-active">Language <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>
@@ -3027,40 +3027,71 @@ margin: 0 ;
                     </li>
                 </ul>
             </div>
-            {% endblock %}
+
+
+            {#{% block menu_block %}#}
+            {#<div class="menu">#}
+                {#<ul class="my-nav">#}
+                    {#<li class="my-hover"><a href="{{ path('Live_rates_stocks') }}">Live Stock Feed</a></li>#}
+                    {#<li class="my-hover"><a href="{{ path('Live_rates_crypto') }}" >Live Crypto Feed</a></li>#}
+                    {#<li class="my-hover"><a  href="{{ path('Live_rates_forex') }}" >Live Forex Feed</a></li>#}
+                    {#<li class="my-hover"><a href="#" class="my-active">Brokers <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>#}
+                        {#<!--<li class="my-hover">Brokers <span class="hover_next-icon"><i class="fas fa-chevron-right"></i></span></a>-->#}
+                        {#<ul>#}
+                            {#<li ><a href="{{ path('forex2') }}" >Forex</a></li>#}
+                            {#<li ><a href="{{ path('crypto') }}">Crypto</a></li>#}
+                            {#<li ><a href="{{ path('stocks2') }}">Stocks</a></li>#}
+                            {#<li ><a href="{{ path('commodities2') }}" class="active">Commodities</a>#}
+                        {#</ul>#}
+                    {#</li>#}
+                    {#<li class="my-hover"><a href="#" class="my-active">Language <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>#}
+                        {#<ul>#}
+                            {#<li><a><img class="language-img" src="img/small_flags/gb.png" alt="gb"> English</a></li>#}
+                            {#<li><a><img class="language-img" src="img/small_flags/es.png" alt="es"> Espanol</a></li>#}
+                            {#<li><a><img class="language-img" src="img/small_flags/fr.png" alt="fr"> Francias</a></li>#}
+                            {#<li><a><img class="language-img" src="img/small_flags/it.png" alt="it"> Italiano</a></li>#}
+                            {#<li><a><img class="language-img" src="img/small_flags/de.png" alt="de"> Deutsch</a></li>#}
+                        {#</ul>#}
+                    {#</li>#}
+                {#</ul>#}
+            {#</div>#}
+            {#{% endblock %}#}
         </div>
     </div>
 
-    <div class="statistics">
-        <div class="container">
-            <div class="row">
-                <div class="statistics_block">
-                    <p class="statistics_block_top-text">EUR/USD <span class="statistics_block_number">1.17012</span></p>
-                    <p class="statistics_block_green-text">+0.45% <span class="statistics_block_min-text">36.4</span></p>
-                </div>
-                <div class="statistics_block">
-                    <p class="statistics_block_top-text">EUR/USD <span class="statistics_block_number">1.17012</span></p>
-                    <p class="statistics_block_green-text">+0.45% <span class="statistics_block_min-text">36.4</span></p>
-                </div>
-                <div class="statistics_block xs-none">
-                    <p class="statistics_block_top-text ">EUR/USD <span class="statistics_block_number">1.17012</span></p>
-                    <p class="statistics_block_green-text">+0.45% <span class="statistics_block_min-text">36.4</span></p>
-                </div>
-                <div class="statistics_block xs-none sx-border-non">
-                    <p class="statistics_block_top-text">EUR/USD <span class="statistics_block_number">1.17012</span></p>
-                    <p class="statistics_block_green-text no-active">+0.45% <span class="statistics_block_min-text">36.4</span></p>
-                </div>
-                <div class="statistics_block ms-none">
-                    <p class="statistics_block_top-text ">EUR/USD <span class="statistics_block_number">1.17012</span></p>
-                    <p class="statistics_block_green-text">+0.45% <span class="statistics_block_min-text">36.4</span></p>
-                </div>
-                <div class="statistics_block border-none ms-none">
-                    <p class="statistics_block_top-text">EUR/USD <span class="statistics_block_number">1.17012</span></p>
-                    <p class="statistics_block_green-text no-active">+0.45% <span class="statistics_block_min-text">36.4</span></p>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    {{ render(controller('AppBundle:Bar:bar')) }}
+
+    {#<div class="statistics">#}
+        {#<div class="container">#}
+            {#<div class="row">#}
+                {#<div class="statistics_block">#}
+                    {#<p class="statistics_block_top-text">EUR/USD <span class="statistics_block_number">1.17012</span></p>#}
+                    {#<p class="statistics_block_green-text">+0.45% <span class="statistics_block_min-text">36.4</span></p>#}
+                {#</div>#}
+                {#<div class="statistics_block">#}
+                    {#<p class="statistics_block_top-text">EUR/USD <span class="statistics_block_number">1.17012</span></p>#}
+                    {#<p class="statistics_block_green-text">+0.45% <span class="statistics_block_min-text">36.4</span></p>#}
+                {#</div>#}
+                {#<div class="statistics_block xs-none">#}
+                    {#<p class="statistics_block_top-text ">EUR/USD <span class="statistics_block_number">1.17012</span></p>#}
+                    {#<p class="statistics_block_green-text">+0.45% <span class="statistics_block_min-text">36.4</span></p>#}
+                {#</div>#}
+                {#<div class="statistics_block xs-none sx-border-non">#}
+                    {#<p class="statistics_block_top-text">EUR/USD <span class="statistics_block_number">1.17012</span></p>#}
+                    {#<p class="statistics_block_green-text no-active">+0.45% <span class="statistics_block_min-text">36.4</span></p>#}
+                {#</div>#}
+                {#<div class="statistics_block ms-none">#}
+                    {#<p class="statistics_block_top-text ">EUR/USD <span class="statistics_block_number">1.17012</span></p>#}
+                    {#<p class="statistics_block_green-text">+0.45% <span class="statistics_block_min-text">36.4</span></p>#}
+                {#</div>#}
+                {#<div class="statistics_block border-none ms-none">#}
+                    {#<p class="statistics_block_top-text">EUR/USD <span class="statistics_block_number">1.17012</span></p>#}
+                    {#<p class="statistics_block_green-text no-active">+0.45% <span class="statistics_block_min-text">36.4</span></p>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
 
     <div class="my-modal modal_sigh-up">
         <div class="modal_scroll">
