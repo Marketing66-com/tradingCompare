@@ -13,7 +13,7 @@ demo.controller("BarFeedsController", function($scope,$http) {
             type: "GET",
             success: function (result) {
                 $scope.allcrypto = result
-                // console.log("Response1",  $scope.allcrypto)
+                console.log("Response1",  $scope.allcrypto)
                 for (i = 0; i < result.length; i++) {
                     // if(result[i].fromSymbol == first) {$scope.crypto1 = result[i]}
                     // if(result[i].fromSymbol == second) { $scope.crypto2 = result[i]}
