@@ -2,20 +2,21 @@
     .negative{color:red;}
     .positive{color:#9CD400;}
 </style>
-<div   class="statistics" ng-app="LiveBarApp" ng-controller="BarFeedsController"   ng-init="init('{{ api }}', '{{ first }}', '{{ second }}', '{{ third }}', '{{ fourth }}', '{{ fifth }}', '{{ sixth }}' )" >
+<div   class="statistics" ng-app="LiveBarApp" ng-controller="BarFeedsController"   ng-init="init('{{ api_forex }}', '{{ api_crypto }}', '{{ first }}', '{{ second }}', '{{ third }}', '{{ fourth }}',
+'{{ fifth }}', '{{ sixth }}' , '{{ forex_from1 }}' , '{{ forex_to1 }}' , '{{ forex_from2 }}' , '{{ forex_to2 }}' )" >
     <div class="container">
         <div class="row">
 
             <div class="statistics_block" >
 
-                <p class="statistics_block_top-text">{[{crypto1.fromSymbol}]}/{[{crypto1.toSymbol}]} <span class="statistics_block_number"> {[{crypto1.price}]}</span></p>
-                <p class="statistics_block_green-text" ng-class="{'negative': crypto1.change24 < 0, 'positive': crypto1.change24 >= 0}">{[{crypto1.change24}]}% <span class="statistics_block_min-text">{[{crypto1.point}]}</span></p>
+                <p class="statistics_block_top-text">{[{crypto1.name.slice(0, 3)}]}/{[{crypto1.name.slice(3, 6)}]} <span class="statistics_block_number"> {[{crypto1.price}]}</span></p>
+                <p class="statistics_block_green-text" ng-class="{'negative': crypto1.change24 < 0, 'positive': crypto1.change24 >= 0}">{[{crypto1.change}]}% <span class="statistics_block_min-text"></span></p>
 
             </div>
             <div class="statistics_block" >
 
-                <p class="statistics_block_top-text">{[{crypto2.fromSymbol}]}/{[{crypto2.toSymbol}]} <span class="statistics_block_number"> {[{crypto2.price}]}</span></p>
-                <p class="statistics_block_green-text" ng-class="{'negative': crypto2.change24 < 0, 'positive': crypto2.change24 >= 0}">{[{crypto2.change24}]}% <span class="statistics_block_min-text">{[{crypto2.point}]}</span></p>
+                <p class="statistics_block_top-text">{[{crypto2.name.slice(0, 3)}]}/{[{crypto2.name.slice(3, 6)}]} <span class="statistics_block_number"> {[{crypto2.price}]}</span></p>
+                <p class="statistics_block_green-text" ng-class="{'negative': crypto2.change24 < 0, 'positive': crypto2.change24 >= 0}">{[{crypto2.change}]}% <span class="statistics_block_min-text"></span></p>
 
             </div>
             <div class="statistics_block" >
