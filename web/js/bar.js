@@ -99,18 +99,22 @@ demo.controller("BarFeedsController", function($scope,$http) {
     socket2.on('connect', function() {
 
     socket2.on("onUpdate", function (response) {
-    console.log("response",response)
         //console.log("$scope.allforex",$scope.allforex)
 
-
-
             var item73 = $scope.allforex.find(function (element) {
-               // console.log("response", response)
+                //console.log("response", response)
                 //console.log("element.name", element.name, "response.fromSymbol", response.fromSymbol)
-                if (element.name == response.fromSymbol) {
-                    //console.log("element.name", element.name, "response.fromSymbol", response.fromSymbol)
+                if(response.fromSymbol == "EURUSD" || response.fromSymbol == "USDJPY" )
+                {
+                    // console.log("response24",response.data.change24)
                     return element.name == response.fromSymbol;
                 }
+                // if(element.name == response.fromSymbol)
+                // {console.log("response",response)}
+
+                    //console.log("element.name", element.name, "response.fromSymbol", response.fromSymbol)
+
+
 
             });
 
