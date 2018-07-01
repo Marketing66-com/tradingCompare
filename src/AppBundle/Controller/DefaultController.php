@@ -90,17 +90,17 @@ class DefaultController extends Controller
     }
 
 
-    /**
-     * @Route("/Live_rates_forex", name="Live_rates_forex")
-     */
-    public function Live_rates_forexAction()
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/Live_rates_forex.html.twig');
-    }
-
-
-
+//    /**
+//     * @Route("/Live_rates_forex", name="Live_rates_forex")
+//     */
+//    public function Live_rates_forexAction()
+//    {
+//        // replace this example code with whatever you need
+//        return $this->render('default/Live_rates_forex.html.twig');
+//    }
+//
+//
+//
     /**
      * @Route("/Live_rates_stocks", name="Live_rates_stocks")
      */
@@ -111,15 +111,15 @@ class DefaultController extends Controller
     }
 
 
-    /**
-     * @Route("/Live_rates_crypto", name="Live_rates_crypto")
-     */
-    public function Live_rates_cryptoAction()
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/Live_rates_crypto.html.twig');
-    }
-
+//    /**
+//     * @Route("/Live_rates_crypto", name="Live_rates_crypto")
+//     */
+//    public function Live_rates_cryptoAction()
+//    {
+//        // replace this example code with whatever you need
+//        return $this->render('default/Live_rates_crypto.html.twig');
+//    }
+//
 
 
 
@@ -136,23 +136,24 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/currencies/{currency}/real-time-price-sentiment", name="crypto_chart")
+     * @Route("/Crypto-currencies/{currency}/real-time-price-sentiment", name="crypto_chart", options={"expose" = true})
      */
     public function crypto_chartAction($currency)
     {
-        dump($currency);
-        // replace this example code with whatever you need
-        return $this->render('default/chart_crypto.html.twig');
+//        dump($currency);
+//         replace this example code with whatever you need
+
+        return $this->render('default/chart_crypto.html.twig',array("currency"=>$currency));
     }
 
     /**
-     * @Route("/currencies/{currency}/chart-real-time-sentiment", name="forex_chart")
+     * @Route("/currencies/{currency}/chart-real-time-sentiment", name="forex_chart", options={"expose" = true})
      */
     public function forex_chartAction($currency)
     {
         dump($currency);
         // replace this example code with whatever you need
-        return $this->render('default/forex_chart.html.twig');
+        return $this->render('default/forex_chart.html.twig',array("currency"=>$currency));
     }
 
     /**
@@ -222,5 +223,12 @@ class DefaultController extends Controller
         return $this->render('default/stocks2.html.twig');
     }
 
-
+    /**
+     * @Route("/detente", name="detente")
+     */
+    public function detenteAction()
+    {
+        // replace this example code with whatever you need
+        return $this->render('default/detente.html.twig');
+    }
 }

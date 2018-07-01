@@ -1,0 +1,32 @@
+<html lang="en"> <!--<![endif]-->
+
+<head>
+
+
+
+    <meta charset="utf-8">
+
+        <title>Tradingcompare</title>
+        <meta name="description" content="">
+
+
+        <style>
+
+
+
+        </style>
+</head>
+
+<body>
+<script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+salut
+
+    <script>
+
+       var url =  Routing.generate('forex_chart',{"currency" :"EUR/USD"})
+        console.log(url)
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+
+
+
+
+{% extends 'test.html.twig' %}
+
+ {% block description %}
+     <title>Top 6 ONLINE BROKERS To Buy Commodities– Gold,Oil,Sugar and more.</title>
+     <meta name="description" content="Join the online trading revolution. Compare the best online trading brokers FREE & find the leading platforms to buy, sell & trade online. Compare fees, commissions, promotions,regulation and features all in one place">
+ {% endblock %}
+
+
+     {% block menu_block %}
+         <div class="menu">
+             <ul class="my-nav">
+                 <li class="my-hover"><a href="{{ path('Live_rates_stocks') }}">Live Stock Feed</a></li>
+                 <li class="my-hover"><a href="#" class="active">Live Crypto Feed</a></li>
+                 <li class="my-hover"><a  href="{{ path('Live_rates_forex') }}" >Live Forex Feed</a></li>
+                 <li class="my-hover"><a href="#" class="my-active">Brokers <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>
+                     <!--<li class="my-hover">Brokers <span class="hover_next-icon"><i class="fas fa-chevron-right"></i></span></a>-->
+                     <ul>
+                         <li ><a href="{{ path('forex2') }}" >Forex</a></li>
+                         <li ><a href="{{ path('crypto') }}">Crypto</a></li>
+                         <li ><a href="{{ path('stocks2') }}">Stocks</a></li>
+                         <li ><a href="{{ path('commodities2') }}" >Commodities</a>
+                     </ul>
+                 </li>
+                 <li class="my-hover"><a href="#" class="my-active">Language <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>
+                     <ul>
+                         <li><a><img class="language-img" src="img/small_flags/gb.png" alt="gb"> English</a></li>
+                         <li><a><img class="language-img" src="img/small_flags/es.png" alt="es"> Espanol</a></li>
+                         <li><a><img class="language-img" src="img/small_flags/fr.png" alt="fr"> Francias</a></li>
+                         <li><a><img class="language-img" src="img/small_flags/it.png" alt="it"> Italiano</a></li>
+                         <li><a><img class="language-img" src="img/small_flags/de.png" alt="de"> Deutsch</a></li>
+                     </ul>
+                 </li>
+             </ul>
+         </div>
+     {% endblock %}
+{% block body %}
+
+    {#<div  ng-app="LiveFeedsApp" ng-controller="WebsocketStateCtrl"    >#}
+    {#</div>#}
+    <div  ng-app="LiveFeedsApp" ng-controller="CryptoFeedsController"   ng-init="init('{{ api }}','{{ img }}',' {{ chart_link }}')" >
+        {{ include('LiveFeedBundle:Default:baseS.html.twig' , {chart_link: chart_link}) }}
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-sortable/0.15.0/sortable.min.js"></script>
+
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script src="{{ asset('js/CryptoFeeds.js') }}"></script>
+
+{% endblock %}
