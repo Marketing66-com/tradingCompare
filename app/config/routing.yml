@@ -1,3 +1,13 @@
+live_feed:
+    resource: "@LiveFeedBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

@@ -1,0 +1,4 @@
+services:
+#    live_feed.example:
+#        class: LiveFeedBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
