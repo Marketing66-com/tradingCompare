@@ -77,7 +77,7 @@ demo.controller("BarFeedsController", function($scope,$http) {
     socket1.on('connect', function () {
         socket1.emit('room', "all_regulated");
         socket1.on('message', data =>{
-
+console.log("data", data)
             for (const key in data) {
             var item73 = $scope.allcrypto.find(function (element) {
                 return (element.fromSymbol == key.split("_",1) && element.toSymbol == key.split("_")[1]);
