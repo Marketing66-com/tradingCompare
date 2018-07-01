@@ -16,9 +16,7 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('default/Live_rates_crypto.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->render('default/Live_rates_crypto.html.twig');
     }
     /**
      * @Route("/cryptocurrencies", name="cryptocurrencies")
@@ -26,9 +24,7 @@ class DefaultController extends Controller
     public function cryptocurrenciesAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('default/cryptocurrencies.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->render('default/cryptocurrencies.html.twig');
     }
 
 
@@ -40,9 +36,7 @@ class DefaultController extends Controller
     public function forexAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('default/forex.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->render('default/forex.html.twig');
     }
 
     /**
@@ -51,9 +45,7 @@ class DefaultController extends Controller
     public function stocksAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('default/stocks.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->render('default/stocks.html.twig');
     }
 
     /**
@@ -62,9 +54,7 @@ class DefaultController extends Controller
     public function commoditiesAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('default/commodities.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->render('default/commodities.html.twig');
     }
 
 
@@ -78,6 +68,18 @@ class DefaultController extends Controller
     {
         // replace this example code with whatever you need
         return $this->render('test.html.twig');
+    }
+
+
+    /**
+     * @Route("/mybar", name="mybar")
+     */
+    public function mybarAction()
+    {
+//        $api =  $this->getParameter('crypto_api');
+        $api = 'https://crypto-ws.herokuapp.com/All-Froms-and-Prices';
+        $first = "BTC"; $second = "ETH"; $third = "BCH"; $fourth = "LTC"; $fifth = "XRP"; $sixth = "DASH";
+        return $this->render('default\bar.html.twig',array("api"=>$api, "first"=>$first, "second"=>$second,  "third"=>$third,  "fourth"=>$fourth,  "fifth"=>$fifth,  "sixth"=>$sixth));
     }
 
     /**

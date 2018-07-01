@@ -1,0 +1,56 @@
+<style>
+    .negative{color:red;}
+    .positive{color:#9CD400;}
+</style>
+<div   class="statistics" ng-app="LiveBarApp" ng-controller="BarFeedsController"   ng-init="init('{{ api_forex }}', '{{ api_crypto }}', '{{ first }}', '{{ second }}', '{{ third }}', '{{ fourth }}',
+'{{ fifth }}', '{{ sixth }}' , '{{ forex_from1 }}' , '{{ forex_to1 }}' , '{{ forex_from2 }}' , '{{ forex_to2 }}' )" >
+    <div class="container">
+        <div class="row">
+
+            <div class="statistics_block" >
+
+                <p class="statistics_block_top-text">{[{crypto1.name.slice(0, 3)}]}/{[{crypto1.name.slice(3, 6)}]} <span class="statistics_block_number"> {[{crypto1.price}]}</span></p>
+                <p class="statistics_block_green-text" ng-class="{'negative': crypto1.change24 < 0, 'positive': crypto1.change24 >= 0}">{[{crypto1.change24}]}% <span class="statistics_block_min-text"></span></p>
+
+            </div>
+            <div class="statistics_block" >
+
+                <p class="statistics_block_top-text">{[{crypto2.name.slice(0, 3)}]}/{[{crypto2.name.slice(3, 6)}]} <span class="statistics_block_number"> {[{crypto2.price}]}</span></p>
+                <p class="statistics_block_green-text" ng-class="{'negative': crypto2.change24 < 0, 'positive': crypto2.change24 >= 0}">{[{crypto2.change24}]}% <span class="statistics_block_min-text"></span></p>
+
+            </div>
+            <div class="statistics_block" >
+
+                <p class="statistics_block_top-text">{[{crypto3.fromSymbol}]}/{[{crypto3.toSymbol}]} <span class="statistics_block_number"> {[{crypto3.price}]}</span></p>
+                <p class="statistics_block_green-text" ng-class="{'negative': crypto3.change24 < 0, 'positive': crypto3.change24 >= 0}">{[{crypto3.change24}]}% <span class="statistics_block_min-text">{[{crypto3.point}]}</span></p>
+
+            </div>
+            <div class="statistics_block" >
+
+                <p class="statistics_block_top-text">{[{crypto4.fromSymbol}]}/{[{crypto4.toSymbol}]} <span class="statistics_block_number"> {[{crypto4.price}]}</span></p>
+                <p class="statistics_block_green-text" ng-class="{'negative': crypto4.change24 < 0, 'positive': crypto4.change24 >= 0}">{[{crypto4.change24}]}% <span class="statistics_block_min-text">{[{crypto4.point}]}</span></p>
+
+            </div>
+            <div class="statistics_block" >
+
+                <p class="statistics_block_top-text">{[{crypto5.fromSymbol}]}/{[{crypto5.toSymbol}]} <span class="statistics_block_number"> {[{crypto5.price}]}</span></p>
+                <p class="statistics_block_green-text" ng-class="{'negative': crypto5.change24 < 0, 'positive': crypto5.change24 >= 0}">{[{crypto5.change24}]}% <span class="statistics_block_min-text">{[{crypto5.point}]}</span></p>
+
+            </div>
+            <div class="statistics_block" >
+
+                <p class="statistics_block_top-text">{[{crypto6.fromSymbol}]}/{[{crypto6.toSymbol}]} <span class="statistics_block_number"> {[{crypto6.price}]}</span></p>
+                <p class="statistics_block_green-text" ng-class="{'negative': crypto6.change24 < 0, 'positive': crypto6.change24 >= 0}">{[{crypto6.change24}]}% <span class="statistics_block_min-text">{[{crypto6.point}]}</span></p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-sortable/0.15.0/sortable.min.js"></script>
+<script src="{{ asset('js/bar.js') }}"></script>
