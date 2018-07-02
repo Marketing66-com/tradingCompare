@@ -20,7 +20,7 @@ class FeedsControler extends Controller
         $api =  $this->getParameter('crypto_api');
         $img = $this->getParameter('crypto_img');
         $chart_link = "crypto_chart";
-        dump($chart_link);
+//        dump($chart_link);
         return $this->render('LiveFeedBundle:Default:crypto.html.twig' ,array('api'=>$api,"img"=>$img, "chart_link"=>$chart_link));
 
     }
