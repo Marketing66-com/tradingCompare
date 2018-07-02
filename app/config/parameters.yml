@@ -5,14 +5,12 @@ parameters:
     database_name: symfony
     database_user: root
     database_password: null
-    brokers_directory: '%kernel.root_dir%/../web/images/uploads/brokers'
-    forex_api: 'https://xosignals.herokuapp.com/api2/getTradingCompareByName'
     crypto_api: 'https://crypto-ws.herokuapp.com/All-Froms-and-Prices'
+    crypto_img: 'https://afternoon-mountain-15657.herokuapp.com/listofFrom'
+    forex_api: 'https://forex-websocket.herokuapp.com/all_data'
+    forex_img: 'https://xosignals.herokuapp.com/api2/getTradingCompareByName/forex'
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
     secret: 149d6ca0712f36021cb41d192c5484276ae5f3b2
-
-
-#/app/config/parameters.yml

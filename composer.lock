@@ -2330,7 +2330,6 @@
                 "templating"
             ],
             "time": "2018-04-02T09:24:19+00:00"
-<<<<<<< HEAD
         },
         {
             "name": "willdurand/jsonp-callback-validator",
@@ -2371,8 +2370,6 @@
             ],
             "description": "JSONP callback validator.",
             "time": "2014-01-20T22:35:06+00:00"
-=======
->>>>>>> b3f61205f35c1ccf0ac0af91fcefc1ef90fcd852
         }
     ],
     "packages-dev": [
@@ -2432,18 +2429,6 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-<<<<<<< HEAD
-            "version": "v3.4.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "63cdae00a75862fa543b765ba63d55f6b6397d0c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/63cdae00a75862fa543b765ba63d55f6b6397d0c",
-                "reference": "63cdae00a75862fa543b765ba63d55f6b6397d0c",
-=======
             "version": "v3.4.12",
             "source": {
                 "type": "git",
@@ -2454,7 +2439,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/8a21eb6bedad38bf1f15d529c65eb9e17d0242fd",
                 "reference": "8a21eb6bedad38bf1f15d529c65eb9e17d0242fd",
->>>>>>> b3f61205f35c1ccf0ac0af91fcefc1ef90fcd852
                 "shasum": ""
             },
             "require": {
@@ -2507,11 +2491,7 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-            "time": "2018-05-16T12:49:49+00:00"
-=======
             "time": "2018-06-10T07:25:02+00:00"
->>>>>>> b3f61205f35c1ccf0ac0af91fcefc1ef90fcd852
         }
     ],
     "aliases": [],

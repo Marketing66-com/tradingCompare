@@ -10,14 +10,14 @@ class DefaultController extends Controller
 {
 
 
-    /**
-     * @Route("/", name="homepage")
-     */
-    public function indexAction(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/Live_rates_crypto.html.twig');
-    }
+//    /**
+//     * @Route("/", name="homepage")
+//     */
+//    public function indexAction(Request $request)
+//    {
+//        // replace this example code with whatever you need
+//        return $this->render('C:\wamp64\www\trading\tradingCompare\src\LiveFeedBundle\Resources\views\Default\crypto.html.twig');
+//    }
     /**
      * @Route("/cryptocurrencies", name="cryptocurrencies")
      */
@@ -155,7 +155,7 @@ class DefaultController extends Controller
     {
         dump($currency);
         // replace this example code with whatever you need
-        return $this->render('default/forex_chart.html.twig',array("currency"=>$currency));
+        return $this->render('default/forex_chart.html.twig',array("currency"=>$currency,));
     }
 
     /**

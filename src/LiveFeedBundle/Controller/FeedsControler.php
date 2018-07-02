@@ -13,6 +13,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class FeedsControler extends Controller
 {
     /**
+     * @Route("/")
+     */
+    public function indexAction()
+    {
+        $api =  $this->getParameter('crypto_api');
+        $img = $this->getParameter('crypto_img');
+        $chart_link = "crypto_chart";
+        dump($chart_link);
+        return $this->render('LiveFeedBundle:Default:crypto.html.twig' ,array('api'=>$api,"img"=>$img, "chart_link"=>$chart_link));
+
+    }
+
+
+    /**
      * @Route("/Live_rates_crypto",name="Live_rates_crypto")
      */
     public function CryptoAction()
@@ -24,6 +38,9 @@ class FeedsControler extends Controller
 
 
     }
+
+
+
     /**
      * @Route("/Live_rates_forex",name="Live_rates_forex")
      */
@@ -35,5 +52,40 @@ class FeedsControler extends Controller
         return $this->render('LiveFeedBundle:Default:forex.html.twig',array('api'=>$apiF, 'img'=>$imgF, "chart_link"=>$chart_link));
 
     }
+
+//    /**
+//     * @Route("/bar",name="bar")
+//     */
+//    public function testAngularAction()
+//    {
+//
+//        $api =  $this->getParameter('crypto_api');
+//        $img = $this->getParameter('crypto_img');
+//        $chart_link = "crypto_chart";
+//        $first = "BTC";
+////        return $this->render('LiveFeedBundle:Default:testAngular.html.twig',array('api'=>$api,"img"=>$img, "chart_link"=>$chart_link));
+//        return $this->render('default\bar.html.twig',array('api'=>$api,  "first"=>$first, 'img'=>$img, "chart_link"=>$chart_link));
+//
+//
+//    }
+
+
+
+//    /**
+//     * @Route("/testAngular",name="testAngular")
+//     */
+//    public function testAngular2Action()
+//    {
+//
+//        $api =  $this->getParameter('crypto_api');
+//        $img = $this->getParameter('crypto_img');
+//        $chart_link = "crypto_chart";
+//        $first = "BTC";
+////        return $this->render('LiveFeedBundle:Default:testAngular.html.twig',array('api'=>$api,"img"=>$img, "chart_link"=>$chart_link));
+//        return $this->render('LiveFeedBundle:Default:testAngular.html.twig',array('api'=>$api, 'img'=>$img, "chart_link"=>$chart_link));
+//
+//
+//    }
+
 
 }

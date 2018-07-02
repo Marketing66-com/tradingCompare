@@ -1,12 +1,15 @@
 
+// (function(window) {
+var ThirdApp = angular.module('ThirdApp', []).config(function ($interpolateProvider) {
+    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');})
 
- (function(window) {
-    var demo = angular.module('LiveFeedsApp', []).config(function ($interpolateProvider) {
-        $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
-    });
 
-    demo.controller("ForexFeedsController", function ($scope, $http) {
+    // var demo = angular.module('LiveFeedsApp', []).config(function ($interpolateProvider) {
+    //     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+    // });
 
+    ThirdApp.controller("ThirdController", function ($scope, $http) {
+        $scope.desc3 = "Third app. ";
 
         $scope.all = []
         $scope.all1 = []
@@ -24,7 +27,7 @@
                     $scope.all1 = result
 
                     for (key in $scope.all1) {
-                        if (i < 101) {
+                        if (i < 51) {
                             $scope.all1[key].fromSymbol = $scope.all1[key].fromSymbol.slice(0, 3) + "/" + $scope.all1[key].fromSymbol.slice(3, 6)
 
                             $scope.all.push($scope.all1[key])
@@ -117,7 +120,7 @@
             console.log(from, to, '*********************')
              var url =  Routing.generate('forex_chart',{"currency" :symbol})
             console.log(Routing.generate('forex_chart',{"currency" :symbol}))
-window.location.href= url
+            window.location.href= url
           //  console.log("----", Routing.generate('crypto_chart', from, to, true))
            return url
             // console.log("----",Routing.generate('crypto_chart'))
@@ -125,7 +128,15 @@ window.location.href= url
         }
 
     });
-})(window);
+
+    var dvThird = document.getElementById('dvThird');
+
+    angular.element(document).ready(function() {
+
+        angular.bootstrap(dvThird, ['ThirdApp']);
+    });
+//
+// })(window);
 
 //     var socket = io.connect("https://xosignals.herokuapp.com/", {
 //         path: "/socket/xosignals/livefeed"
