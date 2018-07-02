@@ -150,8 +150,6 @@ class DefaultController extends Controller
      */
     public function forex_chartAction($currency)
     {
-        dump($currency);
-        // replace this example code with whatever you need
         return $this->render('default/forex_chart.html.twig',array("currency"=>$currency,));
     }
 
