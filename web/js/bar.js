@@ -92,13 +92,13 @@ firstApp.controller('FirstController', function($scope) {
                     }
                 } $scope.$apply()
             }
-        })     
+        })
         })
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //             var item73
 //             for (var i = 0; i < response.length; i++) {
-//
+//    
 //                 item73 = $scope.all.find(function (element) {
 //
 //                     return element.fromSymbol == (response[i].fromSymbol.slice(0, 3) + "/" + response[i].fromSymbol.slice(3, 6));
