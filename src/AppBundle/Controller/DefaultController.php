@@ -142,9 +142,6 @@ class DefaultController extends Controller
      */
     public function crypto_chartAction($currency)
     {
-//        dump($currency);
-//         replace this example code with whatever you need
-
         return $this->render('default/chart_crypto.html.twig',array("currency"=>$currency));
     }
 
