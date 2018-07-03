@@ -9,15 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
 
-
-//    /**
-//     * @Route("/", name="homepage")
-//     */
-//    public function indexAction(Request $request)
-//    {
-//        // replace this example code with whatever you need
-//        return $this->render('C:\wamp64\www\trading\tradingCompare\src\LiveFeedBundle\Resources\views\Default\crypto.html.twig');
-//    }
     /**
      * @Route("/cryptocurrencies", name="cryptocurrencies")
      */
@@ -28,37 +19,32 @@ class DefaultController extends Controller
     }
 
 
+//    /**
+//     * @Route("/forex", name="forex")
+//     */
+//    public function forexAction(Request $request)
+//    {
+//        // replace this example code with whatever you need
+//        return $this->render('default/forex.html.twig');
+//    }
 
+//    /**
+//     * @Route("/stocks", name="stocks")
+//     */
+//    public function stocksAction(Request $request)
+//    {
+//        // replace this example code with whatever you need
+//        return $this->render('default/stocks.html.twig');
+//    }
 
-    /**
-     * @Route("/forex", name="forex")
-     */
-    public function forexAction(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/forex.html.twig');
-    }
-
-    /**
-     * @Route("/stocks", name="stocks")
-     */
-    public function stocksAction(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/stocks.html.twig');
-    }
-
-    /**
-     * @Route("/commodities", name="commodities")
-     */
-    public function commoditiesAction(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/commodities.html.twig');
-    }
-
-
-
+//    /**
+//     * @Route("/commodities", name="commodities")
+//     */
+//    public function commoditiesAction(Request $request)
+//    {
+//        // replace this example code with whatever you need
+//        return $this->render('default/commodities.html.twig');
+//    }
 
 
     /**
@@ -91,18 +77,6 @@ class DefaultController extends Controller
         return $this->render('default/ho_no.html.twig');
     }
 
-
-//    /**
-//     * @Route("/Live_rates_forex", name="Live_rates_forex")
-//     */
-//    public function Live_rates_forexAction()
-//    {
-//        // replace this example code with whatever you need
-//        return $this->render('default/Live_rates_forex.html.twig');
-//    }
-//
-//
-//
     /**
      * @Route("/Live_rates_stocks", name="Live_rates_stocks")
      */
@@ -111,19 +85,6 @@ class DefaultController extends Controller
         // replace this example code with whatever you need
         return $this->render('default/Live_rates_stocks.html.twig');
     }
-
-
-//    /**
-//     * @Route("/Live_rates_crypto", name="Live_rates_crypto")
-//     */
-//    public function Live_rates_cryptoAction()
-//    {
-//        // replace this example code with whatever you need
-//        return $this->render('default/Live_rates_crypto.html.twig');
-//    }
-//
-
-
 
 
     /**
@@ -164,9 +125,6 @@ class DefaultController extends Controller
     }
 
 
-
-
-
     /**
      * @Route("/broker_review", name="broker_review")
      */
@@ -176,8 +134,14 @@ class DefaultController extends Controller
         return $this->render('default/broker_review.html.twig');
     }
 
-
-
+    /**
+     * @Route("/etoro_review", name="etoro_review")
+     */
+    public function etoro_reviewAction()
+    {
+        // replace this example code with whatever you need
+        return $this->render('default/Etoro_review.html.twig');
+    }
 
     /**
      * @Route("/commodities2", name="commodities2")
@@ -186,6 +150,15 @@ class DefaultController extends Controller
     {
         // replace this example code with whatever you need
         return $this->render('default/commodities2.html.twig');
+    }
+
+    /**
+     * @Route("/commodities", name="commodities")
+     */
+    public function commoditiAction()
+    {
+        // replace this example code with whatever you need
+        return $this->render('default/commodities.html.twig');
     }
 
 

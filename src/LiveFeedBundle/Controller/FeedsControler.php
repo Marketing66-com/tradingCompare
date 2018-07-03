@@ -26,7 +26,7 @@ class FeedsControler extends Controller
 
 
     /**
-     * @Route("/Live_rates_crypto",name="Live_rates_crypto")
+     * @Route("/cryptocurrencies/streaming-crypto-rates-majors-social-sentiment",name="Live_rates_crypto")
      */
     public function CryptoAction()
     {
@@ -41,7 +41,7 @@ class FeedsControler extends Controller
 
 
     /**
-     * @Route("/Live_rates_forex",name="Live_rates_forex")
+     * @Route("/currencies/streaming-forex-rates-majors-social-sentiment",name="Live_rates_forex")
      */
     public function ForexAction()
     {
