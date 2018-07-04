@@ -918,7 +918,7 @@
                             </div>
                             <p class="live_block_money-left"><span class="live_block_money_bold live_block_money_red">$6.02B</span></p>
                             <p class="live_block_money-right  live_block_money_border"><span class="live_block_money_bold live_block_money_red">-6.41%</span></p>
-                            <a href="http://tradingcompare.com/Crypto-currencies/AU_BTC/real-time-price-sentiment"><img class="live_block_chart" src= '{{asset("img/chart_long.png" )}}' alt="chart_long">
+                            <a Onclick="hello()"><img class="live_block_chart" src= '{{asset("img/chart_long.png" )}}' alt="chart_long">
                             </a>
 
                             {#<img class="live_block_chart" src="img/chart_long.png" alt="chart_long">#}
@@ -1478,4 +1478,13 @@
 
 
     </div>
+
+    <script>
+        function hello()
+        {
+            console.log("hello")
+            
+            window.open('http://tradingcompare.com/Crypto-currencies/AU_BTC/real-time-price-sentiment');
+        }
+        </script>
 {% endblock %}
