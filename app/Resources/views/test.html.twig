@@ -94,7 +94,9 @@ header{background-color:#1e375e;z-index:2;display:table!important;width:100%;}
 .number p{width:30px;line-height:30px;color:white;font-weight:bold;font-size:20px;border-radius:50%;background-color:#9b9b9b;position:absolute;top:45%;left:50%;transform:translate(-50%, -50%);}
 .brokers-Stocks{background:url("{{ asset('img/chart.jpg') }}") no-repeat;background-position:center;}
 .brokers-commodities{background:url("{{ asset('img/commodities-banner.png') }}") no-repeat;background-position:center;}
-
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
 /*end style ortal*/
 
             body {
@@ -2974,7 +2976,7 @@ margin: 0 ;
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <header >
-    <div class="container">
+    <div class="container ">
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-5">
                 <div class="burger clearfix ms-block">
@@ -3018,7 +3020,7 @@ margin: 0 ;
 
 
             <div class="menu">
-                <ul class="my-nav">
+                <ul class="my-nav ">
                     <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_stocks' %}active{% endif %}" href="{{ path('Live_rates_stocks') }}">Live Stock Feed</a></li>
                     <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_crypto' %}active{% endif %}" href="{{ path('Live_rates_crypto') }}" >Live Crypto Feed</a></li>
                     <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_forex' %}active{% endif %}" href="{{ path('Live_rates_forex') }}" >Live Forex Feed</a></li>
