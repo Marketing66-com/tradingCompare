@@ -40,7 +40,7 @@ $('.live_cont-block').mouseenter(function () {
     $(this).addClass('new');
     myVar = setTimeout(function(){
         $('.live_cont-block').removeClass('new');
-    }, 5000);
+    }, 1000);
 }).mouseleave(function () {
     $(this).removeClass('new');
     clearTimeout(myVar);
