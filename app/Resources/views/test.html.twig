@@ -1952,6 +1952,7 @@ margin: 0 ;
                 width: 100%;
                 margin: 10px 0;
                 max-height: 35px;
+                cursor:pointer;
             }
 
             .live_block_money-left, .live_block_money-right {
@@ -3258,7 +3259,7 @@ margin: 0 ;
             ms.href = hf;
             document.getElementsByTagName("head")[0].appendChild(ms);
         }
-        loadCSS("font/font_avenir.css");
+        loadCSS('{{asset("font/font_avenir.css")}}');
         loadCSS("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
         loadCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
 
@@ -3269,16 +3270,16 @@ margin: 0 ;
     <!-- Load CSS compiled without Bootstrap & Header styles (after release) -->
     <script>var ms = document.createElement("link");
         ms.rel = "stylesheet";
-        ms.href = "css/compiled.min.css";
+        ms.href = '{{asset("css/compiled.min.css")}}';
         document.getElementsByTagName("head")[0].appendChild(ms);
     </script>
 
     <!-- Load Scripts -->
     <script>var scr = {
             "scripts": [
-                {"src": "js/jquery-3.3.1.min.js", "async": false},
-                {"src": "js/general.js", "async": false},
-                {"src": "js/oh-no.js", "async": false},
+                {"src": '{{asset("js/jquery-3.3.1.min.js")}}', "async": false},
+                {"src": '{{asset("js/general.js")}}', "async": false},
+                {"src": '{{asset("js/oh-no.js")}}', "async": false},
                 {"src": "https://use.fontawesome.com/releases/v5.0.10/js/all.js", "async": false},
 
             ]
