@@ -201,4 +201,17 @@ class DefaultController extends Controller
         // replace this example code with whatever you need
         return $this->render('default/detente.html.twig');
     }
+
+    /**
+     * @Route("/indexation", name="indexation")
+     */
+    public function indexationAction()
+    {
+        $api =  $this->getParameter('crypto_api');
+        $img = $this->getParameter('crypto_img');
+        $chart_link = "crypto_chart";
+        return $this->render('default/indexation.html.twig',array('api'=>$api,"img"=>$img, "chart_link"=>$chart_link));
+
+
+    }
 }

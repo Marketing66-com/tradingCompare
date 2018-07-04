@@ -3074,8 +3074,9 @@ margin: 0 ;
         </div>
     </div>
 
-
+{% block indexation %}
     {{ render(controller('AppBundle:Bar:bar')) }}
+    {% endblock %}
 
     {#<div class="statistics">#}
         {#<div class="container">#}
