@@ -6,8 +6,8 @@
 <div id="dvFirst" class="ng-cloak">
     <div ng-controller="FirstController">
 
-        <div ng-init="init('{{ api_forex }}', '{{ api_crypto }}', '{{ first }}', '{{ second }}', '{{ third }}', '{{ fourth }}',
-        '{{ fifth }}', '{{ sixth }}' , '{{ forex_from1 }}' , '{{ forex_to1 }}' , '{{ forex_from2 }}' , '{{ forex_to2 }}' )" ></div>
+        <div ng-init="init('{{ api_forex }}', '{{ api_crypto }}','{{ api_stock }}', '{{ first }}', '{{ second }}', '{{ third }}', '{{ fourth }}',
+        '{{ forex_from1 }}' , '{{ forex_to1 }}' , '{{ forex_from2 }}' , '{{ forex_to2 }}' , '{{ stock1 }}', '{{ stock2 }}')" ></div>
 
         <div class="container">
         <div class="row">
@@ -41,14 +41,14 @@
         </div>
         <div class="statistics_block" >
 
-        <p class="statistics_block_top-text">{[{crypto5.fromSymbol}]}/{[{crypto5.toSymbol}]} <span class="statistics_block_number"> {[{crypto5.price}]}</span></p>
-        <p class="statistics_block_green-text" ng-class="{'negative': crypto5.change24 < 0, 'positive': crypto5.change24 >= 0}">{[{crypto5.change24}]}% <span class="statistics_block_min-text">{[{crypto5.point}]}</span></p>
+        <p class="statistics_block_top-text">{[{crypto5.name}]} <span class="statistics_block_number"> {[{crypto5.price}]}</span></p>
+        <p class="statistics_block_green-text" ng-class="{'negative': crypto5.change24 < 0, 'positive': crypto5.change24 >= 0}">{[{crypto5.change}]}% <span class="statistics_block_min-text">{[{crypto5.point}]}</span></p>
 
         </div>
         <div class="statistics_block" >
 
-        <p class="statistics_block_top-text">{[{crypto6.fromSymbol}]}/{[{crypto6.toSymbol}]} <span class="statistics_block_number"> {[{crypto6.price}]}</span></p>
-        <p class="statistics_block_green-text" ng-class="{'negative': crypto6.change24 < 0, 'positive': crypto6.change24 >= 0}">{[{crypto6.change24}]}% <span class="statistics_block_min-text">{[{crypto6.point}]}</span></p>
+        <p class="statistics_block_top-text">{[{crypto6.name}]} <span class="statistics_block_number"> {[{crypto6.price}]}</span></p>
+        <p class="statistics_block_green-text" ng-class="{'negative': crypto6.change24 < 0, 'positive': crypto6.change24 >= 0}">{[{crypto6.change}]}% <span class="statistics_block_min-text">{[{crypto6.point}]}</span></p>
 
         </div>
 

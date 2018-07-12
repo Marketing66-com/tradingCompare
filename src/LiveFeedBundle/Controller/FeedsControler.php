@@ -15,15 +15,25 @@ class FeedsControler extends Controller
     /**
      * @Route("/")
      */
-    public function indexAction()
-    {
-        $api =  $this->getParameter('crypto_api');
-        $img = $this->getParameter('crypto_img');
-        $chart_link = "crypto_chart";
-        return $this->render('LiveFeedBundle:Default:crypto.html.twig' ,array('api'=>$api,"img"=>$img, "chart_link"=>$chart_link));
+    public function HomeAction()
+    {  $apiS =  $this->getParameter('stocks_api');
+        $imgS = $this->getParameter('stocks_img');
+        $chart_link = "stocks_chart";
+        return $this->render('LiveFeedBundle:Default:stocks.html.twig',array('api'=>$apiS, 'img'=>$imgS, "chart_link"=>$chart_link));
 
     }
 
+    /**
+     * @Route("/stockcurrencies/streaming-stock-rates-majors-social-sentiment", name="Live_rates_stocks")
+     */
+    public function StockAction()
+    {
+        $apiS =  $this->getParameter('stocks_api');
+        $imgS = $this->getParameter('stocks_img');
+        $chart_link = "stocks_chart";
+        return $this->render('LiveFeedBundle:Default:stocks.html.twig',array('api'=>$apiS, 'img'=>$imgS, "chart_link"=>$chart_link));
+
+    }
 
     /**
      * @Route("/cryptocurrencies/streaming-crypto-rates-majors-social-sentiment", name="Live_rates_crypto")
@@ -51,6 +61,7 @@ class FeedsControler extends Controller
         return $this->render('LiveFeedBundle:Default:forex.html.twig',array('api'=>$apiF, 'img'=>$imgF, "chart_link"=>$chart_link));
 
     }
+
 
 //    /**
 //     * @Route("/bar",name="bar")

@@ -7,9 +7,11 @@ firstApp.controller('FirstController', function($scope) {
     //$scope.first = "BTC"
     $scope.allcrypto = []
     $scope.allforex = []
+    $scope.allstock = []
 
-    $scope.init = function(api_forex, api_crypto, first, second, third, fourth, fifth, sixth, forex_from1, forex_to1, forex_from2, forex_to2) {
-        console.log("api_crypto", api_crypto, first, second, third, fourth, fifth, sixth, forex_from1, forex_to1, forex_from2, forex_to2)
+    $scope.init = function(api_forex, api_crypto, api_stock, first, second, third ,fourth, forex_from1, forex_to1, forex_from2, forex_to2, stock1,stock2) {
+        //console.log("api_crypto", first, second,third,fourth, forex_from1, forex_to1, forex_from2, forex_to2)
+        console.log("hello",api_stock,first, second, third ,fourth, forex_from1, forex_to1, forex_from2, forex_to2,stock1,stock2)
         $.ajax({
             url: api_crypto,
             type: "GET",
@@ -25,12 +27,12 @@ firstApp.controller('FirstController', function($scope) {
                     if (result[i].fromSymbol == second) {
                         $scope.crypto4 = result[i]
                     }
-                    if (result[i].fromSymbol == third) {
-                        $scope.crypto5 = result[i]
-                    }
-                    if (result[i].fromSymbol == fourth) {
-                        $scope.crypto6 = result[i]
-                    }
+                    // if (result[i].fromSymbol == third) {
+                    //     $scope.crypto5 = result[i]
+                    // }
+                    // if (result[i].fromSymbol == fourth) {
+                    //     $scope.crypto6 = result[i]
+                    // }
                     // if(result[i].fromSymbol == fifth ) { $scope.crypto5 = result[i]}
                     // if(result[i].fromSymbol == sixth) {  $scope.crypto6 = result[i]}
 
@@ -43,17 +45,17 @@ firstApp.controller('FirstController', function($scope) {
             }
         });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        console.log("api_forex", api_forex);
+        //console.log("api_forex", api_forex);
         $.ajax({
             url: api_forex,
             type: "GET",
 
             success: function (result) {
-                console.log("Response2", result)
+                //console.log("Response2", result)
                 for (var key in result) {
                     $scope.allforex.push(result[key])
                 }
-                console.log("typeof $scope.allforex",typeof $scope.allforex,$scope.allforex)
+                //console.log("typeof $scope.allforex",typeof $scope.allforex,$scope.allforex)
 
                 // $scope.allforex = result
 //             console.log("forex_from2", forex_from2, "forex_to2", forex_to2)
@@ -74,6 +76,37 @@ firstApp.controller('FirstController', function($scope) {
             }
         });
     ///////////////////////////////////////////////////////////////////////////////////////////
+        $.ajax({
+            url: api_stock,
+            type: "GET",
+            success: function (result) {
+                (console.log("result",result))
+                $scope.allstock = result
+
+                for (key in result)
+                {
+                    if(key == stock1)
+                    {console.log("key",key)
+                        console.log("result[key]",result[key])
+                        $scope.crypto5 = result[key];}
+
+                    if(key == stock2)
+                    {console.log("key",key)
+                        console.log("result[key]",result[key])
+                        $scope.crypto6 = result[key];}
+
+                }
+
+                console.log("$scope.crypto5", $scope.crypto5, "$scope.crypto6", $scope.crypto6)
+                //
+                $scope.$apply()
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log("ERROR", thrownError, xhr, ajaxOptions)
+            }
+        });
+
+        ///////////////////////////////////////////////////////////////////////////////////////
         var socket1 = io.connect("https://crypto-ws.herokuapp.com", {'force new connection': true});
         socket1.on('connect', function () {
             socket1.emit('room', "all_regulated");
@@ -95,38 +128,6 @@ firstApp.controller('FirstController', function($scope) {
         })
         })
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//             var item73
-//             for (var i = 0; i < response.length; i++) {
-//
-//                 item73 = $scope.all.find(function (element) {
-//
-//                     return element.fromSymbol == (response[i].fromSymbol.slice(0, 3) + "/" + response[i].fromSymbol.slice(3, 6));
-//                 });
-//
-//
-//                 if (typeof item73 != typeof undefined) {
-//                     // console.log("---",item73)
-//                     for (const key in response[i]) {
-//
-//
-//                         if (response[i].hasOwnProperty(key) && key != "fromSymbol") {
-//                             item73[key] = response[i][key];
-//                             // console.log(item73[key])
-//
-//
-//                         }
-//                     }
-//                     // console.log("+++",item73)
-//                 }
-//
-// //$scope.all = []
-//
-//             }
-//             $scope.$apply()
-//
-//
-        ////////////////////////////////////////////////////////////////////
         var socket2 = io.connect("https://forex-websocket.herokuapp.com/", {
             path: "/socket/forex/livefeed"}, {'force new connection': true})
         socket2.on('connect', function() {
@@ -147,9 +148,6 @@ firstApp.controller('FirstController', function($scope) {
                     // {console.log("response",response)}
 
                     //console.log("element.name", element.name, "response.fromSymbol", response.fromSymbol)
-
-
-
                 });
 
                 if (typeof item73 != typeof undefined) {
@@ -165,6 +163,33 @@ firstApp.controller('FirstController', function($scope) {
             $scope.$apply()
         })
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        var socket = io.connect("https://websocket-stock.herokuapp.com")
+
+        socket.on('connect', function () {
+            socket.emit('room', "p");
+            socket.on('message', data => {
+
+                for (const key in data) {
+                var item73 = $scope.allstock.find(function (element) {
+
+                    return (element.name == data[i].name);
+
+                })
+                if (typeof item73 != typeof undefined) {
+                    for (const ky in data[key]) {
+                        if (data.hasOwnProperty(key)) {
+                            item73[ky] = data[key][ky];
+
+                        }
+                    }
+
+                }
+                $scope.$apply()
+            }
+            //
+        })
+        })
 
     }
 });

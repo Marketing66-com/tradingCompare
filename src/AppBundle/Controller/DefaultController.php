@@ -77,14 +77,14 @@ class DefaultController extends Controller
         return $this->render('default/ho_no.html.twig');
     }
 
-    /**
-     * @Route("/Live_rates_stocks", name="Live_rates_stocks")
-     */
-    public function Live_rates_stocksAction()
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/Live_rates_stocks.html.twig');
-    }
+//    /**
+//     * @Route("/Live_rates_stocks", name="Live_rates_stocks")
+//     */
+//    public function Live_rates_stocksAction()
+//    {
+//        // replace this example code with whatever you need
+//        return $this->render('default/Live_rates_stocks.html.twig');
+//    }
 
 
     /**
@@ -98,31 +98,73 @@ class DefaultController extends Controller
 
 
 
+//    /**
+//     * @Route("/Crypto-currencies/{currency}/real-time-price-sentiment", name="crypto_chart", options={"expose" = true})
+//     */
+//    public function crypto_chartAction($currency)
+//    {
+//        return $this->render('default/chart_crypto.html.twig',array("currency"=>$currency));
+//    }
+
     /**
      * @Route("/Crypto-currencies/{currency}/real-time-price-sentiment", name="crypto_chart", options={"expose" = true})
      */
     public function crypto_chartAction($currency)
     {
-        return $this->render('default/chart_crypto.html.twig',array("currency"=>$currency));
+        $pair = explode("_", $currency);
+        $from =  $pair[0];
+        $to =  $pair[1];
+        $api =  $this->getParameter('crypto_api');
+
+        return $this->render('default/test_chart.html.twig', array("currency"=>$from,"from"=>$from, "to"=>$to, "api"=>$api));
     }
+
+    /**
+     * @Route("/aaa/{from}_{to}", name="aaa")
+     */
+    public function aaanAction($from,$to)
+    {
+//        $from = "ETH";
+//        $to = "USD";
+//        $exchange = "Coinbase";
+//        $name = "Ethereum";
+
+        return $this->render('default/test_chart.html.twig', array("currency"=>$from,"from"=>$from, "to"=>$to));
+    }
+
 
     /**
      * @Route("/currencies/{currency}/chart-real-time-sentiment", name="forex_chart", options={"expose" = true})
      */
     public function forex_chartAction($currency)
     {
-        return $this->render('default/forex_chart.html.twig',array("currency"=>$currency,));
+
+        $from = substr($currency, 0, 3);
+        $to =  substr($currency, 3, 5);
+        $pair = $from."_".$to;
+        return $this->render('default/forex_chart.html.twig',array("currency"=>$pair));
     }
 
+//    /**
+//     * @Route("/equities/price/{symbol}", name="stock_chart")
+//     */
+//    public function stock_chartAction($symbol)
+//    {
+//        dump($symbol);
+//        // replace this example code with whatever you need
+//        return $this->render('default/stock_chart.html.twig');
+//    }
+
     /**
-     * @Route("/equities/price/{symbol}", name="stock_chart")
+     * @Route("/equities/price/{currency}", name="stock_chart", options={"expose" = true})
      */
-    public function stock_chartAction($symbol)
+    public function stock_chartAction($currency)
     {
-        dump($symbol);
+
         // replace this example code with whatever you need
-        return $this->render('default/stock_chart.html.twig');
+        return $this->render('default/stock_chart.html.twig',array("currency"=>$currency,));
     }
+
 
 
     /**
@@ -214,4 +256,7 @@ class DefaultController extends Controller
 
 
     }
+
+
+
 }

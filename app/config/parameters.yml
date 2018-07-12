@@ -9,6 +9,8 @@ parameters:
     crypto_img: 'https://afternoon-mountain-15657.herokuapp.com/listofFrom'
     forex_api: 'https://forex-websocket.herokuapp.com/all_data'
     forex_img: 'https://xosignals.herokuapp.com/api2/getTradingCompareByName/forex'
+    stocks_api: 'https://websocket-stock.herokuapp.com/stocksPrice'
+    stocks_img: 'https://xosignals.herokuapp.com/api2/getTradingCompareByName/stock'
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null

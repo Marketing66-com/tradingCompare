@@ -9,7 +9,7 @@ secondApp.controller('SecondController', function($scope) {
     $scope.allimg = []
 
     $scope.init = function (api, img, chart_link) {
-        console.log("api", api, "chart_link",chart_link)
+        //console.log("api", api, "chart_link",chart_link)
         $.ajax({
             url: api,
             type: "GET",
@@ -24,14 +24,14 @@ secondApp.controller('SecondController', function($scope) {
             }
         });
 
-        console.log("img", img)
+        //console.log("img", img)
         $.ajax({
             url: img,
             type: "GET",
             success: function (result) {
                 $scope.allimg1 = result
                 $scope.allimg=$scope.allimg1[0]
-                console.log("Response*crypto*", $scope.allimg)
+                //console.log("Response*crypto*", $scope.allimg)
                 $scope.$apply()
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -82,7 +82,7 @@ secondApp.controller('SecondController', function($scope) {
         var sym= symbol.split("/")
         // console.log(from[0], to[1], '*********************')
         var url =  Routing.generate('crypto_chart',{"currency" :sym})
-        console.log(Routing.generate('crypto_chart',{"currency" :sym}))
+        //console.log(Routing.generate('crypto_chart',{"currency" :sym}))
         window.location.href= url
         //  console.log("----", Routing.generate('crypto_chart', from, to, true))
         return url
