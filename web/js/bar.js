@@ -51,7 +51,7 @@ firstApp.controller('FirstController', function($scope) {
             type: "GET",
 
             success: function (result) {
-                //console.log("Response2", result)
+                console.log("Response-forex", result)
                 for (var key in result) {
                     $scope.allforex.push(result[key])
                 }
