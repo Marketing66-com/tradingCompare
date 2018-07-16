@@ -27,14 +27,6 @@ firstApp.controller('FirstController', function($scope) {
                     if (result[i].fromSymbol == second) {
                         $scope.crypto4 = result[i]
                     }
-                    // if (result[i].fromSymbol == third) {
-                    //     $scope.crypto5 = result[i]
-                    // }
-                    // if (result[i].fromSymbol == fourth) {
-                    //     $scope.crypto6 = result[i]
-                    // }
-                    // if(result[i].fromSymbol == fifth ) { $scope.crypto5 = result[i]}
-                    // if(result[i].fromSymbol == sixth) {  $scope.crypto6 = result[i]}
 
                 }
 
