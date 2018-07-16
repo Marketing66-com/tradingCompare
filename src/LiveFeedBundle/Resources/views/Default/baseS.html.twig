@@ -1,6 +1,7 @@
 <style>
     .negative{color:red;}
     .positive{color:#9CD400;}
+    .neutral{color:#fff;}
 </style>
 <div class="my-container">
 
@@ -92,7 +93,7 @@
                                 </div>
                                 <div class="general_review_cont-block review_list_cont-text">
                                     <div class="review_list_center">
-                                        <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold" ng-class="{'negative': curr.variation == 'down', 'positive':curr.variation == 'up'}">{[{curr.price}]} $</span></p>
+                                        <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold" ng-class="{'negative': curr.variation == 'down', 'positive':curr.variation == 'up', 'neutral': crypto1.variation == 'none'}">{[{curr.price}]} $</span></p>
                                     </div>
                                 </div>
                                 <div class="general_review_cont-block review_list_cont-text sm-none">
@@ -154,7 +155,7 @@
                             <img class="live_block_top_img" ng-src="{[{allimg[curr.fromSymbol].img}]}"fdcgfrtdcrtfg alt="bitcoin">
                             <h2 class="live_block_top_title">{[{curr.fromSymbol}]}</h2>
                         </div>
-                        <p class="live_block_money-left"><span class="live_block_money_bold " ng-class="{'negative': curr.variation == 'down', 'positive':curr.variation == 'up'}"> {[{curr.price}]}</span></p>
+                        <p class="live_block_money-left"><span class="live_block_money_bold " ng-class="{'negative': curr.variation == 'down', 'positive':curr.variation == 'up', 'neutral': crypto1.variation == 'none'}"> {[{curr.price}]}</span></p>
                         <p class="live_block_money-right  " ng-class="{'live_block_money_red live_block_money_border': curr.change24 < 0, 'live_block_money_green live_block_money_border_green': curr.change24 >= 0}"><span class="live_block_money_bold "ng-class="{'live_block_money_red ': curr.change24 < 0, 'live_block_money_green ': curr.change24 >= 0}" >{[{curr.change24}]}</span></p>
                         <a ng-click="ActiveChange(curr.pair);"><img class="live_block_chart" src= '{{asset("img/chart_long.png" )}}' alt="chart_long">
                         </a>
