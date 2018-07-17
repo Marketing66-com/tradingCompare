@@ -43,7 +43,7 @@ firstApp.controller('FirstController', function($scope) {
             type: "GET",
 
             success: function (result) {
-                console.log("Response-forex", result)
+                //console.log("Response-forex", result)
                 for (var key in result) {
                     $scope.allforex.push(result[key])
                 }
@@ -124,18 +124,19 @@ firstApp.controller('FirstController', function($scope) {
             path: "/socket/forex/livefeed"}, {'force new connection': true})
         socket2.on('connect', function() {
 
-            socket2.on("onUpdate", function (response) {
+            // socket2.on("onUpdate", function (response) {
+            socket2.on("forbar", function (response) {
                 //console.log("$scope.allforex",typeof $scope.allforex)
                 //console.log("$scope response",typeof $scope.allforex)
-
+                //console.log("forbar", response)
                 var item73 = $scope.allforex.find(function (element) {
-                    //console.log("response", response)
+
                     //console.log("element.name", element.name, "response.fromSymbol", response.fromSymbol)
-                    if(response.fromSymbol == "EURUSD" || response.fromSymbol == "USDJPY" )
-                    {
+                    // if(response.fromSymbol == "EURUSD" || response.fromSymbol == "USDJPY" )
+                    // {
                         // console.log("response24",response.data.change24)
                         return element.pair == response.fromSymbol;
-                    }
+                    // }
                     // if(element.name == response.fromSymbol)
                     // {console.log("response",response)}
 
@@ -161,7 +162,7 @@ firstApp.controller('FirstController', function($scope) {
         socket.on('connect', function () {
             socket.emit('room', "p");
             socket.on('message', data => {
-
+                console.log("data",data)
                 for (const key in data) {
                 var item73 = $scope.allstock.find(function (element) {
 

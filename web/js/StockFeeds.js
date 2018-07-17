@@ -18,11 +18,12 @@ stockApp.controller("stockController", function ($scope, $http) {
     var i = 0
     $scope.init = function (api, img,chart_link) {
         console.log("api", api, "chart_link",chart_link)
+
         $.ajax({
             url: api,
             type: "GET",
             success: function (result) {
-
+                //console.log("result",result)
                 $scope.all1 = result
 
                 for (key in $scope.all1) {
@@ -39,10 +40,11 @@ stockApp.controller("stockController", function ($scope, $http) {
                     }
                     else break;
                 }
-                console.log("Response-stock", $scope.all)
+                //console.log("Response-stock", $scope.all)
 
                 $scope.$apply()
             },
+
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
             }
@@ -51,6 +53,7 @@ stockApp.controller("stockController", function ($scope, $http) {
 // var allimg={}
 
         console.log("img", img)
+
         $.ajax({
             url: img,
             type: "GET",
@@ -74,38 +77,39 @@ stockApp.controller("stockController", function ($scope, $http) {
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
             }
+
         });
 
     }
 
 
 //websocket-stock.herokuapp.com
-        var socket = io.connect("https://websocket-stock.herokuapp.com")
-
-        socket.on('connect', function () {
-        socket.emit('room', "p");
-        socket.on('message', data => {
-
-            for (const key in data) {
-                var item73 = $scope.all.find(function (element) {
-
-                    return (element.name == data[i].name);
-
-                })
-                if (typeof item73 != typeof undefined) {
-                    for (const ky in data[key]) {
-                        if (data.hasOwnProperty(key)) {
-                            item73[ky] = data[key][ky];
-
-                        }
-                    }
-
-                }
-                $scope.$apply()
-            }
-            //
-        })
-    })
+//         var socket = io.connect("https://websocket-stock.herokuapp.com")
+//
+//         socket.on('connect', function () {
+//         socket.emit('room', "p");
+//         socket.on('message', data => {
+//
+//             for (const key in data) {
+//                 var item73 = $scope.all.find(function (element) {
+//
+//                     return (element.name == data[i].name);
+//
+//                 })
+//                 if (typeof item73 != typeof undefined) {
+//                     for (const ky in data[key]) {
+//                         if (data.hasOwnProperty(key)) {
+//                             item73[ky] = data[key][ky];
+//
+//                         }
+//                     }
+//
+//                 }
+//                 $scope.$apply()
+//             }
+//             //
+//         })
+//     })
 
 
     $scope.ActiveChange = function (symbol) {
