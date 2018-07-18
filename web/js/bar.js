@@ -8,6 +8,7 @@ firstApp.controller('FirstController', function($scope) {
     $scope.allcrypto = []
     $scope.allforex = []
     $scope.allstock = []
+    $scope.allstock2 = []
 
     $scope.init = function(api_forex, api_crypto, api_stock, first, second, third ,fourth, forex_from1, forex_to1, forex_from2, forex_to2, stock1,stock2) {
         //console.log("api_crypto", first, second,third,fourth, forex_from1, forex_to1, forex_from2, forex_to2)
@@ -72,24 +73,30 @@ firstApp.controller('FirstController', function($scope) {
             url: api_stock,
             type: "GET",
             success: function (result) {
-                (console.log("result",result))
+                //console.log(" bar $scope.allstock",result)
                 $scope.allstock = result
-
+                //console.log("bar $scope.allstock", $scope.allstock)
+                for (key in $scope.allstock) {
+                    if (key == "FB" || key == "AAPL") {
+                        $scope.allstock2.push($scope.allstock[key])
+                    }
+                }
+                //console.log("$scope.allstock2",$scope.allstock2)
                 for (key in result)
                 {
                     if(key == stock1)
-                    {console.log("key",key)
-                        console.log("result[key]",result[key])
+                    {//console.log("key",key)
+                        //console.log("result[key]",result[key])
                         $scope.crypto5 = result[key];}
 
                     if(key == stock2)
-                    {console.log("key",key)
-                        console.log("result[key]",result[key])
+                    {//console.log("key",key)
+                        //console.log("result[key]",result[key])
                         $scope.crypto6 = result[key];}
 
                 }
 
-                console.log("$scope.crypto5", $scope.crypto5, "$scope.crypto6", $scope.crypto6)
+                //console.log("$scope.crypto5", $scope.crypto5, "$scope.crypto6", $scope.crypto6)
                 //
                 $scope.$apply()
             },
@@ -104,7 +111,7 @@ firstApp.controller('FirstController', function($scope) {
             // socket1.emit('room', "all_regulated");
             socket1.emit('room', "all_regulated");
             socket1.on('message', data =>{
-                console.log("data forbar", data)
+                //console.log("data forbar", data)
                 for (const key in data) {
                 var item73 = $scope.allcrypto.find(function (element) {
                     return (element.fromSymbol == key.split("_",1) && element.toSymbol == key.split("_")[1]);
@@ -158,16 +165,17 @@ firstApp.controller('FirstController', function($scope) {
         })
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
         var socket = io.connect("https://websocket-stock.herokuapp.com")
-
+        //console.log("ALLSTOCK",$scope.allstock)
         socket.on('connect', function () {
-            socket.emit('room', "p");
+            socket.emit('room', "persec");
             socket.on('message', data => {
-                console.log("data",data)
-                for (const key in data) {
-                var item73 = $scope.allstock.find(function (element) {
+               // console.log("STOCK RESP", data)
+            for (const key in data) {
+                var item73 = $scope.allstock2.find(function (element) {
 
-                    return (element.name == data[i].name);
+                    return (element.name == data[key].name);
 
                 })
                 if (typeof item73 != typeof undefined) {
