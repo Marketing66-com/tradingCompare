@@ -80,22 +80,30 @@ var ThirdApp = angular.module('ThirdApp', []).config(function ($interpolateProvi
             path: "/socket/forex/livefeed"
         })
         socket.on("all_regulated", function (response) {
+            //console.log("FOREX SOCKET",response)
             var item73
-            for (var i = 0; i < response.length; i++) {
+            // for (var i = 0; i < response.length; i++) {
+            //
+            //     item73 = $scope.all.find(function (element) {
+            //
+            //         return element.fromSymbol == (response[i].fromSymbol.slice(0, 3) + "/" + response[i].fromSymbol.slice(3, 6));
+            //     });
 
+            for(key in response)
+            {
                 item73 = $scope.all.find(function (element) {
 
-                    return element.fromSymbol == (response[i].fromSymbol.slice(0, 3) + "/" + response[i].fromSymbol.slice(3, 6));
-                });
+                        return element.fromSymbol == (response[key].fromSymbol.slice(0, 3) + "/" + response[key].fromSymbol.slice(3, 6));
+                    });
 
 
                 if (typeof item73 != typeof undefined) {
                     // console.log("---",item73)
-                    for (const key in response[i]) {
+                    for (const property in response[key]) {
 
 
-                        if (response[i].hasOwnProperty(key) && key != "fromSymbol") {
-                            item73[key] = response[i][key];
+                        if (response[key].hasOwnProperty(property) && property != "fromSymbol") {
+                            item73[property] = response[key][property];
                             // console.log(item73[key])
 
 
