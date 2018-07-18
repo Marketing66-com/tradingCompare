@@ -115,8 +115,9 @@ class DefaultController extends Controller
         $from =  $pair[0];
         $to =  $pair[1];
         $api =  $this->getParameter('crypto_api');
+        $img = $this->getParameter('crypto_img');
 
-        return $this->render('default/test_chart.html.twig', array("currency"=>$from,"from"=>$from, "to"=>$to, "api"=>$api));
+        return $this->render('default/test_chart.html.twig', array("currency"=>$from,"from"=>$from, "to"=>$to, "api"=>$api,"img"=>$img));
     }
 
     /**

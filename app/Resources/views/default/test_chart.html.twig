@@ -44,7 +44,7 @@
 
 {% block body %}
 
-    <div id="dvChart" class="my-container ng-cloak" ng-controller="ChartController" ng-init="init('{{ api }}', '{{ from }}', '{{ to }}')">
+    <div id="dvChart" class="my-container ng-cloak" ng-controller="ChartController" ng-init="init('{{ api }}', '{{ from }}', '{{ to }}','{{ img }}')">
       <div ng-controller="ChartController ">
         <section class="table">
             <div class="chart_search">
@@ -60,7 +60,7 @@
                         <div class="chart_bitcoin-cont">
                             <div class="bitcoin_text-cont">
                                 <div class="bitcoin_img-cont">
-                                    <img class="bitcoin_img" src='{{asset("img/bitcoin.png" )}}' alt="bitcoin">
+                                    <img class="bitcoin_img" ng-src="{[{allimg[mycrypto.fromSymbol].img}]}" >
                                 </div>
                                 <div class="bitcoin_text-cont_left">
                                     <h3 class="bitcoin_title">{[{myname}]} <span class="bitcoin_title_right">{[{mycrypto.fromSymbol}]}/{[{mycrypto.toSymbol}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
@@ -1036,6 +1036,7 @@
 {% block javascripts %}
 {{ parent() }}
     <script src="{{ asset('js/Chart.js') }}"></script>
+    <script src="{{ asset('js/CryptoFeeds.js') }}"></script>
     {#<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>#}
     <script src="http://tradingcompare.com/ChartIQ/js/chartiq.js"></script>
     <!--<script src="js/thirdparty/splines.js"></script>-->

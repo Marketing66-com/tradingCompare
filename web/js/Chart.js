@@ -6,7 +6,7 @@ ChartApp.controller('ChartController', function($scope) {
     $scope.allcrypto = []
     $scope.list = []
 
-    $scope.init = function (api, from, to) {
+    $scope.init = function (api, from, to, img) {
         console.log("api**************////////////**************", api)
 
         // var array = httpGet('https://afternoon-mountain-15657.herokuapp.com/All-Coins-Aviho')
@@ -50,6 +50,20 @@ ChartApp.controller('ChartController', function($scope) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
             }
         });
+
+        $.ajax({
+        url: img,
+            type: "GET",
+            success: function (result) {
+            $scope.allimg1 = result
+            $scope.allimg=$scope.allimg1[0]
+            console.log("IMAGE", $scope.allimg)
+            $scope.$apply()
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("ERROR", thrownError, xhr, ajaxOptions)
+        }
+    });
 
 
     }

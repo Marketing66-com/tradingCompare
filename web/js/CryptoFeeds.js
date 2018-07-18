@@ -31,7 +31,7 @@ secondApp.controller('SecondController', function($scope) {
             success: function (result) {
                 $scope.allimg1 = result
                 $scope.allimg=$scope.allimg1[0]
-                //console.log("Response*crypto*", $scope.allimg)
+                console.log("IMAGE", $scope.allimg)
                 $scope.$apply()
             },
             error: function (xhr, ajaxOptions, thrownError) {
