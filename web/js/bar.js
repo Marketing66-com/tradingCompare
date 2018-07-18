@@ -102,9 +102,9 @@ firstApp.controller('FirstController', function($scope) {
         var socket1 = io.connect("https://crypto-ws.herokuapp.com", {'force new connection': true});
         socket1.on('connect', function () {
             // socket1.emit('room', "all_regulated");
-            socket1.emit('room', "forbar");
+            socket1.emit('room', "all_regulated");
             socket1.on('message', data =>{
-                //console.log("data all_regulated", data)
+                console.log("data forbar", data)
                 for (const key in data) {
                 var item73 = $scope.allcrypto.find(function (element) {
                     return (element.fromSymbol == key.split("_",1) && element.toSymbol == key.split("_")[1]);
