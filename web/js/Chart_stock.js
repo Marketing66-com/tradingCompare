@@ -66,7 +66,8 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
                         console.log("$scope.allimg",$scope.allimg)
                         //$scope.myimage =  $scope.images[i].img
                         $scope.myname = $scope.images[i].name
-                        console.log("$scope.allimg", $scope.allimg["FB"].img)
+                        //console.log("$scope.allimg", $scope.allimg["FB"].img)
+                        console.log("$scope.myname",$scope.myname)
                     }
 
 
