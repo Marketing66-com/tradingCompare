@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="general_review_cont-block review_list_cont-text">
                                     <div class="review_list_center">
-                                        <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold" ng-class="{'negative': curr.variation == 'down', 'positive':curr.variation == 'up', 'neutral': crypto1.variation == 'none'}">{[{curr.price}]} $</span></p>
+                                        <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold" ng-class="{'negative': curr.variation == 'down', 'positive':curr.variation == 'up', 'neutral': curr.variation == 'none'}">{[{curr.price}]} $</span></p>
                                     </div>
                                 </div>
                                 <div class="general_review_cont-block review_list_cont-text sm-none">
@@ -152,7 +152,7 @@
                 <div class="live_cont-block-padding ng-cloak"  ng-repeat="curr in all">
                     <div class="live_cont-block">
                         <div class="live_block_top">
-                            <img class="live_block_top_img" ng-src="{[{allimg[curr.fromSymbol].img}]}"fdcgfrtdcrtfg alt="{[{curr.fromSymbol}]}">
+                            <img class="live_block_top_img" ng-src="{[{allimg[curr.fromSymbol].img}]}" alt="{[{curr.fromSymbol}]}">
                             <h2 class="live_block_top_title">{[{curr.fromSymbol}]}</h2>
                         </div>
                         <p class="live_block_money-left"><span class="live_block_money_bold " ng-class="{'negative': curr.variation == 'down', 'positive':curr.variation == 'up', 'neutral': crypto1.variation == 'none'}"> {[{curr.price}]}</span></p>

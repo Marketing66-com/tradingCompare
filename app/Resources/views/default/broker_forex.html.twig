@@ -1,16 +1,30 @@
-{% extends 'base.html.twig' %}
+{% extends 'old_base.html.twig' %}
 
  {% block description %}
-     <title>Top 5 ONLINE BROKERS – Online trading, Cryptocurrency,Forex CFDs,Stocks</title>
+     <title>Top 6 ONLINE BROKERS To Buy Forex – Online trading,Forex CFDs</title>
      <meta name="description" content="Join the online trading revolution. Compare the best online trading brokers FREE & find the leading platforms to buy, sell & trade online. Compare fees, commissions, promotions,regulation and features all in one place">
  {% endblock %}
 
+{% block menu_block %}
+    <div class="menu">
+    <ul class="my-nav">
+        <li><a href="#about">Live Feed</a></li>
+        <li ><a href="cryptocurrencies">Cryptocurrencies</a></li>
+        <li><a class="active" href="forex">Forex</a></li>
+        <li><a href="stocks">Stocks</a></li>
+        <li><a href="commodities">Commodities</a></li>
+    </ul>
+</div>
+
+
+{% endblock %}
 {% block body %}
+
     <div class="my-container">
-        <section class="brokers">
+        <section class="brokers brokers-forex">
             <div class="brokers-opaciti">
                 <h1 class="brokers_title">TOP 5 ONLINE BROKERS</h1>
-                <h2 class="brokers_text">TO BUY CRYPTOCURRENCY</h2>
+                <h2 class="brokers_text">TO BUY FOREX</h2>
             </div>
         </section>
 
@@ -28,7 +42,6 @@
             <div class="container">
                 <div class="row">
                     <div class="content-table">
-
                         <div class="content-table_container-title col-xs-none">
                             <div class="min-margin">
                                 <div class="col-md-2 col-sm-2 col-xs-2 col">
@@ -70,7 +83,7 @@
                                     <div class="progress-bar-conatiner">
                                         <p class="reting col-md-none">RATING</p>
                                         <canvas class="progress-bar-rel" id="canvas-6" width="100" height="100"></canvas>
-                                        <p class="progress-bar_number">9.9</p>
+                                        <p class="progress-bar_number">9.5</p>
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-sm-none col_height">
@@ -79,8 +92,7 @@
                                 <div class="col-md-2 col-sm-2 col-xs-12 col col_height">
                                     <p class="promotion">Zero Commissions<br>
                                         {#<span class="color-aqua">Get Deal</span>#}
-                                        <a href="#" class="color-aqua">Get Deal</a>
-                                    </p>
+                                        <a href="#" class="color-aqua">Get Deal</a></p>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 col col_height">
                                     <div class="features-container">
@@ -96,17 +108,17 @@
                                     </div>
                                 </div>
                                 <div class="col-md-1 col-sm-2 col-xs-12 col col_height">
-                                    <a class="visit-btn" href="http://marketing66.go2cloud.org/aff_c?offer_id=185&aff_id=1099&url_id=885" target="_blank">VISIT SITE</a>
+                                    <a class="visit-btn" href="http://marketing66.go2cloud.org/aff_c?offer_id=185&aff_id=1099" target="_blank">VISIT SITE</a>
                                 </div>
                             </div>
                         </div>
                         <div class="content-table_container-title">
                             <div class="min-margin">
-                                <div class="col-md-2 col-sm-2 col-xs-6 col col_height">
+                                <div class="col-md-2 col-sm-2 col-xs-6 col_height">
                                     <div class="top-container-img">
-                                        {#<img class="tom-img"  alt="top_choice">#}
+                                        {#<img class="tom-img" src="{{ asset('img/top_choice.png') }}" alt="top_choice">#}
                                     </div>
-                                    <div class="number">
+                                    <div class="number ">
                                         <p>2</p>
                                     </div>
                                     <div class="right-container-img">
@@ -343,33 +355,37 @@
             <div class="container">
                 <div class="row">
                     <div class="content-text">
-                        <h4 class="content-text_title center">What are Cryptocurrencies?
-                        </h4>
-                        <p class="content-text_min-text">For some people, cryptocurrencies are simply alternative currencies with different uses, while for others, they are a long-term investment. And, while cryptocurrencies have been becoming more and more popular and are used for a variety of online applications, many people still don’t fully understand what they are.
+                        <h4 class="content-text_title center">A Brief Explanation of Forex Trading</h4>
+                        <p class="content-text_min-text">Almost everyone has heard of it, but not too many people know exactly what Forex trading is. Also known as foreign exchange, currency trading or simply as FX, Forex is a decentralized market where currencies are traded on a global scale.
+                        <p class="content-text_min-text">With an average daily trade volume of $5 trillion, Forex is the biggest marketplace in the world and more liquid than any other markets. To give you an idea of its size, you could add up all the world’s stocks into one and it still wouldn’t even compare to the gargantuan size of the Forex market. Let’s take a better look at what Forex is and how the marketplace works.
                         </p>
-                        <h4 class="content-text_title ">The Concept Behind Cryptocurrency</h4>
-                        <p class="content-text_min-text">Just as their name implies, cryptocurrencies are currencies that have been encrypted and the very first cryptocurrency was created in 2009 by a man known as Satoshi Nakamoto. These digital currencies work much like regular currency, however, unlike traditional forms of money, cryptocurrency don’t have any physical form and are not managed by any centralized systems such as a bank or nation. Furthermore, the fact that they are encrypted makes it so that all cryptocurrencies can be bought and sold with a certain level of anonymity.
+                         <h4 class="content-text_title ">Foreign Exchange – It’s All About the Transaction
+                         </h4>
+                        {#<p class="content-text_min-text">#}
+                            {#Since there are hundreds of different only <span class="color-aqua">forex brokers</span>, the choice can be overwhelming. Your moneyÕs security is the most important concern when getting involved in forex trading. You should be able to withdraw your money whenever you want to.#}
+                        {#</p>#}
+                        <p class="content-text_min-text">Although a lot of people are not quite familiar with Forex trades, if you’ve ever made a trip overseas or converted your money into a foreign currency, then you’ve made a forex transaction. Any time that you make these sorts of exchanges between two currencies, it is the forex exchange rate that determines what each currency is worth. And, since the rates are based on the supply and demand of each currency, the forex exchange rate is constantly fluctuating.
                         </p>
-                        <p class="content-text_min-text">Their value is determined by the laws of supply and demand and they are mostly exchanged via exchange platforms or through brokers for other cryptocurrencies (For example, trading Bitcoin against the Monero) or other fiat currencies such as the Euro or US Dollar.
+                        <p class="content-text_min-text">As an example of this, on a Monday morning, $1 USD might be worth 1.20 euros, however, by Tuesday, $1 USD might be worth 1.22 euros. This difference may not seem like much, but when you think of it on a much bigger scale, these pennies add up fast.
                         </p>
-                        <h4 class="content-text_title ">Cryptocurrency and the Blockchain</h4>
-                        <p class="content-text_min-text">The anonymity of trading cryptocurrencies comes from the underlying technology, that functions as a sort of security system, known as the Blockchain. Essentially, the Blockchain is a registry which contains information about every exchange ever made using it.
-                        </p>
-                        <p class="content-text_min-text">Furthermore, anyone with access to the internet is able to view the log, however, it is completely impossible for anyone to falsify or modify any of it. Therefore, it’s important to keep your user code safe when you’re in possession of any type of cryptocurrency.
-
-                        </p>
-                        <p class="content-text_min-text">The system is held together by a network of its user’s computers and every transaction is verified by not only one single centralized computer, but by every computer that is part of the network. It should also be mentioned that although transaction records are always available to the public, there are some, such as the Dash, whose transaction logs are practically unreadable. Therefore, these complex cryptocurrencies offer a greater level of anonymity to their users.
-
-                        </p>
-
-                        <h4 class="content-text_title ">The History of Cryptocurrency
+                        <h4 class="content-text_title ">A Fast-Paced Market with Ample Opportunities
                         </h4>
 
-                        <p class="content-text_min-text">The story starts back in 2009 during the global financial crisis with the appearance of Bitcoin as a solution to economic and financial conjecture. Since then, countless other cryptocurrencies have been created such as Ethereum, Dash, Litecoin, Zcash and Bitcoin Cash (A derivative of Bitcoin’s Blockchain).
+                        <p class="content-text_min-text">Forex is very similar to the stock exchange in the sense that you trade based on your predictions about a currency’s value and where you think it’s going. The major difference is that with Forex trading, you’re able to trade up just as easily as you can trade down. This means that if you believe a currency’s value is about to increase, you can buy and if you think it’s about to drop, you can sell.
+                        <p class="content-text_min-text">Also, with such a massive marketplace, it’s much easier to find buyers and sellers than it is in other types of markets.
+                        <p class="content-text_min-text">Most Forex traders constantly follow international news coverage. You may, for example, hear something such as China devaluing their currency in hopes of drawing in more foreign business. If you truly believe that this trend will continue, you might want to consider making a forex trade and selling Chinese currency against the Euro or US dollar.
                         </p>
-                        <p class="content-text_min-text">In the beginning, Bitcoin struggled to see its value maintain the $1 mark. However, within only a few months, it saw its value skyrocket up to $1,000. This unprecedented growth has continued through the years into 2017, when it’s value peaked at around $20,000 USD in December.
+                        <h4 class="content-text_title ">Trading on the Edge of a Penny
+                        </h4>
+
+                        <p class="content-text_min-text">Many will people ask themselves, “If forex prices are quoted in the hundredths of a cent, how is it possible to make any significant return?”. The short and sweet an is simply by leveraging it.
                         </p>
-                        <p class="content-text_min-text">The most important thing to understand about cryptocurrencies, other than their underlying Blockchain technology, is that encrypted currencies function based on the same principles as the stock market. Therefore, to create a cryptocurrency, one must first determine the maximum number of coins or tokens that will be put into circulation. Then, the value of the cryptocurrency can be determined by the total number of its users.
+
+
+                        <p class="content-text_min-text">For you to leverage your trade, you simply need to ensure that you’ve set aside enough to cover the price margin of the size of your trade. That means that if you’re trading a 50:1 leverage, you can trade $2,000 USD and only need to set aside $40 USD. Whereas if you were trading a 200:1 leverage, you only need to set aside $10 USD. This sort of leveraging gives you more exposure in the marketplace and helps to keep the capital investment cost down.
+                        </p>
+
+                        <p class="content-text_min-text">Still, leverage doesn’t only increase potential profits, it can also have the opposite effect and increase your losses, which can sometimes exceed the funds that you’ve deposited into your account. Therefore, when starting out in foreign exchange, it’s always recommended to start small and stick to lower leverage ratios. Then, once you feel more comfortable in the market, you can begin making larger trades.
                         </p>
 
                     </div>
@@ -378,5 +394,4 @@
         </section>
 
     </div>
-
 {% endblock %}

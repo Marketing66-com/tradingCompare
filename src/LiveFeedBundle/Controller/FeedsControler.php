@@ -19,7 +19,7 @@ class FeedsControler extends Controller
     {  $apiS =  $this->getParameter('stocks_api');
         $imgS = $this->getParameter('stocks_img');
         $chart_link = "stocks_chart";
-        return $this->render('LiveFeedBundle:Default:stocks.html.twig',array('api'=>$apiS, 'img'=>$imgS, "chart_link"=>$chart_link));
+        return $this->render('LiveFeedBundle:Default:live_stocks.html.twig',array('api'=>$apiS, 'img'=>$imgS, "chart_link"=>$chart_link));
 
     }
 
@@ -31,7 +31,7 @@ class FeedsControler extends Controller
         $apiS =  $this->getParameter('stocks_api');
         $imgS = $this->getParameter('stocks_img');
         $chart_link = "stocks_chart";
-        return $this->render('LiveFeedBundle:Default:stocks.html.twig',array('api'=>$apiS, 'img'=>$imgS, "chart_link"=>$chart_link));
+        return $this->render('LiveFeedBundle:Default:live_stocks.html.twig',array('api'=>$apiS, 'img'=>$imgS, "chart_link"=>$chart_link));
 
     }
 
@@ -43,11 +43,10 @@ class FeedsControler extends Controller
         $api =  $this->getParameter('crypto_api');
         $img = $this->getParameter('crypto_img');
         $chart_link = "crypto_chart";
-        return $this->render('LiveFeedBundle:Default:crypto.html.twig',array('api'=>$api,"img"=>$img, "chart_link"=>$chart_link));
+        return $this->render('LiveFeedBundle:Default:live_crypto.html.twig',array('api'=>$api,"img"=>$img, "chart_link"=>$chart_link));
 
 
     }
-
 
 
     /**
@@ -58,44 +57,8 @@ class FeedsControler extends Controller
         $apiF =  $this->getParameter('forex_api');
         $imgF = $this->getParameter('forex_img');
         $chart_link = "forex_chart";
-        return $this->render('LiveFeedBundle:Default:forex.html.twig',array('api'=>$apiF, 'img'=>$imgF, "chart_link"=>$chart_link));
+        return $this->render('LiveFeedBundle:Default:live_forex.html.twig',array('api'=>$apiF, 'img'=>$imgF, "chart_link"=>$chart_link));
 
     }
-
-
-//    /**
-//     * @Route("/bar",name="bar")
-//     */
-//    public function testAngularAction()
-//    {
-//
-//        $api =  $this->getParameter('crypto_api');
-//        $img = $this->getParameter('crypto_img');
-//        $chart_link = "crypto_chart";
-//        $first = "BTC";
-////        return $this->render('LiveFeedBundle:Default:testAngular.html.twig',array('api'=>$api,"img"=>$img, "chart_link"=>$chart_link));
-//        return $this->render('default\bar.html.twig',array('api'=>$api,  "first"=>$first, 'img'=>$img, "chart_link"=>$chart_link));
-//
-//
-//    }
-
-
-
-//    /**
-//     * @Route("/testAngular",name="testAngular")
-//     */
-//    public function testAngular2Action()
-//    {
-//
-//        $api =  $this->getParameter('crypto_api');
-//        $img = $this->getParameter('crypto_img');
-//        $chart_link = "crypto_chart";
-//        $first = "BTC";
-////        return $this->render('LiveFeedBundle:Default:testAngular.html.twig',array('api'=>$api,"img"=>$img, "chart_link"=>$chart_link));
-//        return $this->render('LiveFeedBundle:Default:testAngular.html.twig',array('api'=>$api, 'img'=>$img, "chart_link"=>$chart_link));
-//
-//
-//    }
-
-
+    
 }

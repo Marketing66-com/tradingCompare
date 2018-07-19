@@ -54,7 +54,7 @@ stockApp.controller("stockController", function ($scope, $http) {
                 $scope.allimg1 = result
                 for (var i = 0; i < $scope.allimg1.length; i++) {
                     $scope.allimg[$scope.allimg1[i].symbol] = {img: $scope.allimg1[i].img}
-
+                    //console.log("imaaaage",$scope.allimg[$scope.allimg1[i].symbol].img)
                 }
                 // for (const key in myobj) {
                 //     if (myobj.hasOwnProperty(key)) {
