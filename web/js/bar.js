@@ -108,24 +108,40 @@ firstApp.controller('FirstController', function($scope) {
         ///////////////////////////////////////////////////////////////////////////////////////
         var socket1 = io.connect("https://crypto-ws.herokuapp.com", {'force new connection': true});
         socket1.on('connect', function () {
-            // socket1.emit('room', "all_regulated");
+
+            // socket1.emit('room', "forbar");
+            // // socket1.emit('room',["BTC_USD","ETH_USD"]);
+            // socket1.on('message', data =>{
+            //
+            //     var item73 = $scope.allcrypto.find(function (element) {
+            //         return (element.pair == data.pair);
+            //     })
+            //
+            //     if (typeof item73 != typeof undefined) {
+            //         for (const ky in data) {
+            //             item73[ky] = data[ky];
+            //         }
+            //     } $scope.$apply()
+            // })
+
+
             socket1.emit('room', "all_regulated");
             socket1.on('message', data =>{
                 //console.log("data forbar", data)
                 for (const key in data) {
-                var item73 = $scope.allcrypto.find(function (element) {
-                    return (element.fromSymbol == key.split("_",1) && element.toSymbol == key.split("_")[1]);
-                })
-                // console.log("item73", item73)
-                if (typeof item73 != typeof undefined) {
-                    for (const ky in data[key]) {
-                        if (data.hasOwnProperty(key)) {
-                            item73[ky] = data[key][ky];
+                    var item73 = $scope.allcrypto.find(function (element) {
+                        return (element.fromSymbol == key.split("_",1) && element.toSymbol == key.split("_")[1]);
+                    })
+                    // console.log("item73", item73)
+                    if (typeof item73 != typeof undefined) {
+                        for (const ky in data[key]) {
+                            if (data.hasOwnProperty(key)) {
+                                item73[ky] = data[key][ky];
+                            }
                         }
-                    }
-                } $scope.$apply()
-            }
-        })
+                    } $scope.$apply()
+                }
+            })
         })
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
         var socket2 = io.connect("https://forex-websocket.herokuapp.com/", {
