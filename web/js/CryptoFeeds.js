@@ -7,8 +7,11 @@ secondApp.controller('SecondController', function($scope) {
     $scope.all = []
     $scope.allimg1 = []
     $scope.allimg = []
+    $scope.alllikes = {}
+    $scope.element={}
 
-    $scope.init = function (api, img, chart_link) {
+
+    $scope.init = function (api, chart_link,likes) {
         //console.log("api", api, "chart_link",chart_link)
         $.ajax({
             url: api,
@@ -24,22 +27,49 @@ secondApp.controller('SecondController', function($scope) {
             }
         });
 
-        //console.log("img", img)
+    //     //console.log("img", img)
+    //     $.ajax({
+    //         url: img,
+    //         type: "GET",
+    //         success: function (result) {
+    //             $scope.allimg1 = result
+    //             $scope.allimg=$scope.allimg1[0]
+    //             console.log("IMAGE", $scope.allimg)
+    //             $scope.$apply()
+    //         },
+    //         error: function (xhr, ajaxOptions, thrownError) {
+    //             console.log("ERROR", thrownError, xhr, ajaxOptions)
+    //         }
+    //     });
+    // }
+
+////////////////////////////////////////////////////////////////////
+    console.log("likes",likes)
         $.ajax({
-            url: img,
+            url: likes,
             type: "GET",
             success: function (result) {
-                $scope.allimg1 = result
-                $scope.allimg=$scope.allimg1[0]
-                console.log("IMAGE", $scope.allimg)
-                $scope.$apply()
+                $scope.alllikes = result
+                for (const key in $scope.alllikes) {
+                    $scope.element[$scope.alllikes[key].symbol]= $scope.alllikes[key]
+                    var sent=($scope.element[$scope.alllikes[key].symbol].likes/($scope.element[$scope.alllikes[key].symbol].likes+$scope.element[$scope.alllikes[key].symbol].unlikes))*100
+                    // console.log("Response*likes*", sent)
+                    $scope.element[$scope.alllikes[key].symbol].sentiment=Number(sent.toFixed(1))
+
+                }
+
+                $scope.allimg=$scope.element
+                console.log("Response*likes*", $scope.allimg)
+
+                 $scope.$apply()
+
+
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
             }
         });
-    }
-
+}
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
     var socket = io.connect("https://crypto-ws.herokuapp.com")

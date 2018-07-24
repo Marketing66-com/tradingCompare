@@ -15,9 +15,11 @@ var ThirdApp = angular.module('ThirdApp', []).config(function ($interpolateProvi
         $scope.all1 = []
         $scope.allimg = {}
         $scope.allimg1 = []
+        $scope.alllikes = {}
+        $scope.element={}
 
         var i = 0
-        $scope.init = function (api, img,chart_link) {
+        $scope.init = function (api,chart_link,likes) {
             console.log("api", api, "chart_link",chart_link)
             $.ajax({
                 url: api,
@@ -46,26 +48,54 @@ var ThirdApp = angular.module('ThirdApp', []).config(function ($interpolateProvi
 
 // var allimg={}
 
-            console.log("img", img)
+            // console.log("img", img)
+            // $.ajax({
+            //     url: img,
+            //     type: "GET",
+            //     success: function (result) {
+            //         $scope.allimg1 = result
+            //         for (var i = 0; i < $scope.allimg1.length; i++) {
+            //             $scope.allimg[$scope.allimg1[i].name.slice(0, 3) + "/" + $scope.allimg1[i].name.slice(3, 6)] = {img: $scope.allimg1[i].img}
+            //
+            //         }
+            //         // for (const key in myobj) {
+            //         //     if (myobj.hasOwnProperty(key)) {
+            //         //         const element = myobj[key];
+            //         //         $scope.allimg.push(element)
+            //         //     }}
+            //         //  console.log("Response------", myobj)
+            //
+            //
+            //         console.log("Response**forex*", $scope.allimg)
+            //         $scope.$apply()
+            //     },
+            //     error: function (xhr, ajaxOptions, thrownError) {
+            //         console.log("ERROR", thrownError, xhr, ajaxOptions)
+            //     }
+            // });
+
+            ////////////////////////////////////////////////////////////////////
+            console.log("likes",likes)
             $.ajax({
-                url: img,
+                url: likes,
                 type: "GET",
                 success: function (result) {
-                    $scope.allimg1 = result
-                    for (var i = 0; i < $scope.allimg1.length; i++) {
-                        $scope.allimg[$scope.allimg1[i].name.slice(0, 3) + "/" + $scope.allimg1[i].name.slice(3, 6)] = {img: $scope.allimg1[i].img}
+                    $scope.alllikes = result
+                    for (const key in $scope.alllikes) {
+                        var name =$scope.alllikes[key].name.slice(0, 3) + "/" + $scope.alllikes[key].name.slice(3, 6)
+                        $scope.element[name]= $scope.alllikes[key]
+                        var sent=($scope.element[name].likes/($scope.element[name].likes+$scope.element[name].unlikes))*100
+                        // console.log("Response*likes*", sent)
+                        $scope.element[name].sentiment=Number(sent.toFixed(1))
 
                     }
-                    // for (const key in myobj) {
-                    //     if (myobj.hasOwnProperty(key)) {
-                    //         const element = myobj[key];
-                    //         $scope.allimg.push(element)
-                    //     }}
-                    //  console.log("Response------", myobj)
+
+                    $scope.allimg=$scope.element
+                    console.log("Response*likes*Forex", $scope.allimg)
+
+                     $scope.$apply()
 
 
-                    console.log("Response**forex*", $scope.allimg)
-                    $scope.$apply()
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log("ERROR", thrownError, xhr, ajaxOptions)

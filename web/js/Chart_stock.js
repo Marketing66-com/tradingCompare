@@ -11,15 +11,16 @@ var Chart_stockApp = angular.module('Chart_stockApp', []).config(function ($inte
 Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
 
     $scope.stocks = []
-    $scope.allimg = []
     $scope.images = {}
     $scope.myimage = []
     $scope.myimage = []
     $scope.all = []
+    $scope.alllikes = {}
+    $scope.element={}
 
     var i = 0
-    $scope.init = function (api, img, currency) {
-         console.log("api", api, "img", img, "currency",currency)
+    $scope.init = function (api, currency,likes) {
+         console.log("api", api, "currency",currency)
 
         $.ajax({
             url: api,
@@ -52,40 +53,73 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
 
 // var allimg={}
 
-        console.log("img", img)
+        // console.log("img", img)
+        //
+        // $.ajax({
+        //     url: img,
+        //     type: "GET",
+        //     success: function (result) {
+        //         $scope.images = result
+        //         console.log("result $scope.images",  $scope.images)
+        //         for (var i = 0; i < $scope.images.length; i++) {
+        //             if($scope.images[i].symbol == currency)
+        //             {   $scope.allimg[$scope.images[i].symbol] = {img: $scope.images[i].img}
+        //                 console.log("$scope.allimg",$scope.allimg)
+        //                 //$scope.myimage =  $scope.images[i].img
+        //                 $scope.myname = $scope.images[i].name
+        //                 //console.log("$scope.allimg", $scope.allimg["FB"].img)
+        //                 console.log("$scope.myname",$scope.myname)
+        //             }
+        //
+        //
+        //         }
+        //         // for (const key in myobj) {
+        //         //     if (myobj.hasOwnProperty(key)) {
+        //         //         const element = myobj[key];
+        //         //         $scope.allimg.push(element)
+        //         //     }}
+        //         //  console.log("Response------", myobj)
+        //
+        //         $scope.$apply()
+        //     },
+        //     error: function (xhr, ajaxOptions, thrownError) {
+        //         console.log("ERROR", thrownError, xhr, ajaxOptions)
+        //     }
+        //
+        // });
 
+        ////////////////////////////////////////////////////////////////////
+        console.log("likes", likes)
         $.ajax({
-            url: img,
+            url: likes,
             type: "GET",
             success: function (result) {
-                $scope.images = result
-                console.log("result $scope.images",  $scope.images)
-                for (var i = 0; i < $scope.images.length; i++) {
-                    if($scope.images[i].symbol == currency)
-                    {   $scope.allimg[$scope.images[i].symbol] = {img: $scope.images[i].img}
-                        console.log("$scope.allimg",$scope.allimg)
-                        //$scope.myimage =  $scope.images[i].img
-                        $scope.myname = $scope.images[i].name
-                        //console.log("$scope.allimg", $scope.allimg["FB"].img)
-                        console.log("$scope.myname",$scope.myname)
-                    }
-
+                $scope.alllikes = result
+                for (const key in $scope.alllikes) {
+                    $scope.element[$scope.alllikes[key].symbol] = $scope.alllikes[key]
+                    var sent = ($scope.element[$scope.alllikes[key].symbol].likes / ($scope.element[$scope.alllikes[key].symbol].likes + $scope.element[$scope.alllikes[key].symbol].unlikes)) * 100
+                    // console.log("Response*likes*", sent)
+                    $scope.element[$scope.alllikes[key].symbol].sentiment = Number(sent.toFixed(1))
 
                 }
-                // for (const key in myobj) {
-                //     if (myobj.hasOwnProperty(key)) {
-                //         const element = myobj[key];
-                //         $scope.allimg.push(element)
-                //     }}
-                //  console.log("Response------", myobj)
+                for (const key in $scope.element) {
+
+                    if ($scope.element[key].symbol == currency) {
+                        $scope.allimg = $scope.element[key]
+                    }
+
+                }
+
+                console.log("Response*likes*", $scope.allimg)
 
                 $scope.$apply()
+
+
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
             }
-
-        });
+        })
 
     }
 

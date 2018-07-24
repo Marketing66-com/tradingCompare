@@ -18,9 +18,9 @@ class DefaultController extends Controller
         $from =  $pair[0];
         $to =  $pair[1];
         $api =  $this->getParameter('crypto_api');
-        $img = $this->getParameter('crypto_img');
+        $like = $this->getParameter('crypto_likes');
 
-        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from,"from"=>$from, "to"=>$to, "api"=>$api,"img"=>$img));
+        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from,"from"=>$from, "to"=>$to, "api"=>$api,"like"=>$like));
     }
 
     /**
@@ -29,11 +29,11 @@ class DefaultController extends Controller
     public function forex_chartAction($currency)
     {
         $apiF =  $this->getParameter('forex_api');
-        $imgF = $this->getParameter('forex_img');
+        $likeF = $this->getParameter('forex_likes');
         $from = substr($currency, 0, 3);
         $to =  substr($currency, 3, 5);
         $pair = $from."_".$to;
-        return $this->render('default/chart_forex.html.twig',array("currency"=>$pair,'api'=>$apiF, 'img'=>$imgF));
+        return $this->render('default/chart_forex.html.twig',array("currency"=>$pair,'api'=>$apiF, 'like'=>$likeF));
     }
 
     /**
@@ -42,9 +42,9 @@ class DefaultController extends Controller
     public function stock_chartAction($currency)
     {
         $apiStock =  $this->getParameter('stocks_api');
-        $imgStock = $this->getParameter('stocks_img');
+        $likeS = $this->getParameter('stocks_likes');
 
-        return $this->render('default/chart_stock.html.twig',array("currency"=>$currency,'api'=>$apiStock, 'img'=>$imgStock,));
+        return $this->render('default/chart_stock.html.twig',array("currency"=>$currency,'api'=>$apiStock, 'like'=>$likeS,));
     }
 
 

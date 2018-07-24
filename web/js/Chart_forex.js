@@ -7,12 +7,12 @@ Chart_forexApp.controller("Chart_forexController", function ($scope, $http) {
 
     $scope.all = []
     $scope.all1 = []
-    $scope.allimg = {}
-    $scope.allimg1 = []
+    $scope.alllikes = {}
+    $scope.element={}
 
     var i = 0
-    $scope.init = function (api, img,currency) {
-        console.log("api", api,"img",img, "currency", currency)
+    $scope.init = function (api,currency,likes) {
+        console.log("api", api, "currency", currency)
         var variable = currency.slice(0, 3)+ currency.slice(4,7)
         console.log("varaible",variable)
         $.ajax({
@@ -50,27 +50,62 @@ Chart_forexApp.controller("Chart_forexController", function ($scope, $http) {
 
 // var allimg={}
 
-        console.log("img", img)
+        // console.log("img", img)
+        // $.ajax({
+        //     url: img,
+        //     type: "GET",
+        //     success: function (result) {
+        //         $scope.allimg1 = result
+        //         //console.log("$scope.allimg1", $scope.allimg1)
+        //         for (var i = 0; i < $scope.allimg1.length; i++) {
+        //            if($scope.allimg1[i].name == variable) {
+        //                $scope.allimg[$scope.allimg1[i].name.slice(0, 3) + "_" + $scope.allimg1[i].name.slice(3, 6)] = {img: $scope.allimg1[i].img}
+        //            }
+        //
+        //         }
+        //
+        //         //console.log("$scope.allimg", $scope.allimg)
+        //         $scope.$apply()
+        //     },
+        //     error: function (xhr, ajaxOptions, thrownError) {
+        //         console.log("ERROR", thrownError, xhr, ajaxOptions)
+        //     }
+        // });
+        console.log("likes",likes)
         $.ajax({
-            url: img,
+            url: likes,
             type: "GET",
             success: function (result) {
-                $scope.allimg1 = result
-                //console.log("$scope.allimg1", $scope.allimg1)
-                for (var i = 0; i < $scope.allimg1.length; i++) {
-                   if($scope.allimg1[i].name == variable) {
-                       $scope.allimg[$scope.allimg1[i].name.slice(0, 3) + "_" + $scope.allimg1[i].name.slice(3, 6)] = {img: $scope.allimg1[i].img}
-                   }
+                $scope.alllikes = result
+                for (const key in $scope.alllikes) {
+                    var name =$scope.alllikes[key].name.slice(0, 3) + "_" + $scope.alllikes[key].name.slice(3, 6)
+                    $scope.element[name]= $scope.alllikes[key]
+                    var sent=($scope.element[name].likes/($scope.element[name].likes+$scope.element[name].unlikes))*100
+                    // console.log("Response*likes*", sent)
+                    $scope.element[name].sentiment=Number(sent.toFixed(1))
 
                 }
 
-                //console.log("$scope.allimg", $scope.allimg)
+                for (const key in $scope.element) {
+
+                    if (key== currency) {
+                        $scope.allimg = $scope.element[key]
+                        console.log("Response*likes*Forex", $scope.allimg)
+
+                }
+
+                }
+
                 $scope.$apply()
+
+
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
             }
         });
+
+
 
     }
 

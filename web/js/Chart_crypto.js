@@ -4,9 +4,10 @@ var ChartApp = angular.module('chartApp', []).config(function ($interpolateProvi
 ChartApp.controller('ChartController', function($scope) {
 
     $scope.allcrypto = []
-    $scope.list = []
+    $scope.alllikes = {}
+    $scope.element={}
 
-    $scope.init = function (api, from, to, img) {
+    $scope.init = function (api, from, to, likes) {
         console.log("api**************////////////**************", api)
 
         // var array = httpGet('https://afternoon-mountain-15657.herokuapp.com/All-Coins-Aviho')
@@ -32,38 +33,69 @@ ChartApp.controller('ChartController', function($scope) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
             }
         });
-
+        console.log("likes",likes)
         $.ajax({
-            url: 'https://afternoon-mountain-15657.herokuapp.com/All-Coins-Aviho',
+            url: likes,
             type: "GET",
             success: function (result) {
-                $scope.list = result
-                for (i = 0; i < result.length; i++) {
-                    if (result[i].FROMSYMBOL == from) {
-                        $scope.myname = result[i].name
-                        console.log("api************found", from, to, $scope.myname )
-                    }
+                $scope.alllikes = result
+                for (const key in $scope.alllikes) {
+                    $scope.element[$scope.alllikes[key].symbol]= $scope.alllikes[key]
+                    var sent=($scope.element[$scope.alllikes[key].symbol].likes/($scope.element[$scope.alllikes[key].symbol].likes+$scope.element[$scope.alllikes[key].symbol].unlikes))*100
+                    // console.log("Response*likes*", sent)
+                    $scope.element[$scope.alllikes[key].symbol].sentiment=Number(sent.toFixed(1))
+
                 }
+                for (const key in $scope.element) {
+
+                    if ($scope.element[key].symbol == from && $scope.element[key].toSymbol == to) {
+                        $scope.allimg = $scope.element[key]
+                    }
+
+                }
+                console.log("Response*likes*", $scope.allimg)
+
                 $scope.$apply()
+
+
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
             }
         });
 
-        $.ajax({
-        url: img,
-            type: "GET",
-            success: function (result) {
-            $scope.allimg1 = result
-            $scope.allimg=$scope.allimg1[0]
-            console.log("IMAGE", $scope.allimg)
-            $scope.$apply()
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-            console.log("ERROR", thrownError, xhr, ajaxOptions)
-        }
-    });
+        // $.ajax({
+        //     url: 'https://afternoon-mountain-15657.herokuapp.com/All-Coins-Aviho',
+        //     type: "GET",
+        //     success: function (result) {
+        //         $scope.list = result
+        //         for (i = 0; i < result.length; i++) {
+        //             if (result[i].FROMSYMBOL == from) {
+        //                 $scope.myname = result[i].name
+        //                 console.log("api************found", from, to, $scope.myname )
+        //             }
+        //         }
+        //         $scope.$apply()
+        //     },
+        //     error: function (xhr, ajaxOptions, thrownError) {
+        //         console.log("ERROR", thrownError, xhr, ajaxOptions)
+        //     }
+        // });
+        //
+        // $.ajax({
+        // url: img,
+        //     type: "GET",
+        //     success: function (result) {
+        //     $scope.allimg1 = result
+        //     $scope.allimg=$scope.allimg1[0]
+        //     console.log("IMAGE", $scope.allimg)
+        //     $scope.$apply()
+        // },
+        // error: function (xhr, ajaxOptions, thrownError) {
+        //     console.log("ERROR", thrownError, xhr, ajaxOptions)
+        // }
+    // });
+
 
 
     }
