@@ -77,6 +77,7 @@ secondApp.controller('SecondController', function($scope) {
     socket.on('connect', function () {
         socket.emit('room', "all_regulated");
         socket.on('message', data => {
+            console.log("data all regulated", data)
             for (const key in data) {
             var item73 = $scope.all.find(function (element) {
 

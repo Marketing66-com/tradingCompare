@@ -1,0 +1,145 @@
+
+
+
+.footer_col{
+    display: table;
+    min-height: 200px!important;
+    position: relative;
+}
+.footer_title{
+    padding-left: 0!important;
+}
+.footer_text{
+    text-align: left;
+    max-width: 100%!Important;
+    display: inline-block!important;
+    /*font-family: 'Hind Siliguri', sans-serif;*/
+    font-weight: 500;
+    font-size: 12px;
+}
+.footer_down{
+    display: table;
+    position: relative;
+    margin: 20px auto;
+    padding-right: 140px;
+}
+
+.footer_down_absolut{
+    position: absolute;
+    right: 0;
+    display: table;
+    bottom: 0;
+    width: 125px;
+}
+
+.footer_down_link{
+    display: block;
+    margin-top: 5px;
+}
+.footer_down_text{
+    text-align: left;
+}
+.footer_mobile{
+    object-fit: cover;
+}
+.footer-abs{
+    position: absolute;
+    width: 100%;
+    display: table;
+    bottom: 5px;
+    left: 0;
+}
+
+.footer_soz{
+    display: table;
+    float: left;
+}
+.footer_follow{
+    display: table;
+    float: left;
+    margin: 10px 10px 10px 0;
+    line-height: 35px;
+}
+
+.footer_terms{
+    text-align: right;
+    margin: 10px 0;
+    line-height: 35px;
+}
+
+.footer_follow, .footer_terms, .footer_down_text{
+    color: white;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+
+
+
+
+@media (max-width: 1200px) {
+
+
+}
+
+@media (max-width: 991px) {
+
+    .footer_follow, .footer_terms, .footer_down_text, .footer_title{
+        font-size: 12px;
+        white-space: nowrap;
+    }
+    .footer_text{
+        font-size: 9px;
+    }
+    /*.footer_down{*/
+        /*padding-right: 115px;*/
+    /*}*/
+    /*.footer_down_absolut{*/
+        /*width: 100px;*/
+    /*}*/
+    .footer_down_link img{
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer_text{
+        font-size: 11px;
+    }
+    .footer_title{
+        font-size: 14px;
+    }
+    .footer_col{
+        min-height: auto!important;
+    }
+    .footer-abs{
+        position: relative;
+        left: auto;
+        margin: 5px auto;
+        display: table;
+        width: auto;
+    }
+    .footer_down{
+        margin: 5px auto;
+        padding-right: 150px;
+    }
+    .footer_terms{
+        line-height: 20px;
+    }
+    .footer_down_absolut {
+        width: 130px;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    .footer_follow{
+        display: block;
+        margin: 20px 0 0 0;
+        line-height: 10px;
+        float: none;
+    }
+
+}

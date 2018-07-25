@@ -113,7 +113,24 @@ class DefaultController extends Controller
         return $this->render('default/broker_stocks2.html.twig');
     }
 
-    
+    /**
+     * @Route("/Term-and-conditions", name="terms")
+     */
+    public function TermsAction()
+    {
+        // replace this example code with whatever you need
+        return $this->render('default/Term&&Conditions.html.twig');
+    }
+
+    /**
+     * @Route("/Privacy-policy", name="privacy")
+     */
+    public function privacyAction()
+    {
+        // replace this example code with whatever you need
+        return $this->render('default/PrivacyPolicy.html.twig');
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
      * @Route("/test", name="test")
@@ -131,12 +148,12 @@ class DefaultController extends Controller
      */
     public function indexationAction()
     {
-        $api =  $this->getParameter('crypto_api');
-        $img = $this->getParameter('crypto_img');
-        $chart_link = "crypto_chart";
-        return $this->render('default/indexation.html.twig',array('api'=>$api,"img"=>$img, "chart_link"=>$chart_link));
+//        $api =  $this->getParameter('crypto_api');
+//        $img = $this->getParameter('crypto_img');
+//        $chart_link = "crypto_chart";
+//        return $this->render('default/indexation.html.twig',array('api'=>$api,"img"=>$img, "chart_link"=>$chart_link));
 
-
+        return $this->render('default/indexation.html.twig');
     }
 
     /**

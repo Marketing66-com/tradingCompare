@@ -1382,6 +1382,7 @@ margin: 0 ;
                 margin: 0 auto 10px auto;
                 font-family: 'Open Sans', sans-serif;
             }
+            /*********************************************************/
 
             .burger {
                 float: right;
@@ -3254,23 +3255,64 @@ margin: 0 ;
 {% block body %}
 {% endblock %}
 
+{#<footer class="footer">#}
+    {#<div class="container">#}
+        {#<div class="row">#}
+            {#<div class="footer_soz">#}
+                {#<a class="footer_soz_icon footer_soz_icon_faceebook"><i class="fab fa-facebook-f"></i></a>#}
+                {#<a class="footer_soz_icon footer_soz_icon_twitter"><i class="fab fa-twitter"></i></a>#}
+                {#<a class="footer_soz_icon footer_soz_icon_linkedin"><i class="fab fa-linkedin"></i></a>#}
+                {#<a class="footer_soz_icon footer_soz_icon_youtube"><i class="fab fa-youtube"></i></a>#}
+            {#</div>#}
+            {#<p class="footer_title">Powered by Marketing66 © 2018 </p>#}
+            {#<p class="footer_text">#}
+                {#All trading involves risk. Only resk capital prepared to lose. Past perfomance is not an indication of future result. This content is for#}
+                {#educational purposes only and is investment advice. Contact us: contact@tradingcompare.com#}
+            {#</p>#}
+        {#</div>#}
+    {#</div>#}
+{#</footer>#}
+
 <footer class="footer">
     <div class="container">
-        <div class="row">
-            <div class="footer_soz">
-                <a class="footer_soz_icon footer_soz_icon_faceebook"><i class="fab fa-facebook-f"></i></a>
-                <a class="footer_soz_icon footer_soz_icon_twitter"><i class="fab fa-twitter"></i></a>
-                <a class="footer_soz_icon footer_soz_icon_linkedin"><i class="fab fa-linkedin"></i></a>
-                <a class="footer_soz_icon footer_soz_icon_youtube"><i class="fab fa-youtube"></i></a>
+        <div class="col-md-4 col-sm-4 col-xs-12 footer_col">
+            <div class="footer-abs">
+                <p class="footer_follow">Follow Us</p>
+                <div class="footer_soz">
+                    <a class="footer_soz_icon footer_soz_icon_faceebook"><i class="fab fa-facebook-f"></i></a>
+                    <a class="footer_soz_icon footer_soz_icon_twitter"><i class="fab fa-twitter"></i></a>
+                    <a class="footer_soz_icon footer_soz_icon_linkedin"><i class="fab fa-linkedin"></i></a>
+                    <a class="footer_soz_icon footer_soz_icon_youtube"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
-            <p class="footer_title">Powered by Marketing66 © 2018 </p>
-            <p class="footer_text">
-                All trading involves risk. Only resk capital prepared to lose. Past perfomance is not an indication of future result. This content is for
-                educational purposes only and is investment advice. Contact us: contact@tradingcompare.com
-            </p>
         </div>
+        <div class="col-md-4 col-sm-5 col-xs-12 footer_col">
+            <div class="footer_down">
+                <img class="footer_mobile" src='{{asset("img/FooterImages/phone.png")}}' alt="phone">
+                {#<div class="footer_down_absolut">#}
+                    {#<p class="footer_down_text">Download our app</p>#}
+                    {#<a class="footer_down_link">#}
+                        {#<img src='{{asset("/img/FooterImages/App_store.png")}}' alt="App_store">#}
+                    {#</a>#}
+                    {#<a class="footer_down_link">#}
+                        {#<img src='{{asset("/img/FooterImages/Google_play.png")}}' alt="Google_play">#}
+                    {#</a>#}
+                {#</div>#}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-3 col-xs-12 footer_col">
+            <div class="footer-abs">
+                <p class="footer_terms">Terms & Conditions | Privacy Policy</p>
+            </div>
+        </div>
+        <p class="footer_text">
+            Risk Warning: Trading foreign exchange, cryptocurrencies, CFDs, indexes and commodities is potentially full of high risk and may not be suitable for all investors. The high level of leverage can work both for and against traders. Before any investment you need to carefully consider your targets, previous experience, and risk level. Trading can result in the loss of your money, as a result, you are expressly cautioned that you should never invest or trade with money that you cannot afford to lose. The Information on this website is provided for education and informational purposes only, without any express or implied warranty of any kind, including warranties of accuracy, completeness, or fitness for any particular purpose. The Information contained in or provided from or through this website is not intended to be and does not constitute financial advice, investment advice, trading advice or any other advice. The Information on this website and provided from or through this website is general in nature and is not specific to you the User or anyone else. You should not make any decision, financial, investment, trading or otherwise, based on any of the information presented on this website without undertaking independent due diligence and consultation with a professional broker or financial advisory. You understand that you are using any and all Information available on or through this website at your own risk. The information provided on this website does not constitute investment advice, financial advice, trading advice or any other sort of advice and you should not treat any of the website's content as such. The Website does not recommend that any cryptocurrency should be bought, sold or held by you and nothing on this website should be taken as an offer to buy, sell or hold a cryptocurrency. Do conduct your own due-diligence and consult your financial advisory before making any investment decision.
+        </p>
+        <p class="footer_title">Powered by Marketing66 © 2018</p>
     </div>
 </footer>
+
+
 
 {% block javascripts %}
 
@@ -3281,6 +3323,7 @@ margin: 0 ;
             ms.href = hf;
             document.getElementsByTagName("head")[0].appendChild(ms);
         }
+        loadCSS('{{asset("css/footer.css")}}');
         loadCSS('{{asset("font/font_avenir.css")}}');
         loadCSS("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
         loadCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
