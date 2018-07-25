@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/baseS.html.twig" afterPath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/baseS.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/test.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/test.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,11 +36,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="baseS.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="baseS.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/baseS.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="709">
-              <caret line="178" column="30" lean-forward="false" selection-start-line="178" selection-start-column="30" selection-end-line="178" selection-end-column="30" />
+            <state relative-caret-position="692">
+              <caret line="177" column="99" lean-forward="false" selection-start-line="177" selection-start-column="80" selection-end-line="177" selection-end-column="99" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/test.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="628">
+              <caret line="995" column="38" lean-forward="true" selection-start-line="995" selection-start-column="38" selection-end-line="995" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -80,8 +89,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>visit-btn</find>
-      <find>etoro</find>
       <find>visit</find>
       <find>progress-bar-rel</find>
       <find>baseCirc</find>
@@ -110,6 +117,8 @@
       <find>path</find>
       <find>&lt;script src=&quot;</find>
       <find>ASSET</find>
+      <find>reting_process-bar</find>
+      <find>reting_progress-bar</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -143,7 +152,6 @@
         <option value="$PROJECT_DIR$/app/Resources/views/default/forex2.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/crypto.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/stocks2.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/test.html.twig" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml.dist" />
         <option value="$PROJECT_DIR$/src/LiveFeedBundle/Controller/FeedsControler.php" />
@@ -162,6 +170,7 @@
         <option value="$PROJECT_DIR$/web/js/CryptoFeeds.js" />
         <option value="$PROJECT_DIR$/web/js/bar.js" />
         <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/baseS.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/test.html.twig" />
       </list>
     </option>
   </component>
@@ -447,12 +456,12 @@
       <workItem from="1532442815272" duration="1881000" />
       <workItem from="1532444713464" duration="597000" />
       <workItem from="1532447134179" duration="122000" />
-      <workItem from="1532506923264" duration="260000" />
+      <workItem from="1532506923264" duration="463000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110401000" />
+    <option name="totallyTimeSpent" value="110604000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="0" />
@@ -622,13 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/test.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51255">
-          <caret line="3015" column="94" lean-forward="false" selection-start-line="3015" selection-start-column="90" selection-end-line="3015" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -716,6 +718,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/baseS.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="692">
+          <caret line="177" column="99" lean-forward="false" selection-start-line="177" selection-start-column="80" selection-end-line="177" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/bar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -724,10 +734,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/baseS.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/test.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="178" column="30" lean-forward="false" selection-start-line="178" selection-start-column="30" selection-end-line="178" selection-end-column="30" />
+        <state relative-caret-position="628">
+          <caret line="995" column="38" lean-forward="true" selection-start-line="995" selection-start-column="38" selection-end-line="995" selection-end-column="38" />
           <folding />
         </state>
       </provider>
