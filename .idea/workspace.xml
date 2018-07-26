@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/base_wholeproject.html.twig" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/PrivacyPolicy.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/PrivacyPolicy.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/Term&amp;Conditions.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/Term&amp;Conditions.html.twig" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/test.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/test.html.twig" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,9 +23,12 @@
       <file leaf-file-name="test.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/test.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="3296" column="138" lean-forward="false" selection-start-line="3296" selection-start-column="138" selection-end-line="3296" selection-end-column="138" />
-              <folding />
+            <state relative-caret-position="510">
+              <caret line="3309" column="187" lean-forward="false" selection-start-line="3309" selection-start-column="187" selection-end-line="3309" selection-end-column="187" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#p#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#p#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,8 +76,8 @@
       <file leaf-file-name="Term&amp;Conditions.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/Term&amp;Conditions.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="14" />
+            <state relative-caret-position="3842">
+              <caret line="226" column="25" lean-forward="false" selection-start-line="188" selection-start-column="19" selection-end-line="226" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -81,8 +86,8 @@
       <file leaf-file-name="PrivacyPolicy.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/PrivacyPolicy.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="30" />
+            <state relative-caret-position="269">
+              <caret line="239" column="50" lean-forward="false" selection-start-line="239" selection-start-column="50" selection-end-line="239" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -101,8 +106,8 @@
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3400">
-              <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="1" />
+            <state relative-caret-position="527">
+              <caret line="125" column="46" lean-forward="false" selection-start-line="125" selection-start-column="39" selection-end-line="125" selection-end-column="46" />
               <folding>
                 <element signature="e#40#99#0#PHP" expanded="true" />
               </folding>
@@ -215,8 +220,8 @@
         <option value="$PROJECT_DIR$/web/js/CryptoFeeds.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/indexation.html.twig" />
         <option value="$PROJECT_DIR$/web/css/footer.css" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/Term&amp;Conditions.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/Term&amp;Conditions.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/PrivacyPolicy.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/test.html.twig" />
       </list>
@@ -524,12 +529,14 @@
       <workItem from="1532602467431" duration="751000" />
       <workItem from="1532606801199" duration="1410000" />
       <workItem from="1532612019031" duration="1496000" />
-      <workItem from="1532613831911" duration="497000" />
+      <workItem from="1532613831911" duration="1788000" />
+      <workItem from="1532615638966" duration="2243000" />
+      <workItem from="1532617910109" duration="1294000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127918000" />
+    <option name="totallyTimeSpent" value="132746000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="0" />
@@ -765,14 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/Term&amp;Conditions.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/broker_forex2.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6919">
@@ -785,14 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1683">
           <caret line="99" column="6" lean-forward="false" selection-start-line="99" selection-start-column="6" selection-end-line="99" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/ForexFeeds.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1887">
-          <caret line="111" column="56" lean-forward="false" selection-start-line="111" selection-start-column="7" selection-end-line="111" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -813,16 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3400">
-          <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="1" />
-          <folding>
-            <element signature="e#40#99#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Controller/FeedsControler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -831,19 +812,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/Term&amp;Conditions.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3842">
+          <caret line="226" column="25" lean-forward="false" selection-start-line="188" selection-start-column="19" selection-end-line="226" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/ForexFeeds.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1887">
+          <caret line="111" column="56" lean-forward="false" selection-start-line="111" selection-start-column="7" selection-end-line="111" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/PrivacyPolicy.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="30" />
+        <state relative-caret-position="269">
+          <caret line="239" column="50" lean-forward="false" selection-start-line="239" selection-start-column="50" selection-end-line="239" selection-end-column="50" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="125" column="46" lean-forward="false" selection-start-line="125" selection-start-column="39" selection-end-line="125" selection-end-column="46" />
+          <folding>
+            <element signature="e#40#99#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/test.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="3296" column="138" lean-forward="false" selection-start-line="3296" selection-start-column="138" selection-end-line="3296" selection-end-column="138" />
-          <folding />
+        <state relative-caret-position="510">
+          <caret line="3309" column="187" lean-forward="false" selection-start-line="3309" selection-start-column="187" selection-end-line="3309" selection-end-column="187" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#p#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#1;n#p#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
