@@ -148,8 +148,8 @@ firstApp.controller('FirstController', function($scope) {
             path: "/socket/forex/livefeed"}, {'force new connection': true})
         socket2.on('connect', function() {
 
-            // socket2.on("onUpdate", function (response) {
-            socket2.on("forbar", function (response) {
+            socket2.emit('room', ["EURUSD_1sec","USDJPY_1sec"]);
+            socket2.on("message", function (response) {
                 //console.log("$scope.allforex",typeof $scope.allforex)
                 //console.log("$scope response",typeof $scope.allforex)
                 //console.log("forbar", response)
@@ -159,7 +159,7 @@ firstApp.controller('FirstController', function($scope) {
                     // if(response.fromSymbol == "EURUSD" || response.fromSymbol == "USDJPY" )
                     // {
                         // console.log("response24",response.data.change24)
-                        return element.pair == response.fromSymbol;
+                        return element.pair == response.pair;
                     // }
                     // if(element.name == response.fromSymbol)
                     // {console.log("response",response)}
@@ -168,9 +168,9 @@ firstApp.controller('FirstController', function($scope) {
                 });
 
                 if (typeof item73 != typeof undefined) {
-                    for (const key in response.data) {
-                        if (response.data.hasOwnProperty(key)) {
-                            item73[key] = response.data[key];
+                    for (const key in response) {
+                        if (response.hasOwnProperty(key)) {
+                            item73[key] = response[key];
                             $scope.$apply()
                         }
                     }

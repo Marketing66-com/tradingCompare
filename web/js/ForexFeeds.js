@@ -109,22 +109,16 @@ var ThirdApp = angular.module('ThirdApp', []).config(function ($interpolateProvi
         var socket = io.connect("https://forex-websocket.herokuapp.com/", {
             path: "/socket/forex/livefeed"
         })
-        socket.on("all_regulated", function (response) {
-            //console.log("FOREX SOCKET",response)
-            var item73
-            // for (var i = 0; i < response.length; i++) {
-            //
-            //     item73 = $scope.all.find(function (element) {
-            //
-            //         return element.fromSymbol == (response[i].fromSymbol.slice(0, 3) + "/" + response[i].fromSymbol.slice(3, 6));
-            //     });
+        socket.on('connect', function () {
+            socket.emit('room', "all_pairs");
+            socket.on('message', response => {
+                var item73
 
-            for(key in response)
-            {
+                for (key in response) {
                 item73 = $scope.all.find(function (element) {
 
-                        return element.fromSymbol == (response[key].fromSymbol.slice(0, 3) + "/" + response[key].fromSymbol.slice(3, 6));
-                    });
+                    return element.fromSymbol == (response[key].fromSymbol.slice(0, 3) + "/" + response[key].fromSymbol.slice(3, 6));
+                });
 
 
                 if (typeof item73 != typeof undefined) {
@@ -148,7 +142,7 @@ var ThirdApp = angular.module('ThirdApp', []).config(function ($interpolateProvi
             $scope.$apply()
 
         })
-
+        })
 
         $scope.ActiveChange = function (symbol) {
 
