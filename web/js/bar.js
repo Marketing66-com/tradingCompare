@@ -150,9 +150,8 @@ firstApp.controller('FirstController', function($scope) {
 
             socket2.emit('room', ["EURUSD_1sec","USDJPY_1sec"]);
             socket2.on("message", function (response) {
-                //console.log("$scope.allforex",typeof $scope.allforex)
-                //console.log("$scope response",typeof $scope.allforex)
-                //console.log("forbar", response)
+
+                console.log("forbar", response)
                 var item73 = $scope.allforex.find(function (element) {
 
                     //console.log("element.name", element.name, "response.fromSymbol", response.fromSymbol)
