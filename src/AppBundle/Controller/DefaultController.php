@@ -8,7 +8,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    
+
+
+//********************************  CHART   ********************************
+
      /**
      * @Route("/Crypto-currencies/{currency}/real-time-price-sentiment", name="crypto_chart", options={"expose" = true})
      */
@@ -49,69 +52,132 @@ class DefaultController extends Controller
 
 
 
+//********************************  BROKERS  ********************************
+
     /**
-     * @Route("/broker_review", name="broker_review")
+     * @Route("/template",name="template")
      */
-    public function broker_reviewAction()
+    public function templateAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('default/broker_review.html.twig');
+
+        return $this->render('default/brokers_template.html.twig');
     }
 
     /**
-     * @Route("/etoro_review", name="etoro_review")
+     * @Route("/crypto-brokers",name="crypto")
      */
-    public function etoro_reviewAction()
+    public function brokercryptoAction()
     {
-        // replace this example code with whatever you need
+
+        return $this->render('default/brokers_crypto.html.twig');
+    }
+
+    /**
+     * @Route("/forex-brokers",name="forex")
+     */
+    public function brokerforexAction()
+    {
+
+        return $this->render('default/brokers_forex.html.twig');
+    }
+
+    /**
+     * @Route("/commodities-brokers",name="commodities")
+     */
+    public function brokercomAction()
+    {
+
+        return $this->render('default/brokers_commodities.html.twig');
+    }
+    /**
+     * @Route("/stock-brokers",name="stock")
+     */
+    public function brokerstockAction()
+    {
+
+        return $this->render('default/brokers_stocks.html.twig');
+    }
+
+
+    //********************************  REVIEWS  ******************************************
+
+
+    /**
+     * @Route("/broker-review/etoro", name="etoro")
+     */
+    public function etoroAction()
+    {
+
         return $this->render('default/review_Etoro.html.twig');
     }
 
-
     /**
-     * @Route("/commodities", name="commodities")
+     * @Route("/broker-review/24options", name="24option")
      */
-    public function commoditiAction()
+    public function optionAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('default/broker_commodities.html.twig');
+
+        return $this->render('default/review_24option.html.twig');
     }
 
     /**
-     * @Route("/crypto", name="crypto")
+     * @Route("/broker-review/trade-com", name="trade")
      */
-    public function cryptoAction()
+    public function tradeAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('default/broker_crypto.html.twig');
+
+        return $this->render('default/review_Trade.html.twig');
     }
 
     /**
-     * @Route("/commodities2", name="commodities2")
+     * @Route("broker-review/plus500", name="plus500")
      */
-    public function commodities2Action()
+    public function plusAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('default/broker_commodities2.html.twig');
+
+        return $this->render('default/review_Plus500.html.twig');
     }
 
     /**
-     * @Route("/forex2", name="forex2")
+     * @Route("broker-review/Pepperstone", name="pepperstone")
      */
-    public function forex2Action()
+    public function pepperstoneAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('default/broker_forex2.html.twig');
+
+        return $this->render('default/review_pepperstone.html.twig');
     }
 
+
     /**
-     * @Route("/stocks2", name="stocks2")
+     * @Route("broker-review/Alvexo ", name="alvexo")
      */
-    public function stocks2Action()
+    public function alvexoAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('default/broker_stocks2.html.twig');
+
+        return $this->render('default/review_alvexo.html.twig');
     }
+
+
+    /**
+     * @Route("broker-review/Markets-com", name="market")
+     */
+    public function marketAction()
+    {
+
+        return $this->render('default/review_market.html.twig');
+    }
+
+
+    //********************************  BASE - TERMS - PRIVACY   ********************************
+    /**
+     * @Route("/new")
+     */
+    public function HomeAction()
+    {
+
+        return $this->render('base.html.twig');
+    }
+
 
     /**
      * @Route("/Term-and-conditions", name="terms")
@@ -131,30 +197,6 @@ class DefaultController extends Controller
         return $this->render('default/PrivacyPolicy.html.twig');
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /**
-     * @Route("/test", name="test")
-     */
-    public function testAction()
-    {
-        // replace this example code with whatever you need
-        return $this->render('test.html.twig');
-    }
-
-
-
-    /**
-     * @Route("/indexation", name="indexation")
-     */
-    public function indexationAction()
-    {
-//        $api =  $this->getParameter('crypto_api');
-//        $img = $this->getParameter('crypto_img');
-//        $chart_link = "crypto_chart";
-//        return $this->render('default/indexation.html.twig',array('api'=>$api,"img"=>$img, "chart_link"=>$chart_link));
-
-        return $this->render('default/indexation.html.twig');
-    }
 
     /**
      * @Route("/ho_no", name="ho_no")
@@ -166,38 +208,19 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/cryptocurrencies", name="cryptocurrencies")
+     * @Route("/test/{currency}")
      */
-    public function cryptocurrenciesAction(Request $request)
+    public function testAction($currency)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/broker_cryptocurrencies.html.twig');
+        $pair = explode("_", $currency);
+        $from =  $pair[0];
+        $to =  $pair[1];
+        $api =  $this->getParameter('crypto_api');
+        $like = $this->getParameter('crypto_likes');
+
+        return $this->render('default/charttest.html.twig', array("currency"=>$from,"from"=>$from, "to"=>$to, "api"=>$api,"like"=>$like));
+//        return $this->render('default/charttest.html.twig');
     }
-
-
-    /**
-     * @Route("/mybar", name="mybar")
-     */
-    public function mybarAction()
-    {
-//        $api =  $this->getParameter('crypto_api');
-        $api = 'https://crypto-ws.herokuapp.com/All-Froms-and-Prices';
-        $first = "BTC"; $second = "ETH"; $third = "BCH"; $fourth = "LTC"; $fifth = "XRP"; $sixth = "DASH";
-        return $this->render('default\bar.html.twig',array("api"=>$api, "first"=>$first, "second"=>$second,  "third"=>$third,  "fourth"=>$fourth,  "fifth"=>$fifth,  "sixth"=>$sixth));
-    }
-
-//    /**
-//     * @Route("/aaa/{from}_{to}", name="aaa")
-//     */
-//    public function aaanAction($from,$to)
-//    {
-////        $from = "ETH";
-////        $to = "USD";
-////        $exchange = "Coinbase";
-////        $name = "Ethereum";
-//
-//        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from,"from"=>$from, "to"=>$to));
-//    }
 
 
 }

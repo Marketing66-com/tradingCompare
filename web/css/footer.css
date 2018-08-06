@@ -1,6 +1,94 @@
+/*footer*/
+.footer {
+    background-color: #1e375e;
+    width: 100%;
+    display: table;
+    text-align: center;
+}
 
+.footer_title {
+    color: white;
+    line-height: 35px;
+    font-size: 14px;
+    margin: 0;
+    padding-left: 15px;
+    font-family: 'Open Sans', sans-serif
+}
 
+.footer_soz {
+    margin: 10px auto;
+}
 
+.footer_soz_icon {
+    width: 35px;
+    border-radius: 50%;
+    display: inline-block;
+    line-height: 35px;
+    font-size: 16px;
+    color: white;
+    border: 1px solid transparent;
+    transition: 0.3s all;
+    margin: 0 4px;
+}
+
+.footer_soz_icon:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer-right {
+    float: right;
+    font-size: 12px;
+    padding-right: 15px
+}
+
+.footer_soz_icon_faceebook {
+    background-color: #3B5995;
+}
+
+.footer_soz_icon_faceebook:hover {
+    background-color: white;
+    color: #3B5995;
+}
+
+.footer_soz_icon_twitter:hover {
+    background-color: white;
+    color: #49ADE9;
+}
+
+.footer_soz_icon_linkedin:hover {
+    background-color: white;
+    color: #0078B0;
+}
+
+.footer_soz_icon_youtube:hover {
+    background-color: white;
+    color: #ED1C24;
+}
+
+.footer_soz_icon_twitter {
+    background-color: #49ADE9;
+}
+
+.footer_soz_icon_linkedin {
+    background-color: #0078B0;
+}
+
+.footer_soz_icon_youtube {
+    background-color: #ED1C24;
+}
+
+.footer_text {
+    color: white;
+    font-size: 11px;
+    font-weight: 200;
+    max-width: 650px;
+    display: block;
+    margin: 0 auto 10px auto;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/***************************************************************************************************/
 .footer_col{
     display: table;
     min-height: 200px!important;
@@ -13,9 +101,9 @@
     text-align: left;
     max-width: 100%!Important;
     display: inline-block!important;
-    /*font-family: 'Hind Siliguri', sans-serif;*/
+    font-family: 'Hind Siliguri', sans-serif;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 10px;
 }
 .footer_down{
     display: table;

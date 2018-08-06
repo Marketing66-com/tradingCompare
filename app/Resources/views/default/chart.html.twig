@@ -1,0 +1,267 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <section class="table">
+
+        <div class="chart_search">
+            <div class="container">
+                <div class="row">
+                    <input class="search_input" type="text" placeholder="Search Instruments">
+                </div>
+            </div>
+        </div>
+        <div class="container padding_non">
+            <div class="row">
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="chart_bitcoin-cont">
+                        <div class="bitcoin_text-cont">
+                            <div class="bitcoin_img-cont">
+                                <img class="bitcoin_img" src="img/bitcoin.png" alt="bitcoin">
+                            </div>
+                            <div class="bitcoin_text-cont_left">
+                                <h3 class="bitcoin_title">BITCOIN<span class="bitcoin_title_right">BTCUSD</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
+                                <p class="statistics_block_green-text">+0.45% <span class="statistics_block_min-text">36.4</span>
+                                    <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></p>
+                                <h3 class="bitcoin_many bitcoin_many-mobile">$10,174.42</h3>
+                                <p class="bitcoin_bottom-text">
+                                    High: <span class="bitcoin_bottom-text_bold">$7.49K</span> Low:<span class="bitcoin_bottom-text_bold">$7.16K</span>
+                                   Open: <span class="bitcoin_bottom-text_bold">$7.23K</span> Close: <span class="bitcoin_bottom-text_bold">$7.24K</span>
+                                    Market Cap: <span class="bitcoin_bottom-text_bold">$129.13K</span>
+                                </p>
+                            </div>
+                            <div class="bitcoin_text-cont_right">
+                                <h3 class="bitcoin_many xs-none">$10,174.42</h3>
+                                <a class="btcoin_btn">TRADE NOW</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-5 col-xs-12 ">
+                    <div class="chart_bitcoin-reting">
+                        <p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-up"></i></span> 12</p>
+                        <p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-down"></i></span> 54</p>
+                        <p class="chart_bitcoin-reting_prozent">Sentiment: 86% Buying</p>
+                        <div class="chart_bitcoin-reting_progress-bar">
+                            <div class="reting_progress-bar_click"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-7 col-xs-12 xs-none">
+                    <div class="chart_content-text">
+                        <p class="chart_content-text_info">
+                            Bitcoin is a digital code which has a monetary value because of its limited supply. Where does the code come from? Dedicated computers that work all day long to generate the code. In technical terminology, the code is referred to as keys. Every key is divided into two components: public and private. Public component makes it traceable for everyone but you can’t own Bitcoin unless you’ve the private component as well. A transaction takes place when ownership of both public and private keys changes hands. There will come a time when we won’t be able to generate more keys. Limited supply is what makes Bitcoin valuable. During the last few months Bitcoin and other digital currencies have highly appreciated in value because the amount of code that’s in demand is abnormally higher than the amount of code we currently have and what we’re creating. The process of creating the code or keys is called mining.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="general-chart">
+                    <img class="general-chart_img" src="img/chart.png" alt="chart">
+                </div>
+            </div>
+        </div>
+
+
+        {#<div class="chart_search margin-bottom">#}
+        {#<div class="container">#}
+        {#<div class="row">#}
+        {#<div class="chart_comments">#}
+        {#<h3 class="review_title review_title_botoom">Comments</h3>#}
+        {#<form class="comments-form">#}
+        {#<div class="comments-form_left">#}
+        {#<div class="comments-form_cont comments-form_cont_left">#}
+        {#<input type="text" class="comments_input" placeholder="Name" required>#}
+        {#</div>#}
+        {#<div class="comments-form_cont comments-form_cont_right margin-top-mobile">#}
+        {#<input type="email" class="comments_input" placeholder="Email" required>#}
+        {#</div>#}
+        {#<textarea class=" touch_your-comment" placeholder="Your comment..."></textarea>#}
+        {#</div>#}
+        {#<div class="comments-form_right ms-none">#}
+        {#<button type="submit" class="comment_btn">POST</button>#}
+        {#</div>#}
+        {#<div class="review_cont-btn ms-block">#}
+        {#<a class="review_more-btn">POST YOUR COMMENT</a>#}
+        {#</div>#}
+        {#</form>#}
+
+        {#<div class="comments_user-cont">#}
+        {#<div class="comments_user-cont_img">#}
+        {#<img class="comments_user-img" src="img/france.png" alt="france">#}
+        {#</div>#}
+        {#<div class="comments_user-cont_text">#}
+        {#<h4 class="comments_user-cont_name">Sarah</h4>#}
+        {#<p class="comments_user-text">This established VPN is very impressive, speeds are excellent and privacy is placed at a premium. A fair sized network that covers all the main locations you’ll need. Great client software that includes an auto-reconnect and an option to close specific programs.#}
+        {#</p>#}
+        {#<ul class="comments_user-text_reply">#}
+        {#Like#}
+        {#<li class="mu-reply">4 h. ago</li>#}
+        {#<li class="mu-reply"><a>Reply</a></li>#}
+        {#</ul>#}
+
+        {#</div>#}
+        {#</div>#}
+        {#<div class="comments_user-cont">#}
+        {#<div class="comments_user-cont_img">#}
+        {#<img class="comments_user-img" src="img/spain.png" alt="spain">#}
+        {#</div>#}
+        {#<div class="comments_user-cont_text">#}
+        {#<h4 class="comments_user-cont_name">John.S</h4>#}
+
+        {#<p class="comments_user-text">#}
+        {#This VPN is one of the fastest and most secured VPN service providers in the market today. Their state of the art encryption and fast download and upload speed, makes their VPN service#}
+        {#</p>#}
+        {#<ul class="comments_user-text_reply">#}
+        {#Like#}
+        {#<li class="mu-reply">4 h. ago</li>#}
+        {#<li class="mu-reply"><a>Reply</a></li>#}
+        {#</ul>#}
+
+        {#</div>#}
+        {#<div class="sub-comments">#}
+        {#<div class="comments_user-cont_img">#}
+        {#<img class="comments_user-img" src="img/france.png" alt="france">#}
+        {#</div>#}
+        {#<div class="comments_user-cont_text">#}
+        {#<h4 class="comments_user-cont_name">Samantha Parker</h4>#}
+        {#<p class="comments_user-text">This VPN is one of the fastest and most secured VPN service providers in the market today. Their state of the art encryption and fast download and upload speed, makes their VPN service attractive to users who want to secure their data and information while conducting their activities online.</p>#}
+        {#<ul class="comments_user-text_reply">#}
+        {#Like#}
+        {#<li class="mu-reply">4 h. ago</li>#}
+        {#<li class="mu-reply"><a>Reply</a></li>#}
+        {#</ul>#}
+        {#</div>#}
+        {#</div>#}
+        {#<div class="sub-comments">#}
+        {#<div class="comments_user-cont_img">#}
+        {#<img class="comments_user-img" src="img/spain.png" alt="spain">#}
+        {#</div>#}
+        {#<div class="comments_user-cont_text">#}
+        {#<h4 class="comments_user-cont_name">John.S</h4>#}
+        {#<p class="comments_user-text">Hi Samantha,<br>#}
+        {#Thanks for your question. You can use ExpressVPN with many devices, including Roku and AppleTV, but none are necessary in order to use ExpressVPN. I hope that helps with your question!</p>#}
+        {#<ul class="comments_user-text_reply">#}
+        {#Like#}
+        {#<li class="mu-reply">4 h. ago</li>#}
+        {#<li class="mu-reply"><a>Reply</a></li>#}
+        {#</ul>#}
+        {#</div>#}
+        {#</div>#}
+        {#</div>#}
+        {#<div class="comments_user-cont">#}
+
+        {#<div class="comments_user-cont_img">#}
+        {#<img class="comments_user-img" src="img/united-states-of-america.png" alt="united-states-of-america">#}
+        {#</div>#}
+        {#<div class="comments_user-cont_text">#}
+        {#<h4 class="comments_user-cont_name">Andrew</h4>#}
+        {#<p class="comments_user-text">What is the cost per device? Does it have iPhone, mac, apple tv, iPad and window10 desktop?#}
+        {#</p>#}
+        {#<ul class="comments_user-text_reply">#}
+        {#Like#}
+        {#<li class="mu-reply">4 h. ago</li>#}
+        {#<li class="mu-reply"><a>Reply</a></li>#}
+        {#</ul>#}
+        {#</div>#}
+        {#</div>#}
+        {#<div class="comments_user-cont border-none">#}
+        {#<div class="comments_user-cont_img">#}
+        {#<img class="comments_user-img" src="img/united-kingdom.png" alt="united-kingdom">#}
+        {#</div>#}
+        {#<div class="comments_user-cont_text">#}
+        {#<h4 class="comments_user-cont_name">Tom Pitberg</h4>#}
+        {#<p class="comments_user-text">Express VPN is great. I never reached my usage limit.</p>#}
+        {#<ul class="comments_user-text_reply">#}
+        {#Like#}
+        {#<li class="mu-reply">4 h. ago</li>#}
+        {#<li class="mu-reply"><a>Reply</a></li>#}
+        {#</ul>#}
+        {#</div>#}
+        {#</div>#}
+        {#<div class="review_cont-btn">#}
+        {#<a class="review_more-btn">MORE COMMENTS</a>#}
+        {#</div>#}
+        {#</div>#}
+        {#</div>#}
+        {#</div>#}
+        {#</div>#}
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        function loadCSS(hf) {
+            var ms = document.createElement("link");
+            ms.rel = "stylesheet";
+            ms.href = hf;
+            document.getElementsByTagName("head")[0].appendChild(ms);
+        }
+        loadCSS("css/footer.css");
+        loadCSS("font/font_avenir.css");
+        loadCSS("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
+        loadCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+        loadCSS("css/charts.css")
+        loadCSS("css/comment.css")
+
+    </script>
+{% endblock %}
+{#</div>#}
+
+{#<script>#}
+    {#function loadCSS(hf) {#}
+        {#var ms = document.createElement("link");#}
+        {#ms.rel = "stylesheet";#}
+        {#ms.href = hf;#}
+        {#document.getElementsByTagName("head")[0].appendChild(ms);#}
+    {#}#}
+    {#loadCSS("css/footer.css");#}
+    {#loadCSS("font/font_avenir.css");#}
+    {#loadCSS("css/comment.css")#}
+    {#loadCSS("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");#}
+    {#loadCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");#}
+    {#loadCSS("css/charts.css")#}
+
+{#</script>#}
+
+{#<!-- Load CSS compiled without Bootstrap & Header styles (after release) -->#}
+{#<script>var ms = document.createElement("link");#}
+{#ms.rel = "stylesheet";#}
+{#ms.href = "css/compiled.min.css";#}
+{#document.getElementsByTagName("head")[0].appendChild(ms);#}
+{#</script>#}
+
+{#<!-- Load Scripts -->#}
+{#<script>var scr = {#}
+        {#"scripts": [#}
+            {#{"src": "js/jquery-3.3.1.min.js", "async": false},#}
+            {#{"src": "js/general.js", "async": false},#}
+            {#{"src": "https://use.fontawesome.com/releases/v5.0.10/js/all.js", "async": false},#}
+
+        {#]#}
+    {#};#}
+    {#!function (t, n, r) {#}
+        {#"use strict";#}
+        {#var c = function (t) {#}
+            {#if ("[object Array]" !== Object.prototype.toString.call(t)) return !1;#}
+            {#for (var r = 0; r < t.length; r++) {#}
+                {#var c = n.createElement("script"), e = t[r];#}
+                {#c.src = e.src, c.async = e.async, n.body.appendChild(c)#}
+            {#}#}
+            {#return !0#}
+        {#};#}
+        {#t.addEventListener ? t.addEventListener("load", function () {#}
+            {#c(r.scripts);#}
+        {#}, !1) : t.attachEvent ? t.attachEvent("onload", function () {#}
+            {#c(r.scripts)#}
+        {#}) : t.onload = function () {#}
+            {#c(r.scripts)#}
+        {#}#}
+    {#}(window, document, scr);#}
+{#</script>#}
+
+{#</body>#}
+{#</html>#}

@@ -1,129 +1,15 @@
-{% extends 'test.html.twig' %}
+{% extends 'base.html.twig' %}
 
- {% block description %}
-     <title>etoro review|Full etoro 2018 Review|Tradingcompare
-     </title>
-     <meta name="description" content="eToro was established as RetailFX in 2006 and today it has become the leading social trading platform for all types of investors from the most experienced ones to those who are just starting out. The platform was developed by brothers Yoni Assia and Ronen Assia in partnership with David Ring.">
- {% endblock %}
+{% block description %}
+        <title>etoro review|Full etoro 2018 Review|Tradingcompare</title>
+        <meta name="description" content="eToro was established as RetailFX in 2006 and today it has become the leading social trading platform for all types of investors from the most experienced ones to those who are just starting out. The platform was developed by brothers Yoni Assia and Ronen Assia in partnership with David Ring.">
+{% endblock %}
 
 {% block body %}
-<div class="my-container">
-    <div class="my-modal modal_sigh-up">
-        <div class="modal_scroll">
-            <div class="my-modal_cont-left">
-                <img class="my-modal_cont-left_img" src='{{asset("img/bg_sign_up.png")}}' alt="bg_sign_up">
-                <a href="http://tradingcompare.com" class="logo-text modal_header-left">
-                    <img src='{{asset("img/logo_white.png")}}' class="top-logo " alt="logo">
-                </a>
-                <div class="modal_left-content">
-                    <h1 class="modal_heder">Sign Up</h1>
-                    <div class="modal-cont-text ms-none">
-                        <div class="modal_check-marks">
-                            <p><i class="fas fa-check"></i></p>
-                        </div>
-                        <p class="modal-text">Join the exciting market of real time Commission Free Trading</p>
-                    </div>
-                    <div class="modal-cont-text ms-none">
-                        <div class="modal_check-marks">
-                            <p><i class="fas fa-check"></i></p>
-                        </div>
-                        <p class="modal-text">Join the exciting market of real time Commission Free Trading</p>
-                    </div>
-                    <div class="modal-cont-text ms-none">
-                        <div class="modal_check-marks">
-                            <p><i class="fas fa-check"></i></p>
-                        </div>
-                        <p class="modal-text">Boost your trading account with exclusive bonuses</p>
-                    </div>
-                    <div class="modal-cont-text ms-none">
-                        <div class="modal_check-marks">
-                            <p><i class="fas fa-check"></i></p>
-                        </div>
-                        <p class="modal-text">Create a watchlist and view our Free Live feed and Charts</p>
-                    </div>
-                    <div class="modal-cont-text ms-none">
-                        <div class="modal_check-marks">
-                            <p><i class="fas fa-check"></i></p>
-                        </div>
-                        <p class="modal-text">24 hour support in multiple languages</p>
-                    </div>
-                    <div class="modal-cont-text ms-none">
-                        <div class="modal_check-marks">
-                            <p><i class="fas fa-check"></i></p>
-                        </div>
-                        <p class="modal-text">Dedicated Account Managers</p>
-                    </div>
-                </div>
-            </div>
-            <div class="my-modal_cont-right">
-
-                <a class="close_modal"><i class="fas fa-plus"></i></a>
-                <div class="modal_right-content">
-                    <form class="form-card">
-                        <div class="form-element form-input">
-                            <input  class="form-element-input" placeholder=" " type="text" required/>
-                            <div class="form-element-bar"></div>
-                            <label class="form-element-label" >FULL NAME</label>
-                        </div>
-
-                        <div class="form-element form-input">
-                            <input  class="form-element-input" placeholder=" " type="email" required/>
-                            <div class="form-element-bar"></div>
-                            <label class="form-element-label" >EMAIL</label>
-                        </div>
-                        <div class="form-element form-input">
-                            <input  class="form-element-input form-element-input_password" placeholder=" " type="password" required/>
-                            <div class="form-element-bar"></div>
-                            <label class="form-element-label" >PASSWORD</label>
-                        </div>
-                        <div class="form-element form-input">
-                            <div class="country_cont">
-                                <a href="#" class="country"></a>
-                                <p class="contry_array"><i class="fas fa-caret-down"></i></p>
-                                <div class="form-element-bar"></div>
-                                <label class="form-element-label" >COUNTRY</label>
-                                <ul class="country_list">
-                                    <li><img class="language-img" src="img/small_flags/gb.png" alt="gb"> United States</li>
-                                    <li><img class="language-img" src="img/small_flags/gb.png" alt="gb"> United States</li>
-                                    <li><img class="language-img" src="img/small_flags/gb.png" alt="gb"> United States</li>
-                                    <li><img class="language-img" src="img/small_flags/gb.png" alt="gb"> United States</li>
-                                    <li><img class="language-img" src="img/small_flags/gb.png" alt="gb"> United States</li>
-                                    <li><img class="language-img" src="img/small_flags/gb.png" alt="gb"> United States</li>
-                                </ul>
-                            </div>
-                            <!--
-                            <input  class="form-element-input" placeholder=" " type="text" required/>
-
-                            <label class="form-element-label" >COUNTRY</label>-->
-                        </div>
-                        <div class="form-element form-input">
-                            <input  class="form-element-input" placeholder=" " type="text" required/>
-                            <div class="form-element-bar"></div>
-                            <label class="form-element-label" >PHONE NUMBER</label>
-                        </div>
-                        <div class="form_bottom">
-                            <button class="form-btn" type="submit">SIGN UP</button>
-                            <a class="form_info"><span class="form_cliking_decoration">I already have an account</span></a>
-                        </div>
-                        <a class="form_cliking">By clicking "Sign Up" you agree to our<span class="form_cliking_decoration"> terms and conditions</span></a>
-                    </form>
-                    <div class="form_soz-cont">
-                        <p class="form_soz-cont_text">Or connect with -</p>
-                        <a class="form_soz-cont_icon footer_soz_icon_youtube"><i class="fab fa-google"></i></a>
-                        <a class="form_soz-cont_icon footer_soz_icon_faceebook"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <section class="table">
+    <p class="table">
         <div class="chart_search ">
             <div class="container">
-                <div class="row">
+                <p class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12 ">
                         <div class="review_top-brandn">
                             <div class="review_top-brandna_left">
@@ -132,63 +18,133 @@
                                     <h2 class="review_topreview_top-brandn_title">Etoro Review</h2>
                                     <div class="progress-bar-conatiner sm-none">
                                         <canvas class="progress-bar-rel" id="canvas" width="100" height="100"></canvas>
-                                        <p class="progress-bar_number">9.8</p>
+                                        <p class="progress-bar_number">8.9</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="review_top-brandna_right">
-                                <a class="review_visit-btn">VISIT SITE
+                                <a class="review_visit-btn" href="http://borthy-carges.com/e2109966-c765-4a52-b769-a5e6ea8e64aa" target="_blank">VISIT SITE
                                 </a>
                                 <p class="review_deposit">$200 <span class="review_deposit_normal">Min Deposit</span></p>
                                 <p class="review_deposit">No Bonus</p>
                             </div>
                         </div>
                     </div>
-                    <p class="review_top-text review_margin-top">&nbsp;	&nbsp;	&nbsp;eToro was established as RetailFX in 2006 and today it has become the leading social trading platform for all types of investors from the most experienced ones to those who are just starting out. The platform was developed by brothers Yoni Assia and Ronen Assia in partnership with David Ring. The vision of eToro was to develop a platform that makes investment easy and user-friendly for all kinds of investors regardless of their experience.</p>
+
+                    <p class="review_top-text review_margin-top">&nbsp;	&nbsp;	&nbsp;eToro was established as RetailFX in 2006 and today it has become the leading social trading platform for all types of investors from the most experienced ones to those who are just starting out. The platform was developed by brothers Yoni Assia and Ronen Assia in partnership with David Ring. The vision of eToro was to develop a platform that makes investment easy and user-friendly for all kinds of investors regardless of their experience. </p>
                     <p class="review_top-text review_margin-top">The struggle of the brothers paid off as the idea generated a lot of interest and eToro has now become your go to social trading platforms serving millions of customers globally.</p>
 
                     <h2 class="review_top-title review_margin-top">How eToro Works</h2>
-                    <p class="review_top-text review_margin-top"></p>
-                    <div class="review_general-container-img "><img class="review_top-brandn_img" src='{{asset("img/Etoro review/etoro-review.PNG")}}' alt="mobile"></div>
-
-                    <p class="review_top-text review_margin-top"></p>
-                    <p class="review_top-text review_margin-top"></p>
-                    <p class="review_top-text review_margin-top"></p>
-                    <p class="review_top-text review_margin-top"></p>
-                    <p class="review_top-text review_margin-top"></p>
-
+                    <p class="review_top-text review_margin-top">eToro debuted the OpenBook trading platform which introduced an innovative way for investors to deal in a range of financial instruments including currencies, market indices, commodities, equities and cryptocurrencies. Another groundbreaking feature that was introduced was CopyTrading. It allowed newbie investors to copy the trades of the investors who have established themselves as successful and reliable traders with consistent returns. This enabled veterans to share their knowledge while the less experienced ones found the way to leverage that information to make profitable trades for themselves.  </p>
+                    <div class="review_general-container-img "><img class="review_top-brandn_img" src='{{asset("img/Reviews/Etoro/etoro-review.PNG")}}' alt="etoro-review"></div>
 
                     <h2 class="review_top-title review_margin-top">Contract for Difference</h2>
                     <p class="review_top-text review_margin-top">A Contract for Difference or CFD is fundamentally derivative trading where a trader speculates on the future performance of relatively volatile financial markets including indices, fiat currencies, treasuries, commodities, shares, and cryptocurrencies. The biggest difference is that you don't actually buy or sell the asset itself but invest in the unit(s) representing that asset's performance. You make profit or loss by correctly or incorrectly predicting whether a certain asset's price will rise or fall.</p>
                     <p class="review_top-text review_margin-top">If the price behaves according to your predictions, the number of units you own increase and vice versa. Deliberation and caution must be exercised at all times since you can lose more than you have deposited.</p>
                     <p class="review_top-text review_margin-top">The CFD model has proven to be very successful in the era of cryptocurrency revolution since it provides a stable way of investing in a rather volatile asset whose price moves every few seconds.</p>
 
-                    <h2 class="review_top-title review_margin-top">Contract for Difference</h2>
-                    <h2 class="review_top-title review_margin-top">Trade Markets on eToro</h2>
-                    <p class="review_top-text review_margin-top">On eToro, investors can trade in many asset classes including:</p>
-                    <p class="review_top-text review_margin-top"><a href="https://www.etoro.com/discover/markets/stocks" target="_blank">Stocks </a>– Stock market is one of the most traditional and dynamic markets to invest in. On eToro you can invest in stocks using CFDs which enable short positions and fractional share trading. Price of the share doesn't matter as you can invest as little as $50. Popular stocks on eToro include Apple, Google and Facebook.</p>
-                    <p class="review_top-text review_margin-top">
-                    <ul>
+                    <h2 class="review_top-title review_margin-top">Trade Markets on eToro</h2><br>
+                    <p class="review_top-text review_margin-top">On eToro, investors can trade in many asset classes including: </p>
+
+                    <p class="review_top-text review_margin-top"><a href="https://www.etoro.com/discover/markets/stocks" target="_blank">Stocks</a> – Stock market is one of the most traditional and dynamic markets to invest in. On eToro you can invest in stocks using CFDs which enable short positions and fractional share trading. Price of the share doesn't matter as you can invest as little as $50. Popular stocks on eToro include Apple, Google and Facebook.</p>
+                    <p class="review_top-text review_margin-top"><ul class="review_top-text review_margin-top">
                         <li>You can explore stocks by Industry as well as by Exchange</li>
                         <li>Industries include Basic Materials, Conglomerates, Consumer Goods, Financial, Healthcare, Industrial Goods, Services, Technology and Utilities</li>
                         <li>Exchanges include New York Tech, NYSE, Frankfurt, London, Paris, Madrid, Milan, Zurich, Osio, Stockholm, Copenhagen and Helsinki</li>
                         <li>eToro allows traders to open “buy” (long) positions as well as "sell" (short) positions with leverage. Long position means you actually own the underlying asset while short position means you are simply trading on the price movement through CFD.</li>
                         <li>You can also buy fractional shares which means if a share price is $500, you can buy part of the share for $100.</li>
                     </ul></p>
+                    <div class="review_general-container-img "><img class="review_top-brandn_img" src='{{asset("img/Reviews/Etoro/stocks-etoro.PNG")}}' alt="stocks-etoro"></div>
+
+                    <p class="review_top-text review_margin-top"><a href="https://www.etoro.com/discover/markets/commodities" target="_blank">Commodities </a> – The most ancient trading practice is trading of commodities. Commodities have value because of their uniqueness, physical presence and of course market demand. eToro's popular commodities include natural gas, gold and oil.</p>
+                    <p class="review_top-text review_margin-top"><ul class="review_top-text review_margin-top">
+                        <li>No need to buy the asset itself as you can invest in commodities as CFDs.</li>
+                        <li>CFDs on eToro allow you to open "sell" (short) positions with leverage.</li>
+                        <li>Similar to stock, you can also have fractional ownership of any commodity.</li>
+                        <li>Commodities traders can invest in include oil, gold, silver, copper, NATGAS and platinum.</li>
+                        <li>You can see the statistics and chart of price movement in the panel to make educated decisions.</li>
+                    </ul></p>
+                    <div class="review_general-container-img "><img class="review_top-brandn_img" src='{{asset("img/Reviews/Etoro/commodities-etoro.PNG")}}' alt="commodities-etoro"></div>
+
+                    <p class="review_top-text review_margin-top"><a href="https://www.etoro.com/discover/markets/currencies" target="_blank">Currencies </a> – With a trading volume of mind-boggling $5 trillion a day, Forex market is the undisputed king of trading. The market is dynamic as you can pair a wide range of currencies but highly volatile as well. eToro allows traders to engage in forex trading with a leverage, the most popular currencies include EUR/USD, EUR/GBP and Bitcoin.</p>
+                    <p class="review_top-text review_margin-top"><ul class="review_top-text review_margin-top">
+                        <li>On eToro you can trade 47 different currency pairs.</li>
+                        <li>These currency pairs include EUR/USD, GBP/USD, NZD/USD, USD/CAD, USD/JPY, USD/CHF, AUD/USD, EUR/GBP, EUR/CHF, EUR/JPY, GBP/JPY, EUR/AUD, EUR/CAD, AUD/JPY, CAD/JPY, CHF/JPY, USD/HKD, USD/ZAR, USD/RUB, USD/CNH, AUD/CHF, AUD/CAD, AUD/NZD, EUR/NZD, GBP/AUD, GBP/CHF, GBP/NZD, NZD/CAD, NZD/CHF, NZD/CHF, NZD/JPY, CAD/CHF, USD/NOK, USD/SEK, NOK/SEK, EUR/NOK, EUR/SEK, USD/TRY, USD/MXN, USD/SGD, GBP/CAD, ZAR/JPY, EUR/PLN, USD/HUF, EUR/HUF, GBP/HUF, CHF/HUF and USD/PLN.</li>
+                        <li>You can see live price movements complete with charts and stats.</li>
+                    </ul>
+                    <div class="review_general-container-img "><img class="review_top-brandn_img" src='{{asset("img/Reviews/Etoro/currencies-etoro.PNG")}}' alt="currencies-etoro"></div>
+
+                    <p class="review_top-text review_margin-top"><a href="https://www.etoro.com/discover/markets/etf" target="_blank">ETFs  </a> – ETF is Exchange Traded Fund which is basically a financial instrument consisting of multiple assets grouped in one class for the purposes of trading. The trading platform eToro allows traders to invest in ETFs including Proshares Ultra S^P 500, SPDR Gold and Emerging Markets Index (EEM).</p>
+                    <p class="review_top-text review_margin-top"><ul class="review_top-text review_margin-top">
+                        <li>Choose from 83 different ETFs</li>
+                        <li>Get the specific information about each ETF through Learn More button before investing</li>
+                        <li>ETFs include ACWI, AGG, AOA, AOK, AOR, BOND, CORN, DBA, DGRO, DIA, EEM, EFA, EWJ, EWT, EWW, EWY, EWZ, FXI, GDX, GDXJ, GLD, HDV, HMMJ, HYG, IAEX.L, IAGG, IAPD.L, IBB, IBZL.L, IDEM.L, IDEV, IEF, IEFA, IEMG, IEML.L, IEUR, IFFF.L, IJH, IJPE.L, IJR, ILTB, IMEU.L, IMTB, IPAC, ISF.L, ISTB, ITOT, ITWN.L, IUKP.L, IUSA.L, IUSB, IUSG, IUSV, IVV, IWM, IXUS, IYR, LQD, LQDE.L, MDY, QQQ, RSX, RWR, SHY, SPY, SSO, SWDA.L, TLT, UGA, UNG, USO, USRT, VXX, WEAT, XLE, XLF, XLI, XLK, XLP, XLY, XLV, XLY and XOP.</li>
+                        <li>You can invest in the assets themselves by opening a long position without any leverage. That way asset will be in your name.</li>
+                        <li>You can also invest by opening leveraged short position and buy fractional part of the ETF.</li>
+                        <li>Minimum amount that you need to invest is only $200.</li>
+                    </ul></p>
+                    <div class="review_general-container-img "><img class="review_top-brandn_img" src='{{asset("img/Reviews/Etoro/etfs-etoro.PNG")}}' alt="etfs-etoro"></div>
+
+                    <p class="review_top-text review_margin-top"><a href="https://www.etoro.com/discover/markets/indices" target="_blank">Indices </a> – Stock market's performance is indicated by an index or indices which are a reflection of the market segments. As compared to individual stocks, indices are much more stable since they carry a range of stocks. The trading platform eToro allows investors to trade indices that include Nasdaq (NSDQ100), Dow Jones (DJ30) and DAX Index (GER30).</p>
+                    <p class="review_top-text review_margin-top">
+                        <ul  class="review_top-text review_margin-top">
+                        <li>eToro enables traders to buy long as well as short positions </li>
+                        <li>Traders can also open leveraged trades.</li>
+                        <li>Indices include AUS200, China50, DJ30, ESP35, EUSTX50, FRA40, GER30, HKG50, JPN225, NSDQ100, SPX500, UK100 and USDOLLAR.</li>
+                        <li>Since indices aren’t assets you can only buy them as CFDs.</li>
+                        </ul></p>
+                    <div class="review_general-container-img "><img class="review_top-brandn_img" src='{{asset("img/Reviews/Etoro/indices-etoro.PNG")}}' alt="indices-etoro"></div>
+
+
+                    <p class="review_top-text review_margin-top"><a href="https://www.etoro.com/discover/markets/cryptocurrencies" target="_blank">Cryptocurrencies  </a> – Being the most recent asset class which has gained immense popularity during the last year, cryptocurrencies also provide traders a way to make money. However, they are highly volatile so the caution must be exercised. The trading platform eToro enables traders to invest in many cryptocurrencies including Bitcoin (BTC), Litecoin (LTC) and Ethereum (ETH).</p>
+                    <p class="review_top-text review_margin-top"><ul  class="review_top-text review_margin-top">
+                        <li>You can pick from 13 different cryptocurrencies on eToro.</li>
+                        <li>Currencies include Bitcoin, Ethereum, Bitcoin Cash, Ripple, Dash, Litecoin, Ethereum Classic, Cardano, Stellar, EOS, NEO, Bitcoin/EUR and Ethereum/EUR.</li>
+                        <li>Cryptocurrencies on eToro can be bought as asset, the broker purchases and holds the currency on your behalf.</li>
+                        <li>It can also be purchased as CFDs if you are looking to open short position.</li>
+                        <li>Since there's no regulatory body that oversees cryptocurrency trade, the asset trading is unregulated.</li>
+                        <li>If you are looking to make quick money, buying cryptocurrency of your choice as CFD makes more sense because of the high volatility of virtual currencies.</li>
+                    </ul></p>
+                    <div class="review_general-container-img "><img class="review_top-brandn_img" src='{{asset("img/Reviews/Etoro/crypto-etoro.PNG")}}' alt="crypto-etoro"></div>
+
+
+                    <h2 class="review_top-title review_margin-top">CopyTrading Feature</h2>
+                    <p class="review_top-text review_margin-top">One of the most successful features of eToro is CopyTrading. As mentioned earlier, it provides a way for inexperienced traders to copy the trades of those who have a track record of making consistent returns on their investments. These traders are called popular investors on eToro.</p>
+                    <p class="review_top-text review_margin-top">All traders have the opportunity to become a popular investor if they can maintain a low risk score and deliver profits consistently. Popular investors also receive awards for sharing their knowledge. On the other hand, invetors who have just stepped into the arena have higher odds of making money right away since they don't need to invest their time in research sweating over numbers and stats.</p>
+
+
+                    <h2 class="review_top-title review_margin-top">User Interface and Friendliness</h2>
+                    <p class="review_top-text review_margin-top">Among all trading platforms, eToro has one of the cleanest and most user friendly interface and experience. From signing up on the platform to making trades to engaging in social activity, everything is right there on your fingertips. Investors and traders who have been using eToro as their primary online trading platform for a while have good things to say about the convenience and ease.
+                    </p>
+                    <p class="review_top-text review_margin-top">eToro is available is pretty much on every device and you can use it on Android, iOS, MacOS and Windows devices. All the information you need to make your investments is right there and is displayed intuitively in the form of graphs and charts for better understanding.</p>
+                    <div class="review_general-container-img "><img class="review_top-brandn_img" src='{{asset("img/Reviews/Etoro/interface-etoro.PNG")}}' alt="interface-etoro"></div>
 
 
 
+        <h2 class="review_top-title review_margin-top">Instruments and Trade Types</h2>
+        <p class="review_top-text review_margin-top">eToro offers a diverse range of international indices, precious metals, stocks, forex or currency pairs, commodities, and ETFs (Exchange Traded Funds). In 2014, eToro was one of the first trading websites to bring Bitcoin to the platform. That being said, on eToro cryptocurrencies are traded as a derivative of CFD instead of an asset or currency.</p>
+        <p class="review_top-text review_margin-top">For trading the above instruments, you can also make a practice account to test the waters before signing up for the real deal. You're given $100,000 in virtual currency to practice and make trades. This way you can test the opportunities for yourself before investing any real money.</p>
+        <p class="review_top-text review_margin-top">Moreover, Muslims can also request an Islamic trading account which allows you to trade in financial markets that don't violate principles of Islamic Sharia.</p>
 
+        <h2 class="review_top-title review_margin-top">Security and Privacy</h2>
+        <p class="review_top-text review_margin-top">As a trading platform, reliability, integrity and security matter a lot to eToro. As a broker for more than 10 years, eToro has gained reputation and is usually remembered for good reasons. Many international publications have praised the platform such as Fintech Finance, Financial Times, Forbes, and Finance Magnates.</p>
+        <p class="review_top-text review_margin-top">eToro is also regulated by United Kingdom's FCA and Cyprus' CySEC. Both regulatory authorities impose highly strict regulations which the platform adheres to. Moreover, apart from regulatory protection, eToro traders also have the protection cushion from CySEC's Investor Compensation Scheme and United Kingdom's Financial Services Compensation Scheme. For online security and privacy, the platform uses highly acclaimed and Google recommended SSL encryption technology to make sure that traders' sensitive data is protected from any unauthorized access.</p>
+        <div class="review_general-container-img "><img class="review_top-brandn_img" src='{{asset("img/Reviews/Etoro/etoro-secure.PNG")}}' alt="etoro-secure"></div>
 
+        <h2 class="review_top-title review_margin-top">Fee and Commission</h2>
+        <p class="review_top-text review_margin-top">There is no annual or periodical fee or commission for using the social trading platform. However, eToro takes a spread on the price quotes received from the financial markets. The platform ensures that slippages will not affect the traders adversely when they are engaging in trading.</p>
 
+        <h2 class="review_top-title review_margin-top">Deposit and Withdrawal</h2>
+        <p class="review_top-text review_margin-top">eToro provides multiple ways of depositing and withdrawing funds that include credit/debit card, Neteller, PayPal, Giropay, Skrill Limied, Wire Transfer, Web Money, Yandex, China Union Pay, and Wirecard. Deposited funds generally show up in your trading account right away. Most common way of depositing funds is by eWallets such as Skrill or credit card.</p>
+        <p class="review_top-text review_margin-top">It should be noted that how you deposit the money also influences how you'll withdraw it. For e.g. if you have deposited the money through credit, your withdrawal will be carried out through credit card as well.</p>
 
+        <h2 class="review_top-title review_margin-top">Customer Care</h2>
+        <p class="review_top-text review_margin-top">Good news is eToro provides highly cooperative and helpful customer support but the bad news is that's only five days a week. Instant customer assistance is not available during weekends. However, you can still reach out to the customer service through fax and email.</p>
 
-
-
-                    <p class="review_tags">TAGS: ETORO, BROKERS, CRYPTO</p>
+        <p class="review_tags">TAGS: ETORO, BROKERS, CRYPTO</p>
                     <p class="review_share"><i class="fas fa-share"></i></p>
                     <div class="review_cont-bottom-btn">
-                        <a class="review_visit-btn">VISIT SITE
+                        <a class="review_visit-btn" href="http://borthy-carges.com/e2109966-c765-4a52-b769-a5e6ea8e64aa" target="_blank">VISIT SITE
                         </a>
                     </div>
                 </div>
@@ -205,247 +161,124 @@
                         <div class="review_collection_margin">
                             <div class="review_collection_block">
                                 <div class="review_collection_block_top">
-                                    <img class="review_collection_block_logo" src="img/netflix.png" alt="netflix">
+                                    <img class="review_collection_block_logo" src='{{asset("img/netflix.png")}}' alt="netflix">
                                     <p class="review_collection_block_title">24 Options</p>
                                     <div class="review_collection_block_progress-bar">
                                         <canvas class="progress-bar-rel review_collection_block_progress-bar-rel" id="canvas3" width="70" height="70"></canvas>
-                                        <p class="progress-bar_number">9.8</p>
-                                    </div>
-                                </div>
-                                <div class="review_list-cont sm-none">
-                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Social Trading lets you copy others</p>
-                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Competitive Trading Fees</p>
-                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Used by 6,000,000+ Traders</p>
-                                </div>
-                                <a class="review_collection_visit-btn">VISIT SITE</a>
-                            </div>
-                            <div class="review_collection_block">
-                                <div class="review_collection_block_top">
-                                    <img class="review_collection_block_logo" src="img/netflix.png" alt="netflix">
-                                    <p class="review_collection_block_title">Plus 500</p>
-                                    <div class="review_collection_block_progress-bar">
-                                        <canvas class="progress-bar-rel review_collection_block_progress-bar-rel" id="canvas4" width="70" height="70"></canvas>
                                         <p class="progress-bar_number">9.5</p>
                                     </div>
                                 </div>
                                 <div class="review_list-cont sm-none">
-                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Trade CFDs on Popular Cryptocurrencies</p>
-                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  FREE Trading Signals for Limited time</p>
-                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Access all Financial Markets in one place</p>
+                                    <a href="{{path('24option') }}">
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Social Trading lets you copy others</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Competitive Trading Fees</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Used by 6,000,000+ Traders</p>
+                                    </a>
                                 </div>
-                                <a class="review_collection_visit-btn">VISIT SITE</a>
+                                <a class="review_collection_visit-btn" href="http://borthy-carges.com/9ac28959-def2-4c75-ae80-54eb7149674a" target="_blank">VISIT SITE</a>
                             </div>
-                            <div class="review_collection_block sm-none">
+                            <div class="review_collection_block">
                                 <div class="review_collection_block_top">
-                                    <img class="review_collection_block_logo" src="img/netflix.png" alt="netflix">
-                                    <p class="review_collection_block_title">Alxevo</p>
+                                    <img class="review_collection_block_logo" src='{{asset("img/netflix.png")}}' alt="netflix">
+                                    <p class="review_collection_block_title">Plus 500</p>
                                     <div class="review_collection_block_progress-bar">
-                                        <canvas class="progress-bar-rel review_collection_block_progress-bar-rel" id="canvas5" width="70" height="70"></canvas>
-                                        <p class="progress-bar_number">9</p>
+                                        <canvas class="progress-bar-rel review_collection_block_progress-bar-rel" id="canvas4" width="70" height="70"></canvas>
+                                        <p class="progress-bar_number">8.6</p>
                                     </div>
                                 </div>
                                 <div class="review_list-cont sm-none">
+                                    <a href="{{ path('plus500') }}">
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Trade CFDs on Popular Cryptocurrencies</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  FREE Trading Signals for Limited time</p>
+                                    <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Access all Financial Markets in one place</p>
+                                    </a>
+                                </div>
+                                <a class="review_collection_visit-btn" href="http://borthy-carges.com/f8785515-d4f8-461f-a319-f861734c8662" target="_blank">VISIT SITE</a>
+                            </div>
+                            <div class="review_collection_block sm-none">
+                                <div class="review_collection_block_top">
+                                    <img class="review_collection_block_logo" src='{{asset("img/netflix.png")}}' alt="netflix">
+                                    <p class="review_collection_block_title">Alxevo</p>
+                                    <div class="review_collection_block_progress-bar">
+                                        <canvas class="progress-bar-rel review_collection_block_progress-bar-rel" id="canvas5" width="70" height="70"></canvas>
+                                        <p class="progress-bar_number">8.6</p>
+                                    </div>
+                                </div>
+                                <div class="review_list-cont sm-none">
+                                    <a href="{{ path('alvexo') }}">
                                     <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Demo and Islamic Account Offered</p>
                                     <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Regulated Broker</p>
                                     <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>  Comprehensive Trading Tools</p>
+                                    </a>
                                 </div>
-                                <a class="review_collection_visit-btn">VISIT SITE</a>
+                                <a class="review_collection_visit-btn" href="http://borthy-carges.com/7f38eacd-c5d3-4680-9085-46708b0f92e2" target="_blank">VISIT SITE</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-        {#<div class="chart_search margin-bottom">#}
-            {#<div class="container">#}
-                {#<div class="row">#}
-                    {#<div class="chart_comments">#}
-                        {#<h3 class="review_title review_title_botoom">Comments</h3>#}
-                        {#<form class="comments-form">#}
-                            {#<div class="comments-form_left">#}
-                                {#<div class="comments-form_cont comments-form_cont_left">#}
-                                    {#<input type="text" class="comments_input" placeholder="Name" required>#}
-                                {#</div>#}
-                                {#<div class="comments-form_cont comments-form_cont_right margin-top-mobile">#}
-                                    {#<input type="text" class="comments_input" placeholder="Email" required>#}
-                                {#</div>#}
-                                {#<textarea class=" touch_your-comment" placeholder="Your comment..."></textarea>#}
-                            {#</div>#}
-                            {#<div class="comments-form_right ms-none">#}
-                                {#<button type="submit" class="comment_btn">POST</button>#}
-                            {#</div>#}
-                            {#<div class="review_cont-btn ms-block">#}
-                                {#<a class="review_more-btn">POST YOUR COMMENT</a>#}
-                            {#</div>#}
-                        {#</form>#}
-
-                        {#<div class="comments_user-cont">#}
-                            {#<div class="comments_user-cont_img">#}
-                                {#<img class="comments_user-img" src="img/france.png" alt="france">#}
-                            {#</div>#}
-                            {#<div class="comments_user-cont_text">#}
-                                {#<h4 class="comments_user-cont_name">Sarah</h4>#}
-                                {#<p class="comments_user-text">This established VPN is very impressive, speeds are excellent and privacy is placed at a premium. A fair sized network that covers all the main locations you’ll need. Great client software that includes an auto-reconnect and an option to close specific programs.#}
-                                {#</p>#}
-                                {#<ul class="comments_user-text_reply">\#}
-                                    {#Like#}
-                                    {#<li class="mu-reply">4 h. ago</li>#}
-                                    {#<li class="mu-reply"><a>Reply</a></li>#}
-                                {#</ul>#}
-
-                            {#</div>#}
-                        {#</div>#}
-                        {#<div class="comments_user-cont">#}
-                            {#<div class="comments_user-cont_img">#}
-                                {#<img class="comments_user-img" src="img/spain.png" alt="spain">#}
-                            {#</div>#}
-                            {#<div class="comments_user-cont_text">#}
-                                {#<h4 class="comments_user-cont_name">John.S</h4>#}
-
-                                {#<p class="comments_user-text">#}
-                                    {#This VPN is one of the fastest and most secured VPN service providers in the market today. Their state of the art encryption and fast download and upload speed, makes their VPN service#}
-                                {#</p>#}
-                                {#<ul class="comments_user-text_reply">#}
-                                    {#Like#}
-                                    {#<li class="mu-reply">4 h. ago</li>#}
-                                    {#<li class="mu-reply"><a>Reply</a></li>#}
-                                {#</ul>#}
-
-                            {#</div>#}
-                            {#<div class="sub-comments">#}
-                                {#<div class="comments_user-cont_img">#}
-                                    {#<img class="comments_user-img" src="img/france.png" alt="france">#}
-                                {#</div>#}
-                                {#<div class="comments_user-cont_text">#}
-                                    {#<h4 class="comments_user-cont_name">Samantha Parker</h4>#}
-                                    {#<p class="comments_user-text">This VPN is one of the fastest and most secured VPN service providers in the market today. Their state of the art encryption and fast download and upload speed, makes their VPN service attractive to users who want to secure their data and information while conducting their activities online.</p>#}
-                                    {#<ul class="comments_user-text_reply">#}
-                                        {#Like#}
-                                        {#<li class="mu-reply">4 h. ago</li>#}
-                                        {#<li class="mu-reply"><a>Reply</a></li>#}
-                                    {#</ul>#}
-                                {#</div>#}
-                            {#</div>#}
-                            {#<div class="sub-comments">#}
-                                {#<div class="comments_user-cont_img">#}
-                                    {#<img class="comments_user-img" src="img/spain.png" alt="spain">#}
-                                {#</div>#}
-                                {#<div class="comments_user-cont_text">#}
-                                    {#<h4 class="comments_user-cont_name">John.S</h4>#}
-                                    {#<p class="comments_user-text">Hi Samantha,<br>#}
-                                        {#Thanks for your question. You can use ExpressVPN with many devices, including Roku and AppleTV, but none are necessary in order to use ExpressVPN. I hope that helps with your question!</p>#}
-                                    {#<ul class="comments_user-text_reply">#}
-                                        {#Like#}
-                                        {#<li class="mu-reply">4 h. ago</li>#}
-                                        {#<li class="mu-reply"><a>Reply</a></li>#}
-                                    {#</ul>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                        {#<div class="comments_user-cont">#}
-
-                            {#<div class="comments_user-cont_img">#}
-                                {#<img class="comments_user-img" src="img/united-states-of-america.png" alt="united-states-of-america">#}
-                            {#</div>#}
-                            {#<div class="comments_user-cont_text">#}
-                                {#<h4 class="comments_user-cont_name">Andrew</h4>#}
-                                {#<p class="comments_user-text">What is the cost per device? Does it have iPhone, mac, apple tv, iPad and window10 desktop?#}
-                                {#</p>#}
-                                {#<ul class="comments_user-text_reply">#}
-                                    {#Like#}
-                                    {#<li class="mu-reply">4 h. ago</li>#}
-                                    {#<li class="mu-reply"><a>Reply</a></li>#}
-                                {#</ul>#}
-                            {#</div>#}
-                        {#</div>#}
-                        {#<div class="comments_user-cont border-none">#}
-                            {#<div class="comments_user-cont_img">#}
-                                {#<img class="comments_user-img" src="img/united-kingdom.png" alt="united-kingdom">#}
-                            {#</div>#}
-                            {#<div class="comments_user-cont_text">#}
-                                {#<h4 class="comments_user-cont_name">Tom Pitberg</h4>#}
-                                {#<p class="comments_user-text">Express VPN is great. I never reached my usage limit.</p>#}
-                                {#<ul class="comments_user-text_reply">#}
-                                    {#Like#}
-                                    {#<li class="mu-reply">4 h. ago</li>#}
-                                    {#<li class="mu-reply"><a>Reply</a></li>#}
-                                {#</ul>#}
-                            {#</div>#}
-                        {#</div>#}
-                        {#<div class="review_cont-btn">#}
-                            {#<a class="review_more-btn">MORE COMMENTS</a>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
     </section>
-
-</div>
-
 {% endblock %}
 
 {% block javascripts %}
 
-    <script>
-        function loadCSS(hf) {
-            var ms = document.createElement("link");
-            ms.rel = "stylesheet";
-            ms.href = hf;
-            document.getElementsByTagName("head")[0].appendChild(ms);
-        }
-        loadCSS("font/font_avenir.css");
-        loadCSS("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
-        loadCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+<script>
+    function loadCSS(hf) {
+        var ms = document.createElement("link");
+        ms.rel = "stylesheet";
+        ms.href = hf;
+        document.getElementsByTagName("head")[0].appendChild(ms);
+    }
 
-        //User Styles: Main
-        //User Styles: Media
-    </script>
+    loadCSS('{{asset("css/footer.css")}}');
+    loadCSS('{{ asset("font/font_avenir.css")}}');
+    loadCSS('{{ asset("css/compiled-review.min.css")}}')
+    loadCSS("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
+    loadCSS("https://fonts.googleapis.com/css?family=Hind+Siliguri:300,400,500,600,700");
+    loadCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+    // loadCSS("css/comment.css")
 
-    <!-- Load CSS compiled without Bootstrap & Header styles (after release) -->
-    {#<script>var ms = document.createElement("link");#}
-        {#ms.rel = "stylesheet";#}
-        {#ms.href = "compiled.min.css";#}
-        {#document.getElementsByTagName("head")[0].appendChild(ms);#}
-    {#</script>#}
-    {#<script>var ms = document.createElement("link");#}
-        {#ms.rel = "stylesheet";#}
-        {#ms.href = "css/compiled.min.css";#}
-        {#document.getElementsByTagName("head")[0].appendChild(ms);#}
-    {#</script>#}
+    //User Styles: Main
+    //User Styles: Media
+</script>
 
+<!-- Load CSS compiled without Bootstrap & Header styles (after release) -->
+<script>var ms = document.createElement("link");
+    ms.rel = "stylesheet";
+    ms.href = '{{ asset("css/compiled.min.css")}}';
+    document.getElementsByTagName("head")[0].appendChild(ms);
+</script>
 
-    <!-- Load Scripts -->
-    <script>var scr = {
-            "scripts": [
-                {"src": "js/jquery-3.3.1.min.js", "async": false},
-                {"src": "js/plugin.js", "async": false},
-                {"src": "js/general.js", "async": false},
-                {"src": "js/common.js", "async": false},
-                {"src": "https://use.fontawesome.com/releases/v5.0.10/js/all.js", "async": false},
+<!-- Load Scripts -->
+<script>var scr = {
+        "scripts": [
+            {"src": '{{ asset("js/jquery-3.3.1.min.js")}}', "async": false},
+            {"src": '{{ asset("js/plugin.js")}}', "async": false},
+            {"src": '{{ asset("js/general.js")}}', "async": false},
+            {"src": '{{ asset("js/common.js")}}', "async": false},
+            {"src": "https://use.fontawesome.com/releases/v5.0.10/js/all.js", "async": false},
 
-            ]
-        };
-        !function (t, n, r) {
-            "use strict";
-            var c = function (t) {
-                if ("[object Array]" !== Object.prototype.toString.call(t)) return !1;
-                for (var r = 0; r < t.length; r++) {
-                    var c = n.createElement("script"), e = t[r];
-                    c.src = e.src, c.async = e.async, n.body.appendChild(c)
-                }
-                return !0
-            };
-            t.addEventListener ? t.addEventListener("load", function () {
-                c(r.scripts);
-            }, !1) : t.attachEvent ? t.attachEvent("onload", function () {
-                c(r.scripts)
-            }) : t.onload = function () {
-                c(r.scripts)
+        ]
+    };
+    !function (t, n, r) {
+        "use strict";
+        var c = function (t) {
+            if ("[object Array]" !== Object.prototype.toString.call(t)) return !1;
+            for (var r = 0; r < t.length; r++) {
+                var c = n.createElement("script"), e = t[r];
+                c.src = e.src, c.async = e.async, n.body.appendChild(c)
             }
-        }(window, document, scr);
-    </script>
+            return !0
+        };
+        t.addEventListener ? t.addEventListener("load", function () {
+            c(r.scripts);
+        }, !1) : t.attachEvent ? t.attachEvent("onload", function () {
+            c(r.scripts)
+        }) : t.onload = function () {
+            c(r.scripts)
+        }
+    }(window, document, scr);
+</script>
 
 {% endblock %}

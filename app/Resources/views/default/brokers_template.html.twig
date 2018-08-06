@@ -1,0 +1,621 @@
+{% extends 'base.html.twig' %} {% block body %} {% block banere %} {% endblock %}
+
+    <section class="table">
+        <div class="container">
+            <div class="row">
+                <div class="paupal">
+                    <p class="paupal_text">Our Brokers Accept:</p>
+                    <div class="img-pay paupal_img"></div>
+                    <div class="img-master paupal_img"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="content-table">
+                    <div class="content-table_container-title col-xs-none">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-2 col">
+                                <p class="bold">BROKER</p>
+                            </div>
+                            <div class="col-md-2 col-sm-none col">
+                                <p class="bold">MINIMUM DEPOSIT</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-2 col">
+                                <p class="bold">PROMOTION</p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4 col">
+                                <p class="bold">FEATURES WE LIKE</p>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-1 col">
+                                <p class="bold">RATING</p>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-1 col visit">
+                                <p class="bold">VISIT SITE</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {#TRADE.COM#} {#canvas-3 canvas-0#}
+                    <div class="content-table_container-title">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-6 col_height">
+                                <div class="top-container-img">
+                                    <img class="tom-img" src="{{ asset('img/top_choice.png') }}" alt="top_choice">
+                                </div>
+                                <div class="number active_number">
+                                    <p>1</p>
+                                </div>
+                                <div class="right-container-img">
+                                    <a href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">
+                                        <img class="right-img" src="{{ asset('img/Trade.com-logo.png') }}" alt="etoro">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class=" col-xs-6 col-md-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-3" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9.9</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-none col_height">
+                                <p class="dollar">$100</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12 col-xs-none col_height">
+                                <p class="promotion">Zero Commissions
+                                    <br>
+                                    <a href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank" class="color-aqua">Get Deal</a>
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 col_height">
+                                <div class="features-container">
+                                    {% block tradefeatures %}
+                                        <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> To Change</p>
+                                        <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> To Change</p>
+                                        <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> To Change</p>
+                                    {% endblock %}
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-6 col-xs-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-0" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9.9</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-12 col col_height">
+                                <a href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank" class="visit-btn">VISIT SITE</a>
+                                <a href="{{path('trade') }}">  <p class="read-review">Read Review</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {#PLUS500#} {#canvas-12 canvas-13#}
+                    <div class="content-table_container-title">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-6 col_height">
+                                <div class="top-container-img">
+                                    {#
+                                    <img class="tom-img" src="img/top_choice.png" alt="top_choice">#}
+                                </div>
+                                <div class="number ">
+                                    <p>2</p>
+                                </div>
+                                <div class="right-container-img">
+                                    <a href="http://borthy-carges.com/f8785515-d4f8-461f-a319-f861734c8662" target="_blank">
+                                        <img class="right-img" src="{{ asset('img/500.gif') }}" alt="Plus500">
+                                    </a>
+                                    <div class="sentence">CFD Services, Your capital is at risk</div>
+                                </div>
+                            </div>
+                            <div class=" col-xs-6 col-md-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-13" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9.8</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-none col_height">
+                                <p class="dollar">$100</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12 col-xs-none col_height">
+                                <p class="promotion">Demo account & tight spreads
+                                    <br>
+                                    <a href="http://borthy-carges.com/f8785515-d4f8-461f-a319-f861734c8662" target="_blank" class="color-aqua">Get Deal</a>
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 col_height">
+                                <div class="features-container">
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> User friendly platform</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Leverage of up to 1:300</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Tight spreads</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> No commissions</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Fast and reliable order execution</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-6 col-xs-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-12" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9.8</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-12 col col_height">
+                                <a href="http://borthy-carges.com/f8785515-d4f8-461f-a319-f861734c8662" target="_blank" class="visit-btn">VISIT SITE</a>
+                                <a href="{{path('plus500') }}"><p class="read-review">Read Review</p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {#FINQ#} {#canvas-14 canvas-15#}
+                    <div class="content-table_container-title">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-6 col col_height">
+                                <div class="top-container-img">
+                                    {#
+                                    <!--<img class="tom-img" src="img/top_choice.png" alt="top_choice">-->#}
+                                    <img class="tom-img" src="{{ asset('img/trending.png') }}" alt="trending">
+                                </div>
+                                <div class="number">
+                                    <p>3</p>
+                                </div>
+                                <div class="right-container-img">
+                                    <a href="http://borthy-carges.com/d3f03dc5-4bac-458a-a25b-a44745e88cd4" target="_blank">
+                                        <img class="right-img" src="{{ asset('img/Finqlogo.jpg') }}" alt="Finq">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class=" col-xs-6 col-md-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-14" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9.5</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-none col_height">
+                                <p class="dollar">?</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12 col col_height">
+                                <p class="promotion">?
+                                    <br> {#
+                                <a href="#" class="color-aqua">Get Deal</a>
+                            </p>#}
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 col col_height">
+                                <div class="features-container">
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> To Change</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> To Change</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> To Change</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <canvas class="progress-bar-rel" id="canvas-15" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9.5</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-12 col col_height">
+                                <a href="http://borthy-carges.com/d3f03dc5-4bac-458a-a25b-a44745e88cd4" target="_blank" class="visit-btn">VISIT SITE</a>
+                                {#<p class="read-review">Read Review</p>#}
+                            </div>
+                        </div>
+                    </div>
+
+                    {#24 OPTIONS#} {#canvas-6 canvas-7#}
+                    <div class="content-table_container-title">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-6 col col_height">
+                                <div class="top-container-img">
+                                    <!--<img class="tom-img" src="img/top_choice.png" alt="top_choice">-->
+                                </div>
+                                <div class="number">
+                                    <p>4</p>
+                                </div>
+                                <div class="right-container-img">
+                                    <a href="http://borthy-carges.com/9ac28959-def2-4c75-ae80-54eb7149674a" target="_blank">
+                                        <img class="right-img" src="{{ asset('img/24.jpg') }}" alt="24option">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class=" col-xs-6 col-md-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-6" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9.5</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-none col_height">
+                                <p class="dollar">$100</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12 col col_height">
+                                <p class="promotion">Zero Commissions
+                                    <br>
+                                    <a href="http://borthy-carges.com/9ac28959-def2-4c75-ae80-54eb7149674a" target="_blank" class="color-aqua">Get Deal</a>
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 col col_height">
+                                <div class="features-container">
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Trade CFDs on Popular Cryptocurrencies</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> FREE Trading Signals for Limited time</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Access all Financial Markets in one place</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <canvas class="progress-bar-rel" id="canvas-7" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9.5</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-12 col col_height">
+                                <a href="http://borthy-carges.com/9ac28959-def2-4c75-ae80-54eb7149674a" target="_blank" class="visit-btn">VISIT SITE</a>
+                                <a href="{{path('24option') }}"><p class="read-review">Read Review</p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {#MARKET#} {#canvas-5 canvas-4#}
+                    <div class="content-table_container-title ">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-6 col_height">
+                                <div class="top-container-img">
+                                    <!--<img class="tom-img" src="img/trending.png" alt="trending">-->
+                                </div>
+                                <div class="number">
+                                    <p>5</p>
+                                </div>
+                                <div class="right-container-img">
+                                    <a href="http://borthy-carges.com/160f951f-f018-4bfa-9243-5db435fdb3fe" target="_blank">
+                                        <img class="right-img" src="{{ asset('img/markets-logo.jpg') }}" alt="markets-logo">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class=" col-xs-6 col-md-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-5" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9</p>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-none col_height">
+                                <p class="dollar">$100</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12 col_height">
+                                <p class="promotion">Free 10k Demo Account
+                                    <br>
+                                    <a href="http://borthy-carges.com/160f951f-f018-4bfa-9243-5db435fdb3fe" target="_blank" class="color-aqua">Get Deal</a>
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 col_height">
+                                <div class="features-container">
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> No Commissions</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Tight Spreads</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Sophisticated Trading Tools</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> FREE Demo Account</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col_height">
+                                <div class="progress-bar-conatiner">
+                                    <canvas class="progress-bar-rel" id="canvas-4" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">9</p>
+
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-12 col_height">
+                                <a href="http://borthy-carges.com/160f951f-f018-4bfa-9243-5db435fdb3fe" target="_blank" class="visit-btn">VISIT SITE</a>
+                                <a href="{{path('market') }}"><p class="read-review">Read Review</p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {#ETORO#} {#canvas-8 canvas-9#}
+                    <div class="content-table_container-title">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-6 col_height">
+                                <div class="top-container-img">
+                                    {#
+                                    <img class="tom-img" src="img/top_choice.png" alt="top_choice">#}
+                                </div>
+                                <div class="number">
+                                    <p>6</p>
+                                </div>
+                                <div class="right-container-img">
+                                    <a href="http://borthy-carges.com/e2109966-c765-4a52-b769-a5e6ea8e64aa" target="_blank">
+                                        <img class="right-img" src="{{ asset('img/etorologga.png') }}" alt="etoro">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class=" col-xs-6 col-md-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-8" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">8.9</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-none col_height">
+                                <p class="dollar">$200</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12 col-xs-none col_height">
+                                <p class="promotion">No bonus</p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 col_height">
+                                <div class="features-container">
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Social Trading lets you copy others</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Competitive Trading Fees</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Used by 6,000,000+ Traders</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-6 col-xs-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-9" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">8.9</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-12 col col_height">
+                                <a href="http://borthy-carges.com/e2109966-c765-4a52-b769-a5e6ea8e64aa" target="_blank" class="visit-btn">VISIT SITE</a>
+                                <a href="{{path('etoro') }}"><p class="read-review">Read Review</p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {#PEPPERSTONE#} {#canvas-16 canvas-17#}
+                    <div class="content-table_container-title">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-6 col_height">
+                                <div class="top-container-img">
+                                    <!--<img class="tom-img" src="img/trending.png" alt="trending">-->
+                                </div>
+                                <div class="number">
+                                    <p>7</p>
+                                </div>
+                                <div class="right-container-img">
+                                    <a href="http://borthy-carges.com/d9ffd8d4-4368-4c03-86e5-a0ca87dab41e" target="_blank">
+                                        <img class="right-img" src="{{ asset('img/pepperstone.png') }}" alt="pepperstone">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class=" col-xs-6 col-md-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-16" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">8.9</p>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-none col_height">
+                                <p class="dollar">$200</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12 col_height">
+                                <p class="promotion">Earn Quantas Points on every Trade
+                                    <br>
+                                    <a href="http://borthy-carges.com/d9ffd8d4-4368-4c03-86e5-a0ca87dab41e" target="_blank" class="color-aqua">Get Deal</a>
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 col_height">
+                                <div class="features-container">
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Award Winning CFD Broker</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> No Deposit or Withdrawal Fees</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Fee-Free Funding Options</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Razor Spreads from 0.0 pips</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col_height">
+                                <div class="progress-bar-conatiner">
+                                    <canvas class="progress-bar-rel" id="canvas-17" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">8.9</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-12 col_height">
+                                <a href="http://borthy-carges.com/d9ffd8d4-4368-4c03-86e5-a0ca87dab41e" target="_blank" class="visit-btn">VISIT SITE</a>
+                                <a href="{{path('pepperstone') }}"><p class="read-review">Read Review</p></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {#ALVEXO#} {#canvas-10 canvas-11#}
+                    <div class="content-table_container-title border-none">
+                        <div class="min-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-6 col_height">
+                                <div class="top-container-img">
+                                    {#
+                                    <img class="tom-img" src="img/trending.png" alt="trending">#}
+                                </div>
+                                <div class="number">
+                                    <p>8</p>
+                                </div>
+                                <div class="right-container-img">
+                                    <a href="http://borthy-carges.com/7f38eacd-c5d3-4680-9085-46708b0f92e2" target="_blank">
+                                        <img class="right-img" src="{{ asset('img/alvexo.png') }}" alt="24option">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class=" col-xs-6 col-md-none col col_height">
+                                <div class="progress-bar-conatiner">
+                                    <p class="reting col-md-none">RATING</p>
+                                    <canvas class="progress-bar-rel" id="canvas-10" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">8.6</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-none col_height">
+                                <p class="dollar">$250</p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12 col_height">
+                                <p class="promotion">All Cryptos Available</p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 col_height">
+                                <div class="features-container">
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Demo and Islamic Account Offered</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Regulated Broker</p>
+                                    <p class="features-text">
+                                    <span class="check-marks">
+                                        <i class="fas fa-check"></i>
+                                    </span> Comprehensive Trading Tools</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-2 col-xs-none col_height">
+                                <div class="progress-bar-conatiner">
+                                    <canvas class="progress-bar-rel" id="canvas-11" width="100" height="100"></canvas>
+                                    <p class="progress-bar_number">8.6</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-12 col_height">
+                                <a href="http://borthy-carges.com/7f38eacd-c5d3-4680-9085-46708b0f92e2" target="_blank" class="visit-btn">VISIT SITE</a>
+                                <a href="{{path('alvexo') }}"><p class="read-review">Read Review</p></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% block textdescription %}
+    {% endblock %}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        function loadCSS(hf) {
+            var ms = document.createElement("link");
+            ms.rel = "stylesheet";
+            ms.href = hf;
+            document.getElementsByTagName("head")[0].appendChild(ms);
+        }
+        loadCSS('{{asset("css/footer.css")}}');
+        loadCSS('{{asset("font/font_avenir.css")}}');
+        loadCSS('{{asset("css/compiled-broker.min.css")}}');
+        loadCSS('{{asset("css/text.css")}}')
+        loadCSS("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
+        loadCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+
+        //User Styles: Main
+        //User Styles: Media
+    </script>
+
+    <!-- Load CSS compiled without Bootstrap & Header styles (after release) -->
+    <script>var ms = document.createElement("link");
+        ms.rel = "stylesheet";
+        ms.href = '{{ asset("css/compiled.min.css")}}';
+        document.getElementsByTagName("head")[0].appendChild(ms);
+    </script>
+
+    <!-- Load Scripts -->
+    <script>var scr = {
+            "scripts": [
+                { "src": '{{ asset("js/jquery-broker-3.3.1.min.js")}}', "async": false },
+                { "src": '{{ asset("js/plugin-broker.js")}}', "async": false },
+                { "src": '{{ asset("js/common-broker.js")}}', "async": false },
+                { "src": '{{ asset("js/general-broker.js")}}', "async": false },
+                { "src": "https://use.fontawesome.com/releases/v5.0.10/js/all.js", "async": false },
+
+            ]
+        };
+        !function (t, n, r) {
+            "use strict";
+            var c = function (t) {
+                if ("[object Array]" !== Object.prototype.toString.call(t)) return !1;
+                for (var r = 0; r < t.length; r++) {
+                    var c = n.createElement("script"), e = t[r];
+                    c.src = e.src, c.async = e.async, n.body.appendChild(c)
+                }
+                return !0
+            };
+            t.addEventListener ? t.addEventListener("load", function () {
+                c(r.scripts);
+            }, !1) : t.attachEvent ? t.attachEvent("onload", function () {
+                c(r.scripts)
+            }) : t.onload = function () {
+                c(r.scripts)
+            }
+        }(window, document, scr);
+    </script>
+{% endblock %}

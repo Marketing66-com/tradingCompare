@@ -1,0 +1,503 @@
+/*    START   */
+.chart_search, .chart_content-text {
+    width: 100%;
+    display: table;
+    background-color: white;
+}
+
+.chart_search {
+    padding: 10px 0;
+    margin: 20px 0;
+}
+
+.general-chart {
+    width: 100%;
+    background-color: white;
+    padding: 20px 25px;
+}
+
+
+.margin-bottom {
+    margin-bottom: 50px;
+}
+
+.review_more-btn {
+    color: white;
+    border-radius: 3px;
+    border: 1px solid #12A6F9;
+    background-color: #12A6F9;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid transparent;
+    display: table;
+    margin: 20px auto;
+    line-height: 40px;
+    padding: 0 60px;
+    transition: 0.3s all;
+}
+
+/*review*/
+.review_top-brandn {
+    width: 100%;
+    display: table;
+    border-bottom: 1px solid #D8D8D8;
+    padding: 0 0 10px 0;
+    position: relative;
+}
+
+.review_top-brandna_left_relative {
+    display: table;
+    position: relative;
+    float: left;
+    padding-right: 120px;
+}
+
+.progress-bar_number, .progress-bar-conatiner {
+    display: table;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
+.progress-bar_number {
+    font-size: 28px;
+    color: black;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.progress-bar-conatiner {
+    transform: translate(0, -50%);
+    right: 0;
+}
+
+.review_top-brandn_img {
+    width: 100%;
+}
+
+.review_topreview_top-brandn_title {
+    margin: 0 0 10px 0;
+    color: black;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.review_top-brandna_right {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    width: 50%;
+    max-width: 370px;
+}
+
+.review_visit-btn {
+    width: 100%;
+    color: white;
+    display: table;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #12A6F9;
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    font-family: 'Open Sans', sans-serif;
+    transition: 0.3s all;
+}
+
+.review_visit-btn:hover, .login-btn:hover, .comment_btn:hover,
+.review_more-btn:hover, .form-btn:hover,
+.review_collection_visit-btn:hover, .btcoin_btn:hover, .live_trade-btn:hover {
+    text-decoration: none;
+    color: #12A6F9;
+    background-color: white;
+    border: 1px solid #12A6F9;
+    cursor: pointer;
+}
+
+.review_deposit {
+    display: block;
+    float: left;
+    width: 50%;
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-weight: 800;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 20px;
+}
+
+.review_deposit_normal {
+    font-size: 12px;
+    font-weight: 600;
+    color: #979797;
+}
+
+.review_top-text {
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.review_margin-top {
+    margin: 25px 0 0 0;
+    display: inline-table;
+}
+
+.review_top-title {
+    color: black;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.review_general-container-img {
+    display: table;
+    margin: 25px auto 0 auto;
+    width: 80%;
+}
+
+.review_tags, .review_share {
+    width: 50%;
+    float: left;
+    display: block;
+    margin: 20px 0 30px 0;
+}
+
+.review_tags {
+    color: #B8B8B8;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.review_share {
+    text-align: right;
+    font-size: 24px;
+    color: #999999;
+    cursor: pointer;
+}
+
+.review_cont-bottom-btn {
+    display: block;
+    width: 370px;
+    margin: 20px auto;
+}
+
+.review_collection, .review_list-cont {
+    width: 100%;
+    display: table;
+}
+
+.review_collection {
+    padding: 45px 0 20px 0;
+}
+
+.review_collection_margin {
+    margin: 0 -25px;
+}
+
+.review_collection_block {
+    width: calc(100% / 3 - 50px);
+    margin: 0 25px;
+    float: left;
+    display: block;
+    padding: 0 10px;
+    border-radius: 3px;
+    border: 1px solid #B9B9BD;
+}
+
+.review_collection_block_top {
+    width: 100%;
+    display: table;
+    padding: 10px 0 0 0;
+    border-bottom: 1px solid #B9B9BD;
+}
+
+.review_collection_block_logo {
+    border-radius: 50%;
+    float: left;
+    margin-right: 10px;
+}
+
+.review_collection_block_title {
+    font-family: 'Avenir';
+    font-weight: 800;
+    display: block;
+    float: left;
+    font-size: 16px;
+    color: #1E375E;
+    line-height: 45px;
+}
+
+.review_collection_block_logo {
+    width: 45px;
+    height: 45px;
+}
+
+.review_collection_block_progress-bar {
+    float: right;
+    position: relative;
+}
+
+.review_collection_block_progress-bar-rel {
+    position: relative;
+    width: 65px;
+    height: 65px;
+    margin-top: -10px;
+}
+
+.review_collection_block .progress-bar_number {
+    font-size: 14px;
+    top: 40%;
+}
+
+.review_list-cont {
+    padding: 15px 0 20px 5px;
+}
+
+.features-text {
+    font-family: 'Avenir';
+    font-weight: 800;
+    font-size: 11px;
+    color: black;
+    margin-bottom: 0;
+    line-height: 20px;
+    white-space: nowrap;
+}
+
+.check-marks {
+    color: #7ED321;
+}
+
+.review_collection_visit-btn {
+    color: white;
+    display: block;
+    margin: 15px auto 0 auto;
+    width: 100%;
+    background-color: #6AE5F5;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid transparent;
+    transition: 0.3s all;
+}
+
+
+.new .live_cont-block_hover {
+    overflow: visible;
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+}
+
+.new .live_cont-block_hover_text {
+    display: table;
+}
+
+
+.list, .grid {
+    font-size: 22px;
+}
+
+.review_list, .review_list_cont-heder, .general-list {
+    width: 100%;
+    display: table;
+    background-color: white;
+}
+
+.review_list .live_trade-btn {
+    max-width: 120px;
+    float: right;
+}
+
+.review_list .live_block_chart {
+    min-height: 30px;
+}
+
+@media (max-width: 1200px) {
+    .modal_right-content {width: 90%;}
+    .close_modal {right: 10%;}
+}
+
+@media (max-width: 991px) {
+
+    .comments-form {
+        padding: 15px 0 0 0;
+    }
+
+    .touch_your-comment {
+        margin: 15px 0;
+    }
+
+    .my-nav ul {
+        transform: translate(0, 0) scaleY(1);
+    }
+
+    .review_collection_block {
+        width: calc(100% / 3 - 20px);
+        margin: 0 10px;
+    }
+
+    .review_collection_margin {
+        margin: 0 -15px;
+    }
+
+    .review_list-cont {
+        padding: 15px 0 20px 0;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .general-chart {
+        padding: 20px 15px;
+    }
+
+    .review_title_botoom {
+        text-align: center;
+        margin: 10px 0 0 0;
+    }
+
+    .review_collection_block {
+        width: calc(100% / 2 - 50px);
+        margin: 0 25px;
+        float: left;
+    }
+
+    .review_collection {
+        padding: 10px 0;
+    }
+
+    .review_collection_margin {
+        margin: 0 -25px;
+    }
+
+    .review_list-cont {
+        padding: 15px 0 20px 5px;
+    }
+
+    .sm-none, .live_trade-btn_none {
+        display: none;
+
+    }
+
+    .review_top-brandna_left_relative, .review_general-container-img {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .review_top-brandna_left_relative .review_top-brandn_img {
+        width: 60%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .review_top-brandna_right {
+        max-width: 450px;
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .review_topreview_top-brandn_title {
+        text-align: center;
+        margin: 0 0 20px 0;
+    }
+
+    .review_top-text, .review_top-title, .review_general-container-img,
+    .review_tags, .review_share, .review_cont-bottom-btn {
+        padding: 0 20px;
+    }
+
+    .review_list {
+        padding: 0 10px;
+    }
+
+    .review_list .live_block_chart {
+        min-height: 38px;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    .bitcoin_text-cont_right, .btcoin_btn, .comments-form_cont, .review_more-btn {
+        width: 100%;
+    }
+
+    .btcoin_btn, .bitcoin_bottom-text, .review_more-btn, .my-nav li,
+    .my-nav li ul li {
+        text-align: center;
+    }
+
+    .chart_bitcoin-cont, .comments-form_cont {
+        padding: 0;
+    }
+
+    .margin-top-mobile {
+        margin-top: 15px;
+    }
+
+    .review_more-btn {
+        margin: 0;
+    }
+
+    .comments_user-cont_img {
+        width: 50px;
+        margin-right: 10px;
+    }
+
+    .comments_user-text_reply {
+        margin-left: 30px;
+    }
+
+    .sub-comments {
+        padding-left: 30px;
+    }
+
+    .comments_user-text {
+        text-align: justify;
+    }
+
+
+    .review_collection_block {
+        width: 85%;
+        margin: 10px auto;
+        float: none;
+    }
+
+    .review_collection_margin {
+        margin: 0;
+        width: 100%;
+    }
+
+    .review_tags {
+        width: 80%;
+    }
+
+    .review_share {
+        width: 20%;
+    }
+
+    .bitcoin_title, .statistics_block_green-text, .bitcoin_many-mobile, .bitcoin_title, .bitcoin_text-cont .statistics_block_green-text, .bitcoin_many-mobile {
+        padding-left: 0;
+    }
+
+    .review_cont-bottom-btn {
+        width: 100%;
+    }
+    .review_list_cont-heder{
+        padding: 0;
+    }
+
+}
+
