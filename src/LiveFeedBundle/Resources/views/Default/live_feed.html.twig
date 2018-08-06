@@ -117,7 +117,7 @@
                             </div>
                             <div class="general_review_cont-block review_list_cont-chart">
                                 <div class="review_list_center">
-                                    <a ng-click="ActiveChange(curr.pair);"><img class="live_block_chart" src='{{asset("img/chart_1.png")}}'  alt="chart_1"></a>
+                                    <a ng-click="ActiveChange(curr.pair);"><img class="live_block_chart" src='{{asset("img/chart-design/chart_1.png")}}'  alt="chart_1"></a>
                                 </div>
                             </div>
 
@@ -146,7 +146,7 @@
                     </div>
                     <p class="live_block_money-left"><span class="live_block_money_bold " ng-class="{'negative': curr.variation == 'down', 'positive':curr.variation == 'up', 'neutral': crypto1.variation == 'none'}"> {[{curr.price}]}</span></p>
                     <p class="live_block_money-right  " ng-class="{'live_block_money_red live_block_money_border': curr.change24 < 0, 'live_block_money_green live_block_money_border_green': curr.change24 >= 0}"><span class="live_block_money_bold "ng-class="{'live_block_money_red ': curr.change24 < 0, 'live_block_money_green ': curr.change24 >= 0}" >{[{curr.change24}]}</span></p>
-                    <a ng-click="ActiveChange(curr.pair);"><img class="live_block_chart" src= '{{asset("img/chart_long.png" )}}' alt="chart_long">
+                    <a ng-click="ActiveChange(curr.pair);"><img class="live_block_chart" src= '{{asset("img/chart-design//chart_long.png" )}}' alt="chart_long">
                     </a>
                      <p class="live_block_money-left ">High <br><span class="live_block_money_bold">{[{curr.high24}]}</span></p>
                     <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">{[{curr.low24}]}</span></p>

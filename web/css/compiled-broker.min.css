@@ -21,10 +21,10 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.brokers-forex {background: url("../img/dollar-exchange.jpg") no-repeat;background-position: center;}
-.brokers-crypto{background: url("../img/bitcoin-1813503_1920.jpg") no-repeat;background-position:center;}
-.brokers-Stocks{background:url('../img/chart.jpg')  no-repeat;background-position:center;}
-.brokers-commodities{background:url('../img/commodities-banner.png') no-repeat;background-position:center;}
+.brokers-forex {background: url("../img/brokers/dollar-exchange.jpg") no-repeat;background-position: center;}
+.brokers-crypto{background: url("../img/brokers/bitcoin-1813503_1920.jpg") no-repeat;background-position:center;}
+.brokers-Stocks{background:url('../img/brokers/chart.jpg')  no-repeat;background-position:center;}
+.brokers-commodities{background:url('../img/brokers/commodities-banner.png') no-repeat;background-position:center;}
 
 .brokers_title {
     font-size: 38px;
@@ -74,14 +74,14 @@
 }
 
 .img-pay {
-    background: url("../img/PayPal.png") no-repeat;
+    background: url("../img/brokers/PayPal.png") no-repeat;
     background-size: contain;
     background-position: center;
 }
 
 .img-master {
     width: 90px;
-    background: url("../img/visa-mastercard.png") no-repeat;
+    background: url("../img/brokers/visa-mastercard.png") no-repeat;
     background-size: contain;
     background-position: center;
 }
