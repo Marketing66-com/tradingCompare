@@ -3,16 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/brokers_commodities.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/brokers_commodities.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/brokers_crypto.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/brokers_crypto.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/brokers_forex.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/brokers_forex.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/brokers_stocks.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/brokers_stocks.html.twig" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/brokers_template.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/brokers_template.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_crypto.html.twig" afterPath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_crypto.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_feed.html.twig" afterPath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_feed.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_forex.html.twig" afterPath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_forex.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_stocks.html.twig" afterPath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_stocks.html.twig" />
-      <change beforePath="$PROJECT_DIR$/tradingCompare" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/css/compiled.min.css" afterPath="$PROJECT_DIR$/web/css/compiled.min.css" />
-      <change beforePath="$PROJECT_DIR$/web/css/footer.css" afterPath="$PROJECT_DIR$/web/css/footer.css" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/review_24option.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/review_24option.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/review_Etoro.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/review_Etoro.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/review_Plus500.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/review_Plus500.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/review_Trade.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/review_Trade.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/review_alvexo.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/review_alvexo.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/review_market.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/review_market.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/review_pepperstone.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/review_pepperstone.html.twig" />
+      <change beforePath="$PROJECT_DIR$/web/css/compiled-broker.min.css" afterPath="$PROJECT_DIR$/web/css/compiled-broker.min.css" />
+      <change beforePath="$PROJECT_DIR$/web/js/CryptoFeeds.js" afterPath="$PROJECT_DIR$/web/js/CryptoFeeds.js" />
+      <change beforePath="$PROJECT_DIR$/web/js/bar.js" afterPath="$PROJECT_DIR$/web/js/bar.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,31 +31,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="compiled-broker.min.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/compiled-broker.min.css">
+      <file leaf-file-name="CryptoFeeds.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/CryptoFeeds.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="336">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="21" selection-end-column="1" />
+              <caret line="79" column="14" lean-forward="false" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brokers_commodities.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/brokers_commodities.html.twig">
+      <file leaf-file-name="ForexFeeds.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/ForexFeeds.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="2331">
+              <caret line="111" column="42" lean-forward="false" selection-start-line="111" selection-start-column="7" selection-end-line="111" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brokers_template.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/brokers_template.html.twig">
+      <file leaf-file-name="bar.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/js/bar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+            <state relative-caret-position="294">
+              <caret line="187" column="8" lean-forward="false" selection-start-line="187" selection-start-column="8" selection-end-line="187" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -69,7 +74,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>grid_absolut_close</find>
       <find>cryptocurrencies</find>
       <find>login-btn</find>
       <find>click</find>
@@ -99,6 +103,7 @@
       <find>footer_mobile</find>
       <find>footer_down_text</find>
       <find>broker</find>
+      <find>forex-brokers</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -107,16 +112,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Resources/views/Stocks.html.twig" />
-        <option value="$PROJECT_DIR$/web/js/common.js" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/stocks.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/test.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/oh_no.html" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/ho_no.html.twig" />
-        <option value="$PROJECT_DIR$/web/js/oh-no.js" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/commodities.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/cryptocurrencies.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/forex.html.twig" />
         <option value="$PROJECT_DIR$/web/js/general.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/chart.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/forex_chart.html.twig" />
@@ -140,9 +135,7 @@
         <option value="$PROJECT_DIR$/app/Resources/views/default/chart_forex.html.twig" />
         <option value="$PROJECT_DIR$/web/js/Chart_stock.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/chart_stock.html.twig" />
-        <option value="$PROJECT_DIR$/web/js/bar.js" />
         <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/baseS.html.twig" />
-        <option value="$PROJECT_DIR$/web/js/CryptoFeeds.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/indexation.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/Term&amp;Conditions.html.twig" />
@@ -155,9 +148,21 @@
         <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_forex.html.twig" />
         <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_stocks.html.twig" />
         <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_crypto.html.twig" />
-        <option value="$PROJECT_DIR$/web/css/compiled-broker.min.css" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/brokers_crypto.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/brokers_forex.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/brokers_stocks.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/brokers_commodities.html.twig" />
+        <option value="$PROJECT_DIR$/web/css/compiled-broker.min.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/brokers_template.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/review_Trade.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/review_Plus500.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/review_pepperstone.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/review_market.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/review_Etoro.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/review_alvexo.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/review_24option.html.twig" />
+        <option value="$PROJECT_DIR$/web/js/CryptoFeeds.js" />
+        <option value="$PROJECT_DIR$/web/js/bar.js" />
       </list>
     </option>
   </component>
@@ -215,9 +220,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1907" />
+    <option name="x" value="1914" />
     <option name="y" value="1" />
-    <option name="width" value="1936" />
+    <option name="width" value="1929" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
@@ -235,8 +240,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -352,6 +355,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -524,18 +529,23 @@
       <workItem from="1533130879085" duration="596000" />
       <workItem from="1533132791871" duration="2000" />
       <workItem from="1533635484442" duration="1759000" />
-      <workItem from="1533637271905" duration="1532000" />
+      <workItem from="1533637271905" duration="1785000" />
+      <workItem from="1533639080531" duration="1918000" />
+      <workItem from="1533641065100" duration="598000" />
+      <workItem from="1533643962443" duration="839000" />
+      <workItem from="1533645901291" duration="1135000" />
+      <workItem from="1533649268504" duration="211000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180072000" />
+    <option name="totallyTimeSpent" value="185026000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1907" y="1" width="1936" height="1056" extended-state="0" />
+    <frame x="1914" y="1" width="1929" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19739583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19811814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
@@ -567,22 +577,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/js/oh-no.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/Live_rates_forex.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/Live_rates_crypto.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/chart.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/Live_rates_stocks.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/commodities2.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/crypto.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/stocks2.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/forex2.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/broker_review.html.twig" />
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -648,32 +642,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/baseS.html.twig" />
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/indexation.html.twig" />
-    <entry file="file://$PROJECT_DIR$/web/js/CryptoFeeds.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2079">
-          <caret line="99" column="6" lean-forward="false" selection-start-line="99" selection-start-column="6" selection-end-line="99" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/bar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3255">
-          <caret line="155" column="44" lean-forward="false" selection-start-line="155" selection-start-column="36" selection-end-line="155" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base_wholeproject.html.twig" />
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/Term&amp;Conditions.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4746">
           <caret line="226" column="25" lean-forward="false" selection-start-line="188" selection-start-column="19" selection-end-line="226" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/ForexFeeds.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2331">
-          <caret line="111" column="56" lean-forward="false" selection-start-line="111" selection-start-column="7" selection-end-line="111" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -687,13 +660,6 @@
     <entry file="file://$PROJECT_DIR$/web/compiled.min.css" />
     <entry file="file://$PROJECT_DIR$/compiled.min.css" />
     <entry file="file://$PROJECT_DIR$/compiled1.min.css" />
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2457">
-          <caret line="119" column="5" lean-forward="false" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/broker_cryptocurrencies.html.twig" />
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/broker_forex.html.twig" />
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/broker_commodities2.html.twig" />
@@ -704,7 +670,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="27" column="103" lean-forward="false" selection-start-line="27" selection-start-column="86" selection-end-line="27" selection-end-column="103" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -720,7 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="74" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -728,7 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="2" selection-end-line="125" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -736,7 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -744,14 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#1;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -759,7 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
           <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -767,7 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -775,7 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1344">
           <caret line="64" column="26" lean-forward="true" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -783,30 +734,127 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/compiled-broker.min.css">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="21" selection-end-column="1" />
-          <folding />
+        <state relative-caret-position="540">
+          <caret line="75" column="29" lean-forward="false" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/brokers_commodities.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
+          <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/brokers_crypto.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="122" lean-forward="false" selection-start-line="8" selection-start-column="122" selection-end-line="8" selection-end-column="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/brokers_forex.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="121" lean-forward="false" selection-start-line="8" selection-start-column="121" selection-end-line="8" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/brokers_stocks.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="122" lean-forward="false" selection-start-line="8" selection-start-column="122" selection-end-line="8" selection-end-column="122" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/brokers_template.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        <state relative-caret-position="63">
+          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/review_Trade.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/review_Plus500.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="78" lean-forward="false" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/review_pepperstone.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="78" lean-forward="false" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/review_market.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="78" lean-forward="false" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/review_Etoro.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="78" lean-forward="false" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/review_alvexo.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="78" lean-forward="false" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/review_24option.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="78" lean-forward="false" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/compiled-broker.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/ForexFeeds.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2331">
+          <caret line="111" column="42" lean-forward="false" selection-start-line="111" selection-start-column="7" selection-end-line="111" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/CryptoFeeds.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="79" column="14" lean-forward="false" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/bar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="187" column="8" lean-forward="false" selection-start-line="187" selection-start-column="8" selection-end-line="187" selection-end-column="8" />
           <folding />
         </state>
       </provider>

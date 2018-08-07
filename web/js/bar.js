@@ -125,22 +125,25 @@ firstApp.controller('FirstController', function($scope) {
             // })
 
 
-            socket1.emit('room', "all_regulated");
+            // socket1.emit('room', "all_regulated");
+            socket1.emit('room', ["BTC_USD_1sec","ETH_USD_1sec"]);
             socket1.on('message', data =>{
-                //console.log("data forbar", data)
-                for (const key in data) {
+                //console.log("data forbar", data, )
+                //console.log("********", $scope.allcrypto )
+                // for (const key in data) {
                     var item73 = $scope.allcrypto.find(function (element) {
-                        return (element.fromSymbol == key.split("_",1) && element.toSymbol == key.split("_")[1]);
+                        return (element.pair == data.pair);
+                        //return (element.fromSymbol == key.split("_",1) && element.toSymbol == key.split("_")[1]);
                     })
                     // console.log("item73", item73)
                     if (typeof item73 != typeof undefined) {
-                        for (const ky in data[key]) {
+                        for (const key in data) {
                             if (data.hasOwnProperty(key)) {
-                                item73[ky] = data[key][ky];
+                                item73[key] = data[key];
                             }
                         }
                     } $scope.$apply()
-                }
+                // }
             })
         })
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -151,7 +154,7 @@ firstApp.controller('FirstController', function($scope) {
             socket2.emit('room', ["EURUSD_1sec","USDJPY_1sec"]);
             socket2.on("message", function (response) {
 
-                console.log("forbar", response)
+
                 var item73 = $scope.allforex.find(function (element) {
 
                     //console.log("element.name", element.name, "response.fromSymbol", response.fromSymbol)
@@ -182,7 +185,7 @@ firstApp.controller('FirstController', function($scope) {
 
 
         var socket = io.connect("https://websocket-stock.herokuapp.com")
-        //console.log("ALLSTOCK",$scope.allstock)
+        console.log("ALLSTOCK",$scope.allstock)
         socket.on('connect', function () {
             socket.emit('room', "persec");
             socket.on('message', data => {

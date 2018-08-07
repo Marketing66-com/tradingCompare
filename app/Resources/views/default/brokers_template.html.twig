@@ -1,6 +1,11 @@
-{% extends 'base.html.twig' %} {% block body %} {% block banere %} {% endblock %}
-    
-       <section class="table">
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% block banere %}
+    {% endblock %}
+
+    <link rel="stylesheet" href="{{ asset('css/compiled-broker.min.css') }}" >
+
+       <section style="display: table;width: 100%;background-color: #f2f3f5;margin: 0 !important;" class="table">
         <div class="container">
             <div class="row">
                 <div class="paupal">
@@ -13,7 +18,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="content-table">
+                <div style=" width: 100%;display: table;background-color: white;padding: 5px 15px 15px 15px" class="content-table">
                     <div class="content-table_container-title col-xs-none">
                         <div class="min-margin">
                             <div class="col-md-2 col-sm-2 col-xs-2 col">

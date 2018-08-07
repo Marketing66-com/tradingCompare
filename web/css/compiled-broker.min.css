@@ -8,18 +8,18 @@
 }
 
 
-.brokers {
-    display: table;
-    width: 100%;
-    text-align: center;
-}
+/*.brokers {*/
+    /*display: table;*/
+    /*width: 100%;*/
+    /*text-align: center;*/
+/*}*/
 
-.brokers-opaciti {
-    width: 100%;
-    height: 100%;
-    display: table;
-    background-color: rgba(0, 0, 0, 0.4);
-}
+/*.brokers-opaciti {*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*display: table;*/
+    /*background-color: rgba(0, 0, 0, 0.4);*/
+/*}*/
 
 .brokers-forex {background: url("../img/brokers/dollar-exchange.jpg") no-repeat;background-position: center;}
 .brokers-crypto{background: url("../img/brokers/bitcoin-1813503_1920.jpg") no-repeat;background-position:center;}
@@ -43,12 +43,12 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.table {
-    display: table;
-    width: 100%;
-    background-color: #f2f3f5;
-    margin: 0 !important;
-}
+/*.table {*/
+    /*display: table;*/
+    /*width: 100%;*/
+    /*background-color: #f2f3f5;*/
+    /*margin: 0 !important;*/
+/*}*/
 
 .paupal {
     float: right;
@@ -86,12 +86,12 @@
     background-position: center;
 }
 
-.content-table {
-    width: 100%;
-    display: table;
-    background-color: white;
-    padding: 5px 15px 15px 15px
-}
+/*.content-table {*/
+    /*width: 100%;*/
+    /*display: table;*/
+    /*background-color: white;*/
+    /*padding: 5px 15px 15px 15px*/
+/*}*/
 
 .content-table_container-title {
     width: 98%;
