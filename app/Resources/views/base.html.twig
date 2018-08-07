@@ -27,7 +27,7 @@
 
     <meta charset="utf-8">
 
-    {##}
+
     {#<!-- Google Tag Manager -->#}
     {#<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':#}
     {#new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],#}
@@ -51,57 +51,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="icon" href="{{ asset('img/Group_17.png') }}" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="{{ asset('css/compiled.min.css') }}" >
+
 </head>
 
-<body>
+<body style="margin: 0; padding: 0; font-family: 'Open Sans', sans-serif;">
 
 
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7P6LQ2"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<header >
+<header style="background-color: #1e375e; z-index: 2; display: table !important; width: 100%;">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-5">
-                <div class="burger clearfix ms-block">
+                <div class="burger clearfix ms-block" >
                     <div class=burger-menu></div>
                     <div class=burger-menu></div>
                     <div class=burger-menu></div>
                 </div>
-                <a href="{{ path('Live_rates_stocks') }}" class="logo-text">
-                    <img src='{{asset("img/logo_white.png")}}' class="top-logo ms-none" alt="logo">
-                    <img src='{{asset("img/Group_17.png")}}' class="top-logo ms-block" alt="logo">
+                <a style="color: white;font-weight: bold;font-size: 24px;" href="{{ path('Live_rates_stocks') }}" class="logo-text">
+                    <img style="width: auto;margin: 10px 0;" src='{{asset("img/logo_white.png")}}' class="top-logo ms-none" alt="logo">
+                    <img style="width: auto;margin: 10px 0;" src='{{asset("img/Group_17.png")}}' class="top-logo ms-block" alt="logo">
 
                 </a>
 
             </div>
             <div class="col-md-6 col-sm-6 col-xs-7">
-                <div class="cont-right">
-                    <div class="select language">
-                        <a href="#" class="slct-2">  <img class="img-language" src='{{asset("img/Flags/uk_flag.png")}}' alt="uk_flag"></a>
+                <div style="float: right;position: relative;" class="cont-right">
+                    <div style="display: block;position: relative;float: left; width: 50px;margin: 10px 25px;padding: 0;z-index: 999999;" class="select language">
+                        <a href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/uk_flag.png")}}' alt="uk_flag"></a>
                         <ul class="drop-2">
-                            <li> <img class="img-language" src='{{asset("img/Flags/uk_flag.png" )}}'alt="uk_flag"></li>
-                            <li> <img class="img-language" src='{{asset("img/Flags/america.png" )}}'alt="america"></li>
-                            <li> <img class="img-language" src= '{{asset("img/Flags/france.png")}}'alt="france"></li>
-                            <li> <img class="img-language" src='{{asset("img/Flags/italii.png")}}' alt="italii"></li>
-                            <li> <img class="img-language" src='{{asset("img/Flags/italy.png")}}' alt="italy"></li>
-                            <li> <img class="img-language" src='{{asset("img/Flags/made.png")}}' alt="made"></li>
-                            <li> <img class="img-language" src='{{asset("img/Flags/uk_flag.png" )}}'alt="uk_flag"></li>
-                            <li> <img class="img-language" src= '{{asset("img/Flags/america.png")}}'alt="america"></li>
-                            <li> <img class="img-language" src='{{asset("img/Flags/france.png" )}}'alt="france"></li>
-                            <li> <img class="img-language" src='{{asset("img/Flags/italii.png" )}}'alt="italii"></li>
-                            <li> <img class="img-language" src='{{asset("img/Flags/italy.png" )}}'alt="italy"></li>
-                            <li> <img class="img-language" src='{{asset("img/Flags/made.png"  )}}'alt="made"></li>
-                            <li> <img class="img-language" src='{{asset("img/Flags/uk_flag.png" )}}'alt="uk_flag"></li>
-                            <li> <img class="img-language" src='{{asset("img/Flags/america.png")}}' alt="america"></li>
-                            <li> <img class="img-language" src= '{{asset("img/Flags/france.png")}}'alt="france"></li>
-                            <li> <img class="img-language" src='{{asset("img/Flags/italii.png" )}}'alt="italii"></li>
-                            <li> <img class="img-language" src='{{asset("img/Flags/italy.png")}}' alt="italy"></li>
-                            <li> <img class="img-language" src='{{asset("img/Flags/made.png" )}}'alt="made"></li>
+                            <li> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/uk_flag.png" )}}'alt="uk_flag"></li>
+                            <li> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/america.png" )}}'alt="america"></li>
+                            <li> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src= '{{asset("img/Flags/france.png")}}'alt="france"></li>
+                            <li> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/italii.png")}}' alt="italii"></li>
+                            <li> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/made.png")}}' alt="made"></li>
                         </ul>
                     </div>
-                    <a class="login-btn log sm-none">LOGIN</a>
+                    <a class="login-btn log sm-none" >LOGIN</a>
                     {#<ul class="out sm-none">#}
                         {#<li>Victoria K. <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span>#}
                             {#<ul>#}
@@ -116,13 +105,13 @@
 
             <div class="col-md-12 col-sm-12 col-xs-11">
                    <a href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">
-                       <img class="sponsor ms-none" src='{{asset("img/broker partner.png")}}' alt="trade-logo">
+                       <img style=" margin-bottom: 2%;" class="sponsor ms-none" src='{{asset("img/broker partner.png")}}' alt="trade-logo">
                    </a>
             </div>
 
             </div>
-            <div class="menu">
-                <ul class="my-nav">
+            <div  class="menu">
+                <ul style="display: inline-table;margin: 0 auto;padding: 0;z-index: 1000;" class="my-nav">
                     <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_stocks' %}active{% endif %}" href="{{ path('Live_rates_stocks') }}">Live Stock Feed</a></li>
                     <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_crypto' %}active{% endif %}" href="{{ path('Live_rates_crypto') }}" >Live Crypto Feed</a></li>
                     <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_forex' %}active{% endif %}" href="{{ path('Live_rates_forex') }}" >Live Forex Feed</a></li>
@@ -235,12 +224,12 @@
     {% endblock %}
 </div>
 
-<footer class="footer">
+<footer style=" background-color: #1e375e;width: 100%;display: table;text-align: center;" class="footer">
     <div class="container">
         <div class="col-md-4 col-sm-4 col-xs-12 footer_col">
             <div class="footer-abs">
-                <p class="footer_follow">Follow Us</p>
-                <div class="footer_soz">
+                <p style="  display: table;float: left;margin: 10px 10px 10px 0;line-height: 35px;" class="footer_follow">Follow Us</p>
+                <div style=" margin: 10px auto;" class="footer_soz">
                     <a class="footer_soz_icon footer_soz_icon_faceebook"><i class="fab fa-facebook-f"></i></a>
                     <a class="footer_soz_icon footer_soz_icon_twitter"><i class="fab fa-twitter"></i></a>
                     <a class="footer_soz_icon footer_soz_icon_linkedin"><i class="fab fa-linkedin"></i></a>
@@ -250,13 +239,13 @@
         </div>
         <div class="col-md-4 col-sm-5 col-xs-12 footer_col">
             <div class="footer_down">
-                <img class="footer_mobile" src='{{asset("img/Footer/phone.png")}}' alt="phone">
-                <div class="footer_down_absolut">
-                    <p class="footer_down_text">Download our app</p>
-                    <a class="footer_down_link" href="https://itunes.apple.com/us/app/trading-compare/id1406118849?mt=8&ign-mpt=uo%3D4" target="_blank">
+                <img style=" object-fit: cover;" class="footer_mobile" src='{{asset("img/Footer/phone.png")}}' alt="phone">
+                <div style=" position: absolute;right: 0;display: table;bottom: 0;width: 125px;" class="footer_down_absolut">
+                    <p style=" text-align: left;" class="footer_down_text">Download our app</p>
+                    <a style="  display: block;margin-top: 5px;" class="footer_down_link" href="https://itunes.apple.com/us/app/trading-compare/id1406118849?mt=8&ign-mpt=uo%3D4" target="_blank">
                         <img src='{{asset("img/Footer/App_store.png")}}' alt="App_store">
                     </a>
-                    <a class="footer_down_link" href="https://play.google.com/store/apps/details?id=com.tradingcompare.app" target="_blank">
+                    <a style="  display: block;margin-top: 5px;" class="footer_down_link" href="https://play.google.com/store/apps/details?id=com.tradingcompare.app" target="_blank">
                         <img src='{{asset("img/Footer/Google_play.png")}}' alt="Google_play">
                     </a>
                 </div>
@@ -267,7 +256,7 @@
                 <p class="footer_terms"><a style="color:white;" href="{{ path('terms') }}">Terms & Conditions </a>  | <a style="color:white;" href="{{ path('privacy') }}">Privacy Policy</a></p>
             </div>
         </div>
-        <p class="footer_text">
+        <p style="text-align: left;max-width: 100%!Important;display: inline-block!important;font-family: 'Hind Siliguri', sans-serif;font-weight: 500;font-size: 10px;" class="footer_text">
             Risk Warning: Trading foreign exchange, cryptocurrencies, CFDs, indexes and commodities is potentially full of high risk and may not be suitable for all investors. The high level of leverage can work both for and against traders. Before any investment you need to carefully consider your targets, previous experience, and risk level. Trading can result in the loss of your money, as a result, you are expressly cautioned that you should never invest or trade with money that you cannot afford to lose. The Information on this website is provided for education and informational purposes only, without any express or implied warranty of any kind, including warranties of accuracy, completeness, or fitness for any particular purpose. The Information contained in or provided from or through this website is not intended to be and does not constitute financial advice, investment advice, trading advice or any other advice. The Information on this website and provided from or through this website is general in nature and is not specific to you the User or anyone else. You should not make any decision, financial, investment, trading or otherwise, based on any of the information presented on this website without undertaking independent due diligence and consultation with a professional broker or financial advisory. You understand that you are using any and all Information available on or through this website at your own risk. The information provided on this website does not constitute investment advice, financial advice, trading advice or any other sort of advice and you should not treat any of the website's content as such. The Website does not recommend that any cryptocurrency should be bought, sold or held by you and nothing on this website should be taken as an offer to buy, sell or hold a cryptocurrency. Do conduct your own due-diligence and consult your financial advisory before making any investment decision.
             <br>Power by:Marketing66 LTD adress:Maase Hoshev 4 Israel Email:<a style="color:white" href="contact@tradingcompare.com">contact@tradingcompare.com</a> <a style="color:white" href="www.marketing66.com">www.marketing66.com</a>
         </p>

@@ -6,6 +6,8 @@
  {% endblock %}
 
 {% block body %}
+    <link rel="stylesheet" href="{{ asset('css/compiled-feeds.css') }}" >
+
     <div id="dvSecond">
         <div ng-controller="SecondController ">
             <div  ng-init="init('{{ api }}',' {{ chart_link }}','{{ likes }}')" >
