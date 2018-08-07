@@ -50,7 +50,7 @@
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
+            <state relative-caret-position="462">
               <caret line="28" column="117" lean-forward="false" selection-start-line="28" selection-start-column="117" selection-end-line="28" selection-end-column="117" />
               <folding />
             </state>
@@ -215,7 +215,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="1914" />
     <option name="y" value="1" />
     <option name="width" value="1929" />
@@ -531,15 +531,15 @@
       <workItem from="1533643962443" duration="839000" />
       <workItem from="1533645901291" duration="1135000" />
       <workItem from="1533649268504" duration="1697000" />
-      <workItem from="1533652014887" duration="25000" />
+      <workItem from="1533652014887" duration="218000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186537000" />
+    <option name="totallyTimeSpent" value="186730000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1914" y="1" width="1929" height="1056" extended-state="0" />
+    <frame x="1914" y="1" width="1929" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19811814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -851,7 +851,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
+        <state relative-caret-position="462">
           <caret line="28" column="117" lean-forward="false" selection-start-line="28" selection-start-column="117" selection-end-line="28" selection-end-column="117" />
           <folding />
         </state>
