@@ -37,8 +37,8 @@
       <file leaf-file-name="bar.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/bar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1554">
-              <caret line="187" column="8" lean-forward="false" selection-start-line="187" selection-start-column="8" selection-end-line="187" selection-end-column="8" />
+            <state relative-caret-position="336">
+              <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -202,7 +202,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="1914" />
     <option name="y" value="1" />
     <option name="width" value="1929" />
@@ -517,15 +517,15 @@
       <workItem from="1533641065100" duration="598000" />
       <workItem from="1533643962443" duration="839000" />
       <workItem from="1533645901291" duration="1135000" />
-      <workItem from="1533649268504" duration="808000" />
+      <workItem from="1533649268504" duration="812000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185623000" />
+    <option name="totallyTimeSpent" value="185627000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1914" y="1" width="1929" height="1056" extended-state="1" />
+    <frame x="1914" y="1" width="1929" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19811814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -836,8 +836,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/bar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1554">
-          <caret line="187" column="8" lean-forward="false" selection-start-line="187" selection-start-column="8" selection-end-line="187" selection-end-column="8" />
+        <state relative-caret-position="336">
+          <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
           <folding />
         </state>
       </provider>
