@@ -44,6 +44,7 @@
 /*.sponsor{margin-bottom: 2%;}*/
 .negative{color:red;}
 .positive{color:#9CD400;}
+.neutral{color:#000000;}
 .barneutral{color:#fff;}
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
