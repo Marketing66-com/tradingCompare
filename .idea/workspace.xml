@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/css/chart-live-iq.css" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/charttest.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/charttest.html.twig" />
-      <change beforePath="$PROJECT_DIR$/web/css/compiled.min.css" afterPath="$PROJECT_DIR$/web/css/compiled.min.css" />
-      <change beforePath="$PROJECT_DIR$/web/js/Chart-IQ.js" afterPath="$PROJECT_DIR$/web/js/chart-live-iq.js" />
-    </list>
+    <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -531,12 +524,12 @@
       <workItem from="1533823648965" duration="982000" />
       <workItem from="1533825456782" duration="1788000" />
       <workItem from="1533827263371" duration="1788000" />
-      <workItem from="1533829071582" duration="1044000" />
+      <workItem from="1533829071582" duration="1123000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222340000" />
+    <option name="totallyTimeSpent" value="222419000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
