@@ -72,6 +72,9 @@ $(".out, .log").click(function () {
     $('.modal_sigh-in').slideDown();
 
 });
+$(".v-btn").click(function () { $('.v-modal').slideDown(); });
+
+
 $('.country_list').find('li').click(function () {
     var selectResult = $(this).html();
     $(this).parent().parent().find('input').val(selectResult);
@@ -113,3 +116,4 @@ $('.grid').click(function () {
     $(this).addClass('watchlist-cont_all_active');
     $('.list').removeClass('watchlist-cont_all_active');
 });
+
