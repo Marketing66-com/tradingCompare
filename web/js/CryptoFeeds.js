@@ -108,9 +108,11 @@ secondApp.controller('SecondController', function($scope) {
 
     $scope.ActiveChange = function (symbol) {
 
+
         // var from = symbol.split("/",1)
         // var to = symbol.split("/",2)
         var sym= symbol.split("/")
+
         // console.log(from[0], to[1], '*********************')
         var url =  Routing.generate('crypto_chart',{"currency" :sym})
         //console.log(Routing.generate('crypto_chart',{"currency" :sym}))
