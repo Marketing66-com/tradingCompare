@@ -1,4 +1,12 @@
 {% extends 'base.html.twig' %}
+
+
+ {% block description %}
+     <title> {{currency}} Price Chart Real-time price, sentiment, chart:</title>
+     <meta name="description" content="Live {{ currency}} Bitcoin chart. Free online platform for market analysis.Sentiment from real traders, online discussion, international coverage, technical indicators & latest news.">
+ {% endblock %}
+
+
 {% block body %}
 
     <link rel="stylesheet" href="https://www.interactivecrypto.com/chart_iq_web/css/perfect-scrollbar.css" />
@@ -1539,7 +1547,7 @@
                         title  =  curr + "/" + Symbol + "\u200b  "+ "\u200b  " + "\u200b  " + (data.RAW[curr][Symbol].PRICE).toLocaleString() + " \u200b ";
                     }
 
-                    document.title = title
+                    //document.title = title
 
                 });
             }
@@ -1918,8 +1926,9 @@
                     jQuery("cq-current-price").removeClass();
 
                 }, 2000);
-                if( for_title.length != 0)
-                    document.title =   title
+                if( for_title.length != 0) {
+                    //document.title =   title
+                }
 
 
 

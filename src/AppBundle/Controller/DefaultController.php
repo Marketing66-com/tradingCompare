@@ -24,7 +24,7 @@ class DefaultController extends Controller
         $like = $this->getParameter('crypto_likes');
 
 //        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from,"from"=>$from, "to"=>$to, "api"=>$api,"like"=>$like));
-        return $this->render('default/charttest.html.twig', array("currency"=>$from,"from"=>$from, "to"=>$to, "api"=>$api,"like"=>$like));
+        return $this->render('default/charttest.html.twig', array("currency"=>$currency,"from"=>$from, "to"=>$to, "api"=>$api,"like"=>$like));
     }
 
     /**
