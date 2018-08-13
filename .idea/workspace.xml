@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/charttest.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/charttest.html.twig" />
-      <change beforePath="$PROJECT_DIR$/web/js/chart-live-iq.js" afterPath="$PROJECT_DIR$/web/js/chart-live-iq.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,10 +39,10 @@
       <file leaf-file-name="charttest.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/charttest.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="830" column="18" lean-forward="false" selection-start-line="830" selection-start-column="18" selection-end-line="830" selection-end-column="18" />
+            <state relative-caret-position="288">
+              <caret line="839" column="87" lean-forward="true" selection-start-line="839" selection-start-column="87" selection-end-line="839" selection-end-column="87" />
               <folding>
-                <marker date="1534146022131" expanded="false" signature="6161:6170" ph="..." />
+                <marker date="1534146271642" expanded="false" signature="6161:6170" ph="..." />
               </folding>
             </state>
           </provider>
@@ -560,12 +558,12 @@
       <workItem from="1533829071582" duration="1519000" />
       <workItem from="1534054688781" duration="1790000" />
       <workItem from="1534056500901" duration="1130000" />
-      <workItem from="1534145897498" duration="125000" />
+      <workItem from="1534145897498" duration="374000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225860000" />
+    <option name="totallyTimeSpent" value="226109000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -880,10 +878,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/charttest.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="830" column="18" lean-forward="false" selection-start-line="830" selection-start-column="18" selection-end-line="830" selection-end-column="18" />
+        <state relative-caret-position="288">
+          <caret line="839" column="87" lean-forward="true" selection-start-line="839" selection-start-column="87" selection-end-line="839" selection-end-column="87" />
           <folding>
-            <marker date="1534146022131" expanded="false" signature="6161:6170" ph="..." />
+            <marker date="1534146271642" expanded="false" signature="6161:6170" ph="..." />
           </folding>
         </state>
       </provider>
