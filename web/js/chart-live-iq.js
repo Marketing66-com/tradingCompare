@@ -4,8 +4,8 @@ var ChartLiveApp = angular.module('chartLiveApp', []).config(function ($interpol
 
 ChartLiveApp.controller('ChartLiveController', function($scope) {
 
-    $scope.init = function (api, from, to, likes) {
-        console.log("api**************////////////**************", api)
+    $scope.init = function ( from, to) {
+        console.log("api**************////////////**************", from , to)
 
 
     }
