@@ -33,7 +33,6 @@ class SitemapController extends Controller
         $urls[] = ['loc' => $this->get('router')->generate('commodities'), 'changefreq' => 'weekly', 'priority' => '1.0'];
         $urls[] = ['loc' => $this->get('router')->generate('stock'), 'changefreq' => 'weekly', 'priority' => '1.0'];
 
-
         return $this->render('sitemap.xml.twig', [
             'urls' => $urls,
             'hostname' => $hostname
