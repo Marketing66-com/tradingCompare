@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new LiveFeedBundle\LiveFeedBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Sensio\Bundle\BuzzBundle\SensioBuzzBundle(),
 
         ];
 

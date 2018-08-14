@@ -225,6 +225,18 @@ class DefaultController extends Controller
     }
 
 
+    /**
+     * @Route("/try", name="try")
+     */
+    public function tryAction()
+    {
+        $buzz = $this->container->get('buzz');
+
+        $response = $buzz->get('http://google.com');
+
+        echo $response->getContent();
+    }
+
 
 
 }
