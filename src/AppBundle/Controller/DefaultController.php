@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\BrowserKit\Response;
 
 class DefaultController extends Controller
 {
@@ -222,6 +223,8 @@ class DefaultController extends Controller
         return $this->render('default/charttest.html.twig', array("currency"=>$from,"from"=>$from, "to"=>$to, "api"=>$api,"like"=>$like));
 //        return $this->render('default/charttest.html.twig');
     }
+
+
 
 
 }
