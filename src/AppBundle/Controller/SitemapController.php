@@ -12,7 +12,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Client;
+use Symfony\Component\BrowserKit\Client;
 
 class SitemapController extends Controller
 {
