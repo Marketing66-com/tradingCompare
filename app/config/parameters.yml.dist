@@ -17,3 +17,11 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
+
+    crypto_api: 'https://crypto-ws.herokuapp.com/All-Froms-and-Prices'
+    crypto_likes: 'https://xosignals.herokuapp.com/api2/getTradingCompareByName/crypto'
+    forex_api: 'https://forex-websocket.herokuapp.com/all_data'
+    forex_likes: 'https://xosignals.herokuapp.com/api2/getTradingCompareByName/forex'
+    stocks_api: 'https://websocket-stock.herokuapp.com/stocksPrice'
+    stocks_likes: 'https://xosignals.herokuapp.com/api2/getTradingCompareByName/stock'
+    crypto_likes: 'https://xosignals.herokuapp.com/api2/getTradingCompareByName/crypto'
