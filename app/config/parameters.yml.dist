@@ -24,4 +24,4 @@ parameters:
     forex_likes: 'https://xosignals.herokuapp.com/api2/getTradingCompareByName/forex'
     stocks_api: 'https://websocket-stock.herokuapp.com/stocksPrice'
     stocks_likes: 'https://xosignals.herokuapp.com/api2/getTradingCompareByName/stock'
-    crypto_likes: 'https://xosignals.herokuapp.com/api2/getTradingCompareByName/crypto'
+
