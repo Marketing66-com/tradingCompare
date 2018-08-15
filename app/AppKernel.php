@@ -18,8 +18,6 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new LiveFeedBundle\LiveFeedBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new Sensio\Bundle\BuzzBundle\SensioBuzzBundle(),
-
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
