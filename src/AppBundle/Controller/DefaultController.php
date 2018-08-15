@@ -209,33 +209,18 @@ class DefaultController extends Controller
         return $this->render('default/ho_no.html.twig');
     }
 
-    /**
-     * @Route("/test/{currency}")
-     */
-    public function testAction($currency)
-    {
-        $pair = explode("_", $currency);
-        $from =  $pair[0];
-        $to =  $pair[1];
-        $api =  $this->getParameter('crypto_api');
-        $like = $this->getParameter('crypto_likes');
 
-        return $this->render('default/charttest.html.twig', array("currency"=>$from,"from"=>$from, "to"=>$to, "api"=>$api,"like"=>$like));
-//        return $this->render('default/charttest.html.twig');
-    }
-
-
-    /**
-     * @Route("/try", name="try")
-     */
-    public function tryAction()
-    {
-        $buzz = $this->container->get('buzz');
-
-        $response = $buzz->get('http://google.com');
-
-        echo $response->getContent();
-    }
+//    /**
+//     * @Route("/try", name="try")
+//     */
+//    public function tryAction()
+//    {
+//        $buzz = $this->container->get('buzz');
+//
+//        $response = $buzz->get('https://crypto-ws.herokuapp.com/All-Froms-and-Prices');
+//
+//        echo $response->getContent();
+//    }
 
 
 
