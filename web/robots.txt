@@ -3,3 +3,6 @@
 
 User-agent: *
 Disallow:
+
+
+Sitemap: https://www.tradingcompare.com/sitemap.xml
