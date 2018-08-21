@@ -1,15 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <section style="height: 700px;" class="table">
-        <div class="container">
+    <link rel="stylesheet" href="{{ asset('css/compiled-broker.min.css') }}" >
+    <link rel="stylesheet" href="{{ asset('css/text.css') }}" >
+    <section style="height: 100%; " class="table">
+        <div class="container-fluid">
             <div class="row">
-                <div class="content-text">
-                    <h1>Oops! An Error Occurred</h1>
-                    <h2>The server returned a "{{ status_code }} {{ status_text }}".</h2>
-                    <p style="font-size: 23px;">
-                        The requested page couldn't be located. Checkout for any URL
-                        misspelling or <a href="{{ path('Live_rates_forex') }}">return to the homepage</a>.
+                <div style="height:100%; width: 100%;" class="content-text">
+                    <div class="review_general-container-img ">
+                        <img style="margin-top:3%;margin-left: auto;margin-right: auto; display: block;" class="review_top-brandn_img" src='{{asset("img/404.png")}}' alt="404page-not-found">
+                    </div>
+
+                    <h1 style="margin-top:2%; text-align: center; font-size: 34px; color:#999999;">Page not found</h1>
+                    {#<h2>The server returned a "{{ status_code }} {{ status_text }}".</h2>#}
+                    <p style="margin-top:2%; text-align: center; font-size: 26px;  color:#999999;">
+                        Try checking the URL for misspellings and hit refresh </p>
+                    <p style="margin-top:1%; margin-bottom:37%; text-align: center; font-size: 26px; font-weight:600;">
+                        <a style="color:#12A6F9; " href="{{ path('Live_rates_forex') }}">Back to Home</a>
                     </p>
                 </div>
             </div>
