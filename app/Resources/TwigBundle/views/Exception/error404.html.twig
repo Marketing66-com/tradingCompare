@@ -1,12 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <section  class="table">
+    <section style="height: 700px;" class="table">
         <div class="container">
             <div class="row">
-                <div class="content-text" >
+                <div class="content-text">
                     <h1>Oops! An Error Occurred</h1>
                     <h2>The server returned a "{{ status_code }} {{ status_text }}".</h2>
+                    <p style="font-size: 23px;">
+                        The requested page couldn't be located. Checkout for any URL
+                        misspelling or <a href="{{ path('Live_rates_stocks') }}">return to the homepage</a>.
+                    </p>
                 </div>
             </div>
         </div>
