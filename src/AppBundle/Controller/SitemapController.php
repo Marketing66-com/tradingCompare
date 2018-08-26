@@ -44,10 +44,6 @@ class SitemapController extends Controller
         $urls[] = ['loc' => $this->get('router')->generate('alvexo'), 'changefreq' => 'weekly', 'priority' => '0.6'];
         $urls[] = ['loc' => $this->get('router')->generate('market'), 'changefreq' => 'weekly', 'priority' => '0.6'];
 
-        $urls[] = ['loc' => $this->get('router')->generate('terms'), 'changefreq' => 'weekly', 'priority' => '0.2'];
-        $urls[] = ['loc' => $this->get('router')->generate('privacy'), 'changefreq' => 'weekly', 'priority' => '0.2'];
-
-
         $client = new \GuzzleHttp\Client();
         try {
             $res = $client->request('GET', 'https://crypto-ws.herokuapp.com/All-Froms-and-Prices');

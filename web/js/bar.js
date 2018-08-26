@@ -15,6 +15,7 @@ firstApp.controller('FirstController', function($scope) {
             url: "https://crypto-ws.herokuapp.com/All-Froms-and-Prices/" + first +"_USD",
             type: "GET",
             success: function (result) {
+                console.log("result", result)
                 $scope.crypto3 = result
                 // for (i = 0; i < result.length; i++) {
                 //     if (result[i].fromSymbol == first) { $scope.crypto3 = result[i]}
@@ -91,7 +92,7 @@ firstApp.controller('FirstController', function($scope) {
             socket1.emit('room', ["BTC_USD_1sec","ETH_USD_1sec"]);
             // socket1.emit('room', ["BTC_USD_2secWeb","ETH_USD_2secWeb"]);
             socket1.on('message', data =>{
-
+                //console.log("data bar", data)
                 if(data.pair == $scope.crypto3.pair )
                 {
                     $scope.crypto3 = data;
@@ -122,11 +123,11 @@ firstApp.controller('FirstController', function($scope) {
                 //     $scope.crypto4.toSymbol = "USD"
                 // }
 
-                //     var item73 = $scope.allcrypto.find(function (element) {
-                //         console.log("data allcrypto", $scope.allcrypto )
-                //         return (element.pair == data.pair);
-                //         //return (element.fromSymbol == key.split("_",1) && element.toSymbol == key.split("_")[1]);
-                //     })
+                    // var item73 = $scope.allcrypto.find(function (element) {
+                    //     console.log("data allcrypto", $scope.allcrypto )
+                    //     return (element.pair == data.pair);
+                    //     //return (element.fromSymbol == key.split("_",1) && element.toSymbol == key.split("_")[1]);
+                    // })
 
                 //
                 //     if (typeof item73 != typeof undefined) {

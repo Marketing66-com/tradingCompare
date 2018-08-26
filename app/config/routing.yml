@@ -3,8 +3,6 @@ live_feed:
     type:     annotation
     prefix:   /
 
-
-
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
@@ -12,3 +10,54 @@ app:
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
+
+root:
+    path: /commodities
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /commodities-brokers
+        permanent: true
+
+root:
+    path: /commodities2
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /commodities-brokers
+        permanent: true
+
+root:
+    path: /stock2
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /stock-brokers
+        permanent: true
+
+#root:
+#    path: /forex2
+#    defaults:
+#        _controller: FrameworkBundle:Redirect:urlRedirect
+#        path: /forex-brokers
+#        permanent: true
+
+#
+#root:
+#    path: /Live_rates_forex
+#    defaults:
+#        _controller: FrameworkBundle:Redirect:urlRedirect
+#        path: /currencies/streaming-forex-rates-majors-social-sentiment
+#        permanent: true
+#
+root:
+    path: /Live_rates_stock
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: Live_rates_stock
+        permanent: true
+
+
+root:
+    path: /crypto
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /cryptocurrencies/streaming-crypto-rates-majors-social-sentiment
+        permanent: true

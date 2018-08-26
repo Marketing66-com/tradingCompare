@@ -33,7 +33,6 @@ class BarController extends Controller
 
         $first = "BTC"; $second = "ETH";
         $third = "BCH"; $fourth = "LTC";
-//                $fifth = "XRP"; $sixth = "DASH";
 
         return $this->render('default\bar.html.twig',array(
             "api_forex"=>$api_forex,
