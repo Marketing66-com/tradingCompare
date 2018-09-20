@@ -14,7 +14,6 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
 
     var i = 0
     $scope.init = function (api, currency,likes) {
-         //console.log("api", api, "currency",currency)
         console.log("currency",currency)
 
 
@@ -24,20 +23,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
             success: function (result) {
                 console.log("result ***",result)
                 $scope.mystock = result[0]
-                // $scope.stocks = result
-
-                // $scope.all.push($scope.stocks)
-                // console.log(" $scope.all", $scope.all)
-                //
-                // for (key in  $scope.stocks) {
-                //
-                //     if ($scope.stocks[0].symbol == currency) {
-                //         $scope.mystock = result[0]
-                         console.log("*****",$scope.mystock )
-                //         //console.log("api************found", from, to,$scope.mycrypto )
-                //     }
-                // }
-
+                console.log("*****",$scope.mystock )
                 $scope.$apply()
             },
 

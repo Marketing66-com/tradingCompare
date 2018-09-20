@@ -32,8 +32,8 @@
                                             <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></p>
                                         <h3 class="bitcoin_many bitcoin_many-mobile" ng-class="{'negative': mystock.variation == 'down', 'positive':mystock.variation == 'up', 'neutral': mystock.variation == 'none'}">{[{mystock.price}]}$</h3>
                                         <p class="bitcoin_bottom-text">
-                                            Currency: <span class="bitcoin_bottom-text_bold">{[{mystock.currency}]}$</span>
-                                        
+                                            {#Currency: <span class="bitcoin_bottom-text_bold">{[{mystock.currency}]}$</span>#}
+
                                             Day_high: <span class="bitcoin_bottom-text_bold">{[{mystock.day_high}]}$</span>
                                             Day_low:<span class="bitcoin_bottom-text_bold">{[{mystock.day_low}]}$</span>
                                             <br>
@@ -42,25 +42,25 @@
                                             <br>
                                             Market_cap: <span class="bitcoin_bottom-text_bold">{[{mystock.market_cap}]}$</span>
                                             Volume: <span class="bitcoin_bottom-text_bold">{[{mystock.volume}]}$</span>
-                                            <br>
-                                            52_week_high: <span class="bitcoin_bottom-text_bold">{[{mystock['52_week_high']}]}$</span>
-                                            52_week_low: <span class="bitcoin_bottom-text_bold">{[{mystock['52_week_low']}]}$</span>
-                                            <br>
-                                            Day_change: <span class="bitcoin_bottom-text_bold">{[{mystock.day_change}]}$</span>
-                                            <br>
-                                            Gmt_offset: <span class="bitcoin_bottom-text_bold">{[{mystock.gmt_offset}]}$</span>
-                                            <br>
-                                            Last_trade_time: <span class="bitcoin_bottom-text_bold">{[{mystock.last_trade_time}]}$</span>
-                                            <br>
-                                            Shares: <span class="bitcoin_bottom-text_bold">{[{mystock.shares}]}$</span>
-                                            <br>
-                                            Stock_exchange_long: <span class="bitcoin_bottom-text_bold">{[{mystock.stock_exchange_long}]}$</span>
-                                            <br>
-                                            Stock_exchange_short: <span class="bitcoin_bottom-text_bold">{[{mystock.stock_exchange_short}]}$</span>
-                                            <br>
-                                            Timezone: <span class="bitcoin_bottom-text_bold">{[{mystock.timezone}]}$</span>
-                                            <br>
-                                            Timezone_name: <span class="bitcoin_bottom-text_bold">{[{mystock.timezone_name}]}$</span>
+                                            {#<br>#}
+                                            {#52_week_high: <span class="bitcoin_bottom-text_bold">{[{mystock['52_week_high']}]}$</span>#}
+                                            {#52_week_low: <span class="bitcoin_bottom-text_bold">{[{mystock['52_week_low']}]}$</span>#}
+                                            {#<br>#}
+                                            {#Day_change: <span class="bitcoin_bottom-text_bold">{[{mystock.day_change}]}$</span>#}
+                                            {#<br>#}
+                                            {#Gmt_offset: <span class="bitcoin_bottom-text_bold">{[{mystock.gmt_offset}]}$</span>#}
+                                            {#<br>#}
+                                            {#Last_trade_time: <span class="bitcoin_bottom-text_bold">{[{mystock.last_trade_time}]}$</span>#}
+                                            {#<br>#}
+                                            {#Shares: <span class="bitcoin_bottom-text_bold">{[{mystock.shares}]}$</span>#}
+                                            {#<br>#}
+                                            {#Stock_exchange_long: <span class="bitcoin_bottom-text_bold">{[{mystock.stock_exchange_long}]}$</span>#}
+                                            {#<br>#}
+                                            {#Stock_exchange_short: <span class="bitcoin_bottom-text_bold">{[{mystock.stock_exchange_short}]}$</span>#}
+                                            {#<br>#}
+                                            {#Timezone: <span class="bitcoin_bottom-text_bold">{[{mystock.timezone}]}$</span>#}
+                                            {#<br>#}
+                                            {#Timezone_name: <span class="bitcoin_bottom-text_bold">{[{mystock.timezone_name}]}$</span>#}
 
 
 
@@ -85,6 +85,57 @@
                                 </div>
                             </div>
                         </div>
+                       {#*******************************************************#}
+                        {#<div class="col-md-8 col-sm-12 col-xs-12 ">#}
+                            {#<div class="chart_bitcoin-cont chart_content-text">#}
+                                {#<div class="chart_content-text">#}
+                                    {#<p class="chart_content-text_info">{{ currency}}#}
+                                    {#</p>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                        {#<div class="col-md-4 col-sm-5 col-xs-12 ">#}
+                            {#<div class="chart_bitcoin-reting chart_content-text">#}
+                                {#Currency: <span class="bitcoin_bottom-text_bold">{[{mystock.currency}]}$</span>#}
+                                {#High: <span class="bitcoin_bottom-text_bold">{[{mystock.day_high}]}$</span>#}
+                                {#<br>#}
+                                {#Low:<span class="bitcoin_bottom-text_bold">{[{mystock.day_low}]}$</span>#}
+                                {#<br>#}
+                                {#Price open: <span class="bitcoin_bottom-text_bold">{[{mystock.price_open}]}$</span>#}
+                                {#<br>#}
+                                {#Close yesterday: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]}$</span>#}
+                                {#<br>#}
+                                {#Market_cap: <span class="bitcoin_bottom-text_bold">{[{mystock.market_cap}]}$</span>#}
+                                {#<br>#}
+                                {#Volume: <span class="bitcoin_bottom-text_bold">{[{mystock.volume}]}$</span>#}
+                                {#<br>#}
+                                {#Year High: <span class="bitcoin_bottom-text_bold">{[{mystock['52_week_high']}]}$</span>#}
+                                {#<br>#}
+                                {#Year Low: <span class="bitcoin_bottom-text_bold">{[{mystock['52_week_low']}]}$</span>#}
+                                {#<br>#}
+                                {#Day_change: <span class="bitcoin_bottom-text_bold">{[{mystock.day_change}]}$</span>#}
+                                {#<br>#}
+                                {#Gmt_offset: <span class="bitcoin_bottom-text_bold">{[{mystock.gmt_offset}]}$</span>#}
+                                {#<br>#}
+                                {#Last_trade_time: <span class="bitcoin_bottom-text_bold">{[{mystock.last_trade_time}]}$</span>#}
+                                {#<br>#}
+                                {#Shares: <span class="bitcoin_bottom-text_bold">{[{mystock.shares}]}$</span>#}
+                                {#<br>#}
+                                {#Stock_exchange_long: <span class="bitcoin_bottom-text_bold">{[{mystock.stock_exchange_long}]}$</span>#}
+                                {#<br>#}
+                                {#Stock_exchange_short: <span class="bitcoin_bottom-text_bold">{[{mystock.stock_exchange_short}]}$</span>#}
+                                {#<br>#}
+                                {#Timezone: <span class="bitcoin_bottom-text_bold">{[{mystock.timezone}]}$</span>#}
+                                {#<br>#}
+                                {#Timezone_name: <span class="bitcoin_bottom-text_bold">{[{mystock.timezone_name}]}$</span>#}
+
+                                {#Close: <span class="bitcoin_bottom-text_bold">$7.24K</span>#}
+                                {#Market Cap: <span class="bitcoin_bottom-text_bold">$129.13K</span>#}
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#*************************************************************#}
+
                         <div class="col-md-12 col-sm-7 col-xs-12 xs-none">
                             <div class="chart_content-text">
                                 <p class="chart_content-text_info">{{ currency}}
