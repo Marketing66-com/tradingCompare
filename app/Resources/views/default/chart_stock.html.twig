@@ -28,12 +28,42 @@
                                     </div>
                                     <div class="bitcoin_text-cont_left">
                                         <h3 class="bitcoin_title">{[{allimg.name}]}<span class="bitcoin_title_right">{{ currency }}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
-                                        <p class="statistics_block_green-text" ng-class="{'live_block_money_red ': mystock.change24 < 0, 'live_block_money_green ': mystock.change24 >= 0}">{[{mystock.change24}]}% <span class="statistics_block_min-text">{[{mystock.point}]}</span>
+                                        <p class="statistics_block_green-text" ng-class="{'live_block_money_red ': mystock.change24 < 0, 'live_block_money_green ': mystock.change24 >= 0}">{[{mystock.change_pct}]}% <span class="statistics_block_min-text">{[{mystock.point}]}</span>
                                             <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></p>
                                         <h3 class="bitcoin_many bitcoin_many-mobile" ng-class="{'negative': mystock.variation == 'down', 'positive':mystock.variation == 'up', 'neutral': mystock.variation == 'none'}">{[{mystock.price}]}$</h3>
                                         <p class="bitcoin_bottom-text">
-                                            High: <span class="bitcoin_bottom-text_bold">{[{mystock.high24}]}$</span> Low:<span class="bitcoin_bottom-text_bold">{[{mystock.low24}]}$</span>
-                                            Open: <span class="bitcoin_bottom-text_bold">{[{mystock.open24}]}$</span>
+                                            Currency: <span class="bitcoin_bottom-text_bold">{[{mystock.currency}]}$</span>
+                                        
+                                            Day_high: <span class="bitcoin_bottom-text_bold">{[{mystock.day_high}]}$</span>
+                                            Day_low:<span class="bitcoin_bottom-text_bold">{[{mystock.day_low}]}$</span>
+                                            <br>
+                                            Price_open: <span class="bitcoin_bottom-text_bold">{[{mystock.price_open}]}$</span>
+                                            Close_yesterday: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]}$</span>
+                                            <br>
+                                            Market_cap: <span class="bitcoin_bottom-text_bold">{[{mystock.market_cap}]}$</span>
+                                            Volume: <span class="bitcoin_bottom-text_bold">{[{mystock.volume}]}$</span>
+                                            <br>
+                                            52_week_high: <span class="bitcoin_bottom-text_bold">{[{mystock['52_week_high']}]}$</span>
+                                            52_week_low: <span class="bitcoin_bottom-text_bold">{[{mystock['52_week_low']}]}$</span>
+                                            <br>
+                                            Day_change: <span class="bitcoin_bottom-text_bold">{[{mystock.day_change}]}$</span>
+                                            <br>
+                                            Gmt_offset: <span class="bitcoin_bottom-text_bold">{[{mystock.gmt_offset}]}$</span>
+                                            <br>
+                                            Last_trade_time: <span class="bitcoin_bottom-text_bold">{[{mystock.last_trade_time}]}$</span>
+                                            <br>
+                                            Shares: <span class="bitcoin_bottom-text_bold">{[{mystock.shares}]}$</span>
+                                            <br>
+                                            Stock_exchange_long: <span class="bitcoin_bottom-text_bold">{[{mystock.stock_exchange_long}]}$</span>
+                                            <br>
+                                            Stock_exchange_short: <span class="bitcoin_bottom-text_bold">{[{mystock.stock_exchange_short}]}$</span>
+                                            <br>
+                                            Timezone: <span class="bitcoin_bottom-text_bold">{[{mystock.timezone}]}$</span>
+                                            <br>
+                                            Timezone_name: <span class="bitcoin_bottom-text_bold">{[{mystock.timezone_name}]}$</span>
+
+
+
                                             {#Close: <span class="bitcoin_bottom-text_bold">$7.24K</span>#}
                                             {#Market Cap: <span class="bitcoin_bottom-text_bold">$129.13K</span>#}
                                         </p>
