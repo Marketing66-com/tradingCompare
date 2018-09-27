@@ -209,6 +209,14 @@ class DefaultController extends Controller
         return $this->render('default/ho_no.html.twig');
     }
 
+    /**
+     * @Route("/pagination", name="pagination")
+     */
+    public function paginationAction()
+    {
+        return $this->render('indextest.html.twig');
+    }
+
 
 //    /**
 //     * @Route("/try", name="try")
@@ -221,7 +229,6 @@ class DefaultController extends Controller
 //
 //        echo $response->getContent();
 //    }
-
 
 
 }

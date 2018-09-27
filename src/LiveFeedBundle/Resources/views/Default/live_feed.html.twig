@@ -72,7 +72,6 @@
                     </div>
 
 
-
                     <div class="review_list_cont-heder  ng-cloak" ng-repeat="curr in all">
                         <div class="abs">
                             <div class="general_review_cont-block review_list_name">
@@ -90,7 +89,7 @@
                             </div>
                             <div class="general_review_cont-block review_list_cont-text sm-none">
                                 <div class="review_list_center">
-                                    <p class="live_block_money-right" ng-class="{'live_block_money_red live_block_money_border': curr.change24 < 0, 'live_block_money_green live_block_money_border_green': curr.change24 >= 0}">{[{curr.change24}]}</p>
+                                    <p class="live_block_money-right" ng-class="{'live_block_money_red live_block_money_border': curr.change24 < 0, 'live_block_money_green live_block_money_border_green': curr.change24 >= 0}">{[{(curr.change24)}]}</p>
                                 </div>
                             </div>
                             <div class="general_review_cont-block review_list_cont-text sm-none">

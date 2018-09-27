@@ -1,0 +1,255 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div ng-app="myApp">
+    <div  ng-controller="ListController as list">
+    <div  ng-init="init()" >
+    <section class="table">
+    <div class="chart_search margin_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="reviec_cont-sezrch">
+                    <div class="reviec_cont-sezrch_right">
+                        <div class="watchlist-cont">
+                            <a class="watchlist-cont_all watchlist-cont_all_active">ALL</a>
+                            <a class="watchlist-cont_all">WATCHLIST</a>
+                        </div>
+                        <div class="watchlist-cont watchlist-cont_right">
+                            <a class="watchlist-cont_all list" ><i class="fas fa-list"></i></a>
+                            <a class="watchlist-cont_all watchlist-cont_all_active grid"><i class="fas fa-th"></i></a>
+                        </div>
+                    </div>
+                    <input class="search_input" type="text" placeholder="Search Instruments">
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="general-list">
+            <div class="container">
+                <div class="row">
+                    <div class="review_list">
+                        <div class="review_list_cont-heder">
+                            <div class="abs">
+                                <div class="general_review_cont-block review_list_name">
+                                    <div class="review_list_center">
+                                        <p class="review_list_title">Instrument</p>
+                                    </div>
+                                </div>
+                                <div class="general_review_cont-block review_list_cont-text ">
+                                    <div class="review_list_center">
+                                        <p class="review_list_title">Price</p>
+                                    </div>
+                                </div>
+                                <div class="general_review_cont-block review_list_cont-text sm-none">
+                                    <div class="review_list_center">
+                                        <p class="review_list_title">Change %</p>
+                                    </div>
+                                </div>
+                                <div class="general_review_cont-block review_list_cont-text sm-none">
+                                    <div class="review_list_center">
+                                        <p class="review_list_title">High</p>
+                                    </div>
+                                </div>
+                                <div class="general_review_cont-block review_list_cont-text">
+                                    <div class="review_list_center">
+                                        <p class="review_list_title"><span class="mobile-block">High/</span>Low</p>
+                                    </div>
+                                </div>
+                                <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                    <div class="review_list_center">
+                                        <p class="review_list_title">Sentiment</p>
+                                    </div>
+                                </div>
+                                <div class="general_review_cont-block review_list_cont-chart">
+                                    <div class="review_list_center">
+                                        <p class="review_list_title">Chart</p>
+                                    </div>
+                                </div>
+                                <div class="general_review_cont-block review_list_cont-btn">
+                                    <div class="review_list_center">
+                                        <p class="review_list_title">Trade</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="review_list_cont-heder  ng-cloak" ng-repeat="item in filteredItems">
+                            <div class="abs">
+                                <div class="general_review_cont-block review_list_name">
+                                    <div class="review_list_center">
+                                        <p class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
+                                        <img class="live_block_top_img" ng-src="{[{allimg[item.fromSymbol].img}]}" alt="{[{item.fromSymbol}]}">
+                                        <h2 class="live_block_top_title" > {[{item.fromSymbol}]} </h2>
+                                        <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">-0.5%</p>
+                                    </div>
+                                </div>
+                                <div class="general_review_cont-block review_list_cont-text">
+                                    <div class="review_list_center">
+                                        <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold" ng-class="{'negative': item.variation == 'down', 'positive':item.variation == 'up', 'neutral': item.variation == 'none'}">{[{item.price}]} $</span></p>
+                                    </div>
+                                </div>
+                                <div class="general_review_cont-block review_list_cont-text sm-none">
+                                    <div class="review_list_center">
+                                        <p class="live_block_money-right" ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}">{[{(item.change24)}]}</p>
+                                    </div>
+                                </div>
+                                <div class="general_review_cont-block review_list_cont-text sm-none">
+                                    <div class="review_list_center">
+                                        <p class="live_block_money-right  "><span class="live_block_money_bold">{[{item.high24}]}</span>
+                                    </div>
+                                </div>
+                                <div class="general_review_cont-block review_list_cont-text">
+                                    <div class="review_list_center">
+                                        <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">{[{item.low24}]}</span>
+                                            <span class="live_block_money_bold mobile-block">6.14B<br></span>
+                                            <span class="live_block_money_bold mobile-block">/6.13B</span></p>
+                                    </div>
+                                </div>
+                                <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                    <div class="review_list_center">
+                                        <p class="chart_bitcoin-reting_prozent">{[{allimg[item.fromSymbol].sentiment}]}%
+                                            <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-up"></i></span>
+                                            <span class="chart_bitcoin-reting_prozent_like"><i class="fas  fa-thumbs-down"></i></span>
+                                        </p>
+                                        <div class="chart_bitcoin-reting_progress-bar">
+                                            <div class="reting_progress-bar_click"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="general_review_cont-block review_list_cont-chart">
+                                    <div class="review_list_center">
+                                        <a ng-click="ActiveChange(item.pair);"><img class="live_block_chart" src='{{asset("img/chart-design/chart_1.png")}}'  alt="chart_1"></a>
+                                    </div>
+                                </div>
+
+                                <div class="general_review_cont-block review_list_cont-btn">
+                                    <div class="review_list_center">
+                                        <a class="live_trade-btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container general-grid" >
+            <div class="row">
+                <div class="live_cont-block-padding ng-cloak"  ng-repeat="item in filteredItems">
+                    <div class="live_cont-block">
+                        <div class="live_block_top">
+                            <img class="live_block_top_img" ng-src="{[{allimg[item.fromSymbol].img}]}" alt="{[{item.fromSymbol}]}">
+                            <h2 class="live_block_top_title">{[{item.fromSymbol}]}</h2>
+                        </div>
+                        <p class="live_block_money-left"><span class="live_block_money_bold " ng-class="{'negative': item.variation == 'down', 'positive':item.variation == 'up', 'neutral': item.variation == 'none'}"> {[{item.price}]}</span></p>
+                        <p class="live_block_money-right  " ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}"><span class="live_block_money_bold "ng-class="{'live_block_money_red ': item.change24 < 0, 'live_block_money_green ': item.change24 >= 0}" >{[{item.change24}]}</span></p>
+                        <a ng-click="ActiveChange(item.pair);"><img class="live_block_chart" src= '{{asset("img/chart-design//chart_long.png" )}}' alt="chart_long">
+                        </a>
+                        <p class="live_block_money-left ">High <br><span class="live_block_money_bold">{[{item.high24}]}</span></p>
+                        <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">{[{item.low24}]}</span></p>
+                        <div class="live_cont-block_cont-like">
+                            <p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>
+                            <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
+                            <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                        </div>
+                        <p class="chart_bitcoin-reting_prozent">Sentiment: {[{allimg[item.fromSymbol].sentiment}]}% Buying</p>
+
+                        <div class="chart_bitcoin-reting_progress-bar">
+                            <div class="reting_progress-bar_click"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}"></div>
+                        </div>
+                        <div class="live_cont-block_hover">
+                            <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                        </div>
+                    </div>
+                    <a class="live_trade-btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>
+                </div>
+            </div>
+        </div>
+
+
+
+    {#<script data-require="angular.js@1.1.5" data-semver="1.1.5" src="http://code.angularjs.org/1.1.5/angular.min.js"></script>#}
+    {#<link data-require="bootstrap-css@2.3.2" data-semver="2.3.2" rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />#}
+    <script data-require="angular-ui-bootstrap@0.3.0" data-semver="0.3.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.min.js"></script>
+    {#<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>#}
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/compiled-feeds.css') }}" >
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+<div class="container general-grid " >
+<div
+     data-pagination="" data-num-pages="numOfPages()"
+     data-current-page="curPage"
+     data-max-size="maxSize"
+     data-boundary-links="true">
+</div>
+</div>
+
+</section>
+
+</div>
+    </div>
+        </div>
+{% endblock %}
+
+
+{% block javascripts %}
+
+    <script>
+        function loadCSS(hf) {
+            var ms = document.createElement("link");
+            ms.rel = "stylesheet";
+            ms.href = hf;
+            document.getElementsByTagName("head")[0].appendChild(ms);
+        }
+        loadCSS('{{asset("css/footer.css")}}');
+        loadCSS('{{ asset("font/font_avenir.css")}}');
+        loadCSS("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
+        loadCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+        loadCSS('{{asset("css/compiled-feeds.css")}}');
+
+    </script>
+
+    {#Load CSS compiled without Bootstrap & Header styles (after release)#}
+    <script>var ms = document.createElement("link");
+        ms.rel = "stylesheet";
+        ms.href = '{{ asset("css/compiled.min.css")}}';
+        document.getElementsByTagName("head")[0].appendChild(ms);
+    </script>
+
+    <!-- Load Scripts -->
+    <script>var scr = {
+            "scripts": [
+                {"src": '{{ asset("js/jquery-3.3.1.min.js")}}', "async": false},
+                {"src": '{{ asset("js/general.js")}}', "async": false},
+                {"src": "https://use.fontawesome.com/releases/v5.0.10/js/all.js", "async": false},
+
+            ]
+        };
+        !function (t, n, r) {
+            "use strict";
+            var c = function (t) {
+                if ("[object Array]" !== Object.prototype.toString.call(t)) return !1;
+                for (var r = 0; r < t.length; r++) {
+                    var c = n.createElement("script"), e = t[r];
+                    c.src = e.src, c.async = e.async, n.body.appendChild(c)
+                }
+                return !0
+            };
+            t.addEventListener ? t.addEventListener("load", function () {
+                c(r.scripts);
+            }, !1) : t.attachEvent ? t.attachEvent("onload", function () {
+                c(r.scripts)
+            }) : t.onload = function () {
+                c(r.scripts)
+            }
+        }(window, document, scr);
+    </script>
+{% endblock %}
