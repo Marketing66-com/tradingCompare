@@ -65,7 +65,11 @@
 .general-list { display: none; margin-bottom: 35px;}
 .review_list_cont-heder { padding: 5px 0;  min-height: 60px;  position: relative; border-top: 2px solid #D8D8D8; padding: 25px 0;}
 .review_list .live_trade-btn { max-width: 120px; float: right;}
-.general_review_cont-block { display: table; height: 100%; float: left; position: relative;}
+.general_review_cont-block {
+    /*display: table; */
+    height: 100%;
+    float: left;
+    position: relative;}
 .review_list_name { width: 20%;}
 .review_list_cont-text { width: 10%;}
 .review_list_cont-bar { width: 16.5%;}
@@ -90,13 +94,17 @@
 .positive{color:#9CD400;}
 .neutral{color:#000000;}
 
+.pagboxes{margin-left: auto;margin-right: auto;padding-left:20%;padding-right:10%;}
+.paglist{margin-left: auto;margin-right: auto;padding-left:38%;padding-right:30%;}
+
 @media (max-width: 1200px) {
     .live_block_chart { max-height: 28px;}
 }
 @media (max-width: 991px) {
     .chart_bitcoin-reting { margin-top: 20px; }
     .live_cont-block-padding { width: 25%;}
-    .review_list_name {  width: 30%;}
+    .review_list_name {  width: 15%;}
+    .review_list_cont-text{  width: 13%;}
     .review_list_cont-chart, .review_list_cont-btn { width: 15%; }
 }
 @media (max-width: 767px) {

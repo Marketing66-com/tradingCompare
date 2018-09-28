@@ -46,7 +46,7 @@ firstApp.controller('FirstController', function($scope) {
             type: "GET",
 
             success: function (result) {
-                //console.log("Response-forex", result)
+                console.log("Response-forex", result)
                 for (var key in result) {$scope.allforex.push(result[key])}
                 for (key in $scope.allforex) {
                     if($scope.allforex[key].fromSymbol == "EURUSD") { $scope.crypto1 = $scope.allforex[key]}

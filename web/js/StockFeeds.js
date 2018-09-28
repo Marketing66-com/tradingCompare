@@ -25,9 +25,9 @@ stockApp.controller("stockController", function ($scope, $http) {
             url: api,
             type: "GET",
             success: function (result) {
-                //console.log("result $scope.all1",result)
+
                 $scope.all1 = result
-                //console.log("$scope.all1",$scope.all1)
+                console.log("$scope.all1",$scope.all1)
                 for (key in $scope.all1) {
                     if (i < 50) {
                         $scope.all.push($scope.all1[key])
