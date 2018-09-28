@@ -98,26 +98,50 @@ app.controller('ListController', function($scope){
     }
 
 
-    var socket = io.connect('http://www.evisbregu.com:8002');
+    // var socket = io.connect('http://www.evisbregu.com:8002');
+    //
+    // socket.on('connect', function () {
+    //     socket.emit('room', "all_regulated_by_average");
+    //     socket.on('message', data => {
+    //         //console.log("data all regulated", data)
+    //         for (const key in data) {
+    //             var item73 = $scope.result.find(function (element) {
+    //                 return ((element.fromSymbol == key.split("_",1))&&(element.toSymbol == key.split("_")[1]));
+    //             })
+    //             if (typeof item73 != typeof undefined) {
+    //                 for (const ky in data[key]) {
+    //                     if (data.hasOwnProperty(key)) {
+    //                         item73[ky] = data[key][ky];
+    //                     }
+    //                 }
+    //             }
+    //             $scope.$apply()
+    //         }
+    //     })
+    // })
 
+    var socket = io.connect("https://crypto-ws.herokuapp.com")
     socket.on('connect', function () {
-        socket.emit('room', "all_regulated_by_average");
+        socket.emit('room', "all_regulated");
         socket.on('message', data => {
             //console.log("data all regulated", data)
             for (const key in data) {
-                var item73 = $scope.result.find(function (element) {
-                    return ((element.fromSymbol == key.split("_",1))&&(element.toSymbol == key.split("_")[1]));
-                })
-                if (typeof item73 != typeof undefined) {
-                    for (const ky in data[key]) {
-                        if (data.hasOwnProperty(key)) {
-                            item73[ky] = data[key][ky];
-                        }
+            var item73 = $scope.all.find(function (element) {
+
+                return ((element.fromSymbol == key.split("_",1))&&(element.toSymbol == key.split("_")[1]));
+
+            })
+            // console.log("item73", item73)
+            if (typeof item73 != typeof undefined) {
+                for (const ky in data[key]) {
+                    if (data.hasOwnProperty(key)) {
+                        item73[ky] = data[key][ky];
                     }
                 }
-                $scope.$apply()
             }
-        })
+            $scope.$apply()
+        }
+    })
     })
 });
 
