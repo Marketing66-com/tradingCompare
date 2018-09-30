@@ -15,7 +15,7 @@ firstApp.controller('FirstController', function($scope) {
             url: "https://crypto-ws.herokuapp.com/All-Froms-and-Prices/" + first +"_USD",
             type: "GET",
             success: function (result) {
-                console.log("result", result)
+                //console.log("result", result)
                 $scope.crypto3 = result
                 // for (i = 0; i < result.length; i++) {
                 //     if (result[i].fromSymbol == first) { $scope.crypto3 = result[i]}
@@ -83,65 +83,52 @@ firstApp.controller('FirstController', function($scope) {
             }
         });
 
-
-
-        ///////////////////////////////////////////////////////////////////////////////////////
-        var socket1 = io.connect("https://crypto-ws.herokuapp.com", {'force new connection': true});
+        ////////////////////////////////////////////////////////////////////////////
+        var socket1 = io.connect("https://crypto.tradingcompare.com/")
         socket1.on('connect', function () {
-
-            socket1.emit('room', ["BTC_USD_1sec","ETH_USD_1sec"]);
-            // socket1.emit('room', ["BTC_USD_2secWeb","ETH_USD_2secWeb"]);
-            socket1.on('message', data =>{
+            socket1.emit('room', ["BTC_USD","ETH_USD"]);
+            socket1.on('message', data => {
                 //console.log("data bar", data)
                 if(data.pair == $scope.crypto3.pair )
-                {
-                    $scope.crypto3 = data;
-                    $scope.crypto3.fromSymbol = first
-                    $scope.crypto3.toSymbol = "USD"
-                }
-                if(data.pair == $scope.crypto4.pair )
-                {
-                    $scope.crypto4 = data;
-                    $scope.crypto4.fromSymbol = second
-                    $scope.crypto4.toSymbol = "USD"
-                }
+                        {
+                            $scope.crypto3 = data;
+                            $scope.crypto3.fromSymbol = first
+                            $scope.crypto3.toSymbol = "USD"
+                        }
+                        if(data.pair == $scope.crypto4.pair )
+                        {
+                            $scope.crypto4 = data;
+                            $scope.crypto4.fromSymbol = second
+                            $scope.crypto4.toSymbol = "USD"
+                        }
 
-                // if(data.s == $scope.crypto3.pair )
-                // {
-                //     $scope.crypto3.price = data.p;
-                //     $scope.crypto3.change24 = data.c;
-                //     $scope.crypto3.point = data.pt;
-                //     $scope.crypto3.fromSymbol = first
-                //     $scope.crypto3.toSymbol = "USD"
-                // }
-                // if(data.s == $scope.crypto4.pair )
-                // {
-                //     $scope.crypto4.price = data.p;
-                //     $scope.crypto4.change24 = data.c;
-                //     $scope.crypto4.point = data.pt;
-                //     $scope.crypto4.fromSymbol = second
-                //     $scope.crypto4.toSymbol = "USD"
-                // }
-
-                    // var item73 = $scope.allcrypto.find(function (element) {
-                    //     console.log("data allcrypto", $scope.allcrypto )
-                    //     return (element.pair == data.pair);
-                    //     //return (element.fromSymbol == key.split("_",1) && element.toSymbol == key.split("_")[1]);
-                    // })
-
-                //
-                //     if (typeof item73 != typeof undefined) {
-                //
-                //         for (const key in data) {
-                //             if (data.hasOwnProperty(key)) {
-                //                 item73[key] = data[key];
-                //             }
-                //         }
-                //     }
-                $scope.$apply()
-
+                        $scope.$apply()
             })
         })
+        // var socket1 = io.connect("https://crypto-ws.herokuapp.com", {'force new connection': true});
+        // socket1.on('connect', function () {
+        //
+        //     socket1.emit('room', ["BTC_USD_1sec","ETH_USD_1sec"]);
+        //     // socket1.emit('room', ["BTC_USD_2secWeb","ETH_USD_2secWeb"]);
+        //     socket1.on('message', data =>{
+        //         console.log("data bar", data)
+        //         if(data.pair == $scope.crypto3.pair )
+        //         {
+        //             $scope.crypto3 = data;
+        //             $scope.crypto3.fromSymbol = first
+        //             $scope.crypto3.toSymbol = "USD"
+        //         }
+        //         if(data.pair == $scope.crypto4.pair )
+        //         {
+        //             $scope.crypto4 = data;
+        //             $scope.crypto4.fromSymbol = second
+        //             $scope.crypto4.toSymbol = "USD"
+        //         }
+        //
+        //         $scope.$apply()
+
+        //     })
+        // })
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
         var socket2 = io.connect("https://forex-websocket.herokuapp.com/", {
             path: "/socket/forex/livefeed"}, {'force new connection': true})
