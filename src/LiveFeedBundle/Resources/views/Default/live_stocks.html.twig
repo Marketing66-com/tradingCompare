@@ -10,7 +10,7 @@
 
     <div id="dvstock">
         <div ng-controller="stockController ">
-            <div  ng-init="init('{{ api }}','{{ chart_link }}','{{ likes }}')" >
+            <div  ng-init="init('{{ stocks_api }}','{{ chart_link }}','{{ stocks_likes }}')" >
                 {{ include('LiveFeedBundle:Default:live_feed.html.twig' , {chart_link: chart_link}) }}
             </div>
         </div>

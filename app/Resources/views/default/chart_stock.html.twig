@@ -8,9 +8,7 @@
 {% block body %}
     <div id="dvChart_stock" class="my-container  ng-cloak" ng-controller="Chart_stockController" ng-init="init('{{ api }}', '{{ currency }}','{{ like }}')">
         <div ng-controller="Chart_stockController ">
-
             <section class="table">
-
                 <div class="chart_search">
                     <div class="container">
                         <div class="row">
@@ -20,28 +18,173 @@
                 </div>
                 <div class="container padding_non">
                     <div class="row">
-                        <div class="col-md-8 col-sm-12 col-xs-12">
+
+                        <div class="col-md-8 col-sm-12 col-xs-12" style="padding-right: 0px;padding-left: 0px;">
                             <div class="chart_bitcoin-cont">
                                 <div class="bitcoin_text-cont">
                                     <div class="bitcoin_img-cont">
-                                        <img class="bitcoin_img" ng-src="{[{allimg.img}]}" alt="{{ currency }}" >
+                                        <img class="bitcoin_img" ng-src="{[{allimg.img}]}"  alt="{{ currency }}">
                                     </div>
-                                    <div class="bitcoin_text-cont_left">
-                                        <h3 class="bitcoin_title">{[{allimg.name}]}<span class="bitcoin_title_right">{{ currency }}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
-                                        <p class="statistics_block_green-text" ng-class="{'live_block_money_red ': mystock.change24 < 0, 'live_block_money_green ': mystock.change24 >= 0}">{[{mystock.change_pct}]}% <span class="statistics_block_min-text">{[{mystock.point}]}</span>
-                                            <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></p>
-                                        <h3 class="bitcoin_many bitcoin_many-mobile" ng-class="{'negative': mystock.variation == 'down', 'positive':mystock.variation == 'up', 'neutral': mystock.variation == 'none'}">{[{mystock.price}]}$</h3>
-                                        <p class="bitcoin_bottom-text">
+                                    <div class="bitcoin_text-cont_left ">
+                                        <h3 class="bitcoin_title text_size">{[{allimg.name}]}<span class="bitcoin_title_right">{{ currency }}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
+                                        <h3 class="bitcoin_many text_size" ng-class="{'negative': mystock.variation == 'down', 'positive':mystock.variation == 'up', 'neutral': mystock.variation == 'none'}">{[{mystock.price}]} $
+                                            <span class="statistics_block_green-text" ng-class="{'negative': mystock.change24 < 0, 'positive': mystock.change24 >= 0}">{[{mystock.change_pct}]}%
+                                                <span class="statistics_block_min-text">{[{mystock.point}]}</span>
+                                                <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></span>
+                                        </h3>
+                                    </div>
+                                    <div class="bitcoin_text-cont_right">
+                                        <a class="btcoin_btn btn1" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="chart_content-text chart_content-text1">
+                                <div class="bitcoin_text-cont_left">
+                                    <p class="bitcoin_bottom-text text-price column">
+
+                                        High: <span class="bitcoin_bottom-text_bold">{[{mystock.day_high}]} $</span>
+                                        <br>Low:<span class="bitcoin_bottom-text_bold">{[{mystock.day_low}]} $</span>
+                                        <br> Open: <span class="bitcoin_bottom-text_bold">{[{mystock.price_open}]} $</span>
+                                        <br> Close: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]} $</span>
+                                        <br> Year High: <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_high"]}]} $</span>
+                                        <br> Year Low: <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_low"]}]} $</span>
+                                        <br> Day Change: <span class="bitcoin_bottom-text_bold">{[{mystock.day_change}]} %</span>
+                                        <br> Close Yesterday: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]} $</span>
+                                        <br> Market Cap: <span class="bitcoin_bottom-text_bold">{[{mystock.market_cap}]} $</span>
+                                        <br> Volume: <span class="bitcoin_bottom-text_bold">{[{mystock.volume}]} $</span>
+                                        <br> Shares: <span class="bitcoin_bottom-text_bold">{[{mystock.shares}]} $</span>
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 col-sm1">
+                            <div class="chart_bitcoin-reting chart_bitcoin-reting1"style="    padding-bottom: 0px;    padding-top: 20px;">
+                                <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                    <a class="btcoin_btn sentiments_btn_green" target="_blank">BULLISH</a>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                    <a class="btcoin_btn sentiments_btn_red" target="_blank">BEARISH</a>
+                                </div>
+                                <p class="chart_bitcoin-reting_prozent">Sentiment: {[{allimg.sentiment }]}% Buying</p>
+                                <div class="chart_bitcoin-reting_progress-bar">
+                                    <div class="reting_progress-bar_click"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 col-sm2">
+                            <div class="chart_content-text">
+                                <p class="chart_content-text_info">
+                                    {[{allimg.name}]}  -  {{ currency}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container padding_non">
+                    <div class="row">
+                        <div class="general-chart">
+                            <img class="general-chart_img" src='{{asset("img/chart.png")}}' alt="chart">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/Chart_stock.js') }}"></script>
+    <script>
+        function loadCSS(hf) {
+            var ms = document.createElement("link");
+            ms.rel = "stylesheet";
+            ms.href = hf;
+            document.getElementsByTagName("head")[0].appendChild(ms);
+        }
+
+        loadCSS('{{asset("css/charts.css" )}}');
+        {#loadCSS('{{asset("css/comment.css" )}}');#}
+
+    </script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#{% extends 'base.html.twig' %}#}
+
+ {#{% block description %}#}
+     {#<title>Bank of America Corp {{ currency}}  real-time Quote and sentiment</title>#}
+     {#<meta name="description" content="Latest Bank of America Corp {{ currency}} share price with interactive charts, social sentiment, social comment, historical prices, comparative analysis, forecasts, business profile and more.">#}
+ {#{% endblock %}#}
+
+{#{% block body %}#}
+    {#<div id="dvChart_stock" class="my-container  ng-cloak" ng-controller="Chart_stockController" ng-init="init('{{ api }}', '{{ currency }}','{{ like }}')">#}
+        {#<div ng-controller="Chart_stockController ">#}
+
+            {#<section class="table">#}
+
+                {#<div class="chart_search">#}
+                    {#<div class="container">#}
+                        {#<div class="row">#}
+                            {#<input class="search_input" type="text" placeholder="Search Instruments">#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+                {#<div class="container padding_non">#}
+                    {#<div class="row">#}
+                        {#<div class="col-md-8 col-sm-12 col-xs-12">#}
+                            {#<div class="chart_bitcoin-cont">#}
+                                {#<div class="bitcoin_text-cont">#}
+                                    {#<div class="bitcoin_img-cont">#}
+                                        {#<img class="bitcoin_img" ng-src="{[{allimg.img}]}" alt="{{ currency }}" >#}
+                                    {#</div>#}
+                                    {#<div class="bitcoin_text-cont_left">#}
+                                        {#<h3 class="bitcoin_title">{[{allimg.name}]}<span class="bitcoin_title_right">{{ currency }}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>#}
+                                        {#<p class="statistics_block_green-text" ng-class="{'live_block_money_red ': mystock.change24 < 0, 'live_block_money_green ': mystock.change24 >= 0}">{[{mystock.change_pct}]}% <span class="statistics_block_min-text">{[{mystock.point}]}</span>#}
+                                            {#<span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></p>#}
+                                        {#<h3 class="bitcoin_many bitcoin_many-mobile" ng-class="{'negative': mystock.variation == 'down', 'positive':mystock.variation == 'up', 'neutral': mystock.variation == 'none'}">{[{mystock.price}]}$</h3>#}
+                                        {#<p class="bitcoin_bottom-text">#}
                                             {#Currency: <span class="bitcoin_bottom-text_bold">{[{mystock.currency}]}$</span>#}
 
-                                            Day_high: <span class="bitcoin_bottom-text_bold">{[{mystock.day_high}]}$</span>
-                                            Day_low:<span class="bitcoin_bottom-text_bold">{[{mystock.day_low}]}$</span>
-                                            <br>
-                                            Price_open: <span class="bitcoin_bottom-text_bold">{[{mystock.price_open}]}$</span>
-                                            Close_yesterday: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]}$</span>
-                                            <br>
-                                            Market_cap: <span class="bitcoin_bottom-text_bold">{[{mystock.market_cap}]}$</span>
-                                            Volume: <span class="bitcoin_bottom-text_bold">{[{mystock.volume}]}$</span>
+                                            {#Day_high: <span class="bitcoin_bottom-text_bold">{[{mystock.day_high}]}$</span>#}
+                                            {#Day_low:<span class="bitcoin_bottom-text_bold">{[{mystock.day_low}]}$</span>#}
+                                            {#<br>#}
+                                            {#Price_open: <span class="bitcoin_bottom-text_bold">{[{mystock.price_open}]}$</span>#}
+                                            {#Close_yesterday: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]}$</span>#}
+                                            {#<br>#}
+                                            {#Market_cap: <span class="bitcoin_bottom-text_bold">{[{mystock.market_cap}]}$</span>#}
+                                            {#Volume: <span class="bitcoin_bottom-text_bold">{[{mystock.volume}]}$</span>#}
                                             {#<br>#}
                                             {#52_week_high: <span class="bitcoin_bottom-text_bold">{[{mystock['52_week_high']}]}$</span>#}
                                             {#52_week_low: <span class="bitcoin_bottom-text_bold">{[{mystock['52_week_low']}]}$</span>#}
@@ -66,25 +209,25 @@
 
                                             {#Close: <span class="bitcoin_bottom-text_bold">$7.24K</span>#}
                                             {#Market Cap: <span class="bitcoin_bottom-text_bold">$129.13K</span>#}
-                                        </p>
-                                    </div>
-                                    <div class="bitcoin_text-cont_right">
-                                        <h3 class="bitcoin_many xs-none" ng-class="{'negative': mystock.variation == 'down', 'positive':mystock.variation == 'up', 'neutral': mystock.variation == 'none'}">{[{mystock.price}]}$</h3>
-                                        <a class="btcoin_btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-5 col-xs-12 ">
-                            <div class="chart_bitcoin-reting">
-                                <p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-up"></i></span> {[{allimg.likes}]}</p>
-                                <p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-down"></i></span> {[{allimg.unlikes}]}</p>
-                                <p class="chart_bitcoin-reting_prozent">Sentiment: {[{allimg.sentiment}]}% Buying</p>
-                                <div class="chart_bitcoin-reting_progress-bar">
-                                    <div class="reting_progress-bar_click"></div>
-                                </div>
-                            </div>
-                        </div>
+                                        {#</p>#}
+                                    {#</div>#}
+                                    {#<div class="bitcoin_text-cont_right">#}
+                                        {#<h3 class="bitcoin_many xs-none" ng-class="{'negative': mystock.variation == 'down', 'positive':mystock.variation == 'up', 'neutral': mystock.variation == 'none'}">{[{mystock.price}]}$</h3>#}
+                                        {#<a class="btcoin_btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                        {#<div class="col-md-4 col-sm-5 col-xs-12 ">#}
+                            {#<div class="chart_bitcoin-reting">#}
+                                {#<p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-up"></i></span> {[{allimg.likes}]}</p>#}
+                                {#<p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-down"></i></span> {[{allimg.unlikes}]}</p>#}
+                                {#<p class="chart_bitcoin-reting_prozent">Sentiment: {[{allimg.sentiment}]}% Buying</p>#}
+                                {#<div class="chart_bitcoin-reting_progress-bar">#}
+                                    {#<div class="reting_progress-bar_click"></div>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
                        {#*******************************************************#}
                         {#<div class="col-md-8 col-sm-12 col-xs-12 ">#}
                             {#<div class="chart_bitcoin-cont chart_content-text">#}
@@ -136,44 +279,44 @@
 
                         {#*************************************************************#}
 
-                        <div class="col-md-12 col-sm-7 col-xs-12 xs-none">
-                            <div class="chart_content-text">
-                                <p class="chart_content-text_info">{{ currency}}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        {#<div class="col-md-12 col-sm-7 col-xs-12 xs-none">#}
+                            {#<div class="chart_content-text">#}
+                                {#<p class="chart_content-text_info">{{ currency}}#}
+                                {#</p>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
 
-                <div class="container">
-                    <div class="row">
-                        <div class="general-chart">
-                            <img class="general-chart_img" src='{{asset("img/chart.png")}}' alt="chart">
-                        </div>
-                    </div>
-                </div>
-
-
-            </section>
+                {#<div class="container">#}
+                    {#<div class="row">#}
+                        {#<div class="general-chart">#}
+                            {#<img class="general-chart_img" src='{{asset("img/chart.png")}}' alt="chart">#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
 
 
-        </div>
+            {#</section>#}
 
-    </div>
-{% endblock %}
-{% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('js/Chart_stock.js') }}"></script>
-    <script>
-        function loadCSS(hf) {
-            var ms = document.createElement("link");
-            ms.rel = "stylesheet";
-            ms.href = hf;
-            document.getElementsByTagName("head")[0].appendChild(ms);
-        }
 
-        loadCSS('{{asset("css/charts.css" )}}');
+        {#</div>#}
+
+    {#</div>#}
+{#{% endblock %}#}
+{#{% block javascripts %}#}
+    {#{{ parent() }}#}
+    {#<script src="{{ asset('js/Chart_stock.js') }}"></script>#}
+    {#<script>#}
+        {#function loadCSS(hf) {#}
+            {#var ms = document.createElement("link");#}
+            {#ms.rel = "stylesheet";#}
+            {#ms.href = hf;#}
+            {#document.getElementsByTagName("head")[0].appendChild(ms);#}
+        {#}#}
+
+        {#loadCSS('{{asset("css/charts.css" )}}');#}
         {#loadCSS('{{asset("css/comment.css" )}}');#}
 
-    </script>
-{% endblock %}
+    {#</script>#}
+{#{% endblock %}#}

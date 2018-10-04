@@ -21,11 +21,11 @@ class DefaultController extends Controller
         $pair = explode("_", $currency);
         $from =  $pair[0];
         $to =  $pair[1];
-        $api =  $this->getParameter('crypto_api');
-        $like = $this->getParameter('crypto_likes');
+        $crypto_api =  $this->getParameter('crypto_api');
+        $crypto_likes = $this->getParameter('crypto_likes');
 
-//        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from,"from"=>$from, "to"=>$to, "api"=>$api,"like"=>$like));
-        return $this->render('default/charttest.html.twig', array("currency"=>$currency,"from"=>$from, "to"=>$to, "api"=>$api,"like"=>$like));
+        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api,"crypto_likes"=>$crypto_likes));
+       //return $this->render('default/charttest.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api,"crypto_likes"=>$crypto_likes));
     }
 
     /**

@@ -9,18 +9,13 @@ firstApp.controller('FirstController', function($scope) {
     $scope.allstock = []
     $scope.allstock2 = []
 
-    $scope.init = function(api_forex, api_crypto, api_stock, first, second, third ,fourth, forex_from1, forex_to1, forex_from2, forex_to2, stock1,stock2) {
+    $scope.init = function(api_forex, api_crypto, api_stock, crypto_from1, crypto_from2, crypto_to1 ,crypto_to2, forex_from1, forex_to1, forex_from2, forex_to2, stock1,stock2) {
 
         $.ajax({
-            url: "https://crypto-ws.herokuapp.com/All-Froms-and-Prices/" + first +"_USD",
+            url: api_crypto + "/" + crypto_from1 +"_"+ crypto_to1,
             type: "GET",
             success: function (result) {
-                //console.log("result", result)
                 $scope.crypto3 = result
-                // for (i = 0; i < result.length; i++) {
-                //     if (result[i].fromSymbol == first) { $scope.crypto3 = result[i]}
-                //     if (result[i].fromSymbol == second) {$scope.crypto4 = result[i]}
-                // }
                 $scope.$apply()
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -29,7 +24,7 @@ firstApp.controller('FirstController', function($scope) {
         });
 
         $.ajax({
-            url: "https://crypto-ws.herokuapp.com/All-Froms-and-Prices/" + second +"_USD",
+            url: api_crypto + "/" + crypto_from2 +"_"+ crypto_to2,
             type: "GET",
             success: function (result) {
                 $scope.crypto4 = result
@@ -46,7 +41,7 @@ firstApp.controller('FirstController', function($scope) {
             type: "GET",
 
             success: function (result) {
-                console.log("Response-forex", result)
+                //console.log("Response-forex", result)
                 for (var key in result) {$scope.allforex.push(result[key])}
                 for (key in $scope.allforex) {
                     if($scope.allforex[key].fromSymbol == "EURUSD") { $scope.crypto1 = $scope.allforex[key]}
@@ -83,26 +78,26 @@ firstApp.controller('FirstController', function($scope) {
             }
         });
 
-        ////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
         var socket1 = io.connect("https://crypto.tradingcompare.com/")
         socket1.on('connect', function () {
             socket1.emit('room', ["BTC_USD","ETH_USD"]);
             socket1.on('message', data => {
-                //console.log("data bar", data)
-                if(data.pair == $scope.crypto3.pair )
-                        {
-                            $scope.crypto3 = data;
-                            $scope.crypto3.fromSymbol = first
-                            $scope.crypto3.toSymbol = "USD"
-                        }
-                        if(data.pair == $scope.crypto4.pair )
-                        {
-                            $scope.crypto4 = data;
-                            $scope.crypto4.fromSymbol = second
-                            $scope.crypto4.toSymbol = "USD"
-                        }
+              if (data.hasOwnProperty('pair')) {
+                  if (data.pair == $scope.crypto3.pair) {
+                      $scope.crypto3 = data;
+                      $scope.crypto3.fromSymbol = crypto_from1
+                      $scope.crypto3.toSymbol = "USD"
+                  }
 
-                        $scope.$apply()
+                  if (data.pair == $scope.crypto4.pair) {
+                      $scope.crypto4 = data;
+                      $scope.crypto4.fromSymbol = crypto_from2
+                      $scope.crypto4.toSymbol = "USD"
+                  }
+              }
+              else {console.log("data bar else", data)}
+              $scope.$apply()
             })
         })
         // var socket1 = io.connect("https://crypto-ws.herokuapp.com", {'force new connection': true});
@@ -168,7 +163,7 @@ firstApp.controller('FirstController', function($scope) {
 
 
         var socket = io.connect("https://websocket-stock.herokuapp.com")
-        console.log("ALLSTOCK",$scope.allstock)
+        //console.log("ALLSTOCK",$scope.allstock)
         socket.on('connect', function () {
             socket.emit('room', "persec");
             socket.on('message', data => {

@@ -14,19 +14,18 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
 
     var i = 0
     $scope.init = function (api, currency,likes) {
-        console.log("currency",currency)
+        console.log("currency",api, currency,likes)
 
 
         $.ajax({
             url: "https://websocket-stock.herokuapp.com/getStockPrice/" +  currency,
             type: "GET",
             success: function (result) {
-                console.log("result ***",result)
+                // console.log("result ***",result)
                 $scope.mystock = result[0]
-                console.log("*****",$scope.mystock )
+                $scope.mystock.point = Number(Number(Math.abs(result[0]['price_open'] - result[0]['price'])).toFixed(2));
                 $scope.$apply()
             },
-
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
             }

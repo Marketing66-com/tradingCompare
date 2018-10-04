@@ -18,7 +18,7 @@
     <link rel="stylesheet" href='{{ asset("css/charts.css") }}' />
     <link rel="stylesheet" href='{{ asset("css/chart-live-iq.css") }}' />
 
-    <div id="dvChart" class="my-container ng-cloak" ng-controller="ChartController" ng-init="init('{{ api }}', '{{ from }}', '{{ to }}','{{ like }}')">
+    <div id="dvChart" class="my-container ng-cloak" ng-controller="ChartController" ng-init="init('{{ currency }}', '{{ from }}', '{{ to }}','{{ crypto_api }}','{{ crypto_likes }}')">
       <div ng-controller="ChartController ">
         <section class="table">
             <div class="chart_search">
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="bitcoin_text-cont_right">
                                     <h3 class="bitcoin_many xs-none" ng-class="{'negative': mycrypto.variation == 'down', 'positive':mycrypto.variation == 'up', 'neutral': mycrypto.variation == 'none'}">{[{mycrypto.price}]}</h3>
-                                    <a class="btcoin_btn" href="https://borthy-carges.com/52ab982b-11ad-4f87-81cb-3a44c3ea65d5 " target="_blank">TRADE NOW</a>
+                                    <a class="btcoin_btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>
                                 </div>
                             </div>
                         </div>

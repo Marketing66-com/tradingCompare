@@ -13,7 +13,7 @@ app.controller('ListController', function($scope){
     };
     $scope.itemsPerPage = 100;
 
-    $scope.result = {};
+    $scope.result = [];
     $scope.allimg = [];
     $scope.image = {};
     $scope.element = {};
@@ -30,19 +30,23 @@ app.controller('ListController', function($scope){
         $(document).scrollTop(0);
     };
 
-    $scope.init = function () {
+    $scope.init = function (crypto_api, crypto_likes) {
         this.items = itemsDetails;
 
         // currencies
         $.ajax({
-            url: "https://crypto-ws.herokuapp.com/All-Froms-and-Prices",
+            url: crypto_api,
             type: "GET",
             success: function (result) {
                 $scope.result = result;
                 console.log("$scope.result",$scope.result)
-                for (let i = 0; i < $scope.result.length; i++)
-                {
-                    itemsDetails[i] = $scope.result[i];
+
+                var i = 0
+                for (const key in $scope.result) {
+                    if ($scope.result.hasOwnProperty(key)) {
+                        itemsDetails[i] = $scope.result[key];
+                        i = i+1;
+                    }
                 }
 
                 $scope.totalItems = itemsDetails.length;
@@ -60,7 +64,7 @@ app.controller('ListController', function($scope){
 
         // images
         $.ajax({
-            url: 'https://xosignals.herokuapp.com/api2/getTradingCompareByName/crypto',
+            url: crypto_likes,
             type: "GET",
             success: function (result) {
                 $scope.image = result
@@ -73,7 +77,6 @@ app.controller('ListController', function($scope){
 
                 }
                 $scope.allimg=$scope.element
-                console.log("Response*likes*", $scope.allimg)
                 $scope.$apply()
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -83,42 +86,16 @@ app.controller('ListController', function($scope){
 
     }
 
-
-
     $scope.getDisplayValue = function(currentValue)
     {
         return intFormat(currentValue);
     }
 
     $scope.ActiveChange = function (symbol) {
-        var sym= symbol.split("/")
-        var url =  Routing.generate('crypto_chart',{"currency" :sym})
+        var url =  Routing.generate('crypto_chart',{"currency" :symbol})
         window.location.href= url
         return url
     }
-
-
-    // var socket = io.connect('http://www.evisbregu.com:8002');
-    //
-    // socket.on('connect', function () {
-    //     socket.emit('room', "all_regulated_by_average");
-    //     socket.on('message', data => {
-    //         //console.log("data all regulated", data)
-    //         for (const key in data) {
-    //             var item73 = $scope.result.find(function (element) {
-    //                 return ((element.fromSymbol == key.split("_",1))&&(element.toSymbol == key.split("_")[1]));
-    //             })
-    //             if (typeof item73 != typeof undefined) {
-    //                 for (const ky in data[key]) {
-    //                     if (data.hasOwnProperty(key)) {
-    //                         item73[ky] = data[key][ky];
-    //                     }
-    //                 }
-    //             }
-    //             $scope.$apply()
-    //         }
-    //     })
-    // })
 
     var socket = io.connect("https://crypto.tradingcompare.com/")
     socket.on('connect', function () {
@@ -126,7 +103,7 @@ app.controller('ListController', function($scope){
         socket.on('message', data => {
             //console.log("data all regulated", data)
             for (const key in data) {
-            var item73 = $scope.result.find(function (element) {
+            var item73 = itemsDetails.find(function (element) {
                 return ((element.fromSymbol == key.split("_",1))&&(element.toSymbol == key.split("_")[1]));
             })
             // console.log("item73", item73)
@@ -142,27 +119,6 @@ app.controller('ListController', function($scope){
     })
     })
 
-    // var socket = io.connect("https://crypto-ws.herokuapp.com")
-    // socket.on('connect', function () {
-    //     socket.emit('room', "all_regulated");
-    //     socket.on('message', data => {
-    //         console.log("data all regulated", data)
-    //         for (const key in data) {
-    //             var item73 = $scope.result.find(function (element) {
-    //                 return ((element.fromSymbol == key.split("_",1))&&(element.toSymbol == key.split("_")[1]));
-    //             })
-    //             // console.log("item73", item73)
-    //             if (typeof item73 != typeof undefined) {
-    //                 for (const ky in data[key]) {
-    //                     if (data.hasOwnProperty(key)) {
-    //                         item73[ky] = data[key][ky];
-    //                     }
-    //                 }
-    //             }
-    //             $scope.$apply()
-    //         }
-    //     })
-    // })
 });
 
 

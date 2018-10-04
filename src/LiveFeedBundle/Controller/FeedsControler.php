@@ -28,11 +28,11 @@ class FeedsControler extends Controller
      */
     public function StockAction()
     {
-        $apiS =  $this->getParameter('stocks_api');
+        $stocks_api =  $this->getParameter('stocks_api');
         //$imgS = $this->getParameter('stocks_img');
-        $likes = $this-> getParameter('stocks_likes');
+        $stocks_likes = $this-> getParameter('stocks_likes');
         $chart_link = "stocks_chart";
-        return $this->render('LiveFeedBundle:Default:live_stocks.html.twig',array('api'=>$apiS,  "chart_link"=>$chart_link, "likes"=>$likes));
+        return $this->render('LiveFeedBundle:Default:live_stocks.html.twig',array('stocks_api'=>$stocks_api,  "chart_link"=>$chart_link, "stocks_likes"=>$stocks_likes));
 
     }
 
@@ -41,13 +41,10 @@ class FeedsControler extends Controller
      */
     public function CryptoAction()
     {
-        $api =  $this->getParameter('crypto_api');
-        //$img = $this->getParameter('crypto_img');
-        $likes = $this-> getParameter('crypto_likes');
-        $chart_link = "crypto_chart";
-        return $this->render('LiveFeedBundle:Default:live_crypto.html.twig',array('api'=>$api, "chart_link"=>$chart_link, "likes"=>$likes));
+        $crypto_api =  $this->getParameter('crypto_api');
+        $crypto_likes = $this-> getParameter('crypto_likes');
 
-
+        return $this->render('LiveFeedBundle:Default:live_crypto.html.twig',array('crypto_api'=>$crypto_api, "crypto_likes"=>$crypto_likes));
     }
 
 

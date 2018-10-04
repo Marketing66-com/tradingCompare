@@ -23,16 +23,15 @@ class BarController extends Controller
         $api_crypto =  $this->getParameter('crypto_api');
         $api_forex =  $this->getParameter('forex_api');
         $api_stock =  $this->getParameter('stocks_api');
-//        $api_crypto = 'https://crypto-ws.herokuapp.com/All-Froms-and-Prices';
-//        $api_forex = 'https://xosignals.herokuapp.com/api2/getTradingCompareByName/forex';
+
         $forex_from1 = "EUR"; $forex_to1 = "USD";
         $forex_from2 = "USD"; $forex_to2 = "JPY";
 
+        $crypto_from1 = "BTC"; $crypto_to1 = "USD";
+        $crypto_from2 = "ETH"; $crypto_to2 = "USD";
+
         $stock1 = "FB";
         $stock2 = "AAPL";
-
-        $first = "BTC"; $second = "ETH";
-        $third = "BCH"; $fourth = "LTC";
 
         return $this->render('default\bar.html.twig',array(
             "api_forex"=>$api_forex,
@@ -42,15 +41,12 @@ class BarController extends Controller
             "forex_from1"=> $forex_from1, "forex_to1"=> $forex_to1,
             "forex_from2"=> $forex_from2, "forex_to2"=> $forex_to2,
 
-            "first"=>$first,
-            "second"=>$second,
+            "crypto_from1"=>$crypto_from1,  "crypto_to1"=>$crypto_to1,
+            "crypto_from2"=>$crypto_from2, "crypto_to2"=>$crypto_to2,
 
             "stock1"=>$stock1,
             "stock2"=>$stock2,
-            "third"=>$third,
-            "fourth"=>$fourth,
-//            "fifth"=>$fifth,
-//            "sixth"=>$sixth,
+
            ));
     }
 
