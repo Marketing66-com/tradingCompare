@@ -1,7 +1,7 @@
 /*search*/
 .chart_search, .chart_content-text {width: 100%;display: table; background-color: white;}
 .chart_search { padding: 10px 0;margin: 20px 0;}
-.search_input {width: 100%; background-color: #f2f3f5;line-height: 35px; box-shadow: none; border: none;border-radius: 25px; padding: 0 25px;}
+.search_input {width: 100%; background-color: #f2f3f5 !important;line-height: 35px; box-shadow: none; border: none;border-radius: 25px; padding: 0 25px;}
 .search_input:hover, .search_input:active, .search_input:focus {border: none; outline: none;}
 /*search*/
 
@@ -9,7 +9,8 @@
 .chart_bitcoin-reting_icon { font-size: 45px;}
 .chart_bitcoin-reting_progress-bar {width: 100%; border-radius: 3px; background-color: #f2f3f5;border: 1px solid #D8D8D8; margin-bottom: 15px;}
 .reting_progress-bar_click { width: 86%; height: 15px; background-color: #7ED400;}
-.chart_bitcoin-reting_prozent {font-size: 12px;font-family: 'Avenir';font-weight: 700; margin: 20px 0 0 0; color: #999999; line-height: 20px;}
+/*.chart_bitcoin-reting_prozent {font-size: 12px;font-family: 'Avenir';font-weight: 700; margin: 20px 0 0 0; color: black; line-height: 20px;}*/
+.chart_bitcoin-reting_prozent {font-size: 12px;font-family: 'Avenir';font-weight: 700; margin: 20px 0 0 0; color: black; }
 .general-grid .chart_bitcoin-reting_prozent { margin: 20px 0 0 0;}
 .reting_progress-bar_click_red {background-color: red;}
 .live_block_money_green { color: #7ED321 !important;}
@@ -33,7 +34,8 @@
 .new .live_cont-block_hover_text {display: table;}
 .live_cont-block_hover_text {display: none; font-family: 'Open Sans'; font-weight: 400; font-size: 14px; color: white; padding: 10px 5px;}
 .live_block_top, .live_cont-block_cont-like {width: 100%; display: table; position: relative;}
-.live_cont-block_like_left {position: absolute; top: 70%;left: 50%; transform: translate(-50%, -50%);}
+/*.live_cont-block_like_left {position: absolute; top: 70%;left: 50%; transform: translate(-50%, -50%);}*/
+.live_cont-block_like_left {position: absolute; top: 50%;left: 75%; transform: translate(-50%, -50%);}
 .live_block_top {border-bottom: 1px solid #D8D8D8;padding: 10px 0;}
 .live_block_top_img {width: 35px; height: 35px; float: left; margin: 0 5px;}
 .live_block_top_title {display: block; margin: 0; color: #1E375E; font-size: 16px; line-height: 35px; font-family: 'Avenir';font-weight: 800; white-space: nowrap;}
@@ -45,12 +47,15 @@
 .live_block_money_bold { font-family: 'Avenir'; color: black;  font-size: 14px; font-weight: 800;}
 .live_cont-block_like, .live_cont-block_like_right {display: block; float: left;margin: 0; color: #999999;font-size: 22px; margin: 0;}
 .live_cont-block_like:hover { color: #12A6F9; cursor: pointer;}
-.live_cont-block_like_margin { margin-right: 40px;}
-.live_cont-block_like_right { float: right; margin-right: 10px;}
+/*.live_cont-block_like_margin { margin-right: 40px;}*/
+.live_cont-block_like_margin { margin-right: 30px;}
+/*.live_cont-block_like_right { float: right; margin-right: 10px;}*/
+.live_cont-block_like_right { float: left; margin-left: 5px;margin-right: 5px;}
 .live_cont-block .chart_bitcoin-reting_prozent { margin: 5px 0 0 0;}
 .live_trade-btn {margin: 10px 0; width: 100%; display: table;  text-align: center; color: white; background-color: #12A6F9; border-radius: 4px; padding: 10px 0;transition: 0.3s all; border: 1px solid transparent;}
 .live_trade-btn:hover { cursor: pointer; text-decoration: none;}
 .reviec_cont-sezrch { width: 100%; display: table; position: relative; padding: 0 265px 0 10px;}
+.reviec_cont-sezrch-country { padding-left: 1%; padding-right:1%; width: 100%; display: table; position: relative;}
 .reviec_cont-sezrch_right { position: absolute; top: 0; right: 0; display: table;}
 .watchlist-cont { border-radius: 3px; border: 1px solid #D8D8D8; display: table; position: relative;text-align: center; float: left; margin-left: 20px;}
 .watchlist-cont_all { display: block; line-height: 35px; float: left; margin: 0 9px; color: #D8D8D8; font-family: 'Open Sans'; font-weight: 600;}
@@ -58,6 +63,10 @@
 .watchlist-cont_all:hover { text-decoration: none;  cursor: pointer; color: #12A6F9;}
 .list, .grid { font-size: 22px;}
 .my-list { width: 100% !important;}
+
+/*country*/
+.chart_search_country { padding: 10px 0;}
+.chart_search_country {width: 100%;display: table; background-color: white;}
 
 /*general-list*/
 .review_list, .review_list_cont-heder, .general-list { width: 100%; display: table;  background-color: white;}
@@ -97,8 +106,27 @@
 .pagboxes{margin-left: auto;margin-right: auto;padding-left:20%;padding-right:10%;}
 .paglist{margin-left: auto;margin-right: auto;padding-left:38%;padding-right:30%;}
 
+.no_display{display: none;}
+
+.country::placeholder {color: black;opacity: 3;}
+.country:-ms-input-placeholder { /* Internet Explorer 10-11 */ color: black; opacity: 3; }
+
+/*button bullish*/
+.button {background-color: #4CAF50; /* Green */    border: none;    color: white;    padding: 5px 10px;    text-align: center;    text-decoration: none;    display: inline-block;    font-size: x-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s;    cursor: pointer;    font-family: 'Avenir';border-radius: 5px;}
+.button1 {background-color: white;color: #7ED321;border: 2px solid #7ED321;}
+.button1:hover {background-color: #7ED321;color: white;}
+.button2 {background-color: white;color: #f44336;border: 2px solid #f44336;}
+.button2:hover {background-color: #f44336;color: white;}
+.buttonL {background-color: #4CAF50; /* Green */    border: none;    color: white;    padding: 3px 10px;    text-align: center;    text-decoration: none;    display: inline-block;    font-size: x-small;       -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s;    cursor: pointer;    font-family: 'Avenir';border-radius: 5px;}
+.buttonL1 {background-color: white;color: #7ED321;border: 2px solid #7ED321;}
+.buttonL1:hover {background-color: #7ED321;color: white;}
+.buttonL2 {background-color: white;color: #f44336;border: 2px solid #f44336;}
+.buttonL2:hover {background-color: #f44336;color: white;}
+
 @media (max-width: 1200px) {
     .live_block_chart { max-height: 28px;}
+    .button {   padding: 2px 5px;    font-size: x-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
+    .buttonL {   padding: 3px 1px;    font-size: x-small;       -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
 }
 @media (max-width: 991px) {
     .chart_bitcoin-reting { margin-top: 20px; }
@@ -115,6 +143,7 @@
     .reviec_cont-sezrch_right { position: relative; width: 100%;}
     .reviec_cont-sezrch {padding: 0 20px; }
     .watchlist-cont {margin: 10px 20px 10px 0; }
+    /*.live_cont-block_like_margin {margin-right: 25px;}*/
     .live_cont-block_like_margin {margin-right: 25px;}
     .review_list { padding: 0 10px;}
     .review_list_name { width: 35%;}
@@ -128,6 +157,8 @@
     .mobile_padding { margin: 0 0 10px 0; float: left; }
     .review_list_cont-heder .live_block_top_img { margin: 15px 10px 0 0; }
     .input_absolut, .input_absolut_after:after{top: 73px; }
+    .button {   padding: 2px 4px;    font-size: x-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
+    .reviec_cont-sezrch-country { padding-left: 5%; padding-right:5%;}
 }
 @media (max-width: 480px) {
     .live_cont-block-padding {  width: 50%; }
@@ -149,3 +180,14 @@
     .review_list_cont-heder {min-height: 45px;}
     .review_list_cont-heder{padding: 0;}
   }
+
+@media (max-width: 360px) {
+    .button {   padding: 2px 3px;    font-size: x-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
+
+
+}
+@media (max-width: 330px) {
+    .button {   padding: 2px 0px;    font-size: xx-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
+
+
+}

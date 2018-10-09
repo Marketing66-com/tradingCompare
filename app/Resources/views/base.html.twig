@@ -40,6 +40,9 @@
     </noscript>
 
     {#jQuery#}
+    {#<script src="https://code.jquery.com/jquery-1.12.4.js"></script>#}
+    {#<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>#}
+
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
@@ -71,7 +74,7 @@
                     <div class=burger-menu></div>
                     <div class=burger-menu></div>
                 </div>
-                <a style="color: white;font-weight: bold;font-size: 24px;" href="{{ path('Live_rates_stocks') }}" class="logo-text">
+                <a style="color: white;font-weight: bold;font-size: 24px;" href="{{ path('Live_rates_stocks' , { 'name': 'United States','value':'united-states-of-america'}) }}" class="logo-text">
                     <img style="width: auto;margin: 10px 0;" src='{{asset("img/logo_white.png")}}' class="top-logo ms-none" alt="logo">
                     <img style="width: auto;margin: 10px 0;" src='{{asset("img/Group_17.png")}}' class="top-logo ms-block" alt="logo">
 
@@ -112,7 +115,7 @@
             </div>
             <div  class="menu">
                 <ul style="display: inline-table;margin: 0 auto;padding: 0;z-index: 1000;" class="my-nav">
-                    <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_stocks' %}active{% endif %}" href="{{ path('Live_rates_stocks') }}">Live Stock Feed</a></li>
+                    <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_stocks' %}active{% endif %}" href="{{ path('Live_rates_stocks', { 'name': 'United States','value':'united-states-of-america'}) }}">Live Stock Feed</a></li>
                     <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_crypto' %}active{% endif %}" href="{{ path('Live_rates_crypto') }}" >Live Crypto Feed</a></li>
                     <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_forex' %}active{% endif %}" href="{{ path('Live_rates_forex') }}" >Live Forex Feed</a></li>
                     <li class="my-hover"><a href="#" class="my-active">Brokers <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>

@@ -51,6 +51,11 @@ bitcoin_title_right:after {    content: ' ';    position: absolute;    top: 0;  
 .general-chart_img {    width: 100%;}
 /*general-chart*/
 
+.negative{color:red;}
+.positive{color:#9CD400;}
+.neutral{color:#000000;}
+.barneutral{color:#fff;}
+
 .my-padding {    padding: 0 60px 0 20px;}
 .comments_user-cont_img_icon {    color: #D6D5D3;    font-size: 50px;    line-height: 80px;    padding: 0;    margin: 0;    text-align: center;}
 .margin-bottom {    margin-bottom: 50px;}

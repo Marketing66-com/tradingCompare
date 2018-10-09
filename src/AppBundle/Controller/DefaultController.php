@@ -218,6 +218,16 @@ class DefaultController extends Controller
     }
 
 
+    /**
+     * @Route("/autocomplete", name="autocomplete")
+     */
+    public function autocompleteAction()
+    {
+        return $this->render('default/autocompletetest.html.twig');
+    }
+
+
+
 //    /**
 //     * @Route("/try", name="try")
 //     */

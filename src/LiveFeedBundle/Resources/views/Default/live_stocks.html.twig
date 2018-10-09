@@ -8,22 +8,33 @@
 {% block body %}
     <link rel="stylesheet" href="{{ asset('css/compiled-feeds.css') }}" >
 
-    <div id="dvstock">
-        <div ng-controller="stockController ">
-            <div  ng-init="init('{{ stocks_api }}','{{ chart_link }}','{{ stocks_likes }}')" >
-                {{ include('LiveFeedBundle:Default:live_feed.html.twig' , {chart_link: chart_link}) }}
+<div ng-app="stockApp">
+    {#<div id="dvstock">#}
+        <div ng-controller="stockController as List">
+            <div  ng-init="init('{{ stocks_api }}','{{ chart_link }}','{{ stocks_likes }}', '{{ country_name }}', '{{ country_value }}')" >
+                <section class="table">
+                {{ include('LiveFeedBundle:Default:searchInstruments.html.twig') }}
+                {{ include('LiveFeedBundle:Default:searchCountry.html.twig') }}
+                {#{{ include('LiveFeedBundle:Default:live_feed.html.twig' , {chart_link: chart_link}) }}#}
+                {{ include('LiveFeedBundle:Default:indextest.html.twig') }}
+                </section>
             </div>
         </div>
-    </div>
+    {#</div>#}
+</div>
+
+    <script data-require="angular-ui-bootstrap@0.3.0" data-semver="2.5.0" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
 
     <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <script src="{{ asset('js/StockFeeds.js') }}"></script>
 
+
 {% endblock %}
 
 {% block javascripts %}
-
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         function loadCSS(hf) {
             var ms = document.createElement("link");
@@ -74,6 +85,8 @@
             }
         }(window, document, scr);
     </script>
+
+
 {% endblock %}
 
 

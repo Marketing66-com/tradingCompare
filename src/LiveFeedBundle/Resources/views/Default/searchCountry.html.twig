@@ -1,0 +1,54 @@
+<style>
+    .typeahead-demo .custom-popup-wrapper {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        display: none;
+        background-color: #f9f9f9;
+    }
+
+    /*.typeahead-demo .custom-popup-wrapper > .message {*/
+        /*padding: 10px 20px;*/
+        /*border-bottom: 1px solid #ddd;*/
+        /*color: #868686;*/
+    /*}*/
+
+    /*.typeahead-demo .custom-popup-wrapper > .dropdown-menu {*/
+        /*position: static;*/
+        /*float: none;*/
+        /*display: block;*/
+        /*min-width: 160px;*/
+        /*background-color: transparent;*/
+        /*border: none;*/
+        /*border-radius: 0;*/
+        /*box-shadow: none;*/
+    /*}*/
+</style>
+<div>
+    <div class="chart_search_country  margin_bottom" >
+        <div class="container">
+            <div class="row">
+                <div class="reviec_cont-sezrch-country  typeahead-demo" >
+                    <input id="hello"  type="text"  class="search_input country"
+                           ng-model="customSelected"
+                           uib-typeahead="state as state.name for state in listCountry | filter:{name:$viewValue} | orderBy:distance"
+                           typeahead-template-url="customTemplate.html" class="form-control"
+                           typeahead-show-hint="true"
+                           typeahead-min-length="0"
+                           typeahead-on-select="onSelect($item, $model, $label)"
+                           placeholder="{{country_name}}"
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/ng-template" id="customTemplate.html">
+
+    <a>
+        <img ng-src='{{asset("img/small_flags/{[{match.model.value}]}.png")}}' width="16">
+        <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+    </a>
+
+</script>

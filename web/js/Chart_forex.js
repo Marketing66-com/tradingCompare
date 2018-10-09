@@ -114,8 +114,10 @@ Chart_forexApp.controller("Chart_forexController", function ($scope, $http) {
     var socket = io.connect("https://forex-websocket.herokuapp.com/", {
         path: "/socket/forex/livefeed"
     })
-    socket.on("all_regulated", function (response) {
-    //console.log("$scope.all", $scope.all)
+
+    socket.emit("room", "all_pairs")
+    socket.on("message", function (response) {
+    //console.log("$scope.all", response)
         var item73
         if($scope.all.length != 0)
         {

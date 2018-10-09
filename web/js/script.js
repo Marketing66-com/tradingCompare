@@ -4,7 +4,6 @@ var app = angular.module('myApp', ['ui.bootstrap']).config(function ($interpolat
 app.controller('ListController', function($scope){
 
     let itemsDetails = [];
-
     $scope.maxSize = 5;
 
     $scope.currentPage = 1;
@@ -97,6 +96,7 @@ app.controller('ListController', function($scope){
         return url
     }
 
+    //////////////////////////////////////////////////////////////////////////
     var socket = io.connect("https://crypto.tradingcompare.com/")
     socket.on('connect', function () {
         socket.emit('room', "all_regulated_by_average");

@@ -28,8 +28,8 @@
                                         <img class="bitcoin_img" ng-src="{[{allimg.img}]}"  alt="{{ currency }}">
                                     </div>
                                     <div class="bitcoin_text-cont_left">
-                                        <h3 class="bitcoin_title"><span class="bitcoin_title_right">{{ currency }}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
-                                        <p class="statistics_block_green-text" ng-class="{'live_block_money_red ': myforex.change24 < 0, 'live_block_money_green ': myforex.change24 >= 0}">{[{ myforex.change24}]}% <span class="statistics_block_min-text">{[{ myforex.point}]}</span>
+                                        <h3 class="bitcoin_title">{{ currency }}<span class="bitcoin_title_right">{{ currency }}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
+                                        <p class="statistics_block-text" ng-class="{'live_block_money_red negative': myforex.change24 < 0, 'live_block_money_green positive': myforex.change24 >= 0}">{[{ myforex.change24}]}% <span class="statistics_block_min-text">{[{ myforex.point}]}</span>
                                             <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></p>
                                         <h3 class="bitcoin_many bitcoin_many-mobile" ng-class="{'negative': myforex.variation == 'down', 'positive':myforex.variation == 'up', 'neutral': myforex.variation == 'none'}">{[{ myforex.price}]}</h3>
                                         <p class="bitcoin_bottom-text">
@@ -40,7 +40,7 @@
                                         </p>
                                     </div>
                                     <div class="bitcoin_text-cont_right">
-                                        <h3 class="bitcoin_many xs-none" ng-class="{'live_block_money_red ': myforex.change24 < 0, 'live_block_money_green ': myforex.change24 >= 0}">{[{ myforex.price}]}</h3>
+                                        <h3 class="bitcoin_many xs-none" ng-class="{'negative': myforex.variation == 'down', 'positive':myforex.variation == 'up', 'neutral': myforex.variation == 'none'}">{[{ myforex.price}]}</h3>
                                         <a class="btcoin_btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>
                                     </div>
                                 </div>

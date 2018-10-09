@@ -1,23 +1,53 @@
-                <section class="table">
-                    <div class="chart_search margin_bottom">
-                        <div class="container">
-                            <div class="row">
-                                <div class="reviec_cont-sezrch">
-                                    <div class="reviec_cont-sezrch_right">
-                                        <div class="watchlist-cont">
-                                            <a class="watchlist-cont_all watchlist-cont_all_active">ALL</a>
-                                            <a class="watchlist-cont_all">WATCHLIST</a>
-                                        </div>
-                                        <div class="watchlist-cont watchlist-cont_right">
-                                            <a class="watchlist-cont_all list" ><i class="fas fa-list"></i></a>
-                                            <a class="watchlist-cont_all watchlist-cont_all_active grid"><i class="fas fa-th"></i></a>
-                                        </div>
-                                    </div>
-                                    <input class="search_input" type="text" placeholder="Search Instruments">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+{#<section class="table">#}
+                    {#<div class="chart_search margin_bottom">#}
+                        {#<div class="container">#}
+                            {#<div class="row">#}
+                                {#<div class="reviec_cont-sezrch">#}
+                                    {#<div class="reviec_cont-sezrch_right">#}
+                                        {#<div class="watchlist-cont">#}
+                                            {#<a class="watchlist-cont_all watchlist-cont_all_active">ALL</a>#}
+                                            {#<a class="watchlist-cont_all">WATCHLIST</a>#}
+                                        {#</div>#}
+                                        {#<div class="watchlist-cont watchlist-cont_right">#}
+                                            {#<a class="watchlist-cont_all list" ><i class="fas fa-list"></i></a>#}
+                                            {#<a class="watchlist-cont_all watchlist-cont_all_active grid"><i class="fas fa-th"></i></a>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                    {#<input class="search_input" type="text" placeholder="Search Instruments">#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+
+                    {#<div#}
+                            {#ng-class="{'no_display': indicate == 'crypto'}"#}
+                    {#>#}
+                    {#<div class="chart_search_country margin_bottom" >#}
+                        {#<div class="container">#}
+                            {#<div class="row">#}
+                                {#<div class="reviec_cont-sezrch-country" >#}
+                                    {#<input id="hello"  type="text"  class="search_input country"#}
+                                           {#ng-model="customSelected"#}
+                                           {#uib-typeahead="state as state.name for state in listCountry | filter:{name:$viewValue}"#}
+                                           {#typeahead-template-url="customTemplate.html" class="form-control"#}
+                                           {#typeahead-show-hint="true"#}
+                                           {#typeahead-min-length="0"#}
+                                           {#typeahead-on-select="onSelect($item, $model, $label)"#}
+                                           {#placeholder="{{country_name}}"#}
+                                    {#>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#</div>#}
+                    {#<script type="text/ng-template" id="customTemplate.html">#}
+                        {#<a>#}
+                            {#<img ng-src="http://upload.wikimedia.org/wikipedia/commons/thumb/{[{match.model.flag}]}" width="16">#}
+                            {#<span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>#}
+                        {#</a>#}
+                    {#</script>#}
+
+
                     <div class="general-list">
                         <div class="container">
                             <div class="row">
@@ -100,17 +130,36 @@
                                                         <span class="live_block_money_bold mobile-block">/{[{item.low24.toFixed(2)}]}</span></p>
                                                 </div>
                                             </div>
+
+
+
+                                            {#<div class="general_review_cont-block review_list_cont-bar ms-none">#}
+                                                {#<div class="review_list_center">#}
+                                                    {#<p class="chart_bitcoin-reting_prozent">{[{allimg[item.fromSymbol].sentiment}]}%#}
+                                                        {#<span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-up"></i></span>#}
+                                                        {#<span class="chart_bitcoin-reting_prozent_like"><i class="fas  fa-thumbs-down"></i></span>#}
+                                                    {#</p>#}
+                                                    {#<div class="chart_bitcoin-reting_progress-bar">#}
+                                                        {#<div class="reting_progress-bar_click"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}"></div>#}
+                                                        {#<div class="reting_progress-bar_click chart_bitcoin-reting_prozent"  ng-class="{'reting_progress-bar_click_red':allimg[curr.fromSymbol].sentiment < '50'}">{[{allimg[item.fromSymbol].sentiment}]}%</div>#}
+                                                    {#</div>#}
+                                                {#</div>#}
+                                            {#</div>#}
+                                            {#////#}
                                             <div class="general_review_cont-block review_list_cont-bar ms-none">
                                                 <div class="review_list_center">
-                                                    <p class="chart_bitcoin-reting_prozent">{[{allimg[item.fromSymbol].sentiment}]}%
-                                                        <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-up"></i></span>
-                                                        <span class="chart_bitcoin-reting_prozent_like"><i class="fas  fa-thumbs-down"></i></span>
+                                                    <p>
+                                                        <span class="chart_bitcoin-reting_prozent_like"><i  class="buttonL buttonL1" target="_blank"><b>BULLISH</b></i></span>
+                                                        <span class="chart_bitcoin-reting_prozent_like"><i class="buttonL buttonL2" target="_blank"><b>BEARISH</b></i></span>
                                                     </p>
                                                     <div class="chart_bitcoin-reting_progress-bar">
-                                                        <div class="reting_progress-bar_click"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}"></div>
+                                                        <div class="reting_progress-bar_click chart_bitcoin-reting_prozent"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}">{[{allimg[item.fromSymbol].sentiment}]}%</div>
                                                     </div>
                                                 </div>
                                             </div>
+
+
+
                                             <div class="general_review_cont-block review_list_cont-chart">
                                                 <div class="review_list_center">
                                                     <a ng-click="ActiveChange(item.pair);"><img class="live_block_chart" src='{{asset("img/chart-design/chart_1.png")}}'  alt="chart_1"></a>
@@ -150,16 +199,23 @@
                                     </a>
                                     <p class="live_block_money-left ">High <br><span class="live_block_money_bold">{[{item.high24}]}</span></p>
                                     <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">{[{item.low24}]}</span></p>
-                                    <div class="live_cont-block_cont-like">
-                                        <p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>
-                                        <p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>
-                                        <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
-                                    </div>
-                                    <p class="chart_bitcoin-reting_prozent">Sentiment: {[{allimg[item.fromSymbol].sentiment}]}% Buying</p>
 
+                                    {#<div class="live_cont-block_cont-like">#}
+                                        {#<p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>#}
+                                        {#<p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>#}
+                                        {#<p class="live_cont-block_like_right"><i class="far fa-star"></i></p>#}
+                                    {#</div>#}
+                                    <div class="live_cont-block_cont-like">
+                                        <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                                        <p class="live_cont-block_like live_cont-block_like_margin"><i class="button button1" target="_blank"><b>BULLISH</b></i></p>
+                                        <p class="live_cont-block_like live_cont-block_like_left"><i  class="button button2" target="_blank"><b>BEARISH</b></i></p>
+                                    </div>
+
+                                    <p class="chart_bitcoin-reting_prozent">Sentiment: {[{allimg[item.fromSymbol].sentiment}]}% Buying</p>
                                     <div class="chart_bitcoin-reting_progress-bar">
                                         <div class="reting_progress-bar_click"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}"></div>
                                     </div>
+
                                     <div class="live_cont-block_hover">
                                         <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
                                     </div>
@@ -176,4 +232,4 @@
                     </div>
 
 
-                </section>
+                {#</section>#}

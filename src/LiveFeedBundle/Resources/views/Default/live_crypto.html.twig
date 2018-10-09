@@ -9,7 +9,10 @@
     <div ng-app="myApp">
         <div  ng-controller="ListController as list">
             <div  ng-init="init('{{ crypto_api }}','{{ crypto_likes }}')" >
-                {{ include('LiveFeedBundle:Default:indextest.html.twig' ) }}
+                <section class="table">
+                {{ include('LiveFeedBundle:Default:searchInstruments.html.twig') }}
+                {{ include('LiveFeedBundle:Default:indextest.html.twig' ,  {'info': "crypto"}) }}
+                </section>
             </div>
         </div>
     </div>

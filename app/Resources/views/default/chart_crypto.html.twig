@@ -38,7 +38,9 @@
                                     </div>
                                     <div class="bitcoin_text-cont_left">
                                         <h3 class="bitcoin_title">{[{allimg.name}]}<span class="bitcoin_title_right">{[{mycrypto.fromSymbol}]}/{[{mycrypto.toSymbol}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
-                                        <p class="statistics_block_green-text" ng-class="{'negative': mycrypto.change24 < 0, 'positive': mycrypto.change24 >= 0}">{[{mycrypto.change24}]}% <span class="statistics_block_min-text">{[{mycrypto.point}]}</span>
+                                        <p
+                                           class="statistics_block-text"
+                                           ng-class="{' negative': mycrypto.change24 < 0, 'positive': mycrypto.change24 >= 0}">{[{mycrypto.change24}]}% <span class="statistics_block_min-text">{[{mycrypto.point}]}</span>
                                             <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></p>
                                         <h3 class="bitcoin_many bitcoin_many-mobile" ng-class="{'negative': mycrypto.variation == 'down', 'positive':mycrypto.variation == 'up', 'neutral': mycrypto.variation == 'none'}">{[{mycrypto.price}]}</h3>
                                         <p class="bitcoin_bottom-text">
@@ -879,6 +881,7 @@
         }
         loadCSS('{{asset("css/footer.css")}}');
         loadCSS('{{ asset("font/font_avenir.css")}}');
+        loadCSS('{{ asset("css/charts.css")}}');
         loadCSS("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
         loadCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
 

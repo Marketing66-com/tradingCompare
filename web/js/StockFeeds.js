@@ -1,48 +1,132 @@
+// var stockApp = angular.module('stockApp', []).config(function ($interpolateProvider) {
+//     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');})
 
-// (function(window) {
-var stockApp = angular.module('stockApp', []).config(function ($interpolateProvider) {
-    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');})
+var stockApp = angular.module('stockApp', ['ui.bootstrap']).config(function ($interpolateProvider) {
+    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');});
 
+stockApp.controller("stockController", function ($scope) {
 
-// var demo = angular.module('LiveFeedsApp', []).config(function ($interpolateProvider) {
-//     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
-// });
+    // *********** variables for ajax & country ************
+    $scope.listCountry = [];
+    $scope.country_name;
+    $scope.country_value;
+    str = "", str2 = "", str3 = "", str4 = "", str5 = ""
 
-stockApp.controller("stockController", function ($scope, $http) {
-
-    $scope.all = []
+    $scope.result = []
+    $scope.country =[]
     $scope.all_stocks = []
     $scope.allimg = {}
-    $scope.allimg1 = []
     $scope.alllikes = {}
     $scope.element={}
 
-    var i = 0
-    $scope.init = function (stocks_api, chart_link, stocks_likes) {
-        console.log("api", stocks_api, chart_link, stocks_likes)
+    $scope.onSelect = function ($item, $model, $label) {
+        $scope.$item = $item;
+        $scope.$model = $model;
+        $scope.$label = $label;
+        console.log("$scope.$item",$scope.$item.name,$scope.$model,$scope.$label)
 
-        // currencie
+        var url =  Routing.generate('Live_rates_stocks',{"name" :$scope.$item.name, "value":$scope.$item.value})
+        console.log("Routing",Routing.generate('Live_rates_stocks',{"name" :$scope.$item.name, "value":$scope.$item.value}))
+        window.location.href= url
+
+    };
+
+    // *********** variables for pagination ************
+    let itemsDetails = [];
+    $scope.maxSize = 5;
+
+    $scope.currentPage = 1;
+    $scope.totalItems = function () {
+        return itemsDetails.length;
+    };
+    $scope.itemsPerPage = 100;
+
+    $scope.setPage = function (pageNo) {
+        $scope.currentPage = pageNo;
+    };
+
+    $scope.pageChanged = function() {
+        var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
+            end = begin + $scope.itemsPerPage;
+
+        $scope.filteredItems = itemsDetails.slice(begin, end);
+        $(document).scrollTop(0);
+    };
+    // *********** end ************
+
+
+
+    $scope.init = function (stocks_api, chart_link, stocks_likes, country_name, country_value) {
+       // console.log("api", stocks_api, chart_link, stocks_likes,country_name, country_value)
+
+        this.items = itemsDetails;
+        $scope.country_name = country_name;
+        $scope.country_value = country_value;
+
+        // *********************************
+
+
+        // all product
         $.ajax({
-            url: stocks_api,
+            url: "https://websocket-stock.herokuapp.com/stocks/" + country_value,
             type: "GET",
             success: function (result) {
+                $scope.result = result;
+                console.log("$scope.result",$scope.result)
 
-                $scope.all_stocks = result
-                console.log("all_stocks",$scope.all_stocks)
-                for (key in $scope.all_stocks) {
-                    if (i < 50) {
-                        $scope.all.push($scope.all_stocks[key])
-                        i++
+
+                var j = 0
+                for (const key in $scope.result) {
+                    if ($scope.result.hasOwnProperty(key)) {
+                        itemsDetails[j] = $scope.result[key];
+                        if(j<1000) { str = str + key + ",";}
+                        if(j>=1000 && j<2000) { str2 = str2 + key + ",";}
+                        if(j>=2000 && j<3000) { str3 = str3 + key + ",";}
+                        if(j>=3000 && j<4000) { str4 = str4 + key + ",";}
+                        if(j>=4000 && j<=5000) { str5 = str5 + key + ",";}
+                        j = j+1;
                     }
-                    else break;
                 }
+                str = str.substring(0, str.length - 1)
+                console.log("itemsDetails",itemsDetails)
+                //console.log("str",str)
+
+                $scope.totalItems = itemsDetails.length;
+
+                var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
+                    end = begin + $scope.itemsPerPage;
+
+                $scope.filteredItems = itemsDetails.slice(begin, end);
                 $scope.$apply()
             },
-
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
             }
         });
+
+        ////////////////////////////////////////////////////////
+        // currencie
+        // $.ajax({
+        //     url: stocks_api,
+        //     type: "GET",
+        //     success: function (result) {
+        //
+        //         $scope.all_stocks = result
+        //         console.log("all_stocks",$scope.all_stocks)
+        //         for (key in $scope.all_stocks) {
+        //             if (i < 50) {
+        //                 $scope.all.push($scope.all_stocks[key])
+        //                 i++
+        //             }
+        //             else break;
+        //         }
+        //         $scope.$apply()
+        //     },
+        //
+        //     error: function (xhr, ajaxOptions, thrownError) {
+        //         console.log("ERROR", thrownError, xhr, ajaxOptions)
+        //     }
+        // });
 
         // likes
         $.ajax({
@@ -64,52 +148,100 @@ stockApp.controller("stockController", function ($scope, $http) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
             }
         })
-    }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        var socket = io.connect("https://websocket-stock.herokuapp.com")
+        // country
+        $.ajax({
+            url: "https://websocket-stock.herokuapp.com/ListOfCountry",
+            type: "GET",
+            success: function (result) {
+                $scope.country = result
+                //console.log("$scope.country",$scope.country)
+                for (var k = 0; k < $scope.country[0].length; k++) {
 
-        socket.on('connect', function () {
-        socket.emit('room', "persec");
-        socket.on('message', data => {
-            //console.log("STOCK RESP", data)
-            for (const key in data) {
-                var item73 = $scope.all.find(function (element) {
-                    return (element.name == data[key].name);
-                })
-                if (typeof item73 != typeof undefined) {
-                    for (const ky in data[key]) {
-                        if (data.hasOwnProperty(key)) {
-                            item73[ky] = data[key][ky];
-                        }
+                    var obj = {
+                        name: $scope.country[1][k],
+                        value: $scope.country[0][k]
                     }
+                    $scope.listCountry.push(obj)
                 }
+                console.log("listCountry", $scope.listCountry)
                 $scope.$apply()
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log("ERROR", thrownError, xhr, ajaxOptions)
             }
         })
-    })
+    }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//     setTimeout(function(){
+//         var socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
+//         //console.log("str",str)
+//         socketStock.emit("subscribe", str);
+//         socketStock.emit("subscribe", str2);
+//         // socketStock.emit("subscribe", str3);
+//         // socketStock.emit("subscribe", str4);
+//         // socketStock.emit("subscribe", str5);
+//
+//         socketStock.on("message", (data) => {
+//             data = JSON.parse(data);
+//             //console.log("data",data)
+//
+//         // for (const key in data) {
+//             var item73 = itemsDetails.find(function (element) {
+//                 return (element.fromSymbol == data.symbol);
+//             })
+//             if (typeof item73 != typeof undefined) {
+//                 for (const ky in data[key]) {
+//                     if (data.hasOwnProperty(key)) {
+//                         item73['price'] = data['price'];
+//                     }
+//                 }
+//             }
+//             $scope.$apply()
+//         // }
+//
+//         })
+//     }, 3000);
+
+
+    // var socket = io.connect("https://websocket-stock.herokuapp.com")
+    //     socket.on('connect', function () {
+    //     socket.emit('room', "stockSocket");
+    //     socket.on('message', data => {
+    //         console.log("stock socket response", data)
+    //         for (const key in data) {
+    //             var item73 = $scope.all.find(function (element) {
+    //                 return (element.name == data[key].name);
+    //             })
+    //             if (typeof item73 != typeof undefined) {
+    //                 for (const ky in data[key]) {
+    //                     if (data.hasOwnProperty(key)) {
+    //                         item73[ky] = data[key][ky];
+    //                     }
+    //                 }
+    //             }
+    //             $scope.$apply()
+    //         }
+    //     })
+    // })
 
 
     $scope.ActiveChange = function (symbol) {
 
         var url =  Routing.generate('stock_chart',{"currency" :symbol})
-        console.log(Routing.generate('stock_chart',{"currency" :symbol}))
+        //console.log(Routing.generate('stock_chart',{"currency" :symbol}))
         window.location.href= url
-        //  console.log("----", Routing.generate('crypto_chart', from, to, true))
         return url
-        // console.log("----",Routing.generate('crypto_chart'))
-
     }
 
 });
 
-var dvstock = document.getElementById('dvstock');
-
-angular.element(document).ready(function() {
-
-    angular.bootstrap(dvstock, ['stockApp']);
-});
+// var dvstock = document.getElementById('dvstock');
 //
-// })(window);
-
+// angular.element(document).ready(function() {
+//
+//     angular.bootstrap(dvstock, ['stockApp']);
+// });
 

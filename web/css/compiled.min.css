@@ -115,6 +115,8 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
 .statistics {width: 100%;display: table;background-color: #2A3041;}
 .statistics_block {width: 16.6666%;padding: 5px 10px;display: table;float: left;border-right: 1px solid #707070;}
 .statistics_block_green-text {font-family: 'Avenir';font-weight: 800;text-align: left;color: #9CD400;font-size: 20px;margin: 0;}
+.statistics_block_red-text {font-family: 'Avenir';font-weight: 800;text-align: left;color:red;font-size: 20px;margin: 0;}
+.statistics_block-text {font-family: 'Avenir';font-weight: 800;text-align: left;font-size: 20px;margin: 0;}
 .statistics_block_min-text {font-size: 14px;}
 .no-active {color: red;}
 
