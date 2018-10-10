@@ -32,6 +32,12 @@ root:
         path: /stock-brokers
         permanent: true
 
+root:
+    path: /stockcurrencies/streaming-stock-rates-majors-social-sentiment
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /https://www.tradingcompare.com/stockcurrencies/streaming-stock-rates-majors-social-sentiment/United%20States/united-states-of-america
+        permanent: true
 #root:
 #    path: /forex2
 #    defaults:
