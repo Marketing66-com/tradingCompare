@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/bar.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/bar.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig" />
-      <change beforePath="$PROJECT_DIR$/web/css/charts.css" afterPath="$PROJECT_DIR$/web/css/charts.css" />
-      <change beforePath="$PROJECT_DIR$/web/js/bar.js" afterPath="$PROJECT_DIR$/web/js/bar.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,8 +19,8 @@
       <file leaf-file-name="bar.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/bar.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-42">
-              <caret line="10" column="82" lean-forward="false" selection-start-line="10" selection-start-column="82" selection-end-line="10" selection-end-column="82" />
+            <state relative-caret-position="357">
+              <caret line="17" column="50" lean-forward="false" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -153,8 +149,8 @@
         <option value="$PROJECT_DIR$/web/css/charts.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig" />
         <option value="$PROJECT_DIR$/web/js/script.js" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/bar.html.twig" />
         <option value="$PROJECT_DIR$/web/js/bar.js" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/bar.html.twig" />
       </list>
     </option>
   </component>
@@ -724,12 +720,12 @@
       <workItem from="1539271685005" duration="1787000" />
       <workItem from="1539273493410" duration="1811000" />
       <workItem from="1539275339497" duration="1785000" />
-      <workItem from="1539277151233" duration="1309000" />
+      <workItem from="1539277151233" duration="1603000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="484217000" />
+    <option name="totallyTimeSpent" value="484511000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1121,8 +1117,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/bar.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42">
-          <caret line="10" column="82" lean-forward="false" selection-start-line="10" selection-start-column="82" selection-end-line="10" selection-end-column="82" />
+        <state relative-caret-position="357">
+          <caret line="17" column="50" lean-forward="false" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
