@@ -103,8 +103,8 @@
                                             <div class="general_review_cont-block review_list_name">
                                                 <div class="review_list_center">
                                                     <p class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
-                                                    <img class="live_block_top_img" ng-src="{[{allimg[item.fromSymbol].img}]}" alt="{[{item.fromSymbol}]}">
-                                                    <h2 class="live_block_top_title" > {[{item.fromSymbol}]} </h2>
+                                                    <img class="live_block_top_img" ng-src="{[{item.img}]}" alt="">
+                                                    <h2 class="live_block_top_title" > {[{item.name}]} </h2>
                                                     <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">{[{(item.change24)}]}</p>
                                                 </div>
                                             </div>
@@ -153,7 +153,7 @@
                                                         <span class="chart_bitcoin-reting_prozent_like"><i class="buttonL buttonL2" target="_blank"><b>BEARISH</b></i></span>
                                                     </p>
                                                     <div class="chart_bitcoin-reting_progress-bar">
-                                                        <div class="reting_progress-bar_click chart_bitcoin-reting_prozent"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}">{[{allimg[item.fromSymbol].sentiment}]}%</div>
+                                                        <div class="reting_progress-bar_click chart_bitcoin-reting_prozent"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}">{[{item.sentiment}]}%</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -190,8 +190,8 @@
                             <div class="live_cont-block-padding ng-cloak"  ng-repeat="item in filteredItems">
                                 <div class="live_cont-block">
                                     <div class="live_block_top">
-                                        <img class="live_block_top_img" ng-src="{[{allimg[item.fromSymbol].img}]}" alt="{[{item.fromSymbol}]}">
-                                        <h2 class="live_block_top_title">{[{item.fromSymbol}]}</h2>
+                                        <img class="live_block_top_img" ng-src="{[{item.img}]}" >
+                                        <h2 class="live_block_top_title">{[{item.name}]}</h2>
                                     </div>
                                     <p class="live_block_money-left"><span class="live_block_money_bold " ng-class="{'negative': item.variation == 'down', 'positive':item.variation == 'up', 'neutral': item.variation == 'none'}"> {[{item.price}]}</span></p>
                                     <p class="live_block_money-right  " ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}"><span class="live_block_money_bold "ng-class="{'live_block_money_red ': item.change24 < 0, 'live_block_money_green ': item.change24 >= 0}" >{[{item.change24}]}</span></p>
@@ -211,13 +211,13 @@
                                         <p class="live_cont-block_like live_cont-block_like_left"><i  class="button button2" target="_blank"><b>BEARISH</b></i></p>
                                     </div>
 
-                                    <p class="chart_bitcoin-reting_prozent">Sentiment: {[{allimg[item.fromSymbol].sentiment}]}% Buying</p>
+                                    <p class="chart_bitcoin-reting_prozent">Sentiment: {[{item.sentiment}]}% Buying</p>
                                     <div class="chart_bitcoin-reting_progress-bar">
                                         <div class="reting_progress-bar_click"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}"></div>
                                     </div>
 
                                     <div class="live_cont-block_hover">
-                                        <p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>
+                                        {#<p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>#}
                                     </div>
                                 </div>
                                 <a class="live_trade-btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>

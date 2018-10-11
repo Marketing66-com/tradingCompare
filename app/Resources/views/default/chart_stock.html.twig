@@ -23,11 +23,11 @@
                             <div class="chart_bitcoin-cont">
                                 <div class="bitcoin_text-cont">
                                     <div class="bitcoin_img-cont">
-                                        <img class="bitcoin_img" ng-src="{[{allimg.img}]}"  alt="{{ currency }}">
+                                        <img class="bitcoin_img" ng-src="{[{mystock.img}]}"  alt="">
                                     </div>
                                     <div class="bitcoin_text-cont_left ">
-                                        <h3 class="bitcoin_title text_size">{[{allimg.name}]}<span class="bitcoin_title_right">{{ currency }}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
-                                        <h3 class="bitcoin_many text_size" ng-class="{'negative': mystock.variation == 'down', 'positive':mystock.variation == 'up', 'neutral': mystock.variation == 'none'}">{[{mystock.price}]} $
+                                        <h3 class="bitcoin_title text_size">{[{mystock.name}]}<span class="bitcoin_title_right">{{ currency }}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
+                                        <h3 class="bitcoin_many_stock text_size" ng-class="{'negative': mystock.variation == 'down', 'positive':mystock.variation == 'up', 'neutral': mystock.variation == 'none'}">{[{mystock.price}]} $
                                             <span class="statistics_block-text" ng-class="{'negative': mystock.change_pct < 0, 'positive': mystock.change_pct >= 0}">{[{mystock.change_pct}]}%
                                                 <span class="statistics_block_min-text">{[{mystock.point}]}</span>
                                                 <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></span>
@@ -68,7 +68,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-6 ">
                                     <a class="btcoin_btn sentiments_btn_red" target="_blank">BEARISH</a>
                                 </div>
-                                <p class="chart_bitcoin-reting_prozent">Sentiment: {[{allimg.sentiment }]}% Buying</p>
+                                <p class="chart_bitcoin-reting_prozent">Sentiment: {[{mystock.sentiment }]}% Buying</p>
                                 <div class="chart_bitcoin-reting_progress-bar">
                                     <div class="reting_progress-bar_click"></div>
                                 </div>
@@ -78,7 +78,7 @@
                         <div class="col-md-4 col-sm-6 col-xs-12 col-sm2">
                             <div class="chart_content-text">
                                 <p class="chart_content-text_info">
-                                    {[{allimg.name}]}  -  {{ currency}}
+                                    {[{mystock.name}]}  -  {{ currency}}
                                 </p>
                             </div>
                         </div>

@@ -3,11 +3,11 @@ var ChartApp = angular.module('chartApp', []).config(function ($interpolateProvi
 
 ChartApp.controller('ChartController', function($scope) {
 
-    $scope.allcrypto = []
-    $scope.alllikes = {}
-    $scope.element={}
     $scope.from ;
     $scope.to ;
+    $scope.sentiment;
+    $scope.name;
+    $scope.img;
 
     $scope.init = function (currency, from, to, crypto_api, crypto_likes) {
         $scope.from = from
@@ -17,32 +17,22 @@ ChartApp.controller('ChartController', function($scope) {
             url: crypto_api + "/" + from + "_" + to,
             type: "GET",
             success: function (result) {
-                //console.log("result", result)
-                $scope.mycrypto = result
-                $scope.$apply()
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                console.log("ERROR", thrownError, xhr, ajaxOptions)
-            }
-        });
+                // console.log("result", result)
+                $scope.mycrypto = result[from + "_" + to]
+                console.log("after",  $scope.mycrypto.name)
 
-        $.ajax({
-            url: crypto_likes,
-            type: "GET",
-            success: function (result) {
-                $scope.alllikes = result
-                for (const key in $scope.alllikes) {
-                    $scope.element[$scope.alllikes[key].symbol]= $scope.alllikes[key]
-                    var sent=($scope.element[$scope.alllikes[key].symbol].likes/($scope.element[$scope.alllikes[key].symbol].likes+$scope.element[$scope.alllikes[key].symbol].unlikes))*100
-                    // console.log("Response*likes*", sent)
-                    $scope.element[$scope.alllikes[key].symbol].sentiment=Number(sent.toFixed(1))
-                }
-                for (const key in $scope.element) {
+                if($scope.mycrypto.img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/piece.png"|| $scope.mycrypto.img == undefined || typeof $scope.mycrypto.img== "undefined")
+                    $scope.mycrypto.img = "/img/crypto_logos/crypto-other.png"
 
-                    if ($scope.element[key].symbol == from && $scope.element[key].toSymbol == to) {
-                        $scope.allimg = $scope.element[key]
-                    }
-                }
+                var sent=($scope.mycrypto.likes / ($scope.mycrypto.likes + $scope.mycrypto.unlikes)) *100
+                $scope.mycrypto.sentiment = Number(sent.toFixed(1))
+
+                $scope.sentiment = Number(sent.toFixed(1))
+                $scope.name = $scope.mycrypto.name
+                $scope.img = $scope.mycrypto.img
+
+                console.log("after",  $scope.mycrypto)
+                console.log("after",  $scope.mycrypto.name)
                 $scope.$apply()
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -56,14 +46,15 @@ ChartApp.controller('ChartController', function($scope) {
     var socket = io.connect("https://crypto.tradingcompare.com/")
     socket.on('connect', function () {
         var room =  $scope.from +"_"+ $scope.to
-        //console.log("$scope.to",$scope.to)
+
         socket.emit('room', room);
         socket.on('message', data => {
            //console.log("data*********************************", data)
             $scope.mycrypto = data
-            $scope.mycrypto.Maketcap =  data.marketcap
-            $scope.mycrypto.fromSymbol = $scope.from
-            $scope.mycrypto.toSymbol = $scope.to
+            $scope.mycrypto.name = $scope.name
+            $scope.mycrypto.img =  $scope.img
+            $scope.mycrypto.sentiment = $scope.sentiment
+
             $scope.$apply()
     })
     })

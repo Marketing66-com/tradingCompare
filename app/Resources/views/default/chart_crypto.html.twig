@@ -34,10 +34,10 @@
                             <div class="chart_bitcoin-cont">
                                 <div class="bitcoin_text-cont">
                                     <div class="bitcoin_img-cont">
-                                        <img class="bitcoin_img" ng-scr="{[{allimg.img}]}" alt="{[{mycrypto.fromSymbol}]}" >
+                                        <img class="bitcoin_img" ng-src="{[{mycrypto.img}]}" alt="{[{mycrypto.fromSymbol}]}" >
                                     </div>
                                     <div class="bitcoin_text-cont_left">
-                                        <h3 class="bitcoin_title">{[{allimg.name}]}<span class="bitcoin_title_right">{[{mycrypto.fromSymbol}]}/{[{mycrypto.toSymbol}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
+                                        <h3 class="bitcoin_title">{[{mycrypto.name}]}<span class="bitcoin_title_right">{[{mycrypto.pair.replace("_","/")}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
                                         <p
                                            class="statistics_block-text"
                                            ng-class="{' negative': mycrypto.change24 < 0, 'positive': mycrypto.change24 >= 0}">{[{mycrypto.change24}]}% <span class="statistics_block_min-text">{[{mycrypto.point}]}</span>
@@ -48,7 +48,7 @@
                                             Low:<span class="bitcoin_bottom-text_bold">{[{mycrypto.low24}]}</span>
                                             <br> Open: <span class="bitcoin_bottom-text_bold">{[{mycrypto.open24}]}</span>
                                             Close: <span class="bitcoin_bottom-text_bold">{[{mycrypto.price}]}</span>
-                                            <br> Market Cap: <span class="bitcoin_bottom-text_bold">{[{mycrypto.Maketcap}]}</span>
+                                            <br> Market Cap: <span class="bitcoin_bottom-text_bold">{[{mycrypto.marketcap}]}</span>
                                         </p>
                                     </div>
                                     <div class="bitcoin_text-cont_right">
@@ -60,9 +60,9 @@
                         </div>
                         <div class="col-md-4 col-sm-5 col-xs-12 ">
                             <div class="chart_bitcoin-reting">
-                                <p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-up"></i></span> {[{allimg.likes}]}</p>
-                                <p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-down"></i></span> {[{allimg.unlikes}]}</p>
-                                <p class="chart_bitcoin-reting_prozent">Sentiment: {[{allimg.sentiment }]}% Buying</p>
+                                <p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-up"></i></span> {[{mycrypto.likes}]}</p>
+                                <p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-down"></i></span> {[{mycrypto.unlikes}]}</p>
+                                <p class="chart_bitcoin-reting_prozent">Sentiment: {[{mycrypto.sentiment }]}% Buying</p>
                                 <div class="chart_bitcoin-reting_progress-bar">
                                     <div class="reting_progress-bar_click"></div>
                                 </div>
@@ -71,7 +71,7 @@
                         <div class="col-md-12 col-sm-7 col-xs-12 xs-none">
                             <div class="chart_content-text">
                                 <p class="chart_content-text_info">
-                                    {{ currency}}
+                                    {[{mycrypto.name}]} - {{ currency}}
                                 </p>
                             </div>
                         </div>

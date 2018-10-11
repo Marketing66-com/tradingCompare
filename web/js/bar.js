@@ -4,30 +4,19 @@ var firstApp = angular.module('firstApp', []).config(function ($interpolateProvi
 firstApp.controller('FirstController', function($scope) {
     $scope.desc1 = "First app. ";
 
-    $scope.allcrypto = []
     $scope.allforex = []
-    $scope.allstock = []
+    $scope.barstock = []
     $scope.allstock2 = []
 
-    $scope.init = function(api_forex, api_crypto, api_stock, crypto_from1, crypto_from2, crypto_to1 ,crypto_to2, forex_from1, forex_to1, forex_from2, forex_to2, stock1,stock2) {
+    $scope.init = function(api_forex, api_crypto, api_stock, crypto_from1, crypto_from2, crypto_to1 ,crypto_to2,
+                           forex_from1, forex_to1, forex_from2, forex_to2, stock1,stock2) {
 
         $.ajax({
-            url: api_crypto + "/" + crypto_from1 +"_"+ crypto_to1,
+            url: api_crypto + "/" + crypto_from1 +"_"+ crypto_to1 + "," + crypto_from2 +"_"+ crypto_to2,
             type: "GET",
             success: function (result) {
-                $scope.crypto3 = result
-                $scope.$apply()
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                console.log("ERROR", thrownError, xhr, ajaxOptions)
-            }
-        });
-
-        $.ajax({
-            url: api_crypto + "/" + crypto_from2 +"_"+ crypto_to2,
-            type: "GET",
-            success: function (result) {
-                $scope.crypto4 = result
+                $scope.crypto3 = result[crypto_from1+"_"+crypto_to1 ]
+                $scope.crypto4 = result[crypto_from2+"_"+crypto_to2 ]
                 $scope.$apply()
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -56,20 +45,16 @@ firstApp.controller('FirstController', function($scope) {
 
     ///////////////////////////////////////////////////////////////////////////////////////////
         $.ajax({
-            url: api_stock,
+            url: "https://websocket-stock.herokuapp.com/Getstocks/" + stock1 + "," + stock2,
             type: "GET",
             success: function (result) {
-                $scope.allstock = result
-                for (key in $scope.allstock) {
-                    if (key == "FB" || key == "AAPL") {
-                        $scope.allstock2.push($scope.allstock[key])
-                    }
-                }
-                for (key in result)
-                {
-                    if(key == stock1) {$scope.crypto5 = result[key];}
-                    if(key == stock2) { $scope.crypto6 = result[key];}
-                }
+                $scope.barstock = result
+                //console.log("$scope.barstock", $scope.barstock)
+                $scope.crypto5 = $scope.barstock[stock1]
+                $scope.crypto6 = $scope.barstock[stock2]
+
+                $scope.crypto5.name = $scope.crypto5.name.replace(", Inc. Common Stock", "")
+                $scope.crypto6.name = $scope.crypto6.name.replace("Inc.", "")
 
                 $scope.$apply()
             },
@@ -78,11 +63,16 @@ firstApp.controller('FirstController', function($scope) {
             }
         });
 
-//////////////////////////////////////////////////////////////////////////////////////////
+/////****************************SOCKETS*********************************/////
+        //CRYPTO
         var socket1 = io.connect("https://crypto.tradingcompare.com/")
         socket1.on('connect', function () {
-            socket1.emit('room', ["BTC_USD","ETH_USD"]);
+            var crypto1 = crypto_from1 + "_" + crypto_to1
+            var crypto2 = crypto_from2 + "_" + crypto_to2
+
+            socket1.emit('room', [crypto1, crypto2]);
             socket1.on('message', data => {
+               // console.log("data socket", data)
               if (data.hasOwnProperty('pair')) {
                   if (data.pair == $scope.crypto3.pair) {
                       $scope.crypto3 = data;
@@ -124,7 +114,9 @@ firstApp.controller('FirstController', function($scope) {
 
         //     })
         // })
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
+        //FOREX
         var socket2 = io.connect("https://forex-websocket.herokuapp.com/", {
             path: "/socket/forex/livefeed"}, {'force new connection': true})
         socket2.on('connect', function() {
@@ -161,32 +153,32 @@ firstApp.controller('FirstController', function($scope) {
         })
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-        var socket = io.connect("https://websocket-stock.herokuapp.com")
-        //console.log("ALLSTOCK",$scope.allstock)
-        socket.on('connect', function () {
-            socket.emit('room', "persec");
-            socket.on('message', data => {
-               // console.log("STOCK RESP", data)
-            for (const key in data) {
-                var item73 = $scope.allstock2.find(function (element) {
-
-                    return (element.name == data[key].name);
-
-                })
-                if (typeof item73 != typeof undefined) {
-                    for (const ky in data[key]) {
-                        if (data.hasOwnProperty(key)) {
-                            item73[ky] = data[key][ky];
-
-                        }
-                    }
-
-                }
-                $scope.$apply()
-            }
-        })
-        })
+        //STOCK
+        // var socket = io.connect("https://websocket-stock.herokuapp.com")
+        // //console.log("ALLSTOCK",$scope.allstock)
+        // socket.on('connect', function () {
+        //     socket.emit('room', "persec");
+        //     socket.on('message', data => {
+        //        // console.log("STOCK RESP", data)
+        //     for (const key in data) {
+        //         var item73 = $scope.allstock2.find(function (element) {
+        //
+        //             return (element.name == data[key].name);
+        //
+        //         })
+        //         if (typeof item73 != typeof undefined) {
+        //             for (const ky in data[key]) {
+        //                 if (data.hasOwnProperty(key)) {
+        //                     item73[ky] = data[key][ky];
+        //
+        //                 }
+        //             }
+        //
+        //         }
+        //         $scope.$apply()
+        //     }
+        // })
+        // })
 
     }
 });

@@ -10,7 +10,9 @@
 .chart_bitcoin-cont, .chart_bitcoin-reting {background-color: white;    width: 100%;    display: table;    padding: 0 15px;    position: relative; height:165px;}
 .padding_non {padding: 0 !important;}
 .bitcoin_img-cont {margin: 10px 5px;    display: table;    float: left;    width: 60px;    position: absolute;    left: 10px;    top: 10px;}
+.hello2 {margin: 10px 5px;    display: table;    float: left;    width: 60px;    position: absolute;    left: 10px;    top: 10px;}
 .bitcoin_img {width: 100%;}
+.hello {width: 100%;}
 .bitcoin_title { font-family: 'Avenir';    font-weight: 800;    color: #1E375E;    margin: 10px 0 0 0;}
 .bitcoin_title_right {    font-weight: 400;    color: #9B9B9B;    margin-left: 15px;    padding-left: 15px;    position: relative;}
 bitcoin_title_right:after {    content: ' ';    position: absolute;    top: 0;    left: 0;    height: 100%;    width: 2px;    background-color: #1E375E;}
@@ -22,9 +24,12 @@ bitcoin_title_right:after {    content: ' ';    position: absolute;    top: 0;  
 .bitcoin_text-cont_left {max-width: 70%;}
 .bitcoin_text-cont_right {float: right;min-width: 150px;    width: 30%;}
 .bitcoin_many {    font-family: 'Avenir';    font-weight: 800;    font-size: 30px;   text-align:right;    margin: 10px 0 15px 0;}
+.bitcoin_many_stock {    font-family: 'Avenir';    font-weight: 800;    font-size: 30px;   text-align:left;    margin: 10px 0 15px 0;}
 .btcoin_btn {    padding: 10px 30px;    background-color: #12A6F9;    color: white;    border-radius: 4px;    float: right;    margin: 10px 0;    border: 1px solid transparent;    transition: 0.3s all;}
-.sentiments_btn_red {    padding: 10px 30px;    background-color:transparent !important;    color: red;    border-radius: 4px;    float: right;    margin: 10px 0;    border: 1px solid red !important;    transition: 0.3s all;}
-.sentiments_btn_green {    padding: 10px 30px;    background-color:transparent !important;    color: #7ED400;    border-radius: 4px;    float: right;    margin: 10px 0;    border: 1px solid #7ED400 !important;    transition: 0.3s all;}
+.sentiments_btn_red {    padding: 10px 30px;    background-color:transparent ;    color: red;    border-radius: 4px;    float: right;    margin: 10px 0;    border: 1px solid red !important;    transition: 0.3s all;}
+.sentiments_btn_red:hover {background-color: #f44336;color: white;}
+.sentiments_btn_green {    padding: 10px 30px;    background-color:transparent ;    color: #7ED400;    border-radius: 4px;    float: right;    margin: 10px 0;    border: 1px solid #7ED400 !important;    transition: 0.3s all;}
+.sentiments_btn_green:hover {background-color: #7ED400;color: white;}
 .btn1{margin: 50px auto !important;}
 
 /* Create two equal columns that floats next to each other */
@@ -139,10 +144,12 @@ bitcoin_title_right:after {    content: ' ';    position: absolute;    top: 0;  
     .comments_user-text { text-align: justify;    }
     /*hz*/
     .bitcoin_img-cont {position: relative;        float: left;    }
+    .hello2 {position: relative;        float: left;    }
     .bitcoin_text-cont { width: auto;        padding-left: 20px;    }
     .bitcoin_title, .statistics_block_green-text, .bitcoin_many-mobile, .bitcoin_title, .bitcoin_text-cont .statistics_block_green-text, .bitcoin_many-mobile {        padding-left: 0;    }
     .bitcoin_text-cont_left {  float: left;        display: contents;    }
     .bitcoin_img-cont {  margin-right: 14px;        left: 0;    }
+    .hello2 {position: relative;        float: left;    }
     .bitcoin_title_right {  margin-left: 7px;        padding-left: 7px;    }
     /*hz*/
 

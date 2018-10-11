@@ -21,8 +21,15 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
             url: "https://websocket-stock.herokuapp.com/getStockPrice/" +  currency,
             type: "GET",
             success: function (result) {
-                // console.log("result ***",result)
+                console.log("result ***",result)
                 $scope.mystock = result[0]
+
+                if($scope.mystock.img == undefined || typeof $scope.mystock.img== "undefined")
+                    $scope.mystock.img = "/img/Stock_Logos/stocks.png"
+
+                var sent=($scope.mystock.likes / ($scope.mystock.likes + $scope.mystock.unlikes)) *100
+                $scope.mystock.sentiment=Number(sent.toFixed(1))
+
                 $scope.mystock.point = Number(Number(Math.abs(result[0]['price_open'] - result[0]['price'])).toFixed(2));
                 $scope.$apply()
             },
@@ -31,67 +38,38 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
             }
         });
 
+
+        ////////////////////////////////////////////////////////////////////
         // $.ajax({
-        //     url: api,
+        //     url: likes,
         //     type: "GET",
         //     success: function (result) {
-        //         //console.log("result $scope.all1",result)
-        //         $scope.stocks = result
-        //         console.log(" $scope.stocks", $scope.stocks)
+        //         $scope.alllikes = result
+        //         for (const key in $scope.alllikes) {
+        //             $scope.element[$scope.alllikes[key].symbol] = $scope.alllikes[key]
+        //             var sent = ($scope.element[$scope.alllikes[key].symbol].likes / ($scope.element[$scope.alllikes[key].symbol].likes + $scope.element[$scope.alllikes[key].symbol].unlikes)) * 100
+        //             // console.log("Response*likes*", sent)
+        //             $scope.element[$scope.alllikes[key].symbol].sentiment = Number(sent.toFixed(1))
         //
-        //         $scope.all.push($scope.stocks)
-        //         console.log(" $scope.all", $scope.all)
+        //         }
+        //         for (const key in $scope.element) {
         //
-        //         for (key in  $scope.stocks) {
-        //             //console.log($scope.all1[key].name)
-        //             if ($scope.stocks[key].pair == currency) {
-        //                 //console.log("*****")
-        //                 $scope.mystock = result[key]
-        //                 console.log("*****",$scope.mystock )
-        //                 //console.log("api************found", from, to,$scope.mycrypto )
+        //             if ($scope.element[key].symbol == currency) {
+        //                 $scope.allimg = $scope.element[key]
         //             }
+        //
         //         }
         //
-        //         $scope.$apply()
-        //     },
+        //         //console.log("Response*likes*", $scope.allimg)
         //
+        //         $scope.$apply()
+        //
+        //
+        //     },
         //     error: function (xhr, ajaxOptions, thrownError) {
         //         console.log("ERROR", thrownError, xhr, ajaxOptions)
         //     }
-        // });
-
-        ////////////////////////////////////////////////////////////////////
-        //console.log("likes", likes)
-        $.ajax({
-            url: likes,
-            type: "GET",
-            success: function (result) {
-                $scope.alllikes = result
-                for (const key in $scope.alllikes) {
-                    $scope.element[$scope.alllikes[key].symbol] = $scope.alllikes[key]
-                    var sent = ($scope.element[$scope.alllikes[key].symbol].likes / ($scope.element[$scope.alllikes[key].symbol].likes + $scope.element[$scope.alllikes[key].symbol].unlikes)) * 100
-                    // console.log("Response*likes*", sent)
-                    $scope.element[$scope.alllikes[key].symbol].sentiment = Number(sent.toFixed(1))
-
-                }
-                for (const key in $scope.element) {
-
-                    if ($scope.element[key].symbol == currency) {
-                        $scope.allimg = $scope.element[key]
-                    }
-
-                }
-
-                //console.log("Response*likes*", $scope.allimg)
-
-                $scope.$apply()
-
-
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                console.log("ERROR", thrownError, xhr, ajaxOptions)
-            }
-        })
+        // })
 
     }
 

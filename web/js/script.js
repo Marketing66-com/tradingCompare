@@ -44,6 +44,10 @@ app.controller('ListController', function($scope){
                 for (const key in $scope.result) {
                     if ($scope.result.hasOwnProperty(key)) {
                         itemsDetails[i] = $scope.result[key];
+                        if($scope.result[key].img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/piece.png"|| $scope.result[key].img == undefined || typeof $scope.result[key].img== "undefined")
+                            itemsDetails[i].img = "/img/crypto_logos/crypto-other.png"
+                        var sent=($scope.result[key].likes / ($scope.result[key].likes + $scope.result[key].unlikes)) *100
+                        itemsDetails[i].sentiment=Number(sent.toFixed(1))
                         i = i+1;
                     }
                 }
@@ -60,29 +64,6 @@ app.controller('ListController', function($scope){
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
             }
         });
-
-        // images
-        $.ajax({
-            url: crypto_likes,
-            type: "GET",
-            success: function (result) {
-                $scope.image = result
-                for (const key in $scope.image) {
-                    $scope.allimg[$scope.image[key].symbol] = {img: $scope.image[key].img }
-
-                    $scope.element[$scope.image[key].symbol]= $scope.image[key]
-                    var sent=($scope.element[$scope.image[key].symbol].likes/($scope.element[$scope.image[key].symbol].likes+$scope.element[$scope.image[key].symbol].unlikes))*100
-                    $scope.element[$scope.image[key].symbol].sentiment=Number(sent.toFixed(1))
-
-                }
-                $scope.allimg=$scope.element
-                $scope.$apply()
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                console.log("ERROR", thrownError, xhr, ajaxOptions)
-            }
-        });
-
     }
 
     $scope.getDisplayValue = function(currentValue)
