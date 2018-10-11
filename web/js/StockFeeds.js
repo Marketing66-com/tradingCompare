@@ -11,7 +11,6 @@ stockApp.controller("stockController", function ($scope) {
     $scope.country_name;
     $scope.country_value;
     // str = "", str2 = "", str3 = "", str4 = "", str5 = ""
-
     $scope.result = []
     $scope.country =[]
 
@@ -67,7 +66,7 @@ stockApp.controller("stockController", function ($scope) {
             type: "GET",
             success: function (result) {
                 $scope.result = result;
-                //console.log("$scope.result",$scope.result)
+                console.log("$scope.result",$scope.result)
 
                 var j = 0
                 for (const key in $scope.result) {
@@ -75,6 +74,7 @@ stockApp.controller("stockController", function ($scope) {
 
                         itemsDetails[j] = $scope.result[key];
 
+                        //NAME
                         if(itemsDetails[j].name.indexOf('Corporation') > -1)
                          itemsDetails[j].name = itemsDetails[j].name.replace('Corporation', '');
                         if(itemsDetails[j].name.indexOf('Common') > -1)
@@ -89,19 +89,24 @@ stockApp.controller("stockController", function ($scope) {
                         if(itemsDetails[j].name.indexOf('Inc') > -1)
                          itemsDetails[j].name = itemsDetails[j].name.replace('Inc', '');
 
+                        if(itemsDetails[j].name.indexOf('/') > -1)
+                            itemsDetails[j].name = itemsDetails[j].name.replace('/', '-');
+
                         if(itemsDetails[j].name === itemsDetails[j].name.toUpperCase())
                         itemsDetails[j].name = itemsDetails[j].name.charAt(0).toUpperCase() + itemsDetails[j].name.toLowerCase().substring(1, itemsDetails[j].name.length);
 
                         if (itemsDetails[j].name.length >=17)
                          itemsDetails[j].name = itemsDetails[j].name.substr(0, 17);
 
-                        itemsDetails[j].img = "https://storage.googleapis.com/iex/api/logos/" + key + ".png"
-                        if(itemsDetails[j].img == undefined || typeof itemsDetails[j].img == "undefined")
-                            itemsDetails[j].img = "/img/Stock_Logos/stocks.png"
 
-                        // if($scope.result[key].img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/stocks.png"|| $scope.result[key].img == undefined || typeof $scope.result[key].img== "undefined")
-                        //     itemsDetails[j].img = "/img/Stock_Logos/stocks.png"
+                        //IMAGE
+                        var img = "https://storage.googleapis.com/iex/api/logos/" + key + ".png"
+                        if(itemsDetails[j].img == undefined || typeof itemsDetails[j].img == "undefined" || img == undefined || typeof img == "undefined")
+                        itemsDetails[j].img = "/img/Stock_Logos/stocks.png"
+                        else
+                        itemsDetails[j].img = img
 
+                        // SENTIMENT
                         var sent=($scope.result[key].likes / ($scope.result[key].likes + $scope.result[key].unlikes)) *100
                         itemsDetails[j].sentiment=Number(sent.toFixed(1))
 
@@ -114,7 +119,7 @@ stockApp.controller("stockController", function ($scope) {
                     }
                 }
                 // str = str.substring(0, str.length - 1)
-                //console.log("itemsDetails",itemsDetails)
+                console.log("itemsDetails",itemsDetails)
 
                 $scope.totalItems = itemsDetails.length;
 
@@ -130,27 +135,6 @@ stockApp.controller("stockController", function ($scope) {
         });
 
         ////////////////////////////////////////////////////////
-
-        // likes
-        // $.ajax({
-        //     url: stocks_likes,
-        //     type: "GET",
-        //     success: function (result) {
-        //         $scope.alllikes = result
-        //         for (const key in $scope.alllikes) {
-        //             $scope.element[$scope.alllikes[key].symbol] = $scope.alllikes[key]
-        //             var sent = ($scope.element[$scope.alllikes[key].symbol].likes / ($scope.element[$scope.alllikes[key].symbol].likes + $scope.element[$scope.alllikes[key].symbol].unlikes)) * 100
-        //             // console.log("Response*likes*", sent)
-        //             $scope.element[$scope.alllikes[key].symbol].sentiment = Number(sent.toFixed(1))
-        //         }
-        //         $scope.allimg = $scope.element
-        //         //console.log("Response*likes*", $scope.allimg)
-        //         $scope.$apply()
-        //     },
-        //     error: function (xhr, ajaxOptions, thrownError) {
-        //         console.log("ERROR", thrownError, xhr, ajaxOptions)
-        //     }
-        // })
 
         // country
         $.ajax({
@@ -231,10 +215,10 @@ stockApp.controller("stockController", function ($scope) {
     // })
 
 
-    $scope.ActiveChange = function (symbol) {
+    $scope.ActiveChange = function (symbol, country, name) {
 
-        var url =  Routing.generate('stock_chart',{"currency" :symbol})
-        //console.log(Routing.generate('stock_chart',{"currency" :symbol}))
+        var url =  Routing.generate('stock_chart',{"currency" :symbol, "country":country, "name":name })
+        console.log(Routing.generate('stock_chart',{"currency" :symbol, "country":country, "name":name }))
         window.location.href= url
         return url
     }

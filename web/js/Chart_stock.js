@@ -24,13 +24,29 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
                 console.log("result ***",result)
                 $scope.mystock = result[0]
 
-                if($scope.mystock.img == undefined || typeof $scope.mystock.img== "undefined")
-                    $scope.mystock.img = "/img/Stock_Logos/stocks.png"
 
+                //IMAGE
+                var img = "https://storage.googleapis.com/iex/api/logos/" + $scope.mystock.symbol + ".png"
+                if($scope.mystock.img == undefined || typeof $scope.mystock.img == "undefined" || img == undefined || typeof img == "undefined")
+                    $scope.mystock.img = "/img/Stock_Logos/stocks.png"
+                else
+                $scope.mystock.img = img
+
+                //SYMBOL
+                if($scope.mystock.symbol.indexOf('.') > -1)
+                    $scope.mystock.symbol = $scope.mystock.symbol.split(".")[0]
+
+                //SENTIMENT
                 var sent=($scope.mystock.likes / ($scope.mystock.likes + $scope.mystock.unlikes)) *100
                 $scope.mystock.sentiment=Number(sent.toFixed(1))
 
+                //POINT
                 $scope.mystock.point = Number(Number(Math.abs(result[0]['price_open'] - result[0]['price'])).toFixed(2));
+
+                //SYMBOL
+                if($scope.mystock.symbol.indexOf('.') > -1)
+                    $scope.mystock.symbol = $scope.mystock.symbol.split(".")[0]
+
                 $scope.$apply()
             },
             error: function (xhr, ajaxOptions, thrownError) {

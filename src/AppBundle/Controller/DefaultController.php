@@ -42,14 +42,15 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/equities/price/{currency}", name="stock_chart", options={"expose" = true})
+     * @Route("/equities/price/{currency}/{country}/{name}", name="stock_chart", options={"expose" = true})
      */
-    public function stock_chartAction($currency)
+    public function stock_chartAction($currency, $country, $name)
     {
+        $my_country = ucfirst(str_replace("-", " ", $country));
         $apiStock =  $this->getParameter('stocks_api');
         $likeS = $this->getParameter('stocks_likes');
 
-        return $this->render('default/chart_stock.html.twig',array("currency"=>$currency,'api'=>$apiStock, 'like'=>$likeS,));
+        return $this->render('default/chart_stock.html.twig',array("currency"=>$currency, 'country'=>$my_country, 'name'=>$name, 'api'=>$apiStock,'like'=>$likeS,));
     }
 
 

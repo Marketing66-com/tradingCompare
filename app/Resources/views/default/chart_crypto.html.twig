@@ -34,7 +34,7 @@
                             <div class="chart_bitcoin-cont">
                                 <div class="bitcoin_text-cont">
                                     <div class="bitcoin_img-cont">
-                                        <img class="bitcoin_img" ng-src="{[{mycrypto.img}]}" alt="{[{mycrypto.fromSymbol}]}" >
+                                        <img class="bitcoin_img" ng-src="{[{mycrypto.img}]}" onerror="this.src='/img/crypto_logos/crypto-other.png'";>
                                     </div>
                                     <div class="bitcoin_text-cont_left">
                                         <h3 class="bitcoin_title">{[{mycrypto.name}]}<span class="bitcoin_title_right">{[{mycrypto.pair.replace("_","/")}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
