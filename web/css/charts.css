@@ -4,6 +4,7 @@
 .chart_search {    padding: 10px 0;    margin: 20px 0;}
 .search_input {    width: 100%;    background-color: #f2f3f5;    line-height: 35px;    box-shadow: none;    border: none;    border-radius: 25px;    padding: 0 25px;}
 .search_input:hover, .search_input:active, .search_input:focus {    border: none;    outline: none;}
+.search_input::placeholder{color:gray}
 /*search*/
 
 /*bitcoin*/
@@ -19,7 +20,7 @@ bitcoin_title_right:after {    content: ' ';    position: absolute;    top: 0;  
 .bitcoin_title_right-start {    font-family: 'Avenir';    font-weight: 800;    color: #12A6F9;    margin: 0 10px;    font-size: 22px;}
 .bitcoin_green-text_icon {    font-size: 20px;    color: #999999 !important;    margin-left: 10px;}
 .bitcoin_text-cont {    width: 100%;      padding: 10px 15px 0 80px;}/* display: table; */
-/*.bitcoin_text-cont {width: 100%; padding: 10px 15px 0 80px;}*/
+/*.bitcoin_text-cont {width: 100%;search_input padding: 10px 15px 0 80px;}*/
 .bitcoin_text-cont_left, .bitcoin_text-cont_right {display: table;float: left;}
 .bitcoin_text-cont_left {max-width: 70%;}
 .bitcoin_text-cont_right {float: right;min-width: 150px;    width: 30%;}

@@ -49,7 +49,7 @@ firstApp.controller('FirstController', function($scope) {
             type: "GET",
             success: function (result) {
                 $scope.barstock = result
-                //console.log("$scope.barstock", $scope.barstock)
+                console.log("$scope.barstock", $scope.barstock)
                 $scope.crypto5 = $scope.barstock[stock1]
                 $scope.crypto6 = $scope.barstock[stock2]
 
@@ -180,6 +180,28 @@ firstApp.controller('FirstController', function($scope) {
         // })
         // })
 
+    }
+
+    $scope.GotoCrypto = function (symbol) {
+        //console.log("symbol666", symbol)
+        var url =  Routing.generate('crypto_chart',{"currency" :symbol})
+        window.location.href= url
+        return url
+
+    }
+    $scope.GotoStock = function (symbol, country, name) {
+
+        var url =  Routing.generate('stock_chart',{"currency" :symbol, "country":country, "name":name })
+        console.log(Routing.generate('stock_chart',{"currency" :symbol, "country":country, "name":name }))
+        window.location.href= url
+        return url
+    }
+    $scope.GotoForex = function (symbol) {
+
+        var url =  Routing.generate('forex_chart',{"currency" :symbol})
+        console.log(Routing.generate('forex_chart',{"currency" :symbol}))
+        window.location.href= url
+        return url
     }
 });
 

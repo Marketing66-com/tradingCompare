@@ -6,34 +6,47 @@
         <div class="statistics">
             <div class="container">
                 <div class="row">
-                    <div class="statistics_block" >
-                    <p class="statistics_block_top-text">{[{crypto1.pair.slice(0, 3)}]}/{[{crypto1.pair.slice(3, 6)}]} <span class="statistics_block_number" ng-class="{'negative': crypto1.variation == 'down', 'positive':crypto1.variation == 'up', 'barneutral': crypto1.variation == 'none'}"> {[{crypto1.price}]}</span></p>
-                    <p class="statistics_block-text" ng-class="{'negative': crypto1.change24 < 0, 'positive': crypto1.change24 >= 0}">{[{crypto1.change24}]}% <span class="statistics_block_min-text">{[{crypto1.point}]}</span></p>
-                    </div>
 
                     <div class="statistics_block" >
+                    <a ng-click="GotoForex(crypto1.pair);" style="cursor:pointer" >
+                    <p class="statistics_block_top-text" style="text-decoration:none;">{[{crypto1.pair.slice(0, 3)}]}/{[{crypto1.pair.slice(3, 6)}]} <span class="statistics_block_number" ng-class="{'negative': crypto1.variation == 'down', 'positive':crypto1.variation == 'up', 'barneutral': crypto1.variation == 'none'}"> {[{crypto1.price}]}</span></p>
+                    <p class="statistics_block-text" ng-class="{'negative': crypto1.change24 < 0, 'positive': crypto1.change24 >= 0}">{[{crypto1.change24}]}% <span class="statistics_block_min-text">{[{crypto1.point}]}</span></p>
+                    </a>
+                    </div>
+
+                    <div class="statistics_block" style="cursor:pointer;">
+                    <a ng-click="GotoForex(crypto1.pair);" style="text-decoration:none; ">
                     <p class="statistics_block_top-text">{[{crypto2.pair.slice(0, 3)}]}/{[{crypto2.pair.slice(3, 6)}]} <span class="statistics_block_number"  ng-class="{'negative': crypto2.variation == 'down', 'positive':crypto2.variation == 'up', 'barneutral': crypto2.variation == 'none'}"> {[{crypto2.price}]}</span></p>
                     <p class="statistics_block-text" ng-class="{'statistics_block_red-text negative': crypto2.change24 < 0, 'positive': crypto2.change24 >= 0}">{[{crypto2.change24}]}% <span class="statistics_block_min-text">{[{crypto2.point}]}</span></p>
+                    </a>
                     </div>
 
-                    <div class="statistics_block xs-none" >
-                    <p class="statistics_block_top-text">{[{crypto3.pair.replace("_","/")}]}<span class="statistics_block_number" ng-class="{'negative': crypto3.variation == 'down', 'positive':crypto3.variation == 'up', 'barneutral': crypto3.variation == 'none'}"> {[{crypto3.price}]}</span></p>
+                    <div class="statistics_block xs-none" style="cursor:pointer;">
+                    <a ng-click="GotoCrypto(crypto3.pair);" style="text-decoration:none; ">
+                    <p class="statistics_block_top-text">{[{crypto3.pair.replace("_","/")}]}<span class="statistics_block_number"  ng-class="{'negative': crypto3.variation == 'down', 'positive':crypto3.variation == 'up', 'barneutral': crypto3.variation == 'none'}"> {[{crypto3.price}]}</span></p>
                     <p class="statistics_block-text" ng-class="{'negative': crypto3.change24 < 0, 'positive': crypto3.change24 >= 0}">{[{crypto3.change24}]}% <span class="statistics_block_min-text">{[{crypto3.point}]}</span></p>
+                    </a>
                     </div>
 
-                    <div class="statistics_block xs-none sx-border-non" >
+                    <div class="statistics_block xs-none sx-border-non" style="cursor:pointer;"  >
+                    <a ng-click="GotoCrypto(crypto4.pair);" style="text-decoration:none; ">
                     <p class="statistics_block_top-text">{[{crypto4.pair.replace("_","/")}]}<span class="statistics_block_number" ng-class="{'negative': crypto4.variation == 'down', 'positive':crypto4.variation == 'up', 'barneutral': crypto4.variation == 'none'}"> {[{crypto4.price}]}</span></p>
                     <p class="statistics_block-text" ng-class="{'negative': crypto4.change24 < 0, 'positive': crypto4.change24 >= 0}">{[{crypto4.change24}]}% <span class="statistics_block_min-text">{[{crypto4.point}]}</span></p>
+                    </a>
                     </div>
 
-                    <div class="statistics_block ms-none" >
+                    <div class="statistics_block ms-none" style="cursor:pointer">
+                    <a ng-click="GotoStock(crypto5.pair,crypto5.country,crypto5.name);" style="text-decoration:none; ">
                     <p class="statistics_block_top-text">{[{crypto5.name}]} <span class="statistics_block_number" ng-class="{'negative': crypto5.variation == 'down', 'positive':crypto5.variation == 'up', 'barneutral': crypto5.variation == 'none'}"> {[{crypto5.price}]}</span></p>
                     <p class="statistics_block-text" ng-class="{'negative': crypto5.change24 < 0, 'positive': crypto5.change24 >= 0}">{[{crypto5.change24}]}% <span class="statistics_block_min-text">{[{crypto5.point}]}</span></p>
+                    </a>
                     </div>
 
-                    <div class="statistics_block border-none ms-none" >
+                    <div class="statistics_block border-none ms-none" style="cursor:pointer">
+                    <a ng-click="GotoStock(crypto6.pair,crypto6.country,crypto6.name);" style="text-decoration:none; ">
                     <p class="statistics_block_top-text">{[{crypto6.name}]} <span class="statistics_block_number" ng-class="{'negative': crypto6.variation == 'down', 'positive':crypto6.variation == 'up', 'barneutral': crypto6.variation == 'none'}"> {[{crypto6.price}]}</span></p>
                     <p class="statistics_block-text" ng-class="{'negative': crypto6.change24 < 0, 'positive': crypto6.change24 >= 0}">{[{crypto6.change24}]}% <span class="statistics_block_min-text">{[{crypto6.point}]}</span></p>
+                    </a>
                     </div>
                 </div>
             </div>
@@ -42,3 +55,5 @@
 </div>
 
 <script src="{{ asset('js/bar.js') }}"></script>
+<script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
