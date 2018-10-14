@@ -220,13 +220,13 @@ stockApp.controller("stockController", function ($scope) {
 
     /////////////////////////////////////////////////////////////////////////////
 
-    $scope.ActiveChange = function (symbol, country, name) {
+    $scope.ActiveChange = function (symbol, name) {
 
         if(name.indexOf(' ') > -1)
          name = name.replace(/ /g, '-')
 
-        var url =  Routing.generate('stock_chart',{"symbol" :symbol, "country":country, "name":name })
-        console.log(Routing.generate('stock_chart',{"symbol" :symbol, "country":country, "name":name }))
+        var url =  Routing.generate('stock_chart',{"symbol" :symbol, "name":name })
+        console.log(Routing.generate('stock_chart',{"symbol" :symbol, "name":name }))
         window.location.href= url
         return url
     }

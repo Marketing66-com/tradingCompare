@@ -37,20 +37,20 @@ class DefaultController extends Controller
         $apiF =  $this->getParameter('forex_api');
         $likeF = $this->getParameter('forex_likes');
         $from = substr($currency, 0, 3);
-        $to =  substr($currency, 4, 5);
+        $to =  substr($currency, 4, 6);
         $pair = str_replace("-", "_", $currency);
         return $this->render('default/chart_forex.html.twig',array("currency"=>$pair, "from"=>$from , "to"=>$to ,'api'=>$apiF, 'like'=>$likeF));
     }
 
     /**
-     * @Route("/{symbol}/{name}/{country}/stock-price", name="stock_chart", options={"expose" = true})
+     * @Route("/{symbol}/{name}/stock-price", name="stock_chart", options={"expose" = true})
      */
-    public function stock_chartAction($symbol,$name,$country)
+    public function stock_chartAction($symbol,$name)
     {
-        $my_country = ucfirst(str_replace("-", " ", $country));
+//        $my_country = ucfirst(str_replace("-", " ", $country));
         $my_name = ucfirst(str_replace("-", " ", $name));
 
-        return $this->render('default/chart_stock.html.twig',array("symbol"=>$symbol, 'country'=>$my_country, 'name'=>$my_name));
+        return $this->render('default/chart_stock.html.twig',array("symbol"=>$symbol, 'name'=>$my_name));
     }
 
 

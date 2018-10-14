@@ -3,7 +3,7 @@
  {% block description %}
 
      <title>{{symbol | split('.')[0]}} Stock Price - {{ name}} Stock Quote - Trading Compare</title>
-     <meta name="description" content="{{ name}} ({{symbol| split('.')[0]}}), stock price, stock quotes and financial overviews from Trading Compare. Follow the ${{ symbol| split('.')[0]}} chart in real-time.">
+     <meta name="description" content="{{ name}} ({{symbol| split('.')[0]}}), stock price, stock quotes and financial overviews from Trading Compare. Follow the {{ symbol| split('.')[0]}} chart in real-time.">
  {% endblock %}
 
 {% block body %}
@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="bitcoin_text-cont_left ">
                                         <h3 class="bitcoin_title text_size">{[{mystock.name}]}<span class="bitcoin_title_right">{[{mystock.symbol}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
-                                        <h3 class="bitcoin_many_stock text_size" ng-class="{'negative': mystock.variation == 'down', 'positive':mystock.variation == 'up', 'neutral': mystock.variation == 'none'}">{[{mystock.price}]} $
+                                        <h3 class="bitcoin_many_stock text_size" ng-class="{'negative': mystock.variation == 'down', 'positive':mystock.variation == 'up', 'neutral': mystock.variation == 'none'}">{[{mystock.price}]} {[{mystock.devise}]}
                                             <span class="statistics_block-text" ng-class="{'negative': mystock.change_pct < 0, 'positive': mystock.change_pct >= 0}">{[{mystock.change_pct}]}%
                                                 <span class="statistics_block_min-text">{[{mystock.point}]}</span>
                                                 <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></span>
@@ -44,17 +44,17 @@
                                 <div class="bitcoin_text-cont_left">
                                     <p class="bitcoin_bottom-text text-price column">
 
-                                        High: <span class="bitcoin_bottom-text_bold">{[{mystock.day_high}]} $</span>
-                                        <br>Low:<span class="bitcoin_bottom-text_bold">{[{mystock.day_low}]} $</span>
-                                        <br> Open: <span class="bitcoin_bottom-text_bold">{[{mystock.price_open}]} $</span>
-                                        <br> Close: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]} $</span>
-                                        <br> Year High: <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_high"]}]} $</span>
-                                        <br> Year Low: <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_low"]}]} $</span>
+                                        High: <span class="bitcoin_bottom-text_bold">{[{mystock.day_high}]} {[{mystock.devise}]}</span>
+                                        <br>Low:<span class="bitcoin_bottom-text_bold">{[{mystock.day_low}]} {[{mystock.devise}]}</span>
+                                        <br> Open: <span class="bitcoin_bottom-text_bold">{[{mystock.price_open}]} {[{mystock.devise}]}</span>
+                                        <br> Close: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]} {[{mystock.devise}]}</span>
+                                        <br> Year High: <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_high"]}]} {[{mystock.devise}]}</span>
+                                        <br> Year Low: <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_low"]}]} {[{mystock.devise}]}</span>
                                         <br> Day Change: <span class="bitcoin_bottom-text_bold">{[{mystock.day_change}]} %</span>
-                                        <br> Close Yesterday: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]} $</span>
-                                        <br> Market Cap: <span class="bitcoin_bottom-text_bold">{[{mystock.market_cap}]} $</span>
-                                        <br> Volume: <span class="bitcoin_bottom-text_bold">{[{mystock.volume}]} $</span>
-                                        <br> Shares: <span class="bitcoin_bottom-text_bold">{[{mystock.shares}]} $</span>
+                                        <br> Close Yesterday: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]} {[{mystock.devise}]}</span>
+                                        <br> Market Cap: <span class="bitcoin_bottom-text_bold">{[{mystock.market_cap}]} {[{mystock.devise}]}</span>
+                                        <br> Volume: <span class="bitcoin_bottom-text_bold">{[{mystock.volume}]} {[{mystock.devise}]}</span>
+                                        <br> Shares: <span class="bitcoin_bottom-text_bold">{[{mystock.shares}]} {[{mystock.devise}]}</span>
 
                                     </p>
                                 </div>

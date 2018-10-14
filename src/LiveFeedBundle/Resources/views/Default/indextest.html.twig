@@ -162,7 +162,7 @@
 
                                             <div class="general_review_cont-block review_list_cont-chart">
                                                 <div class="review_list_center">
-                                                    <a ng-click="ActiveChange(item.pair, item.country, item.name);"><img class="live_block_chart" src='{{asset("img/chart-design/chart_1.png")}}'  alt="chart_1"></a>
+                                                    <a ng-click="ActiveChange(item.pair, item.name);"><img class="live_block_chart" src='{{asset("img/chart-design/chart_1.png")}}'  alt="chart_1"></a>
                                                 </div>
                                             </div>
 
@@ -195,7 +195,7 @@
                                     </div>
                                     <p class="live_block_money-left"><span class="live_block_money_bold " ng-class="{'negative': item.variation == 'down', 'positive':item.variation == 'up', 'neutral': item.variation == 'none'}"> {[{item.price}]}</span></p>
                                     <p class="live_block_money-right  " ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}"><span class="live_block_money_bold "ng-class="{'live_block_money_red ': item.change24 < 0, 'live_block_money_green ': item.change24 >= 0}" >{[{item.change24}]}</span></p>
-                                    <a ng-click="ActiveChange(item.pair, item.country, item.name);"><img class="live_block_chart" src= '{{asset("img/chart-design//chart_long.png" )}}' alt="chart_long">
+                                    <a ng-click="ActiveChange(item.pair, item.name);"><img class="live_block_chart" src= '{{asset("img/chart-design//chart_long.png" )}}' alt="chart_long">
                                     </a>
                                     <p class="live_block_money-left ">High <br><span class="live_block_money_bold">{[{item.high24}]}</span></p>
                                     <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">{[{item.low24}]}</span></p>
