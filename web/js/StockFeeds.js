@@ -13,12 +13,16 @@ stockApp.controller("stockController", function ($scope) {
     // str = "", str2 = "", str3 = "", str4 = "", str5 = ""
     $scope.result = []
     $scope.country =[]
+    var str = ""
 
     $scope.onSelect = function ($item, $model, $label) {
         $scope.$item = $item;
         $scope.$model = $model;
         $scope.$label = $label;
         console.log("$scope.$item",$scope.$item.name,$scope.$model,$scope.$label)
+
+        if($scope.$item.name.indexOf(' ') > -1)
+            $scope.$item.name = $scope.$item.name.replace(' ', '-')
 
         var url =  Routing.generate('Live_rates_stocks',{"name" :$scope.$item.name, "value":$scope.$item.value})
         console.log("Routing",Routing.generate('Live_rates_stocks',{"name" :$scope.$item.name, "value":$scope.$item.value}))
@@ -45,12 +49,19 @@ stockApp.controller("stockController", function ($scope) {
             end = begin + $scope.itemsPerPage;
 
         $scope.filteredItems = itemsDetails.slice(begin, end);
+
+        // str = ""
+        // for(var i = 0; i<= 99; i++)
+        // { str =  str + $scope.filteredItems[i].pair + "," }
+        // str = str.substring(0, str.length - 1);
+        //console.log("str",str)
+
         $(document).scrollTop(0);
     };
     // *********** end ************
 
 
-    $scope.init = function (stocks_api, chart_link, stocks_likes, country_name, country_value) {
+    $scope.init = function (country_name, country_value) {
        // console.log("api", stocks_api, chart_link, stocks_likes,country_name, country_value)
 
         this.items = itemsDetails;
@@ -75,19 +86,19 @@ stockApp.controller("stockController", function ($scope) {
                         itemsDetails[j] = $scope.result[key];
 
                         //NAME
-                        if(itemsDetails[j].name.indexOf('Corporation') > -1)
-                         itemsDetails[j].name = itemsDetails[j].name.replace('Corporation', '');
-                        if(itemsDetails[j].name.indexOf('Common') > -1)
-                         itemsDetails[j].name = itemsDetails[j].name.replace('Common', '');
-                        if(itemsDetails[j].name.indexOf('Stock') > -1)
-                         itemsDetails[j].name = itemsDetails[j].name.replace('Stock', '');
+                        if(itemsDetails[j].name.indexOf(' Corporation') > -1)
+                         itemsDetails[j].name = itemsDetails[j].name.replace(' Corporation', '');
+                        if(itemsDetails[j].name.indexOf(' Common') > -1)
+                         itemsDetails[j].name = itemsDetails[j].name.replace(' Common', '');
+                        if(itemsDetails[j].name.indexOf(' Stock') > -1)
+                         itemsDetails[j].name = itemsDetails[j].name.replace(' Stock', '');
 
                         if(itemsDetails[j].name.indexOf(', Inc.') > -1)
                          itemsDetails[j].name = itemsDetails[j].name.replace(', Inc.', '');
-                        if(itemsDetails[j].name.indexOf('Inc.') > -1)
-                         itemsDetails[j].name = itemsDetails[j].name.replace('Inc.', '');
-                        if(itemsDetails[j].name.indexOf('Inc') > -1)
-                         itemsDetails[j].name = itemsDetails[j].name.replace('Inc', '');
+                        if(itemsDetails[j].name.indexOf(' Inc.') > -1)
+                         itemsDetails[j].name = itemsDetails[j].name.replace(' Inc.', '');
+                        if(itemsDetails[j].name.indexOf(' Inc') > -1)
+                         itemsDetails[j].name = itemsDetails[j].name.replace(' Inc', '');
 
                         if(itemsDetails[j].name.indexOf('/') > -1)
                             itemsDetails[j].name = itemsDetails[j].name.replace('/', '-');
@@ -97,6 +108,9 @@ stockApp.controller("stockController", function ($scope) {
 
                         if (itemsDetails[j].name.length >=17)
                          itemsDetails[j].name = itemsDetails[j].name.substr(0, 17);
+
+                        if(itemsDetails[j].name.substr(itemsDetails[j].name.length - 1) == ' ')
+                            itemsDetails[j].name = itemsDetails[j].name.substring(0, itemsDetails[j].name.length - 1);
 
 
                         //IMAGE
@@ -110,11 +124,6 @@ stockApp.controller("stockController", function ($scope) {
                         var sent=($scope.result[key].likes / ($scope.result[key].likes + $scope.result[key].unlikes)) *100
                         itemsDetails[j].sentiment=Number(sent.toFixed(1))
 
-                        // if(j<1000) { str = str + key + ",";}
-                        // if(j>=1000 && j<2000) { str2 = str2 + key + ",";}
-                        // if(j>=2000 && j<3000) { str3 = str3 + key + ",";}
-                        // if(j>=3000 && j<4000) { str4 = str4 + key + ",";}
-                        // if(j>=4000 && j<=5000) { str5 = str5 + key + ",";}
                         j = j+1;
                     }
                 }
@@ -127,12 +136,20 @@ stockApp.controller("stockController", function ($scope) {
                     end = begin + $scope.itemsPerPage;
 
                 $scope.filteredItems = itemsDetails.slice(begin, end);
+                //console.log("$scope.filteredItems",$scope.filteredItems[0].pair)
+                // str = ""
+                // for(var i = 0; i<= 99; i++)
+                // { str =  str + $scope.filteredItems[i].pair + "," }
+                // str = str.substring(0, str.length - 1);
+                //console.log("af str", str)
+
                 $scope.$apply()
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
             }
         });
+
 
         ////////////////////////////////////////////////////////
 
@@ -158,40 +175,27 @@ stockApp.controller("stockController", function ($scope) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
             }
         })
-    }
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//     setTimeout(function(){
-//         var socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
-//         //console.log("str",str)
-//         socketStock.emit("subscribe", str);
-//         socketStock.emit("subscribe", str2);
-//         // socketStock.emit("subscribe", str3);
-//         // socketStock.emit("subscribe", str4);
-//         // socketStock.emit("subscribe", str5);
-//
-//         socketStock.on("message", (data) => {
-//             data = JSON.parse(data);
-//             //console.log("data",data)
-//
-//         // for (const key in data) {
-//             var item73 = itemsDetails.find(function (element) {
-//                 return (element.fromSymbol == data.symbol);
-//             })
-//             if (typeof item73 != typeof undefined) {
-//                 for (const ky in data[key]) {
-//                     if (data.hasOwnProperty(key)) {
-//                         item73['price'] = data['price'];
-//                     }
-//                 }
-//             }
-//             $scope.$apply()
-//         // }
-//
-//         })
-//     }, 3000);
+// //    STOCK
+    // var socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
+    // console.log("socket str", str)
+    // socketStock.emit("subscribe", symbol);
+    //
+    // socketStock.on("message", (data) => {
+    //     data = JSON.parse(data);
+    //     //console.log("data", data)
+    //     $scope.mystock.price = data.price
+    //     $scope.mystock.change24 = (((data.price - $scope.mystock.price_open) / $scope.mystock.price_open) * 100).toFixed(2)
+    //     $scope.mystock.point = ($scope.mystock.price_open - data.price).toFixed(2)
+    //
+    //     $scope.$apply()
+    //
+    // })
 
+}
 
     // var socket = io.connect("https://websocket-stock.herokuapp.com")
     //     socket.on('connect', function () {
@@ -214,11 +218,15 @@ stockApp.controller("stockController", function ($scope) {
     //     })
     // })
 
+    /////////////////////////////////////////////////////////////////////////////
 
     $scope.ActiveChange = function (symbol, country, name) {
 
-        var url =  Routing.generate('stock_chart',{"currency" :symbol, "country":country, "name":name })
-        console.log(Routing.generate('stock_chart',{"currency" :symbol, "country":country, "name":name }))
+        if(name.indexOf(' ') > -1)
+         name = name.replace(/ /g, '-')
+
+        var url =  Routing.generate('stock_chart',{"symbol" :symbol, "country":country, "name":name })
+        console.log(Routing.generate('stock_chart',{"symbol" :symbol, "country":country, "name":name }))
         window.location.href= url
         return url
     }

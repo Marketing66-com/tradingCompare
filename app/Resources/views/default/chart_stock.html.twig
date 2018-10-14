@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 
  {% block description %}
-     <title>Bank of {{ country }}, all about {{ name}} {{ currency}} Real-time Quote and sentiment</title>
-     <meta name="description" content="Latest Bank of {{ country }}, all about {{ name}} {{ currency}}, share price with interactive charts, social sentiment, social comment, historical prices, comparative analysis, forecasts, business profile and more.">
+
+     <title>{{symbol | split('.')[0]}} Stock Price - {{ name}} Stock Quote - Trading Compare</title>
+     <meta name="description" content="{{ name}} ({{symbol| split('.')[0]}}), stock price, stock quotes and financial overviews from Trading Compare. Follow the ${{ symbol| split('.')[0]}} chart in real-time.">
  {% endblock %}
 
 {% block body %}
-    <div id="dvChart_stock" class="my-container  ng-cloak" ng-controller="Chart_stockController" ng-init="init('{{ api }}', '{{ currency }}','{{ like }}')">
+    <div id="dvChart_stock" class="my-container  ng-cloak" ng-controller="Chart_stockController" ng-init="init('{{ symbol }}')">
         <div ng-controller="Chart_stockController ">
             <section class="table">
                 <div class="chart_search">
@@ -78,7 +79,8 @@
                         <div class="col-md-4 col-sm-6 col-xs-12 col-sm2">
                             <div class="chart_content-text">
                                 <p class="chart_content-text_info">
-                                    {[{mystock.name}]}  -  {[{mystock.symbol}]}
+                                    {[{mystock.name}]} - {{ symbol| split('.')[0]}}<br><br>
+                                    {[{mystock.description}]}
                                 </p>
                             </div>
                         </div>

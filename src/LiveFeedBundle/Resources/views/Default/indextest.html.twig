@@ -103,7 +103,7 @@
                                             <div class="general_review_cont-block review_list_name">
                                                 <div class="review_list_center">
                                                     <p class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
-                                                    <img class="live_block_top_img" ng-src="{[{item.img}]}" alt="">
+                                                    <img class="live_block_top_img" ng-src="{[{item.img}]}" onerror="this.src='/img/Stock_Logos/stocks.png'";>
                                                     <h2 class="live_block_top_title" > {[{item.name}]} </h2>
                                                     <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">{[{(item.change24)}]}</p>
                                                 </div>
@@ -190,7 +190,7 @@
                             <div class="live_cont-block-padding ng-cloak"  ng-repeat="item in filteredItems">
                                 <div class="live_cont-block">
                                     <div class="live_block_top">
-                                        <img class="live_block_top_img" ng-src="{[{item.img}]}" >
+                                        <img class="live_block_top_img" ng-src="{[{item.img}]}" onerror="this.src='/img/Stock_Logos/stocks.png'";>
                                         <h2 class="live_block_top_title">{[{item.name}]}</h2>
                                     </div>
                                     <p class="live_block_money-left"><span class="live_block_money_bold " ng-class="{'negative': item.variation == 'down', 'positive':item.variation == 'up', 'neutral': item.variation == 'none'}"> {[{item.price}]}</span></p>

@@ -9,7 +9,7 @@ ChartApp.controller('ChartController', function($scope) {
     $scope.name;
     $scope.img;
 
-    $scope.init = function (currency, from, to, crypto_api, crypto_likes) {
+    $scope.init = function (currency, from, to, crypto_api) {
         $scope.from = from
         $scope.to = to
 

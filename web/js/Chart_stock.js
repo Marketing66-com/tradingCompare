@@ -5,25 +5,18 @@ var Chart_stockApp = angular.module('Chart_stockApp', []).config(function ($inte
 Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
 
     $scope.stocks = []
-    $scope.images = {}
-    $scope.myimage = []
-    $scope.myimage = []
-    $scope.all = []
-    $scope.alllikes = {}
-    $scope.element={}
 
     var i = 0
-    $scope.init = function (api, currency,likes) {
-        console.log("currency",api, currency,likes)
-
+    $scope.init = function (symbol) {
+        //console.log("symbol", symbol)
 
         $.ajax({
-            url: "https://websocket-stock.herokuapp.com/getStockPrice/" +  currency,
+            url: "https://websocket-stock.herokuapp.com/getStockPrice/" +  symbol,
             type: "GET",
             success: function (result) {
-                console.log("result ***",result)
+                //console.log("result ***",result)
                 $scope.mystock = result[0]
-
+                //console.log(" $scope.mystock ***", $scope.mystock)
 
                 //IMAGE
                 var img = "https://storage.googleapis.com/iex/api/logos/" + $scope.mystock.symbol + ".png"
@@ -54,41 +47,38 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
             }
         });
 
-
         ////////////////////////////////////////////////////////////////////
-        // $.ajax({
-        //     url: likes,
-        //     type: "GET",
-        //     success: function (result) {
-        //         $scope.alllikes = result
-        //         for (const key in $scope.alllikes) {
-        //             $scope.element[$scope.alllikes[key].symbol] = $scope.alllikes[key]
-        //             var sent = ($scope.element[$scope.alllikes[key].symbol].likes / ($scope.element[$scope.alllikes[key].symbol].likes + $scope.element[$scope.alllikes[key].symbol].unlikes)) * 100
-        //             // console.log("Response*likes*", sent)
-        //             $scope.element[$scope.alllikes[key].symbol].sentiment = Number(sent.toFixed(1))
-        //
-        //         }
-        //         for (const key in $scope.element) {
-        //
-        //             if ($scope.element[key].symbol == currency) {
-        //                 $scope.allimg = $scope.element[key]
-        //             }
-        //
-        //         }
-        //
-        //         //console.log("Response*likes*", $scope.allimg)
-        //
-        //         $scope.$apply()
-        //
-        //
-        //     },
-        //     error: function (xhr, ajaxOptions, thrownError) {
-        //         console.log("ERROR", thrownError, xhr, ajaxOptions)
-        //     }
-        // })
+        $.ajax({
+            url: "https://api.iextrading.com/1.0/stock/" + symbol + "/company",
+            type: "GET",
+            success: function (result) {
+                console.log("result ***",result)
+                $scope.mystock.description = result.description
+                $scope.$apply()
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log("ERROR", thrownError, xhr, ajaxOptions)
+            }
+        });
 
-    }
 
+    /**************************** Socket **********************/
+
+    //STOCK
+    var socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
+    socketStock.emit("subscribe", symbol);
+
+    socketStock.on("message", (data) => {
+        data = JSON.parse(data);
+        //console.log("data", data)
+        $scope.mystock.price = data.price
+        $scope.mystock.change24 = (((data.price - $scope.mystock.price_open) / $scope.mystock.price_open) * 100).toFixed(2)
+        $scope.mystock.point = ($scope.mystock.price_open - data.price).toFixed(2)
+
+        $scope.$apply()
+
+    })
+  }
 });
 
 var dvChart_stock = document.getElementById('dvChart_stock');

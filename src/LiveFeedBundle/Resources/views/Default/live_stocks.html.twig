@@ -11,7 +11,8 @@
 <div ng-app="stockApp">
     {#<div id="dvstock">#}
         <div ng-controller="stockController as List">
-            <div  ng-init="init('{{ stocks_api }}','{{ chart_link }}','{{ stocks_likes }}', '{{ country_name }}', '{{ country_value }}')" >
+            {#<div  ng-init="init('{{ stocks_api }}','{{ chart_link }}','{{ stocks_likes }}', '{{ country_name }}', '{{ country_value }}')" >#}
+            <div  ng-init="init('{{ country_name }}', '{{ country_value }}')" >
                 <section class="table">
                 {{ include('LiveFeedBundle:Default:searchInstruments.html.twig') }}
                 {{ include('LiveFeedBundle:Default:searchCountry.html.twig') }}

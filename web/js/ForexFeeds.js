@@ -148,15 +148,12 @@ var ThirdApp = angular.module('ThirdApp', []).config(function ($interpolateProvi
 
             var from = symbol.slice(0, 3)
             var to = symbol.slice(3, 6)
+            symbol = from + "-" + to
 
-            console.log(from, to, '*********************')
              var url =  Routing.generate('forex_chart',{"currency" :symbol})
             console.log(Routing.generate('forex_chart',{"currency" :symbol}))
             window.location.href= url
-          //  console.log("----", Routing.generate('crypto_chart', from, to, true))
            return url
-            // console.log("----",Routing.generate('crypto_chart'))
-
         }
 
     });

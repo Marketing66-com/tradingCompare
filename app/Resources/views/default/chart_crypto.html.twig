@@ -2,8 +2,8 @@
 
 
  {% block description %}
-     <title> {{currency}} Price Chart Real-time price, sentiment, chart:</title>
-     <meta name="description" content="Live {{ currency}} Bitcoin chart. Free online platform for market analysis.Sentiment from real traders, online discussion, international coverage, technical indicators & latest news.">
+     <title>{{ name }} ({{ currency }}) Price Index | Real Time {{ name }} Chart - Trading Compare</title>
+     <meta name="description" content="Follow {{ name }} ${{ currency }} price and historical data. View our Interactive {{ name }} Chart and market data for {{ currency }}.">
  {% endblock %}
 
 
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href='{{ asset("css/charts.css") }}' />
     <link rel="stylesheet" href='{{ asset("css/chart-live-iq.css") }}' />
 
-    <div id="dvChart" class="my-container ng-cloak" ng-controller="ChartController" ng-init="init('{{ currency }}', '{{ from }}', '{{ to }}','{{ crypto_api }}','{{ crypto_likes }}')">
+    <div id="dvChart" class="my-container ng-cloak" ng-controller="ChartController" ng-init="init('{{ currency }}', '{{ from }}', '{{ to }}','{{ crypto_api }}')">
         <div ng-controller="ChartController ">
             <section class="table">
                 <div class="chart_search">

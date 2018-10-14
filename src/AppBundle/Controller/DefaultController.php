@@ -14,43 +14,43 @@ class DefaultController extends Controller
 //********************************  CHART   ********************************
 
      /**
-     * @Route("/Crypto-currencies/{currency}/real-time-price-sentiment", name="crypto_chart", options={"expose" = true})
+     * @Route("/{name}/{currency}/cryptocurrency-price", name="crypto_chart", options={"expose" = true})
      */
-    public function crypto_chartAction($currency)
+    public function crypto_chartAction($name,$currency)
     {
         $pair = explode("_", $currency);
         $from =  $pair[0];
         $to =  $pair[1];
-        $crypto_api =  $this->getParameter('crypto_api');
-        $crypto_likes = $this->getParameter('crypto_likes');
+        $my_name = ucfirst(str_replace("-", " ", $name));
 
-        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api,"crypto_likes"=>$crypto_likes));
+        $crypto_api =  $this->getParameter('crypto_api');
+
+        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name));
        //return $this->render('default/charttest.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api,"crypto_likes"=>$crypto_likes));
     }
 
     /**
-     * @Route("/currencies/{currency}/chart-real-time-sentiment", name="forex_chart", options={"expose" = true})
+     * @Route("/{currency}/forex-price", name="forex_chart", options={"expose" = true})
      */
     public function forex_chartAction($currency)
     {
         $apiF =  $this->getParameter('forex_api');
         $likeF = $this->getParameter('forex_likes');
         $from = substr($currency, 0, 3);
-        $to =  substr($currency, 3, 5);
-        $pair = $from."_".$to;
-        return $this->render('default/chart_forex.html.twig',array("currency"=>$pair,'api'=>$apiF, 'like'=>$likeF));
+        $to =  substr($currency, 4, 5);
+        $pair = str_replace("-", "_", $currency);
+        return $this->render('default/chart_forex.html.twig',array("currency"=>$pair, "from"=>$from , "to"=>$to ,'api'=>$apiF, 'like'=>$likeF));
     }
 
     /**
-     * @Route("/equities/price/{currency}/{country}/{name}", name="stock_chart", options={"expose" = true})
+     * @Route("/{symbol}/{name}/{country}/stock-price", name="stock_chart", options={"expose" = true})
      */
-    public function stock_chartAction($currency, $country, $name)
+    public function stock_chartAction($symbol,$name,$country)
     {
         $my_country = ucfirst(str_replace("-", " ", $country));
-        $apiStock =  $this->getParameter('stocks_api');
-        $likeS = $this->getParameter('stocks_likes');
+        $my_name = ucfirst(str_replace("-", " ", $name));
 
-        return $this->render('default/chart_stock.html.twig',array("currency"=>$currency, 'country'=>$my_country, 'name'=>$name, 'api'=>$apiStock,'like'=>$likeS,));
+        return $this->render('default/chart_stock.html.twig',array("symbol"=>$symbol, 'country'=>$my_country, 'name'=>$my_name));
     }
 
 

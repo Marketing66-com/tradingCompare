@@ -29,7 +29,7 @@ app.controller('ListController', function($scope){
         $(document).scrollTop(0);
     };
 
-    $scope.init = function (crypto_api, crypto_likes) {
+    $scope.init = function (crypto_api) {
         this.items = itemsDetails;
 
         // currencies
@@ -71,8 +71,15 @@ app.controller('ListController', function($scope){
         return intFormat(currentValue);
     }
 
-    $scope.ActiveChange = function (symbol) {
-        var url =  Routing.generate('crypto_chart',{"currency" :symbol})
+    $scope.ActiveChange = function (symbol, country, name) {
+
+        console.log("activechange", symbol, country, name)
+
+        if(name.indexOf(' ') > -1)
+            name = name.replace(/ /g, '-')
+
+        var url =  Routing.generate('crypto_chart',{"currency" :symbol, "name" :name})
+        console.log(Routing.generate('crypto_chart',{"currency" :symbol, "name" :name}))
         window.location.href= url
         return url
     }
