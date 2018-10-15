@@ -71,9 +71,9 @@ app.controller('ListController', function($scope){
         return intFormat(currentValue);
     }
 
-    $scope.ActiveChange = function (symbol, country, name) {
+    $scope.ActiveChange = function (symbol, name) {
 
-        console.log("activechange", symbol, country, name)
+        //console.log("activechange", symbol, country, name)
 
         if(name.indexOf(' ') > -1)
             name = name.replace(/ /g, '-')

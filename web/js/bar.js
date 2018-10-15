@@ -8,6 +8,9 @@ firstApp.controller('FirstController', function($scope) {
     $scope.barstock = []
     $scope.allstock2 = []
 
+    $scope.cryptoname1
+    $scope.cryptoname2
+
     $scope.init = function(api_forex, api_crypto, api_stock, crypto_from1, crypto_from2, crypto_to1 ,crypto_to2,
                            forex_from1, forex_to1, forex_from2, forex_to2, stock1,stock2) {
 
@@ -15,8 +18,12 @@ firstApp.controller('FirstController', function($scope) {
             url: api_crypto + "/" + crypto_from1 +"_"+ crypto_to1 + "," + crypto_from2 +"_"+ crypto_to2,
             type: "GET",
             success: function (result) {
+                //console.log("barcrypto", result)
                 $scope.crypto3 = result[crypto_from1+"_"+crypto_to1 ]
                 $scope.crypto4 = result[crypto_from2+"_"+crypto_to2 ]
+                $scope.cryptoname1 = $scope.crypto3.name
+                $scope.cryptoname2 = $scope.crypto4.name
+
                 $scope.$apply()
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -49,12 +56,12 @@ firstApp.controller('FirstController', function($scope) {
             type: "GET",
             success: function (result) {
                 $scope.barstock = result
-               console.log("$scope.barstock", $scope.barstock)
+                //console.log("$scope.barstock", $scope.barstock)
                 $scope.crypto5 = $scope.barstock[stock1]
                 $scope.crypto6 = $scope.barstock[stock2]
 
                 $scope.crypto5.name = $scope.crypto5.name.replace(", Inc. Common Stock", "")
-                $scope.crypto6.name = $scope.crypto6.name.replace("Inc.", "")
+                $scope.crypto6.name = $scope.crypto6.name.replace(" Inc.", "")
 
                 $scope.$apply()
             },
@@ -72,21 +79,25 @@ firstApp.controller('FirstController', function($scope) {
 
             socket1.emit('room', [crypto1, crypto2]);
             socket1.on('message', data => {
-               // console.log("data socket", data)
+                //console.log("data socket", data)
               if (data.hasOwnProperty('pair')) {
                   if (data.pair == $scope.crypto3.pair) {
                       $scope.crypto3 = data;
                       $scope.crypto3.fromSymbol = crypto_from1
                       $scope.crypto3.toSymbol = "USD"
+                      $scope.crypto3.name = $scope.cryptoname1
+
                   }
 
                   if (data.pair == $scope.crypto4.pair) {
                       $scope.crypto4 = data;
                       $scope.crypto4.fromSymbol = crypto_from2
                       $scope.crypto4.toSymbol = "USD"
+                      $scope.crypto4.name = $scope.cryptoname2
                   }
               }
               else {console.log("data bar else", data)}
+                // console.log("after $scope.crypto3", $scope.crypto3)
               $scope.$apply()
             })
         })
@@ -156,7 +167,7 @@ firstApp.controller('FirstController', function($scope) {
         //STOCK
         var socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
         var str = stock1 + "," +stock2
-        console.log("str",str)
+        //console.log("str",str)
         socketStock.emit("subscribe", str);
 
         socketStock.on("message", (data) => {
@@ -209,26 +220,38 @@ firstApp.controller('FirstController', function($scope) {
 
     ///////////////////////////////////////////////////////////////
 
-    $scope.GotoCrypto = function (symbol) {
-        //console.log("symbol666", symbol)
-        var url =  Routing.generate('crypto_chart',{"currency" :symbol})
+    $scope.GotoCrypto = function (symbol, name) {
+        //console.log("symbol666", symbol, name)
+
+        if(name.indexOf(' ') > -1)
+            name = name.replace(/ /g, '-')
+
+        var url =  Routing.generate('crypto_chart',{"currency" :symbol, "name" :name})
+        //console.log(Routing.generate('crypto_chart',{"currency" :symbol, "name" :name}))
         window.location.href= url
         return url
 
     }
-    $scope.GotoStock = function (symbol, country, name) {
+    $scope.GotoStock = function (symbol, name) {
 
-        var url =  Routing.generate('stock_chart',{"currency" :symbol, "country":country, "name":name })
-        console.log(Routing.generate('stock_chart',{"currency" :symbol, "country":country, "name":name }))
+        if(name.indexOf(' ') > -1)
+            name = name.replace(/ /g, '-')
+
+        var url =  Routing.generate('stock_chart',{"symbol" :symbol, "name":name })
+        console.log(Routing.generate('stock_chart',{"symbol" :symbol, "name":name }))
         window.location.href= url
         return url
     }
     $scope.GotoForex = function (symbol) {
 
+        var from = symbol.slice(0, 3)
+        var to = symbol.slice(3, 6)
+        symbol = from + "-" + to
+
         var url =  Routing.generate('forex_chart',{"currency" :symbol})
         console.log(Routing.generate('forex_chart',{"currency" :symbol}))
         window.location.href= url
-        return url
+
     }
 });
 

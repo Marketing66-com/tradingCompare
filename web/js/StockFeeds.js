@@ -77,7 +77,7 @@ stockApp.controller("stockController", function ($scope) {
             type: "GET",
             success: function (result) {
                 $scope.result = result;
-                console.log("$scope.result",$scope.result)
+                //console.log("$scope.result",$scope.result)
 
                 var j = 0
                 for (const key in $scope.result) {

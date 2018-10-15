@@ -12,9 +12,9 @@ Chart_forexApp.controller("Chart_forexController", function ($scope, $http) {
 
     var i = 0
     $scope.init = function (api,currency,likes) {
-        console.log("api", api, "currency", currency)
+        //console.log("api", api, "currency", currency)
         var variable = currency.slice(0, 3)+ currency.slice(4,7)
-        console.log("varaible",variable)
+        //console.log("varaible",variable)
         $.ajax({
             url: api,
             type: "GET",
@@ -71,7 +71,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope, $http) {
         //         console.log("ERROR", thrownError, xhr, ajaxOptions)
         //     }
         // });
-        console.log("likes",likes)
+        //console.log("likes",likes)
         $.ajax({
             url: likes,
             type: "GET",
@@ -90,7 +90,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope, $http) {
 
                     if (key== currency) {
                         $scope.allimg = $scope.element[key]
-                        console.log("Response*likes*Forex", $scope.allimg)
+                        //console.log("Response*likes*Forex", $scope.allimg)
 
                 }
 
