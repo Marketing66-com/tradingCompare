@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/bar.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/bar.html.twig" />
-      <change beforePath="$PROJECT_DIR$/web/js/Chart_forex.js" afterPath="$PROJECT_DIR$/web/js/Chart_forex.js" />
-      <change beforePath="$PROJECT_DIR$/web/js/StockFeeds.js" afterPath="$PROJECT_DIR$/web/js/StockFeeds.js" />
-      <change beforePath="$PROJECT_DIR$/web/js/bar.js" afterPath="$PROJECT_DIR$/web/js/bar.js" />
-      <change beforePath="$PROJECT_DIR$/web/js/script.js" afterPath="$PROJECT_DIR$/web/js/script.js" />
-    </list>
+    <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -779,12 +772,12 @@
       <workItem from="1539538273702" duration="1689000" />
       <workItem from="1539587654677" duration="598000" />
       <workItem from="1539592212726" duration="1781000" />
-      <workItem from="1539594023077" duration="494000" />
+      <workItem from="1539594023077" duration="831000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="510366000" />
+    <option name="totallyTimeSpent" value="510703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
