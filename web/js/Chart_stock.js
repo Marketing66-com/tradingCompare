@@ -5,6 +5,8 @@ var Chart_stockApp = angular.module('Chart_stockApp', []).config(function ($inte
 Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
 
     $scope.stocks = []
+    $scope.last_price = {}
+
 
     var i = 0
     $scope.init = function (symbol) {
@@ -72,8 +74,16 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
         data = JSON.parse(data);
         //console.log("data", data)
         $scope.mystock.price = data.price
+
+        if(data.price >= $scope.last_price)
+            $scope.mystock.variation = "up"
+        else
+            $scope.mystock.variation = "down"
+
+
         $scope.mystock.change24 = (((data.price - $scope.mystock.price_open) / $scope.mystock.price_open) * 100).toFixed(2)
         $scope.mystock.point = ($scope.mystock.price_open - data.price).toFixed(2)
+        $scope.last_price = data.price
 
         $scope.$apply()
 

@@ -13,7 +13,9 @@ stockApp.controller("stockController", function ($scope) {
     // str = "", str2 = "", str3 = "", str4 = "", str5 = ""
     $scope.result = []
     $scope.country =[]
-    var str = ""
+
+    $scope.str = ""
+    $scope.socket_object = {}
 
     $scope.onSelect = function ($item, $model, $label) {
         $scope.$item = $item;
@@ -53,12 +55,12 @@ stockApp.controller("stockController", function ($scope) {
 
         $scope.filteredItems = itemsDetails.slice(begin, end);
 
-        // str = ""
-        // for(var i = 0; i<= 99; i++)
-        // { str =  str + $scope.filteredItems[i].pair + "," }
-        // str = str.substring(0, str.length - 1);
-        //console.log("str",str)
-
+        $scope.str = ""
+        for(var i = 0; i<= 99; i++)
+        { $scope.str =  $scope.str + $scope.filteredItems[i].pair + "," }
+        $scope.str = $scope.str.substring(0, $scope.str.length - 1);
+        console.log("str",$scope.str)
+        reconnect();
         $(document).scrollTop(0);
     };
     // *********** end ************
@@ -117,11 +119,11 @@ stockApp.controller("stockController", function ($scope) {
 
                 $scope.filteredItems = itemsDetails.slice(begin, end);
                 //console.log("$scope.filteredItems",$scope.filteredItems[0].pair)
-                // str = ""
-                // for(var i = 0; i<= 99; i++)
-                // { str =  str + $scope.filteredItems[i].pair + "," }
-                // str = str.substring(0, str.length - 1);
-                //console.log("af str", str)
+                $scope.str = ""
+                for(var i = 0; i<= 99; i++)
+                { $scope.str =  $scope.str + $scope.filteredItems[i].pair + "," }
+                $scope.str = $scope.str.substring(0, $scope.str.length - 1);
+                //console.log("af str", $scope.str)
 
                 $scope.$apply()
             },
@@ -156,47 +158,118 @@ stockApp.controller("stockController", function ($scope) {
             }
         })
 
-
+    }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// //    STOCK
-    // var socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
-    // console.log("socket str", str)
-    // socketStock.emit("subscribe", symbol);
-    //
-    // socketStock.on("message", (data) => {
-    //     data = JSON.parse(data);
-    //     //console.log("data", data)
-    //     $scope.mystock.price = data.price
-    //     $scope.mystock.change24 = (((data.price - $scope.mystock.price_open) / $scope.mystock.price_open) * 100).toFixed(2)
-    //     $scope.mystock.point = ($scope.mystock.price_open - data.price).toFixed(2)
-    //
-    //     $scope.$apply()
-    //
-    // })
 
-}
+    //WEB-SOCKET
 
-    // var socket = io.connect("https://websocket-stock.herokuapp.com")
-    //     socket.on('connect', function () {
-    //     socket.emit('room', "stockSocket");
-    //     socket.on('message', data => {
-    //         console.log("stock socket response", data)
-    //         for (const key in data) {
-    //             var item73 = $scope.all.find(function (element) {
-    //                 return (element.name == data[key].name);
-    //             })
-    //             if (typeof item73 != typeof undefined) {
-    //                 for (const ky in data[key]) {
-    //                     if (data.hasOwnProperty(key)) {
-    //                         item73[ky] = data[key][ky];
-    //                     }
-    //                 }
-    //             }
-    //             $scope.$apply()
-    //         }
-    //     })
-    // })
+    var socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
+
+    setTimeout(function() {
+        connect()
+    }, 2000);
+
+    let timerId = setInterval(MyInterval, 5000);
+
+    function connect(){
+
+        socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
+        socketStock.emit("subscribe", $scope.str);
+        socketStock.on("message", (data) => {
+            data = JSON.parse(data);
+            // if(data.symbol == "AAPL" || data.symbol == "FB")
+            // console.log("data",data)
+            $scope.socket_object[data.symbol] = data.price
+            $scope.$apply()
+        })
+    }
+
+    function reconnect(){
+
+        socketStock.close();
+        clearInterval(timerId)
+        setInterval(MyInterval, 5000);
+        socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
+        $scope.socket_object ={}
+        socketStock.emit("subscribe", $scope.str);
+        socketStock.on("message", (data) => {
+            data = JSON.parse(data);
+            // if(data.symbol == "ETFC" || data.symbol == "EXPE")
+            // console.log("data",data)
+            $scope.socket_object[data.symbol] = data.price
+            $scope.$apply()
+        })
+    }
+
+    function MyInterval(){
+        //console.log("start interval",$scope.socket_object)
+        for(var i=0; i<99; i++)
+        {
+            $scope.new_price = $scope.socket_object[$scope.filteredItems[i].pair]
+
+            if($scope.new_price >= $scope.filteredItems[i].price)
+                $scope.filteredItems[i].variation = "up"
+            else
+                $scope.filteredItems[i].variation = "down"
+
+            $scope.filteredItems[i].price =  $scope.new_price
+            $scope.filteredItems[i].change24 = Number(((($scope.new_price -  $scope.filteredItems[i].open24) / $scope.filteredItems[i].open24) * 100).toFixed(2))
+            $scope.filteredItems[i].high24 = Number(Math.max($scope.new_price, $scope.filteredItems[i].high24 , $scope.filteredItems[i].open24).toFixed(2))
+            $scope.filteredItems[i].low24 = Number(Math.min($scope.new_price, $scope.filteredItems[i].low24 , $scope.filteredItems[i].open24).toFixed(2))
+        }
+        //console.log("end interval")
+    }
+
+
+        //UPDATE VIA API
+        ////////////////
+        // setTimeout(function()
+        //    {
+        //        console.log("$scope.filteredItems", $scope.filteredItems)
+        //            setInterval(function(){
+        //                $.ajax({
+        //                    url: "https://websocket-stock.herokuapp.com/Getstocks/" + $scope.str,
+        //                    type: "GET",
+        //                    success: function (result) {
+        //                        $scope.update = result
+        //                        console.log("$scope.update",$scope.update["AAPL"].price)
+        //                        for(var i=0; i<99; i++)
+        //                        {
+        //                            $scope.filteredItems[i] = $scope.update[$scope.filteredItems[i].pair]
+        //
+        //                        }
+        //
+        //                        $scope.$apply()
+        //                    },
+        //                    error: function (xhr, ajaxOptions, thrownError) {
+        //                        console.log("ERROR", thrownError, xhr, ajaxOptions)
+        //                    }
+        //                })
+        //            }, 5000);
+        //            $scope.$apply()
+        //    }, 2000);
+
+        // var socket = io.connect("https://websocket-stock.herokuapp.com")
+        //     socket.on('connect', function () {
+        //     socket.emit('room', "stockSocket");
+        //     socket.on('message', data => {
+        //         console.log("stock socket response", data)
+        //         for (const key in data) {
+        //             var item73 = $scope.all.find(function (element) {
+        //                 return (element.name == data[key].name);
+        //             })
+        //             if (typeof item73 != typeof undefined) {
+        //                 for (const ky in data[key]) {
+        //                     if (data.hasOwnProperty(key)) {
+        //                         item73[ky] = data[key][ky];
+        //                     }
+        //                 }
+        //             }
+        //             $scope.$apply()
+        //         }
+        //     })
+        // })
 
     /////////////////////////////////////////////////////////////////////////////
 

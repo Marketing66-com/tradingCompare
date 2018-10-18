@@ -35,7 +35,7 @@
                            uib-typeahead="state as state.name for state in listCountry | filter:{name:$viewValue} | orderBy:distance"
                            typeahead-template-url="customTemplate.html" class="form-control"
                            typeahead-show-hint="true"
-                           typeahead-min-length="0"
+                           {#typeahead-min-length="0"#}
                            typeahead-on-select="onSelect($item, $model, $label)"
                            placeholder="{{country_name}}"
                     >
