@@ -12,18 +12,20 @@ ChartApp.controller('ChartController', function($scope) {
     $scope.init = function (currency, from, to, crypto_api) {
         $scope.from = from
         $scope.to = to
-
+console.log("from et to", from, to)
         $.ajax({
             url: crypto_api + "/" + from + "_" + to,
             type: "GET",
             success: function (result) {
-                // console.log("result", result)
+                console.log("result", result)
                 $scope.mycrypto = result[from + "_" + to]
-                console.log("after",  $scope.mycrypto.name)
+                //console.log("after",  result[from.toUpperCase() + "_" + to.toUpperCase()], from, to)
 
+                // IMAGE
                 if($scope.mycrypto.img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/piece.png"|| $scope.mycrypto.img == undefined || typeof $scope.mycrypto.img== "undefined")
                     $scope.mycrypto.img = "/img/crypto_logos/crypto-other.png"
 
+                //SENTIMENT
                 var sent=($scope.mycrypto.likes / ($scope.mycrypto.likes + $scope.mycrypto.unlikes)) *100
                 $scope.mycrypto.sentiment = Number(sent.toFixed(1))
 
@@ -31,8 +33,6 @@ ChartApp.controller('ChartController', function($scope) {
                 $scope.name = $scope.mycrypto.name
                 $scope.img = $scope.mycrypto.img
 
-                console.log("after",  $scope.mycrypto)
-                console.log("after",  $scope.mycrypto.name)
                 $scope.$apply()
             },
             error: function (xhr, ajaxOptions, thrownError) {

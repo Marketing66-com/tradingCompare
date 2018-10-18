@@ -27,7 +27,6 @@ class SitemapController extends Controller
         $urls = [];
         $hostname = $request->getHost();
 
-        $urls[] = ['loc' => $this->get('router')->generate('Live_rates_stocks'), 'changefreq' => 'weekly', 'priority' => '0.7'];
         $urls[] = ['loc' => $this->get('router')->generate('Live_rates_crypto'), 'changefreq' => 'weekly', 'priority' => '0.7'];
         $urls[] = ['loc' => $this->get('router')->generate('Live_rates_forex'), 'changefreq' => 'weekly', 'priority' => '0.7'];
 
@@ -46,11 +45,12 @@ class SitemapController extends Controller
 
         $client = new \GuzzleHttp\Client();
         try {
-            $res = $client->request('GET', 'https://crypto-ws.herokuapp.com/All-Froms-and-Prices');
+            $res = $client->request('GET', 'https://crypto.tradingcompare.com/AllPairs');
             $data = json_decode($res->getBody(), true);
             foreach ($data as $item) {
                 if(isset($item['pair'])) {
-                    $urls[] = ['loc' => $this->get('router')->generate('crypto_chart', ['currency' => $item['pair']]), 'changefreq' => 'weekly', 'priority' => '0.8'];
+                    $item['name'] = str_replace(" ", "-", $item['name']);
+                    $urls[] = ['loc' => urldecode($this->get('router')->generate('crypto_chart', ['currency' => $item['pair'], 'name' => $item['name']])) , 'changefreq' => 'weekly', 'priority' => '0.8'];
                 }
             }
         } catch (GuzzleException $e) {
@@ -62,7 +62,8 @@ class SitemapController extends Controller
             $data = json_decode($res->getBody(), true);
             foreach ($data as $item) {
                 if(isset($item['pair'])) {
-                    $urls[] = ['loc' => $this->get('router')->generate('forex_chart', ['currency' => $item['pair']]), 'changefreq' => 'weekly', 'priority' => '0.8'];
+                    $my_pair = substr($item['pair'], 0, 3) . '-' . substr($item['pair'], 3, 6);
+                    $urls[] = ['loc' => $this->get('router')->generate('forex_chart', ['currency' => $my_pair]), 'changefreq' => 'weekly', 'priority' => '0.8'];
                 }
             }
         } catch (GuzzleException $e) {
@@ -70,13 +71,28 @@ class SitemapController extends Controller
         }
 
         try {
-            $res = $client->request('GET', 'https://websocket-stock.herokuapp.com/stocksPrice');
+            $res = $client->request('GET', 'https://websocket-stock.herokuapp.com/ListOfCountry');
             $data = json_decode($res->getBody(), true);
-            foreach ($data as $item) {
-                if(isset($item['pair'])) {
-                    $urls[] = ['loc' => $this->get('router')->generate('stock_chart', ['currency' => $item['pair']]), 'changefreq' => 'weekly', 'priority' => '0.8'];
+            $arrlength = count($data[0]) - 1;
+                for ($x = 0; $x <= $arrlength; $x++) {
+
+                    $country_name = str_replace(" ", "-", $data[1][$x]);
+                    $country_value = str_replace(" ", "-", $data[0][$x]);
+                    $urls[] = ['loc' => urldecode($this->get('router')->generate('Live_rates_stocks', ['name' => $country_name, 'value' => $country_value ])), 'changefreq' => 'weekly', 'priority' => '0.8'];
+
+                    $res2 = $client->request('GET', 'https://websocket-stock.herokuapp.com/stocks/' . $data[0][$x]);
+                    $data2 = json_decode($res2->getBody(), true);
+                    foreach ($data2 as $item) {
+                        $new_array = array(' ', '/', '----', '---', '--');
+                        $item['name'] = str_replace('-', " ", $item['name']);
+                        $item['name'] = str_replace($new_array, "-", $item['name']);
+
+                        if(isset($item['pair'])) {
+                        $urls[] = ['loc' => urldecode($this->get('router')->generate('stock_chart', ['symbol' => $item['pair'], 'name' => $item['name']])), 'changefreq' => 'weekly', 'priority' => '0.8'];
+                        }
+                    }
                 }
-            }
+
         } catch (GuzzleException $e) {
             $this->get('logger')->error($e->getMessage());
         }

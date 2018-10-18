@@ -14,7 +14,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
             url: "https://websocket-stock.herokuapp.com/getStockPrice/" +  symbol,
             type: "GET",
             success: function (result) {
-                //console.log("result ***",result)
+                console.log("result ***",result)
                 $scope.mystock = result[0]
                 //console.log(" $scope.mystock ***", $scope.mystock)
 

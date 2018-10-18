@@ -22,8 +22,8 @@ bitcoin_title_right:after {    content: ' ';    position: absolute;    top: 0;  
 .bitcoin_text-cont {    width: 100%;      padding: 10px 15px 0 80px;}/* display: table; */
 /*.bitcoin_text-cont {width: 100%;search_input padding: 10px 15px 0 80px;}*/
 .bitcoin_text-cont_left, .bitcoin_text-cont_right {display: table;float: left;}
-.bitcoin_text-cont_left {max-width: 70%;}
-.bitcoin_text-cont_right {float: right;min-width: 150px;    width: 30%;}
+.bitcoin_text-cont_left {max-width: 75%;}
+.bitcoin_text-cont_right {float: right;min-width: 150px;    width: 25%;}
 .bitcoin_many {    font-family: 'Avenir';    font-weight: 800;    font-size: 30px;   text-align:right;    margin: 10px 0 15px 0;}
 .bitcoin_many_stock {    font-family: 'Avenir';    font-weight: 800;    font-size: 30px;   text-align:left;    margin: 10px 0 15px 0;}
 .btcoin_btn {    padding: 10px 30px;    background-color: #12A6F9;    color: white;    border-radius: 4px;    float: right;    margin: 10px 0;    border: 1px solid transparent;    transition: 0.3s all;}

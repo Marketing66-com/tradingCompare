@@ -38,20 +38,28 @@ app.controller('ListController', function($scope){
             type: "GET",
             success: function (result) {
                 $scope.result = result;
-                console.log("$scope.result",$scope.result)
+                //console.log("$scope.result",$scope.result)
 
                 var i = 0
                 for (const key in $scope.result) {
                     if ($scope.result.hasOwnProperty(key)) {
                         itemsDetails[i] = $scope.result[key];
+
+                        //NAME
+                        itemsDetails[i].complete_name = itemsDetails[i].name
+
+                        //IMAGE
                         if($scope.result[key].img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/piece.png"|| $scope.result[key].img == undefined || typeof $scope.result[key].img== "undefined")
-                            itemsDetails[i].img = "/img/crypto_logos/crypto-other.png"
+                         itemsDetails[i].img = "/img/crypto_logos/crypto-other.png"
+
+                        //SENTIMENT
                         var sent=($scope.result[key].likes / ($scope.result[key].likes + $scope.result[key].unlikes)) *100
                         itemsDetails[i].sentiment=Number(sent.toFixed(1))
+
                         i = i+1;
                     }
                 }
-
+                console.log("itemsDetails",itemsDetails)
                 $scope.totalItems = itemsDetails.length;
 
                 var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
@@ -73,13 +81,13 @@ app.controller('ListController', function($scope){
 
     $scope.ActiveChange = function (symbol, name) {
 
-        //console.log("activechange", symbol, country, name)
+        //console.log("activechange", symbol, name)
 
         if(name.indexOf(' ') > -1)
             name = name.replace(/ /g, '-')
 
-        var url =  Routing.generate('crypto_chart',{"currency" :symbol, "name" :name})
-        console.log(Routing.generate('crypto_chart',{"currency" :symbol, "name" :name}))
+        var url =  decodeURIComponent(Routing.generate('crypto_chart',{"currency" :symbol, "name" :name}))
+        console.log(Routing.generate('crypto_chart',{"currency" : symbol, "name" :name}))
         window.location.href= url
         return url
     }

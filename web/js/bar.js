@@ -60,8 +60,8 @@ firstApp.controller('FirstController', function($scope) {
                 $scope.crypto5 = $scope.barstock[stock1]
                 $scope.crypto6 = $scope.barstock[stock2]
 
-                $scope.crypto5.name = $scope.crypto5.name.replace(", Inc. Common Stock", "")
-                $scope.crypto6.name = $scope.crypto6.name.replace(" Inc.", "")
+                // $scope.crypto5.name = $scope.crypto5.name.replace(", Inc. Common Stock", "")
+                // $scope.crypto6.name = $scope.crypto6.name.replace(" Inc.", "")
 
                 $scope.$apply()
             },
@@ -165,29 +165,29 @@ firstApp.controller('FirstController', function($scope) {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //STOCK
-        var socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
-        var str = stock1 + "," +stock2
-        //console.log("str",str)
-        socketStock.emit("subscribe", str);
-
-        socketStock.on("message", (data) => {
-            data = JSON.parse(data);
-            //console.log("data", data)
-
-            if (data.symbol == stock1) {
-                $scope.crypto5.price = data.price
-                console.log()
-                $scope.crypto5.change24 = (((data.price - $scope.barstock[stock1].open24) / $scope.barstock[stock1].open24) * 100).toFixed(2)
-                $scope.crypto5.point = ($scope.barstock[stock1].open24 - data.price).toFixed(2)
-            }
-            if (data.symbol == stock2) {
-                $scope.crypto6.price = data.price
-                $scope.crypto6.change24 = (((data.price - $scope.barstock[stock2].open24) / $scope.barstock[stock2].open24) * 100).toFixed(2)
-                $scope.crypto6.point = ($scope.barstock[stock2].open24 - data.price).toFixed(2)
-            }
-            $scope.$apply()
-
-        })
+        // var socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
+        // var str = stock1 + "," +stock2
+        // //console.log("str",str)
+        // socketStock.emit("subscribe", str);
+        //
+        // socketStock.on("message", (data) => {
+        //     data = JSON.parse(data);
+        //     //console.log("data", data)
+        //
+        //     if (data.symbol == stock1) {
+        //         $scope.crypto5.price = data.price
+        //         console.log()
+        //         $scope.crypto5.change24 = (((data.price - $scope.barstock[stock1].open24) / $scope.barstock[stock1].open24) * 100).toFixed(2)
+        //         $scope.crypto5.point = ($scope.barstock[stock1].open24 - data.price).toFixed(2)
+        //     }
+        //     if (data.symbol == stock2) {
+        //         $scope.crypto6.price = data.price
+        //         $scope.crypto6.change24 = (((data.price - $scope.barstock[stock2].open24) / $scope.barstock[stock2].open24) * 100).toFixed(2)
+        //         $scope.crypto6.point = ($scope.barstock[stock2].open24 - data.price).toFixed(2)
+        //     }
+        //     $scope.$apply()
+        //
+        // })
 
 
         // var socket = io.connect("https://websocket-stock.herokuapp.com")

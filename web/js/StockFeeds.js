@@ -24,6 +24,9 @@ stockApp.controller("stockController", function ($scope) {
         if($scope.$item.name.indexOf(' ') > -1)
             $scope.$item.name = $scope.$item.name.replace(' ', '-')
 
+        if($scope.$item.value.indexOf(' ') > -1)
+            $scope.$item.value = $scope.$item.value.replace(' ', '-')
+
         var url =  Routing.generate('Live_rates_stocks',{"name" :$scope.$item.name, "value":$scope.$item.value})
         console.log("Routing",Routing.generate('Live_rates_stocks',{"name" :$scope.$item.name, "value":$scope.$item.value}))
         window.location.href= url
@@ -62,7 +65,7 @@ stockApp.controller("stockController", function ($scope) {
 
 
     $scope.init = function (country_name, country_value) {
-       // console.log("api", stocks_api, chart_link, stocks_likes,country_name, country_value)
+        //console.log("api", country_name, country_value)
 
         this.items = itemsDetails;
         $scope.country_name = country_name;
@@ -77,7 +80,7 @@ stockApp.controller("stockController", function ($scope) {
             type: "GET",
             success: function (result) {
                 $scope.result = result;
-                //console.log("$scope.result",$scope.result)
+                console.log("$scope.result",$scope.result)
 
                 var j = 0
                 for (const key in $scope.result) {
@@ -86,39 +89,16 @@ stockApp.controller("stockController", function ($scope) {
                         itemsDetails[j] = $scope.result[key];
 
                         //NAME
-                        if(itemsDetails[j].name.indexOf(' Corporation') > -1)
-                         itemsDetails[j].name = itemsDetails[j].name.replace(' Corporation', '');
-                        if(itemsDetails[j].name.indexOf(' Common') > -1)
-                         itemsDetails[j].name = itemsDetails[j].name.replace(' Common', '');
-                        if(itemsDetails[j].name.indexOf(' Stock') > -1)
-                         itemsDetails[j].name = itemsDetails[j].name.replace(' Stock', '');
-
-                        if(itemsDetails[j].name.indexOf(', Inc.') > -1)
-                         itemsDetails[j].name = itemsDetails[j].name.replace(', Inc.', '');
-                        if(itemsDetails[j].name.indexOf(' Inc.') > -1)
-                         itemsDetails[j].name = itemsDetails[j].name.replace(' Inc.', '');
-                        if(itemsDetails[j].name.indexOf(' Inc') > -1)
-                         itemsDetails[j].name = itemsDetails[j].name.replace(' Inc', '');
-
-                        if(itemsDetails[j].name.indexOf('/') > -1)
-                            itemsDetails[j].name = itemsDetails[j].name.replace('/', '-');
-
-                        if(itemsDetails[j].name === itemsDetails[j].name.toUpperCase())
-                        itemsDetails[j].name = itemsDetails[j].name.charAt(0).toUpperCase() + itemsDetails[j].name.toLowerCase().substring(1, itemsDetails[j].name.length);
-
+                        itemsDetails[j].complete_name = itemsDetails[j].name
                         if (itemsDetails[j].name.length >=17)
                          itemsDetails[j].name = itemsDetails[j].name.substr(0, 17);
-
-                        if(itemsDetails[j].name.substr(itemsDetails[j].name.length - 1) == ' ')
-                            itemsDetails[j].name = itemsDetails[j].name.substring(0, itemsDetails[j].name.length - 1);
-
 
                         //IMAGE
                         var img = "https://storage.googleapis.com/iex/api/logos/" + key + ".png"
                         if(itemsDetails[j].img == undefined || typeof itemsDetails[j].img == "undefined" || img == undefined || typeof img == "undefined")
-                        itemsDetails[j].img = "/img/Stock_Logos/stocks.png"
+                         itemsDetails[j].img = "/img/Stock_Logos/stocks.png"
                         else
-                        itemsDetails[j].img = img
+                         itemsDetails[j].img = img
 
                         // SENTIMENT
                         var sent=($scope.result[key].likes / ($scope.result[key].likes + $scope.result[key].unlikes)) *100
@@ -222,11 +202,18 @@ stockApp.controller("stockController", function ($scope) {
 
     $scope.ActiveChange = function (symbol, name) {
 
-        if(name.indexOf(' ') > -1)
-         name = name.replace(/ /g, '-')
+        var new_array = ['-', ' ', '/', '----', '---', '--']
+        for(var i=0; i<new_array.length;i++)
+            if(name.indexOf(new_array[i]) > -1)
+            {
+                if(new_array[i] == '-')
+                    name= name.replace(new RegExp(new_array[i], 'g'),' ')
+                else
+                    name= name.replace(new RegExp(new_array[i], 'g'),'-')
+            }
 
-        var url =  Routing.generate('stock_chart',{"symbol" :symbol, "name":name })
-        console.log(Routing.generate('stock_chart',{"symbol" :symbol, "name":name }))
+        var url =  decodeURIComponent(Routing.generate('stock_chart',{"symbol" :symbol, "name":name }))
+        console.log("url",url)
         window.location.href= url
         return url
     }

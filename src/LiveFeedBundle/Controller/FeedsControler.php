@@ -17,16 +17,10 @@ class FeedsControler extends Controller
      */
     public function HomeAction()
     {
-//        $stocks_api =  $this->getParameter('stocks_api');
-//        $stocks_likes = $this-> getParameter('stocks_likes');
-//        $chart_link = "stocks_chart";
         $country_name = "United States" ;
         $country_value = "united-states-of-america";
-//        $country_value = "flag general";
         return $this->render('LiveFeedBundle:Default:live_stocks.html.twig',
-//            array('stocks_api'=>$stocks_api,  "chart_link"=>$chart_link, "stocks_likes"=>$stocks_likes, "country_name"=>$country_name, "country_value"=>$country_value));
         array("country_name"=>$country_name, "country_value"=>$country_value));
-
     }
 
     /**
@@ -34,15 +28,15 @@ class FeedsControler extends Controller
      */
     public function StockAction($name, $value)
     {
-//        $stocks_api =  $this->getParameter('stocks_api');
-//        $stocks_likes = $this-> getParameter('stocks_likes');
-//        $chart_link = "stocks_chart";
-//        $country_name = $name ;
-        $country_name = ucfirst(str_replace("-", " ", $name)); ;
-        $country_value = $value;
+        $country_name = ucfirst(str_replace("-", " ", $name));
+
+        if($value == 'flag-general')
+          $country_value = str_replace("-", " ", $value);
+        else
+          $country_value = $value;
+
         return $this->render('LiveFeedBundle:Default:live_stocks.html.twig',
             array("country_name"=>$country_name, "country_value"=>$country_value));
-
     }
 
     /**
@@ -51,10 +45,7 @@ class FeedsControler extends Controller
     public function CryptoAction()
     {
         $crypto_api =  $this->getParameter('crypto_api');
-//        $crypto_likes = $this-> getParameter('crypto_likes');
-
-//        return $this->render('LiveFeedBundle:Default:live_crypto.html.twig',array('crypto_api'=>$crypto_api, "crypto_likes"=>$crypto_likes));
-          return $this->render('LiveFeedBundle:Default:live_crypto.html.twig',array('crypto_api'=>$crypto_api));
+        return $this->render('LiveFeedBundle:Default:live_crypto.html.twig',array('crypto_api'=>$crypto_api));
     }
 
 
