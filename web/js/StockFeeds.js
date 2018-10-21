@@ -209,11 +209,10 @@ stockApp.controller("stockController", function ($scope) {
     function MyInterval(){
         //console.log("start interval",$scope.socket_object)
         for(var i=0; i<99; i++)
-        {
-            if($scope.socket_object[$scope.filteredItems[i]] != undefined && typeof $scope.socket_object[$scope.filteredItems[i]] != "undefined")
+        {   //console.log("start interval",$scope.filteredItems[i].pair,$scope.socket_object[$scope.filteredItems[i].pair])
+            if($scope.socket_object[$scope.filteredItems[i].pair] != undefined && typeof $scope.socket_object[$scope.filteredItems[i].pair] != "undefined")
             {
                 $scope.new_price = $scope.socket_object[$scope.filteredItems[i].pair]
-                // console.log("heyyy",$scope.new_price)
 
                 if($scope.new_price > $scope.filteredItems[i].price)
                     $scope.filteredItems[i].variation = "up"
@@ -229,7 +228,7 @@ stockApp.controller("stockController", function ($scope) {
                 //console.log("end interval",$scope.filteredItems[0].price)
                 $scope.$apply()
             }
-        }     
+        }
         console.log("ok")
     }
 
