@@ -210,7 +210,7 @@ stockApp.controller("stockController", function ($scope) {
         //console.log("start interval",$scope.socket_object)
         for(var i=0; i<99; i++)
         {
-            if($scope.socket_object[$scope.filteredItems[i].pair] != undefined && typeof $scope.socket_object[$scope.filteredItems[i].pair] != "undefined")
+            if($scope.socket_object[$scope.filteredItems[i]] != undefined && typeof $scope.socket_object[$scope.filteredItems[i]] != "undefined")
             {
                 $scope.new_price = $scope.socket_object[$scope.filteredItems[i].pair]
                 // console.log("heyyy",$scope.new_price)
