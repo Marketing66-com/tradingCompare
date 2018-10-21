@@ -118,12 +118,12 @@ stockApp.controller("stockController", function ($scope) {
                     end = begin + $scope.itemsPerPage;
 
                 $scope.filteredItems = itemsDetails.slice(begin, end);
-                //console.log("$scope.filteredItems",$scope.filteredItems[0].pair)
+                console.log("$scope.filteredItems",$scope.filteredItems)
                 $scope.str = ""
                 for(var i = 0; i<= 99; i++)
                 { $scope.str =  $scope.str + $scope.filteredItems[i].pair + "," }
                 $scope.str = $scope.str.substring(0, $scope.str.length - 1);
-                //console.log("af str", $scope.str)
+                console.log("af str", $scope.str)
 
                 $scope.$apply()
             },
@@ -166,11 +166,15 @@ stockApp.controller("stockController", function ($scope) {
 
     var socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
 
+    let timerId = setInterval(MyInterval, 5000);
+
     setTimeout(function() {
         connect()
+        clearInterval(timerId)
+        setInterval(MyInterval, 5000)
     }, 2000);
 
-    let timerId = setInterval(MyInterval, 5000);
+
 
     function connect(){
 
@@ -178,7 +182,7 @@ stockApp.controller("stockController", function ($scope) {
         socketStock.emit("subscribe", $scope.str);
         socketStock.on("message", (data) => {
             data = JSON.parse(data);
-            if(data.symbol == "AAPL" || data.symbol == "FB")
+            if(data.symbol == "AAPL" || data.symbol == "FB" || data.symbol == "PBCRY")
             console.log("data",data)
             $scope.socket_object[data.symbol] = data.price
             $scope.$apply()
@@ -207,22 +211,25 @@ stockApp.controller("stockController", function ($scope) {
         for(var i=0; i<99; i++)
         {
             $scope.new_price = $scope.socket_object[$scope.filteredItems[i].pair]
+            // console.log("heyyy",$scope.new_price)
+            if($scope.new_price != undefined && typeof $scope.new_price != "undefined")
+            {
+                if($scope.new_price > $scope.filteredItems[i].price)
+                    $scope.filteredItems[i].variation = "up"
+                else if ($scope.new_price == $scope.filteredItems[i].price)
+                    $scope.filteredItems[i].variation = "none"
+                else
+                    $scope.filteredItems[i].variation = "down"
 
-            if($scope.new_price > $scope.filteredItems[i].price)
-                $scope.filteredItems[i].variation = "up"
-            else if ($scope.new_price == $scope.filteredItems[i].price)
-                $scope.filteredItems[i].variation = "none"
-            else
-                $scope.filteredItems[i].variation = "down"
-
-            $scope.filteredItems[i].price =  $scope.new_price
-            $scope.filteredItems[i].change24 = Number(((($scope.new_price -  $scope.filteredItems[i].open24) / $scope.filteredItems[i].open24) * 100).toFixed(2))
-            $scope.filteredItems[i].high24 = Number(Math.max($scope.new_price, $scope.filteredItems[i].high24 , $scope.filteredItems[i].open24).toFixed(2))
-            $scope.filteredItems[i].low24 = Number(Math.min($scope.new_price, $scope.filteredItems[i].low24 , $scope.filteredItems[i].open24).toFixed(2))
-            //console.log("end interval",$scope.filteredItems[0].price)
-            $scope.$apply()
+                $scope.filteredItems[i].price =  $scope.new_price
+                $scope.filteredItems[i].change24 = Number(((($scope.new_price -  $scope.filteredItems[i].open24) / $scope.filteredItems[i].open24) * 100).toFixed(2))
+                $scope.filteredItems[i].high24 = Number(Math.max($scope.new_price, $scope.filteredItems[i].high24 , $scope.filteredItems[i].open24).toFixed(2))
+                $scope.filteredItems[i].low24 = Number(Math.min($scope.new_price, $scope.filteredItems[i].low24 , $scope.filteredItems[i].open24).toFixed(2))
+                //console.log("end interval",$scope.filteredItems[0].price)
+                $scope.$apply()
+            }
         }
-
+        console.log("end interval")
     }
 
 
