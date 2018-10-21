@@ -210,10 +210,11 @@ stockApp.controller("stockController", function ($scope) {
         //console.log("start interval",$scope.socket_object)
         for(var i=0; i<99; i++)
         {
-            $scope.new_price = $scope.socket_object[$scope.filteredItems[i].pair]
-            // console.log("heyyy",$scope.new_price)
-            if($scope.new_price != undefined && typeof $scope.new_price != "undefined")
+            if($scope.socket_object[$scope.filteredItems[i].pair] != undefined && typeof $scope.socket_object[$scope.filteredItems[i].pair] != "undefined")
             {
+                $scope.new_price = $scope.socket_object[$scope.filteredItems[i].pair]
+                // console.log("heyyy",$scope.new_price)
+
                 if($scope.new_price > $scope.filteredItems[i].price)
                     $scope.filteredItems[i].variation = "up"
                 else if ($scope.new_price == $scope.filteredItems[i].price)
@@ -232,7 +233,7 @@ stockApp.controller("stockController", function ($scope) {
         console.log("ok")
     }
 
-   
+
         //UPDATE VIA API
         ////////////////
         // setTimeout(function()
