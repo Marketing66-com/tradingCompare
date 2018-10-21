@@ -16,6 +16,7 @@ stockApp.controller("stockController", function ($scope) {
 
     $scope.str = ""
     $scope.socket_object = {}
+    var flag = false;
 
     $scope.onSelect = function ($item, $model, $label) {
         $scope.$item = $item;
@@ -123,7 +124,7 @@ stockApp.controller("stockController", function ($scope) {
                 for(var i = 0; i<= 99; i++)
                 { $scope.str =  $scope.str + $scope.filteredItems[i].pair + "," }
                 $scope.str = $scope.str.substring(0, $scope.str.length - 1);
-                console.log("af str", $scope.str)
+                //console.log("af str", $scope.str)
 
                 $scope.$apply()
             },
@@ -164,25 +165,39 @@ stockApp.controller("stockController", function ($scope) {
 
     //WEB-SOCKET
 
-    var socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
+    var socketStock;
 
     let timerId = setInterval(MyInterval, 5000);
 
-    setTimeout(function() {
-        connect()
-        clearInterval(timerId)
-        setInterval(MyInterval, 5000)
-    }, 2000);
+    setTimeout(start, 1000);
+
+    function start()
+    {
+        if($scope.str == "")
+        {
+            setTimeout(start, 1000);
+            console.log("str empty settimeout again")
+        }
+
+        else
+        {
+            console.log("str ok go to connect")
+            clearInterval(timerId)
+            connect()
+            setInterval(MyInterval, 5000)
+        }
 
 
-
+    }
     function connect(){
 
+        console.log("in connect")
         socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
         socketStock.emit("subscribe", $scope.str);
+        // console.log("in connect $scope.str", $scope.str)
         socketStock.on("message", (data) => {
             data = JSON.parse(data);
-            if(data.symbol == "AAPL" || data.symbol == "FB" || data.symbol == "PBCRY")
+            if(data.symbol == "AAPL" || data.symbol == "FB" || data.symbol == "PBCRY" || data.symbol == "ETFC" || data.symbol == "EXPE")
             console.log("data",data)
             $scope.socket_object[data.symbol] = data.price
             $scope.$apply()
@@ -191,19 +206,12 @@ stockApp.controller("stockController", function ($scope) {
 
     function reconnect(){
 
+        console.log("disconnect")
         socketStock.close();
         clearInterval(timerId)
-        setInterval(MyInterval, 5000);
-        socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
         $scope.socket_object ={}
-        socketStock.emit("subscribe", $scope.str);
-        socketStock.on("message", (data) => {
-            data = JSON.parse(data);
-            if(data.symbol == "ETFC" || data.symbol == "EXPE")
-            console.log("data",data)
-            $scope.socket_object[data.symbol] = data.price
-            $scope.$apply()
-        })
+        start()
+        setInterval(MyInterval, 5000);
     }
 
     function MyInterval(){
@@ -212,6 +220,7 @@ stockApp.controller("stockController", function ($scope) {
         {   //console.log("start interval",$scope.filteredItems[i].pair,$scope.socket_object[$scope.filteredItems[i].pair])
             if($scope.socket_object[$scope.filteredItems[i].pair] != undefined && typeof $scope.socket_object[$scope.filteredItems[i].pair] != "undefined")
             {
+                //console.log("in if")
                 $scope.new_price = $scope.socket_object[$scope.filteredItems[i].pair]
 
                 if($scope.new_price > $scope.filteredItems[i].price)
