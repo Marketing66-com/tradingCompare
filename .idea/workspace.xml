@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/web/js/StockFeeds.js" afterPath="$PROJECT_DIR$/web/js/StockFeeds.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,8 +39,8 @@
       <file leaf-file-name="StockFeeds.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/StockFeeds.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="212" column="128" lean-forward="false" selection-start-line="212" selection-start-column="128" selection-end-line="212" selection-end-column="128" />
+            <state relative-caret-position="790">
+              <caret line="231" column="14" lean-forward="false" selection-start-line="231" selection-start-column="14" selection-end-line="231" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -815,12 +814,12 @@
       <workItem from="1540108069923" duration="1787000" />
       <workItem from="1540110051738" duration="1158000" />
       <workItem from="1540111857506" duration="1800000" />
-      <workItem from="1540113686602" duration="87000" />
+      <workItem from="1540113686602" duration="335000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="588574000" />
+    <option name="totallyTimeSpent" value="588822000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1206,8 +1205,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/StockFeeds.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="212" column="128" lean-forward="false" selection-start-line="212" selection-start-column="128" selection-end-line="212" selection-end-column="128" />
+        <state relative-caret-position="790">
+          <caret line="231" column="14" lean-forward="false" selection-start-line="231" selection-start-column="14" selection-end-line="231" selection-end-column="14" />
           <folding />
         </state>
       </provider>

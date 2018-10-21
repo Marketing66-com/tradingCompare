@@ -229,7 +229,7 @@ stockApp.controller("stockController", function ($scope) {
                 //console.log("end interval",$scope.filteredItems[0].price)
                 $scope.$apply()
             }
-        }
+        }     
         console.log("ok")
     }
 
