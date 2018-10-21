@@ -32,7 +32,7 @@ stockApp.controller("stockController", function ($scope) {
 
         var url =  Routing.generate('Live_rates_stocks',{"name" :$scope.$item.name, "value":$scope.$item.value})
         console.log("Routing",Routing.generate('Live_rates_stocks',{"name" :$scope.$item.name, "value":$scope.$item.value}))
-        window.location.href= url
+        //window.location.href= url
 
     };
 
