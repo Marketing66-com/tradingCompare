@@ -59,7 +59,7 @@ stockApp.controller("stockController", function ($scope) {
         for(var i = 0; i<= 99; i++)
         { $scope.str =  $scope.str + $scope.filteredItems[i].pair + "," }
         $scope.str = $scope.str.substring(0, $scope.str.length - 1);
-        console.log("str",$scope.str)
+        //console.log("str",$scope.str)
         reconnect();
         $(document).scrollTop(0);
     };
@@ -178,8 +178,8 @@ stockApp.controller("stockController", function ($scope) {
         socketStock.emit("subscribe", $scope.str);
         socketStock.on("message", (data) => {
             data = JSON.parse(data);
-            // if(data.symbol == "AAPL" || data.symbol == "FB")
-            // console.log("data",data)
+            if(data.symbol == "AAPL" || data.symbol == "FB")
+            console.log("data",data)
             $scope.socket_object[data.symbol] = data.price
             $scope.$apply()
         })
@@ -195,8 +195,8 @@ stockApp.controller("stockController", function ($scope) {
         socketStock.emit("subscribe", $scope.str);
         socketStock.on("message", (data) => {
             data = JSON.parse(data);
-            // if(data.symbol == "ETFC" || data.symbol == "EXPE")
-            // console.log("data",data)
+            if(data.symbol == "ETFC" || data.symbol == "EXPE")
+            console.log("data",data)
             $scope.socket_object[data.symbol] = data.price
             $scope.$apply()
         })
@@ -208,8 +208,10 @@ stockApp.controller("stockController", function ($scope) {
         {
             $scope.new_price = $scope.socket_object[$scope.filteredItems[i].pair]
 
-            if($scope.new_price >= $scope.filteredItems[i].price)
+            if($scope.new_price > $scope.filteredItems[i].price)
                 $scope.filteredItems[i].variation = "up"
+            else if ($scope.new_price == $scope.filteredItems[i].price)
+                $scope.filteredItems[i].variation = "none"
             else
                 $scope.filteredItems[i].variation = "down"
 
@@ -217,8 +219,10 @@ stockApp.controller("stockController", function ($scope) {
             $scope.filteredItems[i].change24 = Number(((($scope.new_price -  $scope.filteredItems[i].open24) / $scope.filteredItems[i].open24) * 100).toFixed(2))
             $scope.filteredItems[i].high24 = Number(Math.max($scope.new_price, $scope.filteredItems[i].high24 , $scope.filteredItems[i].open24).toFixed(2))
             $scope.filteredItems[i].low24 = Number(Math.min($scope.new_price, $scope.filteredItems[i].low24 , $scope.filteredItems[i].open24).toFixed(2))
+            //console.log("end interval",$scope.filteredItems[0].price)
+            $scope.$apply()
         }
-        //console.log("end interval")
+
     }
 
 
@@ -228,7 +232,7 @@ stockApp.controller("stockController", function ($scope) {
         //    {
         //        console.log("$scope.filteredItems", $scope.filteredItems)
         //            setInterval(function(){
-        //                $.ajax({
+        //                  $.ajax({
         //                    url: "https://websocket-stock.herokuapp.com/Getstocks/" + $scope.str,
         //                    type: "GET",
         //                    success: function (result) {

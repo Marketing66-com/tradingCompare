@@ -185,6 +185,7 @@ firstApp.controller('FirstController', function($scope) {
                     $scope.last_price[stock2] = data.price
                     //console.log("$scope.crypto6", $scope.crypto6)
                 }
+                //console.log("$scope.crypto6", $scope.crypto6)
             }
             $scope.$apply()
 

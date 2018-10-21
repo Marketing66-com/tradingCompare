@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/searchCountry.html.twig" afterPath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/searchCountry.html.twig" />
-      <change beforePath="$PROJECT_DIR$/web/js/Chart_stock.js" afterPath="$PROJECT_DIR$/web/js/Chart_stock.js" />
       <change beforePath="$PROJECT_DIR$/web/js/StockFeeds.js" afterPath="$PROJECT_DIR$/web/js/StockFeeds.js" />
       <change beforePath="$PROJECT_DIR$/web/js/bar.js" afterPath="$PROJECT_DIR$/web/js/bar.js" />
     </list>
@@ -23,8 +21,8 @@
       <file leaf-file-name="bar.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/bar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3003">
-              <caret line="143" column="50" lean-forward="false" selection-start-line="143" selection-start-column="50" selection-end-line="143" selection-end-column="50" />
+            <state relative-caret-position="399">
+              <caret line="137" column="14" lean-forward="false" selection-start-line="137" selection-start-column="14" selection-end-line="137" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -43,8 +41,8 @@
       <file leaf-file-name="StockFeeds.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/StockFeeds.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="223" column="0" lean-forward="true" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
+            <state relative-caret-position="559">
+              <caret line="61" column="10" lean-forward="false" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -239,7 +237,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -355,7 +353,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -804,12 +802,14 @@
       <workItem from="1539879055334" duration="1790000" />
       <workItem from="1539880862008" duration="1792000" />
       <workItem from="1539882673803" duration="1792000" />
-      <workItem from="1539884508497" duration="850000" />
+      <workItem from="1539884508497" duration="1554000" />
+      <workItem from="1540108069923" duration="1787000" />
+      <workItem from="1540110051738" duration="430000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="583038000" />
+    <option name="totallyTimeSpent" value="585959000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1176,14 +1176,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/bar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3003">
-          <caret line="143" column="50" lean-forward="false" selection-start-line="143" selection-start-column="50" selection-end-line="143" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/indextest.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3444">
@@ -1192,10 +1184,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/bar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="137" column="14" lean-forward="false" selection-start-line="137" selection-start-column="14" selection-end-line="137" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/StockFeeds.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="223" column="0" lean-forward="true" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
+        <state relative-caret-position="559">
+          <caret line="61" column="10" lean-forward="false" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
           <folding />
         </state>
       </provider>
