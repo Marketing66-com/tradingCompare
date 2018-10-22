@@ -16,9 +16,9 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
             url: "https://websocket-stock.herokuapp.com/getStockPrice/" +  symbol,
             type: "GET",
             success: function (result) {
-                console.log("result ***",result)
+                //console.log("result ***",result)
                 $scope.mystock = result[0]
-                //console.log(" $scope.mystock ***", $scope.mystock)
+                console.log(" $scope.mystock ***", $scope.mystock)
 
                 //IMAGE
                 var img = "https://storage.googleapis.com/iex/api/logos/" + $scope.mystock.symbol + ".png"
@@ -54,7 +54,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
             url: "https://api.iextrading.com/1.0/stock/" + symbol + "/company",
             type: "GET",
             success: function (result) {
-                console.log("result ***",result)
+                //console.log("result ***",result)
                 $scope.mystock.description = result.description
                 $scope.$apply()
             },
@@ -81,10 +81,13 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
             $scope.mystock.variation = "down"
 
 
-        $scope.mystock.change24 = (((data.price - $scope.mystock.price_open) / $scope.mystock.price_open) * 100).toFixed(2)
-        $scope.mystock.point = ($scope.mystock.price_open - data.price).toFixed(2)
-        $scope.last_price = data.price
+        // if(Number($scope.mystock.price_open) == undefined && typeof Number($scope.mystock.price_open) == "undefined" )
+        //     $scope.mystock.price_open = $scope.last_price;
 
+            $scope.mystock.change_pct = Number((((data.price - Number($scope.mystock.price_open)) / Number($scope.mystock.price_open)) * 100).toFixed(2))
+            $scope.mystock.point = Number((Number($scope.mystock.price_open) - data.price).toFixed(2))
+            $scope.last_price = data.price
+        
         $scope.$apply()
 
     })

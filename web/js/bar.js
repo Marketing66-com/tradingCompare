@@ -138,6 +138,7 @@ firstApp.controller('FirstController', function($scope) {
             //console.log("data", data,)
 
             if( ($scope.crypto5 == undefined && typeof $scope.crypto5 == "undefined") && data.symbol == stock1 ) {
+                console.log("1")
                     $scope.crypto5 = data
                     $scope.crypto5.name = "Facebook"
                     $scope.crypto5.price = data.price
@@ -149,6 +150,7 @@ firstApp.controller('FirstController', function($scope) {
 
             }
             else if( ($scope.crypto6 == undefined && typeof $scope.crypto6 == "undefined") && data.symbol == stock2) {
+                console.log("2")
                     $scope.crypto6 = data
                     $scope.crypto6.name = "Apple"
                     $scope.crypto6.price = data.price
@@ -160,6 +162,7 @@ firstApp.controller('FirstController', function($scope) {
             }
             else {
                 if (data.symbol == stock1) {
+                    console.log("3")
                     $scope.crypto5.price = data.price
 
                     if(data.price >= $scope.last_price[stock1])
@@ -173,6 +176,7 @@ firstApp.controller('FirstController', function($scope) {
                     $scope.last_price[stock1] = data.price
                 }
                 if (data.symbol == stock2) {
+                    console.log("4")
                     $scope.crypto6.price = data.price
 
                     if(data.price >= $scope.last_price[stock2])
