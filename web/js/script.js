@@ -43,10 +43,16 @@ app.controller('ListController', function($scope){
                 var i = 0
                 for (const key in $scope.result) {
                     if ($scope.result.hasOwnProperty(key)) {
+
                         itemsDetails[i] = $scope.result[key];
 
                         //NAME
+                        if(itemsDetails[i].name.substr(itemsDetails[i].name.length - 1) == ' ')
+                            itemsDetails[i].name = itemsDetails[i].name.substring(0, itemsDetails[i].name.length - 1);
                         itemsDetails[i].complete_name = itemsDetails[i].name
+                        if (itemsDetails[i].name.length >=17)
+                            itemsDetails[i].name = itemsDetails[i].name.substr(0, 17);
+
 
                         //IMAGE
                         if($scope.result[key].img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/piece.png"|| $scope.result[key].img == undefined || typeof $scope.result[key].img== "undefined")
@@ -81,14 +87,14 @@ app.controller('ListController', function($scope){
 
     $scope.ActiveChange = function (symbol, name) {
 
-        //console.log("activechange", symbol, name)
+        console.log("activechange", symbol, name)
 
         if(name.indexOf(' ') > -1)
             name = name.replace(/ /g, '-')
 
         var url =  decodeURIComponent(Routing.generate('crypto_chart',{"currency" :symbol, "name" :name}))
         console.log(Routing.generate('crypto_chart',{"currency" : symbol, "name" :name}))
-        window.location.href= url
+        //window.location.href= url
         return url
     }
 

@@ -16,7 +16,6 @@ stockApp.controller("stockController", function ($scope) {
 
     $scope.str = ""
     $scope.socket_object = {}
-    var flag = false;
 
     $scope.onSelect = function ($item, $model, $label) {
         $scope.$item = $item;
@@ -32,10 +31,16 @@ stockApp.controller("stockController", function ($scope) {
 
         var url =  Routing.generate('Live_rates_stocks',{"name" :$scope.$item.name, "value":$scope.$item.value})
         console.log("Routing",Routing.generate('Live_rates_stocks',{"name" :$scope.$item.name, "value":$scope.$item.value}))
-        //window.location.href= url
+        window.location.href= url
 
     };
 
+    // $scope.inputFormatter = function($model)
+    // {
+    //     console.log("$model",$model)
+    //     if (!$model) return  $scope.country_name;
+    //     return $model.name;
+    // }
     // *********** variables for pagination ************
     let itemsDetails = [];
     $scope.maxSize = 5;
@@ -76,7 +81,7 @@ stockApp.controller("stockController", function ($scope) {
 
         // *********************************
 
-
+var array =""
         // all product
         $.ajax({
             url: "https://websocket-stock.herokuapp.com/stocks/" + country_value,
@@ -94,7 +99,7 @@ stockApp.controller("stockController", function ($scope) {
                         //NAME
                         itemsDetails[j].complete_name = itemsDetails[j].name
                         if (itemsDetails[j].name.length >=17)
-                         itemsDetails[j].name = itemsDetails[j].name.substr(0, 17);
+                            itemsDetails[j].name = itemsDetails[j].name.substr(0, 17);
 
                         //IMAGE
                         var img = "https://storage.googleapis.com/iex/api/logos/" + key + ".png"
@@ -111,7 +116,8 @@ stockApp.controller("stockController", function ($scope) {
                     }
                 }
                 // str = str.substring(0, str.length - 1)
-                console.log("itemsDetails",itemsDetails)
+                //console.log("itemsDetails",itemsDetails)
+                console.log("array",array)
 
                 $scope.totalItems = itemsDetails.length;
 
@@ -119,7 +125,7 @@ stockApp.controller("stockController", function ($scope) {
                     end = begin + $scope.itemsPerPage;
 
                 $scope.filteredItems = itemsDetails.slice(begin, end);
-                console.log("$scope.filteredItems",$scope.filteredItems)
+                //console.log("$scope.filteredItems",$scope.filteredItems)
                 $scope.str = ""
                 for(var i = 0; i<= 99; i++)
                 { $scope.str =  $scope.str + $scope.filteredItems[i].pair + "," }
@@ -296,14 +302,17 @@ stockApp.controller("stockController", function ($scope) {
     $scope.ActiveChange = function (symbol, name) {
 
         var new_array = ['-', ' ', '/', '----', '---', '--']
-        for(var i=0; i<new_array.length;i++)
-            if(name.indexOf(new_array[i]) > -1)
-            {
-                if(new_array[i] == '-')
-                    name= name.replace(new RegExp(new_array[i], 'g'),' ')
+        for(var i=0; i<new_array.length;i++) {
+            if (name.indexOf(new_array[i]) > -1) {
+                if (new_array[i] == '-')
+                    name = name.replace(new RegExp(new_array[i], 'g'), ' ')
                 else
-                    name= name.replace(new RegExp(new_array[i], 'g'),'-')
+                    name = name.replace(new RegExp(new_array[i], 'g'), '-')
             }
+            if (name.indexOf("'") > -1) {
+               name = name.replace(/'/g, '')
+            }
+        }
 
         var url =  decodeURIComponent(Routing.generate('stock_chart',{"symbol" :symbol, "name":name }))
         console.log("url",url)

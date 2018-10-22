@@ -85,6 +85,7 @@ class SitemapController extends Controller
                     foreach ($data2 as $item) {
                         $new_array = array(' ', '/', '----', '---', '--');
                         $item['name'] = str_replace('-', " ", $item['name']);
+                        $item['name'] = str_replace("'", "", $item['name']);
                         $item['name'] = str_replace($new_array, "-", $item['name']);
 
                         if(isset($item['pair'])) {
