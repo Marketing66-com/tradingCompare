@@ -87,7 +87,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
             $scope.mystock.change_pct = Number((((data.price - Number($scope.mystock.price_open)) / Number($scope.mystock.price_open)) * 100).toFixed(2))
             $scope.mystock.point = Number((Number($scope.mystock.price_open) - data.price).toFixed(2))
             $scope.last_price = data.price
-        
+
         $scope.$apply()
 
     })
