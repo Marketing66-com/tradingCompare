@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/web/js/Chart_stock.js" afterPath="$PROJECT_DIR$/web/js/Chart_stock.js" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/RedirectController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/RedirectController.php" />
+      <change beforePath="$PROJECT_DIR$/web/js/StockFeeds.js" afterPath="$PROJECT_DIR$/web/js/StockFeeds.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,7 +17,48 @@
     <pharConfigPath />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="StockFeeds.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/js/StockFeeds.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="119" column="15" lean-forward="false" selection-start-line="119" selection-start-column="15" selection-end-line="119" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SitemapController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/SitemapController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1701">
+              <caret line="90" column="50" lean-forward="false" selection-start-line="90" selection-start-column="50" selection-end-line="90" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RedirectController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RedirectController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="903">
+              <caret line="46" column="92" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="92" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -29,14 +71,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>statistics_block_</find>
-      <find>negat</find>
-      <find>chart.css</find>
-      <find>neg</find>
-      <find>live_block_money_red</find>
-      <find>asyncSelected</find>
-      <find>search_in</find>
-      <find>live_cont-block_like_right</find>
       <find>bitcoin_title_right-start</find>
       <find>curritem</find>
       <find>chart_bitcoin-reting_prozent</find>
@@ -59,6 +93,14 @@
       <find>timerId</find>
       <find>/</find>
       <find>MFA</find>
+      <find>AEH</find>
+      <find>AEG</find>
+      <find>ACB.TO</find>
+      <find>EQH</find>
+      <find>AEGON</find>
+      <find>FTXR</find>
+      <find>FTXH</find>
+      <find>TVIX</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -112,12 +154,12 @@
         <option value="$PROJECT_DIR$/web/js/CryptoFeeds.js" />
         <option value="$PROJECT_DIR$/web/js/script.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/SitemapController.php" />
-        <option value="$PROJECT_DIR$/web/js/StockFeeds.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/RedirectController.php" />
         <option value="$PROJECT_DIR$/web/js/bar.js" />
         <option value="$PROJECT_DIR$/web/js/Chart_stock.js" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/RedirectController.php" />
+        <option value="$PROJECT_DIR$/web/js/StockFeeds.js" />
       </list>
     </option>
   </component>
@@ -195,6 +237,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -218,30 +261,7 @@
               <item name="tradingCompare" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="TwigBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="tradingCompare" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tradingCompare" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="TwigBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="tradingCompare" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tradingCompare" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="tradingCompare" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tradingCompare" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="default" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="tradingCompare" type="b2602c69:ProjectViewProjectNode" />
@@ -314,7 +334,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -789,15 +808,21 @@
       <workItem from="1540211906029" duration="1795000" />
       <workItem from="1540213721994" duration="1783000" />
       <workItem from="1540215550157" duration="1625000" />
-      <workItem from="1540217998573" duration="41000" />
+      <workItem from="1540217998573" duration="636000" />
+      <workItem from="1540222129813" duration="596000" />
+      <workItem from="1540286843973" duration="610000" />
+      <workItem from="1540288681204" duration="1813000" />
+      <workItem from="1540291047098" duration="1828000" />
+      <workItem from="1540292900252" duration="53000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="624706000" />
+    <option name="totallyTimeSpent" value="630201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2078125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1105,20 +1130,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/StockFeeds.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4032">
-          <caret line="101" column="86" lean-forward="false" selection-start-line="101" selection-start-column="86" selection-end-line="101" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/SitemapController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1555">
-          <caret line="87" column="58" lean-forward="false" selection-start-line="87" selection-start-column="58" selection-end-line="87" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/AppBundle.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1147,25 +1158,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RedirectController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="45" column="38" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="94" column="42" lean-forward="false" selection-start-line="94" selection-start-column="37" selection-end-line="94" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/chart_stock.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="651">
           <caret line="31" column="186" lean-forward="false" selection-start-line="31" selection-start-column="168" selection-end-line="31" selection-end-column="186" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1173,7 +1169,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="79" column="12" lean-forward="false" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1181,6 +1176,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="137" column="14" lean-forward="false" selection-start-line="137" selection-start-column="14" selection-end-line="137" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="903">
+          <caret line="46" column="92" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/SitemapController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1701">
+          <caret line="90" column="50" lean-forward="false" selection-start-line="90" selection-start-column="50" selection-end-line="90" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RedirectController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/StockFeeds.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="119" column="15" lean-forward="false" selection-start-line="119" selection-start-column="15" selection-end-line="119" selection-end-column="15" />
           <folding />
         </state>
       </provider>

@@ -81,7 +81,6 @@ stockApp.controller("stockController", function ($scope) {
 
         // *********************************
 
-var array =""
         // all product
         $.ajax({
             url: "https://websocket-stock.herokuapp.com/stocks/" + country_value,
@@ -101,6 +100,7 @@ var array =""
                         if (itemsDetails[j].name.length >=17)
                             itemsDetails[j].name = itemsDetails[j].name.substr(0, 17);
 
+
                         //IMAGE
                         var img = "https://storage.googleapis.com/iex/api/logos/" + key + ".png"
                         if(itemsDetails[j].img == undefined || typeof itemsDetails[j].img == "undefined" || img == undefined || typeof img == "undefined")
@@ -117,8 +117,7 @@ var array =""
                 }
                 // str = str.substring(0, str.length - 1)
                 //console.log("itemsDetails",itemsDetails)
-                console.log("array",array)
-
+               
                 $scope.totalItems = itemsDetails.length;
 
                 var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
