@@ -87,7 +87,7 @@ stockApp.controller("stockController", function ($scope) {
             type: "GET",
             success: function (result) {
                 $scope.result = result;
-                console.log("$scope.result",$scope.result)
+                //console.log("$scope.result",$scope.result)
 
                 var j = 0
                 for (const key in $scope.result) {
@@ -116,8 +116,8 @@ stockApp.controller("stockController", function ($scope) {
                     }
                 }
                 // str = str.substring(0, str.length - 1)
-                //console.log("itemsDetails",itemsDetails)
-               
+                console.log("itemsDetails",itemsDetails)
+
                 $scope.totalItems = itemsDetails.length;
 
                 var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
@@ -202,8 +202,8 @@ stockApp.controller("stockController", function ($scope) {
         // console.log("in connect $scope.str", $scope.str)
         socketStock.on("message", (data) => {
             data = JSON.parse(data);
-            if(data.symbol == "AAPL" || data.symbol == "FB" || data.symbol == "PBCRY" || data.symbol == "ETFC" || data.symbol == "EXPE")
-            console.log("data",data)
+            //if(data.symbol == "AAPL" || data.symbol == "FB" || data.symbol == "PBCRY" || data.symbol == "ETFC" || data.symbol == "EXPE")
+            //console.log("data",data)
             $scope.socket_object[data.symbol] = data.price
             $scope.$apply()
         })
@@ -274,28 +274,7 @@ stockApp.controller("stockController", function ($scope) {
         //            }, 5000);
         //            $scope.$apply()
         //    }, 2000);
-
-        // var socket = io.connect("https://websocket-stock.herokuapp.com")
-        //     socket.on('connect', function () {
-        //     socket.emit('room', "stockSocket");
-        //     socket.on('message', data => {
-        //         console.log("stock socket response", data)
-        //         for (const key in data) {
-        //             var item73 = $scope.all.find(function (element) {
-        //                 return (element.name == data[key].name);
-        //             })
-        //             if (typeof item73 != typeof undefined) {
-        //                 for (const ky in data[key]) {
-        //                     if (data.hasOwnProperty(key)) {
-        //                         item73[ky] = data[key][ky];
-        //                     }
-        //                 }
-        //             }
-        //             $scope.$apply()
-        //         }
-        //     })
-        // })
-
+    
     /////////////////////////////////////////////////////////////////////////////
 
     $scope.ActiveChange = function (symbol, name) {
