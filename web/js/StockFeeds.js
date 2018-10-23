@@ -246,7 +246,7 @@ stockApp.controller("stockController", function ($scope) {
         console.log("ok")
     }
 
-
+     
         //UPDATE VIA API
         ////////////////
         // setTimeout(function()
@@ -274,7 +274,7 @@ stockApp.controller("stockController", function ($scope) {
         //            }, 5000);
         //            $scope.$apply()
         //    }, 2000);
-    
+
     /////////////////////////////////////////////////////////////////////////////
 
     $scope.ActiveChange = function (symbol, name) {
