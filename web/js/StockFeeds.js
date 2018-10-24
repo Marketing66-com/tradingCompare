@@ -246,7 +246,7 @@ stockApp.controller("stockController", function ($scope) {
         console.log("ok")
     }
 
-     
+
         //UPDATE VIA API
         ////////////////
         // setTimeout(function()
