@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/web/js/StockFeeds.js" afterPath="$PROJECT_DIR$/web/js/StockFeeds.js" />
-      <change beforePath="$PROJECT_DIR$/web/js/bar.js" afterPath="$PROJECT_DIR$/web/js/bar.js" />
+      <change beforePath="$PROJECT_DIR$/web/js/CryptoFeeds.js" afterPath="$PROJECT_DIR$/web/js/CryptoFeeds.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,11 +17,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="StockFeeds.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StockFeeds.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/StockFeeds.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3549">
+            <state relative-caret-position="21">
               <caret line="6" column="58" lean-forward="false" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CryptoFeeds.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/js/CryptoFeeds.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="451">
+              <caret line="97" column="5" lean-forward="false" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -31,7 +40,7 @@
       <file leaf-file-name="bar.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/bar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
+            <state relative-caret-position="3360">
               <caret line="160" column="14" lean-forward="false" selection-start-line="160" selection-start-column="14" selection-end-line="160" selection-end-column="14" />
               <folding />
             </state>
@@ -171,7 +180,6 @@
         <option value="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error500.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error403.html.twig" />
         <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_crypto.html.twig" />
-        <option value="$PROJECT_DIR$/web/js/CryptoFeeds.js" />
         <option value="$PROJECT_DIR$/web/js/script.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/SitemapController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
@@ -180,6 +188,7 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/RedirectController.php" />
         <option value="$PROJECT_DIR$/web/js/StockFeeds.js" />
         <option value="$PROJECT_DIR$/web/js/bar.js" />
+        <option value="$PROJECT_DIR$/web/js/CryptoFeeds.js" />
       </list>
     </option>
   </component>
@@ -236,7 +245,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="2210" />
     <option name="y" value="69" />
     <option name="width" value="1227" />
@@ -257,7 +266,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -353,6 +361,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -840,18 +849,19 @@
       <workItem from="1540388695940" duration="312000" />
       <workItem from="1540390664507" duration="42000" />
       <workItem from="1540391017490" duration="1764000" />
-      <workItem from="1540392835303" duration="270000" />
+      <workItem from="1540392835303" duration="817000" />
+      <workItem from="1540452616036" duration="117000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="634676000" />
+    <option name="totallyTimeSpent" value="635340000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2078125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13072917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
@@ -1136,13 +1146,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/CryptoFeeds.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="52" selection-start-column="23" selection-end-line="54" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BarController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1226,7 +1229,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/bar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
+        <state relative-caret-position="3360">
           <caret line="160" column="14" lean-forward="false" selection-start-line="160" selection-start-column="14" selection-end-line="160" selection-end-column="14" />
           <folding />
         </state>
@@ -1234,8 +1237,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/StockFeeds.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3549">
+        <state relative-caret-position="21">
           <caret line="6" column="58" lean-forward="false" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/CryptoFeeds.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="97" column="5" lean-forward="false" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
           <folding />
         </state>
       </provider>

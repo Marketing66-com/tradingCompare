@@ -93,7 +93,7 @@ app.controller('ListController', function($scope){
 
         var url =  decodeURIComponent(Routing.generate('crypto_chart',{"currency" :symbol, "name" :name}))
         console.log(Routing.generate('crypto_chart',{"currency" : symbol, "name" :name}))
-        //window.location.href= url
+        window.location.href= url
         return url
     }
 
