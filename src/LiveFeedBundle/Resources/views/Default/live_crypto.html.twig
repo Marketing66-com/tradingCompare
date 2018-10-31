@@ -6,12 +6,12 @@
  {% endblock %}
 
 {% block body %}
-    <div ng-app="myApp">
+    {{ include('LiveFeedBundle:Default:searchInstruments.html.twig') }}
+
+    <div id="dvCrypto">
         <div  ng-controller="ListController as list">
-            {#<div  ng-init="init('{{ crypto_api }}','{{ crypto_likes }}')" >#}
             <div  ng-init="init('{{ crypto_api }}')" >
                 <section class="table">
-                {{ include('LiveFeedBundle:Default:searchInstruments.html.twig') }}
                 {{ include('LiveFeedBundle:Default:indextest.html.twig' ,  {'info': "crypto"}) }}
                 </section>
             </div>

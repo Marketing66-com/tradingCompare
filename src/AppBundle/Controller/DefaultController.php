@@ -229,15 +229,27 @@ class DefaultController extends Controller
 
 
 //    /**
-//     * @Route("/try", name="try")
+//     * @Route("/search/{value}/{name}", name="search",  options={"expose" = true})
 //     */
-//    public function tryAction()
+//    public function searchAction($name, $value)
 //    {
-//        $buzz = $this->container->get('buzz');
+//        $country_name = ucfirst(str_replace("-", " ", $name));
 //
-//        $response = $buzz->get('https://crypto-ws.herokuapp.com/All-Froms-and-Prices');
+//        if($value == 'flag-general')
+//            $country_value = str_replace("-", " ", $value);
+//        else
+//            $country_value = $value;
 //
-//        echo $response->getContent();
+//        return $this->render('LiveFeedBundle:Default:live_stock.html.twig',
+//            array("country_name"=>$country_name, "country_value"=>$country_value));
+//
+//
+////        $country_name = "United States" ;
+////        $country_value = "united-states-of-america";
+//        return $this->render('LiveFeedBundle:Default:live_stock.html.twig',
+//            array("country_name"=>$country_name, "country_value"=>$country_value));
+//
+////        return $this->render('LiveFeedBundle:Default:live_stock.html.twig',array('crypto_api'=>$crypto_api));
 //    }
 
 

@@ -19,7 +19,7 @@ class FeedsControler extends Controller
     {
         $country_name = "United States" ;
         $country_value = "united-states-of-america";
-        return $this->render('LiveFeedBundle:Default:live_stocks.html.twig',
+        return $this->render('LiveFeedBundle:Default:live_stock.html.twig',
         array("country_name"=>$country_name, "country_value"=>$country_value));
     }
 
@@ -35,7 +35,7 @@ class FeedsControler extends Controller
         else
           $country_value = $value;
 
-        return $this->render('LiveFeedBundle:Default:live_stocks.html.twig',
+        return $this->render('LiveFeedBundle:Default:live_stock.html.twig',
             array("country_name"=>$country_name, "country_value"=>$country_value));
     }
 

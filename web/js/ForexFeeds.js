@@ -1,15 +1,8 @@
-
-// (function(window) {
-var ThirdApp = angular.module('ThirdApp', []).config(function ($interpolateProvider) {
+var ForexApp = angular.module('ForexApp', []).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');})
 
 
-    // var demo = angular.module('LiveFeedsApp', []).config(function ($interpolateProvider) {
-    //     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
-    // });
-
-    ThirdApp.controller("ThirdController", function ($scope, $http) {
-        $scope.desc3 = "Third app. ";
+ForexApp.controller("ForexController", function ($scope, $http) {
 
         $scope.all = []
         $scope.all1 = []
@@ -158,11 +151,11 @@ var ThirdApp = angular.module('ThirdApp', []).config(function ($interpolateProvi
 
     });
 
-    var dvThird = document.getElementById('dvThird');
+    var dvForex = document.getElementById('dvForex');
 
     angular.element(document).ready(function() {
 
-        angular.bootstrap(dvThird, ['ThirdApp']);
+        angular.bootstrap(dvForex, ['ForexApp']);
     });
 //
 // })(window);
@@ -188,79 +181,4 @@ var ThirdApp = angular.module('ThirdApp', []).config(function ($interpolateProvi
 //
 //     });
 // })
-/*
-FORMAT
-data
-:
-ask
-:
-1.17818
-bid
-:
-1.17818
-high
-:
-1.18207
-low
-:
-1.17783
-price
-:
-1.17818
-__proto__
-:
-Object
-symbol
-:
-"EURUSD"
-*/
 
-
-//     } )
-//
-//
-//
-//
-//
-//
-//
-//
-// });
-
-// demo.service('WebSocketWrapper', ['$log', '$websocket', '$rootScope', function($log, $websocket, $rootScope) {
-//     var ws = null;
-//
-//     this.state = 'initializing';
-//     this.message = 'Websocket initializing';
-//
-//     var self = this;
-//
-//     this.init = function(){
-//         if (!ws) {
-//             ws = $websocket('https://xosignals.herokuapp.com/', null, {reconnectIfNotNormalClose: true});
-//
-//             ws.onOpen(function(){
-//                 console.log('connected');
-//                 $rootScope.$apply(function () {
-//                     self.state = 'connected';
-//                     self.message = 'Websocket connected';
-//                 });
-//             });
-//
-//             ws.onClose(function(){
-//                 console.log('close');
-//                 $rootScope.$apply(function () {
-//                     self.state = 'disconnected';
-//                     self.message = 'Websocket disconnected';
-//                 });
-//             });
-//         }
-//     };
-//
-// }]);
-//
-//
-// demo.controller('WebsocketStateCtrl', ['$scope', 'WebSocketWrapper', function($scope, WebSocketWrapper){
-//     $scope.websocket = WebSocketWrapper;
-//     $scope.websocket.init();
-// }]);

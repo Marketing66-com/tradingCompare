@@ -1,6 +1,3 @@
-// var stockApp = angular.module('stockApp', []).config(function ($interpolateProvider) {
-//     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');})
-
 var stockApp = angular.module('stockApp', ['ui.bootstrap']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');});
 
@@ -300,10 +297,10 @@ stockApp.controller("stockController", function ($scope) {
 
 });
 
-// var dvstock = document.getElementById('dvstock');
-//
-// angular.element(document).ready(function() {
-//
-//     angular.bootstrap(dvstock, ['stockApp']);
-// });
+var dvStock = document.getElementById('dvStock');
+
+angular.element(document).ready(function() {
+
+    angular.bootstrap(dvStock, ['stockApp']);
+});
 

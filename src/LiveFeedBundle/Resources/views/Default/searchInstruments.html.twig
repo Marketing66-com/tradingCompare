@@ -1,19 +1,70 @@
-<div class="chart_search margin_bottom">
-    <div class="container">
-        <div class="row">
-            <div class="reviec_cont-sezrch">
-                <div class="reviec_cont-sezrch_right">
-                    <div class="watchlist-cont">
-                        <a class="watchlist-cont_all watchlist-cont_all_active">ALL</a>
-                        <a class="watchlist-cont_all">WATCHLIST</a>
-                    </div>
-                    <div class="watchlist-cont watchlist-cont_right">
-                        <a class="watchlist-cont_all list" ><i class="fas fa-list"></i></a>
-                        <a class="watchlist-cont_all watchlist-cont_all_active grid"><i class="fas fa-th"></i></a>
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block body %}#}
+
+<div ng-app="searchapp">
+
+    <style>
+        .img_search { border-radius: 50%; }
+        .dropdown-menu{ width: 76% !important;}
+        @media (max-width: 1024px) {.dropdown-menu{ width: 63% !important;}  }
+    .typeahead-group-header { padding: 3px 20px; background-color: #1e375e; border-bottom: 1px solid   #1e375e; font-weight: bold; color: white; }
+    .dropdown-menu>li>a    {front-wight:500px!important; line-height: 2 !important;    }
+    .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus  { background-color: #eaeaea!important;color:black!important; }
+    </style>
+
+
+
+    <script type="text/ng-template" id="typeahead-item.html">
+        <div class="typeahead-group-header" ng-if="match.model.firstInGroup"> {[{match.model.group}]}</div>
+        <a>
+            <img class="img_search" ng-src='{{"{[{match.model.img}]}"}}' width="30" border-radius="50%">
+
+            <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+        </a>
+    </script>
+
+
+    <div class='container-fluid typeahead-demo' ng-controller="TypeaheadCtrl">
+        <div class="chart_search margin_bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="reviec_cont-sezrch">
+                        <div class="reviec_cont-sezrch_right">
+                            <div class="watchlist-cont">
+                                <a class="watchlist-cont_all watchlist-cont_all_active">ALL</a>
+                                <a class="watchlist-cont_all">WATCHLIST</a>
+                            </div>
+                            <div class="watchlist-cont watchlist-cont_right">
+                                <a class="watchlist-cont_all list" ><i class="fas fa-list"></i></a>
+                                <a class="watchlist-cont_all watchlist-cont_all_active grid"><i class="fas fa-th"></i></a>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control search_input"
+                               placeholder="Currency"
+                               ng-model="selectedUser"
+                               uib-typeahead="user as user.Name for user in getUsers($viewValue) "
+                               typeahead-template-url="typeahead-item.html" class="form-control"
+                               typeahead-on-select="onSelect($item, $model, $label)">
                     </div>
                 </div>
-                <input class="search_input" type="text" placeholder="Search Instruments">
             </div>
         </div>
     </div>
 </div>
+
+    <script src="../js/search_bar.js"></script>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('css/compiled-feeds.css') }}" >
+
+
+    <script data-require="lodash.js@*" data-semver="2.4.1" src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+
+{#{% endblock %}#}

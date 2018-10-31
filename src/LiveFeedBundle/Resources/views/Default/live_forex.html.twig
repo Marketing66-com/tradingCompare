@@ -8,9 +8,9 @@
 {% block body %}
 
 <link rel="stylesheet" href="{{ asset('css/compiled-feeds.css') }}" >
-
-    <div id="dvThird">
-        <div ng-controller="ThirdController ">
+    {{ include('LiveFeedBundle:Default:searchInstruments.html.twig') }}
+    <div id="dvForex">
+        <div ng-controller="ForexController ">
             <div  ng-init="init('{{ api }}',' {{ chart_link }}','{{ likes }}')" >
                 {{ include('LiveFeedBundle:Default:live_feed.html.twig', {chart_link: chart_link}) }}
             </div>
