@@ -2,7 +2,6 @@ var stockApp = angular.module('stockApp', ['ui.bootstrap']).config(function ($in
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');});
 
 stockApp.controller("stockController", function ($scope) {
-
     // *********** variables for ajax & country ************
     $scope.listCountry = [];
     $scope.country_name;
@@ -199,8 +198,8 @@ stockApp.controller("stockController", function ($scope) {
         // console.log("in connect $scope.str", $scope.str)
         socketStock.on("message", (data) => {
             data = JSON.parse(data);
-            //if(data.symbol == "AAPL" || data.symbol == "FB" || data.symbol == "PBCRY" || data.symbol == "ETFC" || data.symbol == "EXPE")
-            //console.log("data",data)
+            // if(data.symbol == "AAPL" || data.symbol == "FB" || data.symbol == "PBCRY" || data.symbol == "ETFC" || data.symbol == "EXPE")
+            // console.log("data",data)
             $scope.socket_object[data.symbol] = data.price
             $scope.$apply()
         })
