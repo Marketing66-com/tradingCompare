@@ -21,6 +21,8 @@ console.log("from et to", from, to)
                 $scope.mycrypto = result[from + "_" + to]
                 //console.log("after",  result[from.toUpperCase() + "_" + to.toUpperCase()], from, to)
 
+                console.log("after",  $scope.mycrypto)
+
                 // IMAGE
                 if($scope.mycrypto.img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/piece.png"|| $scope.mycrypto.img == undefined || typeof $scope.mycrypto.img== "undefined")
                     $scope.mycrypto.img = "/img/crypto_logos/crypto-other.png"

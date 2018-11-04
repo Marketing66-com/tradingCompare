@@ -6,58 +6,75 @@
  {% endblock %}
 
 {% block body %}
-
+    {{ include('default/searchbar_chart.html.twig') }}
     <div id="dvChart_forex" class="my-container  ng-cloak" ng-controller="Chart_forexController" ng-init="init('{{ api }}','{{ currency }}', '{{ like }}')">
         <div ng-controller="Chart_forexController ">
 
             <section class="table">
 
-                <div class="chart_search">
-                    <div class="container">
-                        <div class="row">
-                            <input class="search_input" type="text" placeholder="Search Instruments">
-                        </div>
-                    </div>
-                </div>
-                <div class="container padding_non">
-                    <div class="row">
-                        <div class="col-md-8 col-sm-12 col-xs-12">
-                            <div class="chart_bitcoin-cont">
+                {#<div class="chart_search">#}
+                    {#<div class="container">#}
+                        {#<div class="row">#}
+                            {#<input class="search_input" type="text" placeholder="Search Instruments">#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+
+                <div class="container padding_non margin_bottom">
+                    <div class="row ">
+
+                        <div class="col-md-8 col-sm-12 col-xs-12 " style="padding-right: 0px;padding-left: 0px;">
+                            <div class="chart_bitcoin-cont  ">
                                 <div class="bitcoin_text-cont">
                                     <div class="bitcoin_img-cont">
-                                        <img class="bitcoin_img" ng-src="{[{allimg.img}]}"  alt="{{ currency }}">
+                                        <img class="bitcoin_img" ng-src="{[{allimg.img}]}" onerror="this.src='/img/Stock_Logos/stocks.png'";>
                                     </div>
-                                    <div class="bitcoin_text-cont_left">
-                                        <h3 class="bitcoin_title">{{ currency }}<span class="bitcoin_title_right">{{ currency }}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
-                                        <p class="statistics_block-text" ng-class="{'live_block_money_red negative': myforex.change24 < 0, 'live_block_money_green positive': myforex.change24 >= 0}">{[{ myforex.change24}]}% <span class="statistics_block_min-text">{[{ myforex.point}]}</span>
-                                            <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></p>
-                                        <h3 class="bitcoin_many bitcoin_many-mobile" ng-class="{'negative': myforex.variation == 'down', 'positive':myforex.variation == 'up', 'neutral': myforex.variation == 'none'}">{[{ myforex.price}]}</h3>
-                                        <p class="bitcoin_bottom-text">
-                                            High: <span class="bitcoin_bottom-text_bold">{[{ myforex.high24}]}</span> Low:<span class="bitcoin_bottom-text_bold">{[{ myforex.low24}]}</span>
-                                            Open: <span class="bitcoin_bottom-text_bold">{[{ myforex.open24}]}</span>
-                                            {#Close: <span class="bitcoin_bottom-text_bold">{[{ myforex.price}]}</span>#}
-                                            {#Market Cap: <span class="bitcoin_bottom-text_bold">{[{ myforex.price}]}</span>#}
-                                        </p>
+                                    <div class="bitcoin_text-cont_left ">
+                                        <h3 class="bitcoin_title text_size">{{ currency }}<span class="bitcoin_title_right">{{ currency }}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
+                                        <h3 class="bitcoin_many_stock text_size" ng-class="{'negative': myforex.variation == 'down', 'positive':myforex.variation == 'up', 'neutral': myforex.variation == 'none'}">{[{myforex.price}]} {[{myforex.devise}]}
+                                            <span class="statistics_block-text" ng-class="{'negative': myforex.change_pct < 0, 'positive': myforex.change_pct >= 0}">{[{myforex.change24}]}%
+                                                <span class="statistics_block_min-text">{[{myforex.point}]}</span>
+                                                <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></span>
+                                        </h3>
                                     </div>
                                     <div class="bitcoin_text-cont_right">
-                                        <h3 class="bitcoin_many xs-none" ng-class="{'negative': myforex.variation == 'down', 'positive':myforex.variation == 'up', 'neutral': myforex.variation == 'none'}">{[{ myforex.price}]}</h3>
-                                        <a class="btcoin_btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>
+                                        <a class="btcoin_btn btn1" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="chart_content-text chart_content-text1 box_height_forex2">
+                                <div class="bitcoin_text-cont_left">
+                                    <p class="bitcoin_bottom-text text-price column">
+                                        High: <span class="bitcoin_bottom-text_bold">{[{ myforex.high24}]}</span>
+                                        <br>Low:<span class="bitcoin_bottom-text_bold">{[{ myforex.low24}]}</span>
+                                        <br>Open: <span class="bitcoin_bottom-text_bold">{[{ myforex.open24}]}</span>
+                                        <br>Close: <span class="bitcoin_bottom-text_bold">{[{ myforex.price}]}</span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-4 col-sm-5 col-xs-12 ">
-                            <div class="chart_bitcoin-reting">
-                                <p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-up"></i></span> {[{allimg.likes}]}</p>
-                                <p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-down"></i></span> {[{allimg.unlikes}]}</p>
-                                <p class="chart_bitcoin-reting_prozent">Sentiment: {[{allimg.sentiment}]}% Buying</p>
+
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 col-sm1 ">
+                            <div class="chart_bitcoin-reting chart_bitcoin-reting1 box_height_forex1 " style="    padding-bottom: 0px;    padding-top: 20px;">
+                                <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                    <a class="btcoin_btn sentiments_btn_green" target="_blank">BULLISH</a>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                    <a class="btcoin_btn sentiments_btn_red" target="_blank">BEARISH</a>
+                                </div>
+                                <p
+                                        {#class="chart_bitcoin-reting_prozent"#}
+                                >Sentiment: {[{allimg.sentiment}]}% Buying</p>
                                 <div class="chart_bitcoin-reting_progress-bar">
                                     <div class="reting_progress-bar_click"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 col-sm-7 col-xs-12 xs-none">
-                            <div class="chart_content-text">
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 col-sm2">
+                            <div class="chart_content-text chart_bitcoin-reting box_height_forex2">
                                 <p class="chart_content-text_info">
                                     {{ currency }}
                                 </p>
@@ -66,13 +83,68 @@
                     </div>
                 </div>
 
-                <div class="container">
+                <div class="container padding_non">
                     <div class="row">
                         <div class="general-chart">
-                            <img class="general-chart_img" src='{{ asset("img/chart.png") }}' alt="chart">
+                            <img class="general-chart_img" src='{{asset("img/chart.png")}}' alt="chart">
                         </div>
                     </div>
                 </div>
+
+                {#<div class="container padding_non">#}
+                    {#<div class="row">#}
+                        {#<div class="col-md-8 col-sm-12 col-xs-12">#}
+                            {#<div class="chart_bitcoin-cont">#}
+                                {#<div class="bitcoin_text-cont">#}
+                                    {#<div class="bitcoin_img-cont">#}
+                                        {#<img class="bitcoin_img" ng-src="{[{allimg.img}]}"  alt="{{ currency }}">#}
+                                    {#</div>#}
+                                    {#<div class="bitcoin_text-cont_left">#}
+                                        {#<h3 class="bitcoin_title">{{ currency }}<span class="bitcoin_title_right">{{ currency }}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>#}
+                                        {#<p class="statistics_block-text" ng-class="{'live_block_money_red negative': myforex.change24 < 0, 'live_block_money_green positive': myforex.change24 >= 0}">{[{ myforex.change24}]}% <span class="statistics_block_min-text">{[{ myforex.point}]}</span>#}
+                                            {#<span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></p>#}
+                                        {#<h3 class="bitcoin_many bitcoin_many-mobile" ng-class="{'negative': myforex.variation == 'down', 'positive':myforex.variation == 'up', 'neutral': myforex.variation == 'none'}">{[{ myforex.price}]}</h3>#}
+                                        {#<p class="bitcoin_bottom-text">#}
+                                            {#High: <span class="bitcoin_bottom-text_bold">{[{ myforex.high24}]}</span> Low:<span class="bitcoin_bottom-text_bold">{[{ myforex.low24}]}</span>#}
+                                            {#Open: <span class="bitcoin_bottom-text_bold">{[{ myforex.open24}]}</span>#}
+                                            {#Close: <span class="bitcoin_bottom-text_bold">{[{ myforex.price}]}</span>#}
+                                            {#Market Cap: <span class="bitcoin_bottom-text_bold">{[{ myforex.price}]}</span>#}
+                                        {#</p>#}
+                                    {#</div>#}
+                                    {#<div class="bitcoin_text-cont_right">#}
+                                        {#<h3 class="bitcoin_many xs-none" ng-class="{'negative': myforex.variation == 'down', 'positive':myforex.variation == 'up', 'neutral': myforex.variation == 'none'}">{[{ myforex.price}]}</h3>#}
+                                        {#<a class="btcoin_btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                        {#<div class="col-md-4 col-sm-5 col-xs-12 ">#}
+                            {#<div class="chart_bitcoin-reting">#}
+                                {#<p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-up"></i></span> {[{allimg.likes}]}</p>#}
+                                {#<p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-down"></i></span> {[{allimg.unlikes}]}</p>#}
+                                {#<p class="chart_bitcoin-reting_prozent">Sentiment: {[{allimg.sentiment}]}% Buying</p>#}
+                                {#<div class="chart_bitcoin-reting_progress-bar">#}
+                                    {#<div class="reting_progress-bar_click"></div>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                        {#<div class="col-md-12 col-sm-7 col-xs-12 xs-none">#}
+                            {#<div class="chart_content-text">#}
+                                {#<p class="chart_content-text_info">#}
+                                    {#{{ currency }}#}
+                                {#</p>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="container">#}
+                    {#<div class="row">#}
+                        {#<div class="general-chart">#}
+                            {#<img class="general-chart_img" src='{{ asset("img/chart.png") }}' alt="chart">#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
 
             </section>
         </div>

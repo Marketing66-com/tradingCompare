@@ -23,7 +23,7 @@ searchapp.controller('TypeaheadCtrl', function($scope, filterFilter) {
              }
             users.push(data[key])
         }
-        console.log("data",users);
+       // console.log("data",users);
     });
 
     $scope.getUsers = function (search) {
@@ -58,12 +58,12 @@ searchapp.controller('TypeaheadCtrl', function($scope, filterFilter) {
             }
         }
 
-        console.log($scope.result)
+        //console.log($scope.result)
         return $scope.result;
     }
 
     $scope.startsWith = function (viewValue) {
-        console.log(viewValue)
+        //console.log(viewValue)
 
         for (var k = 0; k < users.length; k++) {
             if (typeof  users[k].name != "undefined") {

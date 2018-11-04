@@ -50,6 +50,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
         });
 
         ////////////////////////////////////////////////////////////////////
+        //DESCRIPTION
         $.ajax({
             url: "https://api.iextrading.com/1.0/stock/" + symbol + "/company",
             type: "GET",
@@ -72,7 +73,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
 
     socketStock.on("message", (data) => {
         data = JSON.parse(data);
-        //console.log("data", data)
+        console.log("data", data)
         $scope.mystock.price = data.price
 
         if(data.price >= $scope.last_price)

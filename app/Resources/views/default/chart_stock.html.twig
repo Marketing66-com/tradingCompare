@@ -7,21 +7,23 @@
  {% endblock %}
 
 {% block body %}
+
+    {{ include('default/searchbar_chart.html.twig') }}
     <div id="dvChart_stock" class="my-container  ng-cloak" ng-controller="Chart_stockController" ng-init="init('{{ symbol }}')">
         <div ng-controller="Chart_stockController ">
             <section class="table">
-                <div class="chart_search">
-                    <div class="container">
-                        <div class="row">
-                            <input class="search_input" type="text" placeholder="Search Instruments">
-                        </div>
-                    </div>
-                </div>
-                <div class="container padding_non">
-                    <div class="row">
+                {#<div class="chart_search">#}
+                    {#<div class="container">#}
+                        {#<div class="row">#}
+                            {#<input class="search_input" type="text" placeholder="Search Instruments">#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+                <div class="container padding_non margin_bottom">
+                    <div class="row ">
 
-                        <div class="col-md-8 col-sm-12 col-xs-12" style="padding-right: 0px;padding-left: 0px;">
-                            <div class="chart_bitcoin-cont">
+                        <div class="col-md-8 col-sm-12 col-xs-12 " style="padding-right: 0px;padding-left: 0px;">
+                            <div class="chart_bitcoin-cont  ">
                                 <div class="bitcoin_text-cont">
                                     <div class="bitcoin_img-cont">
                                         <img class="bitcoin_img" ng-src="{[{mystock.img}]}" onerror="this.src='/img/Stock_Logos/stocks.png'";>
@@ -40,7 +42,7 @@
                                 </div>
                             </div>
 
-                            <div class="chart_content-text chart_content-text1">
+                            <div class="chart_content-text chart_content-text1 box_height_stock2">
                                 <div class="bitcoin_text-cont_left">
                                     <p class="bitcoin_bottom-text text-price column">
 
@@ -61,15 +63,18 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-sm-6 col-xs-12 col-sm1">
-                            <div class="chart_bitcoin-reting chart_bitcoin-reting1"style="    padding-bottom: 0px;    padding-top: 20px;">
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 col-sm1 ">
+                            <div class="chart_bitcoin-reting chart_bitcoin-reting1 box_height_stock1 " style="    padding-bottom: 0px;    padding-top: 20px;">
                                 <div class="col-md-6 col-sm-6 col-xs-6 ">
                                     <a class="btcoin_btn sentiments_btn_green" target="_blank">BULLISH</a>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-6 ">
                                     <a class="btcoin_btn sentiments_btn_red" target="_blank">BEARISH</a>
                                 </div>
-                                <p class="chart_bitcoin-reting_prozent">Sentiment: {[{mystock.sentiment }]}% Buying</p>
+                                <p
+                                        {#class="chart_bitcoin-reting_prozent"#}
+                                >Sentiment: {[{mystock.sentiment }]}% Buying</p>
                                 <div class="chart_bitcoin-reting_progress-bar">
                                     <div class="reting_progress-bar_click"></div>
                                 </div>
@@ -77,7 +82,7 @@
                         </div>
 
                         <div class="col-md-4 col-sm-6 col-xs-12 col-sm2">
-                            <div class="chart_content-text">
+                            <div class="chart_content-text chart_bitcoin-reting box_height_stock2">
                                 <p class="chart_content-text_info">
                                     {[{mystock.name}]} - {{ symbol| split('.')[0]}}<br><br>
                                     {[{mystock.description}]}

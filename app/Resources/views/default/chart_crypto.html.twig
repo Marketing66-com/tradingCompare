@@ -18,58 +18,78 @@
     <link rel="stylesheet" href='{{ asset("css/charts.css") }}' />
     <link rel="stylesheet" href='{{ asset("css/chart-live-iq.css") }}' />
 
+    {{ include('default/searchbar_chart.html.twig') }}
     <div id="dvChart" class="my-container ng-cloak" ng-controller="ChartController" ng-init="init('{{ currency }}', '{{ from }}', '{{ to }}','{{ crypto_api }}')">
         <div ng-controller="ChartController ">
             <section class="table">
-                <div class="chart_search">
-                    <div class="container">
-                        <div class="row">
-                            <input class="search_input" type="" placeholder="Search Instruments">
-                        </div>
-                    </div>
-                </div>
+                {#<div class="chart_search">#}
+                    {#<div class="container">#}
+                        {#<div class="row">#}
+                            {#<input class="search_input" type="" placeholder="Search Instruments">#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+
+
                 <div class="container padding_non">
-                    <div class="row">
-                        <div class="col-md-8 col-sm-12 col-xs-12">
-                            <div class="chart_bitcoin-cont">
+                    <div class="row ">
+
+                        <div class="col-md-8 col-sm-12 col-xs-12 " style="padding-right: 0px;padding-left: 0px;">
+                            <div class="chart_bitcoin-cont ">
                                 <div class="bitcoin_text-cont">
                                     <div class="bitcoin_img-cont">
                                         <img class="bitcoin_img" ng-src="{[{mycrypto.img}]}" onerror="this.src='/img/crypto_logos/crypto-other.png'";>
                                     </div>
-                                    <div class="bitcoin_text-cont_left">
-                                        <h3 class="bitcoin_title">{[{mycrypto.name}]}<span class="bitcoin_title_right">{[{mycrypto.pair.replace("_","/")}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
-                                        <p
-                                           class="statistics_block-text"
-                                           ng-class="{' negative': mycrypto.change24 < 0, 'positive': mycrypto.change24 >= 0}">{[{mycrypto.change24}]}% <span class="statistics_block_min-text">{[{mycrypto.point}]}</span>
-                                            <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></p>
-                                        <h3 class="bitcoin_many bitcoin_many-mobile" ng-class="{'negative': mycrypto.variation == 'down', 'positive':mycrypto.variation == 'up', 'neutral': mycrypto.variation == 'none'}">{[{mycrypto.price}]}</h3>
-                                        <p class="bitcoin_bottom-text">
-                                            High: <span class="bitcoin_bottom-text_bold">{[{mycrypto.high24}]}</span>
-                                            Low:<span class="bitcoin_bottom-text_bold">{[{mycrypto.low24}]}</span>
-                                            <br> Open: <span class="bitcoin_bottom-text_bold">{[{mycrypto.open24}]}</span>
-                                            Close: <span class="bitcoin_bottom-text_bold">{[{mycrypto.price}]}</span>
-                                            <br> Market Cap: <span class="bitcoin_bottom-text_bold">{[{mycrypto.marketcap}]}</span>
-                                        </p>
+                                    <div class="bitcoin_text-cont_left ">
+                                        <h3 class="bitcoin_title text_size">{[{mycrypto.name}]}<span class="bitcoin_title_right">{[{mycrypto.pair.replace("_","/")}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
+                                        <h3 class="bitcoin_many_stock text_size" ng-class="{'negative': mycrypto.variation == 'down', 'positive':mycrypto.variation == 'up', 'neutral': mycrypto.variation == 'none'}">{[{mycrypto.price}]}
+                                            <span class="statistics_block-text" ng-class="{'negative': mycrypto.change24 < 0, 'positive': mycrypto.change24 >= 0}">{[{mycrypto.change24}]}%
+                                                <span class="statistics_block_min-text">{[{mycrypto.point}]}</span>
+                                                <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></span>
+                                        </h3>
                                     </div>
                                     <div class="bitcoin_text-cont_right">
-                                        <h3 class="bitcoin_many xs-none" ng-class="{'negative': mycrypto.variation == 'down', 'positive':mycrypto.variation == 'up', 'neutral': mycrypto.variation == 'none'}">{[{mycrypto.price}]}</h3>
-                                        <a class="btcoin_btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>
+                                        <a class="btcoin_btn btn1" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="chart_content-text chart_content-text1 ">
+                                <div class="bitcoin_text-cont_left">
+                                    <p class="bitcoin_bottom-text text-price column">
+
+                                        High: <span class="bitcoin_bottom-text_bold">{[{mycrypto.high24}]}</span>
+                                        <br>Low:<span class="bitcoin_bottom-text_bold">{[{mycrypto.low24}]}</span>
+                                        <br>Open: <span class="bitcoin_bottom-text_bold">{[{mycrypto.open24}]}</span>
+                                        <br>Close: <span class="bitcoin_bottom-text_bold">{[{mycrypto.price}]}</span>
+                                        <br> Market Cap: <span class="bitcoin_bottom-text_bold">{[{mycrypto.marketcap}]}</span>
+                                        <br> Volume: <span class="bitcoin_bottom-text_bold">{[{mycrypto.volume}]}</span>
+
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-4 col-sm-5 col-xs-12 ">
-                            <div class="chart_bitcoin-reting">
-                                <p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-up"></i></span> {[{mycrypto.likes}]}</p>
-                                <p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-down"></i></span> {[{mycrypto.unlikes}]}</p>
-                                <p class="chart_bitcoin-reting_prozent">Sentiment: {[{mycrypto.sentiment }]}% Buying</p>
+
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 col-sm1 ">
+                            <div class="chart_bitcoin-reting chart_bitcoin-reting1 box_height_crypto1" style="    padding-bottom: 0px;    padding-top: 20px;">
+                                <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                    <a class="btcoin_btn sentiments_btn_green" target="_blank">BULLISH</a>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                    <a class="btcoin_btn sentiments_btn_red" target="_blank">BEARISH</a>
+                                </div>
+                                <p
+                                        {#class="chart_bitcoin-reting_prozent"#}
+                                >Sentiment: {[{mycrypto.sentiment }]}% Buying</p>
                                 <div class="chart_bitcoin-reting_progress-bar">
                                     <div class="reting_progress-bar_click"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 col-sm-7 col-xs-12 xs-none">
-                            <div class="chart_content-text">
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 col-sm2">
+                            <div class="chart_content-text chart_bitcoin-reting box_height_crypto2" >
                                 <p class="chart_content-text_info">
                                     {[{mycrypto.name}]} - {{ currency}}
                                 </p>
@@ -77,6 +97,57 @@
                         </div>
                     </div>
                 </div>
+
+
+                {#<div class="container padding_non">#}
+                    {#<div class="row">#}
+                        {#<div class="col-md-8 col-sm-12 col-xs-12">#}
+                            {#<div class="chart_bitcoin-cont">#}
+                                {#<div class="bitcoin_text-cont">#}
+                                    {#<div class="bitcoin_img-cont">#}
+                                        {#<img class="bitcoin_img" ng-src="{[{mycrypto.img}]}" onerror="this.src='/img/crypto_logos/crypto-other.png'";>#}
+                                    {#</div>#}
+                                    {#<div class="bitcoin_text-cont_left">#}
+                                        {#<h3 class="bitcoin_title">{[{mycrypto.name}]}<span class="bitcoin_title_right">{[{mycrypto.pair.replace("_","/")}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>#}
+                                        {#<p#}
+                                           {#class="statistics_block-text"#}
+                                           {#ng-class="{' negative': mycrypto.change24 < 0, 'positive': mycrypto.change24 >= 0}">{[{mycrypto.change24}]}% <span class="statistics_block_min-text">{[{mycrypto.point}]}</span>#}
+                                            {#<span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></p>#}
+                                        {#<h3 class="bitcoin_many bitcoin_many-mobile" ng-class="{'negative': mycrypto.variation == 'down', 'positive':mycrypto.variation == 'up', 'neutral': mycrypto.variation == 'none'}">{[{mycrypto.price}]}</h3>#}
+                                        {#<p class="bitcoin_bottom-text">#}
+                                            {#High: <span class="bitcoin_bottom-text_bold">{[{mycrypto.high24}]}</span>#}
+                                            {#Low:<span class="bitcoin_bottom-text_bold">{[{mycrypto.low24}]}</span>#}
+                                            {#<br> Open: <span class="bitcoin_bottom-text_bold">{[{mycrypto.open24}]}</span>#}
+                                            {#Close: <span class="bitcoin_bottom-text_bold">{[{mycrypto.price}]}</span>#}
+                                            {#<br> Market Cap: <span class="bitcoin_bottom-text_bold">{[{mycrypto.marketcap}]}</span>#}
+                                        {#</p>#}
+                                    {#</div>#}
+                                    {#<div class="bitcoin_text-cont_right">#}
+                                        {#<h3 class="bitcoin_many xs-none" ng-class="{'negative': mycrypto.variation == 'down', 'positive':mycrypto.variation == 'up', 'neutral': mycrypto.variation == 'none'}">{[{mycrypto.price}]}</h3>#}
+                                        {#<a class="btcoin_btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                        {#<div class="col-md-4 col-sm-5 col-xs-12 ">#}
+                            {#<div class="chart_bitcoin-reting">#}
+                                {#<p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-up"></i></span> {[{mycrypto.likes}]}</p>#}
+                                {#<p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-down"></i></span> {[{mycrypto.unlikes}]}</p>#}
+                                {#<p class="chart_bitcoin-reting_prozent">Sentiment: {[{mycrypto.sentiment }]}% Buying</p>#}
+                                {#<div class="chart_bitcoin-reting_progress-bar">#}
+                                    {#<div class="reting_progress-bar_click"></div>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                        {#<div class="col-md-12 col-sm-7 col-xs-12 xs-none">#}
+                            {#<div class="chart_content-text">#}
+                                {#<p class="chart_content-text_info">#}
+                                    {#{[{mycrypto.name}]} - {{ currency}}#}
+                                {#</p>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
             </section>
         </div>
     </div>
@@ -85,7 +156,7 @@
     {#<div id="dvChart-live" class="my-container ng-cloak" ng-controller="ChartLiveController" ng-init="init('{{ from }}', '{{ to }}')">#}
     {#<div ng-controller="ChartLiveController ">#}
 
-    <div class="my-container ">
+    <div class="my-container">
         <div>
             <section class="table">
                 <div class="container">

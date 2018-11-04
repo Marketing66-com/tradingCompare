@@ -36,7 +36,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope, $http) {
                 for(key in $scope.all) {
                     if ($scope.all[key].fromSymbol == currency) {
                         $scope.myforex = $scope.all[key]
-                        //console.log("$scope.myforex", $scope.myforex)
+                        console.log("$scope.myforex", $scope.myforex)
                     }
 
                 }
