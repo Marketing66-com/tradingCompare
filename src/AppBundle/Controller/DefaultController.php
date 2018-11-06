@@ -228,29 +228,21 @@ class DefaultController extends Controller
 
 
 
-//    /**
-//     * @Route("/search/{value}/{name}", name="search",  options={"expose" = true})
-//     */
-//    public function searchAction($name, $value)
-//    {
-//        $country_name = ucfirst(str_replace("-", " ", $name));
-//
-//        if($value == 'flag-general')
-//            $country_value = str_replace("-", " ", $value);
-//        else
-//            $country_value = $value;
-//
-//        return $this->render('LiveFeedBundle:Default:live_stock.html.twig',
-//            array("country_name"=>$country_name, "country_value"=>$country_value));
-//
-//
-////        $country_name = "United States" ;
-////        $country_value = "united-states-of-america";
-//        return $this->render('LiveFeedBundle:Default:live_stock.html.twig',
-//            array("country_name"=>$country_name, "country_value"=>$country_value));
-//
-////        return $this->render('LiveFeedBundle:Default:live_stock.html.twig',array('crypto_api'=>$crypto_api));
-//    }
+    /**
+     * @Route("/{name}/{currency}/cryptotest", name="cryptotest", options={"expose" = true})
+     */
+    public function cryptotestAction($name,$currency)
+    {
+        $pair = explode("_", $currency);
+        $from =  $pair[0];
+        $to =  $pair[1];
+        $my_name = ucfirst(str_replace("-", " ", $name));
+
+        $crypto_api =  $this->getParameter('crypto_api');
+
+        return $this->render('default/test_chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name));
+    }
+
 
 
 }

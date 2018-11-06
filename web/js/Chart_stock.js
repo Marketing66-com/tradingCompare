@@ -17,7 +17,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
             type: "GET",
             success: function (result) {
                 //console.log("result ***",result)
-                $scope.mystock = result[0]
+                $scope.mystock = result
                 console.log(" $scope.mystock ***", $scope.mystock)
 
                 //IMAGE
@@ -36,7 +36,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
                 $scope.mystock.sentiment=Number(sent.toFixed(1))
 
                 //POINT
-                $scope.mystock.point = Number(Number(Math.abs(result[0]['price_open'] - result[0]['price'])).toFixed(2));
+                $scope.mystock.point = Number(Number(Math.abs(result['price_open'] - result['price'])).toFixed(2));
 
                 //SYMBOL
                 if($scope.mystock.symbol.indexOf('.') > -1)
