@@ -200,48 +200,48 @@ class DefaultController extends Controller
     }
 
 
-    /**
-     * @Route("/ho_no", name="ho_no")
-     */
-    public function ho_noAction()
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/ho_no.html.twig');
-    }
+//    /**
+//     * @Route("/ho_no", name="ho_no")
+//     */
+//    public function ho_noAction()
+//    {
+//        // replace this example code with whatever you need
+//        return $this->render('default/ho_no.html.twig');
+//    }
 
-    /**
-     * @Route("/pagination", name="pagination")
-     */
-    public function paginationAction()
-    {
-        return $this->render('indextest.html.twig');
-    }
-
-
-    /**
-     * @Route("/autocomplete", name="autocomplete")
-     */
-    public function autocompleteAction()
-    {
-        return $this->render('default/autocompletetest.html.twig');
-    }
+//    /**
+//     * @Route("/pagination", name="pagination")
+//     */
+//    public function paginationAction()
+//    {
+//        return $this->render('indextest.html.twig');
+//    }
 
 
+//    /**
+//     * @Route("/autocomplete", name="autocomplete")
+//     */
+//    public function autocompleteAction()
+//    {
+//        return $this->render('default/autocompletetest.html.twig');
+//    }
 
-    /**
-     * @Route("/{name}/{currency}/cryptotest", name="cryptotest", options={"expose" = true})
-     */
-    public function cryptotestAction($name,$currency)
-    {
-        $pair = explode("_", $currency);
-        $from =  $pair[0];
-        $to =  $pair[1];
-        $my_name = ucfirst(str_replace("-", " ", $name));
 
-        $crypto_api =  $this->getParameter('crypto_api');
 
-        return $this->render('default/test_chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name));
-    }
+//    /**
+//     * @Route("/{name}/{currency}/cryptotest", name="cryptotest", options={"expose" = true})
+//     */
+//    public function cryptotestAction($name,$currency)
+//    {
+//        $pair = explode("_", $currency);
+//        $from =  $pair[0];
+//        $to =  $pair[1];
+//        $my_name = ucfirst(str_replace("-", " ", $name));
+//
+//        $crypto_api =  $this->getParameter('crypto_api');
+//
+//        return $this->render('default/test_chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name));
+//    }
 
 
 
