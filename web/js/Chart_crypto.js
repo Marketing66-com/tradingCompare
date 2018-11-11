@@ -209,7 +209,7 @@ ChartApp.controller('ChartController', function($scope) {
         //connect(params)
 
     }
-
+     
     $scope.getDisplayValue = function(currentValue)
     {
         return intFormat(currentValue);
