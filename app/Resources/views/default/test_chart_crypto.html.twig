@@ -19,7 +19,7 @@
     <link rel="stylesheet" href='{{ asset("css/chart-live-iq.css") }}' />
 
     {{ include('default/searchbar_chart.html.twig') }}
-    <div id="dvChart" class="my-container ng-cloak" ng-controller="ChartController" ng-init="init('{{ currency }}', '{{ from }}', '{{ to }}','{{ crypto_api }}')">
+    <div id="dvChart" class="my-container ng-cloak" ng-controller="ChartController" ng-init="init('{{ currency }}', '{{ from }}', '{{ to }}','{{ crypto_api }}','{{ name }}')">
         <div ng-controller="ChartController ">
             <section class="table">
                 {#<div class="chart_search">#}
@@ -98,63 +98,26 @@
                     </div>
                 </div>
 
+                <div class="my-container">
+                    {#<section class="table">#}
+                         <div class="container">
+                            <div class="row ">
+                                <div class="select-exchange" style="height:75px; background-color:#151f28; border:1px solid #151f28">
+                                    {#<input  style="width:15%;" type="search" placeholder=" Search currencies " id="tags" />#}
+                                     <select style="width: 98%" id="selectExchange" class="my_select" ng-model="setExchange" ng-change="changedValue()" >
+                                            <option ng-repeat="exchange in Exchanges">{[{exchange}]}</option>
+                                     </select>
+                                    {#<button style="width:7%;" id="buy_button" class="buy_button"></button>#}
+                                    {#<button style="width:7%;" id="sell_button" class="sell_button"></button>#}
+                                </div>
+                            </div>
+                         </div>
+                    {#</section>#}
+                </div>
 
-                {#<div class="container padding_non">#}
-                {#<div class="row">#}
-                {#<div class="col-md-8 col-sm-12 col-xs-12">#}
-                {#<div class="chart_bitcoin-cont">#}
-                {#<div class="bitcoin_text-cont">#}
-                {#<div class="bitcoin_img-cont">#}
-                {#<img class="bitcoin_img" ng-src="{[{mycrypto.img}]}" onerror="this.src='/img/crypto_logos/crypto-other.png'";>#}
-                {#</div>#}
-                {#<div class="bitcoin_text-cont_left">#}
-                {#<h3 class="bitcoin_title">{[{mycrypto.name}]}<span class="bitcoin_title_right">{[{mycrypto.pair.replace("_","/")}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>#}
-                {#<p#}
-                {#class="statistics_block-text"#}
-                {#ng-class="{' negative': mycrypto.change24 < 0, 'positive': mycrypto.change24 >= 0}">{[{mycrypto.change24}]}% <span class="statistics_block_min-text">{[{mycrypto.point}]}</span>#}
-                {#<span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></p>#}
-                {#<h3 class="bitcoin_many bitcoin_many-mobile" ng-class="{'negative': mycrypto.variation == 'down', 'positive':mycrypto.variation == 'up', 'neutral': mycrypto.variation == 'none'}">{[{mycrypto.price}]}</h3>#}
-                {#<p class="bitcoin_bottom-text">#}
-                {#High: <span class="bitcoin_bottom-text_bold">{[{mycrypto.high24}]}</span>#}
-                {#Low:<span class="bitcoin_bottom-text_bold">{[{mycrypto.low24}]}</span>#}
-                {#<br> Open: <span class="bitcoin_bottom-text_bold">{[{mycrypto.open24}]}</span>#}
-                {#Close: <span class="bitcoin_bottom-text_bold">{[{mycrypto.price}]}</span>#}
-                {#<br> Market Cap: <span class="bitcoin_bottom-text_bold">{[{mycrypto.marketcap}]}</span>#}
-                {#</p>#}
-                {#</div>#}
-                {#<div class="bitcoin_text-cont_right">#}
-                {#<h3 class="bitcoin_many xs-none" ng-class="{'negative': mycrypto.variation == 'down', 'positive':mycrypto.variation == 'up', 'neutral': mycrypto.variation == 'none'}">{[{mycrypto.price}]}</h3>#}
-                {#<a class="btcoin_btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>#}
-                {#</div>#}
-                {#</div>#}
-                {#</div>#}
-                {#</div>#}
-                {#<div class="col-md-4 col-sm-5 col-xs-12 ">#}
-                {#<div class="chart_bitcoin-reting">#}
-                {#<p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-up"></i></span> {[{mycrypto.likes}]}</p>#}
-                {#<p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-down"></i></span> {[{mycrypto.unlikes}]}</p>#}
-                {#<p class="chart_bitcoin-reting_prozent">Sentiment: {[{mycrypto.sentiment }]}% Buying</p>#}
-                {#<div class="chart_bitcoin-reting_progress-bar">#}
-                {#<div class="reting_progress-bar_click"></div>#}
-                {#</div>#}
-                {#</div>#}
-                {#</div>#}
-                {#<div class="col-md-12 col-sm-7 col-xs-12 xs-none">#}
-                {#<div class="chart_content-text">#}
-                {#<p class="chart_content-text_info">#}
-                {#{[{mycrypto.name}]} - {{ currency}}#}
-                {#</p>#}
-                {#</div>#}
-                {#</div>#}
-                {#</div>#}
-                {#</div>#}
             </section>
         </div>
     </div>
-
-
-    {#<div id="dvChart-live" class="my-container ng-cloak" ng-controller="ChartLiveController" ng-init="init('{{ from }}', '{{ to }}')">#}
-    {#<div ng-controller="ChartLiveController ">#}
 
     <div class="my-container">
         <div>
@@ -162,12 +125,12 @@
                 <div class="container">
                     <div class="row ">
                         {#<div class="general-chart ">#}
-                        <div class="select-exchange" style="height:75px; background-color:#151f28; border:1px solid #151f28">
+                        {#<div class="select-exchange" style="height:75px; background-color:#151f28; border:1px solid #151f28">#}
                             {#<input  style="width:15%;" type="search" placeholder=" Search currencies " id="tags" />#}
-                            <select style="width: 98%" id="selectExchange" class="my_select"></select>
+                            {#<select style="width: 98%" id="selectExchange" class="my_select" onchange= "ChangeExchange('{{ from}}','{{ to }}')"></select>#}
                             {#<button style="width:7%;" id="buy_button" class="buy_button"></button>#}
                             {#<button style="width:7%;" id="sell_button" class="sell_button"></button>#}
-                        </div>
+                        {#</div>#}
 
                         {#</div>#}
                         <div class=" chart ">
@@ -193,19 +156,22 @@
                                                     <span><cq-clickable stxbind="Layout.periodicity">1 D</cq-clickable></span>
                                                     <cq-menu-dropdown>
                                                         <cq-item stxtap="Layout.setPeriodicity(1,1,'day')">1 D</cq-item>
-                                                        <cq-item stxtap="Layout.setPeriodicity(1,1,'week')">1 W</cq-item>
-                                                        <cq-item stxtap="Layout.setPeriodicity(1,1,'month')">1 Mo</cq-item>
+                                                        {#<cq-item stxtap="Layout.setPeriodicity(1,1,'week')">1 W</cq-item>#}
+                                                        <cq-item stxtap="Layout.setPeriodicity(7,1,'day')">1 W</cq-item>
+                                                        {#<cq-item stxtap="Layout.setPeriodicity(1,1,'month')">1 Mo</cq-item>#}
                                                         <cq-separator></cq-separator>
                                                         <cq-item stxtap="Layout.setPeriodicity(1,1,'minute')">1 Min</cq-item>
                                                         <cq-item stxtap="Layout.setPeriodicity(1,5,'minute')">5 Min</cq-item>
-                                                        <cq-item stxtap="Layout.setPeriodicity(1,10,'minute')">10 Min</cq-item>
+                                                        <cq-item stxtap="Layout.setPeriodicity(2,5,'minute')">10 Min</cq-item>
                                                         <cq-item stxtap="Layout.setPeriodicity(3,5,'minute')">15 Min</cq-item>
                                                         <cq-item stxtap="Layout.setPeriodicity(1,30,'minute')">30 Min</cq-item>
-                                                        <cq-item stxtap="Layout.setPeriodicity(1,60,'minute')">1 Hour</cq-item>
+                                                        <cq-item stxtap="Layout.setPeriodicity(2,30,'minute')">1 Hour</cq-item>
                                                         <cq-item stxtap="Layout.setPeriodicity(8,30,'minute')">4 Hour</cq-item>
                                                     </cq-menu-dropdown>
                                                 </cq-menu>
-                                                <cq-menu class="ciq-menu ciq-views collapse">
+                                                <cq-menu class="ciq-menu ciq-views
+                                                {#collapse#}
+                                                ">
                                                     <span>Views</span>
                                                     <cq-menu-dropdown>
                                                         <cq-views>
@@ -225,7 +191,9 @@
                                                         </cq-views>
                                                     </cq-menu-dropdown>
                                                 </cq-menu>
-                                                <cq-menu class="ciq-menu ciq-display collapse">
+                                                <cq-menu class="ciq-menu ciq-display
+                                                {#collapse#}
+                                                ">
                                                     <span>Display</span>
                                                     <cq-menu-dropdown>
                                                         <cq-heading>Chart Style</cq-heading>
@@ -310,7 +278,9 @@
                                                         </cq-themes>
                                                     </cq-menu-dropdown>
                                                 </cq-menu>
-                                                <cq-menu class="ciq-menu ciq-studies collapse">
+                                                <cq-menu class="ciq-menu ciq-studies
+                                                {#collapse#}
+                                                ">
                                                     <span>Studies</span>
                                                     <cq-menu-dropdown cq-no-scroll>
                                                         <cq-study-legend cq-no-close>
@@ -335,7 +305,9 @@
 
                                                     </cq-menu-dropdown>
                                                 </cq-menu>
-                                                <cq-menu class="ciq-menu stx-markers collapse">
+                                                <cq-menu class="ciq-menu stx-markers
+                                                {#collapse#}
+                                                ">
                                                     <span>Events</span>
                                                     <cq-menu-dropdown>
                                                         <cq-item class="square">Simple Square<span class="ciq-radio"><span></span></span>
@@ -511,7 +483,9 @@
                                                 <cq-chart-title cq-marker cq-browser-tab>
                                                     <cq-symbol></cq-symbol>
                                                     <cq-chart-price>
-                                                        <cq-current-price cq-animate style="font-size:18px; margin-left:17%; width:30px"></cq-current-price>
+                                                        <cq-current-price cq-animate style="font-size:18px;
+                                                        margin-left:10%;
+                                                        width:30px"></cq-current-price>
                                                         <cq-change>
                                                             <div class="ico"></div>
                                                             <cq-todays-change></cq-todays-change>
@@ -904,6 +878,7 @@
     </div>
     {#</div>#}
     {#</div>#}
+
 {% endblock %}
 
 
@@ -1095,83 +1070,7 @@
             //     stxx.newChart(XRP/USD/Bitstamp);
             // }
 
-            function setExchange() {
-                var arr = httpGet('https://afternoon-mountain-15657.herokuapp.com/Exchanges/' + stxx.chart.symbol)
-                var Exchange_list = JSON.parse(arr)
-                Exchange = Exchange_list[0]
 
-                if(Exchange_list.length != 0)
-                    jQuery('#selectExchange').css("display", "");
-
-                var selectExchange = document.getElementById("selectExchange");
-
-                jQuery('#selectExchange').empty()
-
-                for (var i = 0; i < Exchange_list.length; i++) {
-                    console.log(stxx.chart.symbol,Exchange_list[i])
-                    var option = document.createElement("option");
-                    option.value = Exchange_list[i]
-                    option.text = Exchange_list[i]
-                    selectExchange.appendChild(option);
-                }
-                // jQuery('#selectExchange').val(Exchange)
-                // console.log("//////////////",jQuery( "#selectExchange option:selected" ).text())
-                fill_price()
-
-                jQuery('#selectExchange').on('change', function (e) {
-                    console.log("innnnnnnnnnnnnnnnnn",stxx.chart.symbol)
-                    var ExchangeSelected = jQuery("option:selected", this);
-                    Exchange = this.value
-
-                    var from = stxx.chart.symbol.split("/")[0]
-                    var name = get_name(from)
-
-                    var old_curr = stxx.chart.symbol
-                    var Exchange = jQuery( "#selectExchange option:selected" ).text()
-                    if(Exchange.length == 0)
-                    {
-                        var channel = "5~CCCAGG"
-                    }
-                    else
-                    {
-                        var channel = "2~" + Exchange
-                    }
-
-                    var my_channel = channel +"~" + old_curr.split("/")[0] + "~" + old_curr.split("/")[1]
-                    subscription = [my_channel]
-                    console.log("--------------",subscription)
-                    socket.emit('SubRemove', { subs: subscription });
-
-                    //   UIContext.UISymbolLookup.selectItem({symbol: stxx.chart.symbol, name: "Bitcoin", exchDisp: Exchange})
-                    var symb = {symbol: stxx.chart.symbol, name: name, exchDisp: Exchange}
-                    stxx.newChart(symb, null, null, function(err){
-                        if(err){
-                            //TODO, symbol not found error
-                            if(self.loader) self.loader.hide();
-                            return;
-                        }
-                        setWS()
-                    })
-                });
-            }
-
-            function fillExchange() {
-                var arr = httpGet('https://afternoon-mountain-15657.herokuapp.com/Exchanges/' + stxx.chart.symbol)
-                var Exchange_list = JSON.parse(arr)
-                Exchange = Exchange_list[0]
-
-                var selectExchange = document.getElementById("selectExchange");
-
-                jQuery('#selectExchange').empty()
-
-                for (var i = 0; i < Exchange_list.length; i++) {
-                    console.log(stxx.chart.symbol,Exchange_list[i])
-                    var option = document.createElement("option");
-                    option.value = Exchange_list[i]
-                    option.text = Exchange_list[i]
-                    selectExchange.appendChild(option);
-                }
-            }
             // Optionally set a market factory to the chart to make it market hours aware. Otherwise it will operate in 24x7 mode.
             // This is required for the simulator, or if you intend to also enable Extended hours trading zones.
             //stxx.setMarketFactory(CIQ.Market.Symbology.factory);
@@ -1507,69 +1406,102 @@
 
             //	 document.title =   title
 
-            var previous_price
-            function fill_price ()
-            {
-                //console.log("***********************", stxx.chart.symbol)
-                var curr =  stxx.chart.symbol.split("/")[0]
-                var Symbol = stxx.chart.symbol.split("/")[1]
-                var Exchange =  get_default_exchange(stxx.chart.symbol)
-                //console.log("EXCHANGE", Exchange.length)
-                var exchange_var
-                if(typeof Exchange != 'undefined' && Exchange.length !==0 && Exchange != 'AGG')
-                {
-                    exchange_var = "&e=" + Exchange
-                }
-                else{
-                    exchange_var = ""
-                }
-                if(typeof Symbol == "undefined")
-                {
-                    Symbol = "USD"
-                }
-                var url = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" + curr + "&tsyms=" + Symbol + exchange_var
-                // console.log("****fill price***********url",url)
 
-                jQuery.getJSON(url, function (data) {
-                    //                console.log(data.RAW[curr].USD.CHANGEPCT24HOUR)
-                    //console.log(data)
-                    var displaySymbol =data.DISPLAY[curr][Symbol].TOSYMBOL
-
-                    var val = data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2);
-                    var change_div = jQuery("cq-todays-change")
-                    // console.log("CHANGE DIV",change_div)
-                    if (val > 0) {
-                        ///change_div.style.color = "green";
-                        jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
+            /***************************************************************************************************************/
+            /***************************************************************************************************************/
+            /***************************************************************************************************************/
+            /***************************************************************************************************************/
+            /***************************************************************************************************************/
+            /***************************************************************************************************************/
 
 
-                    } else {
-                        //change_div.style.color = "red";
-                        jQuery("cq-todays-change").text('\u25bc' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
+            // var previous_price
+            // function fill_price ()
+            // {
+                {#var from = "{{ from }}"#}
+                {#var to = "{{ to }}"#}
+                {#var exchange = get_default_exchange(from+"/"+to)#}
+                {#console.log("fill****************",from, to, exchange)#}
 
-                    }
-                    //console.log(url)
-                    //console.log(Intl.NumberFormat("de-DE").format(data.RAW[curr][Symbol].PRICE.toFixed(5)))
-                    //var x = document.getElementById("curr_img");
-                    //x.className = "curr_img"
-                    //x.src = img_src;
-                    var title
-                    jQuery("cq-todays-change").css({ 'font-size':15 });
-                    if( (data.RAW[curr][Symbol].PRICE) < 1 )
-                    {
-                        console.log('+++++++++++++++++++++++++',(data.RAW[curr][Symbol].PRICE))
-                        jQuery("cq-current-price").text( (data.RAW[curr][Symbol].PRICE));
-                        title  =  curr + "/" + Symbol + "\u200b  "+ "\u200b  " + "\u200b  " + (data.RAW[curr][Symbol].PRICE) + " \u200b ";
-                    }
-                    else
-                    {
-                        console.log("hhhhh",(data.RAW[curr][Symbol].PRICE).toLocaleString())
-                        jQuery("cq-current-price").text( (data.RAW[curr][Symbol].PRICE).toLocaleString());
-                        title  =  curr + "/" + Symbol + "\u200b  "+ "\u200b  " + "\u200b  " + (data.RAW[curr][Symbol].PRICE).toLocaleString() + " \u200b ";
-                    }
-                    //document.title = title
-                });
-            }
+                // var url = 'https://crypto.tradingcompare.com/AllPairs/' + from + "_" + to
+                // jQuery.getJSON(url, function (data) {
+                //     console.log('froma api******',data)
+                //     for(key in data){
+                        // if (data[key].change24 > 0) {
+                        // jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US").format(data[key].change24) + "%").addClass('positive').css({ 'font-size':15 });
+                        // // jQuery("cq-todays-change").addClass('positive');
+                        // } else {
+                        // jQuery("cq-todays-change").text('\u25bc' + Intl.NumberFormat("en-US").format(data[key].change24) + "%").addClass('negative').css({ 'font-size':15 });
+                        // // jQuery("cq-todays-change").addClass('negative');
+                        // }
+                        // jQuery("cq-current-price").text(data[key].price);
+                    // }
+                // })
+
+
+                /***************************************************************************************************************/
+                /***************************************************************************************************************/
+
+                // console.log("***********************", stxx.chart.symbol)
+                // var curr =  stxx.chart.symbol.split("/")[0]
+                // var Symbol = stxx.chart.symbol.split("/")[1]
+                // var Exchange =  get_default_exchange(stxx.chart.symbol)
+                // //console.log("EXCHANGE", Exchange.length)
+                // var exchange_var
+                // if(typeof Exchange != 'undefined' && Exchange.length !==0 && Exchange != 'AGG')
+                // {
+                //     exchange_var = "&e=" + Exchange
+                // }
+                // else{
+                //     exchange_var = ""
+                // }
+                // if(typeof Symbol == "undefined")
+                // {
+                //     Symbol = "USD"
+                // }
+                // var url = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" + curr + "&tsyms=" + Symbol + exchange_var
+                // //console.log("****fill price***********url",url)
+                //
+                // jQuery.getJSON(url, function (data) {
+                //     console.log(data.RAW[curr].USD.CHANGEPCT24HOUR)
+                //     console.log(data)
+                //     var displaySymbol =data.DISPLAY[curr][Symbol].TOSYMBOL
+                //
+                //     var val = data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2);
+                //     // var change_div = jQuery("cq-todays-change")
+                //     // console.log("CHANGE DIV",change_div)
+                //     if (val > 0) {
+                //         ///change_div.style.color = "green";
+                //         jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
+                //
+                //
+                //     } else {
+                //         //change_div.style.color = "red";
+                //         jQuery("cq-todays-change").text('\u25bc' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
+                //
+                //     }
+                //     //console.log(url)
+                //     console.log(Intl.NumberFormat("de-DE").format(data.RAW[curr][Symbol].PRICE.toFixed(5)))
+                //     var x = document.getElementById("curr_img");
+                //     x.className = "curr_img"
+                //     x.src = img_src;
+                //     var title
+                //     jQuery("cq-todays-change").css({ 'font-size':15 });
+                //     if( (data.RAW[curr][Symbol].PRICE) < 1 )
+                //     {
+                //         console.log('+++++++++++++++++++++++++',(data.RAW[curr][Symbol].PRICE))
+                //         jQuery("cq-current-price").text( (data.RAW[curr][Symbol].PRICE));
+                //         //title  =  curr + "/" + Symbol + "\u200b  "+ "\u200b  " + "\u200b  " + (data.RAW[curr][Symbol].PRICE) + " \u200b ";
+                //     }
+                //     else
+                //     {
+                //         console.log("hhhhh",(data.RAW[curr][Symbol].PRICE).toLocaleString())
+                //         jQuery("cq-current-price").text( (data.RAW[curr][Symbol].PRICE).toLocaleString());
+                //         //title  =  curr + "/" + Symbol + "\u200b  "+ "\u200b  " + "\u200b  " + (data.RAW[curr][Symbol].PRICE).toLocaleString() + " \u200b ";
+                //     }
+                //     //document.title = title
+                // });
+            // }
 
             function update_chart_price ()
             {
@@ -1596,7 +1528,7 @@
 
                 jQuery.getJSON(url, function (data) {
                     //                console.log(data.RAW[curr].USD.CHANGEPCT24HOUR)
-                    //console.log(data)
+                    //console.log("data.DISPLAY[curr][Symbol].TOSYMBOL",data)
                     var displaySymbol =data.DISPLAY[curr][Symbol].TOSYMBOL
 
                     var val = data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2);
@@ -1621,146 +1553,140 @@
                     // jQuery("#volume").html(displaySymbol + " " + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].VOLUME24HOURTO.toFixed(3)));
                     // jQuery("#marketcap").html(displaySymbol + " " + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].MKTCAP.toFixed(3)));
                 });
+
+                // var socket = io.connect("https://crypto.tradingcompare.com/")
+                // socket.on('connect', function () {
+                //     var room =  from + "_" + to + "_" + exchange
+                //     socket.emit('room', room);
+                //     socket.on('message', data => {
+                //         console.log("data*********************************", data.change24)
+                //             if (data.change24 > 0) {
+                //                 //change_div.style.color = "green";
+                //                 //  jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US").format(data.change24) + "%");
+                //                 jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US").format(data.change24) + "%");
+                //                 jQuery("cq-todays-change").addClass('positive');
+                //             } else {
+                //                 //change_div.style.color = "red";
+                //                 jQuery("cq-todays-change").text('\u25bc' + Intl.NumberFormat("en-US").format(data.change24) + "%");
+                //                 jQuery("cq-todays-change").addClass('negative');
+                //             }
+                //             previous_data = data.change24
+                //
+                // if(previous_price != undefined){
+                //     if(previous_price > data[key].price){
+                //         jQuery("cq-current-price").text(data[key].price).addClass('negative');
+                //     }else if(previous_price < data[key].price)
+                //         }
+                //     })
+                // })
             }
 
-            setInterval(() => {
-                update_chart_price()
-            }, 2000);
+            // setInterval(() => {
+            //     update_chart_price()
+            // }, 2000);
 
-            function initialSymbol ()
-            {
-                var from,to
-                var pair = "{{ from }}"+ "/" + "{{ to }}"
-                var exchange = get_default_exchange(pair)
-                {#var name = get_name("{{ from }}")#}
-                var name = "{{ name }}"
-                var group = "crypto"
-                console.log("pair",pair,"exchange",exchange,"name",name)
-                var symb = {symbol: pair, name: name, exchDisp: exchange, group:group}
+            // function get_name(curr)
+            // {
+            //     console.log("curr",curr)
+            //     var array = httpGet('https://afternoon-mountain-15657.herokuapp.com/All-Coins-Aviho')
+            //     var list = JSON.parse(array)
+            //     console.log("list",list)
+            //     var obj = list.find(o => o.FROMSYMBOL == curr)
+            //     return obj.name
+            // }
 
-                stxx.newChart(symb, null, null, function(err){
-                    if(err){
-                        //TODO, symbol not found error
-                        if(self.loader) self.loader.hide();
-                        return;
-                    }
-                    setExchange()
-                })
-            }
+            // function httpGet2(url2){
+            //     var xhr = new XMLHttpRequest();
+            //     xhr.open( "GET", url2, false ); // false for synchronous request
+            //     xhr.send( null );
+            //     //console.log("xhr.responseText",xhr.responseText)
+            //     return xhr.responseText;
+            // }
 
-            function get_default_exchange(symbol)
-            {
-                var arr = httpGet('https://afternoon-mountain-15657.herokuapp.com/Exchanges/' + symbol)
-                var Exchange_list = JSON.parse(arr)
-                if(Exchange_list.length == 0)
-                    return "AGG"
-                Exchange = Exchange_list[0]
-                return Exchange
-            }
+            // function fill_select_curr()
+            // {
+            //     var data  = []
+            //     var url2= "https://afternoon-mountain-15657.herokuapp.com/MarketsAndNames"
+            //     var mySelect = httpGet2(url2);
+            //     var select_list = JSON.parse(mySelect)
+            //
+            //     for (var i = 0; i < select_list[0].length; i++) {
+            //
+            //         var obj = {
+            //             label: select_list[0][i] + ": " + select_list[1][i],
+            //             value: select_list[1][i]
+            //         }
+            //         data.push(obj)
+            //         //console.log("data*******", data)
+            //     }
+            //
+            //     console.log("helooooooooooooooooooooo",data)
+            //     jQuery(function() {
+            //         jQuery( "#tags" ).autocomplete({
+            //             source: function( request, response ) {
+            //                 console.log("1",request.term)
+            //                 var matcher = new RegExp( "^" + jQuery.ui.autocomplete.escapeRegex( request.term ), "i" );
+            //                 response(jQuery.grep( data, function( item ){
+            //
+            //                     return matcher.test( item.label ) || matcher.test( item.value )
+            //                 }) );
+            //             },
+            //             minLength: 0
+            //             ,
+            //             select: function( event , ui ) {
+            //                 event.preventDefault();
+            //                 jQuery("#tags").val(ui.item.label);
+            //                 console.log( "You selected: " + ui.item.label )
+            //                 openNewChart(ui.item.label)
+            //             }
+            //         }).focus(function() {
+            //             console.log("val", jQuery(this).val())
+            //             jQuery(this).autocomplete("search", jQuery(this).val());
+            //         });
+            //     });
+            // }
 
-            function get_name(curr)
-            {
-                console.log("curr",curr)
-                var array = httpGet('https://afternoon-mountain-15657.herokuapp.com/All-Coins-Aviho')
-                var list = JSON.parse(array)
-                console.log("list",list)
-                var obj = list.find(o => o.FROMSYMBOL == curr)
-                return obj.name
-            }
-
-            function httpGet2(url2){
-                var xhr = new XMLHttpRequest();
-                xhr.open( "GET", url2, false ); // false for synchronous request
-                xhr.send( null );
-                //console.log("xhr.responseText",xhr.responseText)
-                return xhr.responseText;
-            }
-
-            function fill_select_curr()
-            {
-                var data  = []
-                var url2= "https://afternoon-mountain-15657.herokuapp.com/MarketsAndNames"
-                var mySelect = httpGet2(url2);
-                var select_list = JSON.parse(mySelect)
-
-                for (var i = 0; i < select_list[0].length; i++) {
-
-                    var obj = {
-                        label: select_list[0][i] + ": " + select_list[1][i],
-                        value: select_list[1][i]
-                    }
-                    data.push(obj)
-                    //console.log("data*******", data)
-
-                }
-
-                console.log("helooooooooooooooooooooo",data)
-                jQuery(function() {
-                    jQuery( "#tags" ).autocomplete({
-                        source: function( request, response ) {
-                            console.log("1",request.term)
-                            var matcher = new RegExp( "^" + jQuery.ui.autocomplete.escapeRegex( request.term ), "i" );
-                            response(jQuery.grep( data, function( item ){
-
-                                return matcher.test( item.label ) || matcher.test( item.value )
-                            }) );
-                        },
-                        minLength: 0
-                        ,
-                        select: function( event , ui ) {
-                            event.preventDefault();
-                            jQuery("#tags").val(ui.item.label);
-                            console.log( "You selected: " + ui.item.label )
-                            openNewChart(ui.item.label)
-                        }
-                    }).focus(function() {
-                        console.log("val", jQuery(this).val())
-                        jQuery(this).autocomplete("search", jQuery(this).val());
-                    });
-                });
-            }
-
-            function openNewChart(pair)
-            {
-                var temp_pair = pair.split(":")[0]
-                var from = temp_pair.split("/")[0]
-                var to = temp_pair.split("/")[1]
-                var name = pair.split(":")[1].replace(" ","")
-                var exchange = get_default_exchange(temp_pair)
-                var symb = {symbol: temp_pair, name: name, exchDisp: exchange}
-                console.log("Will soon open ", "from",temp_pair,"to",symb,"name",name)
-                console.log("oooooooooooooo",exchange)
-                var name = get_name(from)
-                var symb = {symbol: temp_pair, name: name, exchDisp: exchange}
-
-                var old_curr = stxx.chart.symbol
-                console.log("old_curr",old_curr)
-                var Exchange = jQuery( "#selectExchange option:selected" ).text()
-                if(Exchange. length == 0)
-                {
-                    var channel = "5~CCCAGG"
-                }
-                else
-                {
-                    var channel = "2~" + Exchange
-                }
-
-                var my_channel = channel +"~" + old_curr.split("/")[0] + "~" + old_curr.split("/")[1]
-                subscription = [my_channel]
-                console.log("--------------",subscription)
-                socket.emit('SubRemove', { subs: subscription });
-
-                stxx.newChart(symb, null, null, function(err){
-                    if(err){
-                        //TODO, symbol not found error
-                        if(self.loader) self.loader.hide();
-                        return;
-                    }
-                    fillExchange()
-                    fill_price()
-                    setWS()
-                })
-            }
+            // function openNewChart(pair)
+            // {
+            //     var temp_pair = pair.split(":")[0]
+            //     var from = temp_pair.split("/")[0]
+            //     var to = temp_pair.split("/")[1]
+            //     var name = pair.split(":")[1].replace(" ","")
+            //     var exchange = get_default_exchange(temp_pair)
+            //     var symb = {symbol: temp_pair, name: name, exchDisp: exchange}
+            //     console.log("Will soon open ", "from",temp_pair,"to",symb,"name",name)
+            //     console.log("oooooooooooooo",exchange)
+            //     var name = get_name(from)
+            //     var symb = {symbol: temp_pair, name: name, exchDisp: exchange}
+            //
+            //     var old_curr = stxx.chart.symbol
+            //     console.log("old_curr",old_curr)
+            //     var Exchange = jQuery( "#selectExchange option:selected" ).text()
+            //     if(Exchange. length == 0)
+            //     {
+            //         var channel = "5~CCCAGG"
+            //     }
+            //     else
+            //     {
+            //         var channel = "2~" + Exchange
+            //     }
+            //
+            //     var my_channel = channel +"~" + old_curr.split("/")[0] + "~" + old_curr.split("/")[1]
+            //     subscription = [my_channel]
+            //     console.log("--------------",subscription)
+            //     socket.emit('SubRemove', { subs: subscription });
+            //
+            //     stxx.newChart(symb, null, null, function(err){
+            //         if(err){
+            //             //TODO, symbol not found error
+            //             if(self.loader) self.loader.hide();
+            //             return;
+            //         }
+            //         fillExchange()
+            //         fill_price()
+            //         setWS()
+            //     })
+            // }
             var currentPrice = {};
 
             function get_curr_symbol () {
@@ -1889,7 +1815,7 @@
                 }
                 console.log("333333333333",title)
                 setTimeout(() => {
-                //console.log("----------")
+                    //console.log("----------")
                     jQuery("cq-current-price").removeClass();
 
                 }, 2000);
@@ -1897,6 +1823,144 @@
                     //document.title =   title
                 }
             }
+
+            /******************************************************************************************************************************/
+
+            function initialSymbol ()
+            {
+                // var from,to
+                var pair = "{{ from }}"+ "/" + "{{ to }}"
+                var exchange = get_default_exchange(pair)
+                // var exchange = "Coinbase"
+                {#var name = get_name("{{ from }}")#}
+                var name = "{{ name }}"
+                var group = "crypto"
+                console.log("pair",pair,"exchange",exchange,"name",name)
+                var symb = {symbol: pair, name: name, exchDisp: exchange, group:group}
+
+                stxx.newChart(symb, null, null, function(err){
+                    if(err){
+                        //TODO, symbol not found error
+                        if(self.loader) self.loader.hide();
+                        return;
+                    }
+                    setExchange()
+                })
+            }
+
+            function get_default_exchange(symbol)
+            {
+                var arr = httpGet('https://crypto.tradingcompare.com/' + symbol)
+                var Exchange_list = JSON.parse(arr)
+                if(Exchange_list.indexOf('BITSTAMP') > -1){
+                    var Exchange = 'BITSTAMP'
+                }
+                else{
+                    var Exchange = Exchange_list[0]
+                }
+                //console.log("Exchange_list",Exchange_list)
+                return Exchange
+                /************************************************************************************/
+                // var arr = httpGet('https://afternoon-mountain-15657.herokuapp.com/Exchanges/' + symbol)
+                // var Exchange_list = JSON.parse(arr)
+                // if(Exchange_list.length == 0)
+                //     return "AGG"
+                // Exchange = Exchange_list[0]
+                // return Exchange
+            }
+            function setExchange() {
+                {#var arr = httpGet('https://crypto.tradingcompare.com/' + "{{ from }}"+ "/" + "{{ to }}")#}
+                {#var Exchange_list = JSON.parse(arr)#}
+                {#if(Exchange_list.indexOf('BITSTAMP') > -1){#}
+                    {#var index = Exchange_list.indexOf('BITSTAMP')#}
+                    {#Exchange_list[index] = Exchange_list[0]#}
+                    {#Exchange_list[0] = 'BITSTAMP'#}
+                {#}#}
+                {#//var Exchange = Exchange_list[0]#}
+                {#// var arr = httpGet('https://afternoon-mountain-15657.herokuapp.com/Exchanges/' + stxx.chart.symbol)#}
+                {#// var Exchange_list = JSON.parse(arr)#}
+                {#// Exchange = Exchange_list[0]#}
+
+                {#// if(Exchange_list.length != 0)#}
+                {#//     jQuery('#selectExchange').css("display", "");#}
+
+                {#var selectExchange = document.getElementById("selectExchange");#}
+
+                {#jQuery('#selectExchange').empty()#}
+
+                {#for (var i = 0; i < Exchange_list.length; i++) {#}
+                    {#//console.log("stxx.chart.symbol,Exchange_list[i]",stxx.chart.symbol,Exchange_list[i])#}
+                    {#var option = document.createElement("option");#}
+                    {#option.value = Exchange_list[i]#}
+                    {#option.text = Exchange_list[i]#}
+                    {#selectExchange.appendChild(option);#}
+                {#}#}
+                {#// console.log(jQuery('#selectExchange').val())#}
+                {#// console.log("//////////////",jQuery( "#selectExchange option:selected" ).text())#}
+
+                {#/***********************************************************************************************/#}
+                {#fill_price()#}
+                {#//#}
+                jQuery('#selectExchange').on('change', function (e) {
+                    console.log("innnnnnnnnnnnnnnnnn",stxx.chart.symbol)
+                    //var ExchangeSelected = jQuery("option:selected", this);
+                    //Exchange = this.value
+
+                    //var from = stxx.chart.symbol.split("/")[0]
+                    //var name = get_name(from)
+
+                    // var old_curr = stxx.chart.symbol
+                    var Exchange = jQuery( "#selectExchange option:selected" ).text()
+                    // if(Exchange.length == 0)
+                    // {
+                    //     var channel = "5~CCCAGG"
+                    // }
+                    // else
+                    // {
+                    //     var channel = "2~" + Exchange
+                    // }
+
+                    // var my_channel = channel +"~" + old_curr.split("/")[0] + "~" + old_curr.split("/")[1]
+                    // subscription = [my_channel]
+                    // console.log("--------------",subscription)
+                    // socket.emit('SubRemove', { subs: subscription });
+
+                    //   UIContext.UISymbolLookup.selectItem({symbol: stxx.chart.symbol, name: "Bitcoin", exchDisp: Exchange})
+                    var symb = {symbol: stxx.chart.symbol, name: "{{ name }}", exchDisp: Exchange}
+                    stxx.newChart(symb, null, null, function(err){
+                        if(err){
+                            //TODO, symbol not found error
+                            if(self.loader) self.loader.hide();
+                            return;
+                        }
+                        //setWS()
+                    })
+                });
+            }
+
+            {#function fillExchange() {#}
+                {#var arr = httpGet('https://crypto.tradingcompare.com/' + "{{ from }}"+ "/" + "{{ to }}")#}
+                {#var Exchange_list = JSON.parse(arr)#}
+                {#if(Exchange_list.indexOf('BITSTAMP') > -1){#}
+                    {#var index = Exchange_list.indexOf('BITSTAMP')#}
+                    {#Exchange_list[index] = Exchange_list[0]#}
+                    {#Exchange_list[0] = 'BITSTAMP'#}
+                {#}#}
+                {#// var arr = httpGet('https://afternoon-mountain-15657.herokuapp.com/Exchanges/' + stxx.chart.symbol)#}
+                {#// var Exchange_list = JSON.parse(arr)#}
+                {#// Exchange = Exchange_list[0]#}
+
+                {#var selectExchange = document.getElementById("selectExchange");#}
+                {#jQuery('#selectExchange').empty()#}
+
+                {#for (var i = 0; i < Exchange_list.length; i++) {#}
+                    {#//console.log(stxx.chart.symbol,Exchange_list[i])#}
+                    {#var option = document.createElement("option");#}
+                    {#option.value = Exchange_list[i]#}
+                    {#option.text = Exchange_list[i]#}
+                    {#selectExchange.appendChild(option);#}
+                {#}#}
+            {#}#}
         })(jQuery);
     </script>
 

@@ -223,7 +223,7 @@ class DefaultController extends Controller
 //     */
 //    public function autocompleteAction()
 //    {
-//        return $this->render('default/autocompletetest.html.twig');
+//        return $this->render('default/test.html.twig');
 //    }
 
 

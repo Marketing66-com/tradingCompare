@@ -23,30 +23,33 @@ searchapp.controller('TypeaheadCtrl', function($scope, filterFilter) {
              }
             users.push(data[key])
         }
-       // console.log("data",users);
+
     });
 
     $scope.getUsers = function (search) {
-        $scope.filter = [];
+
+        $scope.result = []
 
         var filtered = $scope.startsWith(search);
-        $scope.result = []
 
         var results = _(filtered)
             .groupBy('group')
             .map(function (g) {
-                if (g[0])
-                    g[0].firstInGroup = true;  // the first item in each group
-                if (g[0])
-                    g[0].InGroup = true;  // the first item in each group
-                if (g[1])
+                if (g[0]){
+                    g[0].firstInGroup = true;
+                    g[0].InGroup = true;}// the first item in each group                      // the first item in each group
+                if (g[1]){
                     g[1].InGroup = true;
-                if (g[2])
+                    g[1].firstInGroup = false;}
+                if (g[2]){
                     g[2].InGroup = true;
-                if (g[3])
-                    g[3].InGroup = true;  // the first item in each group
-                if (g[4])
+                    g[2].firstInGroup = false;}
+                if (g[3]){
+                    g[3].InGroup = true;
+                    g[3].firstInGroup = false;} // the first item in each group
+                if (g[4]){
                     g[4].InGroup = true;
+                    g[4].firstInGroup = false;}
                 return g;
             })
             .flatten()
@@ -58,18 +61,18 @@ searchapp.controller('TypeaheadCtrl', function($scope, filterFilter) {
             }
         }
 
-        //console.log($scope.result)
         return $scope.result;
     }
 
     $scope.startsWith = function (viewValue) {
-        //console.log(viewValue)
-
+        //console.log(users)
+        $scope.filter=[]
         for (var k = 0; k < users.length; k++) {
             if (typeof  users[k].name != "undefined") {
                 if (typeof users[k].symbol != "undefined") {
                     if ((users[k].name.substr(0, viewValue.length).toLowerCase() == viewValue.toLowerCase()) || users[k].symbol.substr(0, viewValue.length).toLowerCase() == viewValue.toLowerCase()) {
                         users[k].Name =  users[k].name + " - " + users[k].symbol
+                        // users[k].InGroup=false
                         $scope.filter.push(users[k])
                     }
                 }
@@ -78,12 +81,14 @@ searchapp.controller('TypeaheadCtrl', function($scope, filterFilter) {
                 if (typeof  users[k].symbol != "undefined") {
                     if (users[k].symbol.substr(0, viewValue.length).toLowerCase() == viewValue.toLowerCase()) {
                         users[k].Name = users[k].symbol
+                        // users[k].InGroup=false
                         $scope.filter.push(users[k])
                     }
                 }
             }
+            users[k].InGroup=false
         }
-
+    
         return $scope.filter
     }
 

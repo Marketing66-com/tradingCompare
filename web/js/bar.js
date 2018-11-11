@@ -70,7 +70,7 @@ firstApp.controller('FirstController', function($scope) {
             type: "GET",
             success: function (result) {
                 $scope.barstock = result
-                console.log("$scope.barstock", $scope.barstock)
+                //console.log("$scope.barstock", $scope.barstock)
                 $scope.crypto5 = $scope.barstock[stock1]
                 $scope.crypto6 = $scope.barstock[stock2]
 
