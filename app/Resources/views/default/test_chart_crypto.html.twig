@@ -1503,56 +1503,56 @@
                 // });
             // }
 
-            function update_chart_price ()
-            {
-                console.log("***********************", stxx.chart.symbol)
-                var curr =  stxx.chart.symbol.split("/")[0]
-                var Symbol = stxx.chart.symbol.split("/")[1]
-                var Exchange = jQuery( "#selectExchange option:selected" ).text()
-                //console.log("EXCHANGE", Exchange.length)
-
-                var exchange_var
-                if(typeof Exchange != 'undefined' && Exchange.length !==0)
-                {
-                    exchange_var = "&e=" + Exchange
-                }
-                else{
-                    exchange_var = ""
-                }
-                if(typeof Symbol == "undefined")
-                {
-                    Symbol = "USD"
-                }
-                var url = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" + curr + "&tsyms=" + Symbol + exchange_var
-                // console.log("***************url",url)
-
-                jQuery.getJSON(url, function (data) {
-                    //                console.log(data.RAW[curr].USD.CHANGEPCT24HOUR)
-                    //console.log("data.DISPLAY[curr][Symbol].TOSYMBOL",data)
-                    var displaySymbol =data.DISPLAY[curr][Symbol].TOSYMBOL
-
-                    var val = data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2);
-                    var change_div = jQuery("cq-todays-change")
-                    // console.log("CHANGE DIV",change_div)
-                    if (val > 0) {
-                        ///change_div.style.color = "green";
-                        jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
-                        // jQuery("#change").text('\u25b2' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
-
-                    } else {
-                        //change_div.style.color = "red";
-                        jQuery("cq-todays-change").text('\u25bc' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
-                        // jQuery("#change").text('\u25bc' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
-                    }
-                    //console.log(url)
-                    //console.log(Intl.NumberFormat("de-DE").format(data.RAW[curr][Symbol].PRICE.toFixed(5)))
-                    //var x = document.getElementById("curr_img");
-                    //x.className = "curr_img"
-                    //x.src = img_src;
-                    jQuery("cq-todays-change").css({ 'font-size':15 });
-                    // jQuery("#volume").html(displaySymbol + " " + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].VOLUME24HOURTO.toFixed(3)));
-                    // jQuery("#marketcap").html(displaySymbol + " " + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].MKTCAP.toFixed(3)));
-                });
+            // function update_chart_price ()
+            // {
+            //     console.log("***********************", stxx.chart.symbol)
+            //     var curr =  stxx.chart.symbol.split("/")[0]
+            //     var Symbol = stxx.chart.symbol.split("/")[1]
+            //     var Exchange = jQuery( "#selectExchange option:selected" ).text()
+            //     //console.log("EXCHANGE", Exchange.length)
+            //
+            //     var exchange_var
+            //     if(typeof Exchange != 'undefined' && Exchange.length !==0)
+            //     {
+            //         exchange_var = "&e=" + Exchange
+            //     }
+            //     else{
+            //         exchange_var = ""
+            //     }
+            //     if(typeof Symbol == "undefined")
+            //     {
+            //         Symbol = "USD"
+            //     }
+            //     var url = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" + curr + "&tsyms=" + Symbol + exchange_var
+            //     // console.log("***************url",url)
+            //
+            //     jQuery.getJSON(url, function (data) {
+            //         //                console.log(data.RAW[curr].USD.CHANGEPCT24HOUR)
+            //         //console.log("data.DISPLAY[curr][Symbol].TOSYMBOL",data)
+            //         var displaySymbol =data.DISPLAY[curr][Symbol].TOSYMBOL
+            //
+            //         var val = data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2);
+            //         var change_div = jQuery("cq-todays-change")
+            //         // console.log("CHANGE DIV",change_div)
+            //         if (val > 0) {
+            //             ///change_div.style.color = "green";
+            //             jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
+            //             // jQuery("#change").text('\u25b2' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
+            //
+            //         } else {
+            //             //change_div.style.color = "red";
+            //             jQuery("cq-todays-change").text('\u25bc' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
+            //             // jQuery("#change").text('\u25bc' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
+            //         }
+            //         //console.log(url)
+            //         //console.log(Intl.NumberFormat("de-DE").format(data.RAW[curr][Symbol].PRICE.toFixed(5)))
+            //         //var x = document.getElementById("curr_img");
+            //         //x.className = "curr_img"
+            //         //x.src = img_src;
+            //         jQuery("cq-todays-change").css({ 'font-size':15 });
+            //         // jQuery("#volume").html(displaySymbol + " " + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].VOLUME24HOURTO.toFixed(3)));
+            //         // jQuery("#marketcap").html(displaySymbol + " " + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].MKTCAP.toFixed(3)));
+            //     });
 
                 // var socket = io.connect("https://crypto.tradingcompare.com/")
                 // socket.on('connect', function () {
@@ -1579,7 +1579,7 @@
                 //         }
                 //     })
                 // })
-            }
+            // }
 
             // setInterval(() => {
             //     update_chart_price()
@@ -1902,7 +1902,7 @@
                 {#fill_price()#}
                 {#//#}
                 jQuery('#selectExchange').on('change', function (e) {
-                    console.log("innnnnnnnnnnnnnnnnn",stxx.chart.symbol)
+                    //console.log("innnnnnnnnnnnnnnnnn",stxx.chart.symbol)
                     //var ExchangeSelected = jQuery("option:selected", this);
                     //Exchange = this.value
 
