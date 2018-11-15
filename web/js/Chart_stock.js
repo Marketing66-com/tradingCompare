@@ -105,3 +105,4 @@ angular.element(document).ready(function() {
 
     angular.bootstrap(dvChart_stock, ['Chart_stockApp']);
 });
+

@@ -853,8 +853,6 @@
 
 
 {% block javascripts %}
-    <script src="{{ asset('js/Chart_forex.js') }}"></script>
-    <script src="{{ asset('js/Chart_crypto.js') }}"></script>
     <script src="{{ asset('js/Chart_stock.js') }}"></script>
     <script src="https://tradingcompare.com/ChartIQ/js/chartiq.js"></script>
 
@@ -1370,21 +1368,26 @@
             /***************************************************************************************************************/
             /***************************************************************************************************************/
             /******************************************************************************************************************************/
+            function httpGet(theUrl) {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", theUrl, false); // false for synchronous request
+                xmlHttp.send(null);
+                return xmlHttp.responseText;
+            }
 
             function initialSymbol ()
             {
                 // var from,to
                 var symbol = "{{ symbol }}"
                 var group = "stock"
-                console.log("symbol",symbol,"group",group)
+                var get_country = httpGet('https://websocket-stock.herokuapp.com/Getstock/' + symbol)
+                // get_country = get_country.country
+
+                console.log("symbol",symbol,"group",group,"get_country",get_country)
                 var symb = {symbol: symbol, group:group}
 
-                // var scope = angular.element(document.getElementById("hello")).scope();
-                // scope.$apply(function() {
-                //     scope.info = "nami";
-                //     scope.updateMessage("i am new fans like nami");
-                // });
-                //console.log("country",scope)
+                var hi = angular.element(document.getElementById('test'))
+                console.log("country******",hi)
                 stxx.newChart(symb, null, null, function(err){
                     if(err){
                         //TODO, symbol not found error

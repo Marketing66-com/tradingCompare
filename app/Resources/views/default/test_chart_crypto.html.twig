@@ -1834,14 +1834,14 @@
             function initialSymbol ()
             {
                 // var from,to
-                var pair = "{{ from }}"+ "/" + "{{ to }}"
+                var pair = "{{ from }}"+ "_" + "{{ to }}"
                 // var exchange = get_default_exchange(pair)
                 var exchange = "none"
                 {#var name = get_name("{{ from }}")#}
-                var name = "{{ name }}"
+                {#var name = "{{ name }}"#}
                 var group = "crypto"
                 console.log("pair",pair,"exchange",exchange,"name",name)
-                var symb = {symbol: pair, name: name, exchDisp: exchange, group:group}
+                var symb = {symbol: pair, exchDisp: exchange, group:group}
                 console.log("symb", symb)
                 stxx.newChart(symb, null, null, function(err){
                     if(err){
@@ -1932,7 +1932,7 @@
                     // socket.emit('SubRemove', { subs: subscription });
 
                     //   UIContext.UISymbolLookup.selectItem({symbol: stxx.chart.symbol, name: "Bitcoin", exchDisp: Exchange})
-                    var symb = {symbol: stxx.chart.symbol, name: "{{ name }}", exchDisp: Exchange, group : "crypto"}
+                    var symb = {symbol: stxx.chart.symbol, exchDisp: Exchange, group : "crypto"}
                     stxx.newChart(symb, null, null, function(err){
                         if(err){
                             //TODO, symbol not found error

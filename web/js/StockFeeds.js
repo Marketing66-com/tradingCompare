@@ -1,7 +1,7 @@
 var stockApp = angular.module('stockApp', ['ui.bootstrap']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');});
 
-stockApp.controller("stockController", function ($scope) {
+stockApp.controller("stockController", function ($scope,$window) {
     // *********** variables for ajax & country ************
     $scope.listCountry = [];
     $scope.country_name;
@@ -70,6 +70,8 @@ stockApp.controller("stockController", function ($scope) {
 
     $scope.init = function (country_name, country_value) {
         //console.log("api", country_name, country_value)
+
+        // $scope.customSelected = ""
 
         this.items = itemsDetails;
         $scope.country_name = country_name;
@@ -290,7 +292,7 @@ stockApp.controller("stockController", function ($scope) {
 
         var url =  decodeURIComponent(Routing.generate('stock_chart',{"symbol" :symbol, "name":name }))
         console.log("url",url)
-        window.location.href= url
+        $window.location= url
         return url
     }
 

@@ -2,7 +2,7 @@ var ForexApp = angular.module('ForexApp', []).config(function ($interpolateProvi
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');})
 
 
-ForexApp.controller("ForexController", function ($scope, $http) {
+ForexApp.controller("ForexController", function ($scope, $http,$window) {
 
         $scope.all = []
         $scope.all1 = []
@@ -145,7 +145,7 @@ ForexApp.controller("ForexController", function ($scope, $http) {
 
              var url =  Routing.generate('forex_chart',{"currency" :symbol})
             console.log(Routing.generate('forex_chart',{"currency" :symbol}))
-            window.location.href= url
+            $window.location= url
            return url
         }
 

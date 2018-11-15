@@ -1,7 +1,7 @@
 var CryptoApp = angular.module('CryptoApp', ['ui.bootstrap']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');});
 
-CryptoApp.controller('ListController', function($scope){
+CryptoApp.controller('ListController', function($scope,$window){
 
     let itemsDetails = [];
     $scope.maxSize = 5;
@@ -97,7 +97,7 @@ CryptoApp.controller('ListController', function($scope){
 
         var url =  decodeURIComponent(Routing.generate('crypto_chart',{"currency" :symbol, "name" :name}))
         console.log(Routing.generate('crypto_chart',{"currency" : symbol, "name" :name}))
-        window.location.href= url
+        $window.location= url
         return url
     }
 
