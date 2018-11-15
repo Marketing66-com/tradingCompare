@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
  {% block description %}
-
      <title>{{symbol | split('.')[0]}} Stock Price - {{ name}} Stock Quote - Trading Compare</title>
      <meta name="description" content="{{ name}} ({{symbol| split('.')[0]}}), stock price, stock quotes and financial overviews from Trading Compare. Follow the {{ symbol| split('.')[0]}} chart in real-time.">
  {% endblock %}
@@ -85,7 +84,7 @@
                             <div class="chart_content-text chart_bitcoin-reting box_height_stock2">
                                 <p class="chart_content-text_info">
                                     {[{mystock.name}]} - {{ symbol| split('.')[0]}}<br><br>
-                                    {[{mystock.description}]}
+                                    {[{description}]}
                                 </p>
                             </div>
                         </div>

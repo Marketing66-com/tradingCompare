@@ -41,22 +41,24 @@ firstApp.controller('FirstController', function($scope) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         $.ajax({
-            url: api_forex,
+            url: "https://forex.tradingcompare.com/all_data/"+ forex_from1 + forex_to1 + "," + forex_from2 + forex_to2,
             type: "GET",
 
             success: function (result) {
                 //console.log("Response-forex", result)
-                for (var key in result) {
-                    $scope.allforex.push(result[key])
-                }
-                for (key in $scope.allforex) {
-                    if ($scope.allforex[key].fromSymbol == "EURUSD") {
-                        $scope.crypto1 = $scope.allforex[key]
-                    }
-                    if ($scope.allforex[key].fromSymbol == "USDJPY") {
-                        $scope.crypto2 = $scope.allforex[key]
-                    }
-                }
+                $scope.crypto1 = result[forex_from1 + forex_to1]
+                $scope.crypto2 = result[forex_from2 + forex_to2]
+                // for (var key in result) {
+                //     $scope.allforex.push(result[key])
+                // }
+                // for (key in $scope.allforex) {
+                //     if ($scope.allforex[key].fromSymbol == "EURUSD") {
+                //         $scope.crypto1 = $scope.allforex[key]
+                //     }
+                //     if ($scope.allforex[key].fromSymbol == "USDJPY") {
+                //         $scope.crypto2 = $scope.allforex[key]
+                //     }
+                // }
                 $scope.$apply()
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -90,7 +92,7 @@ firstApp.controller('FirstController', function($scope) {
 
             socket1.emit('room', [crypto1, crypto2]);
             socket1.on('message', data => {
-                //console.log("data socket", data)
+                //console.log("data socket", data.pair,data.variation)
                 if (data.hasOwnProperty('pair')) {
                     if (data.pair == $scope.crypto3.pair) {
                         $scope.crypto3 = data;
@@ -116,31 +118,46 @@ firstApp.controller('FirstController', function($scope) {
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
         //FOREX
-        var socket2 = io.connect("https://forex-websocket.herokuapp.com/", {
-            path: "/socket/forex/livefeed"
-        }, {'force new connection': true})
+        var socket2 =  io.connect('https://forex.tradingcompare.com', {'force new connection': true});
         socket2.on('connect', function () {
 
-            socket2.emit('room', ["EURUSD_1sec", "USDJPY_1sec"]);
+            socket2.emit('room', ["EURUSD", "USDJPY"]);
             socket2.on("message", function (response) {
                 //console.log("response forex",response)
-
-                var item73 = $scope.allforex.find(function (element) {
-                    return element.pair == response.pair;
-                });
-
-                if (typeof item73 != typeof undefined) {
-                    for (const key in response) {
-                        if (response.hasOwnProperty(key)) {
-                            item73[key] = response[key];
-                            $scope.$apply()
-                        }
-                    }
+                if(response.pair == forex_from1 + forex_to1) {
+                    $scope.crypto1 = response
                 }
-
+                if(response.pair == forex_from2 + forex_to2) {
+                    $scope.crypto2 = response
+                }
             })
             $scope.$apply()
         })
+        // var socket2 = io.connect("https://forex-websocket.herokuapp.com/", {
+        //     path: "/socket/forex/livefeed"
+        // }, {'force new connection': true})
+        // socket2.on('connect', function () {
+        //
+        //     socket2.emit('room', ["EURUSD_1sec", "USDJPY_1sec"]);
+        //     socket2.on("message", function (response) {
+        //         //console.log("response forex",response)
+        //
+        //         var item73 = $scope.allforex.find(function (element) {
+        //             return element.pair == response.pair;
+        //         });
+        //
+        //         if (typeof item73 != typeof undefined) {
+        //             for (const key in response) {
+        //                 if (response.hasOwnProperty(key)) {
+        //                     item73[key] = response[key];
+        //                     $scope.$apply()
+        //                 }
+        //             }
+        //         }
+        //
+        //     })
+        //     $scope.$apply()
+        // })
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //STOCK

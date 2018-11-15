@@ -1,14 +1,12 @@
+
 {% extends 'base.html.twig' %}
 
-
  {% block description %}
-     <title>{{ name }} ({{ currency }}) Price Index | Real Time {{ name }} Chart - Trading Compare</title>
-     <meta name="description" content="Follow {{ name }} ${{ currency }} price and historical data. View our Interactive {{ name }} Chart and market data for {{ currency }}.">
+     <title>{{symbol | split('.')[0]}} Stock Price - {{ name}} Stock Quote - Trading Compare</title>
+     <meta name="description" content="{{ name}} ({{symbol| split('.')[0]}}), stock price, stock quotes and financial overviews from Trading Compare. Follow the {{ symbol| split('.')[0]}} chart in real-time.">
  {% endblock %}
 
-
 {% block body %}
-
     <link rel="stylesheet" href="https://www.interactivecrypto.com/chart_iq_web/css/perfect-scrollbar.css" />
     <link rel="stylesheet" type="text/css" href="https://www.interactivecrypto.com/chart_iq_web/css/normalize.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="https://www.interactivecrypto.com/chart_iq_web/css/page-defaults.css" media="screen" />
@@ -19,17 +17,9 @@
     <link rel="stylesheet" href='{{ asset("css/chart-live-iq.css") }}' />
 
     {{ include('default/searchbar_chart.html.twig') }}
-    <div id="dvChart" class="my-container ng-cloak" ng-controller="ChartController" ng-init="init('{{ currency }}', '{{ from }}', '{{ to }}','{{ crypto_api }}','{{ name }}')">
-        <div ng-controller="ChartController ">
-            <section class="table">
-                {#<div class="chart_search">#}
-                {#<div class="container">#}
-                {#<div class="row">#}
-                {#<input class="search_input" type="" placeholder="Search Instruments">#}
-                {#</div>#}
-                {#</div>#}
-                {#</div>#}
-
+    <div id="dvChart_stock" class="my-container  ng-cloak" ng-controller="Chart_stockController" ng-init="init('{{ symbol }}')">
+        <div id="hello" ng-controller="Chart_stockController ">
+        <section class="table">
 
                 <div class="container padding_non">
                     <div class="row ">
@@ -38,13 +28,13 @@
                             <div class="chart_bitcoin-cont ">
                                 <div class="bitcoin_text-cont">
                                     <div class="bitcoin_img-cont">
-                                        <img class="bitcoin_img" ng-src="{[{mycrypto.img}]}" onerror="this.src='/img/crypto_logos/crypto-other.png'";>
+                                        <img class="bitcoin_img" ng-src="{[{mystock.img}]}" onerror="this.src='/img/crypto_logos/crypto-other.png'";>
                                     </div>
                                     <div class="bitcoin_text-cont_left ">
-                                        <h3 class="bitcoin_title text_size">{[{mycrypto.name}]}<span class="bitcoin_title_right">{[{mycrypto.pair.replace("_","/")}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
-                                        <h3 class="bitcoin_many_stock text_size" ng-class="{'negative': mycrypto.variation == 'down', 'positive':mycrypto.variation == 'up', 'neutral': mycrypto.variation == 'none'}">{[{mycrypto.price}]}
-                                            <span class="statistics_block-text" ng-class="{'negative': mycrypto.change24 < 0, 'positive': mycrypto.change24 >= 0}">{[{mycrypto.change24}]}%
-                                                <span class="statistics_block_min-text">{[{mycrypto.point}]}</span>
+                                        <h3 class="bitcoin_title text_size">{[{mystock.name}]}<span class="bitcoin_title_right">{[{mystock.pair.replace("_","/")}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
+                                        <h3 class="bitcoin_many_stock text_size" ng-class="{'negative': mystock.variation == 'down', 'positive':mystock.variation == 'up', 'neutral': mystock.variation == 'none'}">{[{mystock.price}]}
+                                            <span class="statistics_block-text" ng-class="{'negative': mystock.change24 < 0, 'positive': mystock.change24 >= 0}">{[{mystock.change_pct}]}%
+                                                <span class="statistics_block_min-text">{[{mystock.point}]}</span>
                                                 <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></span>
                                         </h3>
                                     </div>
@@ -58,21 +48,25 @@
                                 <div class="bitcoin_text-cont_left">
                                     <p class="bitcoin_bottom-text text-price column">
 
-                                        High: <span class="bitcoin_bottom-text_bold">{[{mycrypto.high24}]}</span>
-                                        <br>Low:<span class="bitcoin_bottom-text_bold">{[{mycrypto.low24}]}</span>
-                                        <br>Open: <span class="bitcoin_bottom-text_bold">{[{mycrypto.open24}]}</span>
-                                        <br>Close: <span class="bitcoin_bottom-text_bold">{[{mycrypto.price}]}</span>
-                                        <br> Market Cap: <span class="bitcoin_bottom-text_bold">{[{mycrypto.marketcap}]}</span>
-                                        <br> Volume: <span class="bitcoin_bottom-text_bold">{[{mycrypto.volume}]}</span>
+                                        High: <span class="bitcoin_bottom-text_bold">{[{mystock.day_high}]} {[{mystock.devise}]}</span>
+                                        <br>Low:<span class="bitcoin_bottom-text_bold">{[{mystock.day_low}]} {[{mystock.devise}]}</span>
+                                        <br> Open: <span class="bitcoin_bottom-text_bold">{[{mystock.price_open}]} {[{mystock.devise}]}</span>
+                                        <br> Close: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]} {[{mystock.devise}]}</span>
+                                        <br> Year High: <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_high"]}]} {[{mystock.devise}]}</span>
+                                        <br> Year Low: <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_low"]}]} {[{mystock.devise}]}</span>
+                                        <br> Day Change: <span class="bitcoin_bottom-text_bold">{[{mystock.day_change}]} %</span>
+                                        <br> Close Yesterday: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]} {[{mystock.devise}]}</span>
+                                        <br> Market Cap: <span class="bitcoin_bottom-text_bold">{[{mystock.market_cap}]} {[{mystock.devise}]}</span>
+                                        <br> Volume: <span class="bitcoin_bottom-text_bold">{[{mystock.volume}]} {[{mystock.devise}]}</span>
+                                        <br> Shares: <span class="bitcoin_bottom-text_bold">{[{mystock.shares}]} {[{mystock.devise}]}</span>
 
                                     </p>
                                 </div>
                             </div>
                         </div>
-
-
+                        <div id="country" country="{[{mystock.country}]}"></div>
                         <div class="col-md-4 col-sm-6 col-xs-12 col-sm1 ">
-                            <div class="chart_bitcoin-reting chart_bitcoin-reting1 box_height_crypto1" style="    padding-bottom: 0px;    padding-top: 20px;">
+                            <div class="chart_bitcoin-reting chart_bitcoin-reting1 box_height_stock1" style="    padding-bottom: 0px;    padding-top: 20px;">
                                 <div class="col-md-6 col-sm-6 col-xs-6 ">
                                     <a class="btcoin_btn sentiments_btn_green" target="_blank">BULLISH</a>
                                 </div>
@@ -81,7 +75,7 @@
                                 </div>
                                 <p
                                         {#class="chart_bitcoin-reting_prozent"#}
-                                >Sentiment: {[{mycrypto.sentiment }]}% Buying</p>
+                                >Sentiment: {[{mystock.sentiment }]}% Buying</p>
                                 <div class="chart_bitcoin-reting_progress-bar">
                                     <div class="reting_progress-bar_click"></div>
                                 </div>
@@ -89,35 +83,14 @@
                         </div>
 
                         <div class="col-md-4 col-sm-6 col-xs-12 col-sm2">
-                            <div class="chart_content-text chart_bitcoin-reting box_height_crypto2" >
+                            <div class="chart_content-text chart_bitcoin-reting box_height_stock2" >
                                 <p class="chart_content-text_info">
-                                    {[{mycrypto.name}]} - {{ currency}}
+                                    {[{mystock.name}]} - {{ symbol| split('.')[0]}}<br><br>
+                                    {[{description}]}
                                 </p>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="my-container">
-                    {#<section class="table">#}
-                         <div class="container">
-                            <div class="row ">
-                                <div class="select-exchange" style="height:75px; background-color:#151f28; border:1px solid #151f28">
-                                    {#<input  style="width:15%;" type="search" placeholder=" Search currencies " id="tags" />#}
-                                     <select style="width: 98%" id="selectExchange" class="my_select"
-                                             data-ng-model="setExchange"
-                                             data-ng-options="exchange for exchange in Exchanges"
-                                             ng-change="changedValue()"
-                                     >
-                                            {#<option ng-repeat="exchange in Exchanges">{[{exchange}]}</option>#}
-                                         <option value="" >General Chart</option>
-                                     </select>
-                                    {#<button style="width:7%;" id="buy_button" class="buy_button"></button>#}
-                                    {#<button style="width:7%;" id="sell_button" class="sell_button"></button>#}
-                                </div>
-                            </div>
-                         </div>
-                    {#</section>#}
                 </div>
 
             </section>
@@ -129,15 +102,7 @@
             <section class="table">
                 <div class="container">
                     <div class="row ">
-                        {#<div class="general-chart ">#}
-                        {#<div class="select-exchange" style="height:75px; background-color:#151f28; border:1px solid #151f28">#}
-                            {#<input  style="width:15%;" type="search" placeholder=" Search currencies " id="tags" />#}
-                            {#<select style="width: 98%" id="selectExchange" class="my_select" onchange= "ChangeExchange('{{ from}}','{{ to }}')"></select>#}
-                            {#<button style="width:7%;" id="buy_button" class="buy_button"></button>#}
-                            {#<button style="width:7%;" id="sell_button" class="sell_button"></button>#}
-                        {#</div>#}
 
-                        {#</div>#}
                         <div class=" chart ">
                             <div>
                                 <cq-context class="container">
@@ -165,8 +130,8 @@
                                                         <cq-item stxtap="Layout.setPeriodicity(7,1,'day')">1 W</cq-item>
                                                         {#<cq-item stxtap="Layout.setPeriodicity(1,1,'month')">1 Mo</cq-item>#}
                                                         <cq-separator></cq-separator>
-                                                        <cq-item stxtap="Layout.setPeriodicity(1,1,'minute')">1 Min</cq-item>
-                                                        <cq-item stxtap="Layout.setPeriodicity(1,5,'minute')">5 Min</cq-item>
+                                                        {#<cq-item stxtap="Layout.setPeriodicity(1,1,'minute')">1 Min</cq-item>#}
+                                                        {#<cq-item stxtap="Layout.setPeriodicity(1,5,'minute')">5 Min</cq-item>#}
                                                         <cq-item stxtap="Layout.setPeriodicity(2,5,'minute')">10 Min</cq-item>
                                                         <cq-item stxtap="Layout.setPeriodicity(3,5,'minute')">15 Min</cq-item>
                                                         <cq-item stxtap="Layout.setPeriodicity(1,30,'minute')">30 Min</cq-item>
@@ -888,7 +853,9 @@
 
 
 {% block javascripts %}
+    <script src="{{ asset('js/Chart_forex.js') }}"></script>
     <script src="{{ asset('js/Chart_crypto.js') }}"></script>
+    <script src="{{ asset('js/Chart_stock.js') }}"></script>
     <script src="https://tradingcompare.com/ChartIQ/js/chartiq.js"></script>
 
     <script src="https://www.interactivecrypto.com/chart_iq_web/js/translations.js"></script>
@@ -918,11 +885,7 @@
     <script src="https://www.interactivecrypto.com/chart_iq_web/js/thirdparty/webcomponents-lite.min.js"></script>
     <script src='https://www.interactivecrypto.com/chart_iq_web/js/thirdparty/perfect-scrollbar.jquery.js'></script>
     <script src="https://www.interactivecrypto.com/chart_iq_web/js/thirdparty/html2canvas.js"></script>
-    <!-- <script src="plugins/tradingcentral/components.js"></script> -->
 
-
-    <script src="https://www.interactivecrypto.com/script/CCCAGG.js"></script>
-    {#<script src="{{ asset('js/chart-live-iq.js') }}"></script>#}
     <script>
         function loadCSS(hf) {
             var ms = document.createElement("link");
@@ -976,10 +939,6 @@
         }(window, document, scr);
     </script>
     <script>
-        // function clickme()
-        // {
-        //     clickme2()
-        // }
         (function($) {
             function checkWidth() {
                 if ($(window).width() > 700) {
@@ -1070,12 +1029,6 @@
             // Attach an automated quote feed to the chart to handle initial load, pagination and updates at preset intervals.
             stxx.attachQuoteFeed(quotefeedSimulator,{refreshInterval:1,bufferSize:200});
 
-            // function clickme2()
-            // {
-            //     stxx.newChart(XRP/USD/Bitstamp);
-            // }
-
-
             // Optionally set a market factory to the chart to make it market hours aware. Otherwise it will operate in 24x7 mode.
             // This is required for the simulator, or if you intend to also enable Extended hours trading zones.
             //stxx.setMarketFactory(CIQ.Market.Symbology.factory);
@@ -1155,8 +1108,6 @@
                 var UILayout=new CIQ.UI.Layout(UIContext);
                 var UIHeadsUpDynamic=new CIQ.UI.HeadsUp($("cq-hu-dynamic"), UIContext, {followMouse:true, autoStart: false});
                 var UIHeadsUpStatic=new CIQ.UI.HeadsUp($("cq-hu-static"), UIContext, {autoStart: true});
-
-                //fill_select_curr()
 
                 UIContext.changeSymbol=function(data){
                     var stx=this.stx;
@@ -1418,555 +1369,31 @@
             /***************************************************************************************************************/
             /***************************************************************************************************************/
             /***************************************************************************************************************/
-
-
-            // var previous_price
-            // function fill_price ()
-            // {
-                {#var from = "{{ from }}"#}
-                {#var to = "{{ to }}"#}
-                {#var exchange = get_default_exchange(from+"/"+to)#}
-                {#console.log("fill****************",from, to, exchange)#}
-
-                // var url = 'https://crypto.tradingcompare.com/AllPairs/' + from + "_" + to
-                // jQuery.getJSON(url, function (data) {
-                //     console.log('froma api******',data)
-                //     for(key in data){
-                        // if (data[key].change24 > 0) {
-                        // jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US").format(data[key].change24) + "%").addClass('positive').css({ 'font-size':15 });
-                        // // jQuery("cq-todays-change").addClass('positive');
-                        // } else {
-                        // jQuery("cq-todays-change").text('\u25bc' + Intl.NumberFormat("en-US").format(data[key].change24) + "%").addClass('negative').css({ 'font-size':15 });
-                        // // jQuery("cq-todays-change").addClass('negative');
-                        // }
-                        // jQuery("cq-current-price").text(data[key].price);
-                    // }
-                // })
-
-
-                /***************************************************************************************************************/
-                /***************************************************************************************************************/
-
-                // console.log("***********************", stxx.chart.symbol)
-                // var curr =  stxx.chart.symbol.split("/")[0]
-                // var Symbol = stxx.chart.symbol.split("/")[1]
-                // var Exchange =  get_default_exchange(stxx.chart.symbol)
-                // //console.log("EXCHANGE", Exchange.length)
-                // var exchange_var
-                // if(typeof Exchange != 'undefined' && Exchange.length !==0 && Exchange != 'AGG')
-                // {
-                //     exchange_var = "&e=" + Exchange
-                // }
-                // else{
-                //     exchange_var = ""
-                // }
-                // if(typeof Symbol == "undefined")
-                // {
-                //     Symbol = "USD"
-                // }
-                // var url = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" + curr + "&tsyms=" + Symbol + exchange_var
-                // //console.log("****fill price***********url",url)
-                //
-                // jQuery.getJSON(url, function (data) {
-                //     console.log(data.RAW[curr].USD.CHANGEPCT24HOUR)
-                //     console.log(data)
-                //     var displaySymbol =data.DISPLAY[curr][Symbol].TOSYMBOL
-                //
-                //     var val = data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2);
-                //     // var change_div = jQuery("cq-todays-change")
-                //     // console.log("CHANGE DIV",change_div)
-                //     if (val > 0) {
-                //         ///change_div.style.color = "green";
-                //         jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
-                //
-                //
-                //     } else {
-                //         //change_div.style.color = "red";
-                //         jQuery("cq-todays-change").text('\u25bc' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
-                //
-                //     }
-                //     //console.log(url)
-                //     console.log(Intl.NumberFormat("de-DE").format(data.RAW[curr][Symbol].PRICE.toFixed(5)))
-                //     var x = document.getElementById("curr_img");
-                //     x.className = "curr_img"
-                //     x.src = img_src;
-                //     var title
-                //     jQuery("cq-todays-change").css({ 'font-size':15 });
-                //     if( (data.RAW[curr][Symbol].PRICE) < 1 )
-                //     {
-                //         console.log('+++++++++++++++++++++++++',(data.RAW[curr][Symbol].PRICE))
-                //         jQuery("cq-current-price").text( (data.RAW[curr][Symbol].PRICE));
-                //         //title  =  curr + "/" + Symbol + "\u200b  "+ "\u200b  " + "\u200b  " + (data.RAW[curr][Symbol].PRICE) + " \u200b ";
-                //     }
-                //     else
-                //     {
-                //         console.log("hhhhh",(data.RAW[curr][Symbol].PRICE).toLocaleString())
-                //         jQuery("cq-current-price").text( (data.RAW[curr][Symbol].PRICE).toLocaleString());
-                //         //title  =  curr + "/" + Symbol + "\u200b  "+ "\u200b  " + "\u200b  " + (data.RAW[curr][Symbol].PRICE).toLocaleString() + " \u200b ";
-                //     }
-                //     //document.title = title
-                // });
-            // }
-
-            // function update_chart_price ()
-            // {
-            //     console.log("***********************", stxx.chart.symbol)
-            //     var curr =  stxx.chart.symbol.split("/")[0]
-            //     var Symbol = stxx.chart.symbol.split("/")[1]
-            //     var Exchange = jQuery( "#selectExchange option:selected" ).text()
-            //     //console.log("EXCHANGE", Exchange.length)
-            //
-            //     var exchange_var
-            //     if(typeof Exchange != 'undefined' && Exchange.length !==0)
-            //     {
-            //         exchange_var = "&e=" + Exchange
-            //     }
-            //     else{
-            //         exchange_var = ""
-            //     }
-            //     if(typeof Symbol == "undefined")
-            //     {
-            //         Symbol = "USD"
-            //     }
-            //     var url = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" + curr + "&tsyms=" + Symbol + exchange_var
-            //     // console.log("***************url",url)
-            //
-            //     jQuery.getJSON(url, function (data) {
-            //         //                console.log(data.RAW[curr].USD.CHANGEPCT24HOUR)
-            //         //console.log("data.DISPLAY[curr][Symbol].TOSYMBOL",data)
-            //         var displaySymbol =data.DISPLAY[curr][Symbol].TOSYMBOL
-            //
-            //         var val = data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2);
-            //         var change_div = jQuery("cq-todays-change")
-            //         // console.log("CHANGE DIV",change_div)
-            //         if (val > 0) {
-            //             ///change_div.style.color = "green";
-            //             jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
-            //             // jQuery("#change").text('\u25b2' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
-            //
-            //         } else {
-            //             //change_div.style.color = "red";
-            //             jQuery("cq-todays-change").text('\u25bc' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
-            //             // jQuery("#change").text('\u25bc' + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].CHANGEPCT24HOUR.toFixed(2)) + "%");
-            //         }
-            //         //console.log(url)
-            //         //console.log(Intl.NumberFormat("de-DE").format(data.RAW[curr][Symbol].PRICE.toFixed(5)))
-            //         //var x = document.getElementById("curr_img");
-            //         //x.className = "curr_img"
-            //         //x.src = img_src;
-            //         jQuery("cq-todays-change").css({ 'font-size':15 });
-            //         // jQuery("#volume").html(displaySymbol + " " + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].VOLUME24HOURTO.toFixed(3)));
-            //         // jQuery("#marketcap").html(displaySymbol + " " + Intl.NumberFormat("en-US").format(data.RAW[curr][Symbol].MKTCAP.toFixed(3)));
-            //     });
-
-                // var socket = io.connect("https://crypto.tradingcompare.com/")
-                // socket.on('connect', function () {
-                //     var room =  from + "_" + to + "_" + exchange
-                //     socket.emit('room', room);
-                //     socket.on('message', data => {
-                //         console.log("data*********************************", data.change24)
-                //             if (data.change24 > 0) {
-                //                 //change_div.style.color = "green";
-                //                 //  jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US").format(data.change24) + "%");
-                //                 jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US").format(data.change24) + "%");
-                //                 jQuery("cq-todays-change").addClass('positive');
-                //             } else {
-                //                 //change_div.style.color = "red";
-                //                 jQuery("cq-todays-change").text('\u25bc' + Intl.NumberFormat("en-US").format(data.change24) + "%");
-                //                 jQuery("cq-todays-change").addClass('negative');
-                //             }
-                //             previous_data = data.change24
-                //
-                // if(previous_price != undefined){
-                //     if(previous_price > data[key].price){
-                //         jQuery("cq-current-price").text(data[key].price).addClass('negative');
-                //     }else if(previous_price < data[key].price)
-                //         }
-                //     })
-                // })
-            // }
-
-            // setInterval(() => {
-            //     update_chart_price()
-            // }, 2000);
-
-            // function get_name(curr)
-            // {
-            //     console.log("curr",curr)
-            //     var array = httpGet('https://afternoon-mountain-15657.herokuapp.com/All-Coins-Aviho')
-            //     var list = JSON.parse(array)
-            //     console.log("list",list)
-            //     var obj = list.find(o => o.FROMSYMBOL == curr)
-            //     return obj.name
-            // }
-
-            // function httpGet2(url2){
-            //     var xhr = new XMLHttpRequest();
-            //     xhr.open( "GET", url2, false ); // false for synchronous request
-            //     xhr.send( null );
-            //     //console.log("xhr.responseText",xhr.responseText)
-            //     return xhr.responseText;
-            // }
-
-            // function fill_select_curr()
-            // {
-            //     var data  = []
-            //     var url2= "https://afternoon-mountain-15657.herokuapp.com/MarketsAndNames"
-            //     var mySelect = httpGet2(url2);
-            //     var select_list = JSON.parse(mySelect)
-            //
-            //     for (var i = 0; i < select_list[0].length; i++) {
-            //
-            //         var obj = {
-            //             label: select_list[0][i] + ": " + select_list[1][i],
-            //             value: select_list[1][i]
-            //         }
-            //         data.push(obj)
-            //         //console.log("data*******", data)
-            //     }
-            //
-            //     console.log("helooooooooooooooooooooo",data)
-            //     jQuery(function() {
-            //         jQuery( "#tags" ).autocomplete({
-            //             source: function( request, response ) {
-            //                 console.log("1",request.term)
-            //                 var matcher = new RegExp( "^" + jQuery.ui.autocomplete.escapeRegex( request.term ), "i" );
-            //                 response(jQuery.grep( data, function( item ){
-            //
-            //                     return matcher.test( item.label ) || matcher.test( item.value )
-            //                 }) );
-            //             },
-            //             minLength: 0
-            //             ,
-            //             select: function( event , ui ) {
-            //                 event.preventDefault();
-            //                 jQuery("#tags").val(ui.item.label);
-            //                 console.log( "You selected: " + ui.item.label )
-            //                 openNewChart(ui.item.label)
-            //             }
-            //         }).focus(function() {
-            //             console.log("val", jQuery(this).val())
-            //             jQuery(this).autocomplete("search", jQuery(this).val());
-            //         });
-            //     });
-            // }
-
-            // function openNewChart(pair)
-            // {
-            //     var temp_pair = pair.split(":")[0]
-            //     var from = temp_pair.split("/")[0]
-            //     var to = temp_pair.split("/")[1]
-            //     var name = pair.split(":")[1].replace(" ","")
-            //     var exchange = get_default_exchange(temp_pair)
-            //     var symb = {symbol: temp_pair, name: name, exchDisp: exchange}
-            //     console.log("Will soon open ", "from",temp_pair,"to",symb,"name",name)
-            //     console.log("oooooooooooooo",exchange)
-            //     var name = get_name(from)
-            //     var symb = {symbol: temp_pair, name: name, exchDisp: exchange}
-            //
-            //     var old_curr = stxx.chart.symbol
-            //     console.log("old_curr",old_curr)
-            //     var Exchange = jQuery( "#selectExchange option:selected" ).text()
-            //     if(Exchange. length == 0)
-            //     {
-            //         var channel = "5~CCCAGG"
-            //     }
-            //     else
-            //     {
-            //         var channel = "2~" + Exchange
-            //     }
-            //
-            //     var my_channel = channel +"~" + old_curr.split("/")[0] + "~" + old_curr.split("/")[1]
-            //     subscription = [my_channel]
-            //     console.log("--------------",subscription)
-            //     socket.emit('SubRemove', { subs: subscription });
-            //
-            //     stxx.newChart(symb, null, null, function(err){
-            //         if(err){
-            //             //TODO, symbol not found error
-            //             if(self.loader) self.loader.hide();
-            //             return;
-            //         }
-            //         fillExchange()
-            //         fill_price()
-            //         setWS()
-            //     })
-            // }
-            // var currentPrice = {};
-            //
-            // function get_curr_symbol () {
-            //     return stxx.chart.symbol
-            // }
-            //
-            // function get_curr_exchange () {
-            //     return jQuery( "#selectExchange option:selected" ).text()
-            // }
-
-            // function setWS()
-            // {
-            //     var Exchange = jQuery( "#selectExchange option:selected" ).text()
-            //     if(Exchange.length == 0 )
-            //     {
-            //         var channel = "5~CCCAGG"
-            //     }
-            //     else
-            //     {
-            //         var channel = "2~" + Exchange
-            //     }
-            //
-            //     var my_channel =  channel + "~" + stxx.chart.symbol.split("/")[0]  + "~" + stxx.chart.symbol.split("/")[1]
-            //
-            //     console.log("my_channel",my_channel)
-            //     var arr = [my_channel]
-            //     //console.log(arr)
-            //
-            //     //Format: {SubscriptionId}~{ExchangeName}~{FromSymbol}~{ToSymbol}
-            //     //Use SubscriptionId 0 for TRADE, 2 for CURRENT and 5 for CURRENTAGG
-            //     //For aggregate quote updates use CCCAGG as market
-            //     //var subscription = ['2~Bitfinex~BTC~USD'];
-            //     var subscription = arr
-            //     socket.emit('SubAdd', { subs: subscription });
-            //     socket.on("m", function(message) {
-            //         var messageType = message.substring(0, message.indexOf("~"));
-            //         var res = {};
-            //         //  console.log(messageType,CCC.STATIC.TYPE.CURRENTAGG)
-            //         //if (messageType == CCC.STATIC.TYPE.CURRENTAGG) {
-            //
-            //         res = CCC.CURRENT.unpack(message);
-            //         var curr_sym = get_curr_symbol()
-            //         var from = curr_sym.split("/")[0]
-            //         var to =  curr_sym.split("/")[1]
-            //         var exch = get_curr_exchange()
-            //         //  console.log("message",from,to,exch)
-            //         if(res.TYPE == 2 && res.FROMSYMBOL == from && res.TOSYMBOL == to && res.MARKET == exch )
-            //         {
-            //             console.log("unpack",res.TYPE,res)
-            //             dataUnpack(res);
-            //         }
-            //         // }
-            //     });
-            // }
-            //
-            // var dataUnpack = function(data) {
-            //     var from = data['FROMSYMBOL'];
-            //     var to = data['TOSYMBOL'];
-            //     var fsym = CCC.STATIC.CURRENCY.getSymbol(from);
-            //     var tsym = CCC.STATIC.CURRENCY.getSymbol(to);
-            //     var pair = from + to;
-            //     //console.log(pair);
-            //
-            //     if (!currentPrice.hasOwnProperty(pair)) {
-            //         currentPrice[pair] = {};
-            //     }
-            //
-            //     for (var key in data) {
-            //         currentPrice[pair][key] = data[key];
-            //     }
-            //     //console.log(data)
-            //     // var tt = jQuery("cq-current-price").text(  );
-            //     // console.log("compare",currentPrice[pair]['PRICE'] ,tt )
-            //     currentPrice[pair]['CHANGE24HOURPCT'] = (Math.abs((currentPrice[pair]['PRICE'] - currentPrice[pair]['OPEN24HOUR'])) / currentPrice[pair]['OPEN24HOUR'] * 100).toFixed(2) + "%"
-            //     displayData(currentPrice[pair], from, tsym, fsym);
-            // };
-            //
-            // var displayData = function(current, from, tsym, fsym) {
-            //     //display data for ONE pair
-            //     //console.log(current);
-            //     var priceDirection = current.FLAGS;
-            //     var old = jQuery("cq-current-price").text(  );
-            //     var change24hour
-            //
-            //     var title
-            //     var for_title
-            //     //console.log("innnnnnnnnnnnnnnn")
-            //     if(typeof current['PRICE'] == "undefined" || Number.isNaN(current['PRICE']))
-            //     {
-            //         for_title = ""
-            //     }
-            //     else
-            //     {
-            //         if(current['PRICE'] < 1)
-            //         {
-            //             jQuery("cq-current-price").text( (current['PRICE']));
-            //             for_title = (current['PRICE'])
-            //             //console.log("<11111111",current['PRICE'])
-            //         }
-            //         else
-            //         {
-            //             jQuery("cq-current-price").text( (current['PRICE']).toLocaleString());
-            //             for_title = (current['PRICE']).toLocaleString()
-            //             //console.log(">11111111",(current['PRICE']).toLocaleString())
-            //         }
-            //     }
-            //
-            //     jQuery("cq-current-price").removeClass();
-            //
-            //     if (priceDirection & 1) {
-            //         jQuery("cq-current-price").addClass("price_up");
-            //
-            //         if( for_title.length != 0)
-            //             title  =  stxx.chart.symbol.replace("_","/") + "\u200b  "+ "\u200b  " +"\u25b2 " + for_title + " \u200b ";
-            //     }
-            //     else if (priceDirection & 2) {
-            //         jQuery("cq-current-price").addClass("price_down");
-            //
-            //         if( for_title.length != 0)
-            //             title  =  stxx.chart.symbol.replace("_","/") + "\u200b  "+ "\u200b  " + "\u25bc "  + for_title + " \u200b ";
-            //
-            //     }
-            //     else{
-            //         if( for_title.length != 0)
-            //             title  =  stxx.chart.symbol.replace("_","/") + "\u200b  "+ "\u200b  " + "\u200b  " + for_title + " \u200b ";
-            //     }
-            //     console.log("333333333333",title)
-            //     setTimeout(() => {
-            //         //console.log("----------")
-            //         jQuery("cq-current-price").removeClass();
-            //
-            //     }, 2000);
-            //     if( for_title.length != 0) {
-            //         //document.title =   title
-            //     }
-            // }
-
             /******************************************************************************************************************************/
 
             function initialSymbol ()
             {
                 // var from,to
-                var pair = "{{ from }}"+ "/" + "{{ to }}"
-                // var exchange = get_default_exchange(pair)
-                var exchange = "none"
-                {#var name = get_name("{{ from }}")#}
-                var name = "{{ name }}"
-                var group = "crypto"
-                console.log("pair",pair,"exchange",exchange,"name",name)
-                var symb = {symbol: pair, name: name, exchDisp: exchange, group:group}
-                console.log("symb", symb)
+                var symbol = "{{ symbol }}"
+                var group = "stock"
+                console.log("symbol",symbol,"group",group)
+                var symb = {symbol: symbol, group:group}
+
+                // var scope = angular.element(document.getElementById("hello")).scope();
+                // scope.$apply(function() {
+                //     scope.info = "nami";
+                //     scope.updateMessage("i am new fans like nami");
+                // });
+                //console.log("country",scope)
                 stxx.newChart(symb, null, null, function(err){
                     if(err){
                         //TODO, symbol not found error
                         if(self.loader) self.loader.hide();
                         return;
                     }
-                    setExchange()
                 })
             }
 
-            // function get_default_exchange(symbol)
-            // {
-            //     var arr = httpGet('https://crypto.tradingcompare.com/' + symbol)
-            //     var Exchange_list = JSON.parse(arr)
-            //     if(Exchange_list.indexOf('BITSTAMP') > -1){
-            //         var Exchange = 'BITSTAMP'
-            //     }
-            //     else{
-            //         var Exchange = Exchange_list[0]
-            //     }
-            //     //console.log("Exchange_list",Exchange_list)
-            //     return Exchange
-            //     /************************************************************************************/
-            //     // var arr = httpGet('https://afternoon-mountain-15657.herokuapp.com/Exchanges/' + symbol)
-            //     // var Exchange_list = JSON.parse(arr)
-            //     // if(Exchange_list.length == 0)
-            //     //     return "AGG"
-            //     // Exchange = Exchange_list[0]
-            //     // return Exchange
-            // }
-            function setExchange() {
-                {#var arr = httpGet('https://crypto.tradingcompare.com/' + "{{ from }}"+ "/" + "{{ to }}")#}
-                {#var Exchange_list = JSON.parse(arr)#}
-                {#if(Exchange_list.indexOf('BITSTAMP') > -1){#}
-                    {#var index = Exchange_list.indexOf('BITSTAMP')#}
-                    {#Exchange_list[index] = Exchange_list[0]#}
-                    {#Exchange_list[0] = 'BITSTAMP'#}
-                {#}#}
-                {#//var Exchange = Exchange_list[0]#}
-                {#// var arr = httpGet('https://afternoon-mountain-15657.herokuapp.com/Exchanges/' + stxx.chart.symbol)#}
-                {#// var Exchange_list = JSON.parse(arr)#}
-                {#// Exchange = Exchange_list[0]#}
-
-                {#// if(Exchange_list.length != 0)#}
-                {#//     jQuery('#selectExchange').css("display", "");#}
-
-                {#var selectExchange = document.getElementById("selectExchange");#}
-
-                {#jQuery('#selectExchange').empty()#}
-
-                {#for (var i = 0; i < Exchange_list.length; i++) {#}
-                    {#//console.log("stxx.chart.symbol,Exchange_list[i]",stxx.chart.symbol,Exchange_list[i])#}
-                    {#var option = document.createElement("option");#}
-                    {#option.value = Exchange_list[i]#}
-                    {#option.text = Exchange_list[i]#}
-                    {#selectExchange.appendChild(option);#}
-                {#}#}
-                {#// console.log(jQuery('#selectExchange').val())#}
-                {#// console.log("//////////////",jQuery( "#selectExchange option:selected" ).text())#}
-
-                {#/***********************************************************************************************/#}
-                {#fill_price()#}
-                {#//#}
-                jQuery('#selectExchange').on('change', function (e) {
-                    //console.log("innnnnnnnnnnnnnnnnn",stxx.chart.symbol)
-                    //var ExchangeSelected = jQuery("option:selected", this);
-                    //Exchange = this.value
-
-                    //var from = stxx.chart.symbol.split("/")[0]
-                    //var name = get_name(from)
-
-                    // var old_curr = stxx.chart.symbol
-                    var Exchange = jQuery( "#selectExchange option:selected" ).text()
-                    if(Exchange == 'General Chart'){Exchange = 'none'}
-                    // if(Exchange.length == 0)
-                    // {
-                    //     var channel = "5~CCCAGG"
-                    // }
-                    // else
-                    // {
-                    //     var channel = "2~" + Exchange
-                    // }
-
-                    // var my_channel = channel +"~" + old_curr.split("/")[0] + "~" + old_curr.split("/")[1]
-                    // subscription = [my_channel]
-                    // console.log("--------------",subscription)
-                    // socket.emit('SubRemove', { subs: subscription });
-
-                    //   UIContext.UISymbolLookup.selectItem({symbol: stxx.chart.symbol, name: "Bitcoin", exchDisp: Exchange})
-                    var symb = {symbol: stxx.chart.symbol, name: "{{ name }}", exchDisp: Exchange, group : "crypto"}
-                    stxx.newChart(symb, null, null, function(err){
-                        if(err){
-                            //TODO, symbol not found error
-                            if(self.loader) self.loader.hide();
-                            return;
-                        }
-                        //setWS()
-                    })
-                });
-            }
-
-            {#function fillExchange() {#}
-                {#var arr = httpGet('https://crypto.tradingcompare.com/' + "{{ from }}"+ "/" + "{{ to }}")#}
-                {#var Exchange_list = JSON.parse(arr)#}
-                {#if(Exchange_list.indexOf('BITSTAMP') > -1){#}
-                    {#var index = Exchange_list.indexOf('BITSTAMP')#}
-                    {#Exchange_list[index] = Exchange_list[0]#}
-                    {#Exchange_list[0] = 'BITSTAMP'#}
-                {#}#}
-                {#// var arr = httpGet('https://afternoon-mountain-15657.herokuapp.com/Exchanges/' + stxx.chart.symbol)#}
-                {#// var Exchange_list = JSON.parse(arr)#}
-                {#// Exchange = Exchange_list[0]#}
-
-                {#var selectExchange = document.getElementById("selectExchange");#}
-                {#jQuery('#selectExchange').empty()#}
-
-                {#for (var i = 0; i < Exchange_list.length; i++) {#}
-                    {#//console.log(stxx.chart.symbol,Exchange_list[i])#}
-                    {#var option = document.createElement("option");#}
-                    {#option.value = Exchange_list[i]#}
-                    {#option.text = Exchange_list[i]#}
-                    {#selectExchange.appendChild(option);#}
-                {#}#}
-            {#}#}
         })(jQuery);
     </script>
 
@@ -1975,106 +1402,3 @@
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
 {% endblock %}
-
-
-
-
-
-{#{% extends 'base.html.twig' %}#}
-
- {#{% block description %}#}
-     {#<title> {{currency}} Price Chart Real-time price, sentiment, chart:</title>#}
-     {#<meta name="description" content="Live {{ currency}} Bitcoin chart. Free online platform for market analysis.Sentiment from real traders, online discussion, international coverage, technical indicators & latest news.">#}
- {#{% endblock %}#}
-
-
-{#{% block body %}#}
-
-{#<div id="dvChart" class="my-container ng-cloak" ng-controller="ChartController" ng-init="init('{{ api }}', '{{ from }}', '{{ to }}','{{ like }}')">#}
-    {#<div ng-controller="ChartController ">#}
-        {#<section class="table">#}
-            {#<div class="chart_search">#}
-                {#<div class="container">#}
-                    {#<div class="row">#}
-                        {#<input class="search_input" type="text" placeholder="Search Instruments">#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-            {#<div class="container padding_non">#}
-                {#<div class="row">#}
-                    {#<div class="col-md-8 col-sm-12 col-xs-12">#}
-                        {#<div class="chart_bitcoin-cont">#}
-                            {#<div class="bitcoin_text-cont">#}
-                                {#<div class="bitcoin_img-cont">#}
-                                    {#<img class="bitcoin_img" ng-scr="{[{allimg.img}]}" alt="{[{mycrypto.fromSymbol}]}" >#}
-                                {#</div>#}
-                                {#<div class="bitcoin_text-cont_left">#}
-                                    {#<h3 class="bitcoin_title">{[{allimg.name}]}<span class="bitcoin_title_right">{[{mycrypto.fromSymbol}]}/{[{mycrypto.toSymbol}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>#}
-                                    {#<p class="statistics_block_green-text" ng-class="{'negative': mycrypto.change24 < 0, 'positive': mycrypto.change24 >= 0}">{[{mycrypto.change24}]}% <span class="statistics_block_min-text">{[{mycrypto.point}]}</span>#}
-                                        {#<span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></p>#}
-                                    {#<h3 class="bitcoin_many bitcoin_many-mobile" ng-class="{'negative': mycrypto.variation == 'down', 'positive':mycrypto.variation == 'up', 'neutral': mycrypto.variation == 'none'}">{[{mycrypto.price}]}</h3>#}
-                                    {#<p class="bitcoin_bottom-text">#}
-                                        {#High: <span class="bitcoin_bottom-text_bold">{[{mycrypto.high24}]}</span>#}
-                                        {#Low:<span class="bitcoin_bottom-text_bold">{[{mycrypto.low24}]}</span>#}
-                                        {#<br> Open: <span class="bitcoin_bottom-text_bold">{[{mycrypto.open24}]}</span>#}
-                                        {#Close: <span class="bitcoin_bottom-text_bold">{[{mycrypto.price}]}</span>#}
-                                        {#<br> Market Cap: <span class="bitcoin_bottom-text_bold">{[{mycrypto.Maketcap}]}</span>#}
-                                    {#</p>#}
-                                {#</div>#}
-                                {#<div class="bitcoin_text-cont_right">#}
-                                    {#<h3 class="bitcoin_many xs-none" ng-class="{'negative': mycrypto.variation == 'down', 'positive':mycrypto.variation == 'up', 'neutral': mycrypto.variation == 'none'}">{[{mycrypto.price}]}</h3>#}
-                                    {#<a class="btcoin_btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                    {#<div class="col-md-4 col-sm-5 col-xs-12 ">#}
-                        {#<div class="chart_bitcoin-reting">#}
-                            {#<p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-up"></i></span> {[{allimg.likes}]}</p>#}
-                            {#<p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-down"></i></span> {[{allimg.unlikes}]}</p>#}
-                            {#<p class="chart_bitcoin-reting_prozent">Sentiment: {[{allimg.sentiment }]}% Buying</p>#}
-                            {#<div class="chart_bitcoin-reting_progress-bar">#}
-                                {#<div class="reting_progress-bar_click"></div>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                    {#<div class="col-md-12 col-sm-7 col-xs-12 xs-none">#}
-                        {#<div class="chart_content-text">#}
-                            {#<p class="chart_content-text_info">#}
-                                {#{{ currency}}#}
-                            {#</p>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-
-            {#<div class="container">#}
-                {#<div class="row">#}
-                    {#<div class="general-chart">#}
-                        {#<img class="general-chart_img" src='{{ asset("img/chart.png") }}' alt="chart">#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-        {#</section>#}
-    {#</div>#}
-{#</div>#}
-
-
-{#{% endblock %}#}
-
-{#{% block javascripts %}#}
-    {#{{ parent() }}#}
-    {#<script src="{{ asset('js/Chart_crypto.js') }}"></script>#}
-    {#<script>#}
-        {#function loadCSS(hf) {#}
-            {#var ms = document.createElement("link");#}
-            {#ms.rel = "stylesheet";#}
-            {#ms.href = hf;#}
-            {#document.getElementsByTagName("head")[0].appendChild(ms);#}
-        {#}#}
-
-        {#loadCSS('{{asset("css/charts.css" )}}');#}
-        {#loadCSS('{{asset("css/comment.css" )}}');#}
-
-    {#</script>#}
-{#{% endblock %}#}

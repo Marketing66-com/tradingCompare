@@ -6,7 +6,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
 
     $scope.stocks = []
     $scope.last_price = {}
-
+    $scope.mystock
 
     var i = 0
     $scope.init = function (symbol) {
@@ -18,6 +18,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
             success: function (result) {
                 //console.log("result ***",result)
                 $scope.mystock = result
+                $scope.last_price = result.price
                 console.log(" $scope.mystock ***", $scope.mystock)
 
                 //IMAGE
@@ -56,7 +57,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
             type: "GET",
             success: function (result) {
                 //console.log("result ***",result)
-                $scope.mystock.description = result.description
+                $scope.description = result.description
                 $scope.$apply()
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -75,6 +76,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
         data = JSON.parse(data);
         console.log("data", data)
         $scope.mystock.price = data.price
+        console.log("data.price ", data.price,"$scope.last_price",$scope.last_price )
 
         if(data.price >= $scope.last_price)
             $scope.mystock.variation = "up"
@@ -82,12 +84,14 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
             $scope.mystock.variation = "down"
 
 
-        // if(Number($scope.mystock.price_open) == undefined && typeof Number($scope.mystock.price_open) == "undefined" )
-        //     $scope.mystock.price_open = $scope.last_price;
+        if($scope.mystock.price_open == "N/A" || typeof $scope.mystock.price_open == "undefined" ){
+            $scope.mystock.price_open = $scope.last_price;
+        }
 
-            $scope.mystock.change_pct = Number((((data.price - Number($scope.mystock.price_open)) / Number($scope.mystock.price_open)) * 100).toFixed(2))
-            $scope.mystock.point = Number((Number($scope.mystock.price_open) - data.price).toFixed(2))
-            $scope.last_price = data.price
+        $scope.mystock.change_pct = Number((((data.price - Number($scope.mystock.price_open)) / Number($scope.mystock.price_open)) * 100).toFixed(2))
+        $scope.mystock.point = Number((Number($scope.mystock.price_open) - data.price).toFixed(10))
+        $scope.last_price = data.price
+        //console.log("data.price ", data.price,"$scope.last_price",$scope.last_price , $scope.mystock.change_pct )
 
         $scope.$apply()
 
@@ -101,6 +105,3 @@ angular.element(document).ready(function() {
 
     angular.bootstrap(dvChart_stock, ['Chart_stockApp']);
 });
-
-
-

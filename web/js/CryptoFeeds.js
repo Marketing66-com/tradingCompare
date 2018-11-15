@@ -106,7 +106,7 @@ CryptoApp.controller('ListController', function($scope){
     socket.on('connect', function () {
         socket.emit('room', "all_regulated_by_average");
         socket.on('message', data => {
-            console.log("data all regulated", data)
+            //console.log("data all regulated", data)
             for (const key in data) {
                 var item73 = itemsDetails.find(function (element) {
                     return ((element.fromSymbol == key.split("_",1))&&(element.toSymbol == key.split("_")[1]));
