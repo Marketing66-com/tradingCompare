@@ -56,7 +56,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope, $http) {
         $scope.from = from
         $scope.to = to
         $scope.mypair = from + to
-        console.log("api",from,to)
+        //console.log("api",from,to)
 
         $.ajax({
             url: "https://forex.tradingcompare.com/all_data/" + $scope.mypair,

@@ -1269,7 +1269,7 @@
 
                 //INITIAL SYMBOL
                 if(!stxx.chart.symbol){
-                    console.log("if null stxx.chart.symbol",stxx.chart.symbol)
+                    //console.log("if null stxx.chart.symbol",stxx.chart.symbol)
                     initialSymbol()
                 }
                 CIQ.UI.begin();
@@ -1365,7 +1365,7 @@
                 // var from,to
                 var pair = "{{ from }}"+ "/" + "{{ to }}"
                 var group = "forex"
-                console.log("pair",pair,"group",group)
+                //console.log("pair",pair,"group",group)
                 var symb = {symbol: pair, group:group}
 
                 stxx.newChart(symb, null, null, function(err){
@@ -1374,27 +1374,8 @@
                         if(self.loader) self.loader.hide();
                         return;
                     }
-                    // setExchange()
                 })
             }
-
-            // function setExchange() {
-            //
-            //     jQuery('#selectExchange').on('change', function (e) {
-            //
-            //         var Exchange = jQuery( "#selectExchange option:selected" ).text()
-            //         if(Exchange == 'General Chart'){Exchange = 'none'}
-            //
-            //         var symb = {symbol: stxx.chart.symbol, name: "Bitcoin", exchDisp: Exchange}
-            //         stxx.newChart(symb, null, null, function(err){
-            //             if(err){
-            //                 //TODO, symbol not found error
-            //                 if(self.loader) self.loader.hide();
-            //                 return;
-            //             }
-            //         })
-            //     });
-            // }
 
         })(jQuery);
     </script>

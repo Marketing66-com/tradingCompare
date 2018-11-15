@@ -38,6 +38,9 @@ ChartApp.controller('ChartController', function ($scope) {
                 jQuery("cq-current-price").text(data.price).removeClass('negative')
                     .addClass('positive')
             }
+            else{
+                jQuery("cq-current-price").text(data.price).removeClass('negative').removeClass('positive')
+            }
         }
         if (data.change24 > 0) {
             jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US")
@@ -120,7 +123,7 @@ ChartApp.controller('ChartController', function ($scope) {
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
     $scope.changedValue = function () {
-        console.log("I changed my exchange", $scope.setExchange)
+        //console.log("I changed my exchange", $scope.setExchange)
         let url
         if($scope.setExchange == null){
             url = "https://crypto.tradingcompare.com/AllPairs/" + $scope.from + "_" + $scope.to
@@ -134,7 +137,7 @@ ChartApp.controller('ChartController', function ($scope) {
 
         var result = httpGet(url)
         result = JSON.parse(result)
-        console.log("result from changeExchange", result)
+        //console.log("result from changeExchange", result)
         $scope.mycrypto = result
 
         //SENTIMENT
@@ -144,13 +147,13 @@ ChartApp.controller('ChartController', function ($scope) {
 
         //WEBSOCKET
         $scope.socket.emit("leave_room", $scope.current_room);
-        console.log("leave",$scope.current_room)
+        //console.log("leave",$scope.current_room)
 
         $scope.current_room = $scope.from + "_" + $scope.to + $scope.temp
 
         $scope.previous_price = 0;
         $scope.socket.emit("room",$scope.current_room );
-        console.log("connect",$scope.current_room)
+        //console.log("connect",$scope.current_room)
 
         // CHART INFO
         if (result.change24 > 0) {

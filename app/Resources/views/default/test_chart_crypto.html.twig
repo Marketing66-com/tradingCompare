@@ -1840,9 +1840,9 @@
                 {#var name = get_name("{{ from }}")#}
                 {#var name = "{{ name }}"#}
                 var group = "crypto"
-                console.log("pair",pair,"exchange",exchange,"name",name)
+                //console.log("pair",pair,"exchange",exchange,"name",name)
                 var symb = {symbol: pair, exchDisp: exchange, group:group}
-                console.log("symb", symb)
+                //console.log("symb", symb,stxx.chart.symbol)
                 stxx.newChart(symb, null, null, function(err){
                     if(err){
                         //TODO, symbol not found error
@@ -1913,7 +1913,6 @@
 
                     //var from = stxx.chart.symbol.split("/")[0]
                     //var name = get_name(from)
-
                     // var old_curr = stxx.chart.symbol
                     var Exchange = jQuery( "#selectExchange option:selected" ).text()
                     if(Exchange == 'General Chart'){Exchange = 'none'}
