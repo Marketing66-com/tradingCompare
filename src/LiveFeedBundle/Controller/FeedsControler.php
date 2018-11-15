@@ -54,12 +54,7 @@ class FeedsControler extends Controller
      */
     public function ForexAction()
     {
-
-        $apiF =  $this->getParameter('forex_api');
-        //$imgF = $this->getParameter('forex_img');
-        $likes = $this-> getParameter('forex_likes');
-        $chart_link = "forex_chart";
-        return $this->render('LiveFeedBundle:Default:live_forex.html.twig',array('api'=>$apiF,  "chart_link"=>$chart_link, "likes"=>$likes));
+        return $this->render('LiveFeedBundle:Default:live_forex.html.twig',array());
 
     }
     

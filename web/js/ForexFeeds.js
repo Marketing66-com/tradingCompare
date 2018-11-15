@@ -1,141 +1,148 @@
-var ForexApp = angular.module('ForexApp', []).config(function ($interpolateProvider) {
+var ForexApp = angular.module('ForexApp', ['ui.bootstrap']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');})
-
 
 ForexApp.controller("ForexController", function ($scope, $http,$window) {
 
-        $scope.all = []
-        $scope.all1 = []
-        $scope.allimg = {}
-        $scope.allimg1 = []
-        $scope.alllikes = {}
-        $scope.element={}
+    let itemsDetails = [];
+    $scope.maxSize = 5;
 
-        var i = 0
-        $scope.init = function (api,chart_link,likes) {
-            console.log("api", api, "chart_link",chart_link)
-            $.ajax({
-                url: api,
-                type: "GET",
-                success: function (result) {
+    $scope.currentPage = 1;
+    $scope.totalItems = function () {
+        return itemsDetails.length;
+    };
+    $scope.itemsPerPage = 100;
 
-                    $scope.all1 = result
+    $scope.result = [];
 
-                    for (key in $scope.all1) {
-                        if (i < 51) {
-                            $scope.all1[key].fromSymbol = $scope.all1[key].fromSymbol.slice(0, 3) + "/" + $scope.all1[key].fromSymbol.slice(3, 6)
+    $scope.setPage = function (pageNo) {
+        $scope.currentPage = pageNo;
+    };
 
-                            $scope.all.push($scope.all1[key])
-                            i++
+    $scope.pageChanged = function() {
+        var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
+            end = begin + $scope.itemsPerPage;
+
+        $scope.filteredItems = itemsDetails.slice(begin, end);
+        $(document).scrollTop(0);
+    };
+
+    $scope.init = function () {
+        this.items = itemsDetails;
+
+        // currencies
+        $.ajax({
+            url: "https://forex.tradingcompare.com/all_data",
+            type: "GET",
+            success: function (result) {
+                $scope.result = result;
+                //console.log("$scope.result",$scope.result)
+
+                var i = 0
+                for (const key in $scope.result) {
+                    if ($scope.result.hasOwnProperty(key)) {
+
+                        itemsDetails[i] = $scope.result[key];
+
+                        //NAME
+                        itemsDetails[i].complete_name = itemsDetails[i].name
+
+                        //IMAGE
+                        if($scope.result[key].img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/piece.png"||
+                            $scope.result[key].img == undefined
+                            || typeof $scope.result[key].img== "undefined"){
+
+                            itemsDetails[i].img =  "/img/Stock_Logos/stocks.png"
                         }
-                        else break;
+
+                        //SENTIMENT
+                        var sent=($scope.result[key].likes / ($scope.result[key].likes + $scope.result[key].unlikes)) *100
+                        itemsDetails[i].sentiment=Number(sent.toFixed(1))
+
+                        i = i+1;
                     }
-                    console.log("Response-forex", $scope.all)
-
-                    $scope.$apply()
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    console.log("ERROR", thrownError, xhr, ajaxOptions)
                 }
-            });
+                console.log("itemsDetails",itemsDetails)
+                $scope.totalItems = itemsDetails.length;
 
-// var allimg={}
+                var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
+                    end = begin + $scope.itemsPerPage;
 
-            // console.log("img", img)
-            // $.ajax({
-            //     url: img,
-            //     type: "GET",
-            //     success: function (result) {
-            //         $scope.allimg1 = result
-            //         for (var i = 0; i < $scope.allimg1.length; i++) {
-            //             $scope.allimg[$scope.allimg1[i].name.slice(0, 3) + "/" + $scope.allimg1[i].name.slice(3, 6)] = {img: $scope.allimg1[i].img}
-            //
-            //         }
-            //         // for (const key in myobj) {
-            //         //     if (myobj.hasOwnProperty(key)) {
-            //         //         const element = myobj[key];
-            //         //         $scope.allimg.push(element)
-            //         //     }}
-            //         //  console.log("Response------", myobj)
-            //
-            //
-            //         console.log("Response**forex*", $scope.allimg)
-            //         $scope.$apply()
-            //     },
-            //     error: function (xhr, ajaxOptions, thrownError) {
-            //         console.log("ERROR", thrownError, xhr, ajaxOptions)
-            //     }
-            // });
-
-            ////////////////////////////////////////////////////////////////////
-            console.log("likes",likes)
-            $.ajax({
-                url: likes,
-                type: "GET",
-                success: function (result) {
-                    $scope.alllikes = result
-                    for (const key in $scope.alllikes) {
-                        var name =$scope.alllikes[key].name.slice(0, 3) + "/" + $scope.alllikes[key].name.slice(3, 6)
-                        $scope.element[name]= $scope.alllikes[key]
-                        var sent=($scope.element[name].likes/($scope.element[name].likes+$scope.element[name].unlikes))*100
-                        // console.log("Response*likes*", sent)
-                        $scope.element[name].sentiment=Number(sent.toFixed(1))
-
-                    }
-
-                    $scope.allimg=$scope.element
-                    console.log("Response*likes*Forex", $scope.allimg)
-
-                     $scope.$apply()
-
-
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    console.log("ERROR", thrownError, xhr, ajaxOptions)
-                }
-            });
-
+                $scope.filteredItems = itemsDetails.slice(begin, end);
+                $scope.$apply()
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log("ERROR", thrownError, xhr, ajaxOptions)
+            }
+        });
+        $scope.getDisplayValue = function(currentValue)
+        {
+            return intFormat(currentValue);
         }
+    }
 
-//
-//
-        var socket = io.connect("https://forex-websocket.herokuapp.com/", {
-            path: "/socket/forex/livefeed"
-        })
-        socket.on('connect', function () {
-            socket.emit('room', "all_pairs");
-            socket.on('message', response => {
-                var item73
+    ///////////////////////////////////////// SOCKET ///////////////////////////////////////////
+    $scope.socket = io.connect('https://forex.tradingcompare.com');
+    $scope.socket.on('connect', () => {
+        $scope.socket.emit('room', 'all_pairs');
+    })
+    $scope.socket.on('message', data => {
+        //console.log("data******", data);
+        for (const key in data) {
 
-                for (key in response) {
-                item73 = $scope.all.find(function (element) {
-
-                    return element.fromSymbol == (response[key].fromSymbol.slice(0, 3) + "/" + response[key].fromSymbol.slice(3, 6));
-                });
-
-
-                if (typeof item73 != typeof undefined) {
-                    // console.log("---",item73)
-                    for (const property in response[key]) {
-
-
-                        if (response[key].hasOwnProperty(property) && property != "fromSymbol") {
-                            item73[property] = response[key][property];
-                            // console.log(item73[key])
-
-
-                        }
+            var item73 = itemsDetails.find(function (element) {
+                //console.log("1",key.split("_",1),"2",key.split("_")[1],"2",element.fromSymbol,"4",element.toSymbol)
+                return ((element.fromSymbol == key.split("_",1))&&(element.toSymbol == key.split("_")[1]));
+                return ((element.pair == key.pair));
+            })
+             //console.log("item73", item73)
+            if (typeof item73 != typeof undefined) {
+                for (const ky in data[key]) {
+                    if (data.hasOwnProperty(key)) {
+                        item73[ky] = data[key][ky];
                     }
-                    // console.log("+++",item73)
                 }
-
-//$scope.all = []
-
             }
             $scope.$apply()
+        }
+        // $scope.myforex = data
 
-        })
-        })
+        // $scope.myforex.name = $scope.name
+        // $scope.myforex.img = $scope.img
+        // $scope.myforex.sentiment = $scope.sentiment
+
+        $scope.$apply()
+    })
+        // var socket = io.connect("https://forex-websocket.herokuapp.com/", {
+        //     path: "/socket/forex/livefeed"
+        // })
+        // socket.on('connect', function () {
+        //     socket.emit('room', "all_pairs");
+        //     socket.on('message', response => {
+        //         var item73
+        //
+        //         for (key in response) {
+        //         item73 = $scope.all.find(function (element) {
+        //
+        //             return element.fromSymbol == (response[key].fromSymbol.slice(0, 3) + "/" + response[key].fromSymbol.slice(3, 6));
+        //         });
+        //
+        //
+        //         if (typeof item73 != typeof undefined) {
+        //             // console.log("---",item73)
+        //             for (const property in response[key]) {
+        //
+        //
+        //                 if (response[key].hasOwnProperty(property) && property != "fromSymbol") {
+        //                     item73[property] = response[key][property];
+        //                     // console.log(item73[key])
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     $scope.$apply()
+        //
+        // })
+        // })
 
         $scope.ActiveChange = function (symbol) {
 
@@ -157,28 +164,4 @@ ForexApp.controller("ForexController", function ($scope, $http,$window) {
 
         angular.bootstrap(dvForex, ['ForexApp']);
     });
-//
-// })(window);
-
-//     var socket = io.connect("https://xosignals.herokuapp.com/", {
-//         path: "/socket/xosignals/livefeed"
-//     })
-//     socket.on("onUpdate", function (response) {
-//     console.log(response)
-//         // var item73 = $scope.all.find(function (element) {
-//         //     return element.name == response.symbol;
-//         // });
-//         //
-//         // console.log(item73)
-//         // if (typeof item73 != typeof undefined) {
-//         //     for (const key in response.data) {
-//         //         if (response.data.hasOwnProperty(key)) {
-//         //             item73[key] = response.data[key];
-//         //             $scope.$apply()
-//         //         }
-//         //     }
-//         // }
-//
-//     });
-// })
 

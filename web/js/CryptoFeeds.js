@@ -13,9 +13,7 @@ CryptoApp.controller('ListController', function($scope,$window){
     $scope.itemsPerPage = 100;
 
     $scope.result = [];
-    $scope.allimg = [];
-    $scope.image = {};
-    $scope.element = {};
+
 
     $scope.setPage = function (pageNo) {
         $scope.currentPage = pageNo;
