@@ -19,7 +19,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
                 //console.log("result ***",result)
                 $scope.mystock = result
                 $scope.last_price = result.price
-                console.log(" $scope.mystock ***", $scope.mystock)
+                //console.log(" $scope.mystock ***", $scope.mystock)
 
                 //IMAGE
                 var img = "https://storage.googleapis.com/iex/api/logos/" + $scope.mystock.symbol + ".png"
@@ -74,9 +74,9 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
 
     socketStock.on("message", (data) => {
         data = JSON.parse(data);
-        console.log("data", data)
+        //console.log("data", data)
         $scope.mystock.price = data.price
-        console.log("data.price ", data.price,"$scope.last_price",$scope.last_price )
+        //console.log("data.price", data.price,"$scope.last_price",$scope.last_price )
 
         if(data.price >= $scope.last_price)
             $scope.mystock.variation = "up"

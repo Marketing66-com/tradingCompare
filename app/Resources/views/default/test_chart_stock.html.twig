@@ -132,9 +132,9 @@
                                                         <cq-separator></cq-separator>
                                                         {#<cq-item stxtap="Layout.setPeriodicity(1,1,'minute')">1 Min</cq-item>#}
                                                         {#<cq-item stxtap="Layout.setPeriodicity(1,5,'minute')">5 Min</cq-item>#}
-                                                        <cq-item stxtap="Layout.setPeriodicity(2,5,'minute')">10 Min</cq-item>
-                                                        <cq-item stxtap="Layout.setPeriodicity(3,5,'minute')">15 Min</cq-item>
-                                                        <cq-item stxtap="Layout.setPeriodicity(1,30,'minute')">30 Min</cq-item>
+                                                        {#<cq-item stxtap="Layout.setPeriodicity(2,5,'minute')">10 Min</cq-item>#}
+                                                        {#<cq-item stxtap="Layout.setPeriodicity(3,5,'minute')">15 Min</cq-item>#}
+                                                        {#<cq-item stxtap="Layout.setPeriodicity(1,30,'minute')">30 Min</cq-item>#}
                                                         <cq-item stxtap="Layout.setPeriodicity(2,30,'minute')">1 Hour</cq-item>
                                                         <cq-item stxtap="Layout.setPeriodicity(8,30,'minute')">4 Hour</cq-item>
                                                     </cq-menu-dropdown>
@@ -1278,7 +1278,7 @@
 
                 //INITIAL SYMBOL
                 if(!stxx.chart.symbol){
-                    console.log("if null stxx.chart.symbol",stxx.chart.symbol)
+                    //console.log("if null stxx.chart.symbol",stxx.chart.symbol)
                     initialSymbol()
                 }
                 CIQ.UI.begin();
@@ -1380,14 +1380,12 @@
                 // var from,to
                 var symbol = "{{ symbol }}"
                 var group = "stock"
-                var get_country = httpGet('https://websocket-stock.herokuapp.com/Getstock/' + symbol)
-                // get_country = get_country.country
+                var get_country = httpGet('https://stock.tradingcompare.com/Getstock/' + symbol)
+                get_country = JSON.parse(get_country).country
 
-                console.log("symbol",symbol,"group",group,"get_country",get_country)
-                var symb = {symbol: symbol, group:group}
+                //console.log("symbol",symbol,"group",group,"get_country",get_country)
+                var symb = {symbol: symbol, country:get_country, group:group}
 
-                var hi = angular.element(document.getElementById('test'))
-                console.log("country******",hi)
                 stxx.newChart(symb, null, null, function(err){
                     if(err){
                         //TODO, symbol not found error
