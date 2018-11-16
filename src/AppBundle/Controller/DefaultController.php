@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Service\RefererService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -9,8 +11,35 @@ use Symfony\Component\BrowserKit\Response;
 
 class DefaultController extends Controller
 {
+    /**
+     *
+     * @Route("/changelanguage/{langCode}", name="changelanguage")
+     * @Method("GET")
+     *
+     * @param                $langCode
+     * @param Request        $request
+     *
+     * @param RefererService $refererService
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function changelanguageAction($langCode, Request $request, RefererService $refererService) {
 
+        // redirect to previous route
+        $prevRoute = $refererService->getReferer();
 
+        if ($prevRoute == '') {
+            $prevRoute = 'Live_rates_crypto';
+        }
+
+        return $this->redirect(
+            $this->generateUrl(
+                $prevRoute,
+                ['_locale' => $langCode]
+            )
+        );
+
+    }
 
 //********************************  CHART   ********************************
 
