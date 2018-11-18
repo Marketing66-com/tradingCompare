@@ -94,6 +94,7 @@ searchapp.controller('TypeaheadCtrl', function($scope, filterFilter) {
 
 
 
+    var new_array = ['-', ' ', '/', '----', '---', '--']
 
     $scope.onSelect = function ($item, $model, $label) {
         $scope.$item = $item;
@@ -102,13 +103,23 @@ searchapp.controller('TypeaheadCtrl', function($scope, filterFilter) {
         console.log("$scope.$item", $scope.$item, $scope.$model, $scope.$label)
 
         if ($scope.$item.group == "STOCKS") {
-            $scope.$item.symbol = $scope.$item.symbol.replace(/\s/g, '');
+            // $scope.$item.symbol = $scope.$item.symbol.replace(/\s/g, '');
 
             var n = $scope.$item.symbol.indexOf('.');
             $scope.$item.symbol.substring(0, n != -1 ? n : $scope.$item.symbol.length)
 
-            if ($scope.$item.name.indexOf(' ') > -1)
-                $scope.$item.name = $scope.$item.name.replace(/ /g, '-')
+            for(var i=0; i< new_array.length;i++) {
+                if ($scope.$item.name.indexOf(new_array[i]) > -1) {
+                    if (new_array[i] == '-')
+                        $scope.$item.name = $scope.$item.name.replace(new RegExp(new_array[i], 'g'), ' ')
+                    else
+                        $scope.$item.name = $scope.$item.name.replace(new RegExp(new_array[i], 'g'), '-')
+                }
+                if ($scope.$item.name.indexOf("'") > -1) {
+                    $scope.$item.name = $scope.$item.name.replace(/'/g, '')
+                }
+            }
+
 
             var url = Routing.generate('stock_chart', {"symbol": $scope.$item.symbol, "name": $scope.$item.name})
             console.log(Routing.generate('stock_chart', {"symbol": $scope.$item.symbol, "name": $scope.$item.name}))

@@ -123,7 +123,7 @@ firstApp.controller('FirstController', function($scope) {
 
             socket2.emit('room', ["EURUSD", "USDJPY"]);
             socket2.on("message", function (response) {
-                console.log("response forex",response)
+                //console.log("response forex",response)
                 if(response.pair == forex_from1 + forex_to1) {
                     $scope.crypto1 = response
                 }
