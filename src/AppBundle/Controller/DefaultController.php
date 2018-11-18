@@ -49,7 +49,7 @@ class DefaultController extends Controller
     public function stock_chartAction($symbol,$name)
     {
         $my_name = ucfirst(str_replace("-", " ", $name));
-        return $this->render('default/chart_stock.html.twig',array("symbol"=>$symbol, 'name'=>$my_name));
+        return $this->render('default/test_chart_stock.html.twig',array("symbol"=>$symbol, 'name'=>$my_name));
     }
 
 
