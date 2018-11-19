@@ -1,30 +1,49 @@
 var searchapp =angular.module('searchapp', [ 'ngSanitize', 'ui.bootstrap']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');});
 
-searchapp.controller('TypeaheadCtrl', function($scope, filterFilter) {
+searchapp.controller('TypeaheadCtrl', function($scope, filterFilter, $http) {
 
     var users=[]
     $scope.selectedUser = '';
 
+    $http.get("https://websocket-stock.herokuapp.com/searchBar")
+        .then(function(data) {
+           //console.log("data",data.data)
+            data = data.data
+            for (key in data) {
+                if (data[key].img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/piece.png" ||
+                    data[key].img == undefined ||
+                    typeof data[key].img == "undefined")
+                {
+                    if(data[key].group == "CRYPTO"){
+                        data[key].img = "/img/crypto_logos/crypto-other.png"
+                    }
+                    else{
+                        data[key].img = "/img/Stock_Logos/stocks.png"
+                    }
+                }
+                users.push(data[key])
+            }
+        });
 
-    $.getJSON(window.location.origin + '/js/currency.json', function(data) {
-        for (key in data) {
-            if (data[key].img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/piece.png" ||
-                data[key].img == undefined ||
-                typeof data[key].img == "undefined")
-             {
-                 if(data[key].group == "CRYPTO"){
-                     data[key].img = "/img/crypto_logos/crypto-other.png"
-                 }
-                 else{
-                     data[key].img = "/img/Stock_Logos/stocks.png"
-                 }
+    // $.getJSON(window.location.origin + '/js/currency.json', function(data) {
+    //     for (key in data) {
+    //         if (data[key].img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/piece.png" ||
+    //             data[key].img == undefined ||
+    //             typeof data[key].img == "undefined")
+    //          {
+    //              if(data[key].group == "CRYPTO"){
+    //                  data[key].img = "/img/crypto_logos/crypto-other.png"
+    //              }
+    //              else{
+    //                  data[key].img = "/img/Stock_Logos/stocks.png"
+    //              }
+    //
+    //          }
+    //         users.push(data[key])
+    //     }
 
-             }
-            users.push(data[key])
-        }
-
-    });
+    // });
 
     $scope.getUsers = function (search) {
 
