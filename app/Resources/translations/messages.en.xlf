@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="en">
+  <file id="messages.en">
+    <unit id="rkKvsb1" name="LOGIN">
+      <notes>
+        <note category="file-source" priority="1">app/Resources/views/base.html.twig:96</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>LOGIN</source>
+        <target>LOGIN</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

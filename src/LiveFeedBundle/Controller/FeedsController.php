@@ -10,7 +10,7 @@ namespace LiveFeedBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class FeedsControler extends Controller
+class FeedsController extends Controller
 {
     /**
      * @Route("/")

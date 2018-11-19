@@ -1,9 +1,18 @@
+homepage:
+    path:   /
+    defaults:  { _controller: LiveFeedBundle:Feeds:Home }
+
 live_feed:
     resource: "@LiveFeedBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix: /{_locale}/
+    requirements:
+        _locale: en|fr|de
 
 app:
+    prefix: /{_locale}/
+    requirements:
+        _locale: en|fr|de
     resource: '@AppBundle/Controller/'
     type: annotation
 
