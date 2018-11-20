@@ -29,7 +29,7 @@ class DefaultController extends Controller
         $prevRoute = $refererService->getReferer();
 
         if ($prevRoute == '') {
-            $prevRoute = 'Live_rates_crypto';
+            $prevRoute = 'localised_home';
         }
 
         return $this->redirect(
