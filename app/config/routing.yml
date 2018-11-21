@@ -1,6 +1,9 @@
 homepage:
     path:   /
     defaults:  { _controller: LiveFeedBundle:Feeds:Home }
+    prefix: /{_locale}/
+    requirements:
+        _locale: en|fr|de
 
 live_feed:
     resource: "@LiveFeedBundle/Controller/"

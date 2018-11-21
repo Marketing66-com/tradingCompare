@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class FeedsController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="localised_home")
      */
     public function HomeAction()
     {

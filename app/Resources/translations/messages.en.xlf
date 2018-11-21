@@ -1,14 +1,331 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="en">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en-US" trgLang="en">
   <file id="messages.en">
-    <unit id="rkKvsb1" name="LOGIN">
+    <unit id="XT06o0z" name="button.login">
       <notes>
-        <note category="file-source" priority="1">app/Resources/views/base.html.twig:96</note>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:98</note>
+      </notes>
+      <segment>
+        <source>button.login</source>
+        <target>LOGIN</target>
+      </segment>
+    </unit>
+    <unit id="DxVCeoE" name="menu.live_stock_feed">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:120</note>
+      </notes>
+      <segment>
+        <source>menu.live_stock_feed</source>
+        <target>Live Stock Feed</target>
+      </segment>
+    </unit>
+    <unit id="2D1C9Xr" name="menu.live_crypto_feed">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:121</note>
+      </notes>
+      <segment>
+        <source>menu.live_crypto_feed</source>
+        <target>Live Crypto Feed</target>
+      </segment>
+    </unit>
+    <unit id="OoRYnyZ" name="menu.live_forex_feed">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:122</note>
+      </notes>
+      <segment>
+        <source>menu.live_forex_feed</source>
+        <target>Live Forex Feed</target>
+      </segment>
+    </unit>
+    <unit id="qX4NaMe" name="menu.brokers">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:123</note>
+      </notes>
+      <segment>
+        <source>menu.brokers</source>
+        <target>Brokers</target>
+      </segment>
+    </unit>
+    <unit id="Qx6nQY2" name="menu.broker_forex">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:126</note>
+      </notes>
+      <segment>
+        <source>menu.broker_forex</source>
+        <target>Forex</target>
+      </segment>
+    </unit>
+    <unit id="MxtmSTC" name="menu.broker_crypto">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:127</note>
+      </notes>
+      <segment>
+        <source>menu.broker_crypto</source>
+        <target>Crypto</target>
+      </segment>
+    </unit>
+    <unit id="foZQQuO" name="menu.broker_stock">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:128</note>
+      </notes>
+      <segment>
+        <source>menu.broker_stock</source>
+        <target>Stocks</target>
+      </segment>
+    </unit>
+    <unit id="OEBd2Ai" name="menu.broker_commodities">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:129</note>
+      </notes>
+      <segment>
+        <source>menu.broker_commodities</source>
+        <target>Commodities</target>
+      </segment>
+    </unit>
+    <unit id="WIQtUNz" name="menu.language">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:132</note>
+      </notes>
+      <segment>
+        <source>menu.language</source>
+        <target> Language</target>
+      </segment>
+    </unit>
+    <unit id="49JbHni" name="menu.language_english">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:134</note>
+      </notes>
+      <segment>
+        <source>menu.language_english</source>
+        <target>English</target>
+      </segment>
+    </unit>
+    <unit id="FiBtWTU" name="menu.language_francais">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:136</note>
+      </notes>
+      <segment>
+        <source>menu.language_francais</source>
+        <target>Français</target>
+      </segment>
+    </unit>
+    <unit id="UvsWLM4" name="menu.language_italiano">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:137</note>
+      </notes>
+      <segment>
+        <source>menu.language_italiano</source>
+        <target>Italiano</target>
+      </segment>
+    </unit>
+    <unit id="hKIt.kX" name="menu.language_deutsch">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:138</note>
+      </notes>
+      <segment>
+        <source>menu.language_deutsch</source>
+        <target>Deutsch</target>
+      </segment>
+    </unit>
+    <unit id="vhSmNoq" name="menu.language_spanish">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:135</note>
+      </notes>
+      <segment>
+        <source>menu.language_spanish</source>
+        <target> Spanish</target>
+      </segment>
+    </unit>
+    <unit id="DMPmb9F" name="popup.signin">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:161</note>
+      </notes>
+      <segment>
+        <source>popup.signin</source>
+        <target>Sign In</target>
+      </segment>
+    </unit>
+    <unit id="s.PJjLF" name="popup.check_text1">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:166</note>
+      </notes>
+      <segment>
+        <source>popup.check_text1</source>
+        <target>Keep an eye on the Crypto, Forex, Stocks and Commodities Live feed</target>
+      </segment>
+    </unit>
+    <unit id="UNlTnM7" name="popup.check_text2">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:172</note>
+      </notes>
+      <segment>
+        <source>popup.check_text2</source>
+        <target>Create a watchlist that allows you to keep track of your investments</target>
+      </segment>
+    </unit>
+    <unit id="NuwUg6." name="popup.check_text3">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:178</note>
+      </notes>
+      <segment>
+        <source>popup.check_text3</source>
+        <target>Follow the sentiment of professional traders to keep track of price patterns</target>
+      </segment>
+    </unit>
+    <unit id="owrOGuW" name="popup.check_text4">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:184</note>
+      </notes>
+      <segment>
+        <source>popup.check_text4</source>
+        <target>Participate in trading discussions with other fellow members</target>
+      </segment>
+    </unit>
+    <unit id="vtQAAIw" name="popup.check_text5">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:190</note>
+      </notes>
+      <segment>
+        <source>popup.check_text5</source>
+        <target>Read a thorough review for each broker</target>
+      </segment>
+    </unit>
+    <unit id="ytqO_yT" name="popup.email">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:202</note>
+      </notes>
+      <segment>
+        <source>popup.email</source>
+        <target>EMAIL</target>
+      </segment>
+    </unit>
+    <unit id="506vU_n" name="popup.password">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:207</note>
+      </notes>
+      <segment>
+        <source>popup.password</source>
+        <target>PASSWORD</target>
+      </segment>
+    </unit>
+    <unit id="GEYS1C7" name="popup.remember_me">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:210</note>
+      </notes>
+      <segment>
+        <source>popup.remember_me</source>
+        <target>Remember Me</target>
+      </segment>
+    </unit>
+    <unit id="c_h5bUQ" name="popup.button_sign_in">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:213</note>
+      </notes>
+      <segment>
+        <source>popup.button_sign_in</source>
+        <target>SIGN IN</target>
+      </segment>
+    </unit>
+    <unit id="JUJMqK3" name="popup.create_account">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:214</note>
+      </notes>
+      <segment>
+        <source>popup.create_account</source>
+        <target>Create a new account</target>
+      </segment>
+    </unit>
+    <unit id="JOEQ5Tm" name="popup.connect_with">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:218</note>
+      </notes>
+      <segment>
+        <source>popup.connect_with</source>
+        <target>Or connect with</target>
+      </segment>
+    </unit>
+    <unit id="IkRhEZP" name="footer.follow_us">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:238</note>
+      </notes>
+      <segment>
+        <source>footer.follow_us</source>
+        <target>Follow Us</target>
+      </segment>
+    </unit>
+    <unit id="dtJ_uDF" name="footer.download">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:251</note>
+      </notes>
+      <segment>
+        <source>footer.download</source>
+        <target>Download our app</target>
+      </segment>
+    </unit>
+    <unit id="vO5OOzP" name="footer.terms_&amp;_conditions">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:263</note>
+      </notes>
+      <segment>
+        <source>footer.terms_&amp;_conditions</source>
+        <target><![CDATA[Terms & Conditions]]></target>
+      </segment>
+    </unit>
+    <unit id="8P68kHo" name="footer.privacy_policy">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:263</note>
+      </notes>
+      <segment>
+        <source>footer.privacy_policy</source>
+        <target>Privacy Policy</target>
+      </segment>
+    </unit>
+    <unit id="9v4L9EP" name="footer.risk_warning">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:266</note>
+      </notes>
+      <segment>
+        <source>footer.risk_warning</source>
+        <target> Risk Warning: Trading foreign exchange, cryptocurrencies, CFDs, indexes and commodities is potentially full of high risk and may not be suitable for all investors. The high level of leverage can work both for and against traders. Before any investment you need to carefully consider your targets, previous experience, and risk level. Trading can result in the loss of your money, as a result, you are expressly cautioned that you should never invest or trade with money that you cannot afford to lose. The Information on this website is provided for education and informational purposes only, without any express or implied warranty of any kind, including warranties of accuracy, completeness, or fitness for any particular purpose. The Information contained in or provided from or through this website is not intended to be and does not constitute financial advice, investment advice, trading advice or any other advice. The Information on this website and provided from or through this website is general in nature and is not specific to you the User or anyone else. You should not make any decision, financial, investment, trading or otherwise, based on any of the information presented on this website without undertaking independent due diligence and consultation with a professional broker or financial advisory. You understand that you are using any and all Information available on or through this website at your own risk. The information provided on this website does not constitute investment advice, financial advice, trading advice or any other sort of advice and you should not treat any of the website's content as such. The Website does not recommend that any cryptocurrency should be bought, sold or held by you and nothing on this website should be taken as an offer to buy, sell or hold a cryptocurrency. Do conduct your own due-diligence and consult your financial advisory before making any investment decision.
+</target>
+      </segment>
+    </unit>
+    <unit id="L7N10M4" name="footer.powered_address">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:267</note>
+      </notes>
+      <segment>
+        <source>footer.powered_address</source>
+        <target>Power by:Marketing66 LTD adress:Maase Hoshev 4 Israel Email:</target>
+      </segment>
+    </unit>
+    <unit id="hKO.6hk" name="footer.powered_by">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:269</note>
+      </notes>
+      <segment>
+        <source>footer.powered_by</source>
+        <target>Powered by Marketing66 © 2018</target>
+      </segment>
+    </unit>
+    <unit id="abnmu3I" name="footer.email_contact1">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:267</note>
         <note category="state" priority="1">new</note>
       </notes>
       <segment>
-        <source>LOGIN</source>
-        <target>LOGIN</target>
+        <source>footer.email_contact1</source>
+        <target>contact@tradingcompare.com</target>
+      </segment>
+    </unit>
+    <unit id="dI4mBan" name="footer.email_contact2">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\base.html.twig:267</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>footer.email_contact2</source>
+        <target>www.marketing66.com</target>
       </segment>
     </unit>
   </file>

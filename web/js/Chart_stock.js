@@ -43,6 +43,17 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
                 if($scope.mystock.symbol.indexOf('.') > -1)
                     $scope.mystock.symbol = $scope.mystock.symbol.split(".")[0]
 
+                //INFO GRAPH
+                if (result.change_pct > 0) {
+                    jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US")
+                        .format(result.change_pct) + "%")
+                        .addClass('positive').css({'font-size': 15});
+                } else {
+                    jQuery("cq-todays-change").text('\u25bc' + Intl.NumberFormat("en-US")
+                        .format(result.change_pct) + "%")
+                        .addClass('negative').css({'font-size': 15});
+                }
+                jQuery("cq-current-price").text(result.price);
                 $scope.$apply()
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -92,6 +103,18 @@ Chart_stockApp.controller("Chart_stockController", function ($scope, $http) {
         $scope.mystock.point = Number((Number($scope.mystock.price_open) - data.price).toFixed(10))
         $scope.last_price = data.price
         //console.log("data.price ", data.price,"$scope.last_price",$scope.last_price , $scope.mystock.change_pct )
+
+        // CHART INFO
+        if ($scope.mystock.change_pct > 0) {
+            jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US")
+                .format($scope.mystock.change_pct) + "%").removeClass('negative')
+                .addClass('positive').css({'font-size': 15});
+        } else if ($scope.mystock.change_pct < 0){
+            jQuery("cq-todays-change").text('\u25bc' + Intl.NumberFormat("en-US")
+                .format($scope.mystock.change_pct) + "%").removeClass('positive')
+                .addClass('negative').css({'font-size': 15});
+        }
+        jQuery("cq-current-price").text(data.price);
 
         $scope.$apply()
 
