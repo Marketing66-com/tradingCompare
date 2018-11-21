@@ -275,7 +275,7 @@ stockApp.controller("stockController", function ($scope,$window) {
 
     /////////////////////////////////////////////////////////////////////////////
 
-    $scope.ActiveChange = function (symbol, name) {
+    $scope.ActiveChange = function (symbol, name, _locale) {
 
         var new_array = ['-', ' ', '/', '----', '---', '--']
         for(var i=0; i<new_array.length;i++) {
@@ -290,7 +290,7 @@ stockApp.controller("stockController", function ($scope,$window) {
             }
         }
 
-        var url =  decodeURIComponent(Routing.generate('stock_chart',{"symbol" :symbol, "name":name }))
+        var url =  decodeURIComponent(Routing.generate('stock_chart',{"symbol" :symbol, "name":name, "_locale": _locale }))
         console.log("url",url)
         $window.location= url
         return url

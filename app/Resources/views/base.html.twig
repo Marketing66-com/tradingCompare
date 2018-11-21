@@ -85,15 +85,13 @@
             <div class="col-md-6 col-sm-6 col-xs-7">
                 <div style="float: right;position: relative;" class="cont-right">
                     <div style="display: block;position: relative;float: left; width: 50px;margin: 10px 25px;padding: 0;z-index: 999999;" class="select language">
-                        <a href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/uk_flag.png")}}' alt="uk_flag"></a>
-                        <ul class="drop-2">
-
-
-                            <li><a href="{{ path('changelanguage', {'langCode': 'en'}) }}"> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/uk_flag.png" )}}'alt="uk_flag"></a></li>>
-                            <li><a href="{{ path('changelanguage', {'langCode': 'fr'}) }}"> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src= '{{asset("img/Flags/france.png")}}'alt="france"></a></li>
-                            <li><a href="{{ path('changelanguage', {'langCode': 'it'}) }}"> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/italii.png")}}' alt="italii"></a></li>
-                            <li><a href="{{ path('changelanguage', {'langCode': 'en'}) }}"> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/made.png")}}' alt="made"></a></li>
-                        </ul>
+                        <a href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/"~app.request.getLocale()~".png")}}' alt="uk_flag"></a>
+                        {#<ul class="drop-2">#}
+                            {#<li><a href="{{ path('changelanguage', {'langCode': 'en'}) }}"> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/uk_flag.png" )}}'alt="uk_flag"></a></li>>#}
+                            {#<li><a href="{{ path('changelanguage', {'langCode': 'fr'}) }}"> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src= '{{asset("img/Flags/france.png")}}'alt="france"></a></li>#}
+                            {#<li><a href="{{ path('changelanguage', {'langCode': 'it'}) }}"> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/italii.png")}}' alt="italii"></a></li>#}
+                            {#<li><a href="{{ path('changelanguage', {'langCode': 'en'}) }}"> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/made.png")}}' alt="made"></a></li>#}
+                        {#</ul>#}
                     </div>
                     <a class="login-btn log sm-none v-btn" >{{ 'button.login'|trans }}</a>
                     {#<ul class="out sm-none">#}
@@ -260,13 +258,35 @@
         </div>
         <div class="col-md-4 col-sm-3 col-xs-12 footer_col">
             <div class="footer-abs">
-                <p class="footer_terms"><a style="color:white;" href="{{ path('terms') }}">{{ 'footer.terms_&_conditions'|trans }} </a>  | <a style="color:white;" href="{{ path('privacy') }}">{{ 'footer.privacy_policy'|trans }}</a></p>
+                <p class="footer_terms"><a style="color:white;" href="{{ path('terms') }}">{{ 'footer.terms_&_conditions'|trans }}</a>  | <a style="color:white;" href="{{ path('privacy') }}">{{ 'footer.privacy_policy'|trans }}</a></p>
             </div>
         </div>
-        <p style="text-align: left;max-width: 100%!Important;display: inline-block!important;font-family: 'Hind Siliguri', sans-serif;font-weight: 500;font-size: 10px;" class="footer_text">{{ 'footer.risk_warning'|trans }}
-            <br>{{ 'footer.powered_address'|trans }}<a style="color:white" href="mailto:contact@tradingcompare.com" >{{ 'footer.email_contact1'|trans }}</a> <a style="color:white" href="https://www.marketing66.com" target="_blank">{{ 'footer.email_contact2'|trans }}</a>
+        {#<p style="text-align: left;max-width: 100%!Important;display: inline-block!important;font-family: 'Hind Siliguri', sans-serif;font-weight: 500;#}
+        {#font-size: 10px;" class="footer_text">#}
+            {#Risk Warning: Trading foreign exchange, cryptocurrencies, CFDs, indexes and commodities is potentially full of high risk and may not be suitable for#}
+            {#all investors. The high level of leverage can work both for and against traders. Before any investment you need to carefully consider your targets,#}
+            {#previous experience, and risk level. Trading can result in the loss of your money, as a result, you are expressly cautioned that you should never#}
+            {#invest or trade with money that you cannot afford to lose. The Information on this website is provided for education and informational purposes only,#}
+            {#without any express or implied warranty of any kind, including warranties of accuracy, completeness, or fitness for any particular purpose.#}
+            {#The Information contained in or provided from or through this website is not intended to be and does not constitute financial advice, investment#}
+            {#advice, trading advice or any other advice. The Information on this website and provided from or through this website is general in nature and is not#}
+            {#specific to you the User or anyone else. You should not make any decision, financial, investment, trading or otherwise, based on any of the information#}
+            {#presented on this website without undertaking independent due diligence and consultation with a professional broker or financial advisory. You#}
+            {#understand that you are using any and all Information available on or through this website at your own risk. The information provided on this website#}
+            {#does not constitute investment advice, financial advice, trading advice or any other sort of advice and you should not treat any of the website's#}
+            {#content as such. The Website does not recommend that any cryptocurrency should be bought, sold or held by you and nothing on this website should be#}
+            {#taken as an offer to buy, sell or hold a cryptocurrency. Do conduct your own due-diligence and consult your financial advisory before making any#}
+            {#nvestment decision.#}
+            {#<br>Power by:Marketing66 LTD adress:Maase Hoshev 4 Israel Email:<a style="color:white" href="mailto:contact@tradingcompare.com" >#}
+                {#contact@tradingcompare.com</a> <a style="color:white" href="https://www.marketing66.com" target="_blank">www.marketing66.com</a>#}
+        {#</p>#}
+
+        <p style="text-align: left;max-width: 100%!Important;display: inline-block!important;font-family: 'Hind Siliguri', sans-serif;font-weight: 500;
+        font-size: 10px;" class="footer_text">
+            {{ 'footer.risk_warning'|trans|raw }}
         </p>
         <p class="footer_title">{{ 'footer.powered_by'|trans }}</p>
+
     </div>
 </footer>
 

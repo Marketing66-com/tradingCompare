@@ -31,8 +31,8 @@
                     <div class="reviec_cont-sezrch typeahead-demo">
                         <div class="reviec_cont-sezrch_right">
                             <div class="watchlist-cont">
-                                <a class="watchlist-cont_all watchlist-cont_all_active">ALL</a>
-                                <a class="watchlist-cont_all">WATCHLIST</a>
+                                <a class="watchlist-cont_all watchlist-cont_all_active">{{ 'searchbar_all'|trans }}</a>
+                                <a class="watchlist-cont_all">{{ 'searchbar_watchlist'|trans }}</a>
                             </div>
                             <div class="watchlist-cont watchlist-cont_right">
                                 <a class="watchlist-cont_all list" ><i class="fas fa-list"></i></a>
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <input class="search_input" type="text" class="form-control search_input"
-                               placeholder="Search Instruments"
+                               placeholder="{{ 'search_instruments'|trans }}"
                                ng-model="selectedUser"
                                uib-typeahead="user as user.Name for user in getUsers($viewValue) "
                                typeahead-template-url="typeahead-item.html" class="form-control"

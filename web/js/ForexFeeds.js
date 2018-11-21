@@ -144,14 +144,14 @@ ForexApp.controller("ForexController", function ($scope, $http,$window) {
         // })
         // })
 
-        $scope.ActiveChange = function (symbol) {
+        $scope.ActiveChange = function (symbol,name, _locale) {
 
             var from = symbol.slice(0, 3)
             var to = symbol.slice(3, 6)
             symbol = from + "-" + to
-
-             var url =  Routing.generate('forex_chart',{"currency" :symbol})
-            console.log(Routing.generate('forex_chart',{"currency" :symbol}))
+            console.log("symbol",symbol, _locale)
+             var url =  Routing.generate('forex_chart',{"currency" :symbol, "_locale": _locale})
+            console.log(Routing.generate('forex_chart',{"currency" :symbol, "_locale": _locale}))
             $window.location= url
            return url
         }

@@ -86,15 +86,15 @@ CryptoApp.controller('ListController', function($scope,$window){
         return intFormat(currentValue);
     }
 
-    $scope.ActiveChange = function (symbol, name) {
+    $scope.ActiveChange = function (symbol, name, _locale) {
 
-        console.log("activechange", symbol, name)
+        console.log("activechange", symbol, name, _locale)
 
         if(name.indexOf(' ') > -1)
             name = name.replace(/ /g, '-')
 
-        var url =  decodeURIComponent(Routing.generate('crypto_chart',{"currency" :symbol, "name" :name}))
-        console.log(Routing.generate('crypto_chart',{"currency" : symbol, "name" :name}))
+        var url =  decodeURIComponent(Routing.generate('crypto_chart',{"currency" :symbol, "name" :name, "_locale": _locale}))
+        console.log(Routing.generate('crypto_chart',{"currency" : symbol, "name" :name, "_locale": _locale}))
         $window.location= url
         return url
     }
