@@ -133,7 +133,7 @@
       </notes>
       <segment>
         <source>menu.language_spanish</source>
-        <target> Spanish</target>
+        <target>Spanish</target>
       </segment>
     </unit>
     <unit id="DMPmb9F" name="popup.signin">
