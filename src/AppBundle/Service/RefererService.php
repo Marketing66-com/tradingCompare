@@ -23,33 +23,46 @@ class RefererService
     public function __construct(RequestStack $requestStack, RouterInterface $router)
     {
         $this->requestStack = $requestStack;
-        $this->router       = $router;
+        $this->router = $router;
     }
 
     public function getReferer()
     {
         $request = $this->requestStack->getMasterRequest();
 
-        if (null === $request)
-        {
+        if (null === $request) {
             return '';
         }
+        // Get referer url from headers
+        $referer = (string)$request->headers->get('referer');
 
-        $uri = (string)$request->headers->get('referer');
+        // Get basepath. We need to substract this from $referer
+        $basepath = $request->getSchemeAndHttpHost();
 
-        //but if you want to return route, here you go
-        try
-        {
-            $routeMatch = $this->router->match($uri);
-        }
-        catch (ResourceNotFoundException $e)
-        {
+        // Substract basepath from referer url
+        $lastPath = substr($referer, strpos($referer, $basepath));
+        $lastPath = str_replace($basepath, '', $lastPath);
+
+        // Try to find a route from referer lastpath
+        try {
+            // get last route
+            $parameters = $this->router->match($lastPath);
+
+            // set new locale (to session and to the route parameters)
+            $parameters['_locale'] = $request->get('langCode');
+            $request->getSession()->set('_locale', $request->get('langCode'));
+
+            // default parameters has to be unsetted!
+            $route = $parameters['_route'];
+            unset($parameters['_route']);
+            unset($parameters['_controller']);
+
+            return $route;
+
+        } catch (ResourceNotFoundException $e) {
+            // return empty if no route found
             return '';
         }
-
-        $route = $routeMatch['_route'];
-
-        return $route;
     }
 
 }
