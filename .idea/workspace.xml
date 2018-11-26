@@ -1,39 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.en.xlf" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.en.xlf" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.xlf" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.fr.xlf" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/brokers_commodities.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/brokers_commodities.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/brokers_crypto.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/brokers_crypto.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/brokers_forex.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/brokers_forex.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/brokers_stocks.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/brokers_stocks.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/brokers_template.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/brokers_template.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/chart_forex.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/chart_forex.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/chart_stock.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/chart_stock.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change beforePath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_crypto.html.twig" afterPath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_crypto.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_forex.html.twig" afterPath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_forex.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_stock.html.twig" afterPath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_stock.html.twig" />
-      <change beforePath="$PROJECT_DIR$/web/css/compiled-broker.min.css" afterPath="$PROJECT_DIR$/web/css/compiled-broker.min.css" />
-      <change beforePath="$PROJECT_DIR$/web/img/Flags/america.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/img/Flags/en.png" afterPath="$PROJECT_DIR$/web/img/Flags/en.png" />
-      <change beforePath="$PROJECT_DIR$/web/img/Flags/fr.png" afterPath="$PROJECT_DIR$/web/img/Flags/fr.png" />
-      <change beforePath="$PROJECT_DIR$/web/img/Flags/germany.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/img/Flags/it.png" afterPath="$PROJECT_DIR$/web/img/Flags/it.png" />
-      <change beforePath="$PROJECT_DIR$/web/img/Flags/italy.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/img/Flags/made.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/img/Flags/mobile.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/img/Flags/netflix.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/img/Flags/spain.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/img/Flags/uk_flag.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/img/Flags/uk_flag.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/img/Flags/united-states-of-america.png" afterPath="" />
-    </list>
+    <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,8 +57,8 @@
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="54" column="14" lean-forward="false" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
+            <state relative-caret-position="294">
+              <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -254,8 +222,8 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1915" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="130" />
     <option name="width" value="1936" />
     <option name="height" value="1054" />
   </component>
@@ -1026,15 +994,15 @@
       <workItem from="1542870023251" duration="711000" />
       <workItem from="1542872029691" duration="597000" />
       <workItem from="1542874007693" duration="1888000" />
-      <workItem from="1542875914190" duration="26395000" />
+      <workItem from="1542875914190" duration="27650000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="933151000" />
+    <option name="totallyTimeSpent" value="934406000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1890625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1451,8 +1419,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="54" column="14" lean-forward="false" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
+        <state relative-caret-position="294">
+          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
           <folding />
         </state>
       </provider>
