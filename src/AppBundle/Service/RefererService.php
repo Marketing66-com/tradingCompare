@@ -52,12 +52,7 @@ class RefererService
             $parameters['_locale'] = $request->get('langCode');
             $request->getSession()->set('_locale', $request->get('langCode'));
 
-            // default parameters has to be unsetted!
-            $route = $parameters['_route'];
-            unset($parameters['_route']);
-            unset($parameters['_controller']);
-
-            return $route;
+            return $parameters;
 
         } catch (ResourceNotFoundException $e) {
             // return empty if no route found

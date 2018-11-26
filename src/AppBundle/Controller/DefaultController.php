@@ -26,17 +26,25 @@ class DefaultController extends Controller
     public function changelanguageAction($langCode, Request $request, RefererService $refererService) {
 
         // redirect to previous route
-        $prevRoute = $refererService->getReferer();
+        $prevRouteParameters = $refererService->getReferer();
 
-        if ($prevRoute == '') {
+        $prevRoute = $prevRouteParameters['_route'];
+        // default parameters has to be unsetted!
+        unset($prevRouteParameters['_route']);
+        unset($prevRouteParameters['_controller']);
+
+        if ($prevRoute == '' || $prevRoute == 'homepage') {
             $prevRoute = 'localised_home';
         }
+
+        $prevRouteParameters['_locale'] = $langCode;
 
         return $this->redirect(
             $this->generateUrl(
                 $prevRoute,
-                ['_locale' => $langCode]
+                $prevRouteParameters
             )
+
         );
 
     }
