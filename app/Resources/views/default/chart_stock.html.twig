@@ -3,8 +3,8 @@
 {% extends 'base.html.twig' %}
 
  {% block description %}
-     <title>{{symbol | split('.')[0]}} Stock Price - {{ name}} Stock Quote - Trading Compare</title>
-     <meta name="description" content="{{ name}} ({{symbol| split('.')[0]}}), stock price, stock quotes and financial overviews from Trading Compare. Follow the {{ symbol| split('.')[0]}} chart in real-time.">
+     <title>{{symbol | split('.')[0]}} {{ 'title.chart_stock1'|trans }} - {{ name}} {{ 'title.chart_stock2'|trans }} - Trading Compare</title>
+     <meta name="description" content="{{ name}} ({{symbol| split('.')[0]}}), {{ 'description.chart_stock1'|trans }} {{ symbol| split('.')[0]}} {{ 'description.chart_stock2'|trans }}">
  {% endblock %}
 {##}
 {% block body %}
@@ -50,16 +50,16 @@
                                 <div class="bitcoin_text-cont_left">
                                     <p class="bitcoin_bottom-text text-price column">
 
-                                        {{ 'high'|trans }}: <span class="bitcoin_bottom-text_bold">{[{mystock.day_high}]} {[{mystock.devise}]}</span>
-                                        <br> {{ 'low'|trans }}:<span class="bitcoin_bottom-text_bold">{[{mystock.day_low}]} {[{mystock.devise}]}</span>
-                                        <br>  {{ 'open'|trans }}: <span class="bitcoin_bottom-text_bold">{[{mystock.price_open}]} {[{mystock.devise}]}</span>
-                                        <br>  {{ 'close'|trans }}: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]} {[{mystock.devise}]}</span>
-                                        <br>  {{ 'hight_year'|trans }}: <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_high"]}]} {[{mystock.devise}]}</span>
-                                        <br>  {{ 'low_year'|trans }}: <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_low"]}]} {[{mystock.devise}]}</span>
-                                        <br>  {{ 'change_day'|trans }}: <span class="bitcoin_bottom-text_bold">{[{mystock.day_change}]} %</span>
-                                        <br>  {{ 'market_cap'|trans }}: <span class="bitcoin_bottom-text_bold">{[{mystock.market_cap}]} {[{mystock.devise}]}</span>
-                                        <br>  {{ 'volume'|trans }}: <span class="bitcoin_bottom-text_bold">{[{mystock.volume}]} {[{mystock.devise}]}</span>
-                                        <br>  {{ 'shares'|trans }}: <span class="bitcoin_bottom-text_bold">{[{mystock.shares}]} {[{mystock.devise}]}</span>
+                                        {{ 'high'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.day_high}]} {[{mystock.devise}]}</span>
+                                        <br> {{ 'low'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.day_low}]} {[{mystock.devise}]}</span>
+                                        <br>  {{ 'open'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.price_open}]} {[{mystock.devise}]}</span>
+                                        <br>  {{ 'close'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]} {[{mystock.devise}]}</span>
+                                        <br>  {{ 'hight_year'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_high"]}]} {[{mystock.devise}]}</span>
+                                        <br>  {{ 'low_year'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_low"]}]} {[{mystock.devise}]}</span>
+                                        <br>  {{ 'change_day'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.day_change}]} %</span>
+                                        <br>  {{ 'market_cap'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.market_cap}]} {[{mystock.devise}]}</span>
+                                        <br>  {{ 'volume'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.volume}]} {[{mystock.devise}]}</span>
+                                        <br>  {{ 'shares'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.shares}]} {[{mystock.devise}]}</span>
 
                                     </p>
                                 </div>
@@ -75,7 +75,7 @@
                                     <a class="btcoin_btn sentiments_btn_red" target="_blank"> {{ 'button.bearish'|trans }}</a>
                                 </div>
                                 <p
-                                        class="chart_bitcoin-reting_prozent"
+                                        {#class="chart_bitcoin-reting_prozent"#}
                                 > {{ 'sentiment'|trans }}: {[{mystock.sentiment }]}%  {{ 'buying'|trans }}</p>
                                 <div class="chart_bitcoin-reting_progress-bar">
                                     <div class="reting_progress-bar_click"></div>

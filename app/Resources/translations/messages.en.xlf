@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>menu.language</source>
-        <target> Language</target>
+        <target> Languages</target>
       </segment>
     </unit>
     <unit id="49JbHni" name="menu.language_english">
@@ -107,33 +107,6 @@
       <segment>
         <source>menu.language_francais</source>
         <target>Français</target>
-      </segment>
-    </unit>
-    <unit id="UvsWLM4" name="menu.language_italiano">
-      <notes>
-        <note category="file-source" priority="1">app\Resources\views\base.html.twig:135</note>
-      </notes>
-      <segment>
-        <source>menu.language_italiano</source>
-        <target>Italiano</target>
-      </segment>
-    </unit>
-    <unit id="hKIt.kX" name="menu.language_deutsch">
-      <notes>
-        <note category="file-source" priority="1">app\Resources\views\base.html.twig:136</note>
-      </notes>
-      <segment>
-        <source>menu.language_deutsch</source>
-        <target>Deutsch</target>
-      </segment>
-    </unit>
-    <unit id="vhSmNoq" name="menu.language_spanish">
-      <notes>
-        <note category="file-source" priority="1">app\Resources\views\base.html.twig:133</note>
-      </notes>
-      <segment>
-        <source>menu.language_spanish</source>
-        <target>Spanish</target>
       </segment>
     </unit>
     <unit id="DMPmb9F" name="popup.signin">
@@ -347,7 +320,7 @@
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:61</note>
         <note category="file-source" priority="1">app\Resources\views\default\chart_forex.html.twig:50</note>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:53</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:56</note>
         <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_feed.html.twig:24</note>
         <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_feed.html.twig:29</note>
         <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_feed.html.twig:150</note>
@@ -361,7 +334,7 @@
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:62</note>
         <note category="file-source" priority="1">app\Resources\views\default\chart_forex.html.twig:51</note>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:54</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:57</note>
         <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_feed.html.twig:29</note>
         <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_feed.html.twig:151</note>
       </notes>
@@ -374,7 +347,7 @@
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:84</note>
         <note category="file-source" priority="1">app\Resources\views\default\chart_forex.html.twig:70</note>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:79</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:82</note>
         <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_feed.html.twig:34</note>
         <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_feed.html.twig:164</note>
       </notes>
@@ -405,7 +378,7 @@
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:77</note>
         <note category="file-source" priority="1">app\Resources\views\default\chart_forex.html.twig:63</note>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:72</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:75</note>
         <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_feed.html.twig:102</note>
         <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_feed.html.twig:160</note>
       </notes>
@@ -418,7 +391,7 @@
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:80</note>
         <note category="file-source" priority="1">app\Resources\views\default\chart_forex.html.twig:66</note>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:75</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:78</note>
         <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_feed.html.twig:103</note>
         <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_feed.html.twig:161</note>
       </notes>
@@ -449,7 +422,7 @@
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:84</note>
         <note category="file-source" priority="1">app\Resources\views\default\chart_forex.html.twig:70</note>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:79</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:82</note>
         <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_feed.html.twig:164</note>
       </notes>
       <segment>
@@ -461,7 +434,7 @@
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:52</note>
         <note category="file-source" priority="1">app\Resources\views\default\chart_forex.html.twig:41</note>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:44</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:47</note>
         <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_feed.html.twig:173</note>
       </notes>
       <segment>
@@ -501,7 +474,7 @@
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:63</note>
         <note category="file-source" priority="1">app\Resources\views\default\chart_forex.html.twig:52</note>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:55</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:58</note>
       </notes>
       <segment>
         <source>open</source>
@@ -512,7 +485,7 @@
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:64</note>
         <note category="file-source" priority="1">app\Resources\views\default\chart_forex.html.twig:53</note>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:56</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:59</note>
       </notes>
       <segment>
         <source>close</source>
@@ -522,7 +495,7 @@
     <unit id="ZU18Ry8" name="market_cap">
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:65</note>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:60</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:63</note>
       </notes>
       <segment>
         <source>market_cap</source>
@@ -532,7 +505,7 @@
     <unit id="YtemsSE" name="volume">
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:66</note>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:61</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:64</note>
       </notes>
       <segment>
         <source>volume</source>
@@ -541,7 +514,7 @@
     </unit>
     <unit id="izW_Stf" name="hight_year">
       <notes>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:57</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:60</note>
       </notes>
       <segment>
         <source>hight_year</source>
@@ -550,7 +523,7 @@
     </unit>
     <unit id="a42210w" name="low_year">
       <notes>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:58</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:61</note>
       </notes>
       <segment>
         <source>low_year</source>
@@ -559,7 +532,7 @@
     </unit>
     <unit id="EOcBPCg" name="change_day">
       <notes>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:59</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:62</note>
       </notes>
       <segment>
         <source>change_day</source>
@@ -568,7 +541,7 @@
     </unit>
     <unit id="SmRgn32" name="shares">
       <notes>
-        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:62</note>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:65</note>
       </notes>
       <segment>
         <source>shares</source>
@@ -642,7 +615,6 @@
     </unit>
     <unit id="rxgtP7Y" name="visit_site">
       <notes>
-        <note category="file-source" priority="1">app\Resources\views\default\brokers_template.html.twig:40</note>
         <note category="file-source" priority="1">app\Resources\views\default\brokers_template.html.twig:103</note>
         <note category="file-source" priority="1">app\Resources\views\default\brokers_template.html.twig:176</note>
         <note category="file-source" priority="1">app\Resources\views\default\brokers_template.html.twig:239</note>
@@ -742,8 +714,7 @@
     </unit>
     <unit id="DS9GWaq" name="top_online_broker_commodities">
       <notes>
-        <note category="file-source" priority="1">app\Resources\views\default\brokers_commodities.html.twig:11</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">app\Resources\views\default\brokers_commodities.html.twig:13</note>
       </notes>
       <segment>
         <source>top_online_broker_commodities</source>
@@ -752,8 +723,7 @@
     </unit>
     <unit id="jPWEf_Q" name="to_buy_commodities">
       <notes>
-        <note category="file-source" priority="1">app\Resources\views\default\brokers_commodities.html.twig:12</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">app\Resources\views\default\brokers_commodities.html.twig:14</note>
       </notes>
       <segment>
         <source>to_buy_commodities</source>
@@ -763,7 +733,6 @@
     <unit id="h5scSAn" name="top_online_broker_crypto">
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\brokers_crypto.html.twig:11</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>top_online_broker_crypto</source>
@@ -773,7 +742,6 @@
     <unit id="pD1uCti" name="to_buy_crypto">
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\brokers_crypto.html.twig:12</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>to_buy_crypto</source>
@@ -783,7 +751,6 @@
     <unit id="SS7MCI." name="top_online_broker_forex">
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\brokers_forex.html.twig:11</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>top_online_broker_forex</source>
@@ -793,7 +760,6 @@
     <unit id="gUhG0q7" name="to_buy_forex">
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\brokers_forex.html.twig:12</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>to_buy_forex</source>
@@ -803,7 +769,6 @@
     <unit id="8WpPS7x" name="top_online_broker_stock">
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\brokers_stocks.html.twig:11</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>top_online_broker_stock</source>
@@ -813,11 +778,237 @@
     <unit id="TzFeM.J" name="to_buy_stock">
       <notes>
         <note category="file-source" priority="1">app\Resources\views\default\brokers_stocks.html.twig:12</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>to_buy_stock</source>
         <target>TO BUY STOCKS</target>
+      </segment>
+    </unit>
+    <unit id="HjExm9G" name="title.boker_commodities">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\brokers_commodities.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>title.boker_commodities</source>
+        <target>Top 6 ONLINE BROKERS To Buy Commodities– Gold,Oil,Sugar and more.</target>
+      </segment>
+    </unit>
+    <unit id="tkh80xz" name="title.boker_crypto">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\brokers_crypto.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>title.boker_crypto</source>
+        <target>Top 5 ONLINE BROKERS – Online trading, Cryptocurrency,Forex CFDs,Stocks</target>
+      </segment>
+    </unit>
+    <unit id="DVctutX" name="title.boker_forex">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\brokers_forex.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>title.boker_forex</source>
+        <target>Top 6 ONLINE BROKERS To Buy Forex – Online trading,Forex CFDs</target>
+      </segment>
+    </unit>
+    <unit id="LxLhEQQ" name="title.boker_stocks">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\brokers_stocks.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>title.boker_stocks</source>
+        <target>Top 6 ONLINE BROKERS - Buy Stocks - Online trading, Forex CFDs</target>
+      </segment>
+    </unit>
+    <unit id=".CdrwJv" name="title.chart_crypto1">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:5</note>
+      </notes>
+      <segment>
+        <source>title.chart_crypto1</source>
+        <target>Price Index | Real Time </target>
+      </segment>
+    </unit>
+    <unit id="c92_811" name="title.chart_crypto2">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:5</note>
+      </notes>
+      <segment>
+        <source>title.chart_crypto2</source>
+        <target>Chart</target>
+      </segment>
+    </unit>
+    <unit id="rREPGXP" name="title.chart_forex1">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_forex.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>title.chart_forex1</source>
+        <target> Live Forex Rate</target>
+      </segment>
+    </unit>
+    <unit id="6bOPufF" name="title.chart_forex2">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_forex.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>title.chart_forex2</source>
+        <target>Chart</target>
+      </segment>
+    </unit>
+    <unit id="lPpKK6I" name="title.chart_stock1">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:6</note>
+      </notes>
+      <segment>
+        <source>title.chart_stock1</source>
+        <target>Stock Price</target>
+      </segment>
+    </unit>
+    <unit id="UQqw.E." name="title.chart_stock2">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:6</note>
+      </notes>
+      <segment>
+        <source>title.chart_stock2</source>
+        <target>Stock Quote</target>
+      </segment>
+    </unit>
+    <unit id="6GGNwb3" name="title.crypto_feed">
+      <notes>
+        <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_crypto.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>title.crypto_feed</source>
+        <target><![CDATA[Crypto Market Quotes & Social sentiment]]></target>
+      </segment>
+    </unit>
+    <unit id="yK2WO5e" name="title.forex_feed">
+      <notes>
+        <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_forex.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>title.forex_feed</source>
+        <target><![CDATA[Forex Market Quotes & Social sentiment]]></target>
+      </segment>
+    </unit>
+    <unit id="JWtOUdk" name="title.stock_feed">
+      <notes>
+        <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_stock.html.twig:4</note>
+      </notes>
+      <segment>
+        <source>title.stock_feed</source>
+        <target><![CDATA[Stock Market Quotes & Social sentiment]]></target>
+      </segment>
+    </unit>
+    <unit id="Q3.pegr" name="title.visit_site">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\brokers_template.html.twig:40</note>
+      </notes>
+      <segment>
+        <source>title.visit_site</source>
+        <target>SITE</target>
+      </segment>
+    </unit>
+    <unit id="cYUu0.E" name="description.crypto_feed">
+      <notes>
+        <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_crypto.html.twig:5</note>
+      </notes>
+      <segment>
+        <source>description.crypto_feed</source>
+        <target>Tradingcompare.com offers free real-time quotes, portfolio, streaming charts, financial news, live Crypto market data  sentiment from millions of users, a social effect to take your decisions</target>
+      </segment>
+    </unit>
+    <unit id="Bbgfcug" name="description.forex_feed">
+      <notes>
+        <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_forex.html.twig:5</note>
+      </notes>
+      <segment>
+        <source>description.forex_feed</source>
+        <target>Tradingcompare.com offers free real-time quotes, portfolio, streaming charts, financial news, live forex market data  sentiment from millions of users, a social effect to take your  decisions</target>
+      </segment>
+    </unit>
+    <unit id="VZ_fwvb" name="description.stock_feed">
+      <notes>
+        <note category="file-source" priority="1">src\LiveFeedBundle\Resources\views\Default\live_stock.html.twig:6</note>
+      </notes>
+      <segment>
+        <source>description.stock_feed</source>
+        <target>Tradingcompare.com offers free real-time quotes, portfolio, streaming charts, financial news, live Stock market data sentiment from millions of users, a social effect to take your  decisions</target>
+      </segment>
+    </unit>
+    <unit id="SvDbSWy" name="description.chart_crypto1">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:6</note>
+      </notes>
+      <segment>
+        <source>description.chart_crypto1</source>
+        <target>Follow</target>
+      </segment>
+    </unit>
+    <unit id="pY7xqUL" name="description.chart_crypto2">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:6</note>
+      </notes>
+      <segment>
+        <source>description.chart_crypto2</source>
+        <target>price and historical data. View our Interactive</target>
+      </segment>
+    </unit>
+    <unit id="HNA5zjm" name="description.chart_crypto3">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_crypto.html.twig:6</note>
+      </notes>
+      <segment>
+        <source>description.chart_crypto3</source>
+        <target>Chart and market data for</target>
+      </segment>
+    </unit>
+    <unit id="NP97xda" name="description.chart_forex1">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_forex.html.twig:5</note>
+      </notes>
+      <segment>
+        <source>description.chart_forex1</source>
+        <target>live forex. Follow the latest real-time</target>
+      </segment>
+    </unit>
+    <unit id="rpwFo0h" name="description.chart_forex2">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_forex.html.twig:5</note>
+      </notes>
+      <segment>
+        <source>description.chart_forex2</source>
+        <target>to</target>
+      </segment>
+    </unit>
+    <unit id="DRwdYSd" name="description.chart_forex3">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_forex.html.twig:5</note>
+      </notes>
+      <segment>
+        <source>description.chart_forex3</source>
+        <target>price quote and forex forecast.</target>
+      </segment>
+    </unit>
+    <unit id="c_qGz31" name="description.chart_stock1">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:8</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>description.chart_stock1</source>
+        <target>stock price, stock quotes and financial overviews from Trading Compare. Follow the</target>
+      </segment>
+    </unit>
+    <unit id="zIx5HI1" name="description.chart_stock2">
+      <notes>
+        <note category="file-source" priority="1">app\Resources\views\default\chart_stock.html.twig:10</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>description.chart_stock2</source>
+        <target>chart in real-time.</target>
       </segment>
     </unit>
   </file>

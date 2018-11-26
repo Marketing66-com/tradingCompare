@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
  {% block description %}
-     <title>{{ currency }} Live Forex Rate | {{ from }} {{ to }} Chart - Trading Compare</title>
-     <meta name="description" content="{{ currency }} live forex. Follow the latest real-time {{ from }} to {{ to }} price quote and forex forecast.">
+     <title>{{ currency }} {{ 'title.chart_forex1'|trans }} | {{ from }} {{ to }} {{ 'title.chart_forex2'|trans }} - Trading Compare</title>
+     <meta name="description" content="{{ currency }} {{ 'description.chart_forex1'|trans }} {{ from }} {{ 'description.chart_forex2'|trans }} {{ to }} {{ 'description.chart_forex3'|trans }}">
  {% endblock %}
 
 {% block body %}
@@ -48,9 +48,9 @@
                                     <p class="bitcoin_bottom-text text-price column">
 
                                         {{ 'high'|trans }} : <span class="bitcoin_bottom-text_bold">{[{myforex.high24}]}</span>
-                                        <br>{{ 'low'|trans }}:<span class="bitcoin_bottom-text_bold">{[{myforex.low24}]}</span>
-                                        <br>{{ 'open'|trans }}: <span class="bitcoin_bottom-text_bold">{[{myforex.open24}]}</span>
-                                        <br>{{ 'close'|trans }}: <span class="bitcoin_bottom-text_bold">{[{myforex.close24}]}</span>
+                                        <br>{{ 'low'|trans }} : <span class="bitcoin_bottom-text_bold">{[{myforex.low24}]}</span>
+                                        <br>{{ 'open'|trans }} : <span class="bitcoin_bottom-text_bold">{[{myforex.open24}]}</span>
+                                        <br>{{ 'close'|trans }} : <span class="bitcoin_bottom-text_bold">{[{myforex.close24}]}</span>
 
                                     </p>
                                 </div>
@@ -67,7 +67,7 @@
                                 </div>
                                 <p
                                         {#class="chart_bitcoin-reting_prozent"#}
-                                >{{ 'sentiment'|trans }}: {[{myforex.sentiment }]}%{{ 'buying'|trans }}</p>
+                                >{{ 'sentiment'|trans }} : {[{myforex.sentiment }]}% {{ 'buying'|trans }}</p>
                                 <div class="chart_bitcoin-reting_progress-bar">
                                     <div class="reting_progress-bar_click"></div>
                                 </div>

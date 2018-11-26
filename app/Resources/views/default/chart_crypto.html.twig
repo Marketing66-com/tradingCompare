@@ -2,8 +2,8 @@
 
 
  {% block description %}
-     <title>{{ name }} ({{ currency }}) Price Index | Real Time {{ name }} Chart - Trading Compare</title>
-     <meta name="description" content="Follow {{ name }} ${{ currency }} price and historical data. View our Interactive {{ name }} Chart and market data for {{ currency }}.">
+     <title>{{ name }} ({{ currency }}) {{ 'title.chart_crypto1'|trans }}{{ name }} {{ 'title.chart_crypto2'|trans }} - Trading Compare</title>
+     <meta name="description" content="{{ 'description.chart_crypto1'|trans }} {{ name }} ${{ currency }} {{ 'description.chart_crypto2'|trans }} {{ name }} {{ 'description.chart_crypto3'|trans }} {{ currency }}.">
  {% endblock %}
 
 
@@ -59,7 +59,7 @@
                                     <p class="bitcoin_bottom-text text-price column">
 
                                         {{ 'high'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mycrypto.high24}]}</span>
-                                        <br>{{ 'low'|trans }} :<span class="bitcoin_bottom-text_bold">{[{mycrypto.low24}]}</span>
+                                        <br>{{ 'low'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mycrypto.low24}]}</span>
                                         <br>{{ 'open'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mycrypto.open24}]}</span>
                                         <br>{{ 'close'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mycrypto.price}]}</span>
                                         <br>{{ 'market_cap'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mycrypto.marketcap}]}</span>

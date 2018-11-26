@@ -183,9 +183,9 @@
     padding: 0;
 }
 .sentence{font-size:8pt;font-weight:600;}
-.read-review{font-size:8pt;font-weight:600;}
-.read-review:hover{color: #6AE5F5;cursor: pointer;}
-
+.read-review{font-size:10pt;font-weight:600; text-decoration: none;}
+.read-review:hover{color: #6AE5F5;cursor: pointer;border-bottom-style: none;text-decoration: none !important;}
+.read-review:hover p {color: #6AE5F5;cursor: pointer;border-bottom-style: none;text-decoration: none !important;}
 .col_height {
     padding: 0;
     height: 140px;
