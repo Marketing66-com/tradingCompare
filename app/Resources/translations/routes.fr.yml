@@ -1,0 +1,3 @@
+changelanguage: '/{_locale}/changerlangue/{langCode}'
+forex: '/{_locale}/courtiers-forex'
+crypto: '/{_locale}/courtiers-crypto'
