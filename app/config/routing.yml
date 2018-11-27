@@ -4,6 +4,7 @@ homepage:
     prefix: /{_locale}/
     requirements:
         _locale: en|fr|de|es
+    options: { i18n: false }
 
 live_feed:
     resource: "@LiveFeedBundle/Controller/"

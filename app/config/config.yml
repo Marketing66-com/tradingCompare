@@ -72,10 +72,15 @@ swiftmailer:
 translation:
     webui:
         enabled: true
-    locales: ["en", "fr", "es"]
+    locales: ["en", "fr", "es", "de"]
     configs:
         app:
             dirs: ["%kernel.root_dir%/Resources/views", "%kernel.root_dir%/../src"]
             output_dir: "%kernel.root_dir%/Resources/translations"
             excluded_names: ["*TestCase.php", "*Test.php"]
             excluded_dirs: [cache, data, logs]
+
+jms_i18n_routing:
+    default_locale: en
+    locales: ['en', 'fr', 'es', 'de']
+    strategy: custom

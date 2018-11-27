@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new LiveFeedBundle\LiveFeedBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Translation\Bundle\TranslationBundle(),
+            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
