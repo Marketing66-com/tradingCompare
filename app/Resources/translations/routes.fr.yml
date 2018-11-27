@@ -23,3 +23,5 @@ stock_chart: '/{_locale}/{symbol}/{name}/cours-action'
 Live_rates_crypto: '/{_locale}/crypto-monnaie/cours-et-cotation'
 Live_rates_forex: '/{_locale}/devises/cours-et-cotation'
 Live_rates_stocks: '/{_locale}/bourse/cours-et-cotation/{name}/{value}'
+
+
