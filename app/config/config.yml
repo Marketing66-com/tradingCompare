@@ -72,7 +72,7 @@ swiftmailer:
 translation:
     webui:
         enabled: true
-    locales: ["en", "fr"]
+    locales: ["en", "fr", "es"]
     configs:
         app:
             dirs: ["%kernel.root_dir%/Resources/views", "%kernel.root_dir%/../src"]

@@ -6,42 +6,42 @@
                     <div class="abs">
                         <div class="general_review_cont-block review_list_name">
                             <div class="review_list_center">
-                                <p class="review_list_title">Instrument</p>
+                                <p class="review_list_title">{{ 'instruments'|trans }}</p>
                             </div>
                         </div>
                         <div class="general_review_cont-block review_list_cont-text ">
                             <div class="review_list_center">
-                                <p class="review_list_title">Price</p>
+                                <p class="review_list_title">{{ 'price'|trans }}</p>
                             </div>
                         </div>
                         <div class="general_review_cont-block review_list_cont-text sm-none">
                             <div class="review_list_center">
-                                <p class="review_list_title">Change %</p>
+                                <p class="review_list_title">{{ 'change'|trans }} %</p>
                             </div>
                         </div>
                         <div class="general_review_cont-block review_list_cont-text sm-none">
                             <div class="review_list_center">
-                                <p class="review_list_title">High</p>
+                                <p class="review_list_title">{{ 'high'|trans }}</p>
                             </div>
                         </div>
                         <div class="general_review_cont-block review_list_cont-text">
                             <div class="review_list_center">
-                                <p class="review_list_title"><span class="mobile-block">High/</span>Low</p>
+                                <p class="review_list_title"><span class="mobile-block">{{ 'high'|trans }}/</span>{{ 'low'|trans }}</p>
                             </div>
                         </div>
                         <div class="general_review_cont-block review_list_cont-bar ms-none">
                             <div class="review_list_center">
-                                <p class="review_list_title">Sentiment</p>
+                                <p class="review_list_title">{{ 'sentiment'|trans }}</p>
                             </div>
                         </div>
                         <div class="general_review_cont-block review_list_cont-chart">
                             <div class="review_list_center">
-                                <p class="review_list_title">Chart</p>
+                                <p class="review_list_title">{{ 'chart'|trans }}</p>
                             </div>
                         </div>
                         <div class="general_review_cont-block review_list_cont-btn">
                             <div class="review_list_center">
-                                <p class="review_list_title">Trade</p>
+                                <p class="review_list_title">{{ 'trade'|trans }}</p>
                             </div>
                         </div>
                     </div>
@@ -99,8 +99,8 @@
                         <div class="general_review_cont-block review_list_cont-bar ms-none">
                             <div class="review_list_center">
                                 <p>
-                                    <span class="chart_bitcoin-reting_prozent_like"><i  class="buttonL buttonL1" target="_blank"><b>BULLISH</b></i></span>
-                                    <span class="chart_bitcoin-reting_prozent_like"><i class="buttonL buttonL2" target="_blank"><b>BEARISH</b></i></span>
+                                    <span class="chart_bitcoin-reting_prozent_like"><i  class="buttonL buttonL1" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></span>
+                                    <span class="chart_bitcoin-reting_prozent_like"><i class="buttonL buttonL2" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></span>
                                 </p>
                                 <div class="chart_bitcoin-reting_progress-bar">
                                     <div class="reting_progress-bar_click chart_bitcoin-reting_prozent"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}">{[{item.sentiment}]}%</div>
@@ -112,13 +112,13 @@
 
                         <div class="general_review_cont-block review_list_cont-chart">
                             <div class="review_list_center">
-                                <a ng-click="ActiveChange(item.pair, item.complete_name);"><img class="live_block_chart" src='{{asset("img/chart-design/chart_1.png")}}'  alt="chart_1"></a>
+                                <a ng-click="ActiveChange(item.pair, item.complete_name,'{{ app.request.getLocale() }}');"><img class="live_block_chart" src='{{asset("img/chart-design/chart_1.png")}}'  alt="chart_1"></a>
                             </div>
                         </div>
 
                         <div class="general_review_cont-block review_list_cont-btn">
                             <div class="review_list_center">
-                                <a class="live_trade-btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE <span class="live_trade-btn_none">NOW</span></a>
+                                <a class="live_trade-btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">{{ 'button.trade'|trans }} <span class="live_trade-btn_none">{{ 'button.now'|trans }}</span></a>
                             </div>
                         </div>
                     </div>
@@ -145,10 +145,10 @@
                 </div>
                 <p class="live_block_money-left"><span class="live_block_money_bold " ng-class="{'negative': item.variation == 'down', 'positive':item.variation == 'up', 'neutral': item.variation == 'none'}"> {[{item.price}]}</span></p>
                 <p class="live_block_money-right  " ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}"><span class="live_block_money_bold "ng-class="{'live_block_money_red ': item.change24 < 0, 'live_block_money_green ': item.change24 >= 0}" >{[{item.change24}]}</span></p>
-                <a ng-click="ActiveChange(item.pair, item.complete_name);"><img class="live_block_chart" src= '{{asset("img/chart-design//chart_long.png" )}}' alt="chart_long">
+                <a ng-click="ActiveChange(item.pair, item.complete_name, '{{ app.request.getLocale() }}');"><img class="live_block_chart" src= '{{asset("img/chart-design//chart_long.png" )}}' alt="chart_long">
                 </a>
-                <p class="live_block_money-left ">High <br><span class="live_block_money_bold">{[{item.high24}]}</span></p>
-                <p class="live_block_money-right ">Low <br><span class="live_block_money_bold">{[{item.low24}]}</span></p>
+                <p class="live_block_money-left ">{{ 'high'|trans }}<br><span class="live_block_money_bold">{[{item.high24}]}</span></p>
+                <p class="live_block_money-right ">{{ 'low'|trans }}<br><span class="live_block_money_bold">{[{item.low24}]}</span></p>
 
                 {#<div class="live_cont-block_cont-like">#}
                 {#<p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>#}
@@ -157,11 +157,11 @@
                 {#</div>#}
                 <div class="live_cont-block_cont-like">
                     <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
-                    <p class="live_cont-block_like live_cont-block_like_margin"><i class="button button1" target="_blank"><b>BULLISH</b></i></p>
-                    <p class="live_cont-block_like live_cont-block_like_left"><i  class="button button2" target="_blank"><b>BEARISH</b></i></p>
+                    <p class="live_cont-block_like live_cont-block_like_margin"><i class="button button1" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></p>
+                    <p class="live_cont-block_like live_cont-block_like_left"><i  class="button button2" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></p>
                 </div>
 
-                <p class="chart_bitcoin-reting_prozent">Sentiment: {[{item.sentiment}]}% Buying</p>
+                <p class="chart_bitcoin-reting_prozent">{{ 'sentiment'|trans }}: {[{item.sentiment}]}% {{ 'buying'|trans }}</p>
                 <div class="chart_bitcoin-reting_progress-bar">
                     <div class="reting_progress-bar_click"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}"></div>
                 </div>
@@ -170,7 +170,7 @@
                     {#<p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>#}
                 </div>
             </div>
-            <a class="live_trade-btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>
+            <a class="live_trade-btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">{{ 'button.trade_now'|trans }}</a>
         </div>
     </div>
 </div>

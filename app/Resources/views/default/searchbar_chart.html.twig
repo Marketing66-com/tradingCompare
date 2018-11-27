@@ -30,7 +30,7 @@
                 <div class="row">
                     {#<div class="reviec_cont-sezrch ">#}
                         <input class="search_input" type="" class="form-control search_input"
-                               placeholder="Search Instruments"
+                               placeholder="{{ 'search_instruments'|trans }}"
                                ng-model="selectedUser"
                                uib-typeahead="user as user.Name for user in getUsers($viewValue) "
                                typeahead-template-url="typeahead-item.html" class="form-control"

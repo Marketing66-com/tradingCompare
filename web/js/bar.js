@@ -1,7 +1,7 @@
 var firstApp = angular.module('firstApp', []).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');})
 
-firstApp.controller('FirstController', function($scope) {
+firstApp.controller('FirstController', function($scope,$window) {
     $scope.desc1 = "First app. ";
 
     $scope.allforex = []
@@ -244,39 +244,39 @@ firstApp.controller('FirstController', function($scope) {
 /////**************************** CLICKS FUNCTIONS *********************************/////
 
     // CRYPTO
-    $scope.GotoCrypto = function (symbol, name) {
+    $scope.GotoCrypto = function (symbol, name, _locale) {
         //console.log("symbol666", symbol, name)
 
         if(name.indexOf(' ') > -1)
             name = name.replace(/ /g, '-')
 
-        var url =  Routing.generate('crypto_chart',{"currency" :symbol, "name" :name})
+        var url =  Routing.generate('crypto_chart',{"currency" :symbol, "name" :name, "_locale": _locale})
         //console.log(Routing.generate('crypto_chart',{"currency" :symbol, "name" :name}))
-        window.location.href= url
+        $window.location= url
         return url
 
     }
     // FOREX
-    $scope.GotoStock = function (symbol, name) {
+    $scope.GotoStock = function (symbol, name, _locale) {
 
         if(name.indexOf(' ') > -1)
             name = name.replace(/ /g, '-')
 
-        var url =  Routing.generate('stock_chart',{"symbol" :symbol, "name":name })
-        console.log(Routing.generate('stock_chart',{"symbol" :symbol, "name":name }))
-        window.location.href= url
+        var url =  Routing.generate('stock_chart',{"symbol" :symbol, "name":name , "_locale": _locale})
+        //console.log(Routing.generate('stock_chart',{"symbol" :symbol, "name":name }))
+        $window.location= url
         return url
     }
     //STOCK
-    $scope.GotoForex = function (symbol) {
+    $scope.GotoForex = function (symbol, _locale) {
 
         var from = symbol.slice(0, 3)
         var to = symbol.slice(3, 6)
         symbol = from + "-" + to
 
-        var url =  Routing.generate('forex_chart',{"currency" :symbol})
-        console.log(Routing.generate('forex_chart',{"currency" :symbol}))
-        window.location.href= url
+        var url =  Routing.generate('forex_chart',{"currency" :symbol, "_locale": _locale})
+        //console.log(Routing.generate('forex_chart',{"currency" :symbol}))
+        $window.location= url
 
     }
 });

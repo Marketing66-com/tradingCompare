@@ -26,17 +26,25 @@ class DefaultController extends Controller
     public function changelanguageAction($langCode, Request $request, RefererService $refererService) {
 
         // redirect to previous route
-        $prevRoute = $refererService->getReferer();
+        $prevRouteParameters = $refererService->getReferer();
 
-        if ($prevRoute == '') {
+        $prevRoute = $prevRouteParameters['_route'];
+        // default parameters has to be unsetted!
+        unset($prevRouteParameters['_route']);
+        unset($prevRouteParameters['_controller']);
+
+        if ($prevRoute == '' || $prevRoute == 'homepage') {
             $prevRoute = 'localised_home';
         }
+
+        $prevRouteParameters['_locale'] = $langCode;
 
         return $this->redirect(
             $this->generateUrl(
                 $prevRoute,
-                ['_locale' => $langCode]
+                $prevRouteParameters
             )
+
         );
 
     }
@@ -55,7 +63,7 @@ class DefaultController extends Controller
 
         $crypto_api =  $this->getParameter('crypto_api');
 
-        return $this->render('default/test_chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name));
+        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name));
        //return $this->render('default/charttest.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api,"crypto_likes"=>$crypto_likes));
     }
 
@@ -64,12 +72,10 @@ class DefaultController extends Controller
      */
     public function forex_chartAction($currency)
     {
-        $apiF =  $this->getParameter('forex_api');
-        $likeF = $this->getParameter('forex_likes');
         $from = substr($currency, 0, 3);
         $to =  substr($currency, 4, 6);
         $pair = str_replace("-", "_", $currency);
-        return $this->render('default/test_chart_forex.html.twig',array("currency"=>$pair, "from"=>$from , "to"=>$to ,'api'=>$apiF, 'like'=>$likeF));
+        return $this->render('default/chart_forex.html.twig',array("currency"=>$pair, "from"=>$from , "to"=>$to));
     }
 
     /**
@@ -78,7 +84,7 @@ class DefaultController extends Controller
     public function stock_chartAction($symbol,$name)
     {
         $my_name = ucfirst(str_replace("-", " ", $name));
-        return $this->render('default/test_chart_stock.html.twig',array("symbol"=>$symbol, 'name'=>$my_name));
+        return $this->render('default/chart_stock.html.twig',array("symbol"=>$symbol, 'name'=>$my_name));
     }
 
 

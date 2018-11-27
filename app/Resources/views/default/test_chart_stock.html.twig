@@ -5,7 +5,7 @@
      <title>{{symbol | split('.')[0]}} Stock Price - {{ name}} Stock Quote - Trading Compare</title>
      <meta name="description" content="{{ name}} ({{symbol| split('.')[0]}}), stock price, stock quotes and financial overviews from Trading Compare. Follow the {{ symbol| split('.')[0]}} chart in real-time.">
  {% endblock %}
-
+{##}
 {% block body %}
     <link rel="stylesheet" href="https://www.interactivecrypto.com/chart_iq_web/css/perfect-scrollbar.css" />
     <link rel="stylesheet" type="text/css" href="https://www.interactivecrypto.com/chart_iq_web/css/normalize.css" media="screen" />
@@ -74,7 +74,7 @@
                                     <a class="btcoin_btn sentiments_btn_red" target="_blank">BEARISH</a>
                                 </div>
                                 <p
-                                        {#class="chart_bitcoin-reting_prozent"#}
+                                        class="chart_bitcoin-reting_prozent"
                                 >Sentiment: {[{mystock.sentiment }]}% Buying</p>
                                 <div class="chart_bitcoin-reting_progress-bar">
                                     <div class="reting_progress-bar_click"></div>
@@ -126,21 +126,21 @@
                                                     <span><cq-clickable stxbind="Layout.periodicity">1 D</cq-clickable></span>
                                                     <cq-menu-dropdown>
                                                         <cq-item stxtap="Layout.setPeriodicity(1,1,'day')">1 D</cq-item>
-                                                        {#<cq-item stxtap="Layout.setPeriodicity(1,1,'week')">1 W</cq-item>#}
+                                                        <cq-item stxtap="Layout.setPeriodicity(1,1,'week')">1 W</cq-item>
                                                         <cq-item stxtap="Layout.setPeriodicity(7,1,'day')">1 W</cq-item>
-                                                        {#<cq-item stxtap="Layout.setPeriodicity(1,1,'month')">1 Mo</cq-item>#}
+                                                        <cq-item stxtap="Layout.setPeriodicity(1,1,'month')">1 Mo</cq-item>
                                                         <cq-separator></cq-separator>
-                                                        {#<cq-item stxtap="Layout.setPeriodicity(1,1,'minute')">1 Min</cq-item>#}
-                                                        {#<cq-item stxtap="Layout.setPeriodicity(1,5,'minute')">5 Min</cq-item>#}
-                                                        {#<cq-item stxtap="Layout.setPeriodicity(2,5,'minute')">10 Min</cq-item>#}
-                                                        {#<cq-item stxtap="Layout.setPeriodicity(3,5,'minute')">15 Min</cq-item>#}
-                                                        {#<cq-item stxtap="Layout.setPeriodicity(1,30,'minute')">30 Min</cq-item>#}
+                                                        <cq-item stxtap="Layout.setPeriodicity(1,1,'minute')">1 Min</cq-item>
+                                                        <cq-item stxtap="Layout.setPeriodicity(1,5,'minute')">5 Min</cq-item>
+                                                        <cq-item stxtap="Layout.setPeriodicity(2,5,'minute')">10 Min</cq-item>
+                                                        <cq-item stxtap="Layout.setPeriodicity(3,5,'minute')">15 Min</cq-item>
+                                                        <cq-item stxtap="Layout.setPeriodicity(1,30,'minute')">30 Min</cq-item>
                                                         <cq-item stxtap="Layout.setPeriodicity(2,30,'minute')">1 Hour</cq-item>
                                                         <cq-item stxtap="Layout.setPeriodicity(8,30,'minute')">4 Hour</cq-item>
                                                     </cq-menu-dropdown>
                                                 </cq-menu>
                                                 <cq-menu class="ciq-menu ciq-views
-                                                {#collapse#}
+                                                collapse
                                                 ">
                                                     <span>Views</span>
                                                     <cq-menu-dropdown>
@@ -162,7 +162,7 @@
                                                     </cq-menu-dropdown>
                                                 </cq-menu>
                                                 <cq-menu class="ciq-menu ciq-display
-                                                {#collapse#}
+                                                collapse
                                                 ">
                                                     <span>Display</span>
                                                     <cq-menu-dropdown>
@@ -249,7 +249,7 @@
                                                     </cq-menu-dropdown>
                                                 </cq-menu>
                                                 <cq-menu class="ciq-menu ciq-studies
-                                                {#collapse#}
+                                                collapse
                                                 ">
                                                     <span>Studies</span>
                                                     <cq-menu-dropdown cq-no-scroll>
@@ -276,7 +276,7 @@
                                                     </cq-menu-dropdown>
                                                 </cq-menu>
                                                 <cq-menu class="ciq-menu stx-markers
-                                                {#collapse#}
+                                                collapse
                                                 ">
                                                     <span>Events</span>
                                                     <cq-menu-dropdown>
@@ -846,8 +846,8 @@
             </section>
         </div>
     </div>
-    {#</div>#}
-    {#</div>#}
+    </div>
+    </div>
 
 {% endblock %}
 

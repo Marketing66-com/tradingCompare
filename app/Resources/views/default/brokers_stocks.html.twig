@@ -1,25 +1,25 @@
 {% extends 'default/brokers_template.html.twig' %}
 
  {% block description %}
-     <title>Top 6 ONLINE BROKERS - Buy Stocks - Online trading, Forex CFDs</title>
+     <title>{{'title.boker_stocks'|trans }}</title>
      <meta name="description" content="Investors looking for a new broker should compare online broker to find the best one for their needs! Tradingcompare provides a breakdown of the top 6 stock brokers sorted by their overall ratings.">
  {% endblock %}
 
  {% block banere %}
      <section style=" text-align: center;  width: 100%;height: 100%;display: table;background-color: rgba(0, 0, 0, 0.4);" class="brokers brokers-Stocks">
          <div class="brokers-opaciti">
-             <h1 class="brokers_title">TOP 8 ONLINE BROKERS</h1>
-             <h2 class="brokers_text">TO BUY STOCKS</h2>
+             <h1 class="brokers_title">{{ 'top_online_broker_stock'|trans }}</h1>
+             <h2 class="brokers_text">{{ 'to_buy_stock'|trans }}</h2>
          </div>
      </section>
  {% endblock %}
 
  {% block tradefeatures %}
      <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> The most liquid market in the world</p>
-     <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>Over 55 currency pairs</p>
-     <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>24 hours a day, 5 days a week</p>
-     <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>1:300 leverage available</p>
-     <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span>Tight spreads, no commissions</p>
+     <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Over 55 currency pairs</p>
+     <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> 24 hours a day, 5 days a week</p>
+     <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> 1:300 leverage available</p>
+     <p class="features-text"><span class="check-marks"><i class="fas fa-check"></i></span> Tight spreads, no commissions</p>
  {% endblock %}
 
 {% block textdescription %}
