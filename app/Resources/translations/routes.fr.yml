@@ -1,3 +1,25 @@
 changelanguage: '/{_locale}/changerlangue/{langCode}'
+
 forex: '/{_locale}/courtiers-forex'
 crypto: '/{_locale}/courtiers-crypto'
+commodities: '/{_locale}/courtiers-matiere-premiere'
+stock: '/{_locale}/courtiers-actions'
+
+etoro: '/{_locale}/avis/etoro'
+24option: '/{_locale}/avis/24options'
+trade: '/{_locale}/avis/trade-com'
+plus500: '/{_locale}/avis/plus500'
+pepperstone: '/{_locale}/avis/Pepperstone'
+alvexo: '/{_locale}/avis/Alvexo'
+market: '/{_locale}/avis/Markets-com'
+
+terms: '/{_locale}/Termes-et-conditions'
+privacy: '/{_locale}/Politique-de-confidentialité'
+
+crypto_chart: '/{_locale}/{name}/{currency}/devise-crypto-taux-de-change'
+forex_chart: '/{_locale}/{currency}/devise-forex-taux-de-change'
+stock_chart: '/{_locale}/{symbol}/{name}/cours-action'
+
+Live_rates_crypto: '/{_locale}/crypto-monnaie/cours-et-cotation'
+Live_rates_forex: '/{_locale}/devises/cours-et-cotation'
+Live_rates_stocks: '/{_locale}/bourse/cours-et-cotation/{name}/{value}'
