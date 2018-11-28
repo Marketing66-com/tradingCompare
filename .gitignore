@@ -17,3 +17,7 @@
 /app/config/parameters.yml
 /app/config/config.yml
 .idea
+
+/docker/data/*
+!/docker/data
+!/docker/data/.gitkeep

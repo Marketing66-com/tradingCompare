@@ -1,0 +1,21 @@
+version: '2'
+services:
+    #mysql
+    trd_db:
+        image: mysql:5.7
+        container_name: "trd_db"
+        ports:
+        - 3306:3306
+        environment:
+            MYSQL_DATABASE: trd
+            MYSQL_USER: trd
+            MYSQL_PASSWORD: trd
+            MYSQL_ROOT_PASSWORD: root
+        volumes:
+        - ./data/sql:/var/lib/mysql
+        - ./mysql/my.cnf:/etc/mysql/conf.d/z_my.cnf
+
+
+
+
+
