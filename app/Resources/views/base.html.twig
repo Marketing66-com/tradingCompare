@@ -141,7 +141,7 @@
         </div>
     </div>
 
-    {{ render(controller('AppBundle:Bar:bar')) }}
+    {{ render(controller('AppBundle:Web\\Bar:bar')) }}
 </header>
 
 
@@ -285,13 +285,32 @@
         font-size: 10px;" class="footer_text">
             {{ 'footer.risk_warning'|trans|raw }}
         </p>
-        <p class="footer_title">{{ 'footer.powered_by'|trans }}</p>
+        <p class="footer_title">A{{ 'footer.powered_by'|trans }}</p>
 
     </div>
 </footer>
 
+<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+<!-- Firebase App is always required and must be first -->
+<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-app.js"></script>
 
+<!-- Add additional services that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-auth.js"></script>
+
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDtIOsO92B43gKmoJ_6QoXMRbWzxyuxDEw",
+        authDomain: "price-al.firebaseapp.com",
+        databaseURL: "https://price-al.firebaseio.com",
+        projectId: "price-al",
+        storageBucket: "price-al.appspot.com",
+        messagingSenderId: "740193852561"
+    };
+    firebase.initializeApp(config);
+</script>
 {% block javascripts %}
+
 <script>
     function loadCSS(hf) {
         var ms = document.createElement("link");
