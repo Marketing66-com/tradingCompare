@@ -245,11 +245,11 @@ class DefaultController extends Controller
 //    }
 
 //    /**
-//     * @Route("/pagination", name="pagination")
+//     * @Route("/commentOnChart", name="commentOnChart")
 //     */
-//    public function paginationAction()
+//    public function commentOnChartAction()
 //    {
-//        return $this->render('indextest.html.twig');
+//        return $this->render('default/chart.html.twig');
 //    }
 
 

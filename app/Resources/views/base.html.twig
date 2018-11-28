@@ -103,20 +103,21 @@
                     </div>
                     <a class="login-btn log sm-none v-btn" >{{ 'button.login'|trans }}</a>
                     {#<ul class="out sm-none">#}
-                        {#<li>Victoria K. <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span>#}
+                        {#<li ><a href="{{ path('terms') }}">Victoria K.</a> <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span>#}
                             {#<ul>#}
-                                {#<li>#}
-                                    {#Log out#}
-                                {#</li>#}
+                                {#<li class="out my-log-out"> Log out </li>#}
+                                {#<li class="out my-log-in"> Profil </li>#}
+                                {#<li class="out my-log-up"> Sign up </li>#}
                             {#</ul>#}
                         {#</li>#}
                     {#</ul>#}
                 </div>
             </div>
 
-            <div class="col-md-12 col-sm-12 col-xs-11">
+            {#<div class="col-md-12 col-sm-12 col-xs-11">#}
+            <div class="col-md-6 col-sm-6 col-xs-5">
                    <a href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">
-                       <img style=" margin-bottom: 2%;" class="sponsor ms-none" src='{{asset("img/broker partner.png")}}' alt="trade-logo">
+                       <img style=" margin-bottom: 4%;" class="sponsor ms-none" src='{{asset("img/broker partner.png")}}' alt="trade-logo">
                    </a>
             </div>
 
@@ -230,6 +231,115 @@
         </div>
     </div>
 
+{#Sign up#}
+    <div class="my-modal modal_sigh-up">
+        <div class="modal_scroll">
+            <div class="my-modal_cont-left">
+                <img class="my-modal_cont-left_img" src='{{asset("img/signin/bg_sign_up.png")}}' alt="bg_sign_up">
+                <a href="http://trading.venhrun.com" class="logo-text modal_header-left">
+                    <img src='{{asset("img/logo_white.png")}}' class="top-logo " alt="logo">
+                </a>
+                <div class="modal_left-content">
+                    <h1 class="modal_heder">Sign Up</h1>
+                    <div class="modal-cont-text ms-none">
+                        <div class="modal_check-marks">
+                            <p><i class="fas fa-check"></i></p>
+                        </div>
+                        <p class="modal-text">Join the exciting market of real time Commission Free Trading</p>
+                    </div>
+                    <div class="modal-cont-text ms-none">
+                        <div class="modal_check-marks">
+                            <p><i class="fas fa-check"></i></p>
+                        </div>
+                        <p class="modal-text">Join the exciting market of real time Commission Free Trading</p>
+                    </div>
+                    <div class="modal-cont-text ms-none">
+                        <div class="modal_check-marks">
+                            <p><i class="fas fa-check"></i></p>
+                        </div>
+                        <p class="modal-text">Boost your trading account with exclusive bonuses</p>
+                    </div>
+                    <div class="modal-cont-text ms-none">
+                        <div class="modal_check-marks">
+                            <p><i class="fas fa-check"></i></p>
+                        </div>
+                        <p class="modal-text">Create a watchlist and view our Free Live feed and Charts</p>
+                    </div>
+                    <div class="modal-cont-text ms-none">
+                        <div class="modal_check-marks">
+                            <p><i class="fas fa-check"></i></p>
+                        </div>
+                        <p class="modal-text">24 hour support in multiple languages</p>
+                    </div>
+                    <div class="modal-cont-text ms-none">
+                        <div class="modal_check-marks">
+                            <p><i class="fas fa-check"></i></p>
+                        </div>
+                        <p class="modal-text">Dedicated Account Managers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="my-modal_cont-right">
+
+                <a class="close_modal"><i class="fas fa-plus"></i></a>
+                <div class="modal_right-content">
+                    <form class="form-card">
+                        <div class="form-element form-input">
+                            <input  class="form-element-input" placeholder=" " type="text" required/>
+                            <div class="form-element-bar"></div>
+                            <label class="form-element-label" >FULL NAME</label>
+                        </div>
+
+                        <div class="form-element form-input">
+                            <input  class="form-element-input" placeholder=" " type="email" required/>
+                            <div class="form-element-bar"></div>
+                            <label class="form-element-label" >EMAIL</label>
+                        </div>
+                        <div class="form-element form-input">
+                            <input  class="form-element-input form-element-input_password" placeholder=" " type="password" required/>
+                            <div class="form-element-bar"></div>
+                            <label class="form-element-label" >PASSWORD</label>
+                        </div>
+                        <div class="form-element form-input">
+                            <div class="country_cont">
+                                <a href="#" class="country"></a>
+                                <p class="contry_array"><i class="fas fa-caret-down"></i></p>
+                                <div class="form-element-bar"></div>
+                                <label class="form-element-label" >COUNTRY</label>
+                                <ul class="country_list">
+                                    <li><img class="language-img" src='{{asset("img/small_flags/gb.png")}}' alt="gb"> United States</li>
+                                    <li><img class="language-img" src='{{asset("img/small_flags/gb.png")}}' alt="gb"> United States</li>
+                                    <li><img class="language-img" src='{{asset("img/small_flags/gb.png")}}' alt="gb"> United States</li>
+                                    <li><img class="language-img" src='{{asset("img/small_flags/gb.png")}}' alt="gb"> United States</li>
+                                    <li><img class="language-img" src='{{asset("img/small_flags/gb.png")}}' alt="gb"> United States</li>
+                                    <li><img class="language-img" src='{{asset("img/small_flags/gb.png")}}' alt="gb"> United States</li>
+                                </ul>
+                            </div>
+                            <!--
+                            <input  class="form-element-input" placeholder=" " type="text" required/>
+
+                            <label class="form-element-label" >COUNTRY</label>-->
+                        </div>
+                        <div class="form-element form-input">
+                            <input  class="form-element-input" placeholder=" " type="text" required/>
+                            <div class="form-element-bar"></div>
+                            <label class="form-element-label" >PHONE NUMBER</label>
+                        </div>
+                        <div class="form_bottom">
+                            <button class="form-btn" type="submit">SIGN UP</button>
+                            <a class="form_info"><span class="form_cliking_decoration_popup">I already have an account</span></a>
+                        </div>
+                        <a href="{{ path('terms') }}" class="form_cliking">By clicking "Sign Up" you agree to our<span class="form_cliking_decoration"> terms and conditions</span></a>
+                    </form>
+                    <div class="form_soz-cont">
+                        <p class="form_soz-cont_text">Or connect with -</p>
+                        <a class="form_soz-cont_icon footer_soz_icon_youtube"><i class="fab fa-google"></i></a>
+                        <a class="form_soz-cont_icon footer_soz_icon_faceebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     {% block body %}
     {% endblock %}
 
