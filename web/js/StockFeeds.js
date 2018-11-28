@@ -1,7 +1,7 @@
 var stockApp = angular.module('stockApp', ['ui.bootstrap']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');});
 
-stockApp.controller("stockController", function ($scope,$window) {
+stockApp.controller("stockController", function ($scope,$window,$location) {
     // *********** variables for ajax & country ************
     $scope.listCountry = [];
     $scope.country_name;

@@ -77,6 +77,7 @@
 .form_bottom {width: 100%;display: table;padding-left: 130px;position: relative;margin-top: 35px;}
 .form_info {font-size: 10px;line-height: 35px;display: table;margin: 0 auto;}
 .form_cliking_decoration {text-decoration: underline;}
+.form_cliking_decoration_popup {text-decoration: underline;}
 .form_cliking:hover, .form_info:hover {color: #C6C5C5;text-align: none;cursor: pointer;}
 .form_soz-cont_icon {float: left;width: 35px;line-height: 35px;overflow: hidden;border-radius: 50%;margin: 0 10px;font-size: 24px;text-align: center;color: white;transition: 0.3s all;}
 .form_soz-cont_icon:hover { /*background-color: #3B5995!important;*/cursor: pointer;}
@@ -159,7 +160,62 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
 .out li ul {display: none;padding: 0 5px;width: 100%;line-height: 30px;position: absolute;outline: 1px solid white;top: 30px;left: 0;}
 .out li:hover > ul {display: block;}
 .out li {color: white;list-style: none;}
+.out li a{color: white;text-decoration: none;}
+/*Sign-up country*/
 
+.country_cont {
+    width: 100%;
+    display: table;
+}
+
+.country {
+    display: table;
+    position: relative;
+    line-height: 30px;
+    height: 30px;
+    padding-left: 5px;
+    width: 100%;
+    color: #2B2B2B;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: none;
+    z-index: 22;
+    transition: 0.3s all;
+}
+
+.country:hover, .country:focus, .country:active {
+    text-decoration: none;
+    color: #2B2B2B;
+}
+
+.country_list {
+    position: absolute;
+    background-color: white;
+    left: 0;
+    top: 35px;
+    display: none;
+    padding: 0;
+    width: 100%;
+    z-index: 888;
+}
+
+.country_list li {
+    list-style: none;
+    line-height: 30px;
+    padding-left: 5px;
+    color: #2B2B2B;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+    border-bottom: 1px solid #D8D8D8;
+}
+
+.country_list li:hover {
+    color: #12A6F9;
+    border-bottom: 1px solid #12A6F9;
+}
 @media (max-width: 1200px) {
     .modal_right-content {width: 90%;}
     .close_modal {right: 10%;}

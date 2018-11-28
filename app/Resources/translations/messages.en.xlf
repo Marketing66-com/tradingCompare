@@ -7,7 +7,7 @@
       </notes>
       <segment>
         <source>button.login</source>
-        <target>LOGIN</target>
+        <target>SIGN IN</target>
       </segment>
     </unit>
     <unit id="DxVCeoE" name="menu.live_stock_feed">

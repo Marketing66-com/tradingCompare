@@ -59,20 +59,63 @@ $('.burger').click(function () {
     });
 });
 
-$(".login-btn").click(function () {
-    $('.modal_sigh-up').slideDown();
 
-});
+
+// real code
+// $(".login-btn").click(function () {
+//     $('.modal_sigh-up').slideDown();
+// });
+//
+// $(".close_modal").click(function () {
+//     $('.modal_sigh-up').slideUp();
+//     $('.modal_sigh-in').slideUp();
+// });
+//
+// $(".out, .log").click(function () {
+//     $('.modal_sigh-in').slideDown();
+//
+// });
+//
+// $(".v-btn").click(function () { $('.v-modal').slideDown(); });
+///////
+
+//test
+// $(".login-btn").click(function () {
+//     $('.modal_sigh-up').slideDown();
+// });
+
 $(".close_modal").click(function () {
-
     $('.modal_sigh-up').slideUp();
     $('.modal_sigh-in').slideUp();
 });
-$(".out, .log").click(function () {
-    $('.modal_sigh-in').slideDown();
 
+// $(".out, .log").click(function () {
+//     $('.modal_sigh-in').slideDown();
+// });
+
+// $(".my-log-out").click(function () {
+//     $('.modal_sigh-in').slideDown();
+// });
+
+// $(".my-log-in").click(function () {
+//     $('.modal_sigh-in').slideDown();
+// });
+// $(".my-log-up").click(function () {
+//     $('.modal_sigh-up').slideDown();
+// });
+
+$(".form_cliking_decoration").click(function () {
+    $('.modal_sigh-up').slideDown();
 });
+
+$(".form_cliking_decoration_popup").click(function () {
+    $('.modal_sigh-up').slideUp();
+});
+
+// login button, get the sign in
 $(".v-btn").click(function () { $('.v-modal').slideDown(); });
+
+
 
 
 $('.country_list').find('li').click(function () {
