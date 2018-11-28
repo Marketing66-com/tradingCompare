@@ -20,7 +20,7 @@ class SitemapController extends Controller
     /**
      * Génère le sitemap du site.
      *
-     * @Route("/sitemap.{_format}", name="front_sitemap", Requirements={"_format" = "xml"})
+     * @Route("/sitemap.{_format}", name="front_sitemap", Requirements={"_format" = "xml"}, options={ "i18n" = false})
      */
     public function sitemapAction(Request $request)
     {
