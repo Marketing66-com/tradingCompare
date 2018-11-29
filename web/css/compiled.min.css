@@ -94,7 +94,7 @@
 .form-element-bar {position: relative;height: 1px;background: #D8D8D8;display: block;}
 .form-element-bar::after {content: "";position: absolute;bottom: 0;left: 0;right: 0;background: #12A6F9;height: 2px;display: block;transform: rotateY(90deg);transition: transform 0.28s ease;will-change: transform;}
 .form-element-label {position: absolute;pointer-events: none;z-index: 1;padding-left: 5px;top: 20px;overflow: hidden;text-overflow: ellipsis;margin: 0;font-size: 11px;font-weight: 400;font-family: 'Open Sans', sans-serif;color: #C6C5C5;transform: translateY(-50%);transition: 0.3s all;}
-.form-element-input {outline: none;display: block;background: none;border: none;line-height: 30px;padding-left: 5px;width: 100%;color: #2B2B2B;font-size: 14px;font-weight: 400;font-family: 'Open Sans', sans-serif;box-shadow: none;transition: 0.3s all;}
+.form-element-input {outline: none;display: block;background: none;border: none!important;line-height: 30px;padding-left: 5px;width: 100%;color: #2B2B2B;font-size: 14px;font-weight: 400;font-family: 'Open Sans', sans-serif;box-shadow: none;transition: 0.3s all;}
 .start .form-element-label {color: #12A6F9;}
 .contry_array {color: #12A6F9;position: absolute;top: 0;right: 0;}
 .form-element-input:focus ~ .form-element-bar::after, .start .form-element-bar::after {transform: rotateY(0deg);}
@@ -216,6 +216,8 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
     color: #12A6F9;
     border-bottom: 1px solid #12A6F9;
 }
+
+
 @media (max-width: 1200px) {
     .modal_right-content {width: 90%;}
     .close_modal {right: 10%;}

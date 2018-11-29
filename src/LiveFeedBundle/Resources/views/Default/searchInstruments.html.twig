@@ -31,12 +31,12 @@
                     <div class="reviec_cont-sezrch typeahead-demo">
                         <div class="reviec_cont-sezrch_right">
                             <div class="watchlist-cont">
-                                <a class="watchlist-cont_all watchlist-cont_all_active">{{ 'searchbar_all'|trans }}</a>
-                                <a class="watchlist-cont_all">{{ 'searchbar_watchlist'|trans }}</a>
+                                <a id="all" class="watchlist-cont_all all watchlist-cont_all_active">{{ 'searchbar_all'|trans }}</a>
+                                <a id="watchlist" class="watchlist-cont_all watchlist">{{ 'searchbar_watchlist'|trans }}</a>
                             </div>
                             <div class="watchlist-cont watchlist-cont_right">
-                                <a class="watchlist-cont_all list" ><i class="fas fa-list"></i></a>
-                                <a class="watchlist-cont_all watchlist-cont_all_active grid"><i class="fas fa-th"></i></a>
+                                <a id="list" class="watchlist-cont_all list" ><i class="fas fa-list"></i></a>
+                                <a id="grid" class="watchlist-cont_all watchlist-cont_all_active grid"><i class="fas fa-th"></i></a>
                             </div>
                         </div>
                         <input class="search_input" type="text" class="form-control search_input"
