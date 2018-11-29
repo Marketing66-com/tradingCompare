@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/default/title_bar_list_feed.html.twig" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
-      <change beforePath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_feed.html.twig" afterPath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_feed.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/searchInstruments.html.twig" afterPath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/searchInstruments.html.twig" />
-      <change beforePath="$PROJECT_DIR$/web/css/compiled-feeds.css" afterPath="$PROJECT_DIR$/web/css/compiled-feeds.css" />
-      <change beforePath="$PROJECT_DIR$/web/css/compiled.min.css" afterPath="$PROJECT_DIR$/web/css/compiled.min.css" />
-      <change beforePath="$PROJECT_DIR$/web/js/general.js" afterPath="$PROJECT_DIR$/web/js/general.js" />
-    </list>
+    <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="general.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="general.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/general.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="182" column="52" lean-forward="false" selection-start-line="182" selection-start-column="52" selection-end-line="182" selection-end-column="52" />
+            <state relative-caret-position="238">
+              <caret line="173" column="9" lean-forward="false" selection-start-line="173" selection-start-column="9" selection-end-line="173" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -86,13 +77,23 @@
       <file leaf-file-name="live_feed.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_feed.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
+            <state relative-caret-position="483">
               <caret line="174" column="22" lean-forward="false" selection-start-line="174" selection-start-column="22" selection-end-line="174" selection-end-column="22" />
               <folding>
                 <element signature="e#147#184#0#Twig" expanded="true" />
                 <element signature="e#11208#11245#0#Twig" expanded="true" />
                 <element signature="e#11311#11348#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ForexFeeds.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/js/ForexFeeds.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2590">
+              <caret line="152" column="94" lean-forward="false" selection-start-line="152" selection-start-column="74" selection-end-line="152" selection-end-column="94" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1077,12 +1078,12 @@
       <workItem from="1542872029691" duration="597000" />
       <workItem from="1542874007693" duration="1888000" />
       <workItem from="1542875914190" duration="40775000" />
-      <workItem from="1543401051904" duration="23084000" />
+      <workItem from="1543401051904" duration="23707000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="970615000" />
+    <option name="totallyTimeSpent" value="971238000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1133,13 +1134,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/ForexFeeds.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="152" column="94" lean-forward="false" selection-start-line="152" selection-start-column="74" selection-end-line="152" selection-end-column="94" />
         </state>
       </provider>
     </entry>
@@ -1485,18 +1479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_feed.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="174" column="22" lean-forward="false" selection-start-line="174" selection-start-column="22" selection-end-line="174" selection-end-column="22" />
-          <folding>
-            <element signature="e#147#184#0#Twig" expanded="true" />
-            <element signature="e#11208#11245#0#Twig" expanded="true" />
-            <element signature="e#11311#11348#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/compiled-feeds.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
@@ -1515,8 +1497,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/general.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="182" column="52" lean-forward="false" selection-start-line="182" selection-start-column="52" selection-end-line="182" selection-end-column="52" />
+        <state relative-caret-position="238">
+          <caret line="173" column="9" lean-forward="false" selection-start-line="173" selection-start-column="9" selection-end-line="173" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_feed.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="174" column="22" lean-forward="false" selection-start-line="174" selection-start-column="22" selection-end-line="174" selection-end-column="22" />
+          <folding>
+            <element signature="e#147#184#0#Twig" expanded="true" />
+            <element signature="e#11208#11245#0#Twig" expanded="true" />
+            <element signature="e#11311#11348#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/ForexFeeds.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2590">
+          <caret line="152" column="94" lean-forward="false" selection-start-line="152" selection-start-column="74" selection-end-line="152" selection-end-column="94" />
           <folding />
         </state>
       </provider>
