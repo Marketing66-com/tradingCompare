@@ -24,59 +24,33 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $id;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $identifier;
+
     /**
      * @Assert\NotBlank()
      * @Assert\Email()
-     * @ORM\Column(type="string", unique=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $email;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=300)
+     */
+    private $picture;
 
     /**
      * @ORM\Column(type="json_array")
      */
     private $roles = [];
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $password;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $defaultTwoFactorMethod = 'email';
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $twoFactorAuthentication = false;
-
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $twoFactorCode;
-
-    /**
-     * @var string Stores the secret code
-     * @ORM\Column(type="string", length=500, nullable=true)
-     */
-    private $googleAuthenticatorCode = null;
-
-    /**
-     * A non-persisted field that's used to create the encoded Google Auth Code.
-     *
-     * @var string
-     */
-    private $plainGoogleAuthenticatorCode;
-
-    /**
-     * A non-persisted field that's used to create the encoded password.
-     *
-     * @Assert\NotBlank(groups={"Registration"})
-     *
-     * @var string
-     */
-    private $plainPassword;
 
     /**
      * @return mixed
@@ -114,32 +88,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param mixed $password
-     *
-     * @return User
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    public function getSalt()
-    {
-        // TODO: Implement getSalt() method.
-    }
-
-    public function eraseCredentials()
-    {
-        $this->plainPassword = null;
-    }
 
     /**
      * @return mixed
@@ -164,23 +112,19 @@ class User implements UserInterface
     /**
      * @return string
      */
-    public function getPlainPassword()
+    public function getIdentifier()
     {
-        return $this->plainPassword;
+        return $this->identifier;
     }
 
     /**
-     * @param string $plainPassword
+     * @param string $identifier
      *
      * @return User
      */
-    public function setPlainPassword($plainPassword)
+    public function setIdentifier($identifier)
     {
-        $this->plainPassword = $plainPassword;
-
-        // forces the object to look "dirty" to Doctrine. Avoids
-        // Doctrine *not* saving this entity, if only plainPassword changes
-        $this->password = null;
+        $this->identifier = $identifier;
 
         return $this;
     }
@@ -188,104 +132,76 @@ class User implements UserInterface
     /**
      * @return string
      */
-    public function getDefaultTwoFactorMethod()
+    public function getName()
     {
-        return $this->defaultTwoFactorMethod;
+        return $this->name;
     }
 
     /**
-     * @param string $defaultTwoFactorMethod
+     * @param string $name
      *
      * @return User
      */
-    public function setDefaultTwoFactorMethod($defaultTwoFactorMethod)
+    public function setName($name)
     {
-        $this->defaultTwoFactorMethod = $defaultTwoFactorMethod;
-
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getTwoFactorAuthentication()
-    {
-        return $this->twoFactorAuthentication;
-    }
-
-    /**
-     * @param bool $twoFactorAuthentication
-     *
-     * @return User
-     */
-    public function setTwoFactorAuthentication($twoFactorAuthentication)
-    {
-        $this->twoFactorAuthentication = $twoFactorAuthentication;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTwoFactorCode()
-    {
-        return $this->twoFactorCode;
-    }
-
-    /**
-     * @param int $twoFactorCode
-     *
-     * @return User
-     */
-    public function setTwoFactorCode($twoFactorCode)
-    {
-        $this->twoFactorCode = $twoFactorCode;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
      * @return string
-     * @codeCoverageIgnore
      */
-    public function getGoogleAuthenticatorCode()
+    public function getPicture()
     {
-        return $this->googleAuthenticatorCode;
+        return $this->picture;
     }
 
     /**
-     * @param string $googleAuthenticatorCode
+     * @param string $picture
      *
      * @return User
-     * @codeCoverageIgnore
      */
-    public function setGoogleAuthenticatorCode($googleAuthenticatorCode)
+    public function setPicture($picture)
     {
-        $this->googleAuthenticatorCode = $googleAuthenticatorCode;
+        $this->picture = $picture;
 
         return $this;
     }
 
     /**
-     * @return string
-     * @codeCoverageIgnore
+     * Returns the password used to authenticate the user.
+     *
+     * This should be the encoded password. On authentication, a plain-text
+     * password will be salted, encoded, and then compared to this value.
+     *
+     * @return string The password
      */
-    public function getPlainGoogleAuthenticatorCode()
+    public function getPassword()
     {
-        return $this->plainGoogleAuthenticatorCode;
+        return '';
     }
 
     /**
-     * @param string $plainGoogleAuthenticatorCode
+     * Returns the salt that was originally used to encode the password.
      *
-     * @return User
-     * @codeCoverageIgnore
+     * This can return null if the password was not encoded using a salt.
+     *
+     * @return string|null The salt
      */
-    public function setPlainGoogleAuthenticatorCode($plainGoogleAuthenticatorCode)
+    public function getSalt()
     {
-        $this->plainGoogleAuthenticatorCode = $plainGoogleAuthenticatorCode;
+        return null;
+    }
 
-        return $this;
+    /**
+     * Removes sensitive data from the user.
+     *
+     * This is important if, at any given point, sensitive information like
+     * the plain-text password is stored on this object.
+     */
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
     }
 }

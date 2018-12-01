@@ -52,5 +52,5 @@ services:
     AppBundle\Api\ResponseFactory:
 
     AppBundle\Security\JwtTokenAuthenticator:
-        arguments: ["@app.user_repository", '@AppBundle\Api\ResponseFactory']
+        arguments: ["@doctrine.orm.entity_manager", '@AppBundle\Api\ResponseFactory']
         public: true

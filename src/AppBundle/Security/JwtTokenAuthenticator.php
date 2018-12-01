@@ -8,7 +8,10 @@ namespace AppBundle\Security;
 
 use AppBundle\Api\ApiProblem;
 use AppBundle\Api\ResponseFactory;
+use AppBundle\Entity\User;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
+use Firebase\JWT\ExpiredException;
 use Firebase\JWT\JWT;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -28,11 +31,16 @@ class JwtTokenAuthenticator extends AbstractGuardAuthenticator
      * @var ResponseFactory
      */
     private $responseFactory;
+    /**
+     * @var EntityManager
+     */
+    private $entityManager;
 
-    public function __construct(EntityRepository $userRepository, ResponseFactory $responseFactory)
+    public function __construct(EntityManager $entityManager, ResponseFactory $responseFactory)
     {
-        $this->userRepository = $userRepository;
         $this->responseFactory = $responseFactory;
+        $this->entityManager = $entityManager;
+        $this->userRepository = $this->entityManager->getRepository(User::class);
     }
 
     public function start(Request $request, AuthenticationException $authException = null)
@@ -68,18 +76,38 @@ class JwtTokenAuthenticator extends AbstractGuardAuthenticator
         JWT::$leeway = 8;
         $content = file_get_contents("https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com");
         $kids = json_decode($content, true);
-        $jwt = JWT::decode($credentials, $kids, array('RS256'));
+
+        try {
+            $jwt = JWT::decode($credentials, $kids, array('RS256'));
+        } catch (ExpiredException $e) {
+            throw new CustomUserMessageAuthenticationException('Invalid Token');
+        }
 
         //$fbpid = property_exists($this, 'firebaseProjectId') ? $this->firebaseProjectId : config('vinkas.firebase.auth.project_id');
         //$issuer = 'https://securetoken.google.com/' . $fbpid;
 
         if(empty($jwt->sub)) {
-            throw new AuthenticationException('Invalid Token');
+            throw new CustomUserMessageAuthenticationException('Invalid Token');
         }
 
         $uid = $jwt->sub;
 
-        return $this->userRepository->findOneBy(['email' => $uid]);
+        $user = $this->userRepository->findOneBy(['identifier' => $uid]);
+
+        // If the user is not found in db it means that this is the first sign in. Save the user.
+        if(!$user) {
+            $user = new User();
+
+            $user->setName($jwt->name)
+                ->setEmail($jwt->email)
+                ->setIdentifier($jwt->user_id)
+                ->setPicture($jwt->picture);
+
+            $this->entityManager->persist($user);
+            $this->entityManager->flush();
+        }
+
+        return $user;
     }
 
     public function checkCredentials($credentials, UserInterface $user)
