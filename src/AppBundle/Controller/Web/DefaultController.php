@@ -253,13 +253,13 @@ class DefaultController extends Controller
 //        return $this->render('default/ho_no.html.twig');
 //    }
 
-//    /**
-//     * @Route("/commentOnChart", name="commentOnChart")
-//     */
-//    public function commentOnChartAction()
-//    {
-//        return $this->render('default/chart.html.twig');
-//    }
+    /**
+     * @Route("/commentOnChart", name="commentOnChart")
+     */
+    public function commentOnChartAction()
+    {
+        return $this->render('default/chart.html.twig');
+    }
 
 
 //    /**

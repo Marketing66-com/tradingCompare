@@ -2,51 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="review_list">
-                <div class="review_list_cont-heder">
-                    <div class="abs">
-                        <div class="general_review_cont-block review_list_name">
-                            <div class="review_list_center">
-                                <p class="review_list_title">{{ 'instruments'|trans }}</p>
-                            </div>
-                        </div>
-                        <div class="general_review_cont-block review_list_cont-text ">
-                            <div class="review_list_center">
-                                <p class="review_list_title">{{ 'price'|trans }}</p>
-                            </div>
-                        </div>
-                        <div class="general_review_cont-block review_list_cont-text sm-none">
-                            <div class="review_list_center">
-                                <p class="review_list_title">{{ 'change'|trans }} %</p>
-                            </div>
-                        </div>
-                        <div class="general_review_cont-block review_list_cont-text sm-none">
-                            <div class="review_list_center">
-                                <p class="review_list_title">{{ 'high'|trans }}</p>
-                            </div>
-                        </div>
-                        <div class="general_review_cont-block review_list_cont-text">
-                            <div class="review_list_center">
-                                <p class="review_list_title"><span class="mobile-block">{{ 'high'|trans }}/</span>{{ 'low'|trans }}</p>
-                            </div>
-                        </div>
-                        <div class="general_review_cont-block review_list_cont-bar ms-none">
-                            <div class="review_list_center">
-                                <p class="review_list_title">{{ 'sentiment'|trans }}</p>
-                            </div>
-                        </div>
-                        <div class="general_review_cont-block review_list_cont-chart">
-                            <div class="review_list_center">
-                                <p class="review_list_title">{{ 'chart'|trans }}</p>
-                            </div>
-                        </div>
-                        <div class="general_review_cont-block review_list_cont-btn">
-                            <div class="review_list_center">
-                                <p class="review_list_title">{{ 'trade'|trans }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                {% include 'default/title_bar_list_feed.html.twig' %}
 
                 <div class="review_list_cont-heder  ng-cloak" ng-repeat="item in filteredItems">
                     <div class="abs">
@@ -80,8 +36,6 @@
                                     <span class="live_block_money_bold mobile-block">/{[{item.low24.toFixed(2)}]}</span></p>
                             </div>
                         </div>
-
-
 
                         {#<div class="general_review_cont-block review_list_cont-bar ms-none">#}
                         {#<div class="review_list_center">#}
@@ -178,13 +132,65 @@
 
 <div class="container general-grid pagboxes" >
     {#<ul uib-pagination items-per-page="itemsPerPage" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></ul>#}
-    <ul uib-pagination items-per-page="itemsPerPage" total-items="totalItems" ng-model="currentPage" max-size="maxSize"  boundary-links="true"  ng-change="pageChanged()"></ul>
+    <ul uib-pagination items-per-page="itemsPerPage" total-items="totalItems" ng-model="currentPage" max-size="maxSize"  boundary-links="true"
+        ng-change="pageChanged()"></ul>
 </div>
-
-
 {#</section>#}
 
 
+{#watchlist grid-box#}
+<div class="container watch-general-grid">
+
+    {#----> oh no SIGNIN#}
+    <div class="new_grid">
+        <div class="grid_space">
+            <div class="grid_space_absolut">
+                <h2 class="grid_space_absolut_title">Oh No!</h2>
+                <img class="grid_space_absolut_img" src='{{asset("img/general-grid_space_absolut_img.png")}}' alt="grid_space_absolut_img">
+                <p class="grid_space_absolut_text">Your need to have an account to make a watchlist. </p>
+                <a class="login-btn log sm-none v-btn" style="margin-left:24%">SIGN IN NOW</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container watch-general-list">
+    <div class="container">
+        <div class="row">
+            <div class="review_list">
+                {#{{ include('app/default/title_bar_list_feed.html.twig') }}#}
+                {% include 'default/title_bar_list_feed.html.twig' %}
+
+                {#----> oh no SIGNIN#}
+                <div style="border-top: 2px solid #D8D8D8" class="new_grid">
+                    <div class="grid_space">
+                        <div class="grid_space_absolut">
+                            <h2 class="grid_space_absolut_title">Oh No!</h2>
+                            <img class="grid_space_absolut_img" src='{{asset("img/general-grid_space_absolut_img.png")}}' alt="grid_space_absolut_img">
+                            <p class="grid_space_absolut_text">Your need to have an account to make a watchlist. </p>
+                            <a class="login-btn log sm-none v-btn" style="margin-left:24%">SIGN IN NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                {#----> oh no empty#}
+                {#<div class="review_list_cont-heder  ng-cloak">#}
+                    {#<div class="new_grid">#}
+                        {#<div class="grid_space">#}
+                            {#<div class="grid_space_absolut">#}
+                                {#<h2 class="grid_space_absolut_title">Oh No!</h2>#}
+                                {#<img class="grid_space_absolut_img" src='{{asset("img/general-grid_space_absolut_img.png")}}' alt="list_space_absolut_img">#}
+                                {#<p class="grid_space_absolut_text">Your watchlist is empty! </p>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

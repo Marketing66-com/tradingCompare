@@ -146,17 +146,106 @@ $('.country').click(function () {
     return false;
 });
 
-$('.list').click(function () {
-    $('.general-list').css('display', 'block');
+// $('.list').click(function () {
+//     $('.general-list').css('display', 'block');
+//     $('.general-grid').css('display', 'none');
+//     $(this).addClass('watchlist-cont_all_active');
+//     $('.grid').removeClass('watchlist-cont_all_active');
+//
+// });
+// $('.grid').click(function () {
+//     $('.general-grid').css('display', 'block');
+//     $('.general-list').css('display', 'none');
+//     $(this).addClass('watchlist-cont_all_active');
+//     $('.list').removeClass('watchlist-cont_all_active');
+// });
+
+
+$('.all').click(function () {
+
+    if ( $('#grid').hasClass('watchlist-cont_all_active'))
+    {
+        $('.general-grid').css('display', 'block');
+        $('.general-list').css('display', 'none');
+
+        $('.grid').addClass('watchlist-cont_all_active');
+        $('.list').removeClass('watchlist-cont_all_active');
+    }
+    else{
+        $('.general-grid').css('display', 'none');
+        $('.general-list').css('display', 'block');
+
+        $('.list').addClass('watchlist-cont_all_active');
+        $('.grid').removeClass('watchlist-cont_all_active');
+    }
+
+    $('.watch-general-list').css('display', 'none');
+    $('.watch-general-grid').css('display', 'none');
+
+    $(this).addClass('watchlist-cont_all_active');
+    $('.watchlist').removeClass('watchlist-cont_all_active');
+
+});
+
+$('.watchlist').click(function () {
+
+    if ( $('#grid').hasClass('watchlist-cont_all_active'))
+    {
+        $('.watch-general-grid').css('display', 'block');
+        $('.watch-general-list').css('display', 'none');
+
+        $('.grid').addClass('watchlist-cont_all_active');
+        $('.list').removeClass('watchlist-cont_all_active');
+    }
+    else{
+        $('.watch-general-list').css('display', 'block');
+        $('.watch-general-grid').css('display', 'none');
+
+        $('.list').addClass('watchlist-cont_all_active');
+        $('.grid').removeClass('watchlist-cont_all_active');
+    }
+
     $('.general-grid').css('display', 'none');
+    $('.general-list').css('display', 'none');
+
+    $(this).addClass('watchlist-cont_all_active');
+    $('.all').removeClass('watchlist-cont_all_active');
+
+});
+
+$('.list').click(function () {
+    if ($( "#watchlist" ).hasClass( "watchlist-cont_all_active" )) {
+        $('.watch-general-list').css('display', 'block');
+        $('.watch-general-grid').css('display', 'none');
+        $('.general-grid').css('display', 'none');
+        $('.general-list').css('display', 'none');
+    }
+    else{
+        $('.general-list').css('display', 'block');
+        $('.general-grid').css('display', 'none');
+        $('.watch-general-list').css('display', 'none');
+        $('.watch-general-grid').css('display', 'none');
+    }
+
     $(this).addClass('watchlist-cont_all_active');
     $('.grid').removeClass('watchlist-cont_all_active');
 
 });
+
 $('.grid').click(function () {
-    $('.general-grid').css('display', 'block');
-    $('.general-list').css('display', 'none');
+    if ($( "#watchlist" ).hasClass( "watchlist-cont_all_active" )) {
+        $('.watch-general-grid').css('display', 'block');
+        $('.watch-general-list').css('display', 'none');
+        $('.general-grid').css('display', 'none');
+        $('.general-list').css('display', 'none');
+    }
+    else {
+        $('.general-grid').css('display', 'block');
+        $('.general-list').css('display', 'none');
+        $('.watch-general-list').css('display', 'none');
+        $('.watch-general-grid').css('display', 'none');
+    }
     $(this).addClass('watchlist-cont_all_active');
     $('.list').removeClass('watchlist-cont_all_active');
-});
 
+});
