@@ -54,3 +54,7 @@ services:
     AppBundle\Security\JwtTokenAuthenticator:
         arguments: ["@doctrine.orm.entity_manager", '@AppBundle\Api\ResponseFactory']
         public: true
+
+    AppBundle\SDK\ApiClient:
+        arguments: ["%xosignals_api_base_uri%"]
+        public: true
