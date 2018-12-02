@@ -249,7 +249,13 @@ class DefaultController extends Controller
      */
     public function commentOnChartAction()
     {
-        return $this->render('default/chart.html.twig');
+        $pair = 'BTC_USD';
+        $from =  'BTC';
+        $to =  'USD';
+        $my_name = 'Bitcoin';
+
+        $crypto_api =  $this->getParameter('crypto_api');
+        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name));
     }
 
 

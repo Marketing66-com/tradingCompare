@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="" />
+    <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/default/social_tab.html.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/js/Social_bar.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/chart.html.twig" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
+      <change beforePath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_feed.html.twig" afterPath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_feed.html.twig" />
+      <change beforePath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_forex.html.twig" afterPath="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_forex.html.twig" />
+      <change beforePath="$PROJECT_DIR$/web/css/charts.css" afterPath="$PROJECT_DIR$/web/css/charts.css" />
+      <change beforePath="$PROJECT_DIR$/web/css/comment.css" afterPath="$PROJECT_DIR$/web/css/comment.css" />
+      <change beforePath="$PROJECT_DIR$/web/css/compiled.min.css" afterPath="$PROJECT_DIR$/web/css/compiled.min.css" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,51 +25,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="title_bar_list_feed.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/title_bar_list_feed.html.twig">
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="769">
-              <caret line="43" column="6" lean-forward="false" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
+            <state relative-caret-position="545">
+              <caret line="257" column="158" lean-forward="false" selection-start-line="257" selection-start-column="158" selection-end-line="257" selection-end-column="158" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compiled.min.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/compiled.min.css">
+      <file leaf-file-name="chart_crypto.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="218" column="0" lean-forward="false" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
+            <state relative-caret-position="7291">
+              <caret line="897" column="84" lean-forward="false" selection-start-line="897" selection-start-column="84" selection-end-line="897" selection-end-column="84" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compiled-feeds.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/compiled-feeds.css">
+      <file leaf-file-name="Social_bar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/Social_bar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="61" column="43" lean-forward="false" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="43" />
+            <state relative-caret-position="0">
+              <caret line="0" column="37" lean-forward="false" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="searchInstruments.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/searchInstruments.html.twig">
+      <file leaf-file-name="social_tab.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/social_tab.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="38" column="101" lean-forward="false" selection-start-line="38" selection-start-column="97" selection-end-line="38" selection-end-column="101" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="general.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/general.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="173" column="9" lean-forward="false" selection-start-line="173" selection-start-column="9" selection-end-line="173" selection-end-column="9" />
+            <state relative-caret-position="609">
+              <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -67,32 +68,8 @@
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="152" column="49" lean-forward="false" selection-start-line="152" selection-start-column="4" selection-end-line="152" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="live_feed.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_feed.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="174" column="22" lean-forward="false" selection-start-line="174" selection-start-column="22" selection-end-line="174" selection-end-column="22" />
-              <folding>
-                <element signature="e#147#184#0#Twig" expanded="true" />
-                <element signature="e#11208#11245#0#Twig" expanded="true" />
-                <element signature="e#11311#11348#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ForexFeeds.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/js/ForexFeeds.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2590">
-              <caret line="152" column="94" lean-forward="false" selection-start-line="152" selection-start-column="74" selection-end-line="152" selection-end-column="94" />
+            <state relative-caret-position="462">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -111,21 +88,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.sentiments_btn_green:hover</find>
-      <find>block</find>
-      <find>free de</find>
-      <find>free</find>
-      <find>zer</find>
-      <find>get_deal</find>
-      <find>Get Deal</find>
-      <find>RATING</find>
-      <find>Read Review</find>
-      <find>Read Revie</find>
-      <find>VISIT SITE</find>
-      <find>VISIT SIT</find>
-      <find>terms</find>
-      <find>Crypto Market Quotes &amp; Social sentiment</find>
-      <find>visit-btn</find>
       <find>read</find>
       <find>footer.</find>
       <find>body</find>
@@ -141,6 +103,21 @@
       <find>watchlist-cont</find>
       <find>watchlist-cont_all_active</find>
       <find>watchlist-cont_all</find>
+      <find>chart_</find>
+      <find>chart_comments</find>
+      <find>.comments-form_right</find>
+      <find>.comments-form</find>
+      <find>.comments-form_cont</find>
+      <find>important</find>
+      <find>.touch_your-comment</find>
+      <find>.comments_user-text_reply</find>
+      <find>.sub-comments</find>
+      <find>!important</find>
+      <find>.chart_comments, .review_cont-btn</find>
+      <find>.comments_input</find>
+      <find>.comments_user-cont_img</find>
+      <find>active</find>
+      <find>comments</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -149,9 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_stocks.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/test.html.twig" />
-        <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/searchCountry.html.twig" />
         <option value="$PROJECT_DIR$/web/js/Chart_crypto.js" />
         <option value="$PROJECT_DIR$/web/js/Chart_forex.js" />
         <option value="$PROJECT_DIR$/src/LiveFeedBundle/Controller/FeedsControler.php" />
@@ -169,7 +143,6 @@
         <option value="$PROJECT_DIR$/app/Resources/translations/messages.en.xlf" />
         <option value="$PROJECT_DIR$/web/js/ForexFeeds.js" />
         <option value="$PROJECT_DIR$/web/js/bar.js" />
-        <option value="$PROJECT_DIR$/web/css/charts.css" />
         <option value="$PROJECT_DIR$/app/Resources/translations/messages.fr.xlf" />
         <option value="$PROJECT_DIR$/src/AppBundle/Service/RefererService.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
@@ -184,22 +157,26 @@
         <option value="$PROJECT_DIR$/app/Resources/translations/messages.es.xlf" />
         <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_crypto.html.twig" />
         <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_stock.html.twig" />
-        <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_forex.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/chart_forex.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/chart_stock.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/bar.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/translations/routes.fr.yml" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/chart.html.twig" />
         <option value="$PROJECT_DIR$/web/js/StockFeeds.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/title_bar_list_feed.html.twig" />
-        <option value="$PROJECT_DIR$/web/css/compiled.min.css" />
         <option value="$PROJECT_DIR$/web/css/compiled-feeds.css" />
-        <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_feed.html.twig" />
         <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/searchInstruments.html.twig" />
         <option value="$PROJECT_DIR$/web/js/general.js" />
+        <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_feed.html.twig" />
+        <option value="$PROJECT_DIR$/web/css/charts.css" />
+        <option value="$PROJECT_DIR$/web/css/compiled.min.css" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/chart.html.twig" />
+        <option value="$PROJECT_DIR$/web/css/comment.css" />
+        <option value="$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_forex.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/social_tab.html.twig" />
+        <option value="$PROJECT_DIR$/web/js/Social_bar.js" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
       </list>
     </option>
   </component>
@@ -276,6 +253,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -365,6 +344,13 @@
               <item name="tradingCompare" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="LiveFeedBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="tradingCompare" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tradingCompare" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="LiveFeedBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -405,8 +391,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1078,12 +1062,13 @@
       <workItem from="1542872029691" duration="597000" />
       <workItem from="1542874007693" duration="1888000" />
       <workItem from="1542875914190" duration="40775000" />
-      <workItem from="1543401051904" duration="23707000" />
+      <workItem from="1543401051904" duration="41608000" />
+      <workItem from="1543737073542" duration="1709000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="971238000" />
+    <option name="totallyTimeSpent" value="990848000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1123,20 +1108,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/Stock.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="322" column="68" lean-forward="false" selection-start-line="322" selection-start-column="68" selection-end-line="322" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/review_24option.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/CryptoFeeds.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -1155,13 +1126,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="876">
           <caret line="117" column="58" lean-forward="false" selection-start-line="108" selection-start-column="11" selection-end-line="117" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/charts.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="41" column="87" lean-forward="false" selection-start-line="41" selection-start-column="87" selection-end-line="41" selection-end-column="87" />
         </state>
       </provider>
     </entry>
@@ -1190,7 +1154,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1248,15 +1211,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="4" column="76" lean-forward="false" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_forex.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1291,14 +1245,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BarController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RedirectController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1311,14 +1257,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Controller/FeedsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1353,9 +1291,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1363,37 +1298,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3465">
           <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/chart.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="88" lean-forward="false" selection-start-line="17" selection-start-column="88" selection-end-line="17" selection-end-column="88" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/StockFeeds.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="294" column="0" lean-forward="false" selection-start-line="294" selection-start-column="0" selection-end-line="294" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="246" column="0" lean-forward="false" selection-start-line="246" selection-start-column="0" selection-end-line="252" selection-end-column="5" />
-          <folding>
-            <element signature="e#6525#6550#1#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1401,14 +1305,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="382">
           <caret line="25" column="41" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="897" column="84" lean-forward="true" selection-start-line="897" selection-start-column="84" selection-end-line="897" selection-end-column="84" />
           <folding />
         </state>
       </provider>
@@ -1431,43 +1327,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/bar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5460">
-          <caret line="278" column="24" lean-forward="false" selection-start-line="278" selection-start-column="24" selection-end-line="278" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="152" column="49" lean-forward="false" selection-start-line="152" selection-start-column="4" selection-end-line="152" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/compiled.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="218" column="0" lean-forward="false" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_stock.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
           <caret line="62" column="45" lean-forward="false" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/bar.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1475,15 +1338,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="769">
           <caret line="43" column="6" lean-forward="false" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/compiled-feeds.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="61" column="43" lean-forward="false" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1491,7 +1345,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="38" column="101" lean-forward="false" selection-start-line="38" selection-start-column="97" selection-end-line="38" selection-end-column="101" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1499,26 +1352,131 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="173" column="9" lean-forward="false" selection-start-line="173" selection-start-column="9" selection-end-line="173" selection-end-column="9" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/compiled-feeds.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2757">
+          <caret line="61" column="43" lean-forward="false" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/compiled.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="267" column="22" lean-forward="false" selection-start-line="267" selection-start-column="19" selection-end-line="267" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/comment.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="197" column="69" lean-forward="false" selection-start-line="197" selection-start-column="69" selection-end-line="197" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/charts.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="164" column="53" lean-forward="false" selection-start-line="164" selection-start-column="2" selection-end-line="164" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/StockFeeds.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="277" column="60" lean-forward="true" selection-start-line="277" selection-start-column="4" selection-end-line="277" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/bar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5838">
+          <caret line="278" column="24" lean-forward="false" selection-start-line="278" selection-start-column="24" selection-end-line="278" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_feed.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="174" column="22" lean-forward="false" selection-start-line="174" selection-start-column="22" selection-end-line="174" selection-end-column="22" />
-          <folding>
-            <element signature="e#147#184#0#Twig" expanded="true" />
-            <element signature="e#11208#11245#0#Twig" expanded="true" />
-            <element signature="e#11311#11348#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="2121">
+          <caret line="101" column="107" lean-forward="false" selection-start-line="101" selection-start-column="19" selection-end-line="101" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/bar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="35" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="58" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BarController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="706">
+          <caret line="49" column="14" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="49" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/ForexFeeds.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2590">
-          <caret line="152" column="94" lean-forward="false" selection-start-line="152" selection-start-column="74" selection-end-line="152" selection-end-column="94" />
+        <state relative-caret-position="154">
+          <caret line="88" column="42" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/Social_bar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="37" lean-forward="false" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Resources/views/Default/live_forex.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/social_tab.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LiveFeedBundle/Controller/FeedsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7291">
+          <caret line="897" column="84" lean-forward="false" selection-start-line="897" selection-start-column="84" selection-end-line="897" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="257" column="158" lean-forward="false" selection-start-line="257" selection-start-column="158" selection-end-line="257" selection-end-column="158" />
           <folding />
         </state>
       </provider>

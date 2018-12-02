@@ -103,8 +103,8 @@ bitcoin_title_right:after {    content: ' ';    position: absolute;    top: 0;  
     .chart_content-text { display: inherit;        max-height: 155px;        overflow-y: auto;    }
     .chart_content-text1 { display: inherit;        max-height: 155px;        overflow-y: auto;   margin-bottom: 0; }
 
-    .comments-form { padding: 15px 0 0 0;    }
-    .touch_your-comment { margin: 15px 0;    }
+    /*.comments-form { padding: 15px 0 0 0!important;    }*/
+    /*.touch_your-comment { margin: 15px 0!important;    }*/
 }
 @media (max-width: 768px) {
     .box_height_stock1 {height:170px;}
@@ -150,17 +150,19 @@ bitcoin_title_right:after {    content: ' ';    position: absolute;    top: 0;  
     .col-sm2{padding: 0}
     .chart_content-text1 { display: inherit;        max-height: 155px;        overflow-y: auto;   margin-bottom: 20px; }
     .box_height_crypto2 {height:100px;}
-    .bitcoin_text-cont_right, .btcoin_btn, .comments-form_cont, .review_more-btn {        width: 100%;    }
+    .bitcoin_text-cont_right, .btcoin_btn, .review_more-btn {        width: 100%;    }
+    /*.comments-form_cont {width: 100%!important;}*/
     .input_absolut{ left: 150px;  }
     .text-price {text-align: left !important;}
     .btcoin_btn, .bitcoin_bottom-text, .review_more-btn, .my-nav li,    .my-nav li ul li {        text-align: center;    }
-    .chart_bitcoin-cont, .comments-form_cont { padding: 0;    }
+    .chart_bitcoin-cont { padding: 0;    }
+    /*.comments-form_cont { padding: 0!important;  }*/
     .margin-top-mobile {  margin-top: 15px;  }
     .review_more-btn { margin: 0;    }
-    .comments_user-cont_img {  width: 50px;  margin-right: 10px;    }
-    .comments_user-text_reply {  margin-left: 30px;  }
-    .sub-comments {padding-left: 30px;    }
-    .comments_user-text { text-align: justify;    }
+    /*.comments_user-cont_img {  width: 50px!important;  margin-right: 10px!important;    }*/
+    /*.comments_user-text_reply {  margin-left: 30px!important;  }*/
+    /*.sub-comments {padding-left: 30px!important;    }*/
+    /*.comments_user-text { text-align: justify;    }*/
     /*hz*/
     .bitcoin_img-cont {position: relative;        float: left;    }
     .hello2 {position: relative;        float: left;    }

@@ -141,7 +141,8 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
 .burger.opened .burger-menu:nth-child(2) {opacity: 0;height: 0;margin: -3px;width: 100%;}
 .burger.opened .burger-menu:last-child {-webkit-transition-delay: 0.3s;-o-transition-delay: 0.3s;transition-delay: 0.3s;height: 3px;-webkit-transform: rotate(-45deg);-ms-transform: rotate(-45deg);-o-transform: rotate(-45deg);transform: rotate(-45deg);width: 100%;}
 
-.col-md-none, .col-sm-block, .md-none, .ms-block, .bitcoin_many-mobile {display: none;}
+.col-md-none, .col-sm-block,  .bitcoin_many-mobile {display: none;}
+.md-none, .ms-block {display: none!important;}
 .ms-none, .xs-none {display: block;}
 .border-none {border: none}
 
@@ -224,8 +225,8 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
 }
 
 @media (max-width: 991px) {
-    .ms-block {display: block;}
-    .ms-none, .menu {display: none;}
+    .ms-block {display: block!important;}
+    .ms-none, .menu {display: none!important;}
     .statistics_block {width: 25%;}
     .sx-border-non {border: none;}
     .burger {float: left;margin-right: 15px;}
@@ -248,7 +249,7 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
     .bitcoin_title, .bitcoin_text-cont .statistics_block_green-text, .bitcoin_many-mobile {padding-left: 80px;}
     .xs-none {display: none;}
     .statistics_block {width: 50%;}
-    .footer_text, .chart_comments {padding: 0 15px;}
+    .footer_text {padding: 0 15px;}
     .sm-none, .live_trade-btn_none {display: none;}
     .my-modal_cont-left {height: 200px;}
     .my-modal_cont-right {min-height: calc(100vh - 200px);}
