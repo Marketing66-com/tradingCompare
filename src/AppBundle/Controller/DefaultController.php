@@ -63,7 +63,7 @@ class DefaultController extends Controller
 
         $crypto_api =  $this->getParameter('crypto_api');
 
-        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name));
+        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name, "symbol"=>$from));
        //return $this->render('default/charttest.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api,"crypto_likes"=>$crypto_likes));
     }
 
@@ -75,7 +75,7 @@ class DefaultController extends Controller
         $from = substr($currency, 0, 3);
         $to =  substr($currency, 4, 6);
         $pair = str_replace("-", "_", $currency);
-        return $this->render('default/chart_forex.html.twig',array("currency"=>$pair, "from"=>$from , "to"=>$to));
+        return $this->render('default/chart_forex.html.twig',array("currency"=>$pair, "from"=>$from , "to"=>$to, "symbol"=>$from));
     }
 
     /**
@@ -244,19 +244,21 @@ class DefaultController extends Controller
 //        return $this->render('default/ho_no.html.twig');
 //    }
 
-    /**
-     * @Route("/commentOnChart", name="commentOnChart")
-     */
-    public function commentOnChartAction()
-    {
-        $pair = 'BTC_USD';
-        $from =  'BTC';
-        $to =  'USD';
-        $my_name = 'Bitcoin';
-
-        $crypto_api =  $this->getParameter('crypto_api');
-        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name));
-    }
+//    /**
+//     * @Route("/commentOnChart", name="commentOnChart")
+//     */
+//    public function commentOnChartAction()
+//    {
+////        $pair = 'BTC_USD';
+////        $from =  'BTC';
+////        $to =  'USD';
+////        $my_name = 'Bitcoin';
+////
+////        $crypto_api =  $this->getParameter('crypto_api');
+////        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name));
+//        $symbol = 'FB';
+//        return $this->render('default/social_tab.html.twig',array("symbol"=>$symbol));
+//    }
 
 
 //    /**

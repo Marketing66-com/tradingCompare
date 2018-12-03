@@ -20,7 +20,7 @@ cq-chart-title cq-symbol {font-size:40px;}
 /*cq-context {position: absolute;height: 650px; width:100%;}*/
 /*.general_chart2{padding-right: 0px; padding-left: 0px; padding-bottom: 0px;padding-bottom: 0px;}*/
 cq-context {height: 650px; }
-.chart{height:750px;}
+.chart{height:700px;}
 
 .stx-marker.abstract {width: 0;transition: all .2s;}
 .stx-marker-content .sample {

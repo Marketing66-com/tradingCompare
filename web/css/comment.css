@@ -1,5 +1,6 @@
 /* COMMENT PART */
-.chart_comments, .review_cont-btn {
+/*.chart_comments, .review_cont-btn {*/
+.chart_comments {
     width: 100%;
     display: table;
 }
@@ -40,7 +41,7 @@
     padding: 0 15px;
     color: #9f9f9f;
     border-radius: 3px;
-    border: 1px solid #9f9f9f;
+    border: 1px solid #9f9f9f!important;
 }
 
 .comments-form_cont_left {
@@ -123,7 +124,6 @@
 
 .comments_user-cont_name {
     color: #1E375E;
-
     font-size: 20px;
     font-family: 'Avenir';
     font-weight: 700;
@@ -172,11 +172,25 @@
 .comments_user-img {
     width: 100%;
 }
+
+@media (max-width: 991px){
+    .ms-none {
+        display: none;
+    }
+}
+
+
+.comments_input::placeholder{color:grey;}
+.touch_your-comment::placeholder{color:grey;}
+
+/*.md-none, .ms-block {display: none;}*/
 /* END */
 
 @media (max-width: 991px) {
     .comments-form { padding: 15px 0 0 0;    }
     .touch_your-comment { margin: 15px 0!important;    }
+    /*.ms-block {display: block!important;}*/
+    /*.ms-none, .menu {display: none!important;}*/
 }
 
 @media (max-width: 480px) {
@@ -195,41 +209,52 @@
 }
 
 
-/********************************************************** COMMENTS ****************************************************************/
+/********************************************************** TABS ****************************************************************/
 
-.tab {
+.mytab {
     overflow: hidden;
+    padding-left: 0;
 }
 
 /* Style the buttons inside the tab */
-.tab button {
+.mytab li {
     background-color: inherit;
     float: left;
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 5px 16px;
+    padding: 5px 20px;
     transition: 0.3s;
-    font-size: 16px;
-    color: #9b9b9b;
+    /*font-size: 16px;*/
+    /*color: #9b9b9b;*/
     line-height: normal;
-    letter-spacing: 0.5px;
-    font-weight: 600;
+    /*letter-spacing: 0.5px;*/
+    /*font-weight: 600;*/
     font-style: normal;
     font-stretch: normal;
+    list-style-type: none;
+    text-decoration: none;
 
+}
+
+.mytab li > a{
+    color: #9b9b9b;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
 }
 
 /* Change background color of buttons on hover */
-.tab button:hover {
+.mytab li  :hover {
     color: #12a6f9;
-
+    text-decoration: none;
 }
 
 /* Create an active/current tablink class */
-.tab button.active {
+.mytab li.active > a {
     color: #12a6f9!important;
     border-bottom: 4px solid #12a6f9;
+    text-decoration: none;
 }
 
 /* Style the tab content */
@@ -241,13 +266,37 @@
     /*border-top: none;*/
 }
 hr{
-    margin: 5px;
+    margin: 0;
     width: 100%;
     height: 2px;
     background-color: #ECECEC;
     border: none; /*on supprime le style par défaut*/
 }
 
+@media (max-width: 991px) {
+    .mytab li {
+        /*padding: 5px 14px;*/
+        /*font-size: 14px;*/
+        width:33.3%;
+        text-align:center;
+    }
+}
+@media (max-width: 480px) {
+    .mytab li {
+        padding: 5px 14px;
+        font-size: 14px;
+        /*width:33.3%;*/
+    }
+}
+
+/********************************************************** NEWS & TWEETER ****************************************************************/
+
+.news_user-cont{
+    border-bottom: 1px solid #ECECEC;
+    padding: 15px 0 10px 0;
+    display: table;
+    width: 100%;
+}
 .news-cont_img
 {
     float: left;
@@ -255,17 +304,96 @@ hr{
     width: 80px;
     margin-right: 20px;
 }
+
+.news_user-text {
+    display: table;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    margin:0;
+    overflow:hidden;
+
+}
+.news_user-text_details{
+    display: table;
+    color: #9B9B9B;
+    font-size: 14px;
+    font-weight: 400;
+    margin:0;
+    font-family: 'Open Sans', sans-serif;
+    }
+
+.news_user-text_details_left{
+    display: table;
+    color: #9B9B9B;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    margin-right:2%;
+    float:left;
+}
+.tweet_user-date {
+    display: table;
+    color: #9B9B9B;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    margin:0;
+    float: right;
+}
+.tweet_user-text{
+    color: black;
+    font-size: 18px;
+    font-family:'Open Sans', sans-serif;
+    font-weight: 600;
+    margin:0;
+    overflow: hidden;
+}
+.news_user-cont_name{
+    color: black;
+    font-size: 18px;
+    font-family:'Open Sans', sans-serif;
+    font-weight: 600;
+    margin:0;
+}
+.each_news a{
+    text-decoration: none;
+}
+.each_news:hover{
+    background-color: #eaeaea
+}
+
+.news_space_absolut_text {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 20px;
+    color: #999999;
+    margin: 10px;
+    text-align: left;
+}
+.disabled{
+    background-color: #9B9B9B;
+}
 @media (max-width: 991px) {
-    .tab button {
-        /*padding: 5px 14px;*/
-        /*font-size: 14px;*/
-        width:33.3%;
+    .tweet_user-date {
+        display: table;
+        color: #9B9B9B;
+        font-size: 13px;
+        font-weight: 400;
+        font-family: 'Open Sans', sans-serif;
+        margin:0;
+        float: right;
     }
 }
+
 @media (max-width: 480px) {
-    .tab button {
-        padding: 5px 14px;
+    .news_user-cont_name{
         font-size: 14px;
-        /*width:33.3%;*/
+        font-weight: 600;
+    }
+    .news_user-text {
+        font-size: 13px;
+        font-weight: 400;
     }
 }

@@ -1,226 +1,231 @@
-{% extends 'base.html.twig' %}
-{% block body %}
+{#{% extends 'base.html.twig' %}#}
+{#{% block body %}#}
 
 
-    {#<div id="dvSocial">#}
-        <div ng-app="myApp" ng-controller="SocialController ">
-            <div ng-init="init()" >
-                {[{ firstName }]}
-                {#<img class="general-chart_img" src='{{asset("img/coinbase app.png")}}' alt="chart">#}
+    <div id="dvSocial">
+        <div ng-controller="SocialController" class="ng-cloak">
+            <div ng-init="init('{{ symbol }}')" >
+
+                <section class="table">
+                    <div class="container">
+                        <div class="row">
+                            <div class="general-chart">
+                                {#<img class="general-chart_img" src='{{asset("img/chart.png")}}' alt="chart">#}
+                                <div >
+                                    <ul class="mytab">
+                                        <li class="tablinks" ng-class="{ active: isSet(1) }">
+                                            <a href ng-click="setTab(1)">COMMENTS</a>
+                                        </li>
+                                        <li class="tablinks" ng-class="{ active: isSet(2) }">
+                                            <a href ng-click="setTab(2)">NEWS</a>
+                                        </li>
+                                        <li class="tablinks" ng-class="{ active: isSet(3) }">
+                                            <a href ng-click="setTab(3)">SOCIAL</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div>
+                                        {#/************************************************************************************/#}
+                                        <div ng-show="isSet(2)">
+                                            <hr>
+                                            <div ng-if="all_news.length >0" class="news_user-cont each_news" ng-repeat="news in all_news">
+                                                <a class="each_news" href="{[{news.url}]}" target="_blank">
+                                                    <div class="news-cont_img ">
+                                                        <img class="comments_user-img" src='{{asset("img/news_image.png")}}'  alt="france">
+                                                    </div>
+                                                    <div class="comments_user-cont_text">
+                                                        <h4 class="news_user-cont_name">{[{news.headline}]}</h4>
+                                                        <p class="news_user-text">{[{ news.date }]} </p>
+                                                        <p style="font-style: italic" class="news_user-text">{[{ news.source }]} </p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div ng-if="!all_news.length >0">
+                                                <p class="news_space_absolut_text">No news for {{ symbol }}</p>
+                                            </div >
+
+                                            {#<div ng-switch="all_news.length">#}
+                                                {#<div ng-switch-when = "0">no news</div>#}
+                                                {#<div ng-switch­default>#}
+                                                    {#<div class="news_user-cont each_news" ng-repeat="news in all_news">#}
+                                                        {#<a class="each_news" href="{[{news.url}]}" target="_blank">#}
+                                                            {#<div class="news-cont_img ">#}
+                                                                {#<img class="comments_user-img" src='{{asset("img/news_image.png")}}'  alt="france">#}
+                                                            {#</div>#}
+                                                            {#<div class="comments_user-cont_text">#}
+                                                                {#<h4 class="news_user-cont_name">{[{ news.headline }]}</h4>#}
+                                                                {#<p class="news_user-text">{[{ news.date }]} </p>#}
+                                                                {#<p style="font-style: italic" class="news_user-text">{[{ news.source }]} </p>#}
+                                                            {#</div>#}
+                                                        {#</a>#}
+                                                    {#</div>#}
+                                                {#</div>#}
+                                            {#</div>#}
+
+                                        </div>
+
+                                        {#/************************************************************************************/#}
+                                        <div ng-show="isSet(3)">
+                                            <hr>
+                                            <div ng-if="all_tweets.length >0">
+                                                <div class="news_user-cont each_news" ng-repeat="tweet in all_tweets">
+                                                    <a class="each_news" href="{[{tweet.tweet_url}]}" target="_blank">
+                                                        <div class="row">
+                                                            <div class="col-md-10 col-sm-10 col-xs-8">
+                                                                <div class="comments_user-cont_text">
+                                                                    <h4 class="news_user-cont_name">Twitter @{[{tweet.user.screen_name}]}</h4>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-2 col-sm-2 col-xs-4">
+                                                                <div class="comments_user-cont_text">
+                                                                    <p class="tweet_user-date">{[{ tweet.tweet_date }]} </p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                                                <p class="news_user-text">{[{tweet.text}]}</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div style="display:inline;">
+                                                            <span class="news_user-text_details_left">{[{tweet.favorite_count}]} Likes</span>
+                                                            <span class="news_user-text_details">{[{tweet.retweet_count}]} Retweets</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                                <div class="review_cont-btn">
+                                                    <a class="review_more-btn" ng-class="nextPageDisabledClass()" ng-style="disabled"
+                                                       ng-click="loadMore()" >MORE TWEETS</a>
+                                                </div>
+                                            </div>
+
+                                            <div ng-if="!all_news.length >0">
+                                                <p class="news_space_absolut_text">No tweet for {{ symbol }}</p>
+                                            </div>
+                                        </div>
+                                        {#/************************************************************************************/#}
+                                        <div ng-show="isSet(1)">
+                                            <hr>
+                                            <form class="comments-form">
+                                                <div class="comments-form_left">
+                                                    <div class="comments-form_cont comments-form_cont_left">
+                                                        <input type="text" class="comments_input" placeholder="Name" required>
+                                                    </div>
+                                                    <div class="comments-form_cont comments-form_cont_right margin-top-mobile">
+                                                        <input type="email" class="comments_input" placeholder="Email" required>
+                                                    </div>
+                                                    <textarea class=" touch_your-comment" placeholder="Your comment..."></textarea>
+                                                </div>
+                                                <div class="comments-form_right ms-none">
+                                                    <button type="submit" class="comment_btn">POST</button>
+                                                </div>
+                                                <div class="review_cont-btn ms-block">
+                                                    <a class="review_more-btn">POST YOUR COMMENT</a>
+                                                </div>
+                                            </form>
+                                            {#<div class="comments_user-cont">#}
+                                                {#<div class="comments_user-cont_img">#}
+                                                    {#<img class="comments_user-img" src='{{asset("img/Flags1/fr.png")}}' alt="france">#}
+                                                {#</div>#}
+                                                {#<div class="comments_user-cont_text">#}
+                                                    {#<h4 class="comments_user-cont_name">Sarah</h4>#}
+                                                    {#<p class="comments_user-text">This established VPN is very impressive, speeds are excellent and privacy is placed at a premium. A fair sized network that covers all the main locations you’ll need. Great client software that includes an auto-reconnect and an option to close specific programs.#}
+                                                    {#</p>#}
+                                                    {#<ul class="comments_user-text_reply">#}
+                                                        {#Like#}
+                                                        {#<li class="mu-reply">4 h. ago</li>#}
+                                                        {#<li class="mu-reply"><a>Reply</a></li>#}
+                                                    {#</ul>#}
+
+                                                {#</div>#}
+                                            {#</div>#}
+                                            <div ng-if="all_comments.length >0">
+                                                <div class="comments_user-cont" ng-repeat="comment in all_comments">
+                                                    <div class="comments_user-cont_img">
+                                                        <img class="comments_user-img" src='{{asset("img/Flags1/{[{comment.country}]}.png")}}'  alt="spain">
+                                                    </div>
+                                                    <div class="comments_user-cont_text">
+                                                        <h4 class="comments_user-cont_name">{[{comment.nickname}]}</h4>
+
+                                                        <p class="comments_user-text">
+                                                            {[{comment.txt}]}
+                                                        </p>
+                                                        <ul class="comments_user-text_reply">
+                                                            Like
+                                                            <li class="mu-reply"> {[{comment.date_from_now}]}</li>
+                                                            <li class="mu-reply"><a>Reply</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    {#<div class="sub-comments">#}
+                                                        {#<div class="comments_user-cont_img">#}
+                                                            {#<img class="comments_user-img" src='{{asset("img/Flags1/en.png")}}'  alt="france">#}
+                                                        {#</div>#}
+                                                        {#<div class="comments_user-cont_text">#}
+                                                            {#<h4 class="comments_user-cont_name">Samantha Parker</h4>#}
+                                                            {#<p class="comments_user-text">This VPN is one of the fastest and most secured VPN service providers in the market today. Their state of the art encryption and fast download and upload speed, makes their VPN service attractive to users who want to secure their data and information while conducting their activities online.</p>#}
+                                                            {#<ul class="comments_user-text_reply">#}
+                                                                {#Like#}
+                                                                {#<li class="mu-reply">4 h. ago</li>#}
+                                                                {#<li class="mu-reply"><a>Reply</a></li>#}
+                                                            {#</ul>#}
+                                                        {#</div>#}
+                                                    {#</div>#}
+                                                </div>
+                                                <div class="review_cont-btn">
+                                                    <a class="review_more-btn" ng-class="nextPageDisabledClass_comments()" ng-style="disabled_comments"
+                                                       ng-click="loadMore_comments()" >MORE COMMENTS</a>
+                                                </div>
+                                            </div>
+
+                                            <div ng-if="!all_comments.length >0">
+                                                <hr>
+                                                <p class="news_space_absolut_text">No comment for {{ symbol }}</p>
+                                            </div>
+                                        </div>
+
+                                        {#/************************************************************************************/#}
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </div>
-    {#</div>#}
+    </div>
+
     <script src="{{ asset('js/Social_bar.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/comment.css') }}" >
     <script data-require="angular-ui-bootstrap@0.3.0" data-semver="2.5.0" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
     <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 
-    <section class="table">
-        <div class="container">
-            <div class="row">
-                <div class="general-chart">
-                    {#<img class="general-chart_img" src='{{asset("img/chart.png")}}' alt="chart">#}
-
-                    <div class="tab">
-                        <button class="tablinks" onclick="openCity(event, 'comments')" id="defaultOpen" >COMMENTS</button>
-                        <button class="tablinks" onclick="openCity(event, 'news')">NEWS</button>
-                        <button class="tablinks" onclick="openCity(event, 'social')">SOCIAL</button>
-                    </div>
-
-                    <div id="news" class="tabcontent">
-                        <hr>
-
-                        <div class="comments_user-cont">
-                            <div class="news-cont_img">
-                                <img class="comments_user-img" src='{{asset("img/coinbase app.png")}}'  alt="france">
-                            </div>
-                            <div class="comments_user-cont_text">
-                                <h4 class="comments_user-cont_name">This established VPN is very impressive, speeds are excellent and privacy is placed at a premium. A fair sized network that covers all the main locations you’ll need. Great client software that includes an auto-reconnect and an option to close specific programs.
-                                </h4>
-                                <p class="comments_user-text">Sarah </p>
-                                <ul class="comments_user-text_reply">
-                                    Like
-                                    <li class="mu-reply">4 h. ago</li>
-                                    <li class="mu-reply"><a>Reply</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="review_cont-btn">
-                            <a class="review_more-btn">MORE COMMENTS</a>
-                        </div>
-                        {#<h3>Paris</h3>#}
-                        {#<p>Paris is the capital of France.</p>#}
-                    </div>
 
 
-                    {#/************************************************************************************/#}
-                    <div id="social" class="tabcontent">
-                        <h3>Tokyo</h3>
-                        <p>Tokyo is the capital of Japan.</p>
-                    </div>
+{#{% endblock %}#}
 
-                    {#/************************************************************************************/#}
-                    <div id="comments" class="tabcontent">
-                        <hr>
-                        <form class="comments-form">
-                            <div class="comments-form_left">
-                                <div class="comments-form_cont comments-form_cont_left">
-                                    <input type="text" class="comments_input" placeholder="Name" required>
-                                </div>
-                                <div class="comments-form_cont comments-form_cont_right margin-top-mobile">
-                                    <input type="email" class="comments_input" placeholder="Email" required>
-                                </div>
-                                <textarea class=" touch_your-comment" placeholder="Your comment..."></textarea>
-                            </div>
-                            <div class="comments-form_right ms-none">
-                                <button type="submit" class="comment_btn">POST</button>
-                            </div>
-                            <div class="review_cont-btn ms-block">
-                                <a class="review_more-btn">POST YOUR COMMENT</a>
-                            </div>
-                        </form>
-                        <div class="comments_user-cont">
-                            <div class="comments_user-cont_img">
-                                <img class="comments_user-img" src='{{asset("img/Flags1/en.png")}}'  alt="france">
-                            </div>
-                            <div class="comments_user-cont_text">
-                                <h4 class="comments_user-cont_name">Sarah</h4>
-                                <p class="comments_user-text">This established VPN is very impressive, speeds are excellent and privacy is placed at a premium. A fair sized network that covers all the main locations you’ll need. Great client software that includes an auto-reconnect and an option to close specific programs.
-                                </p>
-                                <ul class="comments_user-text_reply">
-                                    Like
-                                    <li class="mu-reply">4 h. ago</li>
-                                    <li class="mu-reply"><a>Reply</a></li>
-                                </ul>
+{#{% block javascripts %}#}
+    {#{{ parent() }}#}
+    {#<script>#}
+        {#function loadCSS(hf) {#}
+            {#var ms = document.createElement("link");#}
+            {#ms.rel = "stylesheet";#}
+            {#ms.href = hf;#}
+            {#document.getElementsByTagName("head")[0].appendChild(ms);#}
+        {#}#}
+        {#loadCSS('{{asset("css/footer.css")}}');#}
+        {#loadCSS('{{asset("font/font_avenir.css")}}');#}
+        {#loadCSS("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");#}
+        {#loadCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");#}
+        {#loadCSS('{{asset("css/charts.css")}}')#}
+        {#loadCSS('{{asset("css/comment.css")}}')#}
 
-                            </div>
-                        </div>
-                        <div class="comments_user-cont">
-                            <div class="comments_user-cont_img">
-                                <img class="comments_user-img" src='{{asset("img/Flags1/en.png")}}'  alt="spain">
-                            </div>
-                            <div class="comments_user-cont_text">
-                                <h4 class="comments_user-cont_name">John.S</h4>
+    {#</script>#}
 
-                                <p class="comments_user-text">
-                                    This VPN is one of the fastest and most secured VPN service providers in the market today. Their state of the art encryption and fast download and upload speed, makes their VPN service
-                                </p>
-                                <ul class="comments_user-text_reply">
-                                    Like
-                                    <li class="mu-reply">4 h. ago</li>
-                                    <li class="mu-reply"><a>Reply</a></li>
-                                </ul>
-
-                            </div>
-                            <div class="sub-comments">
-                                <div class="comments_user-cont_img">
-                                    <img class="comments_user-img" src='{{asset("img/Flags1/en.png")}}'  alt="france">
-                                </div>
-                                <div class="comments_user-cont_text">
-                                    <h4 class="comments_user-cont_name">Samantha Parker</h4>
-                                    <p class="comments_user-text">This VPN is one of the fastest and most secured VPN service providers in the market today. Their state of the art encryption and fast download and upload speed, makes their VPN service attractive to users who want to secure their data and information while conducting their activities online.</p>
-                                    <ul class="comments_user-text_reply">
-                                        Like
-                                        <li class="mu-reply">4 h. ago</li>
-                                        <li class="mu-reply"><a>Reply</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="sub-comments">
-                                <div class="comments_user-cont_img">
-                                    <img class="comments_user-img" src='{{asset("img/Flags1/en.png")}}'  alt="spain">
-                                </div>
-                                <div class="comments_user-cont_text">
-                                    <h4 class="comments_user-cont_name">John.S</h4>
-                                    <p class="comments_user-text">Hi Samantha,<br>
-                                        Thanks for your question. You can use ExpressVPN with many devices, including Roku and AppleTV, but none are necessary in order to use ExpressVPN. I hope that helps with your question!</p>
-                                    <ul class="comments_user-text_reply">
-                                        Like
-                                        <li class="mu-reply">4 h. ago</li>
-                                        <li class="mu-reply"><a>Reply</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comments_user-cont">
-
-                            <div class="comments_user-cont_img">
-                                <img class="comments_user-img" src='{{asset("img/Flags1/en.png")}}'  alt="united-states-of-america">
-                            </div>
-                            <div class="comments_user-cont_text">
-                                <h4 class="comments_user-cont_name">Andrew</h4>
-                                <p class="comments_user-text">What is the cost per device? Does it have iPhone, mac, apple tv, iPad and window10 desktop?
-                                </p>
-                                <ul class="comments_user-text_reply">
-                                    Like
-                                    <li class="mu-reply">4 h. ago</li>
-                                    <li class="mu-reply"><a>Reply</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="comments_user-cont border-none">
-                            <div class="comments_user-cont_img">
-                                <img class="comments_user-img" src='{{asset("img/Flags1/en.png")}}'  alt="united-kingdom">
-                            </div>
-                            <div class="comments_user-cont_text">
-                                <h4 class="comments_user-cont_name">Tom Pitberg</h4>
-                                <p class="comments_user-text">Express VPN is great. I never reached my usage limit.</p>
-                                <ul class="comments_user-text_reply">
-                                    Like
-                                    <li class="mu-reply">4 h. ago</li>
-                                    <li class="mu-reply"><a>Reply</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="review_cont-btn">
-                            <a class="review_more-btn">MORE COMMENTS</a>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        function loadCSS(hf) {
-            var ms = document.createElement("link");
-            ms.rel = "stylesheet";
-            ms.href = hf;
-            document.getElementsByTagName("head")[0].appendChild(ms);
-        }
-        loadCSS('{{asset("css/footer.css")}}');
-        loadCSS('{{asset("font/font_avenir.css")}}');
-        loadCSS("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
-        loadCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
-        loadCSS('{{asset("css/charts.css")}}')
-        loadCSS('{{asset("css/comment.css")}}')
-
-    </script>
-    <script>
-        function openCity (evt, cityName) {
-            console.log("hello")
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-        document.getElementById("defaultOpen").click();
-    </script>
-
-
-{% endblock %}
+{#{% endblock %}#}

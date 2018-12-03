@@ -142,7 +142,7 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
 .burger.opened .burger-menu:last-child {-webkit-transition-delay: 0.3s;-o-transition-delay: 0.3s;transition-delay: 0.3s;height: 3px;-webkit-transform: rotate(-45deg);-ms-transform: rotate(-45deg);-o-transform: rotate(-45deg);transform: rotate(-45deg);width: 100%;}
 
 .col-md-none, .col-sm-block,  .bitcoin_many-mobile {display: none;}
-.md-none, .ms-block {display: none!important;}
+.md-none, .ms-block {display: none;}
 .ms-none, .xs-none {display: block;}
 .border-none {border: none}
 
@@ -225,8 +225,8 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
 }
 
 @media (max-width: 991px) {
-    .ms-block {display: block!important;}
-    .ms-none, .menu {display: none!important;}
+    .ms-block {display: block;}
+    .ms-none, .menu {display: none;}
     .statistics_block {width: 25%;}
     .sx-border-non {border: none;}
     .burger {float: left;margin-right: 15px;}
