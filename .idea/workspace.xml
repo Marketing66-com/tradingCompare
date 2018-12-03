@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="068f6244-858e-478a-92b5-c2deb436b994" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/autocompletetest.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/autocompletetest.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,8 +32,18 @@
       <file leaf-file-name="autocompletetest.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/autocompletetest.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="1675" column="0" lean-forward="false" selection-start-line="1675" selection-start-column="0" selection-end-line="1681" selection-end-column="0" />
+            <state relative-caret-position="267">
+              <caret line="924" column="72" lean-forward="false" selection-start-line="924" selection-start-column="72" selection-end-line="924" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chart_crypto.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="891" column="0" lean-forward="true" selection-start-line="891" selection-start-column="0" selection-end-line="891" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -1028,12 +1037,12 @@
       <workItem from="1542874007693" duration="1888000" />
       <workItem from="1542875914190" duration="40775000" />
       <workItem from="1543401051904" duration="41608000" />
-      <workItem from="1543737073542" duration="41974000" />
+      <workItem from="1543737073542" duration="42188000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1031113000" />
+    <option name="totallyTimeSpent" value="1031327000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1454,14 +1463,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="900" column="2" lean-forward="false" selection-start-line="900" selection-start-column="2" selection-end-line="900" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -1473,10 +1474,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/chart_crypto.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="891" column="0" lean-forward="true" selection-start-line="891" selection-start-column="0" selection-end-line="891" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/autocompletetest.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="1675" column="0" lean-forward="false" selection-start-line="1675" selection-start-column="0" selection-end-line="1681" selection-end-column="0" />
+        <state relative-caret-position="267">
+          <caret line="924" column="72" lean-forward="false" selection-start-line="924" selection-start-column="72" selection-end-line="924" selection-end-column="72" />
           <folding />
         </state>
       </provider>
