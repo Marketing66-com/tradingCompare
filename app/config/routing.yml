@@ -17,8 +17,15 @@ app:
     prefix: /{_locale}/
     requirements:
         _locale: en|fr|de|es
-    resource: '@AppBundle/Controller/'
+    resource: '@AppBundle/Controller/Web'
     type: annotation
+
+api:
+    resource: "@AppBundle/Controller/Api"
+    type:     annotation
+    defaults:
+        _format: json
+    prefix: /api/
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

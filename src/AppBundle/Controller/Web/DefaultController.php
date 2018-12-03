@@ -1,16 +1,25 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Web;
 
 use AppBundle\Service\RefererService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\BrowserKit\Response;
 
 class DefaultController extends Controller
 {
+    /**
+     *  * @Route("/firebaseui", name="firebase", options={"i18n"=false})
+     */
+    public function firebasuiAction()
+    {
+        return $this->render('firebaseui.html.twig');
+    }
     /**
      *
      * @Route("/changelanguage/{langCode}", name="changelanguage")

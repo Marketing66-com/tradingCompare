@@ -6,7 +6,7 @@
  * Time: 3:50 PM
  */
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Web;
 
 use GuzzleHttp\Exception\GuzzleException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

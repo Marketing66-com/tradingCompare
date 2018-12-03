@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sample FirebaseUI App</title>
+
+  <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+  <!-- Firebase App is always required and must be first -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-app.js"></script>
+
+  <!-- Add additional services that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-auth.js"></script>
+
+  <script>
+      // Initialize Firebase
+      var config = {
+          apiKey: "AIzaSyDtIOsO92B43gKmoJ_6QoXMRbWzxyuxDEw",
+          authDomain: "price-al.firebaseapp.com",
+          databaseURL: "https://price-al.firebaseio.com",
+          projectId: "price-al",
+          storageBucket: "price-al.appspot.com",
+          messagingSenderId: "740193852561"
+      };
+      firebase.initializeApp(config);
+  </script>
+
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
+  <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+          signInSuccessUrl: '/',
+          signInOptions: [
+              // Leave the lines as is for the providers you want to offer your users.
+              firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+              firebase.auth.EmailAuthProvider.PROVIDER_ID
+          ],
+          // tosUrl and privacyPolicyUrl accept either url string or a callback
+          // function.
+          // Terms of service url/callback.
+          tosUrl: '/en/Term-and-conditions',
+          // Privacy policy url/callback.
+          privacyPolicyUrl: function() {
+              window.location.assign('/en/Privacy-policy');
+          }
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+  </script>
+</head>
+<body>
+<!-- The surrounding HTML is left untouched by FirebaseUI.
+     Your app may use that space for branding, controls and other customizations.-->
+<h1>Welcome to My Awesome App</h1>
+<div id="firebaseui-auth-container"></div>
+</body>
+</html>

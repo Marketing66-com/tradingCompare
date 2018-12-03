@@ -20,7 +20,7 @@ services:
         resource: '../../src/AppBundle/*'
         # you can exclude directories or files
         # but if a service is unused, it's removed anyway
-        exclude: '../../src/AppBundle/{Entity,Repository,Tests}'
+        exclude: '../../src/AppBundle/{Entity,Repository,Tests,Api}'
 
     # controllers are imported separately to make sure they're public
     # and have a tag that allows actions to type-hint services
@@ -41,4 +41,20 @@ services:
 
     AppBundle\Service\RefererService:
         arguments: ['@request_stack', '@router']
+        public: true
+
+    app.user_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+        - AppBundle\Entity\User
+
+    AppBundle\Api\ResponseFactory:
+
+    AppBundle\Security\JwtTokenAuthenticator:
+        arguments: ["@doctrine.orm.entity_manager", '@AppBundle\Api\ResponseFactory']
+        public: true
+
+    AppBundle\SDK\ApiClient:
+        arguments: ["%xosignals_api_base_uri%"]
         public: true
