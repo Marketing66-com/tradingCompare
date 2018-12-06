@@ -20,6 +20,15 @@ class DefaultController extends Controller
     {
         return $this->render('firebaseui.html.twig');
     }
+
+    /**
+     *  * @Route("/sample_page", name="sample_firebase_angular", options={"i18n"=false})
+     */
+    public function samplePageAction()
+    {
+        return $this->render(':default:sample_page.html.twig');
+    }
+
     /**
      *
      * @Route("/changelanguage/{langCode}", name="changelanguage")
