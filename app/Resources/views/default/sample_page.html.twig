@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+  <body style="padding: 10%">
+  <div id="sampleDiv" class="ng-cloak">
+    <div ng-controller="AppCtrl">
+      <pre> {{ '{{data | json}}' }} </pre>
+    </div>
+  </div>
+  </body>
+
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+
+  <script src="{{ asset('modules/sample/js/script.js') }}"></script>
+{% endblock %}
