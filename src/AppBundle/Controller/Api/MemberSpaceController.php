@@ -37,4 +37,6 @@ class MemberSpaceController extends BaseController
         $sentiments = $this->get(ApiClient::class)->getSentimentsByUser($user->getIdentifier());
         return new JsonResponse($sentiments);
     }
+
+
 }

@@ -42,7 +42,7 @@ searchapp.controller('TypeaheadCtrl', function($scope, filterFilter, $http) {
     //          }
     //         users.push(data[key])
     //     }
-
+    //
     // });
 
     $scope.getUsers = function (search) {

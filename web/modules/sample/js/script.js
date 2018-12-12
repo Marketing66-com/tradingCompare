@@ -9,7 +9,8 @@ app.controller('AppCtrl', function ($scope, MemberService) {
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
                 user.getIdToken(/* forceRefresh */ true).then(function (idToken) {
-                    MemberService.getSentimentsByUser(idToken).then(function (results) {
+                    // MemberService.getSentimentsByUser(idToken).then(function (results) {
+                    MemberService.getSampleSecuredPage(idToken).then(function (results) {
                         $scope.data = results;
                         $scope.$apply();
                     }).catch(function (error) {

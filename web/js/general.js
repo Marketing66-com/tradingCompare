@@ -85,6 +85,8 @@ $('.burger').click(function () {
 // });
 
 $(".close_modal").click(function () {
+    var selectResult = " "
+    $('.country').removeClass('active').html(selectResult);
     $('.modal_sigh-up').slideUp();
     $('.modal_sigh-in').slideUp();
 });
@@ -115,29 +117,30 @@ $(".form_cliking_decoration_popup").click(function () {
 // login button, get the sign in
 $(".v-btn").click(function () { $('.v-modal').slideDown(); });
 
+//
+// $('.country_list').find('li').click(function () {
+//     console.log("1")
+//     var selectResult = $(this).html();
+//     $(this).parent().parent().find('input').val(selectResult);
+//     $('.country').removeClass('active').html(selectResult);
+//     $('.country_cont').removeClass('start');
+//     $('.country_cont').addClass('activ_label');
+//     //$('.drop').css('transform', 'scaleY(0)');
+// });
 
-
-
-$('.country_list').find('li').click(function () {
-    var selectResult = $(this).html();
-    $(this).parent().parent().find('input').val(selectResult);
-    $('.country').removeClass('active').html(selectResult);
-    $('.country_cont').removeClass('start');
-    $('.country_cont').addClass('activ_label');
-    //$('.drop').css('transform', 'scaleY(0)');
-});
 $('.country').click(function () {
     var dropBlock = $(this).parent().find('.country_list');
     $('.country_cont').addClass('start');
     if (dropBlock.is(':hidden')) {
         dropBlock.slideDown();
         $(this).addClass('active');
-        $('.country_list').find('li').click(function () {
-            var selectResult = $(this).html();
-            $(this).parent().parent().find('input').val(selectResult);
-            $('.country').removeClass('active').html(selectResult);
-            dropBlock.slideUp();
-        });
+        // $('.country_list').find('li').click(function () {
+        //     console.log("in clickkk 2")
+        //     var selectResult = $(this).html();
+        //     $(this).parent().parent().find('input').val(selectResult);
+        //     $('.country').removeClass('active').html(selectResult);
+        //     dropBlock.slideUp();
+        // });
     } else {
         $(this).removeClass('active');
         $('.country_cont').removeClass('start');
@@ -145,6 +148,24 @@ $('.country').click(function () {
     }
     return false;
 });
+$('.country_cont').on('click', 'li', function () {
+    console.log("2")
+    var dropBlockParent = $(this).parent().parent().find('.country_list');
+    var selectResult = $(this).html();
+    $(this).parent().parent().find('input').val(selectResult);
+    $('.country').removeClass('active').html(selectResult);
+    dropBlockParent.slideUp();
+})
+//
+// $('.country_cont').on('click', 'li', function () {
+//     var dropBlockParent = $(this).parent().parent().find('.country_list');
+//     var selectResult = $(this).html();
+//     $(this).parent().parent().find('input').val(selectResult);
+//     $('.country').removeClass('active').html(selectResult);
+//     dropBlockParent.slideUp();
+// })
+//***************************************
+
 
 // $('.list').click(function () {
 //     $('.general-list').css('display', 'block');

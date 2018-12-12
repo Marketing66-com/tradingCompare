@@ -181,6 +181,7 @@ firstApp.controller('FirstController', function($scope,$window) {
                 if (key == stock1 && ($scope.crypto5 == undefined && typeof $scope.crypto5 == "undefined")) {
                     //console.log("1")
                     $scope.crypto5 = {}
+                    $scope.crypto5.pair = stock1
                     $scope.crypto5.name = "Facebook"
                     $scope.crypto5.price = $scope.bar_object[key]
                     $scope.barstock[key] = {}
@@ -193,6 +194,7 @@ firstApp.controller('FirstController', function($scope,$window) {
                 else if (key == stock2 && ($scope.crypto6 == undefined && typeof $scope.crypto6 == "undefined")) {
                     //console.log("2")
                     $scope.crypto6 = {}
+                    $scope.crypto6.pair = stock2
                     $scope.crypto6.name = "Apple"
                     $scope.crypto6.price = $scope.bar_object[key]
                     $scope.barstock[key] = {}

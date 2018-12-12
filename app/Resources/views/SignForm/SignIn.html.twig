@@ -1,0 +1,73 @@
+<div class="my-modal modal_sigh-in v-modal">
+    <div class="modal_scroll">
+        <div class="my-modal_cont-left">
+            <img class="my-modal_cont-left_img" src='{{asset("img/signin/bg_sign_in.png")}}' alt="bg_sign_up">
+            <a href="http://trading.venhrun.com" class="logo-text modal_header-left">
+                <img src='{{asset("img/logo_white.png")}}' class="top-logo " alt="logo">
+            </a>
+            <div class="modal_left-content">
+                <h1 class="modal_heder">{{ 'popup.signin'|trans }}</h1>
+                <div class="modal-cont-text ms-none">
+                    <div class="modal_check-marks">
+                        <p><i class="fas fa-check"></i></p>
+                    </div>
+                    <p class="modal-text">{{ 'popup.check_text1'|trans }}</p>
+                </div>
+                <div class="modal-cont-text ms-none">
+                    <div class="modal_check-marks">
+                        <p><i class="fas fa-check"></i></p>
+                    </div>
+                    <p class="modal-text">{{ 'popup.check_text2'|trans }}</p>
+                </div>
+                <div class="modal-cont-text ms-none">
+                    <div class="modal_check-marks">
+                        <p><i class="fas fa-check"></i></p>
+                    </div>
+                    <p class="modal-text">{{ 'popup.check_text3'|trans }}</p>
+                </div>
+                <div class="modal-cont-text ms-none">
+                    <div class="modal_check-marks">
+                        <p><i class="fas fa-check"></i></p>
+                    </div>
+                    <p class="modal-text">{{ 'popup.check_text4'|trans }}</p>
+                </div>
+                <div class="modal-cont-text ms-none">
+                    <div class="modal_check-marks">
+                        <p><i class="fas fa-check"></i></p>
+                    </div>
+                    <p class="modal-text">{{ 'popup.check_text5'|trans }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="my-modal_cont-right">
+
+            <a class="close_modal"><i class="fas fa-plus"></i></a>
+            <div class="modal_right-content">
+                <form class="form-card">
+                    <div class="form-element form-input">
+                        <input  class="form-element-input" placeholder=" " type="email" required/>
+                        <div class="form-element-bar"></div>
+                        <label class="form-element-label" >{{ 'popup.email'|trans }}</label>
+                    </div>
+                    <div class="form-element form-input">
+                        <input  class="form-element-input form-element-input_password" placeholder=" " type="password" required/>
+                        <div class="form-element-bar"></div>
+                        <label class="form-element-label" >{{ 'popup.password'|trans }}</label>
+                    </div>
+                    <div class="form-element form-input">
+                        <label class="remember"><input class="remember_input" type="checkbox"> <span class="remember_span">{{ 'popup.remember_me'|trans }}</span></label>
+                    </div>
+                    <div class="form_bottom create_margin">
+                        <button class="form-btn" type="submit">{{ 'popup.button_sign_in'|trans }}</button>
+                        <a class="form_cliking create"><span class="form_cliking_decoration">{{ 'popup.create_account'|trans }}</span></a>
+                    </div>
+                </form>
+                <div class="form_soz-cont">
+                    <p class="form_soz-cont_text">{{ 'popup.connect_with'|trans }} -</p>
+                    <a class="form_soz-cont_icon footer_soz_icon_youtube"><i class="fab fa-google"></i></a>
+                    <a class="form_soz-cont_icon footer_soz_icon_faceebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

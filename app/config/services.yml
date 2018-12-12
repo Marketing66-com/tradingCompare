@@ -58,3 +58,4 @@ services:
     AppBundle\SDK\ApiClient:
         arguments: ["%xosignals_api_base_uri%"]
         public: true
+
