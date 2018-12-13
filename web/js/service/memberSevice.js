@@ -13,6 +13,18 @@ angular.module('memberService', [])
             });
         };
 
+        var sendPostHttpRequest = function (url, token, data) {
+            $http.defaults.headers.common.Authorization = `Bearer ${token}`;
+
+            return new Promise(function (resolve, reject) {
+                $http.post(url, data).then(function(response){
+                    resolve(response);
+                }).catch(function (error) {
+                    reject(error);
+                });
+            });
+        };
+
         var getSampleSecuredPage = function (token) {
             const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/secured`;
 
@@ -26,19 +38,15 @@ angular.module('memberService', [])
         };
 
         var getLocation = function () {
-            const url = 'https://xosignals.herokuapp.com/get-location'
+            const url = 'http://api.ipstack.com/check?access_key=63abaa19691754779cebd0addbfe2914'
 
             return new Promise(function (resolve, reject) {
                 $http.get(url).then(function (response) {
-
-                    //console.log("*******************1564865",response.data.country)
-                    resolve(response.data.country);
+                    resolve(response.data);
                 }).catch(function (error) {
                     reject(error);
                 });
-
             });
-
         }
 
         var is_nickname_exist = function (nickname) {
@@ -50,15 +58,41 @@ angular.module('memberService', [])
                 }).catch(function (error) {
                     reject(error);
                 });
-
             });
         }
 
+        var createUser = function (user) {
+            const url = "https://xosignals.herokuapp.com/trading-compare-v2/createUser"
+
+            return new Promise(function (resolve, reject) {
+                $http.post(url, user, config).then(function(response){
+                     resolve(response);
+                }).catch(function (error) {
+                    reject(error);
+                });
+            });
+        }
+
+        var sendVerifyCode = function (token,user) {
+            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/send-user-verify-code`;
+
+            return sendPostHttpRequest(url, token, user);
+        }
+
+        var updateUser = function (token, update_data) {
+            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/update_fields`;
+
+            return sendPostHttpRequest(url, token, update_data);
+        }
 
         return {
             getSampleSecuredPage: getSampleSecuredPage,
+            sendPostHttpRequest:sendPostHttpRequest,
             getSentimentsByUser: getSentimentsByUser,
             getLocation:getLocation,
-            is_nickname_exist:is_nickname_exist
+            is_nickname_exist:is_nickname_exist,
+            createUser:createUser,
+            sendVerifyCode:sendVerifyCode,
+            updateUser:updateUser
         };
     });

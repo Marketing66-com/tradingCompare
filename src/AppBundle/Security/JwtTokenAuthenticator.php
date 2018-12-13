@@ -13,6 +13,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use Firebase\JWT\ExpiredException;
 use Firebase\JWT\JWT;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
@@ -35,12 +36,17 @@ class JwtTokenAuthenticator extends AbstractGuardAuthenticator
      * @var EntityManager
      */
     private $entityManager;
+    /**
+     * @var LoggerInterface
+     */
+    private $logger;
 
-    public function __construct(EntityManager $entityManager, ResponseFactory $responseFactory)
+    public function __construct(EntityManager $entityManager, ResponseFactory $responseFactory, LoggerInterface $logger)
     {
         $this->responseFactory = $responseFactory;
         $this->entityManager = $entityManager;
         $this->userRepository = $this->entityManager->getRepository(User::class);
+        $this->logger = $logger;
     }
 
     public function start(Request $request, AuthenticationException $authException = null)
@@ -89,7 +95,7 @@ class JwtTokenAuthenticator extends AbstractGuardAuthenticator
         if(empty($jwt->sub)) {
             throw new CustomUserMessageAuthenticationException('Invalid Token');
         }
-
+        $this->logger->error(print_r($jwt, true));
         $uid = $jwt->sub;
 
         $user = $this->userRepository->findOneBy(['identifier' => $uid]);
@@ -98,10 +104,22 @@ class JwtTokenAuthenticator extends AbstractGuardAuthenticator
         if(!$user) {
             $user = new User();
 
-            $user->setName($jwt->name)
+            if (property_exists($jwt, 'name')) {
+                $name = $jwt->name;
+            } else {
+                $name = 'anonymous';
+            }
+
+            if (property_exists($jwt, 'picture')) {
+                $picture = $jwt->picture;
+            } else {
+                $picture = '';
+            }
+
+            $user->setName($name)
                 ->setEmail($jwt->email)
-                ->setIdentifier($jwt->user_id)
-                ->setPicture($jwt->picture);
+                ->setIdentifier($uid)
+                ->setPicture($picture);
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();

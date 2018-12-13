@@ -47,6 +47,33 @@ class ApiClient
     }
 
     /**
+     * @param $user
+     *
+     * @return array|mixed
+     * @throws Exception
+     */
+    public function sendVerifyCode(array $user)
+    {
+        $uri = 'trading-compare-v2/send-user-verify-code/';
+
+        return $this->doPostRequest($uri, $user);
+    }
+
+    /**
+     * @param $fields
+     *
+     * @return array|mixed
+     * @throws Exception
+     */
+    public function updateFields(array $fields)
+    {
+        $uri = 'trading-compare-v2/update-fields/';
+
+        return $this->doPostRequest($uri, $fields);
+    }
+
+
+    /**
      * Helper method to send GET requests
      *
      * @param      $url
