@@ -41,7 +41,7 @@ SocialApp.controller("SocialController", function ($scope, $http) {
         $http.get("https://xosignals.herokuapp.com/search/"+ symbol +"/en")
             .then(function(response) {
                 $scope.all_tweets_total = response.data.data.statuses;
-                //console.log("**init tweets**", response.data.data.statuses)
+                console.log("**init tweets**", response.data.data.statuses)
 
                 $scope.itemsPerPage = 10;
                 $scope.currentPage = 0;
@@ -56,6 +56,7 @@ SocialApp.controller("SocialController", function ($scope, $http) {
                 });
 
                 $scope.all_tweets =  $scope.offset($scope.currentPage*$scope.itemsPerPage, $scope.itemsPerPage);
+                console.log("all_tweets",$scope.all_tweets.length )
 
             },function errorCallback(response) {
                 console.log("**error**","$scope.all_tweets_total",$scope.all_tweets_total)
