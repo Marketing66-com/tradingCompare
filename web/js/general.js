@@ -85,6 +85,17 @@ $('.burger').click(function () {
 // });
 
 $(".close_modal").click(function () {
+    var selectResult = " "
+    $('.country').removeClass('active').html(selectResult);
+    $('.modal_sigh-up').slideUp();
+    $('.modal_sigh-in').slideUp();
+});
+// $(".color-aqua_form").on('click', function () {
+//     console.log("in")
+//     $('.modal_sigh-up').slideUp();
+//     $('.modal_sigh-in').slideUp();
+// });
+$('.switch').on('click', '.color-aqua_form', function () {
     $('.modal_sigh-up').slideUp();
     $('.modal_sigh-in').slideUp();
 });
@@ -107,37 +118,47 @@ $(".close_modal").click(function () {
 $(".form_cliking_decoration").click(function () {
     $('.modal_sigh-up').slideDown();
 });
+$('.switch').on('click', '.form_cliking_decoration', function () {
+    $('.modal_sigh-up').slideDown();
+})
 
-$(".form_cliking_decoration_popup").click(function () {
+
+$(".form_cliking_decoration_popup").on('click', function () {
     $('.modal_sigh-up').slideUp();
 });
+$('.switch').on('click', '.form_cliking_decoration_popup', function () {
+    $('.modal_sigh-up').slideUp();
+})
+
 
 // login button, get the sign in
 $(".v-btn").click(function () { $('.v-modal').slideDown(); });
 
-
-
-
-$('.country_list').find('li').click(function () {
-    var selectResult = $(this).html();
-    $(this).parent().parent().find('input').val(selectResult);
-    $('.country').removeClass('active').html(selectResult);
-    $('.country_cont').removeClass('start');
-    $('.country_cont').addClass('activ_label');
-    //$('.drop').css('transform', 'scaleY(0)');
-});
+//
+// $('.country_list').find('li').click(function () {
+//     console.log("1")
+//     var selectResult = $(this).html();
+//     $(this).parent().parent().find('input').val(selectResult);
+//     $('.country').removeClass('active').html(selectResult);
+//     $('.country_cont').removeClass('start');
+//     $('.country_cont').addClass('activ_label');
+//     //$('.drop').css('transform', 'scaleY(0)');
+// });
+//
 $('.country').click(function () {
+    //console.log("in click general")
     var dropBlock = $(this).parent().find('.country_list');
     $('.country_cont').addClass('start');
     if (dropBlock.is(':hidden')) {
         dropBlock.slideDown();
         $(this).addClass('active');
-        $('.country_list').find('li').click(function () {
-            var selectResult = $(this).html();
-            $(this).parent().parent().find('input').val(selectResult);
-            $('.country').removeClass('active').html(selectResult);
-            dropBlock.slideUp();
-        });
+        // $('.country_list').find('li').click(function () {
+        //     console.log("in clickkk 2")
+        //     var selectResult = $(this).html();
+        //     $(this).parent().parent().find('input').val(selectResult);
+        //     $('.country').removeClass('active').html(selectResult);
+        //     dropBlock.slideUp();
+        // });
     } else {
         $(this).removeClass('active');
         $('.country_cont').removeClass('start');
@@ -145,6 +166,49 @@ $('.country').click(function () {
     }
     return false;
 });
+$('.country_cont').on('click', 'li', function () {
+   // console.log("2")
+    var dropBlockParent = $(this).parent().parent().find('.country_list');
+    var selectResult = $(this).html();
+    $(this).parent().parent().find('input').val(selectResult);
+    $('.country').removeClass('active').html(selectResult);
+    dropBlockParent.slideUp();
+})
+//***************************************
+$('.switch').on('click', '.country', function () {
+   // console.log("in click 2")
+    var dropBlock = $(this).parent().find('.country_list');
+    $('.country_cont').addClass('start');
+    if (dropBlock.is(':hidden')) {
+        dropBlock.slideDown();
+        $(this).addClass('active');
+    } else {
+        $(this).removeClass('active');
+        $('.country_cont').removeClass('start');
+        dropBlock.slideUp();
+    }
+    return false;
+
+})
+$('.switch').on('click', 'li', function () {
+   // console.log("in click li")
+    var dropBlockParent = $(this).parent().parent().find('.country_list');
+    var selectResult = $(this).html();
+    $(this).parent().parent().find('input').val(selectResult);
+    $('.country').removeClass('active').html(selectResult);
+    dropBlockParent.slideUp();
+})
+
+//
+// $('.country_cont').on('click', 'li', function () {
+//     var dropBlockParent = $(this).parent().parent().find('.country_list');
+//     var selectResult = $(this).html();
+//     $(this).parent().parent().find('input').val(selectResult);
+//     $('.country').removeClass('active').html(selectResult);
+//     dropBlockParent.slideUp();
+// })
+//***************************************
+
 
 // $('.list').click(function () {
 //     $('.general-list').css('display', 'block');

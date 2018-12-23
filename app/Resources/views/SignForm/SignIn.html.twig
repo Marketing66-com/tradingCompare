@@ -1,0 +1,117 @@
+<div class="my-modal modal_sigh-in v-modal">
+    <div class="modal_scroll">
+        <div class="my-modal_cont-left">
+            <img class="my-modal_cont-left_img" src='{{asset("img/signin/bg_sign_in.png")}}' alt="bg_sign_up">
+            <a href="http://trading.venhrun.com" class="logo-text modal_header-left">
+                <img src='{{asset("img/logo_white.png")}}' class="top-logo " alt="logo">
+            </a>
+            <div class="modal_left-content">
+                <h1 class="modal_heder">{{ 'popup.signin'|trans }}</h1>
+                <div class="modal-cont-text ms-none">
+                    <div class="modal_check-marks">
+                        <p><i class="fas fa-check"></i></p>
+                    </div>
+                    <p class="modal-text">{{ 'popup.check_text1'|trans }}</p>
+                </div>
+                <div class="modal-cont-text ms-none">
+                    <div class="modal_check-marks">
+                        <p><i class="fas fa-check"></i></p>
+                    </div>
+                    <p class="modal-text">{{ 'popup.check_text2'|trans }}</p>
+                </div>
+                <div class="modal-cont-text ms-none">
+                    <div class="modal_check-marks">
+                        <p><i class="fas fa-check"></i></p>
+                    </div>
+                    <p class="modal-text">{{ 'popup.check_text3'|trans }}</p>
+                </div>
+                <div class="modal-cont-text ms-none">
+                    <div class="modal_check-marks">
+                        <p><i class="fas fa-check"></i></p>
+                    </div>
+                    <p class="modal-text">{{ 'popup.check_text4'|trans }}</p>
+                </div>
+                <div class="modal-cont-text ms-none">
+                    <div class="modal_check-marks">
+                        <p><i class="fas fa-check"></i></p>
+                    </div>
+                    <p class="modal-text">{{ 'popup.check_text5'|trans }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="my-modal_cont-right">
+
+            <a class="close_modal" ng-click="reset(sign_in)"><i class="fas fa-plus"></i></a>
+
+            {#<div ng-switch="signin" class="switch">#}
+
+            {#<div ng-switch-when="0" class="modal_right-content">#}
+            <div class="modal_right-content">
+                <form name="sign_in" class="form-card">
+
+                    {#<div class="form-element form-input">#}
+                        {#<input  class="form-element-input" placeholder=" " type="email" required/>#}
+                        {#<div class="form-element-bar"></div>#}
+                        {#<label class="form-element-label" >{{ 'popup.email'|trans }}</label>#}
+                    {#</div>#}
+                    {#*** EMAIL#}
+                    <div class="form-element form-input">
+                        <input  class="form-element-input" placeholder=" " type="email" autocomplete="off" ng-model="user.email" name="uEmail_signin" required=""/>
+                        <div class="form-element-bar"></div>
+                        <label class="form-element-label" >{{ 'popup.email'|trans }}</label>
+                    </div>
+                    {#*** SHOW EMAIL#}
+                    <div style="color:red" ng-show="sign_in.$submitted || sign_in.uEmail_signin.$touched">
+                        <span ng-show="sign_in.uEmail_signin.$error.required">*Email is missing</span>
+                        <span ng-show="sign_in.uEmail_signin.$error.email">*Invalid email address</span>
+                    </div>
+
+                    {#<div class="form-element form-input">#}
+                        {#<input  class="form-element-input form-element-input_password" placeholder=" " type="password" required/>#}
+                        {#<div class="form-element-bar"></div>#}
+                        {#<label class="form-element-label" >{{ 'popup.password'|trans }}</label>#}
+                    {#</div>#}
+                    {#*** PASSWORD#}
+                    <div class="form-element form-input">
+                        <input  class="form-element-input form-element-input_password" placeholder=" " ng-model="user.password" autocomplete="off"
+                                type="password"  name="uPassword_signin" required=""/>
+                        <div class="form-element-bar"></div>
+                        <label class="form-element-label" >{{ 'popup.password'|trans }}</label>
+                    </div>
+                    {#*** SHOW PASSWORD#}
+                    <div style="color:red" ng-show="sign_in.$submitted || sign_in.uPassword_signin.$touched">
+                        <span ng-show="sign_in.uPassword_signin.$error.required">*Password is missing</span>
+                        {#<span class="error" ng-show="form.uPassword.$error.minlength">*Password must be minimum 6 characters</span>#}
+                    </div>
+                    <div style="color:red">{[{ error_message_signIn }]}</div>
+                    {#<div class="form-element form-input">#}
+                        {#<label class="remember"><input class="remember_input" type="checkbox"> <span class="remember_span">{{ 'popup.remember_me'|trans }}</span></label>#}
+                    {#</div>#}
+                    <div class="form_bottom create_margin">
+                        {#<button class="form-btn" type="submit">{{ 'popup.button_sign_in'|trans }}</button>#}
+                        <button class="form-btn " [disabled]="sign_in.invalid" type="submit" ng-click="signIn(user,sign_in)">
+                            <span data-ng-hide="loading"> {{ 'popup.button_sign_in'|trans }}  </span>
+                            <span data-ng-show="loading"> Checking <i class="fa fa-spinner fa-spin"></i> </span>
+                        </button>
+                        <a class="form_cliking create"><span class="form_cliking_decoration">{{ 'popup.create_account'|trans }}</span></a>
+                    </div>
+                </form>
+                <div class="form_soz-cont">
+                    <p class="form_soz-cont_text">{{ 'popup.connect_with'|trans }} -</p>
+                    <a class="form_soz-cont_icon footer_soz_icon_youtube" type="submit" ng-click="SignInProvider('google')"><i class="fab fa-google"></i></a>
+                    <a class="form_soz-cont_icon footer_soz_icon_faceebook" type="submit" ng-click="SignInProvider('facebook')"><i class="fab fa-facebook-f"></i></a>
+
+                    {#<a class="form_soz-cont_icon footer_soz_icon_youtube"><i class="fab fa-google"></i></a>#}
+                    {#<a class="form_soz-cont_icon footer_soz_icon_faceebook"><i class="fab fa-facebook-f"></i></a>#}
+                </div>
+            </div>
+            {#<div ng-switch-when="1" class="modal_right-content">#}
+                {#<h1 style="margin-top: -15%;" class="sign_form_title">Welcome to TradingCompare!</h1>#}
+                {#<h1 style="text-align: center;" class="color-aqua_form">&rArr; Start trading</h1>#}
+            {#</div>#}
+            {#</div>#}
+        </div>
+    </div>
+</div>
+
+

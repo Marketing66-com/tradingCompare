@@ -45,7 +45,7 @@ firstApp.controller('FirstController', function($scope,$window) {
             type: "GET",
 
             success: function (result) {
-                //console.log("Response-forex", result)
+                //console.log("Response-forex api", result)
                 $scope.crypto1 = result[forex_from1 + forex_to1]
                 $scope.crypto2 = result[forex_from2 + forex_to2]
                 // for (var key in result) {
@@ -121,7 +121,8 @@ firstApp.controller('FirstController', function($scope,$window) {
         var socket2 =  io.connect('https://forex.tradingcompare.com', {'force new connection': true});
         socket2.on('connect', function () {
 
-            socket2.emit('room', ["EURUSD", "USDJPY"]);
+            // socket2.emit('room', ["EURUSD", "USDJPY"]);
+            socket2.emit('room', "EURUSD");
             socket2.on("message", function (response) {
                 //console.log("response forex",response)
                 if(response.pair == forex_from1 + forex_to1) {
@@ -181,6 +182,7 @@ firstApp.controller('FirstController', function($scope,$window) {
                 if (key == stock1 && ($scope.crypto5 == undefined && typeof $scope.crypto5 == "undefined")) {
                     //console.log("1")
                     $scope.crypto5 = {}
+                    $scope.crypto5.pair = stock1
                     $scope.crypto5.name = "Facebook"
                     $scope.crypto5.price = $scope.bar_object[key]
                     $scope.barstock[key] = {}
@@ -193,6 +195,7 @@ firstApp.controller('FirstController', function($scope,$window) {
                 else if (key == stock2 && ($scope.crypto6 == undefined && typeof $scope.crypto6 == "undefined")) {
                     //console.log("2")
                     $scope.crypto6 = {}
+                    $scope.crypto6.pair = stock2
                     $scope.crypto6.name = "Apple"
                     $scope.crypto6.price = $scope.bar_object[key]
                     $scope.barstock[key] = {}

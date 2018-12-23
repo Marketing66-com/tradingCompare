@@ -74,6 +74,8 @@ CryptoApp.controller('ListController', function($scope,$window){
 
                 $scope.filteredItems = itemsDetails.slice(begin, end);
                 $scope.$apply()
+
+                // HERE
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)

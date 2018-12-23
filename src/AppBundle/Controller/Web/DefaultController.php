@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\BrowserKit\Response;
 
+use AppBundle\Service\MessageGenerator;
+
 class DefaultController extends Controller
 {
     /**
@@ -20,6 +22,16 @@ class DefaultController extends Controller
     {
         return $this->render('firebaseui.html.twig');
     }
+
+    /**
+     *  * @Route("/sample_page", name="sample_firebase_angular", options={"i18n"=false})
+     */
+    public function samplePageAction(MessageGenerator $messageGenerator)
+    {
+        return $this->render(':default:sample_page.html.twig');
+    }
+
+
     /**
      *
      * @Route("/changelanguage/{langCode}", name="changelanguage")
@@ -220,8 +232,11 @@ class DefaultController extends Controller
      */
     public function HomeAction()
     {
-
         return $this->render('base.html.twig');
+//        $petsJson = file_get_contents('js/countries.json');
+//        $pets = json_encode($petsJson);
+//        $hello="hello";
+//        return $this->render('base.html.twig',array("json"=>$pets));
     }
 
 
@@ -275,7 +290,7 @@ class DefaultController extends Controller
      */
     public function autocompleteAction()
     {
-        return $this->render('default/autocompletetest.html.twig');
+        return $this->render('default/test/signup.html.twig');
     }
 
 
