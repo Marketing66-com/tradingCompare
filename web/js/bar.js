@@ -45,7 +45,7 @@ firstApp.controller('FirstController', function($scope,$window) {
             type: "GET",
 
             success: function (result) {
-                //console.log("Response-forex", result)
+                //console.log("Response-forex api", result)
                 $scope.crypto1 = result[forex_from1 + forex_to1]
                 $scope.crypto2 = result[forex_from2 + forex_to2]
                 // for (var key in result) {
@@ -121,7 +121,8 @@ firstApp.controller('FirstController', function($scope,$window) {
         var socket2 =  io.connect('https://forex.tradingcompare.com', {'force new connection': true});
         socket2.on('connect', function () {
 
-            socket2.emit('room', ["EURUSD", "USDJPY"]);
+            // socket2.emit('room', ["EURUSD", "USDJPY"]);
+            socket2.emit('room', "EURUSD");
             socket2.on("message", function (response) {
                 //console.log("response forex",response)
                 if(response.pair == forex_from1 + forex_to1) {

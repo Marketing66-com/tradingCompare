@@ -70,4 +70,34 @@ class MemberSpaceController extends BaseController
         return new JsonResponse($response);
     }
 
+    /**
+     * @Security("is_granted('ROLE_USER')")
+     * @Route("/check_code", name="check_code", options={"i18n"=false})
+     * @Method("POST")
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function check_code(Request $request)
+    {
+        $content = $request->getContent();
+        $data = json_decode($content, true);
+        $response= $this->get(ApiClient::class)->check_code($data);
+        return new JsonResponse($response);
+    }
+
+    /**
+     * @Security("is_granted('ROLE_USER')")
+     * @Route("/get-user-by-id", name="get-user-by-id", options={"i18n"=false})
+     * @Method("POST")
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function get_user_by_id(Request $request)
+    {
+        $content = $request->getContent();
+        $data = json_decode($content, true);
+        $response= $this->get(ApiClient::class)->getUserById($data);
+        return new JsonResponse($response);
+    }
+
 }

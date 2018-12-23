@@ -102,17 +102,21 @@
                         {#</ul>#}
                     </div>
 
-
-                    <a class="login-btn log sm-none v-btn" >{{ 'button.login'|trans }}</a>
-                    {#<ul class="out sm-none">#}
-                        {#<li ><a href="{{ path('terms') }}">Victoria K.</a> <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span>#}
-                            {#<ul>#}
-                                {#<li class="out my-log-out"> Log out </li>#}
-                                {#<li class="out my-log-in"> Profil </li>#}
-                                {#<li class="out my-log-up"> Sign up </li>#}
-                            {#</ul>#}
-                        {#</li>#}
-                    {#</ul>#}
+                    <div id="dvLogButton" class="ng-cloak" style="float: left">
+                        <div ng-controller="LogButton">
+                                <a ng-if="!userLoggedIn" class="login-btn log sm-none v-btn" >{{ 'button.login'|trans }}</a>
+                            {#<a class="login-btn log sm-none v-btn" >{{ 'button.login'|trans }}</a>#}
+                                <ul ng-if="userLoggedIn" class="out sm-none" style="min-width: 90px;">
+                                    <li ><a href="{{ path('terms') }}">{[{ user.full_name }]}</a> <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span>
+                                        <ul>
+                                            <li class="out my-log-out"> Log out </li>
+                                            <li class="out my-log-in"> Profil </li>
+                                            <li class="out my-log-up"> Sign up </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
 
 
 
@@ -172,8 +176,7 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/service/memberSevice.js') }}"></script>
-    <script src="{{ asset('js/factory/createUser.js') }}"></script>
+
 
     {% block body %}
         {#{{ include('LiveFeedBundle:Default:searchInstruments.html.twig') }}#}
@@ -292,7 +295,9 @@
     // firebase.initializeApp(config);
 </script>
 <script  src="{{ asset('js/Sign_Form.js') }}"> </script>
-
+<script src="{{ asset('js/service/memberSevice.js') }}"></script>
+<script src="{{ asset('js/factory/createUser.js') }}"></script>
+<script src="{{ asset('modules/loginButton/js/script.js') }}"></script>
 {% block javascripts %}
 
 <script>

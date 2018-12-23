@@ -72,6 +72,34 @@ class ApiClient
         return $this->doPostRequest($uri, $fields);
     }
 
+    /**
+     * @param $code
+     *
+     * @return array|mixed
+     * @throws Exception
+     */
+    public function check_code(array $code)
+    {
+        $uri = 'trading-compare-v2/matchUserVerifyCode/';
+
+        return $this->doPostRequest($uri, $code);
+    }
+
+    /**
+     * @param $id
+     *
+     * @return array|mixed
+     * @throws Exception
+     */
+    public function getUserById(array $id)
+    {
+        $uri = 'trading-compare-v2/getUsersById';
+
+        return $this->doPostRequest($uri, $id);
+    }
+
+
+
 
     /**
      * Helper method to send GET requests
@@ -191,7 +219,7 @@ class ApiClient
         }
 
         if (!empty($formParams)) {
-            $options['form_params'] = $formParams;
+            $options['json'] = $formParams;
         }
 
         if (!empty($multipart)) {

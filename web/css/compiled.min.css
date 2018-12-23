@@ -69,7 +69,7 @@
 .close_modal {position: absolute;right: 20%;top: 20px;color: #C6C5C5;font-size: 24px;transform: rotate(45deg);}
 .close_modal:hover {color: #12A6F9;cursor: pointer;}
 .form-btn {position: absolute;bottom: 0;left: 0;line-height: 35px;padding: 0 30px;border-radius: 20px;border: none;display: table;color: white;background-color: #12A6F9;font-size: 18px;font-weight: 400;font-family: 'Open Sans', sans-serif;float: left;border: 1px solid transparent;transition: 0.3s all;}
-.form-btn:hover, .form-btn:focus, .form-btn:active {outline: none;}
+.form-btn:hover, .form-btn:focus, .form-btn:active , .form-btn_codever:hover, .form-btn_codever:focus, .form-btn_codever:active{outline: none;}
 .form_cliking, .form_info {color: #C6C5C5;font-size: 14px;font-weight: 400;font-family: 'Open Sans', sans-serif;text-align: center;}
 .create {font-size: 14px;margin: 0 auto !important;line-height: 35px;}
 .create_margin {margin-bottom: 55px;}
@@ -108,6 +108,71 @@
 input.form-element-input:not(:placeholder-shown) ~ .form-element-label,
 textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {transform: translateY(-150%) translateY(-0.5em) translateY(-2px);cursor: pointer;pointer-events: auto;}
 .form-element-input_password {color: #12A6F9;}
+.form-element-input_telephone
+{outline: none;
+    display: inline-block;
+    background: #d8d8d8;
+    border: none;
+    line-height: 30px;
+    padding-left: 5px;
+    width: 10%;
+    color: #2B2B2B;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: none;
+    height: 50px;
+    transition: 0.3s all;
+    text-align: center;}
+.sign_form_title{
+    color: black;
+    font-size: 32px;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    }
+.sign_form_subtitle
+{   color: black;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    color: #9b9b9b;}
+.tel_num_title{
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    margin-top: -20%;
+    margin-bottom: 15%;
+}
+.form-btn_codever {
+    position: inherit;
+    line-height: 35px;
+    padding: 0 30px;
+    border-radius: 20px;
+    border: none;
+    /*display: table;*/
+    color: white;
+    background-color: #12A6F9;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    /*float: left;*/
+    border: 1px solid transparent;
+    transition: 0.3s all;
+    margin-top: 10px;}
+.color-aqua_form {
+    color: #6AE5F5;
+    text-align: center;
+    font-size: 36px;
+}
+.color-aqua_form:hover {
+    color: #6AE5F5;
+    cursor: pointer;
+    text-decoration: underline;
+}
 
 /*form*/
 
@@ -148,7 +213,7 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
 .border-none {border: none}
 
 .review_visit-btn:hover, .login-btn:hover, .comment_btn:hover,
-.review_more-btn:hover, .form-btn:hover,
+.review_more-btn:hover, .form-btn:hover, .form-btn_codever:hover,
 .review_collection_visit-btn:hover, .btcoin_btn:hover, .live_trade-btn:hover {
     text-decoration: none;color: #12A6F9;background-color: white;border: 1px solid #12A6F9;cursor: pointer;}
 
@@ -223,6 +288,7 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
 @media (max-width: 1200px) {
     .modal_right-content {width: 90%;}
     .close_modal {right: 10%;}
+    /*.form-element-input_telephone{width: 23%;}*/
 }
 
 @media (max-width: 991px) {
@@ -244,6 +310,8 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
     .menu{display:none;}
     .col-sm-none{display:none;}
     .col-sm-block,.col-sm-block{display:block;}
+
+    /*.form-element-input_telephone{width: 22%;}*/
 }
 
 @media (max-width: 767px) {

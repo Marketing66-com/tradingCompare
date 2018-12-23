@@ -49,10 +49,152 @@
 
             <a class="close_modal" href="" ng-click="reset(form)"><i class="fas fa-plus"></i></a>
 
-            <div ng-switch="template">
+            <div ng-switch="template" class="switch">
+                <a class="close_modal" href="" ng-click="reset(form)"><i class="fas fa-plus"></i></a>
+                {#// 4 #}
+                <div ng-switch-when="4" class="modal_right-content">
+                    <h1 style="margin-top: -15%;" class="sign_form_title">Welcome to TradingCompare!</h1>
+                    <h1 style="text-align: center;" class="color-aqua_form">&rArr; Start trading</h1>
+                </div>
 
-            <div ng-switch-when="1" class="modal_right-content" >A code has been send to you</div>
+                {#// 3 #}
+                <div ng-switch-when="3" class="modal_right-content" >
+                    <h1 class="tel_num_title">Please enter your phone number to receive an SMS verification code</h1>
+                    <form name="Change_Telform" style="border: none" class="css-form form-card"  novalidate>
 
+                        {#*** COUNTRY#}
+                        <div class="form-element form-input">
+                            <div class="country_cont" style="cursor: pointer">
+
+                                <a href="#" class="country" style="cursor: pointer">
+                                    <input id="input_country_change" class="form-element-input" autocomplete="off" placeholder="" type="text" ng-model="user.countryData.country" name="uCountryChange"
+                                           required=""/>
+                                </a>
+                                <p class="contry_array"><i class="fas fa-caret-down"></i></p>
+                                <div class="form-element-bar" ></div>
+
+                                <ul id="my_ul_change" class="country_list" style="width: 100%; height: 200px; overflow: auto">
+                                    <li class="thelis" ng-repeat="x in sign_up_countries | orderBy : 'name'| limitTo: numLimit" ng-click="setValue(x)" ng-model="user.countryData.country">
+                                        <img class="language-img" src='{{asset("img/square-flags/png/{[{x.img}]}.png")}}' alt="gb"> {[{x.name}]}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {#*** TEL#}
+                        <div class="col-md-2 col-sm-2 col-xs-1 form-element form-input" style="padding-left: 0;padding-right: 0; margin-top: 0;margin-bottom: 40px;">
+                            <input  class="form-element-input" placeholder=" " type="text" ng-model="user.countryData.dial_code" name="uDialChange" required="" ng-disabled="isDisabled"/>
+                            <div class="form-element-bar"></div>
+                            <label class="form-element-label_tel" ></label>
+                        </div>
+                        <div class="col-md-10 col-sm-10 col-xs-11 form-element form-input" style="padding-left: 0;padding-right: 0; margin-top: 0; margin-bottom: 40px;">
+                            <input  class="form-element-input" placeholder=" " autocomplete="off" type="text"   ng-minlength="5" ng-model="user.phone_number" name="uTelChange" required=""/>
+                            <div class="form-element-bar"></div>
+                            <label class="form-element-label" >PHONE NUMBER</label>
+                        </div>
+                        {#*** SHOW TEL#}
+                        <div style="color:red" ng-show="Change_Telform.$submitted || Change_Telform.uTelChange.$touched">
+                            <span ng-show="Change_Telform.uTelChange.$error.required">*You must enter your Phone number</span>
+                            <span class="error" ng-show="Change_Telform.uTelChange.$error.minlength">*Phone number too short</span>
+                        </div>
+                        <div style="color:red">{[{ error_message }]}</div>
+
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <button  class="form-btn_codever" [disabled]="Change_Telform.invalid" type="submit" ng-click="ChangePhoneNumber(user,Change_Telform)">
+                                    <span data-ng-hide="loading"> SUBMIT  </span>
+                                    <span data-ng-show="loading"> Checking <i class="fa fa-spinner fa-spin"></i> </span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                {#// 2#}
+                <div ng-switch-when="2" class="modal_right-content" >
+                    <h1 class="tel_num_title">Your phone number is invalid, <br> please enter it again</h1>
+                    {#<h1 class="tel_num_title">Please enter your phone number to receive an SMS verification code</h1>#}
+                    <form name="Telform_invalid" style="border: none" class="css-form form-card"  novalidate>
+
+                        {#*** COUNTRY#}
+                        <div class="form-element form-input">
+                            <div class="country_cont" style="cursor: pointer">
+
+                                <a href="#" class="country" style="cursor: pointer">
+                                    <input id="input_country_invalid" class="form-element-input" autocomplete="off" placeholder="" type="text" ng-model="user.countryData.country" name="uCountry_invalid"
+                                           required=""/>
+                                </a>
+                                <p class="contry_array"><i class="fas fa-caret-down"></i></p>
+                                <div class="form-element-bar" ></div>
+
+                                <ul id="my_ul_invalid" class="country_list" style="width: 100%; height: 200px; overflow: auto">
+                                    <li class="thelis" ng-repeat="x in sign_up_countries | orderBy : 'name'| limitTo: numLimit" ng-click="setValue(x)" ng-model="user.countryData.country">
+                                        <img class="language-img" src='{{asset("img/square-flags/png/{[{x.img}]}.png")}}' alt="gb"> {[{x.name}]}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {#*** TEL#}
+                        <div class="col-md-2 col-sm-2 col-xs-1 form-element form-input" style="padding-left: 0;padding-right: 0; margin-top: 0;margin-bottom: 40px;">
+                            <input  class="form-element-input" placeholder=" " type="text" ng-model="user.countryData.dial_code" name="uDial_invalid" required="" ng-disabled="isDisabled"/>
+                            <div class="form-element-bar"></div>
+                            <label class="form-element-label_tel" ></label>
+                        </div>
+                        <div class="col-md-10 col-sm-10 col-xs-11 form-element form-input" style="padding-left: 0;padding-right: 0; margin-top: 0; margin-bottom: 40px;">
+                            <input  class="form-element-input" placeholder=" " autocomplete="off" type="text"   ng-minlength="5" ng-model="user.phone_number" name="uTel_invalid" required=""/>
+                            <div class="form-element-bar"></div>
+                            <label class="form-element-label" >PHONE NUMBER</label>
+                        </div>
+                        {#*** SHOW TEL#}
+                        <div style="color:red" ng-show="Telform_invalid.$submitted || Telform_invalid.uTel_invalid.$touched">
+                            <span ng-show="Telform_invalid.uTel_invalid.$error.required">*You must enter your Phone number</span>
+                            <span class="error" ng-show="Telform_invalid.uTel_invalid.$error.minlength">*Phone number too short</span>
+                        </div>
+                        <div style="color:red">{[{ error_message }]}</div>
+                        <div data-ng-show="wrong_code" style="color:red">*Wrong code!</div>
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <button  class="form-btn_codever" [disabled]="Telform_invalid.invalid" type="submit" ng-click="sendTel(user,Telform_invalid)">
+                                    <span data-ng-hide="loading"> SUBMIT  </span>
+                                    <span data-ng-show="loading"> Checking <i class="fa fa-spinner fa-spin"></i> </span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            {#// 1#}
+            <div ng-switch-when="1" class="modal_right-content" >
+                <h1 class="sign_form_title">Verification Code</h1>
+                <h2 class="sign_form_subtitle">A code has been sent to your phone</h2>
+                <h2 style="margin-top:0;margin-bottom: 40px;" class="sign_form_subtitle">Enter the 4 digits received:</h2>
+                <form name="Codeform" style="border: none" class="css-form form-card"  novalidate>
+                    <div class="row">
+                        <div  style="margin-bottom: 35px;" class="col-sm-12 text-center form-element form-input ">
+                                <input  class="form-element-input_telephone sign_form_title" autocomplete="off" type="text" maxlength="1" ng-model="uCode1" name="uCode" move-next-on-maxlength required=""/>
+                                <input  class="form-element-input_telephone sign_form_title" autocomplete="off" type="text" maxlength="1" ng-model="uCode2" name="uCode" move-next-on-maxlength required=""/>
+                                <input  class="form-element-input_telephone sign_form_title" autocomplete="off" type="text" maxlength="1" ng-model="uCode3" name="uCode" move-next-on-maxlength required=""/>
+                                <input  class="form-element-input_telephone sign_form_title" autocomplete="off" type="text" maxlength="1" ng-model="uCode4" name="uCode" required=""/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <div style="color:red">{[{ error_message }]}</div>
+                            <div data-ng-show="wrong_code" style="color:red">*Wrong code!</div>
+                            <div data-ng-show="code_incomplete" style="color:red">*Code incomplete</div>
+                            <div data-ng-show="code_already_sent" style="color:red">A code has already been sent to you, please check your SMS</div>
+                            <button  class="form-btn_codever" [disabled]="Codeform.invalid" type="submit" ng-click="CodeVerify(user,Codeform,uCode1,uCode2,uCode3,uCode4)">
+                                <span data-ng-hide="loading"> SUBMIT  </span>
+                                <span data-ng-show="loading"> Checking <i class="fa fa-spinner fa-spin"></i> </span>
+                            </button>
+                            <a style="margin-top:10px;" class="form_info" href="#" ng-click="changeNumber(user)"><span>Change my Phone number or Send code again</span></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            {#// 0#}
             <div ng-switch-when="0" class="modal_right-content">
             {#<div class="modal_right-content">#}
                 <form name="form" class="css-form form-card" novalidate>
@@ -110,7 +252,7 @@
                     <div class="form-element form-input">
                         <div class="country_cont" style="cursor: pointer">
 
-                            <a href="#" class="country" >
+                            <a href="#" class="country" style="cursor: pointer">
                                 <input id="input_country" class="form-element-input" autocomplete="off" placeholder="" type="text" ng-model="user.countryData.country" name="uCountry"
                                        required=""/>
                             </a>
@@ -118,8 +260,8 @@
                             <div class="form-element-bar" ></div>
                             {#<label class="form-element-label" >COUNTRY</label>#}
 
-                            <ul id="myul" class="country_list" style="width: 100%; height: 200px; overflow: auto">
-                                    <li class="thelis" ng-repeat="x in sign_up_countries | orderBy : 'name'| limitTo: numLimit" ng-click="setValue(x)" ng-model="selected_country">
+                            <ul id="my_ul" class="country_list" style="width: 100%; height: 200px; overflow: auto">
+                                    <li class="thelis" ng-repeat="x in sign_up_countries | orderBy : 'name'| limitTo: numLimit" ng-click="setValue(x)" ng-model="user.countryData.country">
                                         <img class="language-img" src='{{asset("img/square-flags/png/{[{x.img}]}.png")}}' alt="gb"> {[{x.name}]}
                                     </li>
                             </ul>
@@ -133,15 +275,17 @@
                         <label class="form-element-label_tel" ></label>
                     </div>
                     <div class="col-md-10 col-sm-10 col-xs-11 form-element form-input" style="padding-left: 0;padding-right: 0; margin-top: 0; margin-bottom: 40px;">
-                        <input  class="form-element-input" placeholder=" " autocomplete="off" type="text"   ng-minlength="5" ng-model="user.phone_number" name="uTel" required=""/>
+                        <input  class="form-element-input" placeholder=" " autocomplete="off" type="text" ng-minlength="5" ng-model="user.phone_number" name="uTel" required="" />
                         <div class="form-element-bar"></div>
                         <label class="form-element-label" >PHONE NUMBER</label>
                     </div>
                     {#*** SHOW TEL#}
                     <div style="color:red" ng-show="form.$submitted || form.uTel.$touched">
                         <span ng-show="form.uTel.$error.required">*You must enter your Phone number</span>
-                        <span class="error" ng-show="form.uTel.$error.minlength">*Invalid Phone number</span>
+                        <span class="error" ng-show="form.uTel.$error.minlength">*Phone number too short</span>
+                        {#<span style="color:red;" ng-show="form.uTel.$error.valid && form.$submitted">Invalid phone number</span>#}
                     </div>
+
                     <div style="color:red">{[{ error_message }]}</div>
 
                     <div class="form_bottom">
@@ -159,10 +303,91 @@
 
                 <div class="form_soz-cont">
                     <p class="form_soz-cont_text">Or connect with -</p>
-                    <a class="form_soz-cont_icon footer_soz_icon_youtube"><i class="fab fa-google"></i></a>
-                    <a class="form_soz-cont_icon footer_soz_icon_faceebook"><i class="fab fa-facebook-f"></i></a>
+                    {#<button  class="form_soz-cont_icon footer_soz_icon_youtube" type="submit" ng-click="save(user,form)">#}
+                       {#<i class="fab fa-google"></i>#}
+                    {#</button>#}
+                    <a class="form_soz-cont_icon footer_soz_icon_youtube" type="submit" ng-click="SignInProvider('google')"><i class="fab fa-google"></i></a>
+                    <a class="form_soz-cont_icon footer_soz_icon_faceebook" type="submit" ng-click="SignInProvider('facebook')"><i class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
+
+                {#// 5#}
+            <div ng-switch-when="5" class="modal_right-content">
+                <h1 style="font-size: 29px;" class="sign_form_title">Last step to complete registration</h1>
+                <h2 class="sign_form_subtitle">Please choose a Nickname and enter you phone number</h2>
+                <form name="form_provider" style="border: none" class="css-form form-card" novalidate>
+
+                        {#*** NICK-NAME#}
+                    <div class="form-element form-input">
+                        <input  class="form-element-input" placeholder=" " autocomplete="off" ng-model="user.nickname" type="text" name="uNickname_provider" required=""/>
+                        <div class="form-element-bar"></div>
+                        <label class="form-element-label" >NICKNAME</label>
+                    </div>
+                        {#*** SHOW NICKNAME#}
+                        <div style="color:red" ng-show="form_provider.$submitted || form_provider.uNickname_provider.$touched">
+                            <div ng-show="form_provider.uNickname_provider.$error.required">*Please choose a nickname</div>
+                        </div>
+                        <div style="color:red" ng-show="already_exist">*Nickname is already used, please choose another one </div>
+
+                        {#*** COUNTRY#}
+                        <div class="form-element form-input">
+                            <div class="country_cont" style="cursor: pointer">
+
+                                <a href="#" class="country" style="cursor: pointer">
+                                    <input id="input_country_provider" class="form-element-input" autocomplete="off" placeholder="" type="text" ng-model="user.countryData.country" name="uCountry_provider"
+                                           required=""/>
+                                </a>
+                                <p class="contry_array"><i class="fas fa-caret-down"></i></p>
+                                <div class="form-element-bar" ></div>
+                                {#<label class="form-element-label" >COUNTRY</label>#}
+
+                                <ul id="my_ul_provider" class="country_list" style="width: 100%; height: 200px; overflow: auto">
+                                    <li class="thelis" ng-repeat="x in sign_up_countries | orderBy : 'name'| limitTo: numLimit" ng-click="setValue(x)" ng-model="user.countryData.country">
+                                        <img class="language-img" src='{{asset("img/square-flags/png/{[{x.img}]}.png")}}' alt="gb"> {[{x.name}]}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {#*** TEL#}
+                        <div class="col-md-2 col-sm-2 col-xs-1 form-element form-input" style="padding-left: 0;padding-right: 0; margin-top: 0;margin-bottom: 40px;">
+                            <input  class="form-element-input" placeholder=" " type="text" ng-model="user.countryData.dial_code" name="uDial_provider" required="" ng-disabled="isDisabled"/>
+                            <div class="form-element-bar"></div>
+                            <label class="form-element-label_tel" ></label>
+                        </div>
+                        <div class="col-md-10 col-sm-10 col-xs-11 form-element form-input" style="padding-left: 0;padding-right: 0; margin-top: 0; margin-bottom: 40px;">
+                            <input  class="form-element-input" placeholder=" " autocomplete="off" type="text" ng-minlength="5" ng-model="user.phone_number" name="uTel_provider" required="" />
+                            <div class="form-element-bar"></div>
+                            <label class="form-element-label" >PHONE NUMBER</label>
+                        </div>
+                        {#*** SHOW TEL#}
+                        <div style="color:red" ng-show="form_provider.$submitted || form_provider.uTel_provider.$touched">
+                            <span ng-show="form_provider.uTel_provider.$error.required">*You must enter your Phone number</span>
+                            <span class="error" ng-show="form_provider.uTel_provider.$error.minlength">*Phone number too short</span>
+                            {#<span style="color:red;" ng-show="form.uTel.$error.valid && form.$submitted">Invalid phone number</span>#}
+                        </div>
+
+                        <div style="color:red">{[{ error_message }]}</div>
+
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <button  class="form-btn_codever" [disabled]="form_provider.invalid" type="submit" ng-click="save_provider(user,form_provider)">
+                                    <span data-ng-hide="loading"> SUBMIT  </span>
+                                    <span data-ng-show="loading"> Checking <i class="fa fa-spinner fa-spin"></i> </span>
+                                </button>
+                            </div>
+                        </div>
+                        {#<div class="form_bottom">#}
+                            {#<button class="form-btn " [disabled]="form_provider.invalid" type="submit" ng-click="save_provider(user,form_provider)">#}
+                                {#<span data-ng-hide="loading"> SIGN UP  </span>#}
+                                {#<span data-ng-show="loading"> Checking <i class="fa fa-spinner fa-spin"></i> </span>#}
+                            {#</button>#}
+                        {#</div>#}
+                        {#<input type="button" ng-click="reset(form)" value="Reset" />#}
+                        {#<input type="submit"  value="Save" />#}
+                    </form>
+                    {#<pre>user = {[{user | json}]}</pre>#}
+                </div>
 
             </div>
 

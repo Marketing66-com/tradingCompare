@@ -17,7 +17,7 @@ angular.module('memberService', [])
             $http.defaults.headers.common.Authorization = `Bearer ${token}`;
 
             return new Promise(function (resolve, reject) {
-                $http.post(url, data).then(function(response){
+                $http.post(url, data, config).then(function(response){
                     resolve(response);
                 }).catch(function (error) {
                     reject(error);
@@ -85,6 +85,31 @@ angular.module('memberService', [])
             return sendPostHttpRequest(url, token, update_data);
         }
 
+        // var updateUser_SOS = function (update_data) {
+        //     const url = "https://xosignals.herokuapp.com/trading-compare-v2/update-fields/"
+        //
+        //     return new Promise(function (resolve, reject) {
+        //         $http.post(url, update_data, config).then(function(response){
+        //             resolve(response);
+        //         }).catch(function (error) {
+        //             reject(error);
+        //         });
+        //     });
+        // }
+
+        var checkCode = function (token, code) {
+            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/check_code`;
+
+            return sendPostHttpRequest(url, token, code);
+        }
+
+        var getUsersById = function (token, id) {
+            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/get-user-by-id`;
+
+            return sendPostHttpRequest(url, token, id);
+        };
+
+
         return {
             getSampleSecuredPage: getSampleSecuredPage,
             sendPostHttpRequest:sendPostHttpRequest,
@@ -93,6 +118,9 @@ angular.module('memberService', [])
             is_nickname_exist:is_nickname_exist,
             createUser:createUser,
             sendVerifyCode:sendVerifyCode,
-            updateUser:updateUser
+            updateUser:updateUser,
+            // updateUser_SOS:updateUser_SOS,
+            checkCode:checkCode,
+            getUsersById:getUsersById
         };
     });
