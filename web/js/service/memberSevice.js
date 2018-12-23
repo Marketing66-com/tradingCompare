@@ -38,7 +38,7 @@ angular.module('memberService', [])
         };
 
         var getLocation = function () {
-            const url = 'http://api.ipstack.com/check?access_key=63abaa19691754779cebd0addbfe2914'
+            const url = 'https://api.ipstack.com/check?access_key=63abaa19691754779cebd0addbfe2914'
 
             return new Promise(function (resolve, reject) {
                 $http.get(url).then(function (response) {
