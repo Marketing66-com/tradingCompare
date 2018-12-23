@@ -111,12 +111,12 @@
                                             <hr>
                                             <form class="comments-form">
                                                 <div class="comments-form_left">
-                                                    <div class="comments-form_cont comments-form_cont_left">
-                                                        <input type="text" class="comments_input" placeholder="Name" required>
-                                                    </div>
-                                                    <div class="comments-form_cont comments-form_cont_right margin-top-mobile">
-                                                        <input type="email" class="comments_input" placeholder="Email" required>
-                                                    </div>
+                                                    {#<div class="comments-form_cont comments-form_cont_left">#}
+                                                        {#<input type="text" class="comments_input" placeholder="Name" required>#}
+                                                    {#</div>#}
+                                                    {#<div class="comments-form_cont comments-form_cont_right margin-top-mobile">#}
+                                                        {#<input type="email" class="comments_input" placeholder="Email" required>#}
+                                                    {#</div>#}
                                                     <textarea class=" touch_your-comment" placeholder="Your comment..."></textarea>
                                                 </div>
                                                 <div class="comments-form_right ms-none">
@@ -145,7 +145,7 @@
                                             <div ng-if="all_comments.length >0">
                                                 <div class="comments_user-cont" ng-repeat="comment in all_comments">
                                                     <div class="comments_user-cont_img">
-                                                        <img class="comments_user-img" src='{{asset("img/Flags1/{[{comment.country}]}.png")}}'  alt="spain">
+                                                        <img class="comments_user-img" src='{{asset("img/Flags1/{[{comment.country}]}.png")}}'  alt="country">
                                                     </div>
                                                     <div class="comments_user-cont_text">
                                                         <h4 class="comments_user-cont_name">{[{comment.nickname}]}</h4>
@@ -182,7 +182,7 @@
 
                                             <div ng-if="!all_comments.length >0">
                                                 <hr>
-                                                <p class="news_space_absolut_text">No comment for {{ symbol }}</p>
+                                                <p class="news_space_absolut_text">Be the first to comment for {{ symbol }}</p>
                                             </div>
                                         </div>
 

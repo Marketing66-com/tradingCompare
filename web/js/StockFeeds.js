@@ -184,7 +184,7 @@ stockApp.controller("stockController", function ($scope,$window,$location) {
 
         else
         {
-            console.log("str ok go to connect")
+            //console.log("str ok go to connect")
             clearInterval(timerId)
             connect()
             setInterval(MyInterval, 5000)
@@ -194,7 +194,7 @@ stockApp.controller("stockController", function ($scope,$window,$location) {
     }
     function connect(){
 
-        console.log("in connect")
+        //console.log("in connect")
         socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
         socketStock.emit("subscribe", $scope.str);
         // console.log("in connect $scope.str", $scope.str)
@@ -209,7 +209,7 @@ stockApp.controller("stockController", function ($scope,$window,$location) {
 
     function reconnect(){
 
-        console.log("disconnect")
+        //console.log("disconnect")
         socketStock.close();
         clearInterval(timerId)
         $scope.socket_object ={}
@@ -241,7 +241,7 @@ stockApp.controller("stockController", function ($scope,$window,$location) {
                 $scope.$apply()
             }
         }
-        console.log("ok")
+        //console.log("ok")
     }
 
 

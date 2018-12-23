@@ -74,7 +74,7 @@
 <!-- End Google Tag Manager (noscript) -->
 <header style="background-color: #1e375e; z-index: 2; display: table !important; width: 100%;">
 
-    <div class="container">ow 
+    <div class="container">ow
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-5">
                 <div class="burger clearfix ms-block" >
@@ -107,11 +107,12 @@
                                 <a ng-if="!userLoggedIn" class="login-btn log sm-none v-btn" >{{ 'button.login'|trans }}</a>
                             {#<a class="login-btn log sm-none v-btn" >{{ 'button.login'|trans }}</a>#}
                                 <ul ng-if="userLoggedIn" class="out sm-none" style="min-width: 90px;">
-                                    <li ><a href="{{ path('terms') }}">{[{ user.full_name }]}</a> <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span>
+                                    <li ><a>{[{ user.full_name }]}</a> <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span>
                                         <ul>
-                                            <li class="out my-log-out"> Log out </li>
-                                            <li class="out my-log-in"> Profil </li>
-                                            <li class="out my-log-up"> Sign up </li>
+                                            <li class="out my-log-in"> <a ng-click="profile()"> Profile </a></li>
+                                            <li class="out my-log-out">  <a ng-click="logout()"> Log out </a> </li>
+                                            {#<li class="out my-log-out"><a ng-click="behaviour()">CARGO</a></li>#}
+                                            {#<li class="out my-log-up"> Sign up </li>#}
                                         </ul>
                                     </li>
                                 </ul>

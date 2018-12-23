@@ -12,7 +12,6 @@ LogButton.controller('LogButton', function ($scope, MemberService) {
             if (user) {
                 $scope.userLoggedIn = true;
 
-
                 user.getIdToken(true).then(function (idToken) {
                     $scope._id = {
                         _id: user.uid
@@ -20,7 +19,7 @@ LogButton.controller('LogButton', function ($scope, MemberService) {
                     MemberService.getUsersById(idToken,  $scope._id ).then(function (results) {
                         $scope.user = results.data
                         $scope.$apply();
-                        console.log("user",$scope.user )
+                       // console.log("user",$scope.user )
                     }).catch(function (error) {
                         $scope.data = error;
                         console.log("$scope.data", $scope.data)
@@ -30,15 +29,19 @@ LogButton.controller('LogButton', function ($scope, MemberService) {
                 }).catch(function (error) {
                     console.log('ERROR: ', error)
                 });
-
-
-
-
                 $scope.$apply();
             }
+            else{
+                $scope.userLoggedIn = false;
+            }
         });
-
     };
+    $scope.behaviour = function() { console.log("in behaviour")}
+    $scope.logout = function(){
+        console.log("in out")
+        $scope.userLoggedIn = false;
+        firebase.auth().signOut();
+    }
 });
 
 const dvLogButton = document.getElementById('dvLogButton');

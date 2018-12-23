@@ -75,7 +75,7 @@ ChartApp.controller('ChartController', function ($scope) {
             type: "GET",
             success: function (result) {
                 $scope.mycrypto = result
-                console.log("after",  $scope.mycrypto)
+                //console.log("after",  $scope.mycrypto)
 
                 // IMAGE
                 if ($scope.mycrypto.img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/piece.png" || $scope.mycrypto.img == undefined || typeof $scope.mycrypto.img == "undefined")

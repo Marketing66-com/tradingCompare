@@ -268,7 +268,7 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
 
     // TEMPLATE 1 - VERIFICATION CODE
     $scope.CodeVerify = function(user,form,code1,code2,code3,code4) {
-        console.log("codeSent")
+        //console.log("codeSent")
         $scope.error_message = ""
         $scope.wrong_code = false
         $scope.code_incomplete = false
@@ -487,7 +487,6 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
         console.log("in SignInProvider",provider)
         $scope.loading = true ;
         $scope.user  = new CreateUser();
-        console.log("new user prov" ,  $scope.user )
         $scope.user.countryData.country = $scope.location
         $scope.user.countryData.dial_code =  $scope.location_code
 
@@ -576,7 +575,7 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
     //***************************************
     $scope.master = {};
     $scope.reset = function(form) {
-        console.log("reset form",form, $scope.form)
+        //console.log("reset form",form, $scope.form)
         //
         if (form) {
             form.$setPristine();
@@ -761,10 +760,10 @@ angular.element(document).ready(function () {
 
 })
 
-console.log("in script")
+//console.log("in script")
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        console.log("user is", user)
+        console.log("user is")
     }
     else {
         console.log("no user")

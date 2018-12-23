@@ -6,13 +6,12 @@ SocialApp.controller("SocialController", function ($scope, $http) {
     $scope.tab = 1;
 
     $scope.init = function (symbol) {
-        console.log("init****",symbol)
 
         // COMMENTS
         $http.get("https://xosignals.herokuapp.com/trading-compare-v2/get-comments/"+ symbol)
             .then(function(response) {
                 $scope.all_comments_total = response.data;
-                console.log("**init $scope.all_comments_total **",$scope.all_comments_total )
+                //console.log("**init $scope.all_comments_total **",$scope.all_comments_total )
 
                 $scope.itemsPerPage_comments = 10;
                 $scope.currentPage_comments = 0;
@@ -35,7 +34,7 @@ SocialApp.controller("SocialController", function ($scope, $http) {
                         $scope.news_date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
                 });
             },function errorCallback(response) {
-                console.log("**error**","$scope.all_news",$scope.all_news)
+                console.log("**error**","$scope.all_news")
         });
 
         // TWEETS
@@ -44,7 +43,7 @@ SocialApp.controller("SocialController", function ($scope, $http) {
                 $scope.all_tweets_total = response.data.data.statuses;
                 //console.log("**init tweets**", response.data.data.statuses)
 
-                $scope.itemsPerPage = 25;
+                $scope.itemsPerPage = 10;
                 $scope.currentPage = 0;
                 $scope.total = $scope.all_tweets_total.length;
 

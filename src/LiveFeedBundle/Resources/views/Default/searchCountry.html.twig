@@ -61,7 +61,7 @@
                            {#typeahead-input-formatter="inputFormatter($model)"#}
 
                            typeahead-focus-first="true"
-                           uib-typeahead="state as state.name for state in listCountry | filter:{name:$viewValue} | orderBy:distance"
+                           uib-typeahead="state as state.name for state in listCountry | filter:{name:$viewValue} | orderBy:'name'"
                            typeahead-template-url="customTemplate.html" class="form-control"
                            typeahead-show-hint="true"
                            typeahead-min-length="0"
