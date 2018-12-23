@@ -79,7 +79,7 @@ class JwtTokenAuthenticator extends AbstractGuardAuthenticator
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-        JWT::$leeway += 10;
+        JWT::$leeway += 30;
         $content = file_get_contents("https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com");
         $kids = json_decode($content, true);
 
