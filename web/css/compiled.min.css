@@ -173,7 +173,14 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
     cursor: pointer;
     text-decoration: underline;
 }
-
+.no_stock_text {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 20px;
+    color: #999999;
+    margin: 10px;
+    text-align: center;
+}
 /*form*/
 
 /*my-modal*/

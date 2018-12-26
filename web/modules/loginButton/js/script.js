@@ -10,16 +10,20 @@ LogButton.controller('LogButton', function ($scope, MemberService) {
     this.$onInit = function () {
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
+                //console.log("user",user )
                 $scope.userLoggedIn = true;
+                $scope.user.full_name = 'Welcome...'
 
                 user.getIdToken(true).then(function (idToken) {
+                    //console.log("idToken",idToken )
                     $scope._id = {
                         _id: user.uid
                     }
                     MemberService.getUsersById(idToken,  $scope._id ).then(function (results) {
                         $scope.user = results.data
+                        //console.log(" $scope.user",$scope.user )
                         $scope.$apply();
-                       // console.log("user",$scope.user )
+
                     }).catch(function (error) {
                         $scope.data = error;
                         console.log("$scope.data", $scope.data)
@@ -33,13 +37,14 @@ LogButton.controller('LogButton', function ($scope, MemberService) {
             }
             else{
                 $scope.userLoggedIn = false;
+                $scope.$apply();
             }
         });
     };
-    $scope.behaviour = function() { console.log("in behaviour")}
+
+    $scope.profile = function() { console.log("in profile")}
+
     $scope.logout = function(){
-        console.log("in out")
-        $scope.userLoggedIn = false;
         firebase.auth().signOut();
     }
 });

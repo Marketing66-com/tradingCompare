@@ -525,12 +525,16 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
                             $scope.template = 4
                             $scope.logIn = true
                             $('.modal_sigh-in').slideUp();
+                            $scope.template = 0;
+                            reset()
                         }
                         else{
                             $scope.user = results.data
                             $scope.loading = false ;
                             $scope.template = 1
                             $('.modal_sigh-up').slideDown();
+                            $scope.template = 0;
+                            reset()
                         }
                         $scope.userInDb = false
                     }
@@ -575,7 +579,7 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
     //***************************************
     $scope.master = {};
     $scope.reset = function(form) {
-        //console.log("reset form",form, $scope.form)
+        console.log("reset form",form)
         //
         if (form) {
             form.$setPristine();
@@ -594,6 +598,7 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
         // $scope.user.full_name = ""
         // $scope.user.nickname = ""
         // $scope.user.password = ""
+        $scope.error_message_signIn = ""
         $scope.user.email = ""
         $scope.user.phone_number = ""
     };
@@ -648,6 +653,7 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
                                 $scope.loading = false ;
                                 $scope.logIn = true
                                 $('.modal_sigh-in').slideUp();
+                                reset()
                             }
                             else{
                                 $scope.user = results.data
@@ -656,6 +662,7 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
                                 $scope.code_incomplete = false
                                 $scope.template = 1
                                 $('.modal_sigh-up').slideDown();
+                                reset()
                             }
                             $scope.userInDb = false
                         }
@@ -669,6 +676,7 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
                                     $scope.loading = false ;
                                     $scope.template = 5
                                     $('.modal_sigh-up').slideDown();
+                                    reset()
                                     $scope.$apply();
                                 }).catch(function (error) {
                                     $scope.data = error;
@@ -761,11 +769,11 @@ angular.element(document).ready(function () {
 })
 
 //console.log("in script")
-firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-        console.log("user is")
-    }
-    else {
-        console.log("no user")
-    }
-});
+// firebase.auth().onAuthStateChanged(function (user) {
+//     if (user) {
+//         console.log("user is",user)
+//     }
+//     else {
+//         console.log("no user")
+//     }
+// });

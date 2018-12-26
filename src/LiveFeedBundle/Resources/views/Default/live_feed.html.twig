@@ -1,14 +1,22 @@
+{#//LIST#}
+
 <div class="general-list">
     <div class="container">
         <div class="row">
             <div class="review_list">
                 {% include 'default/title_bar_list_feed.html.twig' %}
-
+                <div ng-show="!filteredItems.length>0" style="min-height: 410px;">
+                    <p style="border-top: 2px solid #D8D8D8;"></p>
+                    <p class="no_stock_text ng-cloak">{[{ no_stock }]}</p>
+                </div>
                 <div class="review_list_cont-heder  ng-cloak" ng-repeat="item in filteredItems">
                     <div class="abs">
                         <div class="general_review_cont-block review_list_name">
                             <div class="review_list_center">
-                                <p class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
+                                {#<p ng-if="userLoggedIn && item.is_in_watchlist" style="cursor: pointer" ng-click="add_to_watchlist($index)" class="live_cont-block_like_right"><i class="far fa-star"></i></p>#}
+                                <p ng-if="userLoggedIn && item.is_in_watchlist" style="cursor: pointer" ng-click="delete_from_watchlist($index)" class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
+                                <p ng-if="userLoggedIn && !item.is_in_watchlist" style="cursor: pointer"  ng-click="add_to_watchlist($index)" class="review_list_start sm-none"><i class="far fa-star"></i></p>
+                                <p ng-if="!userLoggedIn" style="cursor: pointer" ng-click="click_on_star()" class="review_list_start sm-none"><i class="far fa-star"></i></p>
                                 <img class="live_block_top_img" ng-src="{[{item.img}]}" onerror="this.src='/img/Stock_Logos/stocks.png'";>
                                 <h2 class="live_block_top_title" > {[{item.name}]} </h2>
                                 <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">{[{(item.change24)}]}</p>
@@ -62,8 +70,6 @@
                             </div>
                         </div>
 
-
-
                         <div class="general_review_cont-block review_list_cont-chart">
                             <div class="review_list_center">
                                 <a ng-click="ActiveChange(item.pair, item.complete_name,'{{ app.request.getLocale() }}');"><img class="live_block_chart" src='{{asset("img/chart-design/chart_1.png")}}'  alt="chart_1"></a>
@@ -78,19 +84,20 @@
                     </div>
                 </div>
 
-
-
             </div>
         </div>
     </div>
-    <div class="paglist">
-        {#<ul uib-pagination items-per-page="itemsPerPage" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></ul>#}
+    <div ng-hide="!filteredItems.length>0" class="paglist">
         <ul uib-pagination items-per-page="itemsPerPage" total-items="totalItems" ng-model="currentPage" max-size="maxSize"  boundary-links="true"  ng-change="pageChanged()"></ul>
     </div>
 </div>
 
+{#// BOX#}
 <div class="container general-grid" >
     <div class="row">
+        <div ng-show="!filteredItems.length>0" style="min-height: 410px;">
+            <p class="no_stock_text ng-cloak">{[{ no_stock }]}</p>
+        </div>
         <div class="live_cont-block-padding ng-cloak"  ng-repeat="item in filteredItems">
             <div class="live_cont-block">
                 <div class="live_block_top">
@@ -110,7 +117,10 @@
                 {#<p class="live_cont-block_like_right"><i class="far fa-star"></i></p>#}
                 {#</div>#}
                 <div class="live_cont-block_cont-like">
-                    <p class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                    <p ng-if="userLoggedIn && item.is_in_watchlist" style="cursor: pointer" ng-click="delete_from_watchlist($index)" class="live_cont-block_like_right"><i style="color: #12A6F9;!important" class="fas fa-star"></i></p>
+                    <p ng-if="userLoggedIn && !item.is_in_watchlist" style="cursor: pointer" ng-click="add_to_watchlist($index)" class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+                    <p ng-if="!userLoggedIn" style="cursor: pointer" ng-click="click_on_star()" class="live_cont-block_like_right"><i class="far fa-star"></i></p>
+
                     <p class="live_cont-block_like live_cont-block_like_margin"><i class="button button1" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></p>
                     <p class="live_cont-block_like live_cont-block_like_left"><i  class="button button2" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></p>
                 </div>
@@ -130,8 +140,7 @@
 </div>
 
 
-<div class="container general-grid pagboxes" >
-    {#<ul uib-pagination items-per-page="itemsPerPage" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></ul>#}
+<div ng-hide="!filteredItems.length>0" class="container general-grid pagboxes" >
     <ul uib-pagination items-per-page="itemsPerPage" total-items="totalItems" ng-model="currentPage" max-size="maxSize"  boundary-links="true"
         ng-change="pageChanged()"></ul>
 </div>
@@ -139,10 +148,10 @@
 
 
 {#watchlist grid-box#}
-<div class="container watch-general-grid">
+<div class="container watch-general-grid oh_no_signin">
 
     {#----> oh no SIGNIN#}
-    <div class="new_grid">
+    <div ng-if="!userLoggedIn" class="new_grid ng-cloak">
         <div class="grid_space">
             <div class="grid_space_absolut">
                 <h2 class="grid_space_absolut_title">Oh No!</h2>
@@ -153,17 +162,70 @@
         </div>
     </div>
 
+    {#----> oh no empty#}
+    <div ng-if="userLoggedIn && !WatchlistTable.length>0" class="new_grid ng-cloak">
+            <div class="grid_space">
+                <div class="grid_space_absolut">
+                    <h2 class="grid_space_absolut_title">Oh No!</h2>
+                    <img class="grid_space_absolut_img" src='{{asset("img/general-grid_space_absolut_img.png")}}' alt="list_space_absolut_img">
+                    <p class="grid_space_absolut_text">Your watchlist is empty! </p>
+                </div>
+            </div>
+    </div>
+
+    {#----> watchlist exist #}
+    <div ng-if="userLoggedIn && WatchlistTable.length>0" style="margin-top: 15px;" class="container" >
+        <div  ng-if="userLoggedIn && WatchlistTable.length>0"  class="row">
+            <div class="live_cont-block-padding ng-cloak"  ng-repeat="item in WatchlistTable">
+                <div class="live_cont-block">
+                    <div class="live_block_top">
+                        <img class="live_block_top_img" ng-src="{[{item.img}]}" onerror="this.src='/img/Stock_Logos/stocks.png'";>
+                        <h2 class="live_block_top_title">{[{item.name}]}</h2>
+                    </div>
+                    <p class="live_block_money-left"><span class="live_block_money_bold " ng-class="{'negative': item.variation == 'down', 'positive':item.variation == 'up', 'neutral': item.variation == 'none'}"> {[{item.price}]}</span></p>
+                    <p class="live_block_money-right  " ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}"><span class="live_block_money_bold "ng-class="{'live_block_money_red ': item.change24 < 0, 'live_block_money_green ': item.change24 >= 0}" >{[{item.change24}]}</span></p>
+                    <a ng-click="ActiveChange_Watchlist(item.pair, item.type, item.complete_name, '{{ app.request.getLocale() }}');"><img class="live_block_chart" src= '{{asset("img/chart-design//chart_long.png" )}}' alt="chart_long">
+                    </a>
+                    <p class="live_block_money-left ">{{ 'high'|trans }}<br><span class="live_block_money_bold">{[{item.high24}]}</span></p>
+                    <p class="live_block_money-right ">{{ 'low'|trans }}<br><span class="live_block_money_bold">{[{item.low24}]}</span></p>
+
+                    {#<div class="live_cont-block_cont-like">#}
+                    {#<p class="live_cont-block_like live_cont-block_like_margin"><i class="fas fa-thumbs-up"></i></p>#}
+                    {#<p class="live_cont-block_like live_cont-block_like_left"><i class="fas fa-thumbs-down"></i></p>#}
+                    {#<p class="live_cont-block_like_right"><i class="far fa-star"></i></p>#}
+                    {#</div>#}
+                    <div class="live_cont-block_cont-like">
+                        <p style="cursor: pointer" ng-click="delete_from_watchlist_inW($index,item.type)" class="live_cont-block_like_right"><i style="color: #12A6F9;!important" class="fas fa-star"></i></p>
+                        <p class="live_cont-block_like live_cont-block_like_margin"><i class="button button1" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></p>
+                        <p class="live_cont-block_like live_cont-block_like_left"><i  class="button button2" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></p>
+                    </div>
+
+                    <p class="chart_bitcoin-reting_prozent">{{ 'sentiment'|trans }}: {[{item.sentiment}]}% {{ 'buying'|trans }}</p>
+                    <div class="chart_bitcoin-reting_progress-bar">
+                        <div class="reting_progress-bar_click"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}"></div>
+                    </div>
+
+                    <div class="live_cont-block_hover">
+                        {#<p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>#}
+                    </div>
+                </div>
+                <a class="live_trade-btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">{{ 'button.trade_now'|trans }}</a>
+            </div>
+        </div>
+    </div>
+
 </div>
 
+{#watchlist grid-list#}
 <div class="container watch-general-list">
     <div class="container">
         <div class="row">
-            <div class="review_list">
+            <div class="review_list oh_no_signin">
                 {#{{ include('app/default/title_bar_list_feed.html.twig') }}#}
                 {% include 'default/title_bar_list_feed.html.twig' %}
 
                 {#----> oh no SIGNIN#}
-                <div style="border-top: 2px solid #D8D8D8" class="new_grid ng-cloak">
+                <div ng-if="!userLoggedIn" style="border-top: 2px solid #D8D8D8" class="new_grid ng-cloak">
                     <div class="grid_space">
                         <div class="grid_space_absolut">
                             <h2 class="grid_space_absolut_title">Oh No!</h2>
@@ -175,18 +237,79 @@
                 </div>
 
                 {#----> oh no empty#}
-                {#<div class="review_list_cont-heder  ng-cloak">#}
-                    {#<div class="new_grid">#}
-                        {#<div class="grid_space">#}
-                            {#<div class="grid_space_absolut">#}
-                                {#<h2 class="grid_space_absolut_title">Oh No!</h2>#}
-                                {#<img class="grid_space_absolut_img" src='{{asset("img/general-grid_space_absolut_img.png")}}' alt="list_space_absolut_img">#}
-                                {#<p class="grid_space_absolut_text">Your watchlist is empty! </p>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
+                <div ng-if="userLoggedIn && !WatchlistTable.length>0" class="review_list_cont-heder  ng-cloak">
+                    <div class="new_grid">
+                        <div class="grid_space">
+                            <div class="grid_space_absolut">
+                                <h2 class="grid_space_absolut_title">Oh No!</h2>
+                                <img class="grid_space_absolut_img" src='{{asset("img/general-grid_space_absolut_img.png")}}' alt="list_space_absolut_img">
+                                <p class="grid_space_absolut_text">Your watchlist is empty! </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                {#----> watchlist exist#}
+                <div ng-if="userLoggedIn && WatchlistTable.length>0" class="review_list_cont-heder  ng-cloak" ng-repeat="item in WatchlistTable">
+                    <div class="abs">
+                        <div class="general_review_cont-block review_list_name">
+                            <div class="review_list_center">
+                                <p style="cursor: pointer" ng-click="delete_from_watchlist_inW($index)" class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
+                                <img class="live_block_top_img" ng-src="{[{item.img}]}" onerror="this.src='/img/Stock_Logos/stocks.png'";>
+                                <h2 class="live_block_top_title" > {[{item.name}]} </h2>
+                                <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">{[{(item.change24)}]}</p>
+                            </div>
+                        </div>
+                        <div class="general_review_cont-block review_list_cont-text">
+                            <div class="review_list_center">
+                                <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold" ng-class="{'negative': item.variation == 'down', 'positive':item.variation == 'up', 'neutral': item.variation == 'none'}">{[{item.price}]} $</span></p>
+                            </div>
+                        </div>
+                        <div class="general_review_cont-block review_list_cont-text sm-none">
+                            <div class="review_list_center">
+                                <p class="live_block_money-right" ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}">{[{(item.change24)}]}</p>
+                            </div>
+                        </div>
+                        <div class="general_review_cont-block review_list_cont-text sm-none">
+                            <div class="review_list_center">
+                                <p class="live_block_money-right  "><span class="live_block_money_bold">{[{item.high24}]}</span>
+                            </div>
+                        </div>
+                        <div class="general_review_cont-block review_list_cont-text">
+                            <div class="review_list_center">
+                                <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">{[{item.low24}]}</span>
+                                    <span class="live_block_money_bold mobile-block">{[{item.high24.toFixed(2)}]}<br></span>
+                                    <span class="live_block_money_bold mobile-block">/{[{item.low24.toFixed(2)}]}</span></p>
+                            </div>
+                        </div>
+
+                        <div class="general_review_cont-block review_list_cont-bar ms-none">
+                            <div class="review_list_center">
+                                <p>
+                                    <span class="chart_bitcoin-reting_prozent_like"><i  class="buttonL buttonL1" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></span>
+                                    <span class="chart_bitcoin-reting_prozent_like"><i class="buttonL buttonL2" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></span>
+                                </p>
+                                <div class="chart_bitcoin-reting_progress-bar">
+                                    <div class="reting_progress-bar_click chart_bitcoin-reting_prozent"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}">{[{item.sentiment}]}%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="general_review_cont-block review_list_cont-chart">
+                            <div class="review_list_center">
+                                <a ng-click="ActiveChange_Watchlist(item.pair, item.type, item.complete_name,'{{ app.request.getLocale() }}');"><img class="live_block_chart" src='{{asset("img/chart-design/chart_1.png")}}'  alt="chart_1"></a>
+                            </div>
+                        </div>
+
+                        <div class="general_review_cont-block review_list_cont-btn">
+                            <div class="review_list_center">
+                                <a class="live_trade-btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">{{ 'button.trade'|trans }} <span class="live_trade-btn_none">{{ 'button.now'|trans }}</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="height: 50px;"></div>
             </div>
         </div>
     </div>

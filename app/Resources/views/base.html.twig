@@ -103,7 +103,7 @@
                     </div>
 
                     <div id="dvLogButton" class="ng-cloak" style="float: left">
-                        <div ng-controller="LogButton">
+                        <div id="logButton" ng-controller="LogButton">
                                 <a ng-if="!userLoggedIn" class="login-btn log sm-none v-btn" >{{ 'button.login'|trans }}</a>
                             {#<a class="login-btn log sm-none v-btn" >{{ 'button.login'|trans }}</a>#}
                                 <ul ng-if="userLoggedIn" class="out sm-none" style="min-width: 90px;">
@@ -207,10 +207,10 @@
             <div class="footer-abs">
                 <p style="  display: table;float: left;margin: 10px 10px 10px 0;line-height: 35px;" class="footer_follow">{{ 'footer.follow_us'|trans }}</p>
                 <div style=" margin: 10px auto;" class="footer_soz">
-                    <a class="footer_soz_icon footer_soz_icon_faceebook"><i class="fab fa-facebook-f"></i></a>
-                    <a class="footer_soz_icon footer_soz_icon_twitter"><i class="fab fa-twitter"></i></a>
-                    <a class="footer_soz_icon footer_soz_icon_linkedin"><i class="fab fa-linkedin"></i></a>
-                    <a class="footer_soz_icon footer_soz_icon_youtube"><i class="fab fa-youtube"></i></a>
+                    <a class="footer_soz_icon footer_soz_icon_faceebook" href="https://www.facebook.com/TradingCompare-2300802673270748/?ref=br_rs" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="footer_soz_icon footer_soz_icon_twitter" href="https://twitter.com/CompareTrading" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a class="footer_soz_icon footer_soz_icon_linkedin" style="cursor: context-menu"><i class="fab fa-linkedin"></i></a>
+                    <a class="footer_soz_icon footer_soz_icon_youtube" href="https://www.youtube.com/channel/UCZMaovcKLQ6i2GpabCAc8cQ" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -295,8 +295,9 @@
     // };
     // firebase.initializeApp(config);
 </script>
-<script  src="{{ asset('js/Sign_Form.js') }}"> </script>
+<script src="{{ asset('js/Sign_Form.js') }}"> </script>
 <script src="{{ asset('js/service/memberSevice.js') }}"></script>
+<script src="{{ asset('js/service/watchlistService.js') }}"></script>
 <script src="{{ asset('js/factory/createUser.js') }}"></script>
 <script src="{{ asset('modules/loginButton/js/script.js') }}"></script>
 {% block javascripts %}

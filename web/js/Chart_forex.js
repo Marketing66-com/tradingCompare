@@ -1,13 +1,15 @@
 
-var Chart_forexApp = angular.module('forexApp', []).config(function ($interpolateProvider) {
+var Chart_forexApp = angular.module('forexApp', ['memberService']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');})
 
 
-Chart_forexApp.controller("Chart_forexController", function ($scope, $http) {
+Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$location,MemberService,$http,$interval,$timeout) {
 
     $scope.sentiment;
     $scope.name;
     $scope.img;
+
+    $scope.call_finished = false
 
     $scope.from;
     $scope.to;
@@ -50,7 +52,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope, $http) {
 
         $scope.$apply()
     })
-    ///////////////////////////////////////// SOCKET ///////////////////////////////////////////
+    ///////////////////////////////////////// End SOCKET ///////////////////////////////////////////
 
     $scope.init = function (from,to) {
         $scope.from = from
@@ -77,6 +79,9 @@ Chart_forexApp.controller("Chart_forexController", function ($scope, $http) {
                 $scope.myforex.sentiment = Number(sent.toFixed(1))
                 $scope.sentiment = Number(sent.toFixed(1))
 
+                //IN WATCHLIST
+                $scope.is_in_watchlist = false
+
                 $scope.name = $scope.myforex.name
                 $scope.img = $scope.myforex.img
 
@@ -86,6 +91,68 @@ Chart_forexApp.controller("Chart_forexController", function ($scope, $http) {
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
+            }
+        });
+
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                $scope.userLoggedIn = true;
+                //console.log("getuser",user)
+                user.getIdToken(true).then(function (idToken) {
+                    console.log("getIdToken")
+                    $scope.idToken = idToken
+                    $scope._id = {
+                        _id: user.uid
+                    }
+                    MemberService.getUsersById(idToken, $scope._id).then(function (results) {
+                        console.log("getUsersById")
+                        $scope.user = results.data
+                        //console.log("$scope.user ",$scope.user)
+                        if($scope.user.watchlist.length>0){
+                            $scope.user.watchlist.forEach(currencie => {
+                                //console.log("currencie",currencie)
+                                if(currencie.symbol ==  $scope.mypair) {
+                                    if(  $scope.myforex != undefined){
+                                        $scope.is_in_watchlist = true
+                                    }
+                                    else{
+                                        //console.log("in else")
+                                        var check = function() {
+                                            //console.log("in timeout",$scope.call_finished)
+                                            if(  $scope.myforex != undefined){
+                                                $scope.is_in_watchlist = true
+                                            }
+                                            else{
+                                                console.log("wait for")
+                                                $timeout(check, 100);
+                                            }
+
+                                        }
+                                        $timeout(check, 100)
+                                    }
+                                }
+                            });
+                        }
+                        $scope.$apply();
+
+                    })
+                        .then(() => {
+                            //console.log("myforex",$scope.myforex)
+                        })
+                        .catch(function (error) {
+                            $scope.data = error;
+                            console.log("$scope.data", $scope.data)
+                            $scope.$apply();
+                        })
+
+                }).catch(function (error) {
+                    console.log('ERROR: ', error)
+                });
+                $scope.$apply();
+            }
+            else{
+                $scope.userLoggedIn = false;
+                $scope.$apply();
             }
         });
 
@@ -102,102 +169,64 @@ Chart_forexApp.controller("Chart_forexController", function ($scope, $http) {
             jQuery("cq-current-price").text(object.price);
         }
 
-        // $.ajax({
-        //     url: api,
-        //     type: "GET",
-        //     success: function (result) {
-        //         $scope.all1 = result
-        //         for (key in $scope.all1) {
-        //             if (i < 51) {
-        //                 $scope.all1[key].fromSymbol = $scope.all1[key].fromSymbol.slice(0, 3) + "_" + $scope.all1[key].fromSymbol.slice(3, 6)
-        //                 $scope.all.push($scope.all1[key])
-        //                 i++
-        //             }
-        //             else break;
-        //         }
-        //         for(key in $scope.all) {
-        //             if ($scope.all[key].fromSymbol == currency) {
-        //                 $scope.myforex = $scope.all[key]
-        //                 console.log("$scope.myforex", $scope.myforex)
-        //             }
-        //         }
-        //         $scope.$apply()
-        //     },
-        //     error: function (xhr, ajaxOptions, thrownError) {
-        //         console.log("ERROR", thrownError, xhr, ajaxOptions)
-        //     }
-        // });
-        //
-        // $.ajax({
-        //     url: likes,
-        //     type: "GET",
-        //     success: function (result) {
-        //         $scope.alllikes = result
-        //         for (const key in $scope.alllikes) {
-        //             var name =$scope.alllikes[key].name.slice(0, 3) + "_" + $scope.alllikes[key].name.slice(3, 6)
-        //             $scope.element[name]= $scope.alllikes[key]
-        //             var sent=($scope.element[name].likes/($scope.element[name].likes+$scope.element[name].unlikes))*100
-        //             // console.log("Response*likes*", sent)
-        //             $scope.element[name].sentiment=Number(sent.toFixed(1))
-        //         }
-        //         for (const key in $scope.element) {
-        //             if (key== currency) {
-        //                 $scope.allimg = $scope.element[key]
-        //                 //console.log("Response*likes*Forex", $scope.allimg)
-        //             }
-        //         }
-        //         $scope.$apply()
-        //     },
-        //     error: function (xhr, ajaxOptions, thrownError) {
-        //         console.log("ERROR", thrownError, xhr, ajaxOptions)
-        //     }
-        // })
     }
 
+//**********************************************************************
+    $scope.delete_from_watchlist = function() {
 
+        if($scope.user == undefined || $scope.user.length == 0 ){
+            console.log("return")
+            return;
+        }
+        $scope.is_in_watchlist = false
 
+        $scope.data_to_send ={
+            data: { symbol:$scope.myforex.pair,
+                type:"FOREX"
+            },
+            _id: $scope.user._id
+        }
 
-    // var socket = io.connect("https://forex-websocket.herokuapp.com/", {
-    //     path: "/socket/forex/livefeed"
-    // })
-    //
-    // socket.emit("room", "all_pairs")
-    // socket.on("message", function (response) {
-    // //console.log("$scope.all", response)
-    //     var item73
-    //     if($scope.all.length != 0)
-    //     {
-    //          //console.log("$scope.all", $scope.all)
-    //
-    //     for(key in response)
-    //     {
-    //         //console.log("response",response)
-    //         item73 = $scope.all.find(function (element) {
-    //
-    //             // return element.fromSymbol == (response[key].fromSymbol.slice(0, 3) + "/" + response[key].fromSymbol.slice(3, 6));
-    //             return element.pair == (response[key].pair)
-    //         });
-    //
-    //
-    //         if (typeof item73 != typeof undefined) {
-    //             // console.log("---",item73)
-    //             for (const property in response[key]) {
-    //
-    //
-    //                 if (response[key].hasOwnProperty(property) && property != "fromSymbol") {
-    //                     item73[property] = response[key][property];
-    //                     // console.log(item73[key])
-    //
-    //
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     }
-    //     $scope.$apply()
-    //
-    // })
+        MemberService.Delete_from_watchlist($scope.idToken, $scope.data_to_send).then(function (results) {
+            console.log("delete",results)
+        })
+            .catch(function (error) {
+                $scope.data = error;
+                console.log("$scope.data", $scope.data)
+                $scope.$apply();
+            })
 
+    }
+    $scope.add_to_watchlist = function() {
+
+        if($scope.user == undefined || $scope.user.length == 0 ){
+            console.log("return")
+            return;
+        }
+
+        $scope.is_in_watchlist =  true
+
+        $scope.data_to_send ={
+            data: { symbol: $scope.myforex.pair,
+                type:"FOREX"
+            },
+            _id: $scope.user._id
+        }
+        //console.log( $scope.data_to_send,$scope.mystock)
+        MemberService.Add_to_watchlist($scope.idToken, $scope.data_to_send).then(function (results) {
+            //console.log("results",results)
+        })
+            .catch(function (error) {
+                $scope.data = error;
+                console.log("$scope.data", $scope.data)
+                $scope.$apply();
+            })
+
+    }
+
+    $scope.click_on_star = function(){
+        $('.v-modal').slideDown();
+    }
 
 });
 

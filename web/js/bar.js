@@ -1,7 +1,7 @@
 var firstApp = angular.module('firstApp', []).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');})
 
-firstApp.controller('FirstController', function($scope,$window) {
+firstApp.controller('FirstController', function($scope,$window,$http) {
     $scope.desc1 = "First app. ";
 
     $scope.allforex = []
@@ -48,17 +48,6 @@ firstApp.controller('FirstController', function($scope,$window) {
                 //console.log("Response-forex api", result)
                 $scope.crypto1 = result[forex_from1 + forex_to1]
                 $scope.crypto2 = result[forex_from2 + forex_to2]
-                // for (var key in result) {
-                //     $scope.allforex.push(result[key])
-                // }
-                // for (key in $scope.allforex) {
-                //     if ($scope.allforex[key].fromSymbol == "EURUSD") {
-                //         $scope.crypto1 = $scope.allforex[key]
-                //     }
-                //     if ($scope.allforex[key].fromSymbol == "USDJPY") {
-                //         $scope.crypto2 = $scope.allforex[key]
-                //     }
-                // }
                 $scope.$apply()
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -80,6 +69,16 @@ firstApp.controller('FirstController', function($scope,$window) {
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("ERROR", thrownError, xhr, ajaxOptions)
+                $http.get("https://interactivecrypto.herokuapp.com/getLastRecord/" + stock1)
+                    .then(function(response) {
+                        console.log("took in db",stock1)
+                        $scope.crypto5 = response
+                    });
+                $http.get("https://interactivecrypto.herokuapp.com/getLastRecord/" + stock2)
+                    .then(function(response) {
+                        console.log("took in db",stock2)
+                        $scope.crypto6 = response
+                    });
             }
         });
 

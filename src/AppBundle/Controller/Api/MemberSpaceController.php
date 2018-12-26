@@ -100,4 +100,33 @@ class MemberSpaceController extends BaseController
         return new JsonResponse($response);
     }
 
+    /**
+     * @Security("is_granted('ROLE_USER')")
+     * @Route("/add-to-watchlist", name="add-to-watchlist", options={"i18n"=false})
+     * @Method("POST")
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function add_to_watchlist(Request $request)
+    {
+        $content = $request->getContent();
+        $data = json_decode($content, true);
+        $response= $this->get(ApiClient::class)->addToWatchlist($data);
+        return new JsonResponse($response);
+    }
+
+    /**
+     * @Security("is_granted('ROLE_USER')")
+     * @Route("/delete-from-watchlist", name="delete-from-watchlist", options={"i18n"=false})
+     * @Method("POST")
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function delete_to_watchlist(Request $request)
+    {
+        $content = $request->getContent();
+        $data = json_decode($content, true);
+        $response= $this->get(ApiClient::class)->deleteFromWatchlist($data);
+        return new JsonResponse($response);
+    }
 }

@@ -7,6 +7,14 @@
         display: none;
         background-color: #f9f9f9;
     }
+    /*.dropdown-menu>li>a    {front-wight:500px!important; line-height: 2 !important;    }*/
+    /*.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus*/
+    /*{ background-color: #eaeaea!important;color:black!important; }*/
+    .dropdown-menu{    height: 450px;
+        overflow: auto;}
+    /*.ul{*/
+
+    /*}*/
     input#search_country {
         /*background-image: url("./img/small_flags/gb.png");*/
         /*background-position: 10px center;*/
@@ -50,13 +58,14 @@
         /*border-radius: 0;*/
         /*box-shadow: none;*/
     /*}*/
+
 </style>
 <div>
     <div class="chart_search_country  margin_bottom">
         <div class="container">
             <div class="row">
                 <div class="reviec_cont-sezrch-country  typeahead-demo" >
-                    <input id="typeahead-focus"  type="text"  class="search_input country"
+                    <input classid="typeahead-focus"  type="text"  class="search_input country"
                            ng-model="customSelected"
                            {#typeahead-input-formatter="inputFormatter($model)"#}
 
@@ -75,7 +84,7 @@
     </div>
 </div>
 <script type="text/ng-template" id="customTemplate.html">
-    <a>
+    <a style="cursor: pointer">
         <img ng-src='{{asset("img/small_flags/{[{match.model.value}]}.png")}}' width="16">
         <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
     </a>

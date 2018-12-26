@@ -30,7 +30,13 @@
                                         <img class="bitcoin_img" ng-src="{[{myforex.img}]}" onerror="this.src='/img/crypto_logos/crypto-other.png'";>
                                     </div>
                                     <div class="bitcoin_text-cont_left ">
-                                        <h3 class="bitcoin_title text_size">{[{myforex.name}]}<span class="bitcoin_title_right">{[{myforex.pair.replace("_","/")}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>
+                                        <h3 class="bitcoin_title text_size">{[{myforex.name}]}<span class="bitcoin_title_right">{[{myforex.pair.replace("_","/")}]}</span>
+                                            {#<span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span>#}
+                                            <span ng-if="userLoggedIn && is_in_watchlist" ng-click="delete_from_watchlist()" style="cursor: pointer" class="bitcoin_title_right-start"><i class="fas fa-star"></i></span>
+                                            <span ng-if="userLoggedIn && !is_in_watchlist" ng-click="add_to_watchlist()" style="color: #999999; cursor: pointer" class="bitcoin_title_right-start"><i class="far fa-star"></i></span>
+                                            <span ng-if="!userLoggedIn" ng-click="click_on_star()" class="bitcoin_title_right-start" style="color: #999999;cursor: pointer"><i class="far fa-star"></i></span>
+
+                                        </h3>
                                         <h3 class="bitcoin_many_stock text_size" ng-class="{'negative': myforex.variation == 'down', 'positive':myforex.variation == 'up', 'neutral': myforex.variation == 'none'}">{[{myforex.price}]}
                                             <span class="statistics_block-text" ng-class="{'negative': myforex.change24 < 0, 'positive': myforex.change24 >= 0}">{[{myforex.change24}]}%
                                                 <span class="statistics_block_min-text">{[{myforex.point}]}</span>

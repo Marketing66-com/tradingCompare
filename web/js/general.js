@@ -134,6 +134,14 @@ $('.switch').on('click', '.form_cliking_decoration_popup', function () {
 // login button, get the sign in
 $(".v-btn").click(function () { $('.v-modal').slideDown(); });
 
+$(".oh_no_signin").on('click','.v-btn', function () {
+    $('.v-modal').slideDown();
+});
+
+$("#logButton").on('click','.v-btn', function () {
+    $('.v-modal').slideDown();
+});
+
 //
 // $('.country_list').find('li').click(function () {
 //     console.log("1")

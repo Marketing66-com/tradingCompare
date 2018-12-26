@@ -37,6 +37,7 @@ angular.module('memberService', [])
             return sendHttpRequest(url, token);
         };
 
+
         var getLocation = function () {
             const url = 'https://api.ipstack.com/check?access_key=63abaa19691754779cebd0addbfe2914'
 
@@ -85,18 +86,6 @@ angular.module('memberService', [])
             return sendPostHttpRequest(url, token, update_data);
         }
 
-        // var updateUser_SOS = function (update_data) {
-        //     const url = "https://xosignals.herokuapp.com/trading-compare-v2/update-fields/"
-        //
-        //     return new Promise(function (resolve, reject) {
-        //         $http.post(url, update_data, config).then(function(response){
-        //             resolve(response);
-        //         }).catch(function (error) {
-        //             reject(error);
-        //         });
-        //     });
-        // }
-
         var checkCode = function (token, code) {
             const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/check_code`;
 
@@ -109,6 +98,17 @@ angular.module('memberService', [])
             return sendPostHttpRequest(url, token, id);
         };
 
+        var Add_to_watchlist = function (token, data) {
+            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/add-to-watchlist`;
+
+            return sendPostHttpRequest(url, token, data);
+        };
+
+        var Delete_from_watchlist = function (token, data) {
+            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/delete-from-watchlist`;
+
+            return sendPostHttpRequest(url, token, data);
+        };
 
         return {
             getSampleSecuredPage: getSampleSecuredPage,
@@ -119,8 +119,9 @@ angular.module('memberService', [])
             createUser:createUser,
             sendVerifyCode:sendVerifyCode,
             updateUser:updateUser,
-            // updateUser_SOS:updateUser_SOS,
             checkCode:checkCode,
-            getUsersById:getUsersById
+            getUsersById:getUsersById,
+            Add_to_watchlist:Add_to_watchlist,
+            Delete_from_watchlist:Delete_from_watchlist
         };
     });

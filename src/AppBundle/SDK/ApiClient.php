@@ -98,7 +98,31 @@ class ApiClient
         return $this->doPostRequest($uri, $id);
     }
 
+    /**
+     * @param $data
+     *
+     * @return array|mixed
+     * @throws Exception
+     */
+    public function addToWatchlist(array $data)
+    {
+        $uri = 'trading-compare-v2/add-to-watchlist';
 
+        return $this->doPostRequest($uri, $data);
+    }
+
+    /**
+     * @param $data
+     *
+     * @return array|mixed
+     * @throws Exception
+     */
+    public function deleteFromWatchlist(array $data)
+    {
+        $uri = 'trading-compare-v2/remove-from-watchlist';
+
+        return $this->doPostRequest($uri, $data);
+    }
 
 
     /**
