@@ -501,26 +501,28 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
 
     function MyInterval(){
         //console.log("start interval",$scope.socket_object)
-        for(var i=0; i<$scope.filteredItems.length; i++)
-        {   //console.log("start interval",$scope.filteredItems[i].pair,$scope.socket_object[$scope.filteredItems[i].pair])
-            if($scope.socket_object[$scope.filteredItems[i].pair] != undefined && typeof $scope.socket_object[$scope.filteredItems[i].pair] != "undefined")
-            {
-                //console.log("in if")
-                $scope.new_price = $scope.socket_object[$scope.filteredItems[i].pair]
+        if($scope.filteredItems != undefined){
+            for(var i=0; i<$scope.filteredItems.length; i++)
+            {   //console.log("start interval",$scope.filteredItems[i].pair,$scope.socket_object[$scope.filteredItems[i].pair])
+                if($scope.socket_object[$scope.filteredItems[i].pair] != undefined && typeof $scope.socket_object[$scope.filteredItems[i].pair] != "undefined")
+                {
+                    //console.log("in if")
+                    $scope.new_price = $scope.socket_object[$scope.filteredItems[i].pair]
 
-                if($scope.new_price > $scope.filteredItems[i].price)
-                    $scope.filteredItems[i].variation = "up"
-                else if ($scope.new_price == $scope.filteredItems[i].price)
-                    $scope.filteredItems[i].variation = "none"
-                else
-                    $scope.filteredItems[i].variation = "down"
+                    if($scope.new_price > $scope.filteredItems[i].price)
+                        $scope.filteredItems[i].variation = "up"
+                    else if ($scope.new_price == $scope.filteredItems[i].price)
+                        $scope.filteredItems[i].variation = "none"
+                    else
+                        $scope.filteredItems[i].variation = "down"
 
-                $scope.filteredItems[i].price =  $scope.new_price
-                $scope.filteredItems[i].change24 = Number(((($scope.new_price -  $scope.filteredItems[i].open24) / $scope.filteredItems[i].open24) * 100).toFixed(2))
-                $scope.filteredItems[i].high24 = Number(Math.max($scope.new_price, $scope.filteredItems[i].high24 , $scope.filteredItems[i].open24).toFixed(2))
-                $scope.filteredItems[i].low24 = Number(Math.min($scope.new_price, $scope.filteredItems[i].low24 , $scope.filteredItems[i].open24).toFixed(2))
-                //console.log("end interval",$scope.filteredItems[0].price)
-                $scope.$apply()
+                    $scope.filteredItems[i].price =  $scope.new_price
+                    $scope.filteredItems[i].change24 = Number(((($scope.new_price -  $scope.filteredItems[i].open24) / $scope.filteredItems[i].open24) * 100).toFixed(2))
+                    $scope.filteredItems[i].high24 = Number(Math.max($scope.new_price, $scope.filteredItems[i].high24 , $scope.filteredItems[i].open24).toFixed(2))
+                    $scope.filteredItems[i].low24 = Number(Math.min($scope.new_price, $scope.filteredItems[i].low24 , $scope.filteredItems[i].open24).toFixed(2))
+                    //console.log("end interval",$scope.filteredItems[0].price)
+                    $scope.$apply()
+                }
             }
         }
         //console.log("ok")
