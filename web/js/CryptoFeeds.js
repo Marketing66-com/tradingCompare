@@ -420,7 +420,7 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
     }
 
     $scope.click_on_star = function(){
-        $('.v-modal').slideDown();
+        $('.modal_sigh-up').slideDown();
     }
 
 });

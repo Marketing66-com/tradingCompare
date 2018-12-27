@@ -25,20 +25,6 @@ class MemberSpaceController extends BaseController
         return new JsonResponse($this->get(ApiClient::class)->getUsers());
     }
 
-    /**
-     * @Security("is_granted('ROLE_USER')")
-     * @Route("/get-sentiments-by-user", name="api_get_sentiments_by_user", options={"i18n"=false})
-     * @return JsonResponse
-     * @throws \Exception
-     */
-    public function getSentimentsByUser()
-    {
-        /** @var User $user */
-        $user = $this->getUser();
-
-        $sentiments = $this->get(ApiClient::class)->getSentimentsByUser($user->getIdentifier());
-        return new JsonResponse($sentiments);
-    }
 
     /**
      * @Security("is_granted('ROLE_USER')")
@@ -129,4 +115,35 @@ class MemberSpaceController extends BaseController
         $response= $this->get(ApiClient::class)->deleteFromWatchlist($data);
         return new JsonResponse($response);
     }
+
+    /**
+     * @Security("is_granted('ROLE_USER')")
+     * @Route("/get-sentiments-by-user", name="api_get_sentiments_by_user", options={"i18n"=false})
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function getSentimentsByUser()
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $sentiments = $this->get(ApiClient::class)->getSentimentsByUser($user->getIdentifier());
+        return new JsonResponse($sentiments);
+    }
+
+    /**
+     * @Security("is_granted('ROLE_USER')")
+     * @Route("/add-sentiment", name="add-sentiment", options={"i18n"=false})
+     * @Method("POST")
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function add_sentiment(Request $request)
+    {
+        $content = $request->getContent();
+        $data = json_decode($content, true);
+        $response= $this->get(ApiClient::class)->addSentiment($data);
+        return new JsonResponse($response);
+    }
+
 }

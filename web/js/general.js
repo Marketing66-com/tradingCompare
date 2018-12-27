@@ -116,30 +116,42 @@ $('.switch').on('click', '.color-aqua_form', function () {
 // });
 
 $(".form_cliking_decoration").click(function () {
+    $('.modal_sigh-in').slideUp();
     $('.modal_sigh-up').slideDown();
 });
 $('.switch').on('click', '.form_cliking_decoration', function () {
+    $('.modal_sigh-in').slideUp();
     $('.modal_sigh-up').slideDown();
 })
 
 
 $(".form_cliking_decoration_popup").on('click', function () {
     $('.modal_sigh-up').slideUp();
+    $('.modal_sigh-in').slideDown();
+    // $('.v-modal').slideDown();
 });
 $('.switch').on('click', '.form_cliking_decoration_popup', function () {
     $('.modal_sigh-up').slideUp();
+    $('.modal_sigh-in').slideDown();
+    // $('.modal_sigh-in').slideDown();
 })
 
 
+
 // login button, get the sign in
-$(".v-btn").click(function () { $('.v-modal').slideDown(); });
+$(".v-btn").click(function () {
+    // $('.v-modal').slideDown();
+    $('.modal_sigh-up').slideDown();
+});
 
 $(".oh_no_signin").on('click','.v-btn', function () {
-    $('.v-modal').slideDown();
+    // $('.v-modal').slideDown();
+    $('.modal_sigh-up').slideDown();
 });
 
 $("#logButton").on('click','.v-btn', function () {
-    $('.v-modal').slideDown();
+    // $('.v-modal').slideDown();
+    $('.modal_sigh-up').slideDown();
 });
 
 //

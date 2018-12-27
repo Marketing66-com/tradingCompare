@@ -33,18 +33,6 @@ class ApiClient
         return $this->doGetRequest('trading-compare-v2/get-users');
     }
 
-    /**
-     * @param string $userIdentifier
-     *
-     * @return array|mixed
-     * @throws Exception
-     */
-    public function getSentimentsByUser(string $userIdentifier)
-    {
-        $uri = '/get-sentiments-by-user/'.$userIdentifier;
-
-        return $this->doGetRequest($uri);
-    }
 
     /**
      * @param $user
@@ -123,6 +111,34 @@ class ApiClient
 
         return $this->doPostRequest($uri, $data);
     }
+
+    /**
+     * @param string $userIdentifier
+     *
+     * @return array|mixed
+     * @throws Exception
+     */
+    public function getSentimentsByUser(string $userIdentifier)
+    {
+        $uri = 'trading-compare-v2/get-sentiments-by-user/'.$userIdentifier;
+
+        return $this->doGetRequest($uri);
+    }
+
+    /**
+     * @param $data
+     *
+     * @return array|mixed
+     * @throws Exception
+     */
+    public function addSentiment(array $data)
+    {
+        $uri = 'trading-compare-v2/add-sentiment';
+
+        return $this->doPostRequest($uri, $data);
+    }
+
+//    *******************************************************************************
 
 
     /**

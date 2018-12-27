@@ -79,7 +79,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
 //*******************************
         $http.get("https://websocket-stock.herokuapp.com/getStockPrice/" +  symbol)
             .then(function(result) {
-                //console.log("result ***",result)
+                console.log("result ***",result)
                 $scope.mystock = result.data
                 $scope.last_price = result.data.price
 
@@ -267,7 +267,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
         }
 
         $scope.click_on_star = function(){
-            $('.v-modal').slideDown();
+            $('.modal_sigh-up').slideDown();
         }
         /**************************** Socket **********************/
 

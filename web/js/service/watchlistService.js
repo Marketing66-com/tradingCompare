@@ -10,9 +10,10 @@ angular.module('watchlistService', [])
                     .then(function (response) {
                        //console.log("response",response)
                         if (!Object.keys(response.data).length > 0) {
-                            $http.get("https://interactivecrypto.herokuapp.com/getLastRecord/" + element)
+                            $http.get("https://interactivecrypto.herokuapp.com/getLastRecord/" + stock)
                                 .then(function (res) {
-                                    console.log("res DB",response)
+                                    console.log("res DB",res)
+                                    res.data.pair = res.data.symbol
                                     //NAME
                                     res.data.name = res.data.symbol
                                     res.data.complete_name = res.data.name
@@ -54,10 +55,10 @@ angular.module('watchlistService', [])
 
                             //TYPE
                             response.data.type = 'STOCK'
-                        }
-                        resolve (response.data)
-                    })
 
+                            resolve (response.data)
+                        }
+                    })
             })
         }
 

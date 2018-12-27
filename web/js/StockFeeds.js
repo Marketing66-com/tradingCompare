@@ -1,7 +1,7 @@
-var stockApp = angular.module('stockApp', ['ui.bootstrap', 'memberService','watchlistService']).config(function ($interpolateProvider) {
+var stockApp = angular.module('stockApp', ['ui.bootstrap', 'memberService','watchlistService','stockService']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');});
 
-stockApp.controller("stockController", function ($scope,$window,$location,MemberService,WatchlistService,$http,$interval,$timeout) {
+stockApp.controller("stockController", function ($scope,$window,$location,MemberService,WatchlistService,StockService,$http,$interval,$timeout) {
     // *********** variables for ajax & country ************
     $scope.listCountry = [];
     $scope.country_name;
@@ -19,6 +19,7 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
     // $scope.WatchlistStock = []; $scope.WatchlistCrypto = []; $scope.WatchlistForex = [];
     $scope.WatchlistTemp =[] ;$scope.WatchlistTable =[]
     $scope.strStock = "";  $scope.strCrypto = "";  $scope.strForex = ""
+    $scope.user_sentiments = []
 
     $scope.onSelect = function ($item, $model, $label) {
         $scope.$item = $item;
@@ -71,6 +72,18 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                 }
             });
         });
+        // if($scope.user_sentiments.length>0) {
+        //     $scope.user_sentiments.forEach(element => {
+        //         if (element.symbol_type == 'STOCK' && element.status == 'OPEN') {
+        //             $scope.filteredItems.forEach(element_table => {
+        //                 if (element.symbol == element_table.pair) {
+        //                     element_table.status_sentiment = 'OPEN'
+        //                     element_table.type_sentiment = element.type
+        //                 }
+        //             });
+        //         }
+        //     });
+        // }
 
         $scope.str = ""
         for(var i = 0; i<= 99; i++)
@@ -82,7 +95,8 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
     };
     // *********** end ************
 
-
+    // firebase.auth().onAuthStateChanged(function (user) {
+    //     if (user) {
     $scope.init = function (country_name, country_value) {
         //console.log("api", country_name, country_value)
         // $scope.customSelected = ""
@@ -90,6 +104,7 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
         $scope.country_name = country_name;
         $scope.country_value = country_value;
 
+        //***************************************************
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
                 $scope.userLoggedIn = true;
@@ -103,6 +118,7 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                     MemberService.getUsersById(idToken, $scope._id).then(function (results) {
                         //console.log("getUsersById",results)
                         $scope.user = results.data
+
                         if($scope.user.watchlist.length>0){
                             //console.log("in if watchlist.lenght>0")
                             $scope.user.watchlist.forEach(currencie => {
@@ -123,23 +139,41 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                         }
                         $scope.$apply();
                         //console.log("user get from db",$scope.user)
+                    // }).then(() => {
+                    //     MemberService.getSentimentsByUser(idToken).then(function (results) {
+                    //         console.log("getSentimentsByUser",results)
+                    //         $scope.user_sentiments = results
+                    //         $scope.$apply();
+                    //     }).catch(function (error) {
+                    //         $scope.data = error;
+                    //         console.log("$scope.data", $scope.data)
+                    //         $scope.$apply();
+                    //     })
                     })
-                        .then(() => {
+                    .then(() => {
                             if($scope.for_finished == true){
-                               //console.log("for finished")
+                                //console.log("for finished")
                                 if($scope.Wstock.length>0){
-                                    //console.log("lenght>0")
                                     $scope.Wstock.forEach(currencie => {
-                                        $scope.filteredItems.forEach(element =>     {
+                                        $scope.filteredItems.forEach(element => {
                                             if(currencie == element.pair){
-                                               // console.log("***",currencie,element.pair,element)
                                                 element.is_in_watchlist = true
-                                                $scope.$apply();
                                             }
                                         });
                                     });
                                 }
-                                // BuildWatchlist()
+                                // if($scope.user_sentiments.length>0) {
+                                //     $scope.user_sentiments.forEach(element => {
+                                //         if (element.symbol_type == 'STOCK' && element.status == 'OPEN') {
+                                //             $scope.filteredItems.forEach(element_table => {
+                                //                 if (element.symbol == element_table.pair) {
+                                //                     element_table.status_sentiment = 'OPEN'
+                                //                     element_table.type_sentiment = element.type
+                                //                 }
+                                //             });
+                                //         }
+                                //     });
+                                // }
                             }
                             else{
                                 var check = function() {
@@ -151,33 +185,41 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                                     else{
                                        // console.log("in else")
                                         if($scope.Wstock.length>0){
-                                            //console.log("lenght>0")
-                                            $scope.Wstock.forEach(currencie => {
-                                                $scope.filteredItems.forEach(element =>     {
+                                            $scope.Wstock.forEach(currencie =>{
+                                                $scope.filteredItems.forEach(element =>{
                                                     if(currencie == element.pair){
-                                                        //console.log("***",currencie,element.pair,element)
                                                         element.is_in_watchlist = true
-                                                        $scope.$apply();
                                                     }
                                                 });
                                             });
                                         }
-                                        // BuildWatchlist()
+                                        // if($scope.user_sentiments.length>0) {
+                                        //     $scope.user_sentiments.forEach(element => {
+                                        //         if (element.symbol_type == 'STOCK' && element.status == 'OPEN') {
+                                        //             $scope.filteredItems.forEach(element_table => {
+                                        //                 if (element.symbol == element_table.pair) {
+                                        //                     element_table.status_sentiment = 'OPEN'
+                                        //                     element_table.type_sentiment = element.type
+                                        //                 }
+                                        //             });
+                                        //         }
+                                        //     });
+                                        // }
                                     }
                                 }
                                 $timeout(check, 100)
-                                $scope.$apply();
+
                             }
-                        })
-                        .then(() => {
+                        $scope.$apply();
+                    })
+                    .then(() => {
                             BuildWatchlist()
-                        })
-                        .catch(function (error) {
+                    })
+                    .catch(function (error) {
                             $scope.data = error;
                             console.log("$scope.data", $scope.data)
                             $scope.$apply();
-                        })
-
+                    })
                 }).catch(function (error) {
                     console.log('ERROR: ', error)
                 });
@@ -191,8 +233,8 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
 
 
         // *********************************
-
         // *********************************
+        //***************************************************************************************
         $http.get("https://websocket-stock.herokuapp.com/stocks/" + country_value)
             .then(function(result) {
                 $scope.result = result.data;
@@ -222,11 +264,15 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                         //WATCHLIST
                         itemsDetails[j].is_in_watchlist = false
 
+                        //SENTIMENT USER
+                        itemsDetails[j].status_sentiment = 'CLOSE'
+                        itemsDetails[j].type_sentiment = 'none'
+
                         j = j+1;
                     }
                 }
 
-                //console.log("itemsDetails",itemsDetails)
+                console.log("itemsDetails",itemsDetails)
 
                 $scope.totalItems = itemsDetails.length;
 
@@ -401,17 +447,27 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
             all_promises.push(WatchlistService.stockForWatchlist(element))
         })
 
-        //var promises4 = WatchlistService.stockForWatchlist_test("FB")
-        //console.log("promises4",promises4)
-
         Promise.all(all_promises) .then((Arrays) => {
-            //console.log("Arrays",Arrays)
+            console.log("Arrays",Arrays)
             $scope.WatchlistTemp = Arrays[0].concat(Arrays[1])
             for(i=2;i<Arrays.length;i++){
                 $scope.WatchlistTemp.push(Arrays[i])
             }
-            // $scope.WatchlistTemp = Arrays[0].concat(Arrays[1]).concat(Arrays[2])
-            //console.log("WatchlistTemp",$scope.WatchlistTemp )
+
+            // if($scope.user_sentiments.length>0) {
+            //     $scope.user_sentiments.forEach(element => {
+            //         if (element.status == 'OPEN') {
+            //             $scope.WatchlistTemp.forEach(element_watchlist => {
+            //                 if (element.symbol == element_watchlist.pair) {
+            //                     element_watchlist.status_sentiment = 'OPEN'
+            //                     element_watchlist.type_sentiment = element.type
+            //                 }
+            //             });
+            //         }
+            //     });
+            // }
+            console.log("WatchlistTemp",$scope.WatchlistTemp )
+
             for(i=0;i<$scope.user.watchlist.length;i++){
                 for(j=0;j<$scope.WatchlistTemp.length;j++){
                     if($scope.user.watchlist[i].symbol == $scope.WatchlistTemp[j].pair){
@@ -420,14 +476,14 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                     }
                 }
             }
-            //console.log("$scope.WatchlistTable",$scope.WatchlistTable)
+            console.log("$scope.WatchlistTable",$scope.WatchlistTable)
             $scope.$apply()
         })
 
     }
 
     $scope.click_on_star = function(){
-        $('.v-modal').slideDown();
+        $('.modal_sigh-up').slideDown();
     }
 
 
@@ -453,26 +509,9 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
             setInterval(MyInterval, 5000)
         }
         else if($scope.for_finished && !$scope.filteredItems.length>0){
-            //console.log("filteredItems empty")
             $scope.no_stock = "no stock for " + $scope.country_name
-           // console.log(" $scope.no_stock", $scope.no_stock)
         }
         $scope.$apply()
-        // if($scope.str == "")
-        // {
-        //     setTimeout(start, 1000);
-        //     console.log("str empty settimeout again")
-        // }
-        //
-        // else
-        // {
-        //     //console.log("str ok go to connect")
-        //     clearInterval(timerId)
-        //     connect()
-        //     setInterval(MyInterval, 5000)
-        // }
-
-
     }
     function connect(){
 

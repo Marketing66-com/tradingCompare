@@ -225,7 +225,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
     }
 
     $scope.click_on_star = function(){
-        $('.v-modal').slideDown();
+        $('.modal_sigh-up').slideDown();
     }
 
 });

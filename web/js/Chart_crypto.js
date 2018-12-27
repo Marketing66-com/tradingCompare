@@ -276,7 +276,7 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
     }
 
     $scope.click_on_star = function(){
-        $('.v-modal').slideDown();
+        $('.modal_sigh-up').slideDown();
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////
 

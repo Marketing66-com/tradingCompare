@@ -31,12 +31,6 @@ angular.module('memberService', [])
             return sendHttpRequest(url, token);
         };
 
-        var getSentimentsByUser = function (token) {
-            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/get-sentiments-by-user`;
-
-            return sendHttpRequest(url, token);
-        };
-
 
         var getLocation = function () {
             const url = 'https://api.ipstack.com/check?access_key=63abaa19691754779cebd0addbfe2914'
@@ -110,6 +104,19 @@ angular.module('memberService', [])
             return sendPostHttpRequest(url, token, data);
         };
 
+        var getSentimentsByUser = function (token) {
+            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/get-sentiments-by-user`;
+
+            return sendHttpRequest(url, token);
+        };
+
+        var Add_sentiment = function (token, data) {
+            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/add-sentiment`;
+
+            return sendPostHttpRequest(url, token, data);
+        };
+
+
         return {
             getSampleSecuredPage: getSampleSecuredPage,
             sendPostHttpRequest:sendPostHttpRequest,
@@ -122,6 +129,7 @@ angular.module('memberService', [])
             checkCode:checkCode,
             getUsersById:getUsersById,
             Add_to_watchlist:Add_to_watchlist,
-            Delete_from_watchlist:Delete_from_watchlist
+            Delete_from_watchlist:Delete_from_watchlist,
+            Add_sentiment:Add_sentiment
         };
     });
