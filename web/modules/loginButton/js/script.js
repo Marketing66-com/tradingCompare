@@ -1,7 +1,7 @@
 const LogButton = angular.module('LogButton', ['memberService']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');});
 
-LogButton.controller('LogButton', function ($scope, MemberService) {
+LogButton.controller('LogButton', function ($scope, $window, MemberService) {
     $scope.firebase = firebase;
     $scope.userLoggedIn = false;
     $scope.data = {};
@@ -46,6 +46,7 @@ LogButton.controller('LogButton', function ($scope, MemberService) {
 
     $scope.logout = function(){
         firebase.auth().signOut();
+        $window.location.reload();
     }
 });
 

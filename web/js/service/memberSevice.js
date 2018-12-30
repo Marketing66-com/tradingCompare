@@ -44,9 +44,9 @@ angular.module('memberService', [])
             });
         }
 
-        var is_nickname_exist = function (nickname) {
-            const url = "https://xosignals.herokuapp.com/trading-compare-v2/is-nickname-exist/" + nickname + "/undefined"
-
+        var is_nickname_exist = function (nickname,_id) {
+            const url = "https://xosignals.herokuapp.com/trading-compare-v2/is-nickname-exist/" + nickname + "/" + _id
+console.log("url", url)
             return new Promise(function (resolve, reject) {
                 $http.get(url).then(function (response) {
                     resolve(response.data);
@@ -55,6 +55,7 @@ angular.module('memberService', [])
                 });
             });
         }
+
 
         var createUser = function (user) {
             const url = "https://xosignals.herokuapp.com/trading-compare-v2/createUser"

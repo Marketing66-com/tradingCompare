@@ -237,6 +237,15 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
             console.log("return")
             return;
         }
+        if($scope.user.phone_number == ""){
+            $('.modal_sigh-up').slideDown();
+            return;
+        }
+        if(!$scope.user.verifyData.is_phone_number_verified){
+            $('.modal_sigh-up').slideDown();
+            return;
+        }
+
         $scope.stock_to_delete = $scope.WatchlistTable[index].pair
         $scope.WatchlistTable.splice(index, 1)
 
@@ -274,6 +283,15 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
             console.log("return")
             return;
         }
+        if($scope.user.phone_number == ""){
+            $('.modal_sigh-up').slideDown();
+            return;
+        }
+        if(!$scope.user.verifyData.is_phone_number_verified){
+            $('.modal_sigh-up').slideDown();
+            return;
+        }
+
         $scope.filteredItems[index].is_in_watchlist = false
 
         for(i=0;i<$scope.WatchlistTable.length;i++){
@@ -311,6 +329,14 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
 
         if($scope.user == undefined || $scope.user.length == 0 ){
             console.log("return")
+            return;
+        }
+        if($scope.user.phone_number == ""){
+            $('.modal_sigh-up').slideDown();
+            return;
+        }
+        if(!$scope.user.verifyData.is_phone_number_verified){
+            $('.modal_sigh-up').slideDown();
             return;
         }
 

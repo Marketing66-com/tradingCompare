@@ -16,6 +16,51 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
     $scope.init = function () {
         $scope.numLimit = 10
 
+        firebase.auth().onAuthStateChanged(function (user) {
+           // console.log("In AuthState")
+            if (user) {
+                //console.log("In AuthState if")
+                $scope.userLoggedIn = true;
+                user.getIdToken(true).then(function (idToken) {
+                    $scope.idToken = idToken
+                    $scope._id = {
+                        _id: user.uid
+                    }
+                    MemberService.getUsersById($scope.idToken, $scope._id).then(function (results) {
+                        $scope.user_alreadyConnected = results.data
+                        if ($scope.user_alreadyConnected.phone_number == "") {
+                            //console.log("no phone", $scope.user_alreadyConnected)
+                            $scope.template = 5
+                            $scope.user =  $scope.user_alreadyConnected
+                        }
+
+                        else if (!$scope.user_alreadyConnected.verifyData.is_phone_number_verified) {
+                            //console.log("no verify", $scope.user_alreadyConnected)
+                            $scope.template = 1
+                            $scope.user =  $scope.user_alreadyConnected
+                        }
+                        //console.log(" $scope.user",$scope.user )
+                        $scope.$apply();
+
+                    }).catch(function (error) {
+                        $scope.data = error;
+                        console.log("$scope.data", $scope.data)
+                        $scope.$apply();
+                    })
+
+                }).catch(function (error) {
+                    console.log('ERROR: ', error)
+                });
+                $scope.$apply();
+
+            }
+            else {
+                //console.log("In AuthState else")
+                $scope.userLoggedIn = false;
+                $scope.$apply();
+            }
+        })
+
         MemberService.getLocation().then(function (country) {
 
             $scope.location = country.country_name;
@@ -40,8 +85,63 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
             $scope.data = error;
             $scope.$apply();
         })
+
+
     }
 
+    //*************************************************************
+    $scope.master = {};
+    $scope.reset = function(form) {
+        //console.log("reset form",form)
+        //
+        if (form) {
+            form.$setPristine();
+            form.$setUntouched();
+        }
+
+        if($scope.userLoggedIn){
+            //console.log("user already connected",$scope.user_alreadyConnected)
+            if($scope.user_alreadyConnected.phone_number == ""){
+                //console.log("1",)
+                $scope.template = 5;
+                $scope.user =  $scope.user_alreadyConnected
+            }
+
+            else if(!$scope.user_alreadyConnected.verifyData.is_phone_number_verified){
+                //console.log("2")
+                $scope.template = 1;
+                $scope.user =  $scope.user_alreadyConnected
+            }
+        }
+        else if(!$scope.userLoggedIn) {
+            //console.log("3")
+            $scope.template = 0;
+            $scope.user = new CreateUser()
+            $scope.user.countryData.country = $scope.location
+            $scope.user.countryData.dial_code = $scope.location_code
+            $scope.user.email = ""
+            $scope.user.phone_number = ""
+            // $scope.user  = angular.copy($scope.master);
+            // $scope.user.full_name = ""
+            // $scope.user.nickname = ""
+            // $scope.user.password = ""
+        }
+
+        $scope.error_message= ""
+        $scope.loading = false;
+        $scope.wrong_code = false
+        $scope.code_incomplete = false
+        $scope.code_already_sent = false
+        $scope.error_message_signIn = ""
+    };
+    $scope.reset();
+
+    $scope.setValue = function(x) {
+        $scope.user.countryData.dial_code = x.dial_code
+        $scope.user.countryData.country = x.name
+    }
+
+    //*************************************************************
     document.addEventListener('scroll', function (event) {
         if (event.target.id === 'my_ul') {
             var x = $('#my_ul').scrollTop() + 195
@@ -95,7 +195,8 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
         }
         $scope.loading = true ;
 
-        MemberService.is_nickname_exist(user.nickname).then(function (results) {
+        var id = 'undefined'
+        MemberService.is_nickname_exist(user.nickname, id).then(function (results) {
             if(results){
                 $scope.already_exist = true;
                 $scope.loading = false ;
@@ -408,7 +509,13 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
         }
         $scope.loading = true ;
 
-        MemberService.is_nickname_exist(user.nickname).then(function (results) {
+        if(user._id == undefined){
+            var id = 'undefined'
+        }
+        else{
+            var id = user._id
+        }
+        MemberService.is_nickname_exist(user.nickname, id).then(function (results) {
             if(results){
                 $scope.already_exist = true;
                 $scope.loading = false ;
@@ -422,6 +529,7 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
 
         }).then((IsAlready_exist)=>{
             if(!IsAlready_exist){
+                console.log("user***", user)
                 MemberService.sendVerifyCode($scope.idToken,user).then(function (results) {
                     console.log("sendVerifyCode",results)
                     $scope.result_verifycode = results
@@ -483,6 +591,10 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
     }
 
     //***************************************
+    $scope.logout = function(){
+        firebase.auth().signOut();
+    }
+    //***************************************
     $scope.SignInProvider = function(provider) {
         console.log("in SignInProvider",provider)
         $scope.loading = true ;
@@ -522,19 +634,21 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
                             console.log("in verify",results.data.verifyData.is_phone_number_verified)
                             $scope.user = results.data
                             $scope.loading = false ;
-                            $scope.template = 4
                             $scope.logIn = true
-                            $('.modal_sigh-in').slideUp();
-                            $scope.template = 0;
-                            reset()
+                            $('.v-modal').slideUp(); //signIn
+                            $('.modal_sigh-up').slideUp();
                         }
                         else{
                             $scope.user = results.data
                             $scope.loading = false ;
-                            $scope.template = 1
-                            $('.modal_sigh-up').slideDown();
-                            $scope.template = 0;
-                            reset()
+                            if(results.data.phone_number == ""){
+                                $scope.template = 5
+                                $('.modal_sigh-up').slideDown();
+                            }
+                            else if(!results.data.verifyData.is_phone_number_verified){
+                                $scope.template = 1
+                                $('.modal_sigh-up').slideDown();
+                            }
                         }
                         $scope.userInDb = false
                     }
@@ -577,37 +691,6 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
     }
 
     //***************************************
-    $scope.master = {};
-    $scope.reset = function(form) {
-        console.log("reset form",form)
-        //
-        if (form) {
-            form.$setPristine();
-            form.$setUntouched();
-        }
-        $scope.user = new CreateUser()
-        $scope.template = 0;
-        $scope.error_message= ""
-        $scope.loading = false;
-        $scope.wrong_code = false
-        $scope.code_incomplete = false
-        $scope.code_already_sent = false
-        // $scope.user  = angular.copy($scope.master);
-        $scope.user.countryData.country = $scope.location
-        $scope.user.countryData.dial_code = $scope.location_code
-        // $scope.user.full_name = ""
-        // $scope.user.nickname = ""
-        // $scope.user.password = ""
-        $scope.error_message_signIn = ""
-        $scope.user.email = ""
-        $scope.user.phone_number = ""
-    };
-    $scope.reset();
-
-    $scope.setValue = function(x) {
-        $scope.user.countryData.dial_code = x.dial_code
-        $scope.user.countryData.country = x.name
-    }
 
 //**************** SIGN IN   ****************************************************************************************************
     $scope.loading_signIn = false ;
@@ -650,19 +733,25 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
                             // $scope.user.provider = provider;
                             if(results.data.verifyData.is_phone_number_verified){
                                 console.log("in verify",results.data.verifyData.is_phone_number_verified)
+                                $scope.user = results.data
                                 $scope.loading = false ;
                                 $scope.logIn = true
-                                $('.modal_sigh-in').slideUp();
-                                reset()
+                                $('.v-modal').slideUp(); //signIn
+                                $('.modal_sigh-up').slideUp();
                             }
                             else{
                                 $scope.user = results.data
                                 $scope.loading = false ;
                                 $scope.wrong_code = false
                                 $scope.code_incomplete = false
-                                $scope.template = 1
-                                $('.modal_sigh-up').slideDown();
-                                reset()
+                                if(results.data.phone_number == ""){
+                                    $scope.template = 5
+                                    $('.modal_sigh-up').slideDown();
+                                }
+                                else if(!results.data.verifyData.is_phone_number_verified){
+                                    $scope.template = 1
+                                    $('.modal_sigh-up').slideDown();
+                                }
                             }
                             $scope.userInDb = false
                         }
