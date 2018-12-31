@@ -259,14 +259,14 @@ class DefaultController extends Controller
     }
 
 
-//    /**
-//     * @Route("/ho_no", name="ho_no")
-//     */
-//    public function ho_noAction()
-//    {
-//        // replace this example code with whatever you need
-//        return $this->render('default/ho_no.html.twig');
-//    }
+    /**
+     * @Route("/ho_no", name="ho_no")
+     */
+    public function ho_noAction()
+    {
+        // replace this example code with whatever you need
+        return $this->render('default/test/signup.html.twig');
+    }
 
 //    /**
 //     * @Route("/commentOnChart", name="commentOnChart")

@@ -72,18 +72,18 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                 }
             });
         });
-        // if($scope.user_sentiments.length>0) {
-        //     $scope.user_sentiments.forEach(element => {
-        //         if (element.symbol_type == 'STOCK' && element.status == 'OPEN') {
-        //             $scope.filteredItems.forEach(element_table => {
-        //                 if (element.symbol == element_table.pair) {
-        //                     element_table.status_sentiment = 'OPEN'
-        //                     element_table.type_sentiment = element.type
-        //                 }
-        //             });
-        //         }
-        //     });
-        // }
+        if($scope.user_sentiments.length>0) {
+            $scope.user_sentiments.forEach(element => {
+                if (element.symbol_type == 'STOCK' && element.status == 'OPEN') {
+                    $scope.filteredItems.forEach(element_table => {
+                        if (element.symbol == element_table.pair) {
+                            element_table.status_sentiment = 'OPEN'
+                            element_table.type_sentiment = element.type
+                        }
+                    });
+                }
+            });
+        }
 
         $scope.str = ""
         for(var i = 0; i<= 99; i++)
@@ -115,7 +115,7 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                     $scope._id = {
                         _id: user.uid
                     }
-                    MemberService.getUsersById(idToken, $scope._id).then(function (results) {
+                    MemberService.getUsersById($scope.idToken, $scope._id).then(function (results) {
                         //console.log("getUsersById",results)
                         $scope.user = results.data
 
@@ -139,16 +139,16 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                         }
                         $scope.$apply();
                         //console.log("user get from db",$scope.user)
-                    // }).then(() => {
-                    //     MemberService.getSentimentsByUser(idToken).then(function (results) {
-                    //         console.log("getSentimentsByUser",results)
-                    //         $scope.user_sentiments = results
-                    //         $scope.$apply();
-                    //     }).catch(function (error) {
-                    //         $scope.data = error;
-                    //         console.log("$scope.data", $scope.data)
-                    //         $scope.$apply();
-                    //     })
+                    }).then(() => {
+                        MemberService.getSentimentsByUser($scope.idToken).then(function (results) {
+                            console.log("getSentimentsByUser",results)
+                            $scope.user_sentiments = results
+                            $scope.$apply();
+                        }).catch(function (error) {
+                            $scope.data = error;
+                            console.log("$scope.data", $scope.data)
+                            $scope.$apply();
+                        })
                     })
                     .then(() => {
                             if($scope.for_finished == true){
@@ -162,18 +162,18 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                                         });
                                     });
                                 }
-                                // if($scope.user_sentiments.length>0) {
-                                //     $scope.user_sentiments.forEach(element => {
-                                //         if (element.symbol_type == 'STOCK' && element.status == 'OPEN') {
-                                //             $scope.filteredItems.forEach(element_table => {
-                                //                 if (element.symbol == element_table.pair) {
-                                //                     element_table.status_sentiment = 'OPEN'
-                                //                     element_table.type_sentiment = element.type
-                                //                 }
-                                //             });
-                                //         }
-                                //     });
-                                // }
+                                if($scope.user_sentiments.length>0) {
+                                    $scope.user_sentiments.forEach(element => {
+                                        if (element.symbol_type == 'STOCK' && element.status == 'OPEN') {
+                                            $scope.filteredItems.forEach(element_table => {
+                                                if (element.symbol == element_table.pair) {
+                                                    element_table.status_sentiment = 'OPEN'
+                                                    element_table.type_sentiment = element.type
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
                             }
                             else{
                                 var check = function() {
@@ -193,18 +193,18 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                                                 });
                                             });
                                         }
-                                        // if($scope.user_sentiments.length>0) {
-                                        //     $scope.user_sentiments.forEach(element => {
-                                        //         if (element.symbol_type == 'STOCK' && element.status == 'OPEN') {
-                                        //             $scope.filteredItems.forEach(element_table => {
-                                        //                 if (element.symbol == element_table.pair) {
-                                        //                     element_table.status_sentiment = 'OPEN'
-                                        //                     element_table.type_sentiment = element.type
-                                        //                 }
-                                        //             });
-                                        //         }
-                                        //     });
-                                        // }
+                                        if($scope.user_sentiments.length>0) {
+                                            $scope.user_sentiments.forEach(element => {
+                                                if (element.symbol_type == 'STOCK' && element.status == 'OPEN') {
+                                                    $scope.filteredItems.forEach(element_table => {
+                                                        if (element.symbol == element_table.pair) {
+                                                            element_table.status_sentiment = 'OPEN'
+                                                            element_table.type_sentiment = element.type
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        }
                                     }
                                 }
                                 $timeout(check, 100)
@@ -272,7 +272,7 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                     }
                 }
 
-                console.log("itemsDetails",itemsDetails)
+                //console.log("itemsDetails",itemsDetails)
 
                 $scope.totalItems = itemsDetails.length;
 
@@ -459,7 +459,9 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
         }
 
     }
-    //
+    $scope.add_sentiment = function(index) {
+
+    }
 
     BuildWatchlist = function(){
         console.log("in fill watchlist")
@@ -481,18 +483,21 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                 $scope.WatchlistTemp.push(Arrays[i])
             }
 
-            // if($scope.user_sentiments.length>0) {
-            //     $scope.user_sentiments.forEach(element => {
-            //         if (element.status == 'OPEN') {
-            //             $scope.WatchlistTemp.forEach(element_watchlist => {
-            //                 if (element.symbol == element_watchlist.pair) {
-            //                     element_watchlist.status_sentiment = 'OPEN'
-            //                     element_watchlist.type_sentiment = element.type
-            //                 }
-            //             });
-            //         }
-            //     });
-            // }
+            if($scope.user_sentiments.length>0) {
+                $scope.user_sentiments.forEach(element => {
+                    if (element.status == 'OPEN') {
+                        $scope.WatchlistTemp.forEach(element_watchlist => {
+                            if (element.symbol == element_watchlist.pair) {
+                                element_watchlist.status_sentiment = 'OPEN'
+                                element_watchlist.type_sentiment = element.type
+                            }
+                            else{
+                                element_watchlist.status_sentiment = 'CLOSE'
+                            }
+                        });
+                    }
+                });
+            }
             console.log("WatchlistTemp",$scope.WatchlistTemp )
 
             for(i=0;i<$scope.user.watchlist.length;i++){

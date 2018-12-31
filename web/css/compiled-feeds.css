@@ -111,18 +111,42 @@
 .country::placeholder {color: black;opacity: 3;}
 .country:-ms-input-placeholder { /* Internet Explorer 10-11 */ color: black; opacity: 3; }
 
-/*button bullish*/
-.button {background-color: #4CAF50; /* Green */    border: none;    color: white;    padding: 5px 10px;    text-align: center;    text-decoration: none;    display: inline-block;    font-size: x-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s;    cursor: pointer;    font-family: 'Avenir';border-radius: 5px;}
-.button1 {background-color: white;color: #7ED321;border: 2px solid #7ED321;}
-.button1:hover {background-color: #7ED321;color: white;}
-.button2 {background-color: white;color: #f44336;border: 2px solid #f44336;}
-.button2:hover {background-color: #f44336;color: white;}
-.buttonL {background-color: #4CAF50; /* Green */    border: none;    color: white;    padding: 3px 10px;    text-align: center;    text-decoration: none;    display: inline-block;    font-size: x-small;       -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s;    cursor: pointer;    font-family: 'Avenir';border-radius: 5px;}
-.buttonL1 {background-color: white;color: #7ED321;border: 2px solid #7ED321;}
-.buttonL1:hover {background-color: #7ED321;color: white;}
-.buttonL2 {background-color: white;color: #f44336;border: 2px solid #f44336;}
-.buttonL2:hover {background-color: #f44336;color: white;}
+/* *** SENTIMENTS BUTTONS *** */
+/* BOX */
+.button_sentiment_box {background-color: #4CAF50; /* Green */    border: none;    color: white;    padding: 5px 10px;    text-align: center;    text-decoration: none;    display: inline-block;    font-size: x-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s;    cursor: pointer;    font-family: 'Avenir';border-radius: 5px;}
 
+.button_bullish_box {background-color: white;color: #7ED321;border: 2px solid #7ED321;}
+.button_bullish_box:hover {background-color: #7ED321;color: white;}
+.button_bullish_selected {background-color: #7ED321;color: white;}
+
+.button_bearish_box {background-color: white;color: #f44336;border: 2px solid #f44336;}
+.button_bearish_box:hover {background-color: #f44336;color: white;}
+.button_bearish_selected {background-color: #f44336;color: white;}
+
+/* LIST */
+.button_sentiment_list {
+    /*background-color: #4CAF50; !* Green *!  */
+    /*border: none;*/
+    /*color: white;*/
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: x-small;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: 'Avenir';
+    border-radius: 5px;}
+
+.button_bullish_list {background-color: white;color: #7ED321;border: 2px solid #7ED321;}
+.button_bullish_list:hover {background-color: #7ED321;color: white;}
+.button_bullish_list_selected {background-color: #7ED321;color: white;}
+
+.button_bearish_list {background-color: white;color: #f44336;border: 2px solid #f44336;}
+.button_bearish_list:hover {background-color: #f44336;color: white;}
+.button_bearish_list_selected{background-color: #f44336;color: white;}
+/*end sentiments*/
 
 /*oh noo*/
 .grid_space, .list_space {
