@@ -137,6 +137,7 @@
                     <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_stocks' %}active{% endif %}" href="{{ path('Live_rates_stocks', { 'name': 'United-States','value':'united-states-of-america'}) }}">{{ 'menu.live_stock_feed'|trans }}</a></li>
                     <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_crypto' %}active{% endif %}" href="{{ path('Live_rates_crypto') }}" >{{ 'menu.live_crypto_feed'|trans }}</a></li>
                     <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_forex' %}active{% endif %}" href="{{ path('Live_rates_forex') }}" >{{ 'menu.live_forex_feed'|trans }}</a></li>
+                    <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'social_sentiment' %}active{% endif %}" href="{{ path('social_sentiment') }}" >Social Sentiment</a></li>
                     <li class="my-hover"><a href="#" class="my-active">{{ 'menu.brokers'|trans }}<span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>
                         <!--<li class="my-hover">Brokers <span class="hover_next-icon"><i class="fas fa-chevron-right"></i></span></a>-->
                         <ul>
@@ -164,40 +165,20 @@
 </header>
 
 <div class="my-container">
-    {#{{ include('LiveFeedBundle:Default:searchInstruments.html.twig') }}#}
     <div id="dvsignForm" class="ng-cloak">
         <div ng-controller="AppForm">
             <div ng-init="init('')">
             {#Sign in#}
             {% include 'SignForm/SignIn.html.twig' %}
-            {#{{ include('default/searchbar_chart.html.twig') }}#}
             {#Sign up#}
             {% include 'SignForm/SignUp.html.twig' %}
-
             </div>
         </div>
     </div>
 
 
     {% block body %}
-        {#{{ include('LiveFeedBundle:Default:searchInstruments.html.twig') }}#}
-        {#<div id="dvStock">#}
-            {#<div ng-controller="stockController as List">#}
-                {#<div  ng-init="init('{{ country_name }}', '{{ country_value }}')" >#}
-                    {#<section class="table">#}
-                        {#{{ include('LiveFeedBundle:Default:searchCountry.html.twig') }}#}
-                        {#{{ include('LiveFeedBundle:Default:live_feed.html.twig') }}#}
-                    {#</section>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-        {#<script src="{{ asset('js/StockFeeds.js') }}"></script>#}
 
-        {#<script data-require="angular-ui-bootstrap@0.3.0" data-semver="2.5.0" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>#}
-        {#<script src="{{ asset('js/CryptoFeeds.js') }}"></script>#}
-        {#<link rel="stylesheet" href="{{ asset('css/compiled-feeds.css') }}" >#}
-        {#<script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>#}
-        {#<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>#}
     {% endblock %}
 </div>
 
@@ -298,9 +279,8 @@
 <script src="{{ asset('js/Sign_Form.js') }}"> </script>
 <script src="{{ asset('js/service/memberSevice.js') }}"></script>
 <script src="{{ asset('js/service/watchlistService.js') }}"></script>
-<script src="{{ asset('js/service/stockService.js') }}"></script>
 <script src="{{ asset('js/factory/createUser.js') }}"></script>
-<script src="{{ asset('modules/loginButton/js/script.js') }}"></script>
+<script src="{{ asset('js/loginButton/js/script.js') }}"></script>
 {% block javascripts %}
 
 <script>

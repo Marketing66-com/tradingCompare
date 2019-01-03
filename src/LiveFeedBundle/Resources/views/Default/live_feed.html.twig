@@ -60,30 +60,41 @@
                         {#////#}
                         <div class="general_review_cont-block review_list_cont-bar ms-none">
                             <div class="review_list_center">
+                                {# SENTIMENT #}
                                 <p ng-if="userLoggedIn">
-                                    <span ng-click="" ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment == 'BULLISH' " class="chart_bitcoin-reting_prozent_like">
-                                        <i  class="button_sentiment_list button_bullish_list_selected" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>
-                                    </span>
-                                    <span ng-if="item.status_sentiment == 'CLOSE' || (item.status_sentiment == 'OPEN' && item.type_sentiment != 'BULLISH')" class="chart_bitcoin-reting_prozent_like">
+                                    {# logIn - Close #}
+                                    <span ng-if="item.status_sentiment == 'CLOSE'" ng-click="add_sentiment($index, 'BULLISH')" class="chart_bitcoin-reting_prozent_like">
                                         <i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>
-                                    </span>
+                                        </span>
+                                    <span ng-if="item.status_sentiment == 'CLOSE'" ng-click="add_sentiment($index, 'BEARISH')" class="chart_bitcoin-reting_prozent_like">
+                                        <i class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>
+                                        </span>
 
-                                    <span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment == 'BEARISH'" class="chart_bitcoin-reting_prozent_like">
+                                    {# logIn - Open on Bullish #}
+                                    <span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment == 'BULLISH'" ng-click="AlreadyOpen($index, 'feed')" class="chart_bitcoin-reting_prozent_like">
+                                        <i  class="button_sentiment_list button_bullish_list_selected" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>
+                                        </span>
+                                    <span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment != 'BEARISH'" ng-click="AlreadyOpen($index, 'feed')" class="chart_bitcoin-reting_prozent_like">
+                                        <i  class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>
+                                        </span>
+
+                                    {# logIn - Open on Bearish #}
+                                    <span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment != 'BULLISH'" ng-click="AlreadyOpen($index, 'feed')" class="chart_bitcoin-reting_prozent_like">
+                                        <i class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>
+                                        </span>
+                                    <span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment == 'BEARISH'" ng-click="AlreadyOpen($index, 'feed')" class="chart_bitcoin-reting_prozent_like">
                                         <i class="button_sentiment_list button_bearish_list_selected" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>
-                                    </span>
-                                    <span ng-if="item.status_sentiment == 'CLOSE' || (item.status_sentiment == 'OPEN' && item.type_sentiment != 'BEARISH')" class="chart_bitcoin-reting_prozent_like">
-                                    <i class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>
-                                    </span>
+                                        </span>
+
                                 </p>
                                 <p ng-if="!userLoggedIn">
-                                    <span class="chart_bitcoin-reting_prozent_like"><i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></span>
-                                    <span class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></span>
+                                    <span ng-click="click_on_star()" class="chart_bitcoin-reting_prozent_like"><i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></span>
+                                    <span ng-click="click_on_star()" class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></span>
                                 </p>
 
-
-
                                 <div class="chart_bitcoin-reting_progress-bar">
-                                    <div class="reting_progress-bar_click chart_bitcoin-reting_prozent"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}">{[{item.sentiment}]}%</div>
+                                    <div ng-if="item.more_bullish" class="reting_progress-bar_click chart_bitcoin-reting_prozent" >{[{item.sentiment}]}% Bullish</div>
+                                    <div ng-if="!item.more_bullish" class="reting_progress-bar_click chart_bitcoin-reting_prozent reting_progress-bar_click_red" >{[{item.sentiment}]}% Bearish</div>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +131,7 @@
             <div class="live_cont-block">
                 <div class="live_block_top">
                     <img class="live_block_top_img" ng-src="{[{item.img}]}" onerror="this.src='/img/Stock_Logos/stocks.png'";>
-                    <h2 class="live_block_top_title">{[{item.name}]}</h2>
+                    <h2 class="live_block_top_title" style="overflow: hidden">{[{item.name}]}</h2>
                 </div>
                 <p class="live_block_money-left"><span class="live_block_money_bold " ng-class="{'negative': item.variation == 'down', 'positive':item.variation == 'up', 'neutral': item.variation == 'none'}"> {[{item.price}]}</span></p>
                 <p class="live_block_money-right  " ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}"><span class="live_block_money_bold "ng-class="{'live_block_money_red ': item.change24 < 0, 'live_block_money_green ': item.change24 >= 0}" >{[{item.change24}]}</span></p>
@@ -135,18 +146,46 @@
                 {#<p class="live_cont-block_like_right"><i class="far fa-star"></i></p>#}
                 {#</div>#}
                 <div class="live_cont-block_cont-like">
+                    {# WATCHLIST #}
                     <p ng-if="userLoggedIn && item.is_in_watchlist" style="cursor: pointer" ng-click="delete_from_watchlist($index)" class="live_cont-block_like_right"><i style="color: #12A6F9;!important" class="fas fa-star"></i></p>
                     <p ng-if="userLoggedIn && !item.is_in_watchlist" style="cursor: pointer" ng-click="add_to_watchlist($index)" class="live_cont-block_like_right"><i class="far fa-star"></i></p>
                     <p ng-if="!userLoggedIn" style="cursor: pointer" ng-click="click_on_star()" class="live_cont-block_like_right"><i class="far fa-star"></i></p>
 
-                    <p class="live_cont-block_like live_cont-block_like_margin"><i class="button_sentiment_box  button_bullish_box" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></p>
-                    <p class="live_cont-block_like live_cont-block_like_left"><i  class="button_sentiment_box  button_bearish_box" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></p>
+                    {# SENTIMENT #}
+                    {# logIn - Close #}
+                    <p ng-if="userLoggedIn && item.status_sentiment == 'CLOSE'" ng-click="add_sentiment($index, 'BULLISH')" class="live_cont-block_like live_cont-block_like_margin">
+                        <i class="button_sentiment_box  button_bullish_box" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></p>
+                    <p ng-if="userLoggedIn && item.status_sentiment == 'CLOSE' " ng-click="add_sentiment($index, 'BEARISH')" class="live_cont-block_like live_cont-block_like_left">
+                        <i  class="button_sentiment_box  button_bearish_box" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></p>
+
+                    {# logIn - Open on Bullish#}
+                    <p ng-if="userLoggedIn && item.status_sentiment == 'OPEN' && item.type_sentiment == 'BULLISH'" ng-click="AlreadyOpen($index, 'feed')" class="live_cont-block_like live_cont-block_like_margin">
+                        <i class="button_sentiment_box  button_bullish_box_selected" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></p>
+                    <p ng-if="userLoggedIn && item.status_sentiment == 'OPEN' && item.type_sentiment != 'BEARISH'" ng-click="AlreadyOpen($index, 'feed')" class="live_cont-block_like live_cont-block_like_left">
+                        <i  class="button_sentiment_box  button_bearish_box" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></p>
+                    {# logIn - Open on Bearish#}
+                    <p ng-if="userLoggedIn && item.status_sentiment == 'OPEN' && item.type_sentiment != 'BULLISH'" ng-click="AlreadyOpen($index, 'feed')" class="live_cont-block_like live_cont-block_like_margin">
+                        <i class="button_sentiment_box  button_bullish_box" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></p>
+                    <p ng-if="userLoggedIn && item.status_sentiment == 'OPEN' && item.type_sentiment == 'BEARISH'" ng-click="AlreadyOpen($index, 'feed')" class="live_cont-block_like live_cont-block_like_left">
+                        <i  class="button_sentiment_box  button_bearish_box_selected" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></p>
+
+                    {# no logIn #}
+                    <p ng-if="!userLoggedIn" ng-click="click_on_star()" class="live_cont-block_like live_cont-block_like_margin"><i class="button_sentiment_box  button_bullish_box" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></p>
+                    <p ng-if="!userLoggedIn" ng-click="click_on_star()" class="live_cont-block_like live_cont-block_like_left"><i  class="button_sentiment_box  button_bearish_box" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></p>
+
                 </div>
 
-                <p class="chart_bitcoin-reting_prozent">{{ 'sentiment'|trans }}: {[{item.sentiment}]}% {{ 'buying'|trans }}</p>
+                {#<p class="chart_bitcoin-reting_prozent">{{ 'sentiment'|trans }}: {[{item.sentiment}]}% {{ 'buying'|trans }}</p>#}
+                <p ng-if="item.more_bullish" class="chart_bitcoin-reting_prozent">{{ 'sentiment'|trans }}: {[{item.sentiment}]}% Bullish</p>
+                <p ng-if="!item.more_bullish" class="chart_bitcoin-reting_prozent">{{ 'sentiment'|trans }}: {[{item.sentiment}]}% Bearish</p>
                 <div class="chart_bitcoin-reting_progress-bar">
-                    <div class="reting_progress-bar_click"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}"></div>
+                    {#<div class="reting_progress-bar_click"  ng-class="{'reting_progress-bar_click_red':item.sentiment < '50'}"></div>#}
+                    <div ng-if="item.more_bullish" class="reting_progress-bar_click" ></div>
+                    <div ng-if="!item.more_bullish" class="reting_progress-bar_click reting_progress-bar_click_red" ></div>
                 </div>
+                {#<div style="height: 10px;">#}
+
+                {#</div>#}
 
                 <div class="live_cont-block_hover">
                     {#<p class="live_cont-block_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis excepturi inventore labore quo recusandae repellendus sequi. A consectetur ducimus exercitationem fugit, itaque, labore, possimus quam quos ratione repellat velit voluptatem.</p>#}
@@ -214,13 +253,44 @@
                     {#</div>#}
                     <div class="live_cont-block_cont-like">
                         <p style="cursor: pointer" ng-click="delete_from_watchlist_inW($index,item.type)" class="live_cont-block_like_right"><i style="color: #12A6F9;!important" class="fas fa-star"></i></p>
-                        <p class="live_cont-block_like live_cont-block_like_margin"><i class="button_sentiment_box  button_bullish_box" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></p>
-                        <p class="live_cont-block_like live_cont-block_like_left"><i  class="button_sentiment_box  button_bearish_box" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></p>
+
+                        {# SENTIMENT #}
+                        {# logIn - Close #}
+                        <p ng-if="userLoggedIn && item.status_sentiment == 'CLOSE'" ng-click="add_sentiment_inW($index, 'BULLISH')" class="live_cont-block_like live_cont-block_like_margin">
+                            <i class="button_sentiment_box  button_bullish_box" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></p>
+                        <p ng-if="userLoggedIn && item.status_sentiment == 'CLOSE' " ng-click="add_sentiment_inW($index, 'BEARISH')" class="live_cont-block_like live_cont-block_like_left">
+                            <i  class="button_sentiment_box  button_bearish_box" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></p>
+
+                        {# logIn - Open on Bullish#}
+                        <p ng-if="userLoggedIn && item.status_sentiment == 'OPEN' && item.type_sentiment == 'BULLISH'" ng-click="AlreadyOpen($index, 'watchlist')" class="live_cont-block_like live_cont-block_like_margin">
+                            <i class="button_sentiment_box  button_bullish_box_selected" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></p>
+                        <p ng-if="userLoggedIn && item.status_sentiment == 'OPEN' && item.type_sentiment != 'BEARISH'" ng-click="AlreadyOpen($index, 'watchlist')" class="live_cont-block_like live_cont-block_like_left">
+                            <i  class="button_sentiment_box  button_bearish_box" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></p>
+                        {# logIn - Open on Bearish#}
+                        <p ng-if="userLoggedIn && item.status_sentiment == 'OPEN' && item.type_sentiment != 'BULLISH'" ng-click="AlreadyOpen($index, 'watchlist')" class="live_cont-block_like live_cont-block_like_margin">
+                            <i class="button_sentiment_box  button_bullish_box" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></p>
+                        <p ng-if="userLoggedIn && item.status_sentiment == 'OPEN' && item.type_sentiment == 'BEARISH'" ng-click="AlreadyOpen($index, 'watchlist')" class="live_cont-block_like live_cont-block_like_left">
+                            <i  class="button_sentiment_box  button_bearish_box_selected" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></p>
+
+                        {# no logIn #}
+                        <p ng-if="!userLoggedIn" ng-click="click_on_star()" class="live_cont-block_like live_cont-block_like_margin"><i class="button_sentiment_box  button_bullish_box" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></p>
+                        <p ng-if="!userLoggedIn" ng-click="click_on_star()" class="live_cont-block_like live_cont-block_like_left"><i  class="button_sentiment_box  button_bearish_box" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></p>
+
+                        {#<p class="live_cont-block_like live_cont-block_like_margin"><i class="button_sentiment_box  button_bullish_box" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></p>#}
+                        {#<p class="live_cont-block_like live_cont-block_like_left"><i  class="button_sentiment_box  button_bearish_box" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></p>#}
                     </div>
 
-                    <p class="chart_bitcoin-reting_prozent">{{ 'sentiment'|trans }}: {[{item.sentiment}]}% {{ 'buying'|trans }}</p>
+                    {#<p class="chart_bitcoin-reting_prozent">{{ 'sentiment'|trans }}: {[{item.sentiment}]}% {{ 'buying'|trans }}</p>#}
+                    {#<div class="chart_bitcoin-reting_progress-bar">#}
+                        {#<div class="reting_progress-bar_click"  ng-class="{'reting_progress-bar_click_red':item.sentiment < '50'}"></div>#}
+                    {#</div>#}
+
+                    <p ng-if="item.more_bullish" class="chart_bitcoin-reting_prozent">{{ 'sentiment'|trans }}: {[{item.sentiment}]}% Bullish</p>
+                    <p ng-if="!item.more_bullish" class="chart_bitcoin-reting_prozent">{{ 'sentiment'|trans }}: {[{item.sentiment}]}% Bearish</p>
                     <div class="chart_bitcoin-reting_progress-bar">
-                        <div class="reting_progress-bar_click"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}"></div>
+                        {#<div class="reting_progress-bar_click"  ng-class="{'reting_progress-bar_click_red':item.sentiment < '50'}"></div>#}
+                        <div ng-if="item.more_bullish" class="reting_progress-bar_click" ></div>
+                        <div ng-if="!item.more_bullish" class="reting_progress-bar_click reting_progress-bar_click_red" ></div>
                     </div>
 
                     <div class="live_cont-block_hover">
@@ -303,12 +373,41 @@
 
                         <div class="general_review_cont-block review_list_cont-bar ms-none">
                             <div class="review_list_center">
-                                <p>
-                                    <span class="chart_bitcoin-reting_prozent_like"><i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></span>
-                                    <span class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></span>
+                                {# SENTIMENT #}
+                                <p ng-if="userLoggedIn">
+                                    {# logIn - Close #}
+                                    <span ng-if="item.status_sentiment == 'CLOSE'" ng-click="add_sentiment_inW($index, 'BULLISH')" class="chart_bitcoin-reting_prozent_like">
+                                        <i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>
+                                        </span>
+                                    <span ng-if="item.status_sentiment == 'CLOSE'" ng-click="add_sentiment_inW($index, 'BEARISH')" class="chart_bitcoin-reting_prozent_like">
+                                        <i class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>
+                                        </span>
+
+                                    {# logIn - Open on Bullish #}
+                                    <span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment == 'BULLISH'" ng-click="AlreadyOpen($index)" class="chart_bitcoin-reting_prozent_like">
+                                        <i  class="button_sentiment_list button_bullish_list_selected" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>
+                                        </span>
+                                    <span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment != 'BEARISH'" ng-click="AlreadyOpen($index)" class="chart_bitcoin-reting_prozent_like">
+                                        <i  class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>
+                                        </span>
+
+                                    {# logIn - Open on Bearish #}
+                                    <span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment != 'BULLISH'" ng-click="AlreadyOpen($index)" class="chart_bitcoin-reting_prozent_like">
+                                        <i class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>
+                                        </span>
+                                    <span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment == 'BEARISH'" ng-click="AlreadyOpen($index)" class="chart_bitcoin-reting_prozent_like">
+                                        <i class="button_sentiment_list button_bearish_list_selected" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>
+                                        </span>
                                 </p>
+                                <p ng-if="!userLoggedIn">
+                                    <span ng-click="click_on_star()" class="chart_bitcoin-reting_prozent_like"><i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></span>
+                                    <span ng-click="click_on_star()" class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></span>
+                                </p>
+
                                 <div class="chart_bitcoin-reting_progress-bar">
-                                    <div class="reting_progress-bar_click chart_bitcoin-reting_prozent"  ng-class="{'reting_progress-bar_click_red':allimg[item.fromSymbol].sentiment < '50'}">{[{item.sentiment}]}%</div>
+                                    {#<div class="reting_progress-bar_click chart_bitcoin-reting_prozent"  ng-class="{'reting_progress-bar_click_red':item.sentiment < '50'}">{[{item.sentiment}]}%</div>#}
+                                    <div ng-if="item.more_bullish" class="reting_progress-bar_click chart_bitcoin-reting_prozent" >{[{item.sentiment}]}% Bullish</div>
+                                    <div ng-if="!item.more_bullish" class="reting_progress-bar_click chart_bitcoin-reting_prozent reting_progress-bar_click_red" >{[{item.sentiment}]}% Bearish</div>
                                 </div>
                             </div>
                         </div>

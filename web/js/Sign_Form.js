@@ -596,7 +596,7 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
     }
     //***************************************
     $scope.SignInProvider = function(provider) {
-        console.log("in SignInProvider",provider)
+        //console.log("in SignInProvider",provider)
         $scope.loading = true ;
         $scope.user  = new CreateUser();
         $scope.user.countryData.country = $scope.location
@@ -609,7 +609,7 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
             $scope.provider = new firebase.auth.GoogleAuthProvider();
         }
         firebase.auth().signInWithPopup($scope.provider).then((profilFB) => {
-            console.log("profilFB",profilFB);
+            //console.log("profilFB",profilFB);
             $scope.profilFB = profilFB
             profilFB.user.getIdToken(true).then(function (idToken) {
                 //console.log("idToken",idToken)
@@ -618,7 +618,7 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
                     _id: profilFB.user.uid
                 }
                 MemberService.getUsersById($scope.idToken, $scope.id_to_send).then(function (results) {
-                    console.log("getUsersById",results)
+                    //console.log("getUsersById",results)
                     if(results.data.error == 'no user with this id.'){
                         $scope.user.full_name = "no name";
                         if (profilFB.user.displayName != null) {
@@ -631,7 +631,7 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
                     }
                     else{
                         if(results.data.verifyData.is_phone_number_verified){
-                            console.log("in verify",results.data.verifyData.is_phone_number_verified)
+                            //console.log("in verify",results.data.verifyData.is_phone_number_verified)
                             $scope.user = results.data
                             $scope.loading = false ;
                             $scope.logIn = true

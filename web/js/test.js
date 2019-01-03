@@ -11,14 +11,14 @@ App.controller("ListCtrl", function ($scope,$dialog) {
 
     var dialogOptions = {
         controller: 'EditCtrl',
-        templateUrl: '/js/itemEdit.html'
+        templateUrl: '/js/sentiment_already_exist.html'
     };
 
     $scope.edit = function(item){
         console.log("edit", item)
         var itemToEdit = item;
 
-        $('.modal').style["display"] = ""
+        // $('.modal').style["display"] = ""
         $dialog.dialog(angular.extend(dialogOptions,
             {
                 resolve:
@@ -70,7 +70,7 @@ angular.element(document).ready(function() {
 //
 //     var dialogOptions = {
 //         controller: 'EditCtrl',
-//         templateUrl: '/js/itemEdit.html'
+//         templateUrl: '/js/sentiment_already_exist.html'
 //     };
 //
 //     $scope.edit = function(item){

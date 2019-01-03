@@ -47,6 +47,7 @@
 .live_block_money_bold { font-family: 'Avenir'; color: black;  font-size: 14px; font-weight: 800;}
 .live_cont-block_like, .live_cont-block_like_right {display: block; float: left;margin: 0; color: #999999;font-size: 22px; margin: 0;}
 .live_cont-block_like:hover { color: #12A6F9; cursor: pointer;}
+.live_cont-block_like_right:hover { color: #12A6F9; cursor: pointer;}
 /*.live_cont-block_like_margin { margin-right: 40px;}*/
 .live_cont-block_like_margin { margin-right: 30px;}
 /*.live_cont-block_like_right { float: right; margin-right: 10px;}*/
@@ -57,8 +58,8 @@
 .reviec_cont-sezrch { width: 100%; display: table; position: relative; padding: 0 265px 0 10px;}
 .reviec_cont-sezrch-country { padding-left: 1%; padding-right:1%; width: 100%; display: table; position: relative;}
 .reviec_cont-sezrch_right { position: absolute; top: 0; right: 0; display: table;}
-.watchlist-cont { border-radius: 3px; border: 1px solid #D8D8D8; display: table; position: relative;text-align: center; float: left; margin-left: 20px;}
-.watchlist-cont_all { display: block; line-height: 35px; float: left; margin: 0 9px; color: #D8D8D8; font-family: 'Open Sans'; font-weight: 600;}
+.watchlist-cont { border-radius: 3px; border: 1px solid #999999; display: table; position: relative;text-align: center; float: left; margin-left: 20px;}
+.watchlist-cont_all { display: block; line-height: 35px; float: left; margin: 0 9px; color: #999999; font-family: 'Open Sans'; font-weight: 600;}
 .watchlist-cont_all_active { color: #12A6F9;}
 .watchlist-cont_all:hover { text-decoration: none;  cursor: pointer; color: #12A6F9;}
 .list, .grid { font-size: 22px;}
@@ -69,9 +70,10 @@
 .chart_search_country {width: 100%;display: table; background-color: white;}
 
 /*general-list*/
-.review_list, .review_list_cont-heder, .general-list { width: 100%; display: table;  background-color: white;}
+.review_list, .review_list_cont-heder, .general-list .general-list_social_sentiment{ width: 100%; display: table;  background-color: white;}
 .general-grid { margin-top: 15px;}
 .general-list { display: none; margin-bottom: 35px;}
+.general-list_social_sentiment { margin-bottom: 35px;}
 .review_list_cont-heder { padding: 5px 0;  min-height: 60px;  position: relative; border-top: 2px solid #D8D8D8; padding: 25px 0;}
 .review_list .live_trade-btn { max-width: 120px; float: right;}
 .general_review_cont-block {
@@ -90,6 +92,7 @@
 .abs {position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}
 .review_list_center {position: absolute;    width: 100%;    top: 50%;    left: 0;    transform: translate(0, -50%);}
 .review_list_start {display: block; color: #999999; float: left; line-height: 30px; font-size: 18px;}
+.review_list_start:hover{color: #12A6F9 !important;}
 .review_list_title {text-align: center;color: #1E375E;font-size: 14px; font-family: 'Avenir'; font-weight: 800; margin: 0;}
 .review_list_name .review_list_title {text-align: left;}
 .review_list_cont-text .live_block_money-right { float: none; margin: 0 auto;}
@@ -113,15 +116,29 @@
 
 /* *** SENTIMENTS BUTTONS *** */
 /* BOX */
-.button_sentiment_box {background-color: #4CAF50; /* Green */    border: none;    color: white;    padding: 5px 10px;    text-align: center;    text-decoration: none;    display: inline-block;    font-size: x-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s;    cursor: pointer;    font-family: 'Avenir';border-radius: 5px;}
+.button_sentiment_box {
+    /*background-color: #4CAF50; !* Green *!*/
+    /*border: none;*/
+    /*color: white;*/
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: x-small;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-style: normal;
+    font-family: 'Avenir';border-radius: 5px;}
 
 .button_bullish_box {background-color: white;color: #7ED321;border: 2px solid #7ED321;}
 .button_bullish_box:hover {background-color: #7ED321;color: white;}
-.button_bullish_selected {background-color: #7ED321;color: white;}
+.button_bullish_box_selected {background-color: #7ED321;color: white;border: 2px solid #7ED321;}
 
 .button_bearish_box {background-color: white;color: #f44336;border: 2px solid #f44336;}
 .button_bearish_box:hover {background-color: #f44336;color: white;}
-.button_bearish_selected {background-color: #f44336;color: white;}
+.button_bearish_box_selected {background-color: #f44336;color: white;border: 2px solid #f44336;}
 
 /* LIST */
 .button_sentiment_list {
@@ -136,16 +153,17 @@
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
+    font-style: normal;
     font-family: 'Avenir';
     border-radius: 5px;}
 
 .button_bullish_list {background-color: white;color: #7ED321;border: 2px solid #7ED321;}
 .button_bullish_list:hover {background-color: #7ED321;color: white;}
-.button_bullish_list_selected {background-color: #7ED321;color: white;}
+.button_bullish_list_selected {background-color: #7ED321;color: white;border: 2px solid #7ED321;}
 
 .button_bearish_list {background-color: white;color: #f44336;border: 2px solid #f44336;}
 .button_bearish_list:hover {background-color: #f44336;color: white;}
-.button_bearish_list_selected{background-color: #f44336;color: white;}
+.button_bearish_list_selected{background-color: #f44336;color: white;border: 2px solid #f44336;}
 /*end sentiments*/
 
 /*oh noo*/
@@ -256,8 +274,8 @@
 
 @media (max-width: 1200px) {
     .live_block_chart { max-height: 28px;}
-    .button {   padding: 2px 5px;    font-size: x-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
-    .buttonL {   padding: 3px 1px;    font-size: x-small;       -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
+    .button_sentiment_box {   padding: 2px 5px;    font-size: x-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
+    .button_sentiment_list {   padding: 3px 1px;    font-size: x-small;       -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
 }
 @media (max-width: 991px) {
     .chart_bitcoin-reting { margin-top: 20px; }
@@ -288,8 +306,9 @@
     .mobile_padding { margin: 0 0 10px 0; float: left; }
     .review_list_cont-heder .live_block_top_img { margin: 15px 10px 0 0; }
     .input_absolut, .input_absolut_after:after{top: 73px; }
-    .button {   padding: 2px 4px;    font-size: x-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
+    .button_sentiment_box {   padding: 2px 4px;    font-size: x-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
     .reviec_cont-sezrch-country { padding-left: 5%; padding-right:5%;}
+    .chart_bitcoin-reting_prozent {font-size: 10px;}
 }
 @media (max-width: 480px) {
     .live_cont-block-padding {  width: 50%; }
@@ -313,12 +332,12 @@
   }
 
 @media (max-width: 360px) {
-    .button {   padding: 2px 3px;    font-size: x-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
+    .button_sentiment_box {   padding: 2px 3px;    font-size: x-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
 
 
 }
 @media (max-width: 330px) {
-    .button {   padding: 2px 0px;    font-size: xx-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
+    .button_sentiment_box {   padding: 2px 0px;    font-size: xx-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
 
 
 }

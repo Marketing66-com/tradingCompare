@@ -70,7 +70,7 @@
 .close_modal:hover {color: #12A6F9;cursor: pointer;}
 .form-btn {position: absolute;bottom: 0;left: 0;line-height: 35px;padding: 0 30px;border-radius: 20px;border: none;display: table;color: white;background-color: #12A6F9;font-size: 18px;font-weight: 400;font-family: 'Open Sans', sans-serif;float: left;border: 1px solid transparent;transition: 0.3s all;}
 .form-btn:hover, .form-btn:focus, .form-btn:active , .form-btn_codever:hover, .form-btn_codever:focus, .form-btn_codever:active{outline: none;}
-.form_cliking, .form_info {color: #C6C5C5;font-size: 14px;font-weight: 400;font-family: 'Open Sans', sans-serif;text-align: center;}
+.form_cliking, .form_info {color: #999999;font-size: 14px;font-weight: 400;font-family: 'Open Sans', sans-serif;text-align: center;}
 .create {font-size: 14px;margin: 0 auto !important;line-height: 35px;}
 .create_margin {margin-bottom: 55px;}
 .form_cliking {width: 100%;display: table;margin: 15px 0 25px 0;}
@@ -93,7 +93,7 @@
 .form-element {position: relative;margin: 20px 0;}
 .form-element-bar {position: relative;height: 1px;background: #D8D8D8;display: block;}
 .form-element-bar::after {content: "";position: absolute;bottom: 0;left: 0;right: 0;background: #12A6F9;height: 2px;display: block;transform: rotateY(90deg);transition: transform 0.28s ease;will-change: transform;}
-.form-element-label {position: absolute;pointer-events: none;z-index: 1;padding-left: 5px;top: 20px;overflow: hidden;text-overflow: ellipsis;margin: 0;font-size: 11px;font-weight: 400;font-family: 'Open Sans', sans-serif;color: #C6C5C5;transform: translateY(-50%);transition: 0.3s all;}
+.form-element-label {position: absolute;pointer-events: none;z-index: 1;padding-left: 5px;top: 20px;overflow: hidden;text-overflow: ellipsis;margin: 0;font-size: 11px;font-weight: 400;font-family: 'Open Sans', sans-serif;color: #999999;transform: translateY(-50%);transition: 0.3s all;}
 .form-element-input {outline: none;display: block;background: none;border: none!important;line-height: 30px;padding-left: 5px;width: 100%;color: #2B2B2B;font-size: 14px;font-weight: 400;font-family: 'Open Sans', sans-serif;box-shadow: none;transition: 0.3s all;}
 .form-element-label_tel{position: absolute;pointer-events: none;z-index: 1;padding-left: 5px;top: 20px;overflow: hidden;text-overflow: ellipsis;margin: 0;font-size: 14px;font-weight: 400;font-family: 'Open Sans', sans-serif;color: #000000;transform: translateY(-50%);transition: 0.3s all;}
 .start .form-element-label {color: #12A6F9;}

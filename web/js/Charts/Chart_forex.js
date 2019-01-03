@@ -1,9 +1,9 @@
 
-var Chart_forexApp = angular.module('forexApp', ['memberService']).config(function ($interpolateProvider) {
+var Chart_forexApp = angular.module('forexApp', ['ui.bootstrap','memberService']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');})
 
 
-Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$location,MemberService,$http,$interval,$timeout) {
+Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$location,MemberService,$http,$interval,$timeout,$uibModal) {
 
     $scope.sentiment;
     $scope.name;
@@ -66,7 +66,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
             success: function (result) {
 
                 $scope.myforex = result
-                //console.log("$scope.myforex",  $scope.myforex )
+                console.log("$scope.myforex",  $scope.myforex )
 
                 // IMAGE
                 if ($scope.myforex.img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/piece.png" ||
@@ -81,6 +81,10 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
 
                 //IN WATCHLIST
                 $scope.is_in_watchlist = false
+
+                //SENTIMENT USER
+                $scope.status_sentiment = 'CLOSE'
+                $scope.type_sentiment = 'none'
 
                 $scope.name = $scope.myforex.name
                 $scope.img = $scope.myforex.img
@@ -104,6 +108,41 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
                     $scope._id = {
                         _id: user.uid
                     }
+
+                    MemberService.getSentimentsByUser($scope.idToken, user.uid).then(function (results) {
+                        console.log("getSentimentsByUser",results)
+                        $scope.user_sentiments = results
+                        if($scope.user_sentiments.length>0) {
+                            $scope.user_sentiments.forEach(element => {
+                                if(element.symbol == $scope.mypair && element.status == 'OPEN'){
+                                    if( $scope.myforex != undefined){
+                                        $scope.status_sentiment = 'OPEN'
+                                        $scope.type_sentiment = element.type
+                                    }
+                                    else{
+                                        var check = function() {
+                                            //console.log("in timeout",$scope.call_finished)
+                                            if( $scope.myforex != undefined){
+                                                console.log("wait for")
+                                                $timeout(check, 100);
+                                            }
+                                            else{
+                                                $scope.status_sentiment = 'OPEN'
+                                                $scope.type_sentiment = element.type
+                                            }
+                                        }
+                                        $timeout(check, 100)
+                                    }
+                                }
+                            });
+                        }
+                        $scope.$apply();
+                    }) .catch(function (error) {
+                        $scope.data = error;
+                        console.log("$scope.data", $scope.data)
+                        $scope.$apply();
+                    })
+
                     MemberService.getUsersById(idToken, $scope._id).then(function (results) {
                         console.log("getUsersById")
                         $scope.user = results.data
@@ -126,7 +165,6 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
                                                 console.log("wait for")
                                                 $timeout(check, 100);
                                             }
-
                                         }
                                         $timeout(check, 100)
                                     }
@@ -134,17 +172,12 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
                             });
                         }
                         $scope.$apply();
-
                     })
-                        .then(() => {
-                            //console.log("myforex",$scope.myforex)
-                        })
-                        .catch(function (error) {
+                    .catch(function (error) {
                             $scope.data = error;
                             console.log("$scope.data", $scope.data)
                             $scope.$apply();
-                        })
-
+                    })
                 }).catch(function (error) {
                     console.log('ERROR: ', error)
                 });
@@ -243,6 +276,87 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
 
     $scope.click_on_star = function(){
         $('.modal_sigh-up').slideDown();
+    }
+
+    // ***** SENTIMENTS *****
+    $scope.add_sentiment = function(type) {
+        // console.log("index",index, type,$scope.filteredItems[index])
+        if($scope.user == undefined || $scope.user.length == 0 ){
+            console.log("return")
+            return;
+        }
+        if($scope.user.phone_number == ""){
+            $('.modal_sigh-up').slideDown();
+            return;
+        }
+        if(!$scope.user.verifyData.is_phone_number_verified){
+            $('.modal_sigh-up').slideDown();
+            return;
+        }
+
+        $scope.status_sentiment =  'OPEN'
+        $scope.type_sentiment =  type
+
+        $scope.data_to_send ={
+            _id: $scope.user._id,
+            symbol: $scope.myforex.pair,
+            symbol_type: "FOREX",
+            type: type,
+            price:  $scope.myforex.price
+        }
+
+        $scope.data_to_send["close_date"] = null;
+        $scope.data_to_send["close_price"] = null;
+        $scope.data_to_send["status"] = 'OPEN'
+        $scope.data_to_send["user_id"] = $scope.user._id
+        $scope.d = new Date();
+        $scope.data_to_send["date"] = $scope.d.getFullYear() + "-" + ($scope.d.getMonth() + 1) + "-" + $scope.d.getDate()
+
+        console.log($scope.data_to_send,$scope.myforex )
+        MemberService.Add_sentiment($scope.idToken, $scope.data_to_send).then(function (results) {
+            //console.log("results",results.data)
+        })
+            .catch(function (error) {
+                $scope.data = error;
+                console.log("$scope.data", $scope.data)
+                $scope.$apply();
+            })
+    }
+
+    $scope.AlreadyOpen = function() {
+
+        if($scope.user_sentiments == undefined) {
+            console.log("return")
+            return;
+        }
+
+        var modalInstance =  $uibModal.open({
+            templateUrl: '/js/sentiment_already_exist.html',
+            controller: "OpenSentimentCtrl",
+            size: '',
+            resolve:{forex:$scope.myforex}
+        });
+
+        modalInstance.result.then(function(response){
+            // var url =  Routing.generate('template',{"_locale": _locale })
+            var url =  Routing.generate('template')
+            // console.log("url",url)
+            $window.location= url
+        });
+
+    };
+});
+
+Chart_forexApp.controller('OpenSentimentCtrl', function($scope, $uibModalInstance,forex) {
+
+    $scope.sentiment_curr = forex.name
+    //console.log($scope.sentiment_curr ,"***********")
+    $scope.ok = function(){
+        $uibModalInstance.close("Ok");
+    }
+
+    $scope.cancel = function(){
+        $uibModalInstance.dismiss();
     }
 
 });

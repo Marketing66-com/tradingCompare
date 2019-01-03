@@ -1,10 +1,12 @@
+
+
 {% extends 'base.html.twig' %}
 
  {% block description %}
-     <title>{{ currency }} {{ 'title.chart_forex1'|trans }} | {{ from }} {{ to }} {{ 'title.chart_forex2'|trans }} - Trading Compare</title>
-     <meta name="description" content="{{ currency }} {{ 'description.chart_forex1'|trans }} {{ from }} {{ 'description.chart_forex2'|trans }} {{ to }} {{ 'description.chart_forex3'|trans }}">
+     <title>{{symbol | split('.')[0]}} {{ 'title.chart_stock1'|trans }} - {{ name}} {{ 'title.chart_stock2'|trans }} - Trading Compare</title>
+     <meta name="description" content="{{ name}} ({{symbol| split('.')[0]}}), {{ 'description.chart_stock1'|trans }} {{ symbol| split('.')[0]}} {{ 'description.chart_stock2'|trans }}">
  {% endblock %}
-
+{##}
 {% block body %}
     <link rel="stylesheet" href="https://www.interactivecrypto.com/chart_iq_web/css/perfect-scrollbar.css" />
     <link rel="stylesheet" type="text/css" href="https://www.interactivecrypto.com/chart_iq_web/css/normalize.css" media="screen" />
@@ -15,9 +17,10 @@
     <link rel="stylesheet" href='{{ asset("css/charts.css") }}' />
     <link rel="stylesheet" href='{{ asset("css/chart-live-iq.css") }}' />
 
+
     {{ include('default/searchbar_chart.html.twig') }}
-    <div id="dvChart_forex" class="my-container  ng-cloak" ng-controller="Chart_forexController" ng-init="init('{{ from }}', '{{ to }}')">
-        <div ng-controller="Chart_forexController ">
+    <div id="dvChart_stock" class="my-container  ng-cloak" ng-controller="Chart_stockController" ng-init="init('{{ symbol }}')">
+        <div id="hello" ng-controller="Chart_stockController ">
             <section class="table">
 
                 <div class="container padding_non">
@@ -27,20 +30,19 @@
                             <div class="chart_bitcoin-cont ">
                                 <div class="bitcoin_text-cont">
                                     <div class="bitcoin_img-cont">
-                                        <img class="bitcoin_img" ng-src="{[{myforex.img}]}" onerror="this.src='/img/crypto_logos/crypto-other.png'";>
+                                        <img class="bitcoin_img" ng-src="{[{mystock.img}]}" onerror="this.src='/img/Stock_Logos/stocks.png'";>
                                     </div>
                                     <div class="bitcoin_text-cont_left ">
-                                        <h3 class="bitcoin_title text_size">{[{myforex.name}]}<span class="bitcoin_title_right">{[{myforex.pair.replace("_","/")}]}</span>
-                                            {#<span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span>#}
-                                            <span ng-if="userLoggedIn && is_in_watchlist" ng-click="delete_from_watchlist()" style="cursor: pointer" class="bitcoin_title_right-start"><i class="fas fa-star"></i></span>
-                                            <span ng-if="userLoggedIn && !is_in_watchlist" ng-click="add_to_watchlist()" style="color: #999999; cursor: pointer" class="bitcoin_title_right-start"><i class="far fa-star"></i></span>
+                                        <h3 class="bitcoin_title text_size">{[{mystock.name}]}<span class="bitcoin_title_right">{[{mystock.pair.replace("_","/")}]}</span>
+                                            <span ng-if="userLoggedIn && mystock.is_in_watchlist" ng-click="delete_from_watchlist()" style="cursor: pointer" class="bitcoin_title_right-start"><i class="fas fa-star"></i></span>
+                                            <span ng-if="userLoggedIn && !mystock.is_in_watchlist" ng-click="add_to_watchlist()" style="color: #999999; cursor: pointer" class="bitcoin_title_right-start"><i class="far fa-star"></i></span>
                                             <span ng-if="!userLoggedIn" ng-click="click_on_star()" class="bitcoin_title_right-start" style="color: #999999;cursor: pointer"><i class="far fa-star"></i></span>
-
                                         </h3>
-                                        <h3 class="bitcoin_many_stock text_size" ng-class="{'negative': myforex.variation == 'down', 'positive':myforex.variation == 'up', 'neutral': myforex.variation == 'none'}">{[{myforex.price}]}
-                                            <span class="statistics_block-text" ng-class="{'negative': myforex.change24 < 0, 'positive': myforex.change24 >= 0}">{[{myforex.change24}]}%
-                                                <span class="statistics_block_min-text">{[{myforex.point}]}</span>
-                                                <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></span>
+                                        <h3 class="bitcoin_many_stock text_size" ng-class="{'negative': mystock.variation == 'down', 'positive':mystock.variation == 'up', 'neutral': mystock.variation == 'none'}">{[{mystock.price}]}
+                                            <span class="statistics_block-text" ng-class="{'negative': mystock.change_pct < 0, 'positive': mystock.change_pct >= 0}">{[{mystock.change_pct}]}%
+                                                <span class="statistics_block_min-text">{[{mystock.point}]}</span>
+                                                <span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span>
+                                            </span>
                                         </h3>
                                     </div>
                                     <div class="bitcoin_text-cont_right">
@@ -49,41 +51,56 @@
                                 </div>
                             </div>
 
-                            <div class="chart_content-text chart_content-text1 ">
+                            <div class="chart_content-text chart_content-text1 box_height_stock2">
                                 <div class="bitcoin_text-cont_left">
                                     <p class="bitcoin_bottom-text text-price column">
 
-                                        {{ 'high'|trans }} : <span class="bitcoin_bottom-text_bold">{[{myforex.high24}]}</span>
-                                        <br>{{ 'low'|trans }} : <span class="bitcoin_bottom-text_bold">{[{myforex.low24}]}</span>
-                                        <br>{{ 'open'|trans }} : <span class="bitcoin_bottom-text_bold">{[{myforex.open24}]}</span>
-                                        <br>{{ 'close'|trans }} : <span class="bitcoin_bottom-text_bold">{[{myforex.close24}]}</span>
+                                        {{ 'high'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.day_high}]} {[{mystock.devise}]}</span>
+                                        <br> {{ 'low'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.day_low}]} {[{mystock.devise}]}</span>
+                                        <br>  {{ 'open'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.price_open}]} {[{mystock.devise}]}</span>
+                                        <br>  {{ 'close'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]} {[{mystock.devise}]}</span>
+                                        <br>  {{ 'hight_year'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_high"]}]} {[{mystock.devise}]}</span>
+                                        <br>  {{ 'low_year'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_low"]}]} {[{mystock.devise}]}</span>
+                                        <br>  {{ 'change_day'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.day_change}]} %</span>
+                                        <br>  {{ 'market_cap'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.market_cap}]} {[{mystock.devise}]}</span>
+                                        <br>  {{ 'volume'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.volume}]} {[{mystock.devise}]}</span>
+                                        <br>  {{ 'shares'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.shares}]} {[{mystock.devise}]}</span>
 
                                     </p>
                                 </div>
                             </div>
                         </div>
-
+                        <div id="country" country="{[{mystock.country}]}"></div>
                         <div class="col-md-4 col-sm-6 col-xs-12 col-sm1 ">
-                            <div class="chart_bitcoin-reting chart_bitcoin-reting1 box_height_forex1" style="    padding-bottom: 0px;    padding-top: 20px;">
+                            <div class="chart_bitcoin-reting chart_bitcoin-reting1 box_height_stock1" style="    padding-bottom: 0px;    padding-top: 20px;">
                                 <div class="col-md-6 col-sm-6 col-xs-6 ">
-                                    <a class="btcoin_btn sentiments_btn_green" target="_blank">{{ 'button.bullish'|trans }}</a>
+                                    <a ng-if="!userLoggedIn" ng-click="click_on_star()" class="btcoin_btn sentiments_btn_green" target="_blank"> {{ 'button.bullish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && mystock.status_sentiment == 'CLOSE' " ng-click="add_sentiment('BULLISH')"  class="btcoin_btn sentiments_btn_green" target="_blank"> {{ 'button.bullish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && mystock.status_sentiment == 'OPEN' && mystock.type_sentiment != 'BULLISH'" ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_green" target="_blank"> {{ 'button.bullish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && mystock.status_sentiment == 'OPEN' && mystock.type_sentiment == 'BULLISH'" ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_green_selected" target="_blank"> {{ 'button.bullish'|trans }}</a>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-6 ">
-                                    <a class="btcoin_btn sentiments_btn_red" target="_blank">{{ 'button.bearish'|trans }}</a>
+                                    <a ng-if="!userLoggedIn" ng-click="click_on_star()"  class="btcoin_btn sentiments_btn_red" target="_blank"> {{ 'button.bearish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && mystock.status_sentiment == 'CLOSE'" ng-click="add_sentiment('BEARISH')"  class="btcoin_btn sentiments_btn_red" target="_blank"> {{ 'button.bearish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && mystock.status_sentiment == 'OPEN' && mystock.type_sentiment != 'BEARISH' " ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_red" target="_blank"> {{ 'button.bearish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && mystock.status_sentiment == 'OPEN' && mystock.type_sentiment == 'BEARISH' " ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_red_selected" target="_blank"> {{ 'button.bearish'|trans }}</a>
                                 </div>
                                 <p
                                         {#class="chart_bitcoin-reting_prozent"#}
-                                >{{ 'sentiment'|trans }} : {[{myforex.sentiment }]}% {{ 'buying'|trans }}</p>
+                                > {{ 'sentiment'|trans }}: {[{mystock.sentiment }]}%  {{ 'buying'|trans }}</p>
                                 <div class="chart_bitcoin-reting_progress-bar">
-                                    <div class="reting_progress-bar_click"></div>
+                                    {#<div class="reting_progress-bar_click" ng-class="{'reting_progress-bar_click_red':mystock.sentiment < '50'}"></div>#}
+                                    <div ng-if="mystock.sentiment < '50'" class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                    <div ng-if="mystock.sentiment >= '50'" class="reting_progress-bar_click"></div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-md-4 col-sm-6 col-xs-12 col-sm2">
-                            <div class="chart_content-text chart_bitcoin-reting box_height_forex2" >
+                            <div class="chart_content-text chart_bitcoin-reting box_height_stock2" >
                                 <p class="chart_content-text_info">
-                                    {[{myforex.name}]} - {{ currency}}
+                                    {[{mystock.name}]} - {{ symbol| split('.')[0]}}<br><br>
+                                    {[{description}]}
                                 </p>
                             </div>
                         </div>
@@ -127,11 +144,11 @@
                                                         <cq-item stxtap="Layout.setPeriodicity(7,1,'day')">1 W</cq-item>
                                                         {#<cq-item stxtap="Layout.setPeriodicity(1,1,'month')">1 Mo</cq-item>#}
                                                         <cq-separator></cq-separator>
-                                                        <cq-item stxtap="Layout.setPeriodicity(1,1,'minute')">1 Min</cq-item>
-                                                        <cq-item stxtap="Layout.setPeriodicity(1,5,'minute')">5 Min</cq-item>
-                                                        <cq-item stxtap="Layout.setPeriodicity(2,5,'minute')">10 Min</cq-item>
-                                                        <cq-item stxtap="Layout.setPeriodicity(3,5,'minute')">15 Min</cq-item>
-                                                        <cq-item stxtap="Layout.setPeriodicity(1,30,'minute')">30 Min</cq-item>
+                                                        {#<cq-item stxtap="Layout.setPeriodicity(1,1,'minute')">1 Min</cq-item>#}
+                                                        {#<cq-item stxtap="Layout.setPeriodicity(1,5,'minute')">5 Min</cq-item>#}
+                                                        {#<cq-item stxtap="Layout.setPeriodicity(2,5,'minute')">10 Min</cq-item>#}
+                                                        {#<cq-item stxtap="Layout.setPeriodicity(3,5,'minute')">15 Min</cq-item>#}
+                                                        {#<cq-item stxtap="Layout.setPeriodicity(1,30,'minute')">30 Min</cq-item>#}
                                                         <cq-item stxtap="Layout.setPeriodicity(2,30,'minute')">1 Hour</cq-item>
                                                         <cq-item stxtap="Layout.setPeriodicity(8,30,'minute')">4 Hour</cq-item>
                                                     </cq-menu-dropdown>
@@ -843,14 +860,14 @@
             </section>
         </div>
     </div>
-    {#</div>#}
-    {#</div>#}
+    </div>
+    </div>
     {% include 'default/social_tab.html.twig' %}
 {% endblock %}
 
 
 {% block javascripts %}
-    <script src="{{ asset('js/Chart_forex.js') }}"></script>
+    <script src="{{ asset('js/Charts/Chart_stock.js') }}"></script>
     <script src="https://tradingcompare.com/ChartIQ/js/chartiq.js"></script>
 
     <script src="https://www.interactivecrypto.com/chart_iq_web/js/translations.js"></script>
@@ -1365,14 +1382,23 @@
             /***************************************************************************************************************/
             /***************************************************************************************************************/
             /******************************************************************************************************************************/
+            function httpGet(theUrl) {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", theUrl, false); // false for synchronous request
+                xmlHttp.send(null);
+                return xmlHttp.responseText;
+            }
 
             function initialSymbol ()
             {
                 // var from,to
-                var pair = "{{ from }}"+ "/" + "{{ to }}"
-                var group = "forex"
-                //console.log("pair",pair,"group",group)
-                var symb = {symbol: pair, group:group}
+                var symbol = "{{ symbol }}"
+                var group = "stock"
+                var get_country = httpGet('https://stock.tradingcompare.com/Getstock/' + symbol)
+                get_country = JSON.parse(get_country).country
+
+                //console.log("symbol",symbol,"group",group,"get_country",get_country)
+                var symb = {symbol: symbol, country:get_country, group:group}
 
                 stxx.newChart(symb, null, null, function(err){
                     if(err){
@@ -1394,32 +1420,35 @@
 {% endblock %}
 
 
-{#////////**************************************** old code ************************************////#}
-{#////////**************************************** old code ************************************////#}
-{#////////**************************************** old code ************************************////#}
-{#////////**************************************** old code ************************************////#}
-{#////////**************************************** old code ************************************////#}
-{#////////**************************************** old code ************************************////#}
-{#////////**************************************** old code ************************************////#}
-{#////////**************************************** old code ************************************////#}
-{#////////**************************************** old code ************************************////#}
 
 
+
+
+
+
+{#////////**************************************** old code ************************************////#}
+{#////////**************************************** old code ************************************////#}
+{#////////**************************************** old code ************************************////#}
+{#////////**************************************** old code ************************************////#}
+{#////////**************************************** old code ************************************////#}
+{#////////**************************************** old code ************************************////#}
+{#////////**************************************** old code ************************************////#}
+{#////////**************************************** old code ************************************////#}
+{#////////**************************************** old code ************************************////#}
 
 {#{% extends 'base.html.twig' %}#}
 
  {#{% block description %}#}
-     {#<title>{{ currency }} Live Forex Rate | {{ from }} {{ to }} Chart - Trading Compare</title>#}
-     {#<meta name="description" content="{{ currency }} live forex. Follow the latest real-time {{ from }} to {{ to }} price quote and forex forecast.">#}
+     {#<title>{{symbol | split('.')[0]}} Stock Price - {{ name}} Stock Quote - Trading Compare</title>#}
+     {#<meta name="description" content="{{ name}} ({{symbol| split('.')[0]}}), stock price, stock quotes and financial overviews from Trading Compare. Follow the {{ symbol| split('.')[0]}} chart in real-time.">#}
  {#{% endblock %}#}
 
 {#{% block body %}#}
+
     {#{{ include('default/searchbar_chart.html.twig') }}#}
-    {#<div id="dvChart_forex" class="my-container  ng-cloak" ng-controller="Chart_forexController" ng-init="init('{{ api }}','{{ currency }}', '{{ like }}')">#}
-        {#<div ng-controller="Chart_forexController ">#}
-
+    {#<div id="dvChart_stock" class="my-container  ng-cloak" ng-controller="Chart_stockController" ng-init="init('{{ symbol }}')">#}
+        {#<div ng-controller="Chart_stockController ">#}
             {#<section class="table">#}
-
                 {#<div class="chart_search">#}
                     {#<div class="container">#}
                         {#<div class="row">#}
@@ -1427,7 +1456,6 @@
                         {#</div>#}
                     {#</div>#}
                 {#</div>#}
-
                 {#<div class="container padding_non margin_bottom">#}
                     {#<div class="row ">#}
 
@@ -1435,13 +1463,13 @@
                             {#<div class="chart_bitcoin-cont  ">#}
                                 {#<div class="bitcoin_text-cont">#}
                                     {#<div class="bitcoin_img-cont">#}
-                                        {#<img class="bitcoin_img" ng-src="{[{allimg.img}]}" onerror="this.src='/img/Stock_Logos/stocks.png'";>#}
+                                        {#<img class="bitcoin_img" ng-src="{[{mystock.img}]}" onerror="this.src='/img/Stock_Logos/stocks.png'";>#}
                                     {#</div>#}
                                     {#<div class="bitcoin_text-cont_left ">#}
-                                        {#<h3 class="bitcoin_title text_size">{{ currency }}<span class="bitcoin_title_right">{{ currency }}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>#}
-                                        {#<h3 class="bitcoin_many_stock text_size" ng-class="{'negative': myforex.variation == 'down', 'positive':myforex.variation == 'up', 'neutral': myforex.variation == 'none'}">{[{myforex.price}]} {[{myforex.devise}]}#}
-                                            {#<span class="statistics_block-text" ng-class="{'negative': myforex.change_pct < 0, 'positive': myforex.change_pct >= 0}">{[{myforex.change24}]}%#}
-                                                {#<span class="statistics_block_min-text">{[{myforex.point}]}</span>#}
+                                        {#<h3 class="bitcoin_title text_size">{[{mystock.name}]}<span class="bitcoin_title_right">{[{mystock.symbol}]}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>#}
+                                        {#<h3 class="bitcoin_many_stock text_size" ng-class="{'negative': mystock.variation == 'down', 'positive':mystock.variation == 'up', 'neutral': mystock.variation == 'none'}">{[{mystock.price}]} {[{mystock.devise}]}#}
+                                            {#<span class="statistics_block-text" ng-class="{'negative': mystock.change_pct < 0, 'positive': mystock.change_pct >= 0}">{[{mystock.change_pct}]}%#}
+                                                {#<span class="statistics_block_min-text">{[{mystock.point}]}</span>#}
                                                 {#<span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></span>#}
                                         {#</h3>#}
                                     {#</div>#}
@@ -1451,13 +1479,22 @@
                                 {#</div>#}
                             {#</div>#}
 
-                            {#<div class="chart_content-text chart_content-text1 box_height_forex2">#}
+                            {#<div class="chart_content-text chart_content-text1 box_height_stock2">#}
                                 {#<div class="bitcoin_text-cont_left">#}
                                     {#<p class="bitcoin_bottom-text text-price column">#}
-                                        {#High: <span class="bitcoin_bottom-text_bold">{[{ myforex.high24}]}</span>#}
-                                        {#<br>Low:<span class="bitcoin_bottom-text_bold">{[{ myforex.low24}]}</span>#}
-                                        {#<br>Open: <span class="bitcoin_bottom-text_bold">{[{ myforex.open24}]}</span>#}
-                                        {#<br>Close: <span class="bitcoin_bottom-text_bold">{[{ myforex.price}]}</span>#}
+
+                                        {#High: <span class="bitcoin_bottom-text_bold">{[{mystock.day_high}]} {[{mystock.devise}]}</span>#}
+                                        {#<br>Low:<span class="bitcoin_bottom-text_bold">{[{mystock.day_low}]} {[{mystock.devise}]}</span>#}
+                                        {#<br> Open: <span class="bitcoin_bottom-text_bold">{[{mystock.price_open}]} {[{mystock.devise}]}</span>#}
+                                        {#<br> Close: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]} {[{mystock.devise}]}</span>#}
+                                        {#<br> Year High: <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_high"]}]} {[{mystock.devise}]}</span>#}
+                                        {#<br> Year Low: <span class="bitcoin_bottom-text_bold">{[{mystock["52_week_low"]}]} {[{mystock.devise}]}</span>#}
+                                        {#<br> Day Change: <span class="bitcoin_bottom-text_bold">{[{mystock.day_change}]} %</span>#}
+                                        {#<br> Close Yesterday: <span class="bitcoin_bottom-text_bold">{[{mystock.close_yesterday}]} {[{mystock.devise}]}</span>#}
+                                        {#<br> Market Cap: <span class="bitcoin_bottom-text_bold">{[{mystock.market_cap}]} {[{mystock.devise}]}</span>#}
+                                        {#<br> Volume: <span class="bitcoin_bottom-text_bold">{[{mystock.volume}]} {[{mystock.devise}]}</span>#}
+                                        {#<br> Shares: <span class="bitcoin_bottom-text_bold">{[{mystock.shares}]} {[{mystock.devise}]}</span>#}
+
                                     {#</p>#}
                                 {#</div>#}
                             {#</div>#}
@@ -1465,7 +1502,7 @@
 
 
                         {#<div class="col-md-4 col-sm-6 col-xs-12 col-sm1 ">#}
-                            {#<div class="chart_bitcoin-reting chart_bitcoin-reting1 box_height_forex1 " style="    padding-bottom: 0px;    padding-top: 20px;">#}
+                            {#<div class="chart_bitcoin-reting chart_bitcoin-reting1 box_height_stock1 " style="    padding-bottom: 0px;    padding-top: 20px;">#}
                                 {#<div class="col-md-6 col-sm-6 col-xs-6 ">#}
                                     {#<a class="btcoin_btn sentiments_btn_green" target="_blank">BULLISH</a>#}
                                 {#</div>#}
@@ -1474,7 +1511,7 @@
                                 {#</div>#}
                                 {#<p#}
                                         {#class="chart_bitcoin-reting_prozent"#}
-                                {#>Sentiment: {[{allimg.sentiment}]}% Buying</p>#}
+                                {#>Sentiment: {[{mystock.sentiment }]}% Buying</p>#}
                                 {#<div class="chart_bitcoin-reting_progress-bar">#}
                                     {#<div class="reting_progress-bar_click"></div>#}
                                 {#</div>#}
@@ -1482,9 +1519,10 @@
                         {#</div>#}
 
                         {#<div class="col-md-4 col-sm-6 col-xs-12 col-sm2">#}
-                            {#<div class="chart_content-text chart_bitcoin-reting box_height_forex2">#}
+                            {#<div class="chart_content-text chart_bitcoin-reting box_height_stock2">#}
                                 {#<p class="chart_content-text_info">#}
-                                    {#{{ currency }}#}
+                                    {#{[{mystock.name}]} - {{ symbol| split('.')[0]}}<br><br>#}
+                                    {#{[{description}]}#}
                                 {#</p>#}
                             {#</div>#}
                         {#</div>#}
@@ -1499,72 +1537,15 @@
                     {#</div>#}
                 {#</div>#}
 
-                {#<div class="container padding_non">#}
-                    {#<div class="row">#}
-                        {#<div class="col-md-8 col-sm-12 col-xs-12">#}
-                            {#<div class="chart_bitcoin-cont">#}
-                                {#<div class="bitcoin_text-cont">#}
-                                    {#<div class="bitcoin_img-cont">#}
-                                        {#<img class="bitcoin_img" ng-src="{[{allimg.img}]}"  alt="{{ currency }}">#}
-                                    {#</div>#}
-                                    {#<div class="bitcoin_text-cont_left">#}
-                                        {#<h3 class="bitcoin_title">{{ currency }}<span class="bitcoin_title_right">{{ currency }}</span><span class="bitcoin_title_right-start"><i class="fas fa-star"></i></span></h3>#}
-                                        {#<p class="statistics_block-text" ng-class="{'live_block_money_red negative': myforex.change24 < 0, 'live_block_money_green positive': myforex.change24 >= 0}">{[{ myforex.change24}]}% <span class="statistics_block_min-text">{[{ myforex.point}]}</span>#}
-                                            {#<span class="bitcoin_green-text_icon"><i class="fas fa-share"></i></span></p>#}
-                                        {#<h3 class="bitcoin_many bitcoin_many-mobile" ng-class="{'negative': myforex.variation == 'down', 'positive':myforex.variation == 'up', 'neutral': myforex.variation == 'none'}">{[{ myforex.price}]}</h3>#}
-                                        {#<p class="bitcoin_bottom-text">#}
-                                            {#High: <span class="bitcoin_bottom-text_bold">{[{ myforex.high24}]}</span> Low:<span class="bitcoin_bottom-text_bold">{[{ myforex.low24}]}</span>#}
-                                            {#Open: <span class="bitcoin_bottom-text_bold">{[{ myforex.open24}]}</span>#}
-                                            {#Close: <span class="bitcoin_bottom-text_bold">{[{ myforex.price}]}</span>#}
-                                            {#Market Cap: <span class="bitcoin_bottom-text_bold">{[{ myforex.price}]}</span>#}
-                                        {#</p>#}
-                                    {#</div>#}
-                                    {#<div class="bitcoin_text-cont_right">#}
-                                        {#<h3 class="bitcoin_many xs-none" ng-class="{'negative': myforex.variation == 'down', 'positive':myforex.variation == 'up', 'neutral': myforex.variation == 'none'}">{[{ myforex.price}]}</h3>#}
-                                        {#<a class="btcoin_btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">TRADE NOW</a>#}
-                                    {#</div>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                        {#<div class="col-md-4 col-sm-5 col-xs-12 ">#}
-                            {#<div class="chart_bitcoin-reting">#}
-                                {#<p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-up"></i></span> {[{allimg.likes}]}</p>#}
-                                {#<p class="chart_bitcoin-reting_like-text"><span class="chart_bitcoin-reting_icon"><i class="fas fa-thumbs-down"></i></span> {[{allimg.unlikes}]}</p>#}
-                                {#<p class="chart_bitcoin-reting_prozent">Sentiment: {[{allimg.sentiment}]}% Buying</p>#}
-                                {#<div class="chart_bitcoin-reting_progress-bar">#}
-                                    {#<div class="reting_progress-bar_click"></div>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                        {#<div class="col-md-12 col-sm-7 col-xs-12 xs-none">#}
-                            {#<div class="chart_content-text">#}
-                                {#<p class="chart_content-text_info">#}
-                                    {#{{ currency }}#}
-                                {#</p>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-
-                {#<div class="container">#}
-                    {#<div class="row">#}
-                        {#<div class="general-chart">#}
-                            {#<img class="general-chart_img" src='{{ asset("img/chart.png") }}' alt="chart">#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-
             {#</section>#}
+
         {#</div>#}
+
     {#</div>#}
-
-
-
 {#{% endblock %}#}
-
 {#{% block javascripts %}#}
     {#{{ parent() }}#}
-    {#<script src="{{ asset('js/Chart_forex.js') }}"></script>#}
+    {#<script src="{{ asset('js/Chart_stock.js') }}"></script>#}
     {#<script>#}
         {#function loadCSS(hf) {#}
             {#var ms = document.createElement("link");#}
@@ -1578,3 +1559,17 @@
 
     {#</script>#}
 {#{% endblock %}#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

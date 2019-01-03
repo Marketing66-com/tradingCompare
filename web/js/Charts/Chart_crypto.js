@@ -1,8 +1,8 @@
-var ChartApp = angular.module('chartApp', ['memberService']).config(function ($interpolateProvider) {
+var ChartApp = angular.module('chartApp', ['ui.bootstrap','memberService']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
 })
 
-ChartApp.controller('ChartController', function ($scope,$window,$location,MemberService,$http,$interval,$timeout) {
+ChartApp.controller('ChartController', function ($scope,$window,$location,MemberService,$http,$interval,$timeout,$uibModal) {
 
     $scope.from;
     $scope.to;
@@ -112,17 +112,46 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
                             });
                         }
                         $scope.$apply();
-
                     })
-                        .then(() => {
-                            //console.log("mycrypto",$scope.mycrypto)
-                        })
-                        .catch(function (error) {
+                    .catch(function (error) {
                             $scope.data = error;
                             console.log("$scope.data", $scope.data)
                             $scope.$apply();
-                        })
+                    })
 
+                    MemberService.getSentimentsByUser($scope.idToken, user.uid).then(function (results) {
+                        console.log("getSentimentsByUser",results)
+                        $scope.user_sentiments = results
+                        if($scope.user_sentiments.length>0) {
+                            $scope.user_sentiments.forEach(element => {
+                                if(element.symbol ==  from + "_" + to && element.status == 'OPEN'){
+                                    if( $scope.mycrypto != undefined){
+                                        $scope.status_sentiment = 'OPEN'
+                                        $scope.type_sentiment = element.type
+                                    }
+                                    else{
+                                        var check = function() {
+                                            //console.log("in timeout",$scope.call_finished)
+                                            if( $scope.mycrypto != undefined){
+                                                console.log("wait for")
+                                                $timeout(check, 100);
+                                            }
+                                            else{
+                                                $scope.status_sentiment = 'OPEN'
+                                                $scope.type_sentiment = element.type
+                                            }
+                                        }
+                                        $timeout(check, 100)
+                                    }
+                                }
+                            });
+                        }
+                        $scope.$apply();
+                    }) .catch(function (error) {
+                        $scope.data = error;
+                        console.log("$scope.data", $scope.data)
+                        $scope.$apply();
+                    })
                 }).catch(function (error) {
                     console.log('ERROR: ', error)
                 });
@@ -151,6 +180,10 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
                 // watchlist
                 $scope.is_in_watchlist = false
 
+                //SENTIMENT USER
+                $scope.status_sentiment = 'CLOSE'
+                $scope.type_sentiment = 'none'
+
                 $scope.name = $scope.mycrypto.name
                 $scope.img = $scope.mycrypto.img
 
@@ -168,37 +201,6 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
 
 
         //*************************
-        // $.ajax({
-        //     // url: 'https://crypto.tradingcompare.com/AllPairsByExchange/' + from + "_" + to + '/' + $scope.setExchange,
-        //     url: crypto_api + "/" + from + "_" + to,
-        //     type: "GET",
-        //     success: function (result) {
-        //         $scope.mycrypto = result
-        //         //console.log("after",  $scope.mycrypto)
-        //
-        //         // IMAGE
-        //         if ($scope.mycrypto.img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/piece.png" || $scope.mycrypto.img == undefined || typeof $scope.mycrypto.img == "undefined")
-        //             $scope.mycrypto.img = "/img/crypto_logos/crypto-other.png"
-        //
-        //         //SENTIMENT
-        //         var sent = ($scope.mycrypto.likes / ($scope.mycrypto.likes + $scope.mycrypto.unlikes)) * 100
-        //         $scope.mycrypto.sentiment = Number(sent.toFixed(1))
-        //         $scope.sentiment = Number(sent.toFixed(1))
-        //
-        //         // watchlist
-        //         $scope.mycrypto.is_in_watchlist = false
-        //
-        //         $scope.name = $scope.mycrypto.name
-        //         $scope.img = $scope.mycrypto.img
-        //
-        //         fill_Chart_Change_Price($scope.mycrypto)
-        //
-        //         $scope.$apply()
-        //     },
-        //     error: function (xhr, ajaxOptions, thrownError) {
-        //         console.log("ERROR", thrownError, xhr, ajaxOptions)
-        //     }
-        // });
         //////// FUNCTIONS //////////
         function fillExchange() {
             var arr = httpGet('https://crypto.tradingcompare.com/' + from + "/" + to)
@@ -295,6 +297,74 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
     $scope.click_on_star = function(){
         $('.modal_sigh-up').slideDown();
     }
+
+    // ***** SENTIMENTS *****
+    $scope.add_sentiment = function(type) {
+        // console.log("index",index, type,$scope.filteredItems[index])
+        if($scope.user == undefined || $scope.user.length == 0 ){
+            console.log("return")
+            return;
+        }
+        if($scope.user.phone_number == ""){
+            $('.modal_sigh-up').slideDown();
+            return;
+        }
+        if(!$scope.user.verifyData.is_phone_number_verified){
+            $('.modal_sigh-up').slideDown();
+            return;
+        }
+
+        $scope.status_sentiment =  'OPEN'
+        $scope.type_sentiment =  type
+
+        $scope.data_to_send ={
+            _id: $scope.user._id,
+            symbol: $scope.mycrypto.pair,
+            symbol_type: "CRYPTO",
+            type: type,
+            price:  $scope.mycrypto.price
+        }
+
+        $scope.data_to_send["close_date"] = null;
+        $scope.data_to_send["close_price"] = null;
+        $scope.data_to_send["status"] = 'OPEN'
+        $scope.data_to_send["user_id"] = $scope.user._id
+        $scope.d = new Date();
+        $scope.data_to_send["date"] = $scope.d.getFullYear() + "-" + ($scope.d.getMonth() + 1) + "-" + $scope.d.getDate()
+
+        //console.log($scope.data_to_send,$scope.mycrypto )
+        MemberService.Add_sentiment($scope.idToken, $scope.data_to_send).then(function (results) {
+            console.log("results",results.data)
+        })
+            .catch(function (error) {
+                $scope.data = error;
+                console.log("$scope.data", $scope.data)
+                $scope.$apply();
+            })
+    }
+
+    $scope.AlreadyOpen = function() {
+
+        if($scope.user_sentiments == undefined) {
+            console.log("return")
+            return;
+        }
+
+        var modalInstance =  $uibModal.open({
+            templateUrl: '/js/sentiment_already_exist.html',
+            controller: "OpenSentimentCtrl",
+            size: '',
+            resolve:{crypto:$scope.mycrypto}
+        });
+
+        modalInstance.result.then(function(response){
+            // var url =  Routing.generate('template',{"_locale": _locale })
+            var url =  Routing.generate('template')
+            // console.log("url",url)
+            $window.location= url
+        });
+
+    };
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
     $scope.changedValue = function () {
@@ -345,6 +415,20 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
 
     $scope.getDisplayValue = function (currentValue) {
         return intFormat(currentValue);
+    }
+
+});
+
+ChartApp.controller('OpenSentimentCtrl', function($scope, $uibModalInstance, crypto) {
+
+    $scope.sentiment_curr = crypto.name
+
+    $scope.ok = function(){
+        $uibModalInstance.close("Ok");
+    }
+
+    $scope.cancel = function(){
+        $uibModalInstance.dismiss();
     }
 
 });

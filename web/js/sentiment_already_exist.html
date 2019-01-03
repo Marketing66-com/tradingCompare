@@ -1,0 +1,34 @@
+
+<div class="modal-header">
+    <h3>Sentiment already opened on {[{ sentiment_curr }]}</h3>
+    <h4>Please close this instrument on your sentiment page to vote again.</h4>
+</div>
+<!--<div class="modal-body">-->
+    <!--&lt;!&ndash;<p>You have already voted on {[{item.pair}]}.<br>Please close this instrument on your sentiment page to vote again.</p>&ndash;&gt;-->
+    <!--&lt;!&ndash;<h3>Sentiment already opened on {[{ sentiment_curr.pair }]}</h3>&ndash;&gt;-->
+    <!--&lt;!&ndash;<h4>Please close this instrument on your sentiment page to vote again.</h4>&ndash;&gt;-->
+<!--</div>-->
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">Close the sentiment</button>
+    <button class="btn btn-warning" ng-click="cancel()">Ok</button>
+</div>
+<style>
+
+    .left-nav,.right-nav{
+        float:left;
+    }
+    .right-nav{
+        margin-left:20px;
+    }
+    a{
+        cursor:pointer;
+    }
+
+
+    .modal-header {
+        text-align: center;
+    }
+    .modal{
+        margin-top:20%;
+    }
+</style>

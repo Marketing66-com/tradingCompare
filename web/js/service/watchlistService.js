@@ -3,61 +3,67 @@ angular.module('watchlistService', [])
 
         var WatchlistCrypto = []; var WatchlistForex = [];
 
+
         var stockForWatchlist = function (stock) {
 
             return new Promise(function (resolve, reject) {
                 $http.get("https://websocket-stock.herokuapp.com/Getstocks/" + stock)
                     .then(function (response) {
-                       //console.log("response",response)
                         if (!Object.keys(response.data).length > 0) {
                             $http.get("https://interactivecrypto.herokuapp.com/getLastRecord/" + stock)
-                                .then(function (res) {
-                                    console.log("res DB",res)
-                                    res.data.pair = res.data.symbol
-                                    //NAME
-                                    res.data.name = res.data.symbol
-                                    res.data.complete_name = res.data.name
-                                    if (res.data.name.length >= 17)
-                                        res.data.name = res.data.name.substr(0, 17);
+                            .then(function (res) {
+                                //console.log("res DB",stock,res.data)
+                                res.data.pair = res.data.symbol
 
-                                    //IMAGE
-                                    var img = "https://storage.googleapis.com/iex/api/logos/" + stock + ".png"
-                                    if (res.data.img == undefined || typeof res.data.img == "undefined" || img == undefined || typeof img == "undefined")
-                                        res.data.img = "/img/Stock_Logos/stocks.png"
-                                    else
-                                        res.data.img = img
+                                //NAME
+                                res.data.name = res.data.symbol
+                                res.data.complete_name = res.data.name
+                                if (res.data.name.length >= 17)
+                                    res.data.name = res.data.name.substr(0, 17);
 
-                                    // SENTIMENT
-                                    res.data.sentiment = 50
+                                 //IMAGE
+                                var img = "https://storage.googleapis.com/iex/api/logos/" + stock + ".png"
+                                if (res.data.img == undefined || typeof res.data.img == "undefined" || img == undefined || typeof img == "undefined")
+                                   res.data.img = "/img/Stock_Logos/stocks.png"
+                                else
+                                   res.data.img = img
 
-                                    //TYPE
-                                    res.data.type = 'STOCK'
+                                // SENTIMENT
+                                res.data.sentiment = 50
+                                res.data.status_sentiment = 'CLOSE'
+                                res.data.type_sentiment = 'none'
 
-                                    resolve (res.data)
-                                });
-                        }
+                                //TYPE
+                                res.data.type = 'STOCK'
+
+                                resolve (res.data)
+                                 });
+                                }
                         else{
                             //NAME
                             response.data.complete_name = response.data.name
                             if (response.data.name.length >= 17)
                                 response.data.name = response.data.name.substr(0, 17);
 
-                            //IMAGE
-                            var img = "https://storage.googleapis.com/iex/api/logos/" + stock + ".png"
-                            if (response.data.img == undefined || typeof response.data.img == "undefined" || img == undefined || typeof img == "undefined")
-                                response.data.img = "/img/Stock_Logos/stocks.png"
-                            else
-                                response.data.img = img
+                                //IMAGE
+                                var img = "https://storage.googleapis.com/iex/api/logos/" + stock + ".png"
+                                if (response.data.img == undefined || typeof response.data.img == "undefined" || img == undefined || typeof img == "undefined")
+                                    response.data.img = "/img/Stock_Logos/stocks.png"
+                                else
+                                    response.data.img = img
 
-                            // SENTIMENT
-                            var sent = (response.data.likes / (response.data.likes + response.data.unlikes)) * 100
-                            response.data.sentiment = Number(sent.toFixed(1))
+                                // SENTIMENT
+                                var sent = (response.data.likes / (response.data.likes + response.data.unlikes)) * 100
+                                response.data.sentiment = Number(sent.toFixed(1))
 
-                            //TYPE
-                            response.data.type = 'STOCK'
+                                response.data.status_sentiment = 'CLOSE'
+                                response.data.type_sentiment = 'none'
 
-                            resolve (response.data)
-                        }
+                                //TYPE
+                                response.data.type = 'STOCK'
+
+                                resolve (response.data)
+                            }
                     })
             })
         }
@@ -69,7 +75,7 @@ angular.module('watchlistService', [])
                     strCrypto = strCrypto.substring(0, strCrypto.length - 1);
                     $http.get("https://crypto.tradingcompare.com/AllPairs/" + strCrypto)
                         .then(function (response) {
-                            console.log("response crypto",response.data)
+                            //console.log("response crypto",response.data)
                             if (Wcrypto.length > 1) {
                                 for (const key in response.data) {
                                     //NAME
@@ -90,6 +96,8 @@ angular.module('watchlistService', [])
                                     //SENTIMENT
                                     var sent=(response.data[key].likes / (response.data[key].likes + response.data[key].unlikes)) *100
                                     response.data[key].sentiment=Number(sent.toFixed(1))
+                                    response.data[key].status_sentiment = 'CLOSE'
+                                    response.data[key].type_sentiment = 'none'
 
                                     //TYPE
                                     response.data[key].type = 'CRYPTO'
@@ -115,6 +123,8 @@ angular.module('watchlistService', [])
                                 //SENTIMENT
                                 var sent=(response.data.likes / (response.data.likes + response.data.unlikes)) *100
                                 response.data.sentiment=Number(sent.toFixed(1))
+                                response.data.status_sentiment = 'CLOSE'
+                                response.data.type_sentiment = 'none'
 
                                 //TYPE
                                 response.data.type = 'CRYPTO'
@@ -137,7 +147,7 @@ angular.module('watchlistService', [])
                     strForex = strForex.substring(0, strForex.length - 1);
                     $http.get("https://forex.tradingcompare.com/all_data/" + strForex)
                         .then(function (response) {
-                            console.log("response forex",response.data)
+                            //console.log("response forex",response.data)
                             if (Wforex.length > 1) {
                                 for (const key in response.data) {
                                     //NAME
@@ -154,6 +164,8 @@ angular.module('watchlistService', [])
                                     //SENTIMENT
                                     var sent=(response.data[key].likes / (response.data[key].likes + response.data[key].unlikes)) *100
                                     response.data[key].sentiment=Number(sent.toFixed(1))
+                                    response.data[key].status_sentiment = 'CLOSE'
+                                    response.data[key].type_sentiment = 'none'
 
                                     //TYPE
                                     response.data[key].type = 'FOREX'
@@ -176,6 +188,8 @@ angular.module('watchlistService', [])
                                 //SENTIMENT
                                 var sent=(response.data.likes / (response.data.likes + response.data.unlikes)) *100
                                 response.data.sentiment=Number(sent.toFixed(1))
+                                response.data.status_sentiment = 'CLOSE'
+                                response.data.type_sentiment = 'none'
 
                                 //TYPE
                                 response.data.type = 'FOREX'

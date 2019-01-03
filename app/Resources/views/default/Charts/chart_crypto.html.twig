@@ -79,16 +79,23 @@
                         <div class="col-md-4 col-sm-6 col-xs-12 col-sm1 ">
                             <div class="chart_bitcoin-reting chart_bitcoin-reting1 box_height_crypto1" style="    padding-bottom: 0px;    padding-top: 20px;">
                                 <div class="col-md-6 col-sm-6 col-xs-6 ">
-                                    <a class="btcoin_btn sentiments_btn_green" target="_blank">{{ 'button.bullish'|trans }} </a>
+                                    <a ng-if="!userLoggedIn" ng-click="click_on_star()" class="btcoin_btn sentiments_btn_green" target="_blank">{{ 'button.bullish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && status_sentiment == 'CLOSE'" ng-click="add_sentiment('BULLISH')" class="btcoin_btn sentiments_btn_green" target="_blank">{{ 'button.bullish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && status_sentiment == 'OPEN' && type_sentiment != 'BULLISH'" ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_green" class="btcoin_btn sentiments_btn_green" target="_blank">{{ 'button.bullish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && status_sentiment == 'OPEN' && type_sentiment == 'BULLISH'" ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_green_selected" class="btcoin_btn sentiments_btn_green" target="_blank">{{ 'button.bullish'|trans }}</a>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-6 ">
-                                    <a class="btcoin_btn sentiments_btn_red" target="_blank">{{ 'button.bearish'|trans }} </a>
+                                    <a ng-if="!userLoggedIn" class="btcoin_btn sentiments_btn_red" target="_blank">{{ 'button.bearish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && status_sentiment == 'CLOSE'" ng-click="add_sentiment('BEARISH')"  class="btcoin_btn sentiments_btn_red" class="btcoin_btn sentiments_btn_red" target="_blank">{{ 'button.bearish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && status_sentiment == 'OPEN' && type_sentiment != 'BEARISH'" ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_red" target="_blank"> {{ 'button.bearish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && status_sentiment == 'OPEN' && type_sentiment == 'BEARISH'" ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_red_selected" target="_blank"> {{ 'button.bearish'|trans }}</a>
                                 </div>
                                 <p
                                         {#class="chart_bitcoin-reting_prozent"#}
                                 >{{ 'sentiment'|trans }} : {[{mycrypto.sentiment }]}% {{ 'buying'|trans }} </p>
                                 <div class="chart_bitcoin-reting_progress-bar">
-                                    <div class="reting_progress-bar_click"></div>
+                                    <div ng-if="mycrypto.sentiment < '50'" class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                    <div ng-if="mycrypto.sentiment >= '50'" class="reting_progress-bar_click"></div>
                                 </div>
                             </div>
                         </div>
@@ -893,7 +900,7 @@
 
 
 {% block javascripts %}
-    <script src="{{ asset('js/Chart_crypto.js') }}"></script>
+    <script src="{{ asset('js/Charts/Chart_crypto.js') }}"></script>
     <script src="https://tradingcompare.com/ChartIQ/js/chartiq.js"></script>
 
     <script src="https://www.interactivecrypto.com/chart_iq_web/js/translations.js"></script>

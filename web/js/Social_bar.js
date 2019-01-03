@@ -10,7 +10,7 @@ SocialApp.controller("SocialController", function ($scope, $http) {
         // COMMENTS
         $http.get("https://xosignals.herokuapp.com/trading-compare-v2/get-comments/"+ symbol)
             .then(function(response) {
-                $scope.all_comments_total = response.data;
+                $scope.all_comments_total = response.data.reverse();
                 //console.log("**init $scope.all_comments_total **",$scope.all_comments_total )
 
                 $scope.itemsPerPage_comments = 10;

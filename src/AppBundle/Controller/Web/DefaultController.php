@@ -84,7 +84,7 @@ class DefaultController extends Controller
 
         $crypto_api =  $this->getParameter('crypto_api');
 
-        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name, "symbol"=>$currency));
+        return $this->render('default/Charts/chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name, "symbol"=>$currency));
        //return $this->render('default/charttest.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api,"crypto_likes"=>$crypto_likes));
     }
 
@@ -96,7 +96,7 @@ class DefaultController extends Controller
         $from = substr($currency, 0, 3);
         $to =  substr($currency, 4, 6);
         $pair = str_replace("-", "_", $currency);
-        return $this->render('default/chart_forex.html.twig',array("currency"=>$pair, "from"=>$from , "to"=>$to, "symbol"=>$from));
+        return $this->render('default/Charts/chart_forex.html.twig',array("currency"=>$pair, "from"=>$from , "to"=>$to, "symbol"=>$from));
     }
 
     /**
@@ -105,20 +105,27 @@ class DefaultController extends Controller
     public function stock_chartAction($symbol,$name)
     {
         $my_name = ucfirst(str_replace("-", " ", $name));
-        return $this->render('default/chart_stock.html.twig',array("symbol"=>$symbol, 'name'=>$my_name));
+        return $this->render('default/Charts/chart_stock.html.twig',array("symbol"=>$symbol, 'name'=>$my_name));
     }
 
 
+    /**
+     * @Route("/social_sentiment",name="social_sentiment", options={"expose" = true})
+     */
+    public function social_sentimentAction()
+    {
 
+        return $this->render('default/Social_sentiment.html.twig');
+    }
 //********************************  BROKERS  ********************************
 
     /**
-     * @Route("/template",name="template")
+     * @Route("/template",name="template", options={"expose" = true})
      */
     public function templateAction()
     {
 
-        return $this->render('default/brokers_template.html.twig');
+        return $this->render('default/Brokers/brokers_template.html.twig');
     }
 
     /**
@@ -127,7 +134,7 @@ class DefaultController extends Controller
     public function brokercryptoAction()
     {
 
-        return $this->render('default/brokers_crypto.html.twig');
+        return $this->render('default/Brokers/brokers_crypto.html.twig');
     }
 
     /**
@@ -136,7 +143,7 @@ class DefaultController extends Controller
     public function brokerforexAction()
     {
 
-        return $this->render('default/brokers_forex.html.twig');
+        return $this->render('default/Brokers/brokers_forex.html.twig');
     }
 
     /**
@@ -145,7 +152,7 @@ class DefaultController extends Controller
     public function brokercomAction()
     {
 
-        return $this->render('default/brokers_commodities.html.twig');
+        return $this->render('default/Brokers/brokers_commodities.html.twig');
     }
     /**
      * @Route("/stock-brokers",name="stock")
@@ -153,7 +160,7 @@ class DefaultController extends Controller
     public function brokerstockAction()
     {
 
-        return $this->render('default/brokers_stocks.html.twig');
+        return $this->render('default/Brokers/brokers_stocks.html.twig');
     }
 
 
@@ -166,7 +173,7 @@ class DefaultController extends Controller
     public function etoroAction()
     {
 
-        return $this->render('default/review_Etoro.html.twig');
+        return $this->render('default/Reviews/review_Etoro.html.twig');
     }
 
     /**
@@ -175,7 +182,7 @@ class DefaultController extends Controller
     public function optionAction()
     {
 
-        return $this->render('default/review_24option.html.twig');
+        return $this->render('default/Reviews/review_24option.html.twig');
     }
 
     /**
@@ -184,7 +191,7 @@ class DefaultController extends Controller
     public function tradeAction()
     {
 
-        return $this->render('default/review_Trade.html.twig');
+        return $this->render('default/Reviews/review_Trade.html.twig');
     }
 
     /**
@@ -193,7 +200,7 @@ class DefaultController extends Controller
     public function plusAction()
     {
 
-        return $this->render('default/review_Plus500.html.twig');
+        return $this->render('default/Reviews/review_Plus500.html.twig');
     }
 
     /**
@@ -202,7 +209,7 @@ class DefaultController extends Controller
     public function pepperstoneAction()
     {
 
-        return $this->render('default/review_pepperstone.html.twig');
+        return $this->render('default/Reviews/review_pepperstone.html.twig');
     }
 
 
@@ -212,7 +219,7 @@ class DefaultController extends Controller
     public function alvexoAction()
     {
 
-        return $this->render('default/review_alvexo.html.twig');
+        return $this->render('default/Reviews/review_alvexo.html.twig');
     }
 
 
@@ -222,7 +229,7 @@ class DefaultController extends Controller
     public function marketAction()
     {
 
-        return $this->render('default/review_market.html.twig');
+        return $this->render('default/Reviews/review_market.html.twig');
     }
 
 

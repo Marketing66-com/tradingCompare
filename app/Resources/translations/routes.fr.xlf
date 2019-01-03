@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="fr">
+  <file id="routes.fr">
+    <unit id="D.GFNER" name="changelanguage">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>changelanguage</source>
+        <target>/{_locale}/changerlangue/{langCode}</target>
+      </segment>
+    </unit>
+    <unit id="CBBR1vh" name="forex">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>forex</source>
+        <target>/{_locale}/courtiers-forex</target>
+      </segment>
+    </unit>
+    <unit id="2i8HPgb" name="crypto">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>crypto</source>
+        <target>/{_locale}/courtiers-crypto</target>
+      </segment>
+    </unit>
+    <unit id="Cx6vsgB" name="commodities">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>commodities</source>
+        <target>/{_locale}/courtiers-matiere-premiere</target>
+      </segment>
+    </unit>
+    <unit id="CMQkK19" name="stock">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>stock</source>
+        <target>/{_locale}/courtiers-actions</target>
+      </segment>
+    </unit>
+    <unit id="cii3d63" name="etoro">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>etoro</source>
+        <target>/{_locale}/avis/etoro</target>
+      </segment>
+    </unit>
+    <unit id="lQRqI9r" name="24option">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>24option</source>
+        <target>/{_locale}/avis/24options</target>
+      </segment>
+    </unit>
+    <unit id="J2RGugH" name="trade">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>trade</source>
+        <target>/{_locale}/avis/trade-com</target>
+      </segment>
+    </unit>
+    <unit id="27MI1zd" name="plus500">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>plus500</source>
+        <target>/{_locale}/avis/plus500</target>
+      </segment>
+    </unit>
+    <unit id="WralZcI" name="pepperstone">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>pepperstone</source>
+        <target>/{_locale}/avis/Pepperstone</target>
+      </segment>
+    </unit>
+    <unit id="TLim9SU" name="alvexo">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>alvexo</source>
+        <target>/{_locale}/avis/Alvexo</target>
+      </segment>
+    </unit>
+    <unit id="5NaT0k5" name="market">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>market</source>
+        <target>/{_locale}/avis/Markets-com</target>
+      </segment>
+    </unit>
+    <unit id="UdI2H0_" name="terms">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>terms</source>
+        <target>/{_locale}/Termes-et-conditions</target>
+      </segment>
+    </unit>
+    <unit id="pMxrwBq" name="privacy">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>privacy</source>
+        <target>/{_locale}/Politique-de-confidentialité</target>
+      </segment>
+    </unit>
+    <unit id="sMmcTnQ" name="crypto_chart">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>crypto_chart</source>
+        <target>/{_locale}/{name}/{currency}/devise-crypto-taux-de-change</target>
+      </segment>
+    </unit>
+    <unit id="f6pzpNH" name="forex_chart">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>forex_chart</source>
+        <target>/{_locale}/{currency}/devise-forex-taux-de-change</target>
+      </segment>
+    </unit>
+    <unit id="ymgJ9FA" name="stock_chart">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>stock_chart</source>
+        <target>/{_locale}/{symbol}/{name}/cours-action</target>
+      </segment>
+    </unit>
+    <unit id="hhetrqk" name="Live_rates_crypto">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>Live_rates_crypto</source>
+        <target>/{_locale}/crypto-monnaie/cours-et-cotation</target>
+      </segment>
+    </unit>
+    <unit id="vvGqLBX" name="Live_rates_forex">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>Live_rates_forex</source>
+        <target>/{_locale}/devises/cours-et-cotation</target>
+      </segment>
+    </unit>
+    <unit id="ixlGKMF" name="Live_rates_stocks">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>Live_rates_stocks</source>
+        <target>/{_locale}/bourse/cours-et-cotation/{name}/{value}</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

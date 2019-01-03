@@ -46,7 +46,7 @@ angular.module('memberService', [])
 
         var is_nickname_exist = function (nickname,_id) {
             const url = "https://xosignals.herokuapp.com/trading-compare-v2/is-nickname-exist/" + nickname + "/" + _id
-console.log("url", url)
+            console.log("url", url)
             return new Promise(function (resolve, reject) {
                 $http.get(url).then(function (response) {
                     resolve(response.data);
@@ -105,7 +105,7 @@ console.log("url", url)
             return sendPostHttpRequest(url, token, data);
         };
 
-        var getSentimentsByUser = function (token) {
+        var getSentimentsByUser = function (token, id) {
             const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/get-sentiments-by-user`;
 
             return sendHttpRequest(url, token);
@@ -116,7 +116,6 @@ console.log("url", url)
 
             return sendPostHttpRequest(url, token, data);
         };
-
 
         return {
             getSampleSecuredPage: getSampleSecuredPage,
@@ -131,6 +130,6 @@ console.log("url", url)
             getUsersById:getUsersById,
             Add_to_watchlist:Add_to_watchlist,
             Delete_from_watchlist:Delete_from_watchlist,
-            Add_sentiment:Add_sentiment
+            Add_sentiment:Add_sentiment,
         };
     });
