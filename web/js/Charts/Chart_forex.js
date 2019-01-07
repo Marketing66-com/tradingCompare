@@ -168,6 +168,9 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
                             $scope.user_sentiments_finished = true
                             //console.log("finish")
                         }
+                        else{
+                            $scope.user_sentiments_finished = true
+                        }
                         $scope.$apply();
                     }) .catch(function (error) {
                         $scope.data = error;
@@ -202,6 +205,9 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
                                     }
                                 }
                             });
+                            $scope.user_watchlist_finished = true
+                        }
+                        else{
                             $scope.user_watchlist_finished = true
                         }
                         $scope.$apply();

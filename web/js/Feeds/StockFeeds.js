@@ -140,6 +140,9 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                                     });
                                     $scope.user_sentiments_finished = true
                                 }
+                                else{
+                                    $scope.user_sentiments_finished = true
+                                }
                             }
                             else{
                                 var check = function() {
@@ -160,6 +163,9 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                                                     });
                                                 }
                                             });
+                                            $scope.user_sentiments_finished = true
+                                        }
+                                        else{
                                             $scope.user_sentiments_finished = true
                                         }
                                     }
@@ -190,6 +196,9 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                                     });
                                     $scope.user_watchlist_finished = true
                                 }
+                                else{
+                                    $scope.user_watchlist_finished = true
+                                }
                             }
                             else{
                                 var check = function() {
@@ -207,6 +216,9 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                                                     }
                                                 });
                                             });
+                                            $scope.user_watchlist_finished = true
+                                        }
+                                        else{
                                             $scope.user_watchlist_finished = true
                                         }
                                     }

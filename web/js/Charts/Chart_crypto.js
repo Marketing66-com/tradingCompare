@@ -113,6 +113,9 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
                             });
                             $scope.user_watchlist_finished = true
                         }
+                        else{
+                            $scope.user_watchlist_finished = true
+                        }
                         $scope.$apply();
                     })
                     .catch(function (error) {
@@ -147,6 +150,9 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
                                     }
                                 }
                             });
+                            $scope.user_sentiments_finished = true
+                        }
+                        else{
                             $scope.user_sentiments_finished = true
                         }
                         $scope.$apply();

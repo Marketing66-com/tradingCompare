@@ -100,6 +100,9 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
                                     });
                                     $scope.user_sentiments_finished = true
                                 }
+                                else{
+                                    $scope.user_sentiments_finished = true
+                                }
                             }
                             else{
                                 var check = function() {
@@ -120,6 +123,9 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
                                                     });
                                                 }
                                             });
+                                            $scope.user_sentiments_finished = true
+                                        }
+                                        else{
                                             $scope.user_sentiments_finished = true
                                         }
                                     }
@@ -149,6 +155,9 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
                                         });
                                         $scope.user_watchlist_finished = true
                                     });
+                                }
+                                else{
+                                    $scope.user_watchlist_finished = true
                                 }
                                 // if($scope.user_sentiments.length>0) {
                                 //     $scope.user_sentiments.forEach(element => {
@@ -182,6 +191,9 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
                                                 });
                                                 $scope.user_watchlist_finished = true
                                             });
+                                        }
+                                        else{
+                                            $scope.user_watchlist_finished = true
                                         }
                                         // if($scope.user_sentiments.length>0) {
                                         //     $scope.user_sentiments.forEach(element => {

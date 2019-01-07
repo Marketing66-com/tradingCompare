@@ -100,6 +100,9 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
                                         });
                                         $scope.user_sentiments_finished = true
                                     }
+                                    else{
+                                        $scope.user_sentiments_finished = true
+                                    }
                                 }
                                 else{
                                     var check = function() {
@@ -120,6 +123,9 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
                                                         });
                                                     }
                                                 });
+                                                $scope.user_sentiments_finished = true
+                                            }
+                                            else{
                                                 $scope.user_sentiments_finished = true
                                             }
                                         }
@@ -151,6 +157,9 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
                                     });
                                     $scope.user_watchlist_finished = true
                                 }
+                                else{
+                                    $scope.user_watchlist_finished = true
+                                }
                             }
                             else{
                                 var check = function() {
@@ -169,6 +178,9 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
                                                     }
                                                 });
                                             });
+                                            $scope.user_watchlist_finished = true
+                                        }
+                                        else{
                                             $scope.user_watchlist_finished = true
                                         }
                                     }
