@@ -80,22 +80,29 @@
                             <div class="chart_bitcoin-reting chart_bitcoin-reting1 box_height_crypto1" style="    padding-bottom: 0px;    padding-top: 20px;">
                                 <div class="col-md-6 col-sm-6 col-xs-6 ">
                                     <a ng-if="!userLoggedIn" ng-click="click_on_star()" class="btcoin_btn sentiments_btn_green" target="_blank">{{ 'button.bullish'|trans }}</a>
-                                    <a ng-if="userLoggedIn && status_sentiment == 'CLOSE'" ng-click="add_sentiment('BULLISH')" class="btcoin_btn sentiments_btn_green" target="_blank">{{ 'button.bullish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && status_sentiment == 'CLOSE'" ng-click="add_sentiment('BULLISH',total_sentiments)" class="btcoin_btn sentiments_btn_green" target="_blank">{{ 'button.bullish'|trans }}</a>
                                     <a ng-if="userLoggedIn && status_sentiment == 'OPEN' && type_sentiment != 'BULLISH'" ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_green" class="btcoin_btn sentiments_btn_green" target="_blank">{{ 'button.bullish'|trans }}</a>
                                     <a ng-if="userLoggedIn && status_sentiment == 'OPEN' && type_sentiment == 'BULLISH'" ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_green_selected" class="btcoin_btn sentiments_btn_green" target="_blank">{{ 'button.bullish'|trans }}</a>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-6 ">
                                     <a ng-if="!userLoggedIn" class="btcoin_btn sentiments_btn_red" target="_blank">{{ 'button.bearish'|trans }}</a>
-                                    <a ng-if="userLoggedIn && status_sentiment == 'CLOSE'" ng-click="add_sentiment('BEARISH')"  class="btcoin_btn sentiments_btn_red" class="btcoin_btn sentiments_btn_red" target="_blank">{{ 'button.bearish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && status_sentiment == 'CLOSE'" ng-click="add_sentiment('BEARISH',total_sentiments)"  class="btcoin_btn sentiments_btn_red" class="btcoin_btn sentiments_btn_red" target="_blank">{{ 'button.bearish'|trans }}</a>
                                     <a ng-if="userLoggedIn && status_sentiment == 'OPEN' && type_sentiment != 'BEARISH'" ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_red" target="_blank"> {{ 'button.bearish'|trans }}</a>
                                     <a ng-if="userLoggedIn && status_sentiment == 'OPEN' && type_sentiment == 'BEARISH'" ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_red_selected" target="_blank"> {{ 'button.bearish'|trans }}</a>
                                 </div>
-                                <p
+                                <p ng-if="more_bullish && more_bullish!=undefined"
                                         {#class="chart_bitcoin-reting_prozent"#}
-                                >{{ 'sentiment'|trans }} : {[{mycrypto.sentiment }]}% {{ 'buying'|trans }} </p>
+                                >{{ 'sentiment'|trans }} : {[{sentiment }]}% Bullish </p>
+                                <p ng-if="!more_bullish && more_bullish!=undefined"
+                                        {#class="chart_bitcoin-reting_prozent"#}
+                                >{{ 'sentiment'|trans }} : {[{sentiment }]}% Bearish </p>
+
                                 <div class="chart_bitcoin-reting_progress-bar">
-                                    <div ng-if="mycrypto.sentiment < '50'" class="reting_progress-bar_click reting_progress-bar_click_red"></div>
-                                    <div ng-if="mycrypto.sentiment >= '50'" class="reting_progress-bar_click"></div>
+                                    {#<div ng-if="mycrypto.sentiment < '50'" class="reting_progress-bar_click reting_progress-bar_click_red"></div>#}
+                                    {#<div ng-if="mycrypto.sentiment >= '50'" class="reting_progress-bar_click"></div>#}
+
+                                    <div ng-if="!more_bullish && more_bullish!=undefined" class="reting_progress-bar_click reting_progress-bar_click_red"></div>
+                                    <div ng-if="more_bullish && more_bullish!=undefined" class="reting_progress-bar_click reting_progress-bar_click_green"></div>
                                 </div>
                             </div>
                         </div>

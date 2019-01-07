@@ -137,7 +137,7 @@
                     <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_stocks' %}active{% endif %}" href="{{ path('Live_rates_stocks', { 'name': 'United-States','value':'united-states-of-america'}) }}">{{ 'menu.live_stock_feed'|trans }}</a></li>
                     <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_crypto' %}active{% endif %}" href="{{ path('Live_rates_crypto') }}" >{{ 'menu.live_crypto_feed'|trans }}</a></li>
                     <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_forex' %}active{% endif %}" href="{{ path('Live_rates_forex') }}" >{{ 'menu.live_forex_feed'|trans }}</a></li>
-                    <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'social_sentiment' %}active{% endif %}" href="{{ path('social_sentiment') }}" >Social Sentiment</a></li>
+                    {#<li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'social_sentiment' %}active{% endif %}" href="{{ path('social_sentiment') }}" >Social Sentiment</a></li>#}
                     <li class="my-hover"><a href="#" class="my-active">{{ 'menu.brokers'|trans }}<span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>
                         <!--<li class="my-hover">Brokers <span class="hover_next-icon"><i class="fas fa-chevron-right"></i></span></a>-->
                         <ul>

@@ -7,7 +7,7 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
     $scope.from;
     $scope.to;
     $scope.setExchange;
-
+    $scope.crypto_sentiments = {}
     $scope.call_finished = false
 
     $scope.current_room = $scope.from + "_" + $scope.to
@@ -58,7 +58,6 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
 
         $scope.mycrypto.name = $scope.name
         $scope.mycrypto.img = $scope.img
-        $scope.mycrypto.sentiment = $scope.sentiment
 
         $scope.$apply()
     })
@@ -94,7 +93,7 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
                                         $scope.is_in_watchlist = true
                                     }
                                     else{
-                                        console.log("in else")
+                                        //console.log("in else")
                                         var check = function() {
                                             //console.log("in timeout",$scope.call_finished)
                                             if($scope.call_finished == false) {
@@ -120,7 +119,7 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
                     })
 
                     MemberService.getSentimentsByUser($scope.idToken, user.uid).then(function (results) {
-                        console.log("getSentimentsByUser",results)
+                        console.log("getSentimentsByUser")
                         $scope.user_sentiments = results
                         if($scope.user_sentiments.length>0) {
                             $scope.user_sentiments.forEach(element => {
@@ -173,9 +172,9 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
                     $scope.mycrypto.img = "/img/crypto_logos/crypto-other.png"
 
                 //SENTIMENT
-                var sent = ($scope.mycrypto.likes / ($scope.mycrypto.likes + $scope.mycrypto.unlikes)) * 100
-                $scope.mycrypto.sentiment = Number(sent.toFixed(1))
-                $scope.sentiment = Number(sent.toFixed(1))
+                // var sent = ($scope.mycrypto.likes / ($scope.mycrypto.likes + $scope.mycrypto.unlikes)) * 100
+                // $scope.mycrypto.sentiment = Number(sent.toFixed(1))
+                // $scope.sentiment = Number(sent.toFixed(1))
 
                 // watchlist
                 $scope.is_in_watchlist = false
@@ -192,6 +191,42 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
             })
             .then(()=>{
                 $scope.call_finished = true
+
+                //SENTIMENT
+                $http.get("https://xosignals.herokuapp.com/trading-compare-v2/get-sentiment-by-symbol/" + from + "_" + to)
+                    .then(function(result) {
+
+                        result.data.forEach(element => {
+                            if(element.type == 'BULLISH') {$scope.crypto_sentiments['BULLISH'] = element.count }
+                            else {$scope.crypto_sentiments['BEARISH'] = element.count }
+
+                        })
+                        $scope.total_sentiments = $scope.crypto_sentiments
+
+                        if( Number($scope.crypto_sentiments.BULLISH) >=
+                            Number($scope.crypto_sentiments.BEARISH) ){
+                            $scope.more_bullish = true}
+                        else {
+                            $scope.more_bullish = false
+                        }
+
+                        if(Number($scope.total_sentiments.BULLISH) == 0 && Number($scope.total_sentiments.BEARISH) == 0){
+                            var sent = 50
+                        }
+                        else{
+                            $scope.max_sentiment = Math.max($scope.crypto_sentiments.BEARISH,
+                                $scope.crypto_sentiments.BULLISH)
+                            var sent=($scope.max_sentiment / ($scope.crypto_sentiments.BEARISH +
+                                $scope.crypto_sentiments.BULLISH)) *100
+                        }
+
+                        $scope.sentiment = Number(sent.toFixed(1))
+                    })
+                    .catch(function (error) {
+                        $scope.data = error;
+                        console.log("$scope.data", $scope.data)
+                        // $scope.$apply();
+                    })
             })
             .catch(function (error) {
                 $scope.data = error;
@@ -248,7 +283,7 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
         }
 
         MemberService.Delete_from_watchlist($scope.idToken, $scope.data_to_send).then(function (results) {
-            console.log("delete",results)
+            //console.log("delete",results)
         })
             .catch(function (error) {
                 $scope.data = error;
@@ -282,7 +317,7 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
         }
         //console.log( $scope.data_to_send,$scope.mycrypto)
         MemberService.Add_to_watchlist($scope.idToken, $scope.data_to_send).then(function (results) {
-            console.log("add")
+            //console.log("add")
         })
             .catch(function (error) {
                 $scope.data = error;
@@ -299,8 +334,8 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
     }
 
     // ***** SENTIMENTS *****
-    $scope.add_sentiment = function(type) {
-        // console.log("index",index, type,$scope.filteredItems[index])
+    $scope.add_sentiment = function(type,total_sentiments) {
+        //console.log("in add", type,total_sentiments)
         if($scope.user == undefined || $scope.user.length == 0 ){
             console.log("return")
             return;
@@ -316,6 +351,29 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
 
         $scope.status_sentiment =  'OPEN'
         $scope.type_sentiment =  type
+
+        //*** bar ***//
+        if(type == 'BULLISH') {
+            total_sentiments.BULLISH = Number(total_sentiments.BULLISH + 1);
+        }
+        else {
+            total_sentiments.BEARISH = Number(total_sentiments.BEARISH + 1);
+        }
+
+        if( Number(total_sentiments.BULLISH) >= Number(total_sentiments.BEARISH) ){
+            $scope.more_bullish = true
+        }
+        else {
+            $scope.more_bullish = false
+        }
+
+        $scope.max_sentiment = Math.max(total_sentiments.BEARISH,
+            total_sentiments.BULLISH)
+        var sent=($scope.max_sentiment / (total_sentiments.BEARISH +
+            total_sentiments.BULLISH)) *100
+
+        $scope.sentiment=Number(sent.toFixed(1))
+        // //*** bar ***//
 
         $scope.data_to_send ={
             _id: $scope.user._id,

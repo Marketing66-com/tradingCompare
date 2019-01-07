@@ -8,7 +8,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
     $scope.sentiment;
     $scope.name;
     $scope.img;
-
+    $scope.forex_sentiments = {}
     $scope.call_finished = false
 
     $scope.from;
@@ -48,7 +48,6 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
 
         $scope.myforex.name = $scope.name
         $scope.myforex.img = $scope.img
-        $scope.myforex.sentiment = $scope.sentiment
 
         $scope.$apply()
     })
@@ -60,24 +59,14 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
         $scope.mypair = from + to
         //console.log("api",from,to)
 
-        $.ajax({
-            url: "https://forex.tradingcompare.com/all_data/" + $scope.mypair,
-            type: "GET",
-            success: function (result) {
-
-                $scope.myforex = result
-                console.log("$scope.myforex",  $scope.myforex )
-
+        $http.get("https://forex.tradingcompare.com/all_data/" + $scope.mypair)
+            .then(function(result) {
+                $scope.myforex = result.data
                 // IMAGE
                 if ($scope.myforex.img == "https://www.interactivecrypto.com/wp-content/uploads/2018/06/piece.png" ||
                     $scope.myforex.img == undefined ||
                     typeof $scope.myforex.img == "undefined")
                     $scope.myforex.img = "/img/Stock_Logos/stocks.png"
-
-                //SENTIMENT
-                var sent = ($scope.myforex.likes / ($scope.myforex.likes + $scope.myforex.unlikes)) * 100
-                $scope.myforex.sentiment = Number(sent.toFixed(1))
-                $scope.sentiment = Number(sent.toFixed(1))
 
                 //IN WATCHLIST
                 $scope.is_in_watchlist = false
@@ -89,14 +78,53 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
                 $scope.name = $scope.myforex.name
                 $scope.img = $scope.myforex.img
 
-                fill_Chart_Change_Price($scope.myforex)
+                return $scope.myforex
 
-                $scope.$apply()
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                console.log("ERROR", thrownError, xhr, ajaxOptions)
-            }
-        });
+            })
+            .then((myforex)=>{
+                fill_Chart_Change_Price(myforex)
+
+                //SENTIMENT
+                $http.get("https://xosignals.herokuapp.com/trading-compare-v2/get-sentiment-by-symbol/" +  $scope.mypair)
+                    .then(function(result) {
+
+                        result.data.forEach(element => {
+                            if(element.type == 'BULLISH') {$scope.forex_sentiments['BULLISH'] = element.count }
+                            else {$scope.forex_sentiments['BEARISH'] = element.count }
+
+                        })
+                        $scope.total_sentiments = $scope.forex_sentiments
+
+                        if( Number($scope.forex_sentiments.BULLISH) >=
+                            Number($scope.forex_sentiments.BEARISH) ){
+                            $scope.more_bullish = true
+                        }
+                        else {
+                            $scope.more_bullish = false
+                        }
+
+                        if(Number($scope.total_sentiments.BULLISH) == 0 && Number($scope.total_sentiments.BEARISH) == 0){
+                            var sent = 50
+                        }
+                        else{
+                            $scope.max_sentiment = Math.max($scope.forex_sentiments.BEARISH,
+                                $scope.forex_sentiments.BULLISH)
+                            var sent=($scope.max_sentiment / ($scope.forex_sentiments.BEARISH +
+                                $scope.forex_sentiments.BULLISH)) *100
+                        }
+                        $scope.sentiment = Number(sent.toFixed(1))
+                    })
+                    .catch(function (error) {
+                        $scope.data = error;
+                        console.log("$scope.data", $scope.data)
+                        // $scope.$apply();
+                    })
+            })
+            .catch(function (error) {
+                $scope.data = error;
+                console.log("$scope.data", $scope.data)
+                // $scope.$apply();
+            })
 
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
@@ -110,7 +138,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
                     }
 
                     MemberService.getSentimentsByUser($scope.idToken, user.uid).then(function (results) {
-                        console.log("getSentimentsByUser",results)
+                        console.log("getSentimentsByUser")
                         $scope.user_sentiments = results
                         if($scope.user_sentiments.length>0) {
                             $scope.user_sentiments.forEach(element => {
@@ -135,6 +163,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
                                     }
                                 }
                             });
+                            //console.log("finish")
                         }
                         $scope.$apply();
                     }) .catch(function (error) {
@@ -230,7 +259,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
         }
 
         MemberService.Delete_from_watchlist($scope.idToken, $scope.data_to_send).then(function (results) {
-            console.log("delete",results)
+            //console.log("delete",results)
         })
             .catch(function (error) {
                 $scope.data = error;
@@ -279,8 +308,8 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
     }
 
     // ***** SENTIMENTS *****
-    $scope.add_sentiment = function(type) {
-        // console.log("index",index, type,$scope.filteredItems[index])
+    $scope.add_sentiment = function(type, total_sentiments) {
+        //console.log("in add", type,total_sentiments)
         if($scope.user == undefined || $scope.user.length == 0 ){
             console.log("return")
             return;
@@ -297,6 +326,29 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
         $scope.status_sentiment =  'OPEN'
         $scope.type_sentiment =  type
 
+        //*** bar ***//
+        if(type == 'BULLISH') {
+            total_sentiments.BULLISH = Number(total_sentiments.BULLISH + 1);
+        }
+        else {
+            total_sentiments.BEARISH = Number(total_sentiments.BEARISH + 1);
+        }
+
+        if( Number(total_sentiments.BULLISH) >= Number(total_sentiments.BEARISH) ){
+            $scope.more_bullish = true
+        }
+        else {
+            $scope.more_bullish = false
+        }
+
+        $scope.max_sentiment = Math.max(total_sentiments.BEARISH,
+            total_sentiments.BULLISH)
+        var sent=($scope.max_sentiment / (total_sentiments.BEARISH +
+            total_sentiments.BULLISH)) *100
+
+        $scope.sentiment=Number(sent.toFixed(1))
+        // //*** bar ***//
+
         $scope.data_to_send ={
             _id: $scope.user._id,
             symbol: $scope.myforex.pair,
@@ -312,7 +364,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
         $scope.d = new Date();
         $scope.data_to_send["date"] = $scope.d.getFullYear() + "-" + ($scope.d.getMonth() + 1) + "-" + $scope.d.getDate()
 
-        console.log($scope.data_to_send,$scope.myforex )
+        //console.log($scope.data_to_send,$scope.myforex )
         MemberService.Add_sentiment($scope.idToken, $scope.data_to_send).then(function (results) {
             //console.log("results",results.data)
         })

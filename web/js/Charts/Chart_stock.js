@@ -6,6 +6,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
     $scope.stocks = []
     $scope.last_price = {}
     $scope.mystock
+    $scope.stock_sentiments = {}
 
     $scope.call_finished = false
 
@@ -33,7 +34,6 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
                         Arrays[1] = $scope.user_sentiments;
                     }).then(()=>{
                         if( $scope.call_finished == true){
-
                             $scope.user_sentiments.forEach(element => {
                                 if (element.symbol == symbol && element.status == 'OPEN') {
                                     $scope.mystock.status_sentiment = 'OPEN'
@@ -45,7 +45,6 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
                                     $scope.mystock.is_in_watchlist = true
                                 }
                             })
-
                         }
                         else{
                             var check = function() {
@@ -62,55 +61,6 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
                         }
                         $scope.$apply();
                     })
-                    // if($scope.user_sentiments.length>0) {
-                    //     $scope.user_sentiments.forEach(element => {
-                    //         if(element.symbol == symbol && element.status == 'OPEN'){
-                    //             if( $scope.call_finished == true){
-                    //                 $scope.mystock.status_sentiment = 'OPEN'
-                    //                 $scope.mystock.type_sentiment = element.type
-                    //             }
-                    //             else{
-                    //                 var check = function() {
-                    //                     if($scope.call_finished == false) {
-                    //                         console.log("wait for")
-                    //                         $timeout(check, 100);
-                    //                     }
-                    //                     else{
-                    //                         $scope.mystock.status_sentiment = 'OPEN'
-                    //                         $scope.mystock.type_sentiment = element.type
-                    //                     }
-                    //                 }
-                    //                 $timeout(check, 100)
-                    //             }
-                    //         }
-                    //     });
-                    // }
-
-                  //
-                  //   if($scope.user.watchlist.length>0){
-                  //       $scope.user.watchlist.forEach(currencie => {
-                  //           //console.log("currencie",currencie)
-                  //           if(currencie.symbol == symbol) {
-                  //               if( $scope.call_finished == true){
-                  //                   $scope.mystock.is_in_watchlist = true
-                  //               }
-                  //               else{
-                  //                   var check = function() {
-                  //                       console.log("in timeout",$scope.call_finished)
-                  //                       if($scope.call_finished == false) {
-                  //                           console.log("wait for")
-                  //                           $timeout(check, 100);
-                  //                       }
-                  //                       else{
-                  //                           $scope.mystock.is_in_watchlist = true
-                  //                       }
-                  //                   }
-                  //                   $timeout(check, 100)
-                  //               }
-                  //           }
-                  //       });
-                  //   }
-
                 }).catch(function (error) {
                     console.log('ERROR: ', error)
                 });
@@ -122,16 +72,16 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
             }
         });
 
-        //*******************************
+        //************************************
         $http.get("https://websocket-stock.herokuapp.com/getStockPrice/" +  symbol)
             .then(function(result) {
-                console.log("result ***",result)
+                //console.log("result ***", result)
                 $scope.mystock = result.data
                 $scope.last_price = result.data.price
 
-                if(result.length == 0){
+                if (result.length == 0) {
                     $http.get("https://interactivecrypto.herokuapp.com/getLastRecord/" + symbol)
-                        .then(function(response) {
+                        .then(function (response) {
                             console.log("response database")
                             $scope.mystock = response.data
                             $scope.last_price = response.data.price
@@ -149,15 +99,12 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
                 if($scope.mystock.symbol.indexOf('.') > -1)
                     $scope.mystock.symbol = $scope.mystock.symbol.split(".")[0]
 
-                //SENTIMENT
-                var sent=($scope.mystock.likes / ($scope.mystock.likes + $scope.mystock.unlikes)) *100
-                $scope.mystock.sentiment=Number(sent.toFixed(1))
-
+                //SENTIMENT USER
                 $scope.mystock.status_sentiment = 'CLOSE'
                 $scope.mystock.type_sentiment = 'none'
 
                 //POINT
-                $scope.mystock.point = Number(Number(Math.abs(result['price_open'] - result['price'])).toFixed(2));
+                $scope.mystock.point = Number(Number(Math.abs($scope.mystock['price_open'] - $scope.mystock['price'])).toFixed(2));
 
                 //SYMBOL
                 if($scope.mystock.symbol.indexOf('.') > -1)
@@ -167,28 +114,63 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
                 $scope.mystock.is_in_watchlist = false
 
                 //INFO GRAPH
-                if (result.change_pct > 0) {
+                if ($scope.mystock.change_pct > 0) {
                     jQuery("cq-todays-change").text('\u25b2' + Intl.NumberFormat("en-US")
-                        .format(result.change_pct) + "%")
+                        .format($scope.mystock.change_pct) + "%")
                         .addClass('positive').css({'font-size': 15});
                 } else {
                     jQuery("cq-todays-change").text('\u25bc' + Intl.NumberFormat("en-US")
-                        .format(result.change_pct) + "%")
+                        .format($scope.mystock.change_pct) + "%")
                         .addClass('negative').css({'font-size': 15});
                 }
-                jQuery("cq-current-price").text(result.price);
+                jQuery("cq-current-price").text($scope.mystock.price);
+
             })
             .then(() => {
                 $scope.call_finished = true
+
+                //SENTIMENT
+                $http.get("https://xosignals.herokuapp.com/trading-compare-v2/get-sentiment-by-symbol/" +  symbol)
+                    .then(function(result) {
+
+                        result.data.forEach(element => {
+                            if(element.type == 'BULLISH') {$scope.stock_sentiments.BULLISH = element.count }
+                            else {$scope.stock_sentiments.BEARISH = element.count }
+                        })
+                        $scope.total_sentiments = $scope.stock_sentiments
+
+                        if( Number($scope.stock_sentiments.BULLISH) >=
+                            Number($scope.stock_sentiments.BEARISH) ){
+                            $scope.mystock.more_bullish = true
+                        }
+                        else {
+                            $scope.mystock.more_bullish = false
+                        }
+
+                        if($scope.stock_sentiments.BULLISH == 0 && $scope.stock_sentiments.BEARISH == 0){
+                            var sent = 50
+                        }
+                        else{
+                            $scope.max_sentiment = Math.max($scope.stock_sentiments.BEARISH,
+                                $scope.stock_sentiments.BULLISH)
+                            var sent=($scope.max_sentiment / ($scope.stock_sentiments.BEARISH +
+                                $scope.stock_sentiments.BULLISH)) *100
+                        }
+                        $scope.mystock.sentiment=Number(sent.toFixed(1))
+                    })
+                    .catch(function (error) {
+                        $scope.data = error;
+                        console.log("error", $scope.data)
+                        $scope.$apply()
+                    })
             })
             .catch(function (error) {
                 $scope.data = error;
                 console.log("error", $scope.data)
-                // $scope.$apply();
+                $scope.$apply()
             })
 
-
-        //************************************
+        //*******************************
         //DESCRIPTION
 
         $.ajax({
@@ -274,7 +256,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
         }
 
         MemberService.Delete_from_watchlist($scope.idToken, $scope.data_to_send).then(function (results) {
-            console.log("delete",results)
+            //console.log("delete",results)
         })
             .catch(function (error) {
                 $scope.data = error;
@@ -323,8 +305,8 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
     }
 
     // ***** SENTIMENTS *****
-    $scope.add_sentiment = function(type) {
-        // console.log("index",index, type,$scope.filteredItems[index])
+    $scope.add_sentiment = function(type, total_sentiments) {
+        //console.log("in add", total_sentiments,type)
         if($scope.user == undefined || $scope.user.length == 0 ){
             console.log("return")
             return;
@@ -341,6 +323,29 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
         $scope.mystock.status_sentiment =  'OPEN'
         $scope.mystock.type_sentiment =  type
 
+        //*** bar ***//
+        if(type == 'BULLISH') {
+            total_sentiments.BULLISH = Number(total_sentiments.BULLISH + 1);
+        }
+            else {
+                total_sentiments.BEARISH = Number(total_sentiments.BEARISH + 1);
+            }
+
+        if( Number(total_sentiments.BULLISH) >= Number(total_sentiments.BEARISH) ){
+            $scope.mystock.more_bullish = true
+        }
+            else {
+                $scope.mystock.more_bullish = false
+            }
+
+        $scope.max_sentiment = Math.max(total_sentiments.BEARISH,
+            total_sentiments.BULLISH)
+        var sent=($scope.max_sentiment / (total_sentiments.BEARISH +
+            total_sentiments.BULLISH)) *100
+
+        $scope.mystock.sentiment=Number(sent.toFixed(1))
+        // //*** bar ***//
+
         $scope.data_to_send ={
             _id: $scope.user._id,
             symbol: $scope.mystock.symbol,
@@ -356,7 +361,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
         $scope.d = new Date();
         $scope.data_to_send["date"] = $scope.d.getFullYear() + "-" + ($scope.d.getMonth() + 1) + "-" + $scope.d.getDate()
 
-        console.log($scope.data_to_send,$scope.mystock )
+        //console.log($scope.data_to_send,$scope.mystock )
         MemberService.Add_sentiment($scope.idToken, $scope.data_to_send).then(function (results) {
             console.log("results",results.data)
         })
@@ -382,7 +387,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
 
         modalInstance.result.then(function(response){
             // var url =  Routing.generate('template',{"_locale": _locale })
-            var url =  Routing.generate('template')
+            var url =  Routing.generate('social_sentiment')
             // console.log("url",url)
             $window.location= url
         });
@@ -408,7 +413,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
     var GetUserSentiment = function (idToken, uid){
         return new Promise(function (resolve, reject) {
             MemberService.getSentimentsByUser(idToken, uid).then(function (results) {
-                console.log("getSentimentsByUser",results)
+                console.log("getSentimentsByUser")
                 $scope.user_sentiments = results
                 resolve ($scope.user_sentiments)
                 $scope.$apply();

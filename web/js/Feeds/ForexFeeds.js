@@ -48,7 +48,7 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
                 $scope.userLoggedIn = true;
-                console.log("getuser",user)
+                console.log("getuser")
                 user.getIdToken(true).then(function (idToken) {
                     console.log("getIdToken")
                     $scope.idToken = idToken
@@ -78,13 +78,13 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
                         $scope.$apply();
                     }).then(() => {
                         MemberService.getSentimentsByUser($scope.idToken).then(function (results) {
-                            console.log("getSentimentsByUser",results)
+                            console.log("getSentimentsByUser")
                             $scope.user_sentiments = results
                             $scope.$apply();
                         })
                         .then(()=>{
                             if($scope.for_finished == true){
-                                console.log("for finished, sentiment")
+                                //console.log("for finished, sentiment")
                                 if($scope.user_sentiments.length>0) {
                                     $scope.user_sentiments.forEach(element => {
                                         if (element.symbol_type == 'FOREX' && element.status == 'OPEN') {
@@ -220,8 +220,8 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
                // console.log("$scope.result",$scope.result)
                 $http.post("https://xosignals.herokuapp.com/trading-compare-v2/get-sentiment-by-type/",{symbol_type: 'FOREX'})
                     .then(function(response) {
-                        console.log(response.data)
                         $scope.all_forex_sentiments = response.data
+                        //console.log("all_forex_sentiments",$scope.all_forex_sentiments)
                     })
                     .then(function() {
                         var i = 0
@@ -241,7 +241,6 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
 
                                     itemsDetails[i].img =  "/img/Stock_Logos/stocks.png"
                                 }
-
 
                                 // SENTIMENT
                                 if($scope.all_forex_sentiments.hasOwnProperty($scope.result[key].pair)){
@@ -265,6 +264,9 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
                                 //SENTIMENT USER
                                 itemsDetails[i].status_sentiment = 'CLOSE'
                                 itemsDetails[i].type_sentiment = 'none'
+
+                                //WATCHLIST
+                                itemsDetails[i].is_in_watchlist = false
 
                                 i = i+1;
                             }
@@ -460,6 +462,7 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
 
     // ***** SENTIMENTS *****
     $scope.add_sentiment = function(index, type) {
+        var the_symbol = $scope.filteredItems[index].pair
         // console.log("index",index, type,$scope.filteredItems[index])
         if($scope.user == undefined || $scope.user.length == 0 ){
             console.log("return")
@@ -485,6 +488,11 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
             }
         }
 
+        //** bar **//
+        $scope.flag = false
+        bar_sentiment_for_add_in_feed (index,the_symbol,type,$scope.flag)
+        //** end **//
+
         $scope.data_to_send ={
             _id: $scope.user._id,
             symbol: $scope.filteredItems[index].pair,
@@ -499,9 +507,9 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
         $scope.d = new Date();
         $scope.data_to_send["date"] = $scope.d.getFullYear() + "-" + ($scope.d.getMonth() + 1) + "-" + $scope.d.getDate()
 
-        console.log($scope.data_to_send)
+        ////console.log($scope.data_to_send)
         MemberService.Add_sentiment($scope.idToken, $scope.data_to_send).then(function (results) {
-            console.log("results",results.data)
+            //console.log("results",results.data)
         })
             .catch(function (error) {
                 $scope.data = error;
@@ -511,6 +519,7 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
     }
 
     $scope.add_sentiment_inW = function(index, type) {
+        var the_symbol = $scope.WatchlistTable[index].pair
         //console.log("index",index, type,$scope.filteredItems[index])
         if($scope.user == undefined || $scope.user.length == 0 ){
             console.log("return")
@@ -536,6 +545,11 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
             }
         }
 
+        //** bar **//
+        $scope.flag = false
+        bar_sentiment_for_add_in_watchlist(index,the_symbol,type,$scope.flag)
+        //** end **//
+
         $scope.data_to_send ={
             _id: $scope.user._id,
             symbol: $scope.WatchlistTable[index].pair,
@@ -550,9 +564,9 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
         $scope.d = new Date();
         $scope.data_to_send["date"] = $scope.d.getFullYear() + "-" + ($scope.d.getMonth() + 1) + "-" + $scope.d.getDate()
 
-        console.log($scope.data_to_send)
+        ////console.log($scope.data_to_send)
         MemberService.Add_sentiment($scope.idToken, $scope.data_to_send).then(function (results) {
-            console.log("results",results.data)
+            //console.log("results",results.data)
         })
             .catch(function (error) {
                 $scope.data = error;
@@ -601,7 +615,7 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
             all_promises.push(WatchlistService.stockForWatchlist(element))
         })
 
-        $scope.all_sentiments = Object.assign({}, $scope.all_forex_sentiments, $scope.all_crypto_sentiments, $scope.all_stock_sentiments);
+
         Promise.all(all_promises) .then((Arrays) => {
             //console.log("Arrays", Arrays)
             $scope.WatchlistTemp = Arrays[0].concat(Arrays[1])
@@ -625,27 +639,39 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
             $scope.watch_ready = true
         })
         .then(()=>{
-            for(i=0;i<$scope.WatchlistTable.length;i++) {
-                if ($scope.all_sentiments.hasOwnProperty($scope.WatchlistTable[i].pair)) {
-                   if($scope.all_sentiments[$scope.WatchlistTable[i].pair].BULLISH >= $scope.all_sentiments[$scope.WatchlistTable[i].pair].BEARISH ){
-                       $scope.WatchlistTable[i].more_bullish = true
-                   }
-                   else{
-                       $scope.WatchlistTable[i].more_bullish = false
-                   }
-                   $scope.max_sentiment = Math.max($scope.all_sentiments[$scope.WatchlistTable[i].pair].BEARISH,
-                       $scope.all_sentiments[$scope.WatchlistTable[i].pair].BULLISH)
-                   $scope.WatchlistTable[i].sentiment = Number((($scope.max_sentiment / ($scope.all_sentiments[$scope.WatchlistTable[i].pair].BEARISH +
-                       $scope.all_sentiments[$scope.WatchlistTable[i].pair].BULLISH)) * 100).toFixed(1))
+            var check = function() {
+                if ( $scope.all_forex_sentiments == undefined || $scope.all_crypto_sentiments == undefined || $scope.all_stock_sentiments == undefined) {
+                    console.log("forex sentiment undefined")
+                    $timeout(check, 100)
                 }
                 else {
-                   $scope.WatchlistTable[i].sentiment = 50
-                    $scope.WatchlistTable[i].more_bullish = true
+                    $scope.all_sentiments = Object.assign({}, $scope.all_forex_sentiments, $scope.all_crypto_sentiments, $scope.all_stock_sentiments);
+                    //console.log("all_sentiments", $scope.all_sentiments)
+
+                    for(i=0;i<$scope.WatchlistTable.length;i++) {
+                        if ($scope.all_sentiments.hasOwnProperty($scope.WatchlistTable[i].pair)) {
+                            if($scope.all_sentiments[$scope.WatchlistTable[i].pair].BULLISH >=
+                                $scope.all_sentiments[$scope.WatchlistTable[i].pair].BEARISH ){
+                                $scope.WatchlistTable[i].more_bullish = true
+                            }
+                            else{
+                                $scope.WatchlistTable[i].more_bullish = false
+                            }
+                            $scope.max_sentiment = Math.max($scope.all_sentiments[$scope.WatchlistTable[i].pair].BEARISH,
+                                $scope.all_sentiments[$scope.WatchlistTable[i].pair].BULLISH)
+                            $scope.WatchlistTable[i].sentiment = Number((($scope.max_sentiment /
+                                ($scope.all_sentiments[$scope.WatchlistTable[i].pair].BEARISH +
+                                $scope.all_sentiments[$scope.WatchlistTable[i].pair].BULLISH)) * 100).toFixed(1))
+                        }
+                        else {
+                            $scope.WatchlistTable[i].sentiment = 50
+                            $scope.WatchlistTable[i].more_bullish = true
+                        }
+                    }
                 }
             }
+            $timeout(check, 100)
         })
-
-
         $scope.$apply()
     }
 
@@ -667,6 +693,119 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
         }
         $timeout(check, 100)
         $scope.$apply()
+    }
+
+    bar_sentiment_for_add_in_feed = function(index,the_symbol,type,flag){
+        //console.log("***$scope.all_stock_sentiments",$scope.all_stock_sentiments)
+        if($scope.all_forex_sentiments.hasOwnProperty(the_symbol)){
+            if(!flag){
+                if(type == 'BULLISH') {
+                    $scope.all_forex_sentiments[the_symbol].BULLISH =
+                        Number($scope.all_forex_sentiments[the_symbol].BULLISH + 1);
+                }
+                else {
+                    $scope.all_forex_sentiments[the_symbol].BEARISH =
+                        Number($scope.all_forex_sentiments[the_symbol].BEARISH + 1);
+                }
+            }
+
+            if( Number($scope.all_forex_sentiments[the_symbol].BULLISH) >=
+                Number($scope.all_forex_sentiments[the_symbol].BEARISH) ){
+                $scope.filteredItems[index].more_bullish = true
+            }
+            else {
+                $scope.filteredItems[index].more_bullish = false
+            }
+        }
+        else{
+            if(type == 'BULLISH'){
+                $scope.all_forex_sentiments[the_symbol] = {BEARISH:0,BULLISH:1}
+                $scope.filteredItems[index].more_bullish = true
+            }
+            else{
+                $scope.all_forex_sentiments[the_symbol] = {BEARISH:1,BULLISH:0}
+                $scope.filteredItems[index].more_bullish = false
+            }
+        }
+
+        $scope.max_sentiment_for_add = Math.max($scope.all_forex_sentiments[the_symbol].BEARISH,
+            $scope.all_forex_sentiments[the_symbol].BULLISH)
+
+        var sent=($scope.max_sentiment_for_add / ($scope.all_forex_sentiments[the_symbol].BEARISH +
+            $scope.all_forex_sentiments[the_symbol].BULLISH)) *100
+
+        $scope.filteredItems[index].sentiment=Number(sent.toFixed(1))
+        //console.log("index2",$scope.all_stock_sentiments[the_symbol],$scope.all_sentiments[the_symbol])
+
+        // IN WATCHLIST
+        if(!flag){
+            for(i=0;i<$scope.WatchlistTable.length;i++){
+                if($scope.WatchlistTable[i].pair == the_symbol){
+                    // change_pourcent_in_watchlist(i,the_symbol,type)
+                    $scope.flag = true
+                    bar_sentiment_for_add_in_watchlist(i,the_symbol,type,$scope.flag)
+                    // change_pourcent_in_watchlist(i,the_symbol,type)
+                    return;
+                }
+            }
+        }
+    }
+
+    bar_sentiment_for_add_in_watchlist = function(index,the_symbol,type,flag){
+        //console.log("in fct 2",index,the_symbol,type,$scope.all_sentiments,$scope.all_sentiments[the_symbol])
+        if($scope.all_sentiments.hasOwnProperty(the_symbol)){
+            // console.log("if")
+            if(!flag){
+                if(type == 'BULLISH') {
+                    $scope.all_sentiments[the_symbol].BULLISH =
+                        Number($scope.all_sentiments[the_symbol].BULLISH + 1);
+                }
+                else {
+                    $scope.all_sentiments[the_symbol].BEARISH =
+                        Number($scope.all_sentiments[the_symbol].BEARISH + 1);
+                }
+            }
+
+            if( Number($scope.all_sentiments[the_symbol].BULLISH) >=
+                Number($scope.all_sentiments[the_symbol].BEARISH) ){
+                $scope.WatchlistTable[index].more_bullish = true
+            }
+            else {
+                $scope.WatchlistTable[index].more_bullish = false
+            }
+            //console.log("if",$scope.all_sentiments[the_symbol])
+        }
+        else{
+            if(type == 'BULLISH'){
+                $scope.all_sentiments[the_symbol] = {BEARISH:0,BULLISH:1}
+                $scope.WatchlistTable[index].more_bullish = true
+            }
+            else{
+                $scope.all_sentiments[the_symbol] = {BEARISH:1,BULLISH:0}
+                $scope.WatchlistTable[index].more_bullish = false
+            }
+        }
+
+        $scope.max_sentiment_for_addWt = Math.max($scope.all_sentiments[the_symbol].BEARISH,
+            $scope.all_sentiments[the_symbol].BULLISH)
+
+        var sent=($scope.max_sentiment_for_addWt / ($scope.all_sentiments[the_symbol].BEARISH +
+            $scope.all_sentiments[the_symbol].BULLISH)) *100
+
+        $scope.WatchlistTable[index].sentiment=Number(sent.toFixed(1))
+        // console.log("index2",$scope.all_stock_sentiments[the_symbol])
+
+        //add to filterItem (and ItemDetails)
+        if(!flag){
+            for(i=0;i<$scope.filteredItems.length;i++){
+                if($scope.filteredItems[i].pair == the_symbol){
+                    $scope.flag = true
+                    bar_sentiment_for_add_in_feed(i,the_symbol,type,$scope.flag)
+                    // change_pourcent_in_watchlist(i,the_symbol,type)
+                    return;
+                }
+            }
+        }
     }
     ///////////////////////////////////////// SOCKET ///////////////////////////////////////////
     $scope.socket = io.connect('https://forex.tradingcompare.com');

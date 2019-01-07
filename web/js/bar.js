@@ -120,8 +120,8 @@ firstApp.controller('FirstController', function($scope,$window,$http) {
         var socket2 =  io.connect('https://forex.tradingcompare.com', {'force new connection': true});
         socket2.on('connect', function () {
 
-            // socket2.emit('room', ["EURUSD", "USDJPY"]);
-            socket2.emit('room', "EURUSD");
+            socket2.emit('room', ["EURUSD", "USDJPY"]);
+            // socket2.emit('room', "EURUSD");
             socket2.on("message", function (response) {
                 //console.log("response forex",response)
                 if(response.pair == forex_from1 + forex_to1) {

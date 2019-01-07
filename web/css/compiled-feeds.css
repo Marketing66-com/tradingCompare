@@ -9,10 +9,12 @@
 .chart_bitcoin-reting_icon { font-size: 45px;}
 .chart_bitcoin-reting_progress-bar {width: 100%; border-radius: 3px; background-color: #f2f3f5;border: 1px solid #D8D8D8; margin-bottom: 15px;}
 .reting_progress-bar_click { width: 86%; height: 15px; background-color: #7ED400;}
+.reting_progress-bar_click_base { width: 86%; height: 15px;}
 /*.chart_bitcoin-reting_prozent {font-size: 12px;font-family: 'Avenir';font-weight: 700; margin: 20px 0 0 0; color: black; line-height: 20px;}*/
 .chart_bitcoin-reting_prozent {font-size: 12px;font-family: 'Avenir';font-weight: 700; margin: 20px 0 0 0; color: black; }
 .general-grid .chart_bitcoin-reting_prozent { margin: 20px 0 0 0;}
 .reting_progress-bar_click_red {background-color: red;}
+.reting_progress-bar_click_green {background-color: #7ED400;}
 .live_block_money_green { color: #7ED321 !important;}
 .live_block_money_border_green {border: 2px solid #7ED321;}
 .neutral{color:#000000;}

@@ -67,6 +67,7 @@
                                         <br>  {{ 'shares'|trans }} : <span class="bitcoin_bottom-text_bold">{[{mystock.shares}]} {[{mystock.devise}]}</span>
 
                                     </p>
+
                                 </div>
                             </div>
                         </div>
@@ -75,23 +76,27 @@
                             <div class="chart_bitcoin-reting chart_bitcoin-reting1 box_height_stock1" style="    padding-bottom: 0px;    padding-top: 20px;">
                                 <div class="col-md-6 col-sm-6 col-xs-6 ">
                                     <a ng-if="!userLoggedIn" ng-click="click_on_star()" class="btcoin_btn sentiments_btn_green" target="_blank"> {{ 'button.bullish'|trans }}</a>
-                                    <a ng-if="userLoggedIn && mystock.status_sentiment == 'CLOSE' " ng-click="add_sentiment('BULLISH')"  class="btcoin_btn sentiments_btn_green" target="_blank"> {{ 'button.bullish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && mystock.status_sentiment == 'CLOSE' " ng-click="add_sentiment('BULLISH', total_sentiments)"  class="btcoin_btn sentiments_btn_green" target="_blank"> {{ 'button.bullish'|trans }}</a>
                                     <a ng-if="userLoggedIn && mystock.status_sentiment == 'OPEN' && mystock.type_sentiment != 'BULLISH'" ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_green" target="_blank"> {{ 'button.bullish'|trans }}</a>
                                     <a ng-if="userLoggedIn && mystock.status_sentiment == 'OPEN' && mystock.type_sentiment == 'BULLISH'" ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_green_selected" target="_blank"> {{ 'button.bullish'|trans }}</a>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-6 ">
                                     <a ng-if="!userLoggedIn" ng-click="click_on_star()"  class="btcoin_btn sentiments_btn_red" target="_blank"> {{ 'button.bearish'|trans }}</a>
-                                    <a ng-if="userLoggedIn && mystock.status_sentiment == 'CLOSE'" ng-click="add_sentiment('BEARISH')"  class="btcoin_btn sentiments_btn_red" target="_blank"> {{ 'button.bearish'|trans }}</a>
+                                    <a ng-if="userLoggedIn && mystock.status_sentiment == 'CLOSE'" ng-click="add_sentiment('BEARISH',total_sentiments)"  class="btcoin_btn sentiments_btn_red" target="_blank"> {{ 'button.bearish'|trans }}</a>
                                     <a ng-if="userLoggedIn && mystock.status_sentiment == 'OPEN' && mystock.type_sentiment != 'BEARISH' " ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_red" target="_blank"> {{ 'button.bearish'|trans }}</a>
                                     <a ng-if="userLoggedIn && mystock.status_sentiment == 'OPEN' && mystock.type_sentiment == 'BEARISH' " ng-click="AlreadyOpen()" class="btcoin_btn sentiments_btn_red_selected" target="_blank"> {{ 'button.bearish'|trans }}</a>
                                 </div>
-                                <p
+                                <p ng-if="mystock.more_bullish"
                                         {#class="chart_bitcoin-reting_prozent"#}
-                                > {{ 'sentiment'|trans }}: {[{mystock.sentiment }]}%  {{ 'buying'|trans }}</p>
+                                > {{ 'sentiment'|trans }}: {[{mystock.sentiment }]}%  Bullish</p>
+                                <p ng-if="!mystock.more_bullish"
+                                        {#class="chart_bitcoin-reting_prozent"#}
+                                > {{ 'sentiment'|trans }}: {[{mystock.sentiment }]}%  Bearish</p>
                                 <div class="chart_bitcoin-reting_progress-bar">
-                                    {#<div class="reting_progress-bar_click" ng-class="{'reting_progress-bar_click_red':mystock.sentiment < '50'}"></div>#}
-                                    <div ng-if="mystock.sentiment < '50'" class="reting_progress-bar_click reting_progress-bar_click_red"></div>
-                                    <div ng-if="mystock.sentiment >= '50'" class="reting_progress-bar_click"></div>
+                                    {#<div ng-if="mystock.sentiment < '50'" class="reting_progress-bar_click reting_progress-bar_click_red"></div>#}
+                                    {#<div ng-if="mystock.sentiment >= '50'" class="reting_progress-bar_click"></div>#}
+                                    <div ng-if="mystock.more_bullish && mystock.more_bullish!=undefined" class="reting_progress-bar_click_base reting_progress-bar_click_green"></div>
+                                    <div ng-if="!mystock.more_bullish && mystock.more_bullish!=undefined" class="reting_progress-bar_click_base reting_progress-bar_click_red"></div>
                                 </div>
                             </div>
                         </div>
@@ -101,6 +106,7 @@
                                 <p class="chart_content-text_info">
                                     {[{mystock.name}]} - {{ symbol| split('.')[0]}}<br><br>
                                     {[{description}]}
+                                <div>{[{ stock_sentiments.BEARISH }]}</div>
                                 </p>
                             </div>
                         </div>
