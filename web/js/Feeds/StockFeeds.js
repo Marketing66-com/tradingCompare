@@ -78,6 +78,8 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
     $scope.init = function (country_name, country_value) {
         //console.log("api", country_name, country_value)
         // $scope.customSelected = ""
+        $scope.spinner = true
+
         this.items = itemsDetails;
         $scope.country_name = country_name;
         $scope.country_value = country_value;
@@ -136,6 +138,7 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                                             });
                                         }
                                     });
+                                    $scope.user_sentiments_finished = true
                                 }
                             }
                             else{
@@ -157,6 +160,7 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                                                     });
                                                 }
                                             });
+                                            $scope.user_sentiments_finished = true
                                         }
                                     }
                                 }
@@ -184,6 +188,7 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                                             }
                                         });
                                     });
+                                    $scope.user_watchlist_finished = true
                                 }
                             }
                             else{
@@ -202,6 +207,7 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                                                     }
                                                 });
                                             });
+                                            $scope.user_watchlist_finished = true
                                         }
                                     }
                                 }
@@ -211,6 +217,24 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
                     })
                     .then(() => {
                             BuildWatchlist()
+                    })
+                    .then(()=>{
+                        var check = function() {
+                            if($scope.idToken != undefined &&
+                                $scope.user != undefined &&
+                                $scope.user_sentiments != undefined &&
+                                $scope.for_finished == true &&
+                                $scope.watch_ready == true &&
+                                $scope.user_sentiments_finished == true &&
+                                $scope.user_watchlist_finished == true) {
+                                $scope.spinner = false
+                            }
+                            else{
+                                // console.log("wait for, watchlist")
+                                $timeout(check, 100);
+                            }
+                        }
+                        $timeout(check, 100)
                     })
                     .catch(function (error) {
                             $scope.data = error;

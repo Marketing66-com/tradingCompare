@@ -12,6 +12,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
 
     var i = 0
     $scope.init = function (symbol) {
+        $scope.spinner = true
 
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
@@ -40,11 +41,14 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
                                     $scope.mystock.type_sentiment = element.type
                                 }
                             })
+                            $scope.user_sentiments_finished = true
+
                             $scope.user.watchlist.forEach(currencie => {
                                 if(currencie.symbol == symbol) {
                                     $scope.mystock.is_in_watchlist = true
                                 }
                             })
+                            $scope.user_watchlist_finished = true
                         }
                         else{
                             var check = function() {
@@ -53,13 +57,40 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
                                     $timeout(check, 100);
                                 }
                                 else{
-                                    $scope.mystock.status_sentiment = 'OPEN'
-                                    $scope.mystock.type_sentiment = element.type
+                                    $scope.user_sentiments.forEach(element => {
+                                        if (element.symbol == symbol && element.status == 'OPEN') {
+                                            $scope.mystock.status_sentiment = 'OPEN'
+                                            $scope.mystock.type_sentiment = element.type
+                                        }
+                                    })
+                                    $scope.user_sentiments_finished = true
+
+                                    $scope.user.watchlist.forEach(currencie => {
+                                        if(currencie.symbol == symbol) {
+                                            $scope.mystock.is_in_watchlist = true
+                                        }
+                                    })
+                                    $scope.user_watchlist_finished = true
                                 }
                             }
                             $timeout(check, 100)
                         }
                         $scope.$apply();
+                    })
+                    .then(()=>{
+                        var check = function() {
+                            if($scope.idToken != undefined &&
+                                $scope.user != undefined &&
+                                $scope.user_sentiments_finished == true &&
+                                $scope.user_watchlist_finished == true) {
+                                $scope.spinner = false
+                            }
+                            else{
+                                // console.log("wait for, watchlist")
+                                $timeout(check, 100);
+                            }
+                        }
+                        $timeout(check, 100)
                     })
                 }).catch(function (error) {
                     console.log('ERROR: ', error)

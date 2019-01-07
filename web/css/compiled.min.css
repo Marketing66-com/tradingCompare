@@ -295,6 +295,8 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
 @media (max-width: 1200px) {
     .modal_right-content {width: 90%;}
     .close_modal {right: 10%;}
+    #spinner{ position: fixed;top: 35%!important;left: 47%!important;z-index: 2;}
+    #spinnerChart{ position: fixed;top: 60%!important;left: 45%!important;z-index: 2;}
     /*.form-element-input_telephone{width: 23%;}*/
 }
 
@@ -319,6 +321,8 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
     .col-sm-block,.col-sm-block{display:block;}
 
     /*.form-element-input_telephone{width: 22%;}*/
+
+
 }
 
 @media (max-width: 767px) {
@@ -339,6 +343,9 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
     .col-xs-none{display:none;}
     .col-md-none{display:block;}
     .cont-right{margin:0 24px;}
+
+    #spinner{ position: fixed;top: 50%!important;left: 45%!important;z-index: 2;}
+    #spinnerChart{ position: fixed;top: 60%!important;left: 45%!important;z-index: 2;}
 }
 
 @media (max-width: 480px) {
@@ -353,10 +360,27 @@ textarea.form-element-input:not(:placeholder-shown) ~ .form-element-label {trans
     .my-nav ul li {margin: 0;border-top: 2px solid #ECECEC;border-bottom: none;}
 
     .visit-btn, .paupal, .my-nav, .menu{width:100%;}
+
+    #spinner{ position: fixed;top: 60%!important;left: 45%!important;z-index: 2;}
+    #spinnerChart{ position: fixed;top: 60%!important;left: 45%!important;z-index: 2;}
 }
 
 
 /******************************************************************************************************************************************/
+#spinner{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    z-index: 2;
+}
+#spinnerChart{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    z-index: 2;
+}
+
+/******************************************/
 
 #canvas {
     border-radius: 5px;

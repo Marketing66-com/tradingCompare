@@ -12,7 +12,11 @@
         <div  ng-controller="ListController as list">
             <div  ng-init="init('{{ crypto_api }}')" >
                 <section class="table">
-                {{ include('LiveFeedBundle:Default:live_feed.html.twig') }}
+                    <div ng-if="spinner" id="spinner" >
+                        <img id="img-spinner" src="{{ asset('img/ajax-loader5.gif') }}" alt="loading">
+                    </div>
+
+                    {{ include('LiveFeedBundle:Default:live_feed.html.twig') }}
                 </section>
             </div>
         </div>

@@ -43,6 +43,8 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
     };
 
     $scope.init = function () {
+        $scope.spinner = true
+
         this.items = itemsDetails;
 
         firebase.auth().onAuthStateChanged(function (user) {
@@ -96,6 +98,7 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
                                             });
                                         }
                                     });
+                                    $scope.user_sentiments_finished = true
                                 }
                             }
                             else{
@@ -117,6 +120,7 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
                                                     });
                                                 }
                                             });
+                                            $scope.user_sentiments_finished = true
                                         }
                                     }
                                 }
@@ -143,20 +147,21 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
                                                 $scope.$apply();
                                             }
                                         });
+                                        $scope.user_watchlist_finished = true
                                     });
                                 }
-                                if($scope.user_sentiments.length>0) {
-                                    $scope.user_sentiments.forEach(element => {
-                                        if (element.symbol_type == 'STOCK' && element.status == 'OPEN') {
-                                            $scope.filteredItems.forEach(element_table => {
-                                                if (element.symbol == element_table.pair) {
-                                                    element_table.status_sentiment = 'OPEN'
-                                                    element_table.type_sentiment = element.type
-                                                }
-                                            });
-                                        }
-                                    });
-                                }
+                                // if($scope.user_sentiments.length>0) {
+                                //     $scope.user_sentiments.forEach(element => {
+                                //         if (element.symbol_type == 'STOCK' && element.status == 'OPEN') {
+                                //             $scope.filteredItems.forEach(element_table => {
+                                //                 if (element.symbol == element_table.pair) {
+                                //                     element_table.status_sentiment = 'OPEN'
+                                //                     element_table.type_sentiment = element.type
+                                //                 }
+                                //             });
+                                //         }
+                                //     });
+                                // }
                             }
                             else{
                                 var check = function() {
@@ -175,20 +180,22 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
                                                         $scope.$apply();
                                                     }
                                                 });
+                                                $scope.user_watchlist_finished = true
                                             });
                                         }
-                                        if($scope.user_sentiments.length>0) {
-                                            $scope.user_sentiments.forEach(element => {
-                                                if (element.symbol_type == 'STOCK' && element.status == 'OPEN') {
-                                                    $scope.filteredItems.forEach(element_table => {
-                                                        if (element.symbol == element_table.pair) {
-                                                            element_table.status_sentiment = 'OPEN'
-                                                            element_table.type_sentiment = element.type
-                                                        }
-                                                    });
-                                                }
-                                            });
-                                        }
+                                        // if($scope.user_sentiments.length>0) {
+                                        //     $scope.user_sentiments.forEach(element => {
+                                        //         if (element.symbol_type == 'STOCK' && element.status == 'OPEN') {
+                                        //             $scope.filteredItems.forEach(element_table => {
+                                        //                 if (element.symbol == element_table.pair) {
+                                        //                     element_table.status_sentiment = 'OPEN'
+                                        //                     element_table.type_sentiment = element.type
+                                        //                 }
+                                        //             });
+                                        //
+                                        //         }
+                                        //     });
+                                        // }
                                     }
                                 }
                                 $timeout(check, 100)
@@ -197,6 +204,24 @@ ForexApp.controller("ForexController", function ($scope,$window,$location,Member
                     })
                     .then(() => {
                         BuildWatchlist()
+                    })
+                    .then(()=>{
+                        var check = function() {
+                            if($scope.idToken != undefined &&
+                                $scope.user != undefined &&
+                                $scope.user_sentiments != undefined &&
+                                $scope.for_finished == true &&
+                                $scope.watch_ready == true &&
+                                $scope.user_sentiments_finished == true &&
+                                $scope.user_watchlist_finished == true) {
+                                $scope.spinner = false
+                            }
+                            else{
+                                // console.log("wait for, watchlist")
+                                $timeout(check, 100);
+                            }
+                        }
+                        $timeout(check, 100)
                     })
                     .catch(function (error) {
                             $scope.data = error;

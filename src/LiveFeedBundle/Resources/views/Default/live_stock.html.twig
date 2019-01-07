@@ -13,6 +13,10 @@
             <div ng-controller="stockController as List">
                 <div  ng-init="init('{{ country_name }}', '{{ country_value }}')" >
                     <section class="table">
+                        <div ng-if="spinner" id="spinner" >
+                            <img id="img-spinner" src="{{ asset('img/ajax-loader5.gif') }}" alt="loading">
+                        </div>
+
                         {{ include('LiveFeedBundle:Default:searchCountry.html.twig') }}
                         {{ include('LiveFeedBundle:Default:live_feed.html.twig') }}
                     </section>

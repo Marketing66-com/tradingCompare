@@ -54,6 +54,8 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
     ///////////////////////////////////////// End SOCKET ///////////////////////////////////////////
 
     $scope.init = function (from,to) {
+        $scope.spinner = true
+
         $scope.from = from
         $scope.to = to
         $scope.mypair = from + to
@@ -163,6 +165,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
                                     }
                                 }
                             });
+                            $scope.user_sentiments_finished = true
                             //console.log("finish")
                         }
                         $scope.$apply();
@@ -199,6 +202,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
                                     }
                                 }
                             });
+                            $scope.user_watchlist_finished = true
                         }
                         $scope.$apply();
                     })
@@ -207,8 +211,24 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
                             console.log("$scope.data", $scope.data)
                             $scope.$apply();
                     })
-                }).catch(function (error) {
-                    console.log('ERROR: ', error)
+                })
+                .then(()=>{
+                    var check = function() {
+                        if($scope.idToken != undefined &&
+                            $scope.user != undefined &&
+                            $scope.user_sentiments_finished == true &&
+                            $scope.user_watchlist_finished == true) {
+                            $scope.spinner = false
+                        }
+                        else{
+                            // console.log("wait for, watchlist")
+                            $timeout(check, 100);
+                        }
+                    }
+                    $timeout(check, 100)
+                })
+                .catch(function (error) {
+                console.log('ERROR: ', error)
                 });
                 $scope.$apply();
             }

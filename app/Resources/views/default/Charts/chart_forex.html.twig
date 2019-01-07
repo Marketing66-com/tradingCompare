@@ -18,6 +18,9 @@
     {{ include('default/searchbar_chart.html.twig') }}
     <div id="dvChart_forex" class="my-container  ng-cloak" ng-controller="Chart_forexController" ng-init="init('{{ from }}', '{{ to }}')">
         <div ng-controller="Chart_forexController ">
+            <div ng-if="spinner" id="spinnerChart" >
+                <img id="img-spinner" src="{{ asset('img/ajax-loader5.gif') }}" alt="loading">
+            </div>
             <section class="table">
 
                 <div class="container padding_non">

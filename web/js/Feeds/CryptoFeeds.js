@@ -43,6 +43,8 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
     };
 
     $scope.init = function (crypto_api) {
+        $scope.spinner = true
+
         this.items = itemsDetails;
 
         firebase.auth().onAuthStateChanged(function (user) {
@@ -96,6 +98,7 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
                                                 });
                                             }
                                         });
+                                        $scope.user_sentiments_finished = true
                                     }
                                 }
                                 else{
@@ -117,6 +120,7 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
                                                         });
                                                     }
                                                 });
+                                                $scope.user_sentiments_finished = true
                                             }
                                         }
                                     }
@@ -145,6 +149,7 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
                                             }
                                         });
                                     });
+                                    $scope.user_watchlist_finished = true
                                 }
                             }
                             else{
@@ -164,6 +169,7 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
                                                     }
                                                 });
                                             });
+                                            $scope.user_watchlist_finished = true
                                         }
                                     }
                                 }
@@ -174,7 +180,25 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
                     .then(() => {
                         BuildWatchlist()
                     })
-                    .catch(function (error) {
+                    .then(()=>{
+                        var check = function() {
+                            if($scope.idToken != undefined &&
+                                $scope.user != undefined &&
+                                $scope.user_sentiments != undefined &&
+                                $scope.for_finished == true &&
+                                $scope.watch_ready == true &&
+                                $scope.user_sentiments_finished == true &&
+                                $scope.user_watchlist_finished == true) {
+                                $scope.spinner = false
+                            }
+                            else{
+                                // console.log("wait for, watchlist")
+                                $timeout(check, 100);
+                            }
+                        }
+                        $timeout(check, 100)
+                    })
+                        .catch(function (error) {
                             $scope.data = error;
                             console.log("$scope.data", $scope.data)
                             $scope.$apply();
