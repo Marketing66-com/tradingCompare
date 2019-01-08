@@ -99,6 +99,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
             }
             else{
                 $scope.userLoggedIn = false;
+                $scope.spinner = false
                 $scope.$apply();
             }
         });

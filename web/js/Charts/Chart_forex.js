@@ -240,6 +240,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
             }
             else{
                 $scope.userLoggedIn = false;
+                $scope.spinner = false
                 $scope.$apply();
             }
         });

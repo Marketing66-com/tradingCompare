@@ -222,6 +222,7 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
             }
             else{
                 $scope.userLoggedIn = false;
+                $scope.spinner = false
                 $scope.$apply();
             }
         });

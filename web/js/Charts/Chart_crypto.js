@@ -184,6 +184,7 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
             }
             else{
                 $scope.userLoggedIn = false;
+                $scope.spinner = false
                 $scope.$apply();
             }
         });
