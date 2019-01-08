@@ -260,7 +260,16 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
             }
             else{
                 $scope.userLoggedIn = false;
-                $scope.spinner = false
+                var check = function() {
+                    if($scope.for_finished == true){
+                        $scope.spinner = false
+                    }
+                    else{
+                        $timeout(check, 100);
+                    }
+                }
+                $timeout(check, 100)
+
                 console.log("no user")
                 $scope.$apply();
             }

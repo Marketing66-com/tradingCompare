@@ -240,7 +240,15 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
             }
             else{
                 $scope.userLoggedIn = false;
-                $scope.spinner = false
+                var check = function() {
+                    if($scope.myforex != undefined){
+                        $scope.spinner = false
+                    }
+                    else{
+                        $timeout(check, 100);
+                    }
+                }
+                $timeout(check, 100)
                 $scope.$apply();
             }
         });

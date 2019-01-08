@@ -222,7 +222,15 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
             }
             else{
                 $scope.userLoggedIn = false;
-                $scope.spinner = false
+                var check = function() {
+                    if($scope.for_finished == true){
+                        $scope.spinner = false
+                    }
+                    else{
+                        $timeout(check, 100);
+                    }
+                }
+                $timeout(check, 100)
                 $scope.$apply();
             }
         });

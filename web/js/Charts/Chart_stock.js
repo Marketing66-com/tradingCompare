@@ -82,7 +82,8 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
                             if($scope.idToken != undefined &&
                                 $scope.user != undefined &&
                                 $scope.user_sentiments_finished == true &&
-                                $scope.user_watchlist_finished == true) {
+                                $scope.user_watchlist_finished == true &&
+                                $scope.call_finished == true) {
                                 $scope.spinner = false
                             }
                             else{
@@ -99,7 +100,15 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
             }
             else{
                 $scope.userLoggedIn = false;
-                $scope.spinner = false
+                var check = function() {
+                    if($scope.call_finished == true){
+                        $scope.spinner = false
+                    }
+                    else{
+                        $timeout(check, 100);
+                    }
+                }
+                $timeout(check, 100)
                 $scope.$apply();
             }
         });
