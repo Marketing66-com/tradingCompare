@@ -1403,6 +1403,7 @@
                 var symbol = "{{ symbol }}"
                 var group = "stock"
                 var get_country = httpGet('https://stock.tradingcompare.com/Getstock/' + symbol)
+                console.log("symbol",symbol)
                 get_country = JSON.parse(get_country).country
 
                 //console.log("symbol",symbol,"group",group,"get_country",get_country)

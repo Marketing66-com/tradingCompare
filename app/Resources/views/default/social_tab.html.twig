@@ -117,16 +117,20 @@
                                                     {#<div class="comments-form_cont comments-form_cont_right margin-top-mobile">#}
                                                         {#<input type="email" class="comments_input" placeholder="Email" required>#}
                                                     {#</div>#}
-                                                    <textarea class=" touch_your-comment" placeholder="Your comment..."></textarea>
+                                                    <textarea class=" touch_your-comment" ng-change="typing()" ng-model="the_comment" placeholder="Your comment..."></textarea>
                                                 </div>
                                                 <div class="comments-form_right ms-none">
-                                                    <button type="submit" class="comment_btn">POST</button>
+                                                    <button ng-if="!userLoggedIn" ng-click="click_on_post()" type="submit" class="comment_btn">POST</button>
+                                                    <button ng-if="userLoggedIn" ng-click="post_message()" type="submit" class="comment_btn">POST</button>
                                                 </div>
                                                 <div class="review_cont-btn ms-block">
                                                     <a class="review_more-btn">POST YOUR COMMENT</a>
                                                 </div>
                                             </form>
-                                            {#<div class="comments_user-cont">#}
+                                            <div ng-show="is_typing" class="comments_user-cont_text">
+                                                <h4 class="comments_user-cont_name" style="font-size:17px">Someone is typing...</h4>
+                                            </div>
+                                                {#<div class="comments_user-cont">#}
                                                 {#<div class="comments_user-cont_img">#}
                                                     {#<img class="comments_user-img" src='{{asset("img/Flags1/fr.png")}}' alt="france">#}
                                                 {#</div>#}

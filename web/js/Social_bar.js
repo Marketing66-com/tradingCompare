@@ -1,11 +1,60 @@
-var SocialApp = angular.module('stockApp', []).config(function ($interpolateProvider) {
+var SocialApp = angular.module('stockApp', ['memberService']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');})
 
-SocialApp.controller("SocialController", function ($scope, $http) {
+SocialApp.controller("SocialController", function ($scope, $http, MemberService) {
     $scope.all_news = []
     $scope.tab = 1;
+    $scope.the_comment = ''
+    $scope.symbol
+    $scope.is_typing = false
+
+    // WEBSOCKET COMMENT
+    $scope.socket = io.connect("https://xosignals.herokuapp.com/", { path: "/socket/trading-compare-v2/chat" });
 
     $scope.init = function (symbol) {
+        $scope.symbol = symbol
+
+        // LOGIN
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                //console.log("user",user )
+                $scope.userLoggedIn = true;
+                user.getIdToken(true).then(function (idToken) {
+                    //console.log("idToken",idToken )
+                    $scope._id = {
+                        _id: user.uid
+                    }
+                    MemberService.getUsersById(idToken,  $scope._id ).then(function (results) {
+                        $scope.user = results.data
+                        //console.log(" $scope.user",$scope.user )
+
+                        $scope.socket.emit("chat_room", {
+                            nickname: $scope.user.nickname,
+                            room: symbol
+                        });
+                        $scope.$apply();
+
+                    }).catch(function (error) {
+                        $scope.data = error;
+                        console.log("$scope.data", $scope.data)
+                        $scope.$apply();
+                    })
+
+                }).catch(function (error) {
+                    console.log('ERROR: ', error)
+                });
+                $scope.$apply();
+            }
+            else{
+                console.log(" no user")
+                $scope.userLoggedIn = false;
+                $scope.socket.emit("chat_room", {
+                    nickname: 'undefined',
+                    room: symbol
+                });
+                $scope.$apply();
+            }
+        });
 
         // COMMENTS
         $http.get("https://xosignals.herokuapp.com/trading-compare-v2/get-comments/"+ symbol)
@@ -128,6 +177,68 @@ SocialApp.controller("SocialController", function ($scope, $http) {
         return Math.ceil($scope.total_comments/$scope.itemsPerPage_comments);
     };
 
+    // POST COMMENT
+    $scope.post_message = function(){
+        $scope.data = {
+         nickname: $scope.user.nickname,
+         txt: $scope.the_comment,
+         symbol: $scope.symbol,
+         user_id: $scope.user._id,
+         country: $scope.user.countryData.country.toLowerCase(),
+        }
+      //console.log('*****', $scope.data)
+      $scope.socket.emit("message",$scope.data);
+      $scope.all_comments.unshift($scope.data)
+      $scope.the_comment = ''
+    }
+
+    $scope.typing = function(){
+        // $scope.is_typing = true
+        $scope.socket.emit("typing", $scope.symbol);
+    }
+
+    $scope.click_on_post = function(){
+        $('.modal_sigh-up').slideDown();
+    }
+
+    //WEB-SOCKET COMMENT
+    $scope.socket.on("on_typing", (data) => {
+      if ($scope.socket.id != data.id) {
+        // console.log('in on_typing')
+        // console.log('1', $scope.is_typing )
+        if($scope.is_typing == false){
+            $scope.is_typing = true;
+            $scope.$apply();
+        }
+
+        // console.log('2', $scope.is_typing )
+        setTimeout(() => {
+           $scope.is_typing = false;
+           // console.log('3', $scope.is_typing )
+           $scope.$apply();
+        }, 3000)
+            // }
+      }
+    });
+
+    $scope.socket.on("on_message", (data) => {
+        console.log('data',data)
+        if ($scope.socket.id != data.id) {
+            console.log('in if')
+            data.country = data.country.replace(" ", "-");
+            $scope.all_comments.unshift(data)
+            console.log($scope.all_comments)
+            $scope.$apply();
+        }
+    });
+
+    $scope.socket.on("on_primary_key", (data) => {
+        for (let index = $scope.all_comments_total.length - 1; index > -1; index--) {
+            if (data.user_id == $scope.all_comments_total[index].user_id) {
+                $scope.all_comments_total[index]["primary_key"] = data.primary_key;
+            }
+        }
+    });
 });
 
 var dvSocial = document.getElementById('dvSocial');
