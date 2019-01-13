@@ -187,7 +187,7 @@ SocialApp.controller("SocialController", function ($scope, $http, MemberService)
          user_id: $scope.user._id,
          country: $scope.user.countryData.country.toLowerCase(),
         }
-      console.log('data send to post', $scope.data)
+      //console.log('data send to post', $scope.data)
       $scope.socket.emit("message",$scope.data);
       $scope.all_comments.unshift($scope.data)
       $scope.the_comment = ''
@@ -223,12 +223,12 @@ SocialApp.controller("SocialController", function ($scope, $http, MemberService)
     });
 
     $scope.socket.on("on_message", (data) => {
-        console.log('data received',data)
+        //console.log('data received',data)
         if ($scope.socket.id != data.id) {
-            console.log('in if')
+            //console.log('in if')
             data.country = data.country.replace(" ", "-");
             $scope.all_comments.unshift(data)
-            console.log($scope.all_comments)
+            //console.log($scope.all_comments)
             $scope.$apply();
         }
     });
