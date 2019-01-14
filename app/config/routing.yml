@@ -1,3 +1,10 @@
+chartiq:
+    resource: "@ChartiqBundle/Controller/"
+    type:     annotation
+    prefix: /{_locale}/
+    requirements:
+        _locale: en|fr|de|es
+
 homepage:
     path:   /
     defaults:  { _controller: LiveFeedBundle:Feeds:Home }

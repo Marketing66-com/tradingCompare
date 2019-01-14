@@ -240,12 +240,7 @@ class DefaultController extends Controller
     public function HomeAction()
     {
         return $this->render('base.html.twig');
-//        $petsJson = file_get_contents('js/countries.json');
-//        $pets = json_encode($petsJson);
-//        $hello="hello";
-//        return $this->render('base.html.twig',array("json"=>$pets));
     }
-
 
     /**
      * @Route("/Term-and-conditions", name="terms")
@@ -266,77 +261,23 @@ class DefaultController extends Controller
     }
 
 
-    /**
-     * @Route("/ho_no", name="ho_no")
-     */
-    public function ho_noAction()
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/test/signup.html.twig');
-    }
+//    TEST
 
 //    /**
-//     * @Route("/commentOnChart", name="commentOnChart")
+//     * @Route("/ho_no", name="ho_no")
 //     */
-//    public function commentOnChartAction()
+//    public function ho_noAction()
 //    {
-////        $pair = 'BTC_USD';
-////        $from =  'BTC';
-////        $to =  'USD';
-////        $my_name = 'Bitcoin';
-////
-////        $crypto_api =  $this->getParameter('crypto_api');
-////        return $this->render('default/chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name));
-//        $symbol = 'FB';
-//        return $this->render('default/social_tab.html.twig',array("symbol"=>$symbol));
-//    }
-
-
-    /**
-     * @Route("/autocomplete", name="autocomplete")
-     */
-    public function autocompleteAction()
-    {
-        return $this->render('default/test/signup.html.twig');
-    }
-
-
-
-//    /**
-//     * @Route("/{name}/{currency}/cryptotest", name="cryptotest", options={"expose" = true})
-//     */
-//    public function cryptotestAction($name,$currency)
-//    {
-//        $pair = explode("_", $currency);
-//        $from =  $pair[0];
-//        $to =  $pair[1];
-//        $my_name = ucfirst(str_replace("-", " ", $name));
-//
-//        $crypto_api =  $this->getParameter('crypto_api');
-//
-//        return $this->render('default/test_chart_crypto.html.twig', array("currency"=>$from, "from"=>$from, "to"=>$to, "crypto_api"=>$crypto_api, "name"=>$my_name));
+//        // replace this example code with whatever you need
+//        return $this->render('default/test/signup.html.twig');
 //    }
 //
 //    /**
-//     * @Route("/{currency}/forextest", name="forextest", options={"expose" = true})
+//     * @Route("/autocomplete", name="autocomplete")
 //     */
-//    public function forextestchartAction($currency)
+//    public function autocompleteAction()
 //    {
-////        $apiF =  $this->getParameter('forex_api');
-////        $likeF = $this->getParameter('forex_likes');
-//        $from = substr($currency, 0, 3);
-//        $to =  substr($currency, 4, 6);
-//        $pair = str_replace("-", "_", $currency);
-////        return $this->render('default/test_chart_forex.html.twig',array("currency"=>$pair, "from"=>$from , "to"=>$to ,'api'=>$apiF, 'like'=>$likeF));
-//        return $this->render('default/test_chart_forex.html.twig',array("currency"=>$pair, "from"=>$from , "to"=>$to));
+//        return $this->render('default/test/signup.html.twig');
 //    }
-//
-//    /**
-//     * @Route("/{symbol}/{name}/stocktest", name="teststock_chart", options={"expose" = true})
-//     */
-//    public function test_stock_chartAction($symbol,$name)
-//    {
-//        $my_name = ucfirst(str_replace("-", " ", $name));
-//        return $this->render('default/test_chart_stock.html.twig',array("symbol"=>$symbol, 'name'=>$my_name));
-//    }
+
 }

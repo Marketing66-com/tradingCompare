@@ -124,7 +124,8 @@
                                                     <button ng-if="userLoggedIn" ng-click="post_message()" type="submit" class="comment_btn">POST</button>
                                                 </div>
                                                 <div class="review_cont-btn ms-block">
-                                                    <a class="review_more-btn">POST YOUR COMMENT</a>
+                                                    <a ng-if="!userLoggedIn" ng-click="click_on_post()" class="review_more-btn">POST YOUR COMMENT</a>
+                                                    <a ng-if="userLoggedIn" ng-click="post_message()" class="review_more-btn">POST YOUR COMMENT</a>
                                                 </div>
                                             </form>
                                             <div ng-show="is_typing" class="comments_user-cont_text">

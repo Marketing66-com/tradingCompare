@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Translation\Bundle\TranslationBundle(),
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
+            new ChartiqBundle\ChartiqBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
