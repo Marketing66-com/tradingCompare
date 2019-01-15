@@ -1053,18 +1053,20 @@
             socketStock.emit("subscribe", '{{ symbol }}');
             socketStock.on("message", (data) => {
                 var data = JSON.parse(data);
-                console.log("data", data)
+                //console.log("data", data)
+
                 var dateObj = new Date()
-                var month = ('0' + (dateObj.getMonth() + 1)).slice(-2);
-                var date = ('0' + dateObj.getDate()).slice(-2);
-                var year = dateObj.getFullYear();
-                var shortDate = year + '-' + month + '-' + date;
-                var Minutes = ('0' + dateObj.getMinutes()).slice(-2);
-                var Hours = ('0' + dateObj.getHours()).slice(-2);
-                var shortTime = Hours + ':00:0'
-                var my_date = shortDate + ' ' + shortTime
-                console.log("date", my_date)
-                stxx.updateChartData([{"Date":my_date, "Close":data.price}]);
+                var year = dateObj.getUTCFullYear();
+                var month = ('0' + (dateObj.getUTCMonth() + 1)).slice(-2);
+                var day = ('0' + dateObj.getUTCDate()).slice(-2);
+                var shortDate = year + '-' + month + '-' + day;
+                var Hours = ('0' + dateObj.getUTCHours()).slice(-2);
+                // var Minutes = ('0' + dateObj.getUTCMinutes()).slice(-2);
+                var shortTime = Hours + ':00:0';
+                var my_Final_Date = shortDate + ' ' + shortTime;
+
+                //console.log("my_date",my_Final_Date)
+                stxx.updateChartData([{"Date":my_Final_Date, "Close":Number((data.price).toFixed(2))}]);
             })
             // Optionally set a market factory to the chart to make it market hours aware. Otherwise it will operate in 24x7 mode.
             // This is required for the simulator, or if you intend to also enable Extended hours trading zones.
