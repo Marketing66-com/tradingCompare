@@ -23,7 +23,7 @@ class ChartiqController extends Controller
     {
         $crypto_api =  $this->getParameter('crypto_api');
 
-        return $this->render('default/Charts/chart_crypto.html.twig', array("currency"=>'BTC', "from"=>'BTC', "to"=>'USD', "crypto_api"=>$crypto_api,
+        return $this->render('ChartiqBundle:Default/test-chart.html.twig', array("currency"=>'BTC', "from"=>'BTC', "to"=>'USD', "crypto_api"=>$crypto_api,
             "name"=>'Bitcoin', "symbol"=>'BTC_USD'));
 
         //return $this->render('ChartiqBundle:Default:index.html.twig');
