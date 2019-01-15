@@ -34,7 +34,7 @@ quotefeedSimulator.generateGUID=function(){
 };
 
 quotefeedSimulator.maxTicks=50000;
-quotefeedSimulator.url="http://simulator.chartiq.com/datafeed";
+quotefeedSimulator.url="https://simulator.chartiq.com/datafeed";
 quotefeedSimulator.url += "?session=" + quotefeedSimulator.generateGUID(); // add on unique sessionID required by ChartIQ simulator;
 
 // called by chart to fetch initial data
