@@ -39,27 +39,27 @@ quotefeedSimulator.url += "?session=" + quotefeedSimulator.generateGUID(); // ad
 
 // called by chart to fetch initial data
 quotefeedSimulator.fetchInitialData=function (symbol, suggestedStartDate, suggestedEndDate, params, cb) {
-    console.log('********************',symbol,params)
-	// var queryUrl = this.url +
-	// 	"&identifier=" + symbol +
-	// 	"&startdate=" + suggestedStartDate.toISOString()  +
-	// 	"&enddate=" + suggestedEndDate.toISOString()  +
-	// 	"&interval=" + params.interval +
-	// 	"&period=" + params.period +
-	// 	"&extended=" + (params.stx.extendedHours?1:0);   // using filter:true for after hours
+    // console.log('********************',symbol,params)
+    var queryUrl = this.url +
+		"&identifier=" + symbol +
+		"&startdate=" + suggestedStartDate.toISOString()  +
+		"&enddate=" + suggestedEndDate.toISOString()  +
+		"&interval=" + params.interval +
+		"&period=" + params.period +
+		"&extended=" + (params.stx.extendedHours?1:0);   // using filter:true for after hours
 
 
-    var queryUrl =
-                "https://interactivecrypto.herokuapp.com/InitialFeed-Crypto/" +
-                'BTC_USD' +
-                "/" +
-               'none' +
-                "/a/" +
-                suggestedEndDate.toISOString() +
-                "/" +
-                'minute' +
-                "/" +
-                '60'
+    // var queryUrl =
+    //             "https://interactivecrypto.herokuapp.com/InitialFeed-Crypto/" +
+    //             'BTC_USD' +
+    //             "/" +
+    //            'none' +
+    //             "/a/" +
+    //             suggestedEndDate.toISOString() +
+    //             "/" +
+    //             'minute' +
+    //             "/" +
+    //             '60'
 
     // //************
     // if (params.symbolObject.group == 'crypto') {
@@ -110,7 +110,7 @@ quotefeedSimulator.fetchInitialData=function (symbol, suggestedStartDate, sugges
 	 // //**************
     console.log('queryUrl',queryUrl)
 	CIQ.postAjax(queryUrl, null, function(status, response){
-		//console.log('***',response)
+		console.log('***',response)
 		// process the HTTP response from the datafeed
 		if(status==200){ // if successful response from datafeed
 			var newQuotes = quotefeedSimulator.formatChartData(response);
@@ -126,21 +126,21 @@ quotefeedSimulator.fetchInitialData=function (symbol, suggestedStartDate, sugges
 quotefeedSimulator.fetchUpdateData=function (symbol, startDate, params, cb) {
     //console.log('queryUrl',startDate,params,cb)
 
-    // var queryUrl = this.url +
-		// "&identifier=" + symbol +
-		// "&startdate=" + startDate.toISOString()  +
-		// "&interval=" + params.interval +
-		// "&period=" + params.period +
-		// "&extended=" + (params.stx.extendedHours?1:0);   // using filter:true for after hours
-    //
+    var queryUrl = this.url +
+		"&identifier=" + symbol +
+		"&startdate=" + startDate.toISOString()  +
+		"&interval=" + params.interval +
+		"&period=" + params.period +
+		"&extended=" + (params.stx.extendedHours?1:0);   // using filter:true for after hours
 
-    var current_date = new Date()
-    var queryUrl = 'https://interactivecrypto.herokuapp.com/getCryptoUpdate/' +
-                'BTC_USD' +
-                "/" +
-                'none' +
-                '/' +
-                'minute' + '/' + '60' + '/' + current_date.toISOString()
+
+    // var current_date = new Date()
+    // var queryUrl = 'https://interactivecrypto.herokuapp.com/getCryptoUpdate/' +
+    //             'BTC_USD' +
+    //             "/" +
+    //             'none' +
+    //             '/' +
+    //             'minute' + '/' + '60' + '/' + current_date.toISOString()
 
     // //**************
 
@@ -191,7 +191,7 @@ quotefeedSimulator.fetchUpdateData=function (symbol, startDate, params, cb) {
 		}
 	});
 };
-
+//
 // called by chart to fetch pagination data
 quotefeedSimulator.fetchPaginationData=function (symbol, suggestedStartDate, endDate, params, cb) {
 	var queryUrl = this.url +
@@ -203,6 +203,7 @@ quotefeedSimulator.fetchPaginationData=function (symbol, suggestedStartDate, end
 		"&extended=" + (params.stx.extendedHours?1:0);   // using filter:true for after hours
 
 	CIQ.postAjax(queryUrl, null, function(status, response){
+        console.log('*fetchPaginationData**',response)
 		// process the HTTP response from the datafeed
 		if(status==200){ // if successful response from datafeed
 			var newQuotes = quotefeedSimulator.formatChartData(response);
