@@ -48,19 +48,19 @@ quotefeedSimulator.fetchInitialData=function (symbol, suggestedStartDate, sugges
 	// 	"&extended=" + (params.stx.extendedHours?1:0);   // using filter:true for after hours
 
     // //************
-     var queryUrl =
-     "https://interactivecrypto.herokuapp.com/InitialFeed-Crypto/" +
-     "BTC_USD" +
-     "/" +
-     "none" +
-     "/a/" +
-     suggestedEndDate.toISOString() +
-     "/" +
-     "minute" +
-     "/" +
-     "60"
+    var queryUrl =
+        "https://interactivecrypto.herokuapp.com/InitialFeed-Crypto/" +
+        params.symbolObject.symbol +
+        "/" +
+        params.symbolObject.exchDisp +
+        "/a/" +
+        suggestedEndDate.toISOString() +
+        "/" +
+        params.interval +
+        "/" +
+        params.period
 	 // //**************
-
+    console.log('queryUrl',queryUrl)
 	CIQ.postAjax(queryUrl, null, function(status, response){
 		console.log('***',response)
 		// process the HTTP response from the datafeed
@@ -77,16 +77,24 @@ quotefeedSimulator.fetchInitialData=function (symbol, suggestedStartDate, sugges
 // called by chart to fetch update data
 quotefeedSimulator.fetchUpdateData=function (symbol, startDate, params, cb) {
     //console.log('queryUrl',startDate,params,cb)
-	// var queryUrl = this.url +
-	// 	"&identifier=" + symbol +
-	// 	"&startdate=" + startDate.toISOString()  +
-	// 	"&interval=" + params.interval +
-	// 	"&period=" + params.period +
-	// 	"&extended=" + (params.stx.extendedHours?1:0);   // using filter:true for after hours
 
-    var queryUrl = 'https://interactivecrypto.herokuapp.com/getWS'
+    // var queryUrl = this.url +
+		// "&identifier=" + symbol +
+		// "&startdate=" + startDate.toISOString()  +
+		// "&interval=" + params.interval +
+		// "&period=" + params.period +
+		// "&extended=" + (params.stx.extendedHours?1:0);   // using filter:true for after hours
 
-    //   [{"Close":85.78,"Open":86.08,"High":86.71,"Low":85.38,"Volume":196285,"DT":"2019-01-14T12:45:00.000Z"}]
+    // //**************
+    var current_date = new Date()
+    var queryUrl = 'https://interactivecrypto.herokuapp.com/getWS/'+
+        params.symbolObject.symbol +
+        "/" +
+        params.symbolObject.exchDisp +
+		'/'+
+		params.interval  + '/' + params.period   + '/'  + current_date.toISOString()
+    // //**************
+    //console.log('queryUrl**',queryUrl)
 	CIQ.postAjax(queryUrl, null, function(status, response){
 
         console.log('***',response)
