@@ -63,7 +63,7 @@ quotefeedSimulator.fetchInitialData=function (symbol, suggestedStartDate, sugges
 
     // //************
     if (params.symbolObject.group == 'crypto') {
-        console.log("if crypto")
+        //console.log("if crypto")
         var queryUrl =
             "https://interactivecrypto.herokuapp.com/InitialFeed-Crypto/" +
             params.symbolObject.symbol +
@@ -104,11 +104,9 @@ quotefeedSimulator.fetchInitialData=function (symbol, suggestedStartDate, sugges
             params.interval +
             "/" +
             params.period
-        //console.log("symbol", symbol, "suggestedStartDate",suggestedStartDate,"suggestedEndDate",suggestedEndDate, "params",params, "cb",cb)
-        //console.log("INITIAL", params.interval, params.period, queryUrl)
     }
 	 // //**************
-    console.log('queryUrl',queryUrl)
+    //console.log('queryUrl',queryUrl)
 	CIQ.postAjax(queryUrl, null, function(status, response){
 		//console.log('***',response)
 		// process the HTTP response from the datafeed
@@ -181,7 +179,7 @@ quotefeedSimulator.fetchUpdateData=function (symbol, startDate, params, cb) {
     //console.log('queryUrl**',queryUrl)
 	CIQ.postAjax(queryUrl, null, function(status, response){
 
-        console.log('***',response)
+        //console.log('***',response)
         // process the HTTP response from the datafeed
 		if(status==200){ // if successful response from datafeed
 			var newQuotes = quotefeedSimulator.formatChartData(response);

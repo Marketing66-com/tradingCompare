@@ -1419,7 +1419,7 @@
                 // var from,to
                 var symbol = "{{ symbol }}"
                 var group = "stock"
-                var get_country = httpGet('https://stock.tradingcompare.com/Getstock/' + symbol)
+                var get_country = httpGet('https://websocket-stock.herokuapp.com/Getstocks/' + symbol)
                 console.log("symbol",symbol)
                 get_country = JSON.parse(get_country).country
 
