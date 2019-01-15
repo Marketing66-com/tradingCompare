@@ -39,26 +39,60 @@ quotefeedSimulator.url += "?session=" + quotefeedSimulator.generateGUID(); // ad
 
 // called by chart to fetch initial data
 quotefeedSimulator.fetchInitialData=function (symbol, suggestedStartDate, suggestedEndDate, params, cb) {
-	// var queryUrl = this.url +
-	// 	"&identifier=" + symbol +
-	// 	"&startdate=" + suggestedStartDate.toISOString()  +
-	// 	"&enddate=" + suggestedEndDate.toISOString()  +
-	// 	"&interval=" + params.interval +
-	// 	"&period=" + params.period +
-	// 	"&extended=" + (params.stx.extendedHours?1:0);   // using filter:true for after hours
+	var queryUrl = this.url +
+		"&identifier=" + symbol +
+		"&startdate=" + suggestedStartDate.toISOString()  +
+		"&enddate=" + suggestedEndDate.toISOString()  +
+		"&interval=" + params.interval +
+		"&period=" + params.period +
+		"&extended=" + (params.stx.extendedHours?1:0);   // using filter:true for after hours
 
     // //************
-    var queryUrl =
-        "https://interactivecrypto.herokuapp.com/InitialFeed-Crypto/" +
-        params.symbolObject.symbol +
-        "/" +
-        params.symbolObject.exchDisp +
-        "/a/" +
-        suggestedEndDate.toISOString() +
-        "/" +
-        params.interval +
-        "/" +
-        params.period
+    // if (params.symbolObject.group == 'crypto') {
+    //     console.log("if crypto")
+    //     var queryUrl =
+    //         "https://interactivecrypto.herokuapp.com/InitialFeed-Crypto/" +
+    //         params.symbolObject.symbol +
+    //         "/" +
+    //         params.symbolObject.exchDisp +
+    //         "/a/" +
+    //         suggestedEndDate.toISOString() +
+    //         "/" +
+    //         params.interval +
+    //         "/" +
+    //         params.period
+    //
+    //     //console.log("INITIAL", params.interval, params.period, queryUrl)
+    // }
+    // else if (params.symbolObject.group == 'forex') {
+    //     var queryUrl =
+    //         "https://interactivecrypto.herokuapp.com/InitialFeed-Forex/" +
+    //         params.symbolObject.symbol +
+    //         "/a/" +
+    //         suggestedEndDate.toISOString() +
+    //         "/" +
+    //         params.interval +
+    //         "/" +
+    //         params.period
+    //     //console.log("symbol", symbol, "suggestedStartDate",suggestedStartDate,"suggestedEndDate",suggestedEndDate, "params",params, "cb",cb)
+    //     //console.log("INITIAL", params.interval, params.period, queryUrl)
+    // }
+    //
+    // else if (params.symbolObject.group == 'stock') {
+    //     var queryUrl =
+    //         "https://interactivecrypto.herokuapp.com/InitialFeed-Stock/" +
+    //         params.symbolObject.symbol +
+    //         "/" +
+    //         params.symbolObject.country +
+    //         "/a/" +
+    //         suggestedEndDate.toISOString() +
+    //         "/" +
+    //         params.interval +
+    //         "/" +
+    //         params.period
+    //     //console.log("symbol", symbol, "suggestedStartDate",suggestedStartDate,"suggestedEndDate",suggestedEndDate, "params",params, "cb",cb)
+    //     //console.log("INITIAL", params.interval, params.period, queryUrl)
+    // }
 	 // //**************
     console.log('queryUrl',queryUrl)
 	CIQ.postAjax(queryUrl, null, function(status, response){
@@ -78,21 +112,48 @@ quotefeedSimulator.fetchInitialData=function (symbol, suggestedStartDate, sugges
 quotefeedSimulator.fetchUpdateData=function (symbol, startDate, params, cb) {
     //console.log('queryUrl',startDate,params,cb)
 
-    // var queryUrl = this.url +
-		// "&identifier=" + symbol +
-		// "&startdate=" + startDate.toISOString()  +
-		// "&interval=" + params.interval +
-		// "&period=" + params.period +
-		// "&extended=" + (params.stx.extendedHours?1:0);   // using filter:true for after hours
+    var queryUrl = this.url +
+		"&identifier=" + symbol +
+		"&startdate=" + startDate.toISOString()  +
+		"&interval=" + params.interval +
+		"&period=" + params.period +
+		"&extended=" + (params.stx.extendedHours?1:0);   // using filter:true for after hours
 
     // //**************
-    var current_date = new Date()
-    var queryUrl = 'https://interactivecrypto.herokuapp.com/getWS/'+
-        params.symbolObject.symbol +
-        "/" +
-        params.symbolObject.exchDisp +
-		'/'+
-		params.interval  + '/' + params.period   + '/'  + current_date.toISOString()
+    // var current_date = new Date()
+    // if (params.symbolObject.group == 'crypto') {
+    //     var queryUrl = 'https://interactivecrypto.herokuapp.com/getCryptoUpdate/' +
+    //         params.symbolObject.symbol +
+    //         "/" +
+    //         params.symbolObject.exchDisp +
+    //         '/' +
+    //         params.interval + '/' + params.period + '/' + current_date.toISOString()
+    // }
+    // else if (params.symbolObject.group == 'forex') {
+    //     var queryUrl =
+    //         "https://interactivecrypto.herokuapp.com/getForexUpdate/" +
+    //         params.symbolObject.symbol +
+    //         "/" +
+    //         current_date.toISOString() +
+    //         "/" +
+    //         params.interval +
+    //         "/" +
+    //         params.period
+    // }
+    // //**************
+    // else if (params.symbolObject.group == 'stock') {
+    //     var queryUrl =
+    //         "https://interactivecrypto.herokuapp.com/InitialFeed-Stock/" +
+    //         params.symbolObject.symbol +
+    //         "/" +
+    //         params.symbolObject.country +
+    //         "/a/" +
+    //         current_date.toISOString() +
+    //         "/" +
+    //         params.interval +
+    //         "/" +
+    //         params.period
+    // }
     // //**************
     //console.log('queryUrl**',queryUrl)
 	CIQ.postAjax(queryUrl, null, function(status, response){

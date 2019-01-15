@@ -1043,12 +1043,29 @@
                 return xmlHttp.responseText;
             }
 
-            var socket = io.connect('https://streamer.cryptocompare.com/');
+            //var socket = io.connect('https://streamer.cryptocompare.com/');
             var stxx=new CIQ.ChartEngine({container:$("#chartContainer")[0],layout:{"interval":60} ,preferences:{labels:false, currentPriceLine:true, whitespace:50}});
             stxx.layout.crosshair=true;
             // Attach an automated quote feed to the chart to handle initial load, pagination and updates at preset intervals.
             stxx.attachQuoteFeed(quotefeedSimulator,{refreshInterval:1,bufferSize:200});
 
+            var socketStock = io.connect("https://ws-api.iextrading.com/1.0/last");
+            socketStock.emit("subscribe", '{{ symbol }}');
+            socketStock.on("message", (data) => {
+                var data = JSON.parse(data);
+                console.log("data", data)
+                var dateObj = new Date()
+                var month = ('0' + (dateObj.getMonth() + 1)).slice(-2);
+                var date = ('0' + dateObj.getDate()).slice(-2);
+                var year = dateObj.getFullYear();
+                var shortDate = year + '-' + month + '-' + date;
+                var Minutes = ('0' + dateObj.getMinutes()).slice(-2);
+                var Hours = ('0' + dateObj.getHours()).slice(-2);
+                var shortTime = Hours + ':00:0'
+                var my_date = shortDate + ' ' + shortTime
+                console.log("date", my_date)
+                stxx.updateChartData([{"Date":my_date, "Close":data.price}]);
+            })
             // Optionally set a market factory to the chart to make it market hours aware. Otherwise it will operate in 24x7 mode.
             // This is required for the simulator, or if you intend to also enable Extended hours trading zones.
             //stxx.setMarketFactory(CIQ.Market.Symbology.factory);

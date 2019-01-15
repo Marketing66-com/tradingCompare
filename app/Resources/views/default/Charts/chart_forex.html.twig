@@ -877,6 +877,7 @@
     {#<script src="http://tradingcompare.com/ChartIQ/js/translations.js"></script>#}
     {#<script src="http://tradingcompare.com/ChartIQ/js/componentUI.js"></script>#}
 
+    {#<script src="{{asset('chartiq/js/quoteFeedSimulator.js')}}" ></script>#}
     <script src="https://tradingcompare.com/ChartIQ/js/quoteFeedSimulator.js"></script>
     {#<script src="https://tradingcompare.com/ChartIQ/js/thirdparty/iscroll.js"></script>#}
     {#<script src="https://tradingcompare.com/ChartIQ/js/plugin.js"></script>#}
@@ -1035,12 +1036,13 @@
                 return xmlHttp.responseText;
             }
 
-            var socket = io.connect('https://streamer.cryptocompare.com/');
+            //var socket = io.connect('https://streamer.cryptocompare.com/');
             var stxx=new CIQ.ChartEngine({container:$("#chartContainer")[0],layout:{"interval":60} ,preferences:{labels:false, currentPriceLine:true, whitespace:50}});
             stxx.layout.crosshair=true;
             // Attach an automated quote feed to the chart to handle initial load, pagination and updates at preset intervals.
             stxx.attachQuoteFeed(quotefeedSimulator,{refreshInterval:1,bufferSize:200});
-
+            /**********************************************************/
+            /***********************************************************/
             // Optionally set a market factory to the chart to make it market hours aware. Otherwise it will operate in 24x7 mode.
             // This is required for the simulator, or if you intend to also enable Extended hours trading zones.
             //stxx.setMarketFactory(CIQ.Market.Symbology.factory);
