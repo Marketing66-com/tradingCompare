@@ -1,232 +1,135 @@
-
 {% extends 'base.html.twig' %}
 
- {#{% block description %}#}
-     {#<title></title>#}
-     {#<meta name="description" content="">#}
- {#{% endblock %}#}
+{% block description %}
 
-
-{% block body %}
-    <div id="dvSocialSentiment">
-        <div ng-controller="Social_Sentiment_Ctrl">
-            <div  ng-init="init()" >
-                <section class="table">
-
-                    <div class="general-list_social_sentiment">
-                        <div class="container">
-                            <div class="row">
-                                <div class="review_list">
-                                    {% include 'default/title_bar_list_feed.html.twig' %}
-                                    {#//*****//#}
-                                    <div class="review_list_cont-heder  ng-cloak" ng-repeat="item in filteredItems">
-                                        <div class="abs">
-                                            <div class="general_review_cont-block review_list_name">
-                                                <div class="review_list_center">
-                                                    {#<p ng-if="userLoggedIn && item.is_in_watchlist" style="cursor: pointer" ng-click="add_to_watchlist($index)" class="live_cont-block_like_right"><i class="far fa-star"></i></p>#}
-                                                    <p ng-if="userLoggedIn && item.is_in_watchlist" style="cursor: pointer" ng-click="delete_from_watchlist($index)" class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
-                                                    <p ng-if="userLoggedIn && !item.is_in_watchlist" style="cursor: pointer"  ng-click="add_to_watchlist($index)" class="review_list_start sm-none"><i class="far fa-star"></i></p>
-                                                    <p ng-if="!userLoggedIn" style="cursor: pointer" ng-click="click_on_star()" class="review_list_start sm-none"><i class="far fa-star"></i></p>
-                                                    <img class="live_block_top_img" ng-src="{[{item.img}]}" onerror="this.src='/img/Stock_Logos/stocks.png'";>
-                                                    <h2 class="live_block_top_title" > {[{item.name}]} </h2>
-                                                    <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">{[{(item.change24)}]}</p>
-                                                </div>
-                                            </div>
-                                            <div class="general_review_cont-block review_list_cont-text">
-                                                <div class="review_list_center">
-                                                    <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold" ng-class="{'negative': item.variation == 'down', 'positive':item.variation == 'up', 'neutral': item.variation == 'none'}">{[{item.price}]} $</span></p>
-                                                </div>
-                                            </div>
-                                            <div class="general_review_cont-block review_list_cont-text sm-none">
-                                                <div class="review_list_center">
-                                                    <p class="live_block_money-right" ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}">{[{(item.change24)}]}</p>
-                                                </div>
-                                            </div>
-                                            <div class="general_review_cont-block review_list_cont-text sm-none">
-                                                <div class="review_list_center">
-                                                    <p class="live_block_money-right  "><span class="live_block_money_bold">{[{item.high24}]}</span>
-                                                </div>
-                                            </div>
-                                            <div class="general_review_cont-block review_list_cont-text">
-                                                <div class="review_list_center">
-                                                    <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">{[{item.low24}]}</span>
-                                                        <span class="live_block_money_bold mobile-block">{[{item.high24.toFixed(2)}]}<br></span>
-                                                        <span class="live_block_money_bold mobile-block">/{[{item.low24.toFixed(2)}]}</span></p>
-                                                </div>
-                                            </div>
-
-                                            <div class="general_review_cont-block review_list_cont-bar ms-none">
-                                                <div class="review_list_center">
-                                                    {# SENTIMENT #}
-                                                    <p ng-if="userLoggedIn">
-                                                        {# logIn - Close #}
-                                                        <span ng-if="item.status_sentiment == 'CLOSE'" ng-click="add_sentiment($index, 'BULLISH')" class="chart_bitcoin-reting_prozent_like">
-                                        <i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>
-                                        </span>
-                                                        <span ng-if="item.status_sentiment == 'CLOSE'" ng-click="add_sentiment($index, 'BEARISH')" class="chart_bitcoin-reting_prozent_like">
-                                        <i class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>
-                                        </span>
-
-                                                        {# logIn - Open on Bullish #}
-                                                        <span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment == 'BULLISH'" ng-click="AlreadyOpen($index, 'feed')" class="chart_bitcoin-reting_prozent_like">
-                                        <i  class="button_sentiment_list button_bullish_list_selected" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>
-                                        </span>
-                                                        <span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment != 'BEARISH'" ng-click="AlreadyOpen($index, 'feed')" class="chart_bitcoin-reting_prozent_like">
-                                        <i  class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>
-                                        </span>
-
-                                                        {# logIn - Open on Bearish #}
-                                                        <span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment != 'BULLISH'" ng-click="AlreadyOpen($index, 'feed')" class="chart_bitcoin-reting_prozent_like">
-                                        <i class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>
-                                        </span>
-                                                        <span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment == 'BEARISH'" ng-click="AlreadyOpen($index, 'feed')" class="chart_bitcoin-reting_prozent_like">
-                                        <i class="button_sentiment_list button_bearish_list_selected" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>
-                                        </span>
-
-                                                    </p>
-                                                    <p ng-if="!userLoggedIn">
-                                                        <span ng-click="click_on_star()" class="chart_bitcoin-reting_prozent_like"><i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></span>
-                                                        <span ng-click="click_on_star()" class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i></span>
-                                                    </p>
-
-                                                    <div class="chart_bitcoin-reting_progress-bar">
-                                                        <div class="reting_progress-bar_click chart_bitcoin-reting_prozent"  ng-class="{'reting_progress-bar_click_red':item.sentiment < '50'}">{[{item.sentiment}]}%</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="general_review_cont-block review_list_cont-chart">
-                                                <div class="review_list_center">
-                                                    <a ng-click="ActiveChange(item.pair, item.complete_name,'{{ app.request.getLocale() }}');"><img class="live_block_chart" src='{{asset("img/chart-design/chart_1.png")}}'  alt="chart_1"></a>
-                                                </div>
-                                            </div>
-
-                                            <div class="general_review_cont-block review_list_cont-btn">
-                                                <div class="review_list_center">
-                                                    <a class="live_trade-btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">{{ 'button.trade'|trans }} <span class="live_trade-btn_none">{{ 'button.now'|trans }}</span></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {#//*****//#}
-                                    <div class="review_list_cont-heder">
-                                        <div class="abs">
-                                            <div class="general_review_cont-block review_list_name">
-                                                <div class="review_list_center">
-                                                    <p class="review_list_start sm-none"><i class="far fa-star"></i></p>
-                                                    <img class="live_block_top_img" src="img/Stock_Logos/tesla.png" alt="tesla">
-                                                    <h2 class="live_block_top_title">Tesla</h2>
-                                                    <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block">-0.3%</p>
-                                                </div>
-                                            </div>
-                                            <div class="general_review_cont-block review_list_cont-text">
-                                                <div class="review_list_center">
-                                                    <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold live_block_money_green">1.18B</span></p>
-                                                </div>
-                                            </div>
-                                            <div class="general_review_cont-block review_list_cont-text sm-none">
-                                                <div class="review_list_center">
-                                                    <p class="live_block_money-right   live_block_money_border_green live_block_money_green">1.12%</p>
-                                                </div>
-                                            </div>
-                                            <div class="general_review_cont-block review_list_cont-text sm-none">
-                                                <div class="review_list_center">
-                                                    <p class="live_block_money-right  "><span class="live_block_money_bold">1.71B</span></p>
-                                                </div>
-                                            </div>
-                                            <div class="general_review_cont-block review_list_cont-text">
-                                                <div class="review_list_center">
-                                                    <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">$148.22B</span>
-                                                        <span class="live_block_money_bold mobile-block">6.14B</span>
-                                                        <span class="live_block_money_bold mobile-block">/6.13B</span></p>
-                                                </div>
-                                            </div>
-                                            <div class="general_review_cont-block review_list_cont-bar ms-none">
-                                                <div class="review_list_center">
-                                                    <p class="chart_bitcoin-reting_prozent">58% Selling
-                                                        <span class="chart_bitcoin-reting_prozent_like "><i class="fas  fa-thumbs-up"></i></span>
-                                                        <span class="chart_bitcoin-reting_prozent_like"><i class="fas fa-thumbs-down"></i></span>
-                                                    </p>
-                                                    <div class="chart_bitcoin-reting_progress-bar">
-                                                        <div class="reting_progress-bar_click reting_progress-bar_click_green"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="general_review_cont-block review_list_cont-chart">
-                                                <div class="review_list_center">
-                                                    <img class="live_block_chart" src="img/chart_5.png" alt="chart_5">
-                                                </div>
-                                            </div>
-                                            <div class="general_review_cont-block review_list_cont-btn">
-                                                <div class="review_list_center">
-                                                    <a class="live_trade-btn">TRADE <span class="live_trade-btn_none">NOW</span></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </section>
-            </div>
-        </div>
-    </div>
-    <link rel="stylesheet" href="{{ asset('css/compiled-feeds.css') }}" >
 {% endblock %}
 
+{% block body %}
 
-{% block javascripts %}
+<div id="dvSocial">
+    <div  ng-controller="Social_Sentiment_Ctrl">
 
-    <script>
-        function loadCSS(hf) {
-            var ms = document.createElement("link");
-            ms.rel = "stylesheet";
-            ms.href = hf;
-            document.getElementsByTagName("head")[0].appendChild(ms);
-        }
-        loadCSS('{{asset("css/footer.css")}}');
-        loadCSS('{{ asset("font/font_avenir.css")}}');
-        loadCSS("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
-        loadCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
-        loadCSS('{{asset("css/compiled-feeds.css")}}');
+    <section class="table">
+        <p class="review_list_title font_title">Total Correct Predictions: <b style="color: red;">-2.3 %</b></p>
+        <div class="review_list_cont-heder">
+            <div class="abs">
+                <div class="general_review_cont-block first_title">
+                    <div class="review_list_center">
+                        <p class="review_list_title social_coltitle_name font_col_title">Name</p>
+                    </div>
+                </div>
+                <div class="general_review_cont-block middle_title ">
+                    <div class="review_list_center">
+                        <p class="review_list_title social_coltitle font_col_title">Sentiment</p>
+                    </div>
+                </div>
+                <div class="general_review_cont-block middle_title">
+                    <div class="review_list_center">
+                        <p class="review_list_title social_coltitle font_col_title">Start Date</p>
+                    </div>
+                </div>
+                <div class="general_review_cont-block middle_title">
+                    <div class="review_list_center">
+                        <p class="review_list_title social_coltitle font_col_title">Start Price</p>
+                    </div>
+                </div>
+                <div class="general_review_cont-block middle_title">
+                    <div class="review_list_center">
+                        <p class="review_list_title social_coltitle font_col_title">Change</p>
+                    </div>
+                </div>
+                <div class="general_review_cont-block last_title">
+                    <div class="review_list_center">
+                        <p class="review_list_title social_coltitle_close font_col_title">Close</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    </script>
+        <div class="review_list_cont-heder">
+            <div class="abs">
+                <div class="general_review_cont-block first_title">
+                    <div class="review_list_center"style="padding-left: 5%">
+                        <img class="live_block_top_img mobile_font" src="{{ asset('img/crypto_logos/bitcoin.png')}}" alt="coin">
+                        <h2 class="live_block_top_title mobile_font_name">Bitcoin</h2>
+                    </div>
+                </div>
+                <div class="general_review_cont-block middle_title">
+                    <div class="review_list_center">
+                        <p ng-if="!userLoggedIn"    style="margin: auto; text-align: center;" >
+                            {#<span ng-click="click_on_star()" class="chart_bitcoin-reting_prozent_like"><i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></span>#}
+                            <span ng-click="click_on_star()" class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bearish_list mobile_font mobile_font_sent" target="_blank"   style="font-size: small;"  ><b>{{ 'button.bearish'|trans }}</b></i></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="general_review_cont-block middle_title">
+                    <div class="review_list_center">
+                        <p class="live_block_money-right social_col"><span class="live_block_money_bold mobile_font">Aug 21, 2018</span>
+                    </div>
+                </div>
+                <div class="general_review_cont-block middle_title">
+                    <div class="review_list_center">
+                        <p class="live_block_money-right social_col"><span class="live_block_money_bold mobile_font">8.001$</span>
+                    </div>
+                </div>
+                <div class="general_review_cont-block  middle_title">
+                    <div class="review_list_center"style="    padding-right: 35%">
+                        <p class="live_block_money-right live_block_money_red live_block_money_border mobile_font mobile_font_change">-6.41%</p>
+                    </div>
+                </div>
+                <div class="general_review_cont-block last_title">
+                    <div class="review_list_center" style="width: 50%; margin-left: 25%">
+                        <a class="live_trade-btn mobile_font ">CLOSE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    {#Load CSS compiled without Bootstrap & Header styles (after release)#}
-    <script>var ms = document.createElement("link");
-        ms.rel = "stylesheet";
-        ms.href = '{{ asset("css/compiled.min.css")}}';
-        document.getElementsByTagName("head")[0].appendChild(ms);
-    </script>
+    <section class="table">
+        <div style="height: 2em"></div>
+        <p class="review_list_title font_title"style="text-align:left !important;padding-left: 5%;  ">Sentiment Leaderbord</p>
+        <div class="review_list_cont-heder">
+            <div class="abs">
+                <div class="general_review_cont-block "style="width: 50%">
+                    <div class="review_list_center">
+                        <p class="review_list_title"style="text-align: left; padding-left: 5%">Name</p>
+                    </div>
+                </div>
+                <div class="general_review_cont-block "style="width: 50%; ">
+                    <div class="review_list_center">
+                        <p class="review_list_title"style="text-align: right;padding-right: 5%;">% Correct</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!-- Load Scripts -->
-    <script>var scr = {
-            "scripts": [
-                {"src": '{{ asset("js/jquery-3.3.1.min.js")}}', "async": false},
-                {"src": '{{ asset("js/general.js")}}', "async": false},
-                {"src": "https://use.fontawesome.com/releases/v5.0.10/js/all.js", "async": false},
+        <div class="review_list_cont-heder">
+            <div class="abs">
+                <div class="general_review_cont-block "style="width: 50%">
+                    <div class="review_list_center"style="padding-left: 5%">
+                        <img class="live_block_top_img" src="{{ asset('img/flags/fr.png')}}" alt="name">
+                        <h2 class="live_block_top_title" >Shoshana</h2>
+                    </div>
+                </div>
+                <div class="general_review_cont-block  "style="width: 50%">
+                    <div class="review_list_center">
+                        <p class="live_block_money-right  "style="padding-right: 5%;"><span class="live_block_money_bold">35 %</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            ]
-        };
-        !function (t, n, r) {
-            "use strict";
-            var c = function (t) {
-                if ("[object Array]" !== Object.prototype.toString.call(t)) return !1;
-                for (var r = 0; r < t.length; r++) {
-                    var c = n.createElement("script"), e = t[r];
-                    c.src = e.src, c.async = e.async, n.body.appendChild(c)
-                }
-                return !0
-            };
-            t.addEventListener ? t.addEventListener("load", function () {
-                c(r.scripts);
-            }, !1) : t.attachEvent ? t.attachEvent("onload", function () {
-                c(r.scripts)
-            }) : t.onload = function () {
-                c(r.scripts)
-            }
-        }(window, document, scr);
-    </script>
+    </div>
+</div>
+
+    <script data-require="angular-ui-bootstrap@0.3.0" data-semver="2.5.0" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
+    <script src="{{ asset('js/service/Social_sentiment.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/compiled-feeds.css') }}" >
+    <link rel="stylesheet" href="{{ asset('css/Social_sentiment.css') }}" >
+
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
 {% endblock %}

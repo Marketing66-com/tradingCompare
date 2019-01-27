@@ -1,0 +1,342 @@
+.user_profile_title{
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    color: #000000;
+    padding-left: 1%;
+}
+
+.general-list_space, .grid_space_absolut {
+    top: 32%;
+}
+
+.user_coutry_img {
+    width: 150px;
+    height: 150px;
+    display: table;
+    margin: 1% auto;
+}
+
+.user_profile_name{
+    font-family: Avenir;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    color: #1e375e;
+}
+
+
+.Member_since_last_seen{
+    letter-spacing: 0.1px;
+    color: #4a4a4a;
+    padding-top:  5%;
+}
+
+.bio{
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    color: #000000;
+    margin-top: 30%;
+    padding-left: 1%;
+}
+
+.following-btn {
+    line-height: 35px;
+    padding: 0 35px;
+    display: table;
+    margin-top: 12px;
+    border-radius: 3px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    border: 1px solid transparent;
+    background-color: #12A6F9;
+    transition: 0.3s all;
+    margin-left: 6%;}
+.following-btn:hover {
+    text-decoration: none;
+    color: #12A6F9;
+    background-color: white;
+    border: 1px solid #12A6F9;
+    cursor: pointer;}
+
+.follow-btn {
+    line-height: 35px;
+    padding: 0 35px;
+    display: table;
+    margin-top: 12px;
+    border-radius: 3px;
+    color: #12A6F9;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    border: 1px solid #12A6F9;
+    background-color: white;
+    transition: 0.3s all;
+    margin-left: 13.5%;}
+.follow-btn:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #12A6F9;
+    border: 1px solid white;
+    cursor: pointer;}
+
+/*********************************************** TABS **************************************/
+
+.mytab {
+    overflow: hidden;
+    padding-left: 0;
+    text-decoration: none!important;
+    border: solid 1px  #12a6f9;
+    width: 50%;
+    border-radius: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    height: 65px;
+
+}
+
+/* Style the buttons inside the tab */
+.mytab li {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 5px 20px;
+    transition: 0.3s;
+    width: 20%;
+    list-style-type: none;
+}
+
+.mytab li > a{
+    text-decoration: none!important;
+}
+
+.mytab li > a > .tab_title{
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+    color: #000000;
+}
+
+.mytab li > a > .tab_number{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #12a6f9;
+}
+
+/* Change background color of buttons on hover */
+.mytab li :hover {
+    color: #12a6f9;
+    text-decoration: none;
+}
+
+/* Create an active/current tablink class */
+.mytab li.active{
+    background-color: #12a6f9;
+}
+
+.mytab li.active > a  > .tab_title{
+}
+
+.mytab li.active > a  > .tab_number{
+    color: #ffffff;
+}
+
+hr{
+    margin: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ECECEC;
+    border: none; /*on supprime le style par défaut*/
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+}
+
+/*********************************** POSTS ***************************************/
+
+.each_post a{
+    text-decoration: none;
+}
+
+.each_post:hover{
+    background-color: #eaeaea
+}
+
+.post_user-cont{
+    border-bottom: 1px solid #ECECEC;
+    padding: 15px 0 10px 0;
+    display: table;
+    width: 100%;
+}
+.post-cont_img
+{
+    float: left;
+    /*border-radius: 15px;*/
+    width: 80px;
+    margin-right: 20px;
+}
+
+.post_user-img {
+    width: 50%;
+    height: 50%;
+}
+
+
+.post_user-cont_text {
+    display: contents;
+    position: relative;
+    font-family: 'Roboto';
+}
+
+.post_user-cont_name {
+    color: #1E375E;
+    font-size: 20px;
+    font-family: 'Avenir';
+    font-weight: 700;
+}
+
+.post_user-date {
+    display: table;
+    color: #9B9B9B;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    margin-right: 4%;
+    float: right;
+}
+.height_min{
+    height: 0px;
+}
+
+.review_list{
+    width: 97%;
+    margin-left: 1.5%;
+}
+/**************************************************************************/
+@media (max-width: 1200px) {
+    .general-list_space, .grid_space_absolut {
+        top: 20%;
+    }
+    .bio{
+        margin-top: 37%;
+    }
+
+}
+@media (max-width: 991px) {
+    .general-list_space, .grid_space_absolut {
+        top: 30%;
+    }
+    .user_coutry_img {
+        width: 120px;
+        height: 120px;
+    }
+    .bio{
+        margin-top: 43%;
+    }
+    .mytab li {
+        width:20%;
+        text-align:center;
+    }
+    .mytab {
+        width: 100%;
+    }
+    .post_user-date {
+        display: table;
+        color: #9B9B9B;
+        font-size: 13px;
+        font-weight: 400;
+        font-family: 'Open Sans', sans-serif;
+        margin:0;
+        float: right;
+    }
+    .post_user-img {
+        width: 60%;
+        height: 60%;
+    }
+    .post_user-date {
+        margin-right: 6%;
+
+    }
+
+}
+@media (max-width: 767px) {
+    .general-list_space, .grid_space_absolut {
+        top: 27%;
+    }
+    .user_coutry_img {
+        width: 95px;
+        height: 95px;
+    }
+    .user_profile_name {
+        font-size: 20px;
+    }
+    .Member_since_last_seen {
+         padding-top: 0;
+    }
+    .bio {
+        margin-top: 73%;
+    }
+    .user_profile_title {
+        font-size: 18px;
+    }
+    .mytab li > a > .tab_title {
+        font-size: 10px;
+    }
+    .post_user-cont_name {
+        font-size: 15px;
+
+    }
+    .height_min{
+        height: 18px;
+    }
+    .post_user-img {
+        width: 50%;
+        height: 50%;
+    }
+}
+@media (max-width: 480px) {
+    .mytab li {
+        padding: 5px 14px;
+        font-size: 14px;
+        /*width:33.3%;*/
+    }
+}
+@media (max-width: 360px) {
+    .general-list_space, .grid_space_absolut {
+        /*top: 48%;*/
+    }
+    .user_coutry_img {
+        width: 80px;
+        height: 80px;
+    }
+    .bio {
+        margin-top: 85%;
+    }
+    .mytab li > a > .tab_title {
+      font-size: 8.5px;
+    }
+
+    .post_user-img {
+        width: 50%;
+        height: 50%;
+    }
+
+    .post_user-date {
+        margin-right: 8%;
+
+    }
+}
+@media (max-width: 330px) {
+
+}

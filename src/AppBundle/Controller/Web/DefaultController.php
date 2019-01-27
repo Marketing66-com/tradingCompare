@@ -117,6 +117,15 @@ class DefaultController extends Controller
 
         return $this->render('default/Social_sentiment.html.twig');
     }
+
+    /**
+     * @Route("/profile",name="my-profile", options={"expose" = true})
+     */
+    public function my_profileAction()
+    {
+
+        return $this->render('default/profile.html.twig');
+    }
 //********************************  BROKERS  ********************************
 
     /**
