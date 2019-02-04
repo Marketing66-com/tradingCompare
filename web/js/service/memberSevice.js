@@ -117,6 +117,44 @@ angular.module('memberService', [])
             return sendPostHttpRequest(url, token, data);
         };
 
+        var Close_sentiment = function (token, data) {
+            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/close-sentiment`;
+
+            return sendPostHttpRequest(url, token, data);
+        };
+
+        var getFollowingOfUser = function (token) {
+            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/get-following-of-user`;
+
+            return sendHttpRequest(url, token);
+        };
+
+        var Remove_follow = function (token, data) {
+            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/remove-follow`;
+
+            return sendPostHttpRequest(url, token, data);
+        };
+
+        var Add_follow = function (token, data) {
+            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/add-follow`;
+
+            return sendPostHttpRequest(url, token, data);
+        };
+
+
+        // var Add_follow = function (user) {
+        //     const url = "https://xosignals.herokuapp.com/trading-compare-v2/add-follow"
+        //
+        //     return new Promise(function (resolve, reject) {
+        //         $http.post(url, user, config).then(function(response){
+        //             resolve(response);
+        //         }).catch(function (error) {
+        //             reject(error);
+        //         });
+        //     });
+        // }
+
+
         return {
             getSampleSecuredPage: getSampleSecuredPage,
             sendPostHttpRequest:sendPostHttpRequest,
@@ -131,5 +169,9 @@ angular.module('memberService', [])
             Add_to_watchlist:Add_to_watchlist,
             Delete_from_watchlist:Delete_from_watchlist,
             Add_sentiment:Add_sentiment,
+            Close_sentiment:Close_sentiment,
+            getFollowingOfUser:getFollowingOfUser,
+            Remove_follow:Remove_follow,
+            Add_follow:Add_follow
         };
     });

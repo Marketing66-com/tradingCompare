@@ -7,7 +7,7 @@
 }
 
 .general-list_space, .grid_space_absolut {
-    top: 32%;
+    top: 26%;
 }
 
 .user_coutry_img {
@@ -80,9 +80,18 @@
     text-decoration: none;
     color: white;
     background-color: #12A6F9;
-    border: 1px solid white;
+    border: 1px solid #12A6F9;
     cursor: pointer;}
 
+.follow_in_table{
+    margin-top: 0;
+    margin-left: 6%;
+    width: 64%;
+    text-align: center;
+}
+.following_in_table{
+    margin-top: 0;
+}
 /*********************************************** TABS **************************************/
 
 .mytab {
@@ -190,6 +199,7 @@ hr{
 .post_user-img {
     width: 50%;
     height: 50%;
+    margin-left: 20%;
 }
 
 
@@ -223,6 +233,19 @@ hr{
     width: 97%;
     margin-left: 1.5%;
 }
+.review_list_name_profil { width: 20%;}
+.review_list_cont-text_profil { width: 15%!important;}
+.review_list_cont-bar_profil { width: 15%!important;}
+.review_list_cont-btn_profil {width: 20%;}
+
+.live_trade-btn_mobile{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width:60%;
+    margin-right: 20%;
+    margin-top: 0;
+    font-size: 13px;
+}
 /**************************************************************************/
 @media (max-width: 1200px) {
     .general-list_space, .grid_space_absolut {
@@ -231,11 +254,14 @@ hr{
     .bio{
         margin-top: 37%;
     }
+    .follow_in_table{
+        width: 79%;
+    }
 
 }
 @media (max-width: 991px) {
     .general-list_space, .grid_space_absolut {
-        top: 30%;
+        top: 25%;
     }
     .user_coutry_img {
         width: 120px;
@@ -263,16 +289,23 @@ hr{
     .post_user-img {
         width: 60%;
         height: 60%;
+        margin-left: 5%;
     }
     .post_user-date {
         margin-right: 6%;
 
     }
-
+    .follow_in_table{
+        width: 106%;
+        margin-left: -15%;
+    }
+    .following_in_table{
+        margin-left: -25px;
+    }
 }
 @media (max-width: 767px) {
     .general-list_space, .grid_space_absolut {
-        top: 27%;
+        top: 23%;
     }
     .user_coutry_img {
         width: 95px;
@@ -304,12 +337,33 @@ hr{
         width: 50%;
         height: 50%;
     }
+
+    .follow_in_table{
+        margin-left: -15%;
+        width: 106%;
+    }
+    .following_in_table{
+        width: 106%;
+        text-align: center;
+    }
+    .review_list_title_profil {
+        padding-top: 10%;
+    }
+    .review_list_name_profil {
+        width: 33.33%;
+        text-align: center!important;
+    }
+    .review_list_cont-text_profil { width: 33.33%!important;}
 }
 @media (max-width: 480px) {
     .mytab li {
         padding: 5px 14px;
         font-size: 14px;
         /*width:33.3%;*/
+    }
+    .follow_in_table{
+        margin-left: -15%;
+        /*width: 96%;*/
     }
 }
 @media (max-width: 360px) {
@@ -336,7 +390,22 @@ hr{
         margin-right: 8%;
 
     }
+    .follow_in_table{
+        margin-left: -25px;
+    }
+    .following_in_table{
+        /*width: 16%;*/
+        text-align: center;
+        padding-left: 21%;
+        padding-right: 21%;
+    }
+
 }
 @media (max-width: 330px) {
-
+    .following_in_table{
+        /*width: 16%;*/
+        text-align: center;
+        padding-left: 16.5%;
+        padding-right: 16.5%;
+    }
 }

@@ -110,21 +110,29 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/social_sentiment",name="social_sentiment", options={"expose" = true})
+     * @Route("/Social-Sentiment",name="social_sentiment", options={"expose" = true})
      */
     public function social_sentimentAction()
     {
-
         return $this->render('default/Social_sentiment.html.twig');
     }
 
     /**
-     * @Route("/profile",name="my-profile", options={"expose" = true})
+     * @Route("/profile",name="user-profile", options={"expose" = true})
      */
-    public function my_profileAction()
+    public function user_profileAction()
     {
 
-        return $this->render('default/profile.html.twig');
+        return $this->render('default/user-profile.html.twig');
+    }
+
+    /**
+     * @Route("/Leaderboard",name="leaderboard", options={"expose" = true})
+     */
+    public function leaderboardAction()
+    {
+        $country_name = "United States" ;
+        return $this->render('default/leaderboard.html.twig', array("country_name"=>$country_name));
     }
 //********************************  BROKERS  ********************************
 

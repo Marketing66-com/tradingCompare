@@ -1,0 +1,185 @@
+{% extends 'base.html.twig' %}
+
+{% block description %}
+    <title>Leaderboard</title>
+    <meta name="description" content="Leaderboard Content">
+{% endblock %}
+
+{% block body %}
+    <div id="dvLeaderboard">
+        <div ng-controller="LeaderboardController" class="ng-cloak">
+            <div  ng-init="init()" >
+                <section class="table">
+                    <div ng-if="spinner" id="spinner" >
+                        <img id="img-spinner" src="{{ asset('img/ajax-loader5.gif') }}" alt="loading">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="general-chart">
+
+                                <div class="row ">
+                                    <div class="col-md-4 col-sm-12 col-xs-12 height_min" >
+                                        <ul class="mytab">
+                                            <li class="tablinks" ng-class="{ active: isSet(1) }">
+                                                <a href ng-click="setTab(1)">TOP USERS</a>
+                                            </li>
+                                            <li class="tablinks" ng-class="{ active: isSet(2) }">
+                                                <a href ng-click="setTab(2)">ALL USERS</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-5 height_min ms-none" >
+                                        <div class="reviec_cont-sezrch-country  typeahead-demo" >
+                                            <input style="height: 40px;" classid="typeahead-focus"  type="text"  class="search_input country searchUser"
+                                                   ng-model="userName"
+                                                    {#typeahead-input-formatter="inputFormatter($model)"#}
+
+                                                   typeahead-focus-first="true"
+                                                   uib-typeahead="state as state.name for state in listUsers | filter:{name:$viewValue} | orderBy:'name'"
+                                                   typeahead-template-url="customTemplate.html" class="form-control"
+                                                   typeahead-show-hint="true"
+                                                   typeahead-min-length="0"
+                                                   typeahead-should-select="shouldSelect($event)"
+                                                   typeahead-on-select="onSelect($item, $model, $label)"
+                                                   placeholder="Search Users"
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 height_min ms-none" >
+                                        <div class="reviec_cont-sezrch-country  typeahead-demo" >
+                                            <input style="height: 40px;" classid="typeahead-focus"  type="text"  class="search_input country"
+                                                   ng-model="customSelected"
+                                                    {#typeahead-input-formatter="inputFormatter($model)"#}
+
+                                                   typeahead-focus-first="true"
+                                                   uib-typeahead="state as state.name for state in listCountry | filter:{name:$viewValue} | orderBy:'name'"
+                                                   typeahead-template-url="customTemplate.html" class="form-control"
+                                                   typeahead-show-hint="true"
+                                                   typeahead-min-length="0"
+                                                   typeahead-should-select="shouldSelect($event)"
+                                                   typeahead-on-select="onSelect($item, $model, $label)"
+                                                   placeholder="{{country_name}}"
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div>
+                                        {#/************************************************************************************/#}
+                                        <div ng-show="isSet(1)">
+                                            {#<hr>#}
+                                            <div class="review_list_cont-heder border_leaderboard">
+                                                <div class="abs abs_leaderboard">
+                                                    <div class="general_review_cont-block "style="width: 50%">
+                                                        <div class="review_list_center">
+                                                            <p class="review_list_title"style="text-align: left; padding-left: 5%">Name</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="general_review_cont-block "style="width: 50%; ">
+                                                        <div class="review_list_center">
+                                                            <p class="review_list_title"style="text-align: right;padding-right: 5%;">% Correct</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="review_list_cont-heder height_row" ng-repeat = "users in leaderbord_users">
+                                                <div class="abs">
+                                                    <div class="general_review_cont-block number_width">
+                                                        <div class="review_list_center"style="padding-left: 5%">
+                                                            <span class="live_block_top_title" >{[{ $index + 1 }]}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="general_review_cont-block name_width">
+                                                        <div class="review_list_center"style="padding-left: 5%">
+                                                            <img class="live_block_top_img" src="{{ asset('img/Flags1/{[{ users.country }]}.png')}}" alt="name">
+                                                            <h2 class="live_block_top_title" >{[{ users.nickname }]}</h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="general_review_cont-block follow_width ">
+                                                        <div class="review_list_center">
+                                                            <p class="live_block_money-right  "style="padding-right: 5%;"><span class="live_block_money_bold">{[{ users.total_corect_percent.toFixed(1) }]} %</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {#/************************************************************************************/#}
+                                        <div ng-show="isSet(2)">
+                                            {#<hr>#}
+                                            <div class="review_list_cont-heder border_leaderboard">
+                                                <div class="abs abs_leaderboard">
+                                                    <div class="general_review_cont-block "style="width: 50%">
+                                                        <div class="review_list_center">
+                                                            <p class="review_list_title"style="text-align: left; padding-left: 5%">Name</p>
+                                                        </div>
+                                                    </div>
+                                                    {#<div class="general_review_cont-block "style="width: 50%; ">#}
+                                                        {#<div class="review_list_center">#}
+                                                            {#<p class="review_list_title"style="text-align: right;padding-right: 5%;">% Correct</p>#}
+                                                        {#</div>#}
+                                                    {#</div>#}
+                                                </div>
+                                            </div>
+                                            <div class="review_list_cont-heder height_row" ng-repeat = "user in all_users">
+                                                <div class="abs">
+                                                    <div class="general_review_cont-block number_width">
+                                                        <div class="review_list_center"style="padding-left: 5%">
+                                                            <span class="live_block_top_title" style="text-align: center">{[{ $index + 1 }]}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="general_review_cont-block name_width">
+                                                        <div class="review_list_center"style="padding-left: 5%">
+                                                            <img class="live_block_top_img" src="{{ asset('img/Flags1/{[{ user.countryVal }]}.png')}}" alt="name">
+                                                            <h2 class="live_block_top_title" >{[{ user.nickname }]}</h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="general_review_cont-block  follow_width">
+                                                        <a ng-if="user.is_followed" ng-click="remove_follow($index)" class="following-btn following_in_table sm-none" style="">FOLLOWING</a>
+                                                        <a ng-if="!user.is_followed" ng-click="add_follow($index)" class="follow-btn follow_in_table sm-none" style="">FOLLOW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="review_cont-btn">
+                                                <a class="review_more-btn" ng-class="nextPageDisabledClass_users()" ng-style="disabled_users"
+                                                   ng-click="loadMore_users()" >SEE MORE</a>
+                                            </div>
+
+                                        </div>
+                                        {#/************************************************************************************/#}
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <script type="text/ng-template" id="customTemplate.html">
+                        <a style="cursor: pointer">
+                            <img ng-src='{{asset("img/Flags1/{[{match.model.value}]}.png")}}' width="16">
+                            <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+                        </a>
+                    </script>
+
+
+                    {#{{ include('LiveFeedBundle:Default:live_feed.html.twig') }}#}
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ asset('js/Leaderboard.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/charts.css') }}" >
+    <link rel="stylesheet" href="{{ asset('css/comment.css') }}" >
+    <link rel="stylesheet" href="{{ asset('css/leaderboard.css') }}" >
+
+    <script data-require="angular-ui-bootstrap@0.3.0" data-semver="2.5.0" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/compiled-feeds.css') }}" >
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script src="{{ asset('js/Feeds/StockFeeds.js') }}"></script>
+{% endblock %}

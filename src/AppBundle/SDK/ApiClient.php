@@ -138,6 +138,61 @@ class ApiClient
         return $this->doPostRequest($uri, $data);
     }
 
+
+    /**
+     * @param $data
+     *
+     * @return array|mixed
+     * @throws Exception
+     */
+    public function CloseSentiment(array $data)
+    {
+        $uri = 'trading-compare-v2/close-sentiment';
+
+        return $this->doPostRequest($uri, $data);
+    }
+
+    /**
+     * @param string $userIdentifier
+     *
+     * @return array|mixed
+     * @throws Exception
+     */
+    public function getFollowing(string $userIdentifier)
+    {
+        $uri = 'trading-compare-v2/get-following/'.$userIdentifier;
+
+        return $this->doGetRequest($uri);
+    }
+
+    /**
+     * @param $data
+     *
+     * @return array|mixed
+     * @throws Exception
+     */
+    public function RemoveFollow(array $data)
+    {
+        $uri = 'trading-compare-v2/remove-follow';
+
+        return $this->doPostRequest($uri, $data);
+    }
+
+
+    /**
+     * @param $data
+     *
+     * @return array|mixed
+     * @throws Exception
+     */
+    public function AddFollow(array $data)
+    {
+        $uri = 'trading-compare-v2/add-follow';
+
+        return $this->doPostRequest($uri, $data);
+    }
+
+
 //    *******************************************************************************
 
 

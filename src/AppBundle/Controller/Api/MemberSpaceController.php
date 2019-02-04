@@ -146,4 +146,63 @@ class MemberSpaceController extends BaseController
         return new JsonResponse($response);
     }
 
+    /**
+     * @Security("is_granted('ROLE_USER')")
+     * @Route("/close-sentiment", name="close-sentiment", options={"i18n"=false})
+     * @Method("POST")
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function close_sentiment(Request $request)
+    {
+        $content = $request->getContent();
+        $data = json_decode($content, true);
+        $response= $this->get(ApiClient::class)->CloseSentiment($data);
+        return new JsonResponse($response);
+    }
+
+    /**
+     * @Security("is_granted('ROLE_USER')")
+     * @Route("/get-following-of-user", name="get-following-of-user", options={"i18n"=false})
+     * @throws \Exception
+     */
+    public function get_following_of_userAction()
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $following = $this->get(ApiClient::class)->getFollowing($user->getIdentifier());
+        return new JsonResponse($following);
+    }
+
+    /**
+     * @Security("is_granted('ROLE_USER')")
+     * @Route("/remove-follow", name="remove-follow", options={"i18n"=false})
+     * @Method("POST")
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function remove_follow(Request $request)
+    {
+        $content = $request->getContent();
+        $data = json_decode($content, true);
+        $response= $this->get(ApiClient::class)->RemoveFollow($data);
+        return new JsonResponse($response);
+    }
+
+    /**
+     * @Security("is_granted('ROLE_USER')")
+     * @Route("/add-follow", name="add-follow", options={"i18n"=false})
+     * @Method("POST")
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function add_follow(Request $request)
+    {
+        $content = $request->getContent();
+        $data = json_decode($content, true);
+        $response= $this->get(ApiClient::class)->AddFollow($data);
+        return new JsonResponse($response);
+    }
+
 }

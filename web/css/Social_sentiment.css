@@ -31,47 +31,95 @@
 .last_title{
     width: 21%
 }
+.button_bullish_open{
+    background-color: #7ED321;
+    color: white;
+    border:2px solid #7ED321 ;
+}
+.button_bearish_open{
+    background-color: #f44336;
+    color: white;
+    border:2px solid  #f44336 ;
+}
+.button_bullish_close{
+    background-color: white;
+    color: #7ED321;
+    border:2px solid #7ED321 ;
+}
+.button_bearish_close{
+    background-color: white;
+    color: #f44336;
+    border:2px solid  #f44336 ;
 
+}
+.view_mobile{
+    display: none;
+}
+
+
+@media (max-width: 767px) {
+    .font_title{
+        font-size:23px;
+    }
+}
 @media (max-width: 420px) {
+    .social_coltitle{
+        text-align: left;
+        padding-left: 5%;
+    }
+    .sent_mob{
+        margin-bottom: 5%;
+    }
+    .view_mobile{
+        display: block
+    }
+    .font_col_title{
+        padding-top: 10%;
+    }
+    .hide_mobile{
+        display: none;
+    }
     .first_title{
-        width: 21%
+        width: 33%
     }
+    .middle_title {
+        width: 30%
+    }
+    .last_title_mob{
+        width: 37%
 
-    .middle_title{
-        width: 15%
-    }
-    .last_title{
-        width:19%
     }
     .mobile_font{
-      font-size: x-small !important;
+      font-size: small !important;
     }
     .mobile_font_name{
         font-size: small !important;
+        padding-left: 15%;
     }
     .mobile_font_sent{
         margin-top: 20%;
     }
     .mobile_font_change{
         margin-top: 40%;
-
+    }
+    .mob_img{
+        margin-top: 5px!important;
     }
 }
 
 @media (max-width: 360px) {
-.font_title{
-    font-size:large ;
-}
-
-
+    .font_title{
+        font-size:large ;
+    }
     .mobile_font{
-        font-size: xx-small !important;
+        font-size: x-small !important;
     }
     .mobile_font_name{
         font-size: x-small !important;
     }
     .mobile_font_sent{
         margin-top: 20%;
+
     }
     .mobile_font_change{
         margin-top: 40%;

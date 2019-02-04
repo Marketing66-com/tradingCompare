@@ -18,7 +18,7 @@
                                 <p ng-if="!userLoggedIn" style="cursor: pointer" ng-click="click_on_star()" class="review_list_start sm-none"><i class="far fa-star"></i></p>
                                 <img class="live_block_top_img" ng-src="{[{item.img}]}" onerror="this.src='/img/Stock_Logos/stocks.png'";>
                                 <h2 class="live_block_top_title" > {[{item.name}]} </h2>
-                                <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">{[{(item.change24)}]}</p>
+                                <p class="live_block_money-right mobile_padding mobile-block mobile-block" ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}">{[{(item.change24)}]}</p>
                             </div>
                         </div>
                         <div class="general_review_cont-block review_list_cont-text">

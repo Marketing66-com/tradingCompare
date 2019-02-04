@@ -134,11 +134,39 @@
             </div>
             <div  class="menu">
                 <ul style="display: inline-table;margin: 0 auto;padding: 0;z-index: 1000;" class="my-nav">
-                    <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_stocks' %}active{% endif %}" href="{{ path('Live_rates_stocks', { 'name': 'United-States','value':'united-states-of-america'}) }}">{{ 'menu.live_stock_feed'|trans }}</a></li>
-                    <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_crypto' %}active{% endif %}" href="{{ path('Live_rates_crypto') }}" >{{ 'menu.live_crypto_feed'|trans }}</a></li>
-                    <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_forex' %}active{% endif %}" href="{{ path('Live_rates_forex') }}" >{{ 'menu.live_forex_feed'|trans }}</a></li>
-                    {#<li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'social_sentiment' %}active{% endif %}" href="{{ path('social_sentiment') }}" >Social Sentiment</a></li>#}
-                    <li class="my-hover"><a href="#" class="my-active">{{ 'menu.brokers'|trans }}<span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>
+                    <li class="my-hover"><a class="{% if app.request.attributes.get('_route') == 'localised_home' or app.request.attributes.get('_route') starts with 'home'%}active{% endif %}" href="{{ path('localised_home')}}">Home</a></li>
+
+                    <li class="my-hover"><a href="#" class="my-active
+                         {% if app.request.attributes.get('_route') starts with 'Live_rates_stocks' or
+                            app.request.attributes.get('_route') starts with 'Live_rates_crypto' or
+                            app.request.attributes.get('_route') starts with 'Live_rates_forex'%}active{% endif %}
+                        ">Live Feed <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>
+                        <!--<li class="my-hover">Brokers <span class="hover_next-icon"><i class="fas fa-chevron-right"></i></span></a>-->
+                        <ul>
+                            <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_stocks' %}active{% endif %}" href="{{ path('Live_rates_stocks', { 'name': 'United-States','value':'united-states-of-america'}) }}">{{ 'menu.live_stock_feed'|trans }}</a></li>
+                            <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_crypto' %}active{% endif %}" href="{{ path('Live_rates_crypto') }}" >{{ 'menu.live_crypto_feed'|trans }}</a></li>
+                            <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_forex' %}active{% endif %}" href="{{ path('Live_rates_forex') }}" >{{ 'menu.live_forex_feed'|trans }}</a></li>
+                        </ul>
+                    </li>
+
+                    {#<li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_stocks' %}active{% endif %}" href="{{ path('Live_rates_stocks', { 'name': 'United-States','value':'united-states-of-america'}) }}">{{ 'menu.live_stock_feed'|trans }}</a></li>#}
+                    {#<li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_crypto' %}active{% endif %}" href="{{ path('Live_rates_crypto') }}" >{{ 'menu.live_crypto_feed'|trans }}</a></li>#}
+                    {#<li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'Live_rates_forex' %}active{% endif %}" href="{{ path('Live_rates_forex') }}" >{{ 'menu.live_forex_feed'|trans }}</a></li>#}
+
+                    <div id="dvSentimentLink" class="ng-cloak" style="float: left">
+                        <div ng-controller="SentimentLinkCtr">
+                            {#<li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'social_sentiment' %}active{% endif %}" href="{{ path('social_sentiment') }}" >Social Sentiment</a></li>#}
+                            <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'social_sentiment' %}active{% endif %}" ng-click="GoToSentimentPage('{{ app.request.getLocale() }}')" >Social Sentiment</a></li>
+                            <li class="my-hover"><a class="{% if app.request.attributes.get('_route') starts with 'leaderboard' %}active{% endif %}" ng-click="GoToLeaderboardPage('{{ app.request.getLocale() }}')" >Leaderboard</a></li>
+                        </div>
+                    </div>
+
+                    <li class="my-hover"><a href="#" class="my-active
+                            {% if app.request.attributes.get('_route') starts with 'forex' or
+                            app.request.attributes.get('_route') starts with 'crypto' or
+                            app.request.attributes.get('_route') starts with 'stock' or
+                            app.request.attributes.get('_route') starts with 'commodities'%}active{% endif %}
+                        ">{{ 'menu.brokers'|trans }} <span class="hover_next-icon"><i class="fas fa-caret-down"></i></span></a>
                         <!--<li class="my-hover">Brokers <span class="hover_next-icon"><i class="fas fa-chevron-right"></i></span></a>-->
                         <ul>
                             <li ><a class="{% if app.request.attributes.get('_route') starts with 'forex' %}active{% endif %}" href="{{ path('forex', {'_locale': app.request.getLocale()}) }}" >{{ 'menu.broker_forex'|trans }}</a></li>

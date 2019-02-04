@@ -40,7 +40,7 @@
 .live_cont-block_like_left {position: absolute; top: 50%;left: 75%; transform: translate(-50%, -50%);}
 .live_block_top {border-bottom: 1px solid #D8D8D8;padding: 10px 0;}
 .live_block_top_img {width: 35px; height: 35px; float: left; margin: 0 5px;}
-.live_block_top_title {display: block; margin: 0; color: #1E375E; font-size: 16px; line-height: 35px; font-family: 'Avenir';font-weight: 800; white-space: nowrap;}
+.live_block_top_title {overflow: hidden;display: block; margin: 0; color: #1E375E; font-size: 16px; line-height: 35px; font-family: 'Avenir';font-weight: 800; white-space: nowrap;}
 .live_block_chart {width: 100%; margin: 10px 0; max-height: 35px; cursor:pointer;}
 .live_block_money-left, .live_block_money-right { display: table;float: left; font-family: 'Avenir';font-weight: 600;font-size: 14px;color: #1E375E;text-align: left; margin: 5px 0;line-height: 25px; border-radius: 5px;}
 .live_block_money-right {text-align: left; float: right; padding: 0 5px;}
@@ -102,7 +102,7 @@
 .chart_bitcoin-reting_prozent_like:hover {cursor: pointer; color: #12A6F9;}
 .chart_bitcoin-reting_prozent_like {font-size: 14px; margin: 0 5px;color: #999999;}
 .margin_bottom {margin-bottom: 0;}
-.mobile-block { display: none;}
+.mobile-block { display: none}
 
 .negative{color:red;}
 .positive{color:#9CD400;}
@@ -158,6 +158,7 @@
     font-style: normal;
     font-family: 'Avenir';
     border-radius: 5px;}
+.button_sentiment_list_mobile{ display: none!important;}
 
 .button_bullish_list {background-color: white;color: #7ED321;border: 2px solid #7ED321;}
 .button_bullish_list:hover {background-color: #7ED321;color: white;}
@@ -311,6 +312,7 @@
     .button_sentiment_box {   padding: 2px 4px;    font-size: x-small;    margin: 4px 2px;    -webkit-transition-duration: 0.4s; /* Safari */    transition-duration: 0.4s; }
     .reviec_cont-sezrch-country { padding-left: 5%; padding-right:5%;}
     .chart_bitcoin-reting_prozent {font-size: 10px;}
+    .button_sentiment_list_mobile{ display: block!important;}
 }
 @media (max-width: 480px) {
     .live_cont-block-padding {  width: 50%; }
