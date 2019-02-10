@@ -1,0 +1,642 @@
+{% extends 'base.html.twig' %}
+
+{% block description %}
+    <title>User Profile</title>
+    <meta name="description" content="User Profile Content">
+{% endblock %}
+
+{% block body %}
+    <style>
+
+    </style>
+    <div id="dvProfile">
+        <div  ng-controller="ProfileController">
+            {#<div  ng-init="init('https://crypto.tradingcompare.com/AllPairs')" >#}
+            <div  ng-init="init('{{ id }}')" >
+            <div>
+                <section class="table">
+                    {#<div ng-if="spinner" id="spinner" >#}
+                    {#<img id="img-spinner" src="{{ asset('img/ajax-loader5.gif') }}" alt="loading">#}
+                    {#</div>#}
+
+                    {#watchlist grid-box#}
+                    <div class="container">
+
+                        {#----> oh no SIGNIN#}
+                        <div class="new_grid ng-cloak">
+                            <div class="grid_space">
+                                <h2 class="user_profile_title">User Profile</h2>
+                                <div class="grid_space_absolut">
+                                    <img class="user_coutry_img" src='{{asset("img/Flags1/en.png")}}' alt="grid_space_absolut_img">
+                                    <h2 class="user_profile_name">Samantha Parker</h2>
+
+                                    {#<p class="grid_space_absolut_text">Your need to have an account to make a watchlist. </p>#}
+                                    <p class="grid_space_absolut_text Member_since_last_seen">Member since June 16, 2018 </p>
+                                    <p class="grid_space_absolut_text Member_since_last_seen">Last Seen Aug 4, 2018</p>
+
+                                    {#<a class="following-btn sm-none" style="">FOLLOWING</a>#}
+                                    <a class="follow-btn sm-none" style="">FOLLOW</a>
+
+                                </div>
+                                {#<p class="grid_space_absolut_text bio" ng-model="the_bio_description">{[{the_bio_description}]}  </p>#}
+
+                                <div class="img-rounded">
+                                    <span style="font-weight: 600;margin-left: 2%;font-size: 14px;letter-spacing: 0.1px;">Bio:</span>
+                                    <div style="width: 60%;" class="grid_space_absolut_text bio" click-to-edit t-idtoken="idToken" t-userid="id" type="inputText" ng-model="the_bio_description"></div>
+                                    <br/>
+                                    {#<div click-to-edit type="inputText" ng-model="sprintDesc"></div>#}
+                                </div>
+
+                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                                {#<i style="font-size:24px" class="fa">&#xf040;</i>#}
+                                {#<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">#}
+                                {#<span style="font-size: 3em; color: Tomato;">#}
+                                    {#<i class="fas fa-igloo"></i>#}
+                                {#</span>#}
+
+                                {#*********************************************************#}
+                                <div >
+                                    <ul class="mytab">
+                                        <li class="tablinks" ng-class="{ active: isSet(1) }">
+                                            <a href ng-click="setTab(1)">
+                                                <p class="tab_title">Post</p>
+                                                <p class="tab_number">225</p>
+                                            </a>
+                                        </li>
+                                        <li class="tablinks" ng-class="{ active: isSet(2) }">
+                                            <a href ng-click="setTab(2)">
+                                                <p class="tab_title">Watchlist</p>
+                                                <p class="tab_number">25</p>
+                                            </a>
+                                        </li>
+                                        <li class="tablinks" ng-class="{ active: isSet(3) }">
+                                            <a href ng-click="setTab(3)">
+                                                <p class="tab_title">Following</p>
+                                                <p class="tab_number">225</p>
+                                            </a>
+                                        </li>
+                                        <li class="tablinks" ng-class="{ active: isSet(4) }">
+                                            <a href ng-click="setTab(4)">
+                                                <p class="tab_title">Followers</p>
+                                                <p class="tab_number">25</p>
+                                            </a>
+                                        </li>
+                                        <li class="tablinks" ng-class="{ active: isSet(5) }">
+                                            <a href ng-click="setTab(5)">
+                                                <p class="tab_title">Sentiments</p>
+                                                <p class="tab_number">225</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div>
+                                        {#/************************************************************************************/#}
+                                        <div ng-show="isSet(1)">
+                                            <hr >
+                                            <div>
+                                                <div class="post_user-cont each_post" >
+                                                    <a class="post_news" href="#" target="_blank">
+
+                                                        <div class="row">
+                                                            <div class="col-md-12 col-sm-12 col-xs-12 height_min" >
+                                                                <div class="post_user-cont_text">
+                                                                    <p class="post_user-date">Sep 20, 2018</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-1 col-sm-1 col-xs-2">
+                                                                <div class="post-cont_img">
+                                                                    <img class="post_user-img" src='{{asset("img/Flags1/en.png")}}'  alt="france">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-11 col-sm-11 col-xs-10">
+                                                                <div class="post_user-cont_text">
+                                                                    <p class="post_user-cont_name">Troye Sivan voted BEARISH on Bitcoin</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                                {#<div class="review_cont-btn">#}
+                                                {#<a class="review_more-btn" ng-class="nextPageDisabledClass()" ng-style="disabled"#}
+                                                {#ng-click="loadMore()" >MORE TWEETS</a>#}
+                                                {#</div>#}
+                                            </div>
+
+                                            <div>
+                                                <div class="post_user-cont each_post" >
+                                                    <a class="post_news" href="#" target="_blank">
+
+                                                        <div class="row">
+                                                            <div class="col-md-12 col-sm-12 col-xs-12 height_min">
+                                                                <div class="post_user-cont_text">
+                                                                    <p class="post_user-date">Sep 20, 2018</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            {#post-cont_img#}
+                                                            <div class="col-md-1 col-sm-1 col-xs-2">
+                                                                <div class="post-cont_img">
+                                                                    <img class="post_user-img" src='{{asset("img/Flags1/en.png")}}'  alt="france">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-11 col-sm-11 col-xs-10">
+                                                                <div class="post_user-cont_text">
+                                                                    <p class="post_user-cont_name">Troye Sivan voted BEARISH on Bitcoin</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                                {#<div class="review_cont-btn">#}
+                                                {#<a class="review_more-btn" ng-class="nextPageDisabledClass()" ng-style="disabled"#}
+                                                {#ng-click="loadMore()" >MORE TWEETS</a>#}
+                                                {#</div>#}
+                                            </div>
+
+                                            {#<div ng-if="">#}
+                                            {#<p class="news_space_absolut_text">No tweet for {{ symbol }}</p>#}
+                                            {#</div>#}
+                                        </div>
+                                        {#/************************************************************************************/#}
+                                        <div ng-show="isSet(2)">
+                                            {#watchlist grid-list#}
+                                            <div class="row">
+                                                <div class="review_list oh_no_signin">
+                                                    {% include 'default/title_bar_list_feed.html.twig' %}
+
+                                                    {#----> watchlist exist#}
+                                                    <div class="review_list_cont-heder  ng-cloak" >
+                                                        <div class="abs">
+                                                            <div class="general_review_cont-block review_list_name">
+                                                                <div class="review_list_center">
+                                                                    <p style="cursor: pointer" class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
+                                                                    <img class="live_block_top_img sm-none" ng-src='{{asset("img/Stock_Logos/facebook.png")}}' onerror="this.src='/img/Stock_Logos/stocks.png'";>
+                                                                    <h2 class="live_block_top_title">Facebook</h2>
+                                                                    <p class="live_block_money-right live_block_money_red live_block_money_border mobile_padding mobile-block mobile-block">2.22</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="general_review_cont-block review_list_cont-text">
+                                                                <div class="review_list_center">
+                                                                    <p class="live_block_money-right  mobile_margin"><span class="live_block_money_bold" ng-class="{'negative': item.variation == 'down', 'positive':item.variation == 'up', 'neutral': item.variation == 'none'}">55 $</span></p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="general_review_cont-block review_list_cont-text sm-none">
+                                                                <div class="review_list_center">
+                                                                    {#<p class="live_block_money-right" ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}">2.22</p>#}
+                                                                    <p class="live_block_money-right live_block_money_green live_block_money_border_green" >2.22</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="general_review_cont-block review_list_cont-text sm-none">
+                                                                <div class="review_list_center">
+                                                                    <p class="live_block_money-right"><span class="live_block_money_bold">100</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="general_review_cont-block review_list_cont-text">
+                                                                <div class="review_list_center">
+                                                                    <p class="live_block_money-right  mobile_bold_margin"><span class="live_block_money_bold sm-none">10</span>
+                                                                        <span class="live_block_money_bold mobile-block">10<br></span>
+                                                                        <span class="live_block_money_bold mobile-block">/11</span></p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="general_review_cont-block review_list_cont-bar ms-none">
+                                                                <div class="review_list_center">
+                                                                    {#SENTIMENT#}
+                                                                    <p>
+                                                                        {#logIn - Close#}
+                                                                        <span class="chart_bitcoin-reting_prozent_like">
+                                                                            <i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>
+                                                                        </span>
+                                                                        <span  class="chart_bitcoin-reting_prozent_like">
+                                                                            <i class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>
+                                                                        </span>
+                                                                    </p>
+                                                                    {#<p ng-if="userLoggedIn">#}
+                                                                    {#logIn - Close#}
+                                                                    {#<span ng-if="item.status_sentiment == 'CLOSE'" class="chart_bitcoin-reting_prozent_like">#}
+                                                                    {#<i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>#}
+                                                                    {#</span>#}
+                                                                    {#<span ng-if="item.status_sentiment == 'CLOSE'" class="chart_bitcoin-reting_prozent_like">#}
+                                                                    {#<i class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>#}
+                                                                    {#</span>#}
+
+                                                                    {#logIn - Open on Bullish#}
+                                                                    {#<span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment == 'BULLISH'" class="chart_bitcoin-reting_prozent_like">#}
+                                                                    {#<i  class="button_sentiment_list button_bullish_list_selected" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>#}
+                                                                    {#</span>#}
+                                                                    {#<span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment != 'BEARISH'" class="chart_bitcoin-reting_prozent_like">#}
+                                                                    {#<i  class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>#}
+                                                                    {#</span>#}
+
+                                                                    {#logIn - Open on Bearish#}
+                                                                    {#<span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment != 'BULLISH'" class="chart_bitcoin-reting_prozent_like">#}
+                                                                    {#<i class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>#}
+                                                                    {#</span>#}
+                                                                    {#<span ng-if="item.status_sentiment == 'OPEN' && item.type_sentiment == 'BEARISH'" class="chart_bitcoin-reting_prozent_like">#}
+                                                                    {#<i class="button_sentiment_list button_bearish_list_selected" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>#}
+                                                                    {#</span>#}
+                                                                    {#</p>#}
+
+                                                                    <div class="chart_bitcoin-reting_progress-bar">
+                                                                        {#<div ng-if="item.more_bullish" class="reting_progress-bar_click chart_bitcoin-reting_prozent" >{[{item.sentiment}]}% Bullish</div>#}
+                                                                        {#<div ng-if="!item.more_bullish" class="reting_progress-bar_click chart_bitcoin-reting_prozent reting_progress-bar_click_red" >{[{item.sentiment}]}% Bearish</div>#}
+
+                                                                        <div class="reting_progress-bar_click chart_bitcoin-reting_prozent" >53% Bullish</div>
+                                                                        {#<div class="reting_progress-bar_click chart_bitcoin-reting_prozent reting_progress-bar_click_red" >54% Bearish</div>#}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="general_review_cont-block review_list_cont-chart">
+                                                                <div class="review_list_center">
+                                                                    <a ng-click="ActiveChange_Watchlist(item.pair, item.type, item.complete_name,'{{ app.request.getLocale() }}');"><img class="live_block_chart" src='{{asset("img/chart-design/chart_1.png")}}'  alt="chart_1"></a>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="general_review_cont-block review_list_cont-btn">
+                                                                <div class="review_list_center">
+                                                                    <a class="live_trade-btn" href="http://borthy-carges.com/98dd47bc-5797-47bf-847a-784a2445ee36" target="_blank">{{ 'button.trade'|trans }} <span class="live_trade-btn_none">{{ 'button.now'|trans }}</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div style="height: 50px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {#/************************************************************************************/#}
+                                        <div ng-show="isSet(3)">
+                                            <hr >
+                                            <div>
+                                                <div class="post_user-cont each_post" >
+                                                    <a class="post_news" href="#" target="_blank">
+
+                                                        <div class="row">
+                                                            <div class="col-md-1 col-sm-1 col-xs-2">
+                                                                <div class="post-cont_img">
+                                                                    <img class="post_user-img" src='{{asset("img/Flags1/en.png")}}'  alt="france">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-8 col-sm-8 col-xs-4">
+                                                                <div class="post_user-cont_text">
+                                                                    <p class="post_user-cont_name">John.S</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-3 col-sm-3 col-xs-6">
+                                                                {#<a class="following-btn sm-none" style="">FOLLOWING</a>#}
+                                                                <a class="follow-btn follow_in_table sm-none" style="">FOLLOW</a>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                                {#<div class="review_cont-btn">#}
+                                                {#<a class="review_more-btn" ng-class="nextPageDisabledClass()" ng-style="disabled"#}
+                                                {#ng-click="loadMore()" >MORE TWEETS</a>#}
+                                                {#</div>#}
+                                            </div>
+
+                                            <div>
+                                                <div class="post_user-cont each_post" >
+                                                    <a class="post_news" href="#" target="_blank">
+
+                                                        <div class="row">
+                                                            <div class="col-md-1 col-sm-1 col-xs-2">
+                                                                <div class="post-cont_img">
+                                                                    <img class="post_user-img" src='{{asset("img/Flags1/en.png")}}'  alt="france">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-8 col-sm-8 col-xs-4">
+                                                                <div class="post_user-cont_text">
+                                                                    <p class="post_user-cont_name">John.S</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-3 col-sm-3 col-xs-6">
+                                                                <a class="following-btn following_in_table sm-none" style="">FOLLOWING</a>
+                                                                {#<a class="follow-btn follow_in_table sm-none" style="">FOLLOW</a>#}
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                                {#<div class="review_cont-btn">#}
+                                                {#<a class="review_more-btn" ng-class="nextPageDisabledClass()" ng-style="disabled"#}
+                                                {#ng-click="loadMore()" >MORE TWEETS</a>#}
+                                                {#</div>#}
+                                            </div>
+
+                                            {#<div ng-if="">#}
+                                            {#<p class="news_space_absolut_text">No tweet for {{ symbol }}</p>#}
+                                            {#</div>#}
+                                        </div>
+
+                                        {#/************************************************************************************/#}
+                                        <div ng-show="isSet(4)">
+                                            <hr>
+                                            <div>
+                                                <div class="post_user-cont each_post" >
+                                                    <a class="post_news" href="#" target="_blank">
+
+                                                        <div class="row">
+                                                            <div class="col-md-1 col-sm-1 col-xs-2">
+                                                                <div class="post-cont_img">
+                                                                    <img class="post_user-img" src='{{asset("img/Flags1/en.png")}}'  alt="france">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-8 col-sm-8 col-xs-4">
+                                                                <div class="post_user-cont_text">
+                                                                    <p class="post_user-cont_name">John.S</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-3 col-sm-3 col-xs-6">
+                                                                {#<a class="following-btn sm-none" style="">FOLLOWING</a>#}
+                                                                <a class="follow-btn follow_in_table sm-none" style="">FOLLOW</a>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                                {#<div class="review_cont-btn">#}
+                                                {#<a class="review_more-btn" ng-class="nextPageDisabledClass()" ng-style="disabled"#}
+                                                {#ng-click="loadMore()" >MORE TWEETS</a>#}
+                                                {#</div>#}
+                                            </div>
+
+                                            <div>
+                                                <div class="post_user-cont each_post" >
+                                                    <a class="post_news" href="#" target="_blank">
+
+                                                        <div class="row">
+                                                            <div class="col-md-1 col-sm-1 col-xs-2">
+                                                                <div class="post-cont_img">
+                                                                    <img class="post_user-img" src='{{asset("img/Flags1/en.png")}}'  alt="france">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-8 col-sm-8 col-xs-4">
+                                                                <div class="post_user-cont_text">
+                                                                    <p class="post_user-cont_name">John.S</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-3 col-sm-3 col-xs-6">
+                                                                <a class="following-btn following_in_table sm-none" style="">FOLLOWING</a>
+                                                                {#<a class="follow-btn follow_in_table sm-none" style="">FOLLOW</a>#}
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                                {#<div class="review_cont-btn">#}
+                                                {#<a class="review_more-btn" ng-class="nextPageDisabledClass()" ng-style="disabled"#}
+                                                {#ng-click="loadMore()" >MORE TWEETS</a>#}
+                                                {#</div>#}
+                                            </div>
+
+                                            {#<div ng-if="">#}
+                                            {#<p class="news_space_absolut_text">No tweet for {{ symbol }}</p>#}
+                                            {#</div>#}
+                                        </div>
+
+                                        {#/************************************************************************************/#}
+                                        <div ng-show="isSet(5)">
+                                            <div class="row">
+                                                <div class="review_list oh_no_signin">
+                                                    <div class="review_list_cont-heder">
+                                                        <div class="abs">
+                                                            <div class="general_review_cont-block review_list_name review_list_name_profil">
+                                                                <div class="review_list_center">
+                                                                    <p class="review_list_title review_list_title_profil">Name</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="general_review_cont-block review_list_cont-text review_list_cont-text_profil sm-none">
+                                                                <div class="review_list_center">
+                                                                    <p class="review_list_title review_list_title_profil">Sentiment</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="general_review_cont-block review_list_cont-text review_list_cont-text_profil">
+                                                                <div class="review_list_center">
+                                                                    <p class="review_list_title review_list_title_profil">Start Price</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="general_review_cont-block review_list_cont-text review_list_cont-text_profil sm-none">
+                                                                <div class="review_list_center">
+                                                                    <p class="review_list_title review_list_title_profil">{{ 'change'|trans }} %</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="general_review_cont-block review_list_cont-text review_list_cont-text_profil">
+                                                                <div class="review_list_center">
+                                                                    <p class="review_list_title review_list_title_profil">Start Date</p>
+                                                                </div>
+                                                            </div>
+                                                            {#<div class="general_review_cont-block review_list_cont-bar ms-none">#}
+                                                            {#<div class="review_list_center">#}
+                                                            {#<p class="review_list_title">{{ 'sentiment'|trans }}</p>#}
+                                                            {#</div>#}
+                                                            {#</div>#}
+
+                                                            <div class="general_review_cont-block review_list_cont-btn review_list_cont-btn_profil sm-none">
+                                                                <div class="review_list_center">
+                                                                    <p class="review_list_title review_list_title_profil">Close</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    {#----> watchlist exist#}
+                                                    <div class="review_list_cont-heder  ng-cloak" >
+                                                        <div class="abs">
+                                                            {#name#}
+                                                            <div class="general_review_cont-block review_list_name review_list_name_profil">
+                                                                <div class="review_list_center">
+                                                                    <img class="live_block_top_img sm-none" ng-src='{{asset("img/Stock_Logos/facebook.png")}}' onerror="this.src='/img/Stock_Logos/stocks.png'";>
+                                                                    <span style="text-align: left" class="live_block_top_title">Facebook</span>
+                                                                    <span style="width: 60%" class="button_sentiment_list button_sentiment_list_mobile button_bearish_list mobile_font mobile_font_sent">{{  'button.bearish'|trans }}</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="general_review_cont-block review_list_cont-bar  review_list_cont-bar_profil sm-none">
+                                                                <div class="review_list_center">
+                                                                    <p  style="margin: auto; text-align: center;" >
+                                                                        {#<span ng-click="click_on_star()" class="chart_bitcoin-reting_prozent_like"><i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></span>#}
+                                                                        <span ng-click="click_on_star()" class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bearish_list mobile_font mobile_font_sent" target="_blank"   style="font-size: small;"  ><b>{{ 'button.bearish'|trans }}</b></i></span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            {#sentiment#}
+                                                            {#<div class="general_review_cont-block review_list_cont-bar ms-none">#}
+                                                            {#<div class="review_list_center">#}
+                                                            {#SENTIMENT#}
+                                                            {#<p>#}
+                                                            {#logIn - Close#}
+                                                            {#<span class="chart_bitcoin-reting_prozent_like">#}
+                                                            {#<i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>#}
+                                                            {#</span>#}
+                                                            {#<span  class="chart_bitcoin-reting_prozent_like">#}
+                                                            {#<i class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>#}
+                                                            {#</span>#}
+                                                            {#</p>#}
+
+                                                            {#</div>#}
+                                                            {#</div>#}
+
+                                                            {#price#}
+                                                            <div class="general_review_cont-block review_list_cont-text review_list_cont-text_profil">
+                                                                <div class="review_list_center">
+                                                                    <p class="live_block_money-right">
+                                                                        <span class="live_block_money_bold sm-none">8.001$</span>
+                                                                        <span style="text-align: center" class="live_block_money_bold live_block_top_title mobile-block ">8.001$<br></span>
+                                                                        {#<p class="live_block_money-right mobile_padding mobile-block mobile-block" ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}">{[{(item.change24)}]}</p>#}
+                                                                        <span style="text-align: center;text-align: center;font-size: 12px;padding-top: 1px!important;padding-bottom: 1px!important;"
+                                                                              class="live_block_money-right mobile_padding mobile-block mobile-block live_block_money_red live_block_money_border">2.22</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            {#change#}
+                                                            <div class="general_review_cont-block review_list_cont-text review_list_cont-text_profil sm-none">
+                                                                <div class="review_list_center">
+                                                                    {#<p class="live_block_money-right" ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}">2.22</p>#}
+                                                                    <p class="live_block_money-right live_block_money_green live_block_money_border_green" >2.22</p>
+                                                                </div>
+                                                            </div>
+
+                                                            {#start day#}
+                                                            <div class="general_review_cont-block review_list_cont-text review_list_cont-text_profil">
+                                                                <div class="review_list_center">
+                                                                    <p class="live_block_money-right"><span class="live_block_money_bold live_block_top_title">Aug 21, 2018</span></p>
+                                                                    <a class="live_trade-btn mobile_font button_sentiment_list_mobile live_trade-btn_mobile">CLOSE</a>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="general_review_cont-block review_list_cont-btn review_list_cont-btn_profil sm-none">
+                                                                <div class="review_list_center" style="width: 50%; margin-left: 25%">
+                                                                    <a class="live_trade-btn mobile_font ">CLOSE</a>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="review_list_cont-heder  ng-cloak" >
+                                                        <div class="abs">
+                                                            {#name#}
+                                                            <div class="general_review_cont-block review_list_name review_list_name_profil">
+                                                                <div class="review_list_center">
+                                                                    <img class="live_block_top_img sm-none" ng-src='{{asset("img/Stock_Logos/facebook.png")}}' onerror="this.src='/img/Stock_Logos/stocks.png'";>
+                                                                    <span style="text-align: left" class="live_block_top_title">Facebook</span>
+                                                                    <span style="width: 60%" class="button_sentiment_list button_sentiment_list_mobile button_bearish_list mobile_font mobile_font_sent">{{  'button.bearish'|trans }}</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="general_review_cont-block review_list_cont-bar  review_list_cont-bar_profil sm-none">
+                                                                <div class="review_list_center">
+                                                                    {#<p ng-if="!userLoggedIn"    style="margin: auto; text-align: center;" >#}
+                                                                    <p style="margin: auto; text-align: center;" >
+                                                                        {#<span ng-click="click_on_star()" class="chart_bitcoin-reting_prozent_like"><i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i></span>#}
+                                                                        <span ng-click="click_on_star()" class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bearish_list mobile_font mobile_font_sent" target="_blank"   style="font-size: small;"  ><b>{{ 'button.bearish'|trans }}</b></i></span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            {#sentiment#}
+                                                            {#<div class="general_review_cont-block review_list_cont-bar ms-none">#}
+                                                            {#<div class="review_list_center">#}
+                                                            {#SENTIMENT#}
+                                                            {#<p>#}
+                                                            {#logIn - Close#}
+                                                            {#<span class="chart_bitcoin-reting_prozent_like">#}
+                                                            {#<i  class="button_sentiment_list button_bullish_list" target="_blank"><b>{{ 'button.bullish'|trans }}</b></i>#}
+                                                            {#</span>#}
+                                                            {#<span  class="chart_bitcoin-reting_prozent_like">#}
+                                                            {#<i class="button_sentiment_list button_bearish_list" target="_blank"><b>{{ 'button.bearish'|trans }}</b></i>#}
+                                                            {#</span>#}
+                                                            {#</p>#}
+
+                                                            {#</div>#}
+                                                            {#</div>#}
+
+                                                            {#price#}
+                                                            <div class="general_review_cont-block review_list_cont-text review_list_cont-text_profil">
+                                                                <div class="review_list_center">
+                                                                    <p class="live_block_money-right">
+                                                                        <span class="live_block_money_bold sm-none">8.001$</span>
+                                                                        <span style="text-align: center" class="live_block_money_bold live_block_top_title mobile-block ">8.001$<br></span>
+                                                                        {#<p class="live_block_money-right mobile_padding mobile-block mobile-block" ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}">{[{(item.change24)}]}</p>#}
+                                                                        <span style="text-align: center;text-align: center;font-size: 12px;padding-top: 1px!important;padding-bottom: 1px!important;"
+                                                                              class="live_block_money-right mobile_padding mobile-block mobile-block live_block_money_red live_block_money_border">2.22</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            {#change#}
+                                                            <div class="general_review_cont-block review_list_cont-text review_list_cont-text_profil sm-none">
+                                                                <div class="review_list_center">
+                                                                    {#<p class="live_block_money-right" ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}">2.22</p>#}
+                                                                    <p class="live_block_money-right live_block_money_green live_block_money_border_green" >2.22</p>
+                                                                </div>
+                                                            </div>
+
+                                                            {#start day#}
+                                                            <div class="general_review_cont-block review_list_cont-text review_list_cont-text_profil">
+                                                                <div class="review_list_center">
+                                                                    <p class="live_block_money-right"><span class="live_block_money_bold live_block_top_title">Aug 21, 2018</span></p>
+                                                                    <a class="live_trade-btn mobile_font button_sentiment_list_mobile live_trade-btn_mobile">CLOSE</a>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="general_review_cont-block review_list_cont-btn review_list_cont-btn_profil sm-none">
+                                                                <div class="review_list_center" style="width: 50%; margin-left: 25%">
+                                                                    <a class="live_trade-btn mobile_font ">CLOSE</a>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div style="height: 50px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {#/************************************************************************************/#}
+                                    </div>
+                                </div>
+                                {#*********************************************************#}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script data-require="angular-ui-bootstrap@0.3.0" data-semver="2.5.0" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
+    {#<script src="{{ asset('js/Feeds/CryptoFeeds.js') }}"></script>#}
+    <script src="{{ asset('js/Profile.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/compiled.min.css') }}" >
+    <link rel="stylesheet" href="{{ asset('css/compiled-feeds.css') }}" >
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}" >
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+{% endblock %}

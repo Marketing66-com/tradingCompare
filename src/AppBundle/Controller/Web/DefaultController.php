@@ -118,6 +118,16 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/my-profile",name="my-profile", options={"expose" = true})
+     */
+    public function my_profileAction(Request $request)
+    {
+        $id = $request->get('client_id');
+        return $this->render('default/my-profile.html.twig', array("id"=>$id));
+    }
+
+
+    /**
      * @Route("/profile",name="user-profile", options={"expose" = true})
      */
     public function user_profileAction()
@@ -289,12 +299,12 @@ class DefaultController extends Controller
 //        return $this->render('default/test/signup.html.twig');
 //    }
 //
-//    /**
-//     * @Route("/autocomplete", name="autocomplete")
-//     */
-//    public function autocompleteAction()
-//    {
-//        return $this->render('default/test/signup.html.twig');
-//    }
+    /**
+     * @Route("/test", name="test")
+     */
+    public function autocompleteAction()
+    {
+        return $this->render('default/test/signup.html.twig');
+    }
 
 }

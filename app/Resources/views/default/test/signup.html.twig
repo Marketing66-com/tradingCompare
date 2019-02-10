@@ -1,34 +1,112 @@
+
 {% extends 'base.html.twig' %}
 
+{% block description %}
+    <title>{{ 'title.crypto_feed'|trans }}</title>
+    <meta name="description" content="{{ 'description.crypto_feed'|trans }}">
+{% endblock %}
 
 {% block body %}
-    {#<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>#}
-    <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.1.0.js"></script>
-    {#<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">#}
-<div id="dv">
 
-        <div ng-controller="ListCtrl">
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Value</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="item in items">
-                    <td>{[{item.name}]}</td>
-                    <td>{[{item.value}]}</td>
-                    <td><button class="btn btn-small" ng-click="edit(item)">Edit</button></td>
-                </tr>
-                </tbody>
-            </table>
+    <div id="body" ng-app="widgets">
 
+    <div class="container-fluid img-rounded" style="border: 1px solid gray; padding: 25px; display: inline-block; width: 400px"
+         ng-controller="WidgetsController">
+
+     <div click-to-edit type="inputText" ng-model="sprintName"></div>
+     <br/>
+     {#<div click-to-edit type="inputText" ng-model="sprintDesc"></div>#}
+
+    </div>
+    </div>
+
+    <style>
+        #body{
+            padding: 25px;
+            background-color: black;
+            color: gray;
+        }
+        .templateRoot{
+            display: inline-block;
+        }
+        .hover-edit-trigger {
+            padding: 3px;
+        }
+        .hover-edit-trigger:hover{
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+        }
+        .edit-pencil{
+            display: none;
+            margin-left: 3px;
+            padding: 3px;
+            border-left: 1px solid #dcdcdc;
+        }
+        .hover-text-field:hover .edit-pencil{
+            display: inline-block;
+        }
+        .edit-button-group{
+            border: 1px solid #dcdcdc;
+            border-top: none;
+            border-radius: 4px;
+            padding: 0px 3px 0px 3px;
+        }
+        .edit-button-group .glyphicon{
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            margin: 1px;
+            cursor: pointer;
+        }
+    </style>
+    {#//*******************************************************************************************#}
+    <div id="dvCrypto">
+        <div  ng-controller="ListController as list">
+            <div  ng-init="init('https://crypto.tradingcompare.com/AllPairs')" >
+                <section class="table">
+                    {#<div ng-if="spinner" id="spinner" >#}
+                        {#<img id="img-spinner" src="{{ asset('img/ajax-loader5.gif') }}" alt="loading">#}
+                    {#</div>#}
+
+                    {#{{ include('LiveFeedBundle:Default:live_feed.html.twig') }}#}
+
+                    <div class="container-fluid img-rounded" style="border: 1px solid gray; padding: 25px; display: inline-block; width: 400px">
+
+                        <div click-to-edit type="inputText" ng-model="sprintName"></div>
+                        <br/>
+                        {#<div click-to-edit type="inputText" ng-model="sprintDesc"></div>#}
+
+                    </div>
+
+                    <button ng-click="click()">hello</button>
+
+
+                    <h1>fa fa-pencil</h1>
+
+                    <i class="fa fa-pencil"></i>
+                    <i class="fa fa-pencil" style="font-size:24px"></i>
+                    <i class="fa fa-pencil" style="font-size:36px"></i>
+                    <i class="fa fa-pencil" style="font-size:48px;color:red"></i>
+                    <br>
+
+                    <p>Used on a button:</p>
+                    <button style="font-size:24px">Button <i class="fa fa-pencil"></i></button>
+
+                    <p>Unicode:</p>
+                    <i style="font-size:24px" class="fa">&#xf040;</i>
+                </section>
+            </div>
         </div>
+    </div>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-</div>
+    <script data-require="angular-ui-bootstrap@0.3.0" data-semver="2.5.0" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
+    <script src="{{ asset('js/Feeds/CryptoFeeds.js') }}"></script>
     <script src="{{ asset('js/test.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/compiled-feeds.css') }}" >
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    {#//*******************************************************************************************#}
 {% endblock %}
-{#//******************************************************************************************************#}
+
+

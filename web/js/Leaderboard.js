@@ -71,13 +71,14 @@ LeaderboardApp.controller('LeaderboardController', function($scope,$window,$loca
                     }
 
                     MemberService.getUsersById($scope.idToken, $scope._id).then(function (results) {
-                        //console.log("getUsersById",results.data)
+                        // console.log("getUsersById",results.data)
                         $scope.user = results.data
                         $scope.got_user = true
                     })
                     .then(()=>{
                         MemberService.getFollowingOfUser($scope.idToken).then(function (results) {
                             $scope.get_following = results
+                            console.log('*******',$scope.get_following)
                             $scope.got_following_flag = true
                         })
                         .then(()=>{

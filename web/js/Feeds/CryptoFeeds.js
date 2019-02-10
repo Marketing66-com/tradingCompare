@@ -242,7 +242,7 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
                 $http.post("https://xosignals.herokuapp.com/trading-compare-v2/get-sentiment-by-type/", {symbol_type: 'CRYPTO'})
                     .then(function (response) {
                         $scope.all_crypto_sentiments = response.data
-                        //console.log("all_crypto_sentiments",$scope.all_crypto_sentiments)
+                        console.log("all_crypto_sentiments",$scope.all_crypto_sentiments)
                     })
                     .then(function () {
                         //console.log("$scope.result*****",$scope.result)

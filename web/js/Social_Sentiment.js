@@ -155,40 +155,6 @@ Social_Sentiment_Ctrl.controller("Social_Sentiment_Ctrl", function ($scope,$http
             })
     })
 
-
-
-//         MemberService.getUsersById($scope.idToken, $scope._id).then(function (results) {
-//             // console.log("getUsersById", results.data._id,"--",results.data)
-//             $scope.Id= results.data._id
-//             console.log("getUsersById", results.data._id,"--",$scope._id)
-//
-//             // $scope.$apply();
-//
-//         $http.get("https://xosignals.herokuapp.com/trading-compare-v2/get-sentiments-leaderboard")
-//             .then(function (result) {
-//                 if (result.data.length>10){
-//                     $scope.leaderbord=result.data.slice(0,10)
-//                     $scope.leaderEnd=result.data.slice(10)
-//                 }
-//                 else
-//                 $scope.leaderbord= result.data;
-//
-//                 result.data.forEach(element => {
-//                     console.log(element._id,$scope.Id)
-//                     if(element._id == $scope.Id){
-//                        $scope.MyPercent= element.total_corect_percent
-//                        $scope.Havepercent=true
-//                     }
-//                 })
-//                     console.log("leaderbord",$scope.MyPercent, $scope.Havepercent)
-//
-//             })
-//             .catch(function (error) {
-//                 $scope.data = error;
-//                 console.log("error", $scope.data)
-//                 $scope.$apply();
-//             })
-//         })
     }
     ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -216,7 +182,7 @@ Social_Sentiment_Ctrl.controller("Social_Sentiment_Ctrl", function ($scope,$http
                 $scope.sent[$scope.listTemp[j].pair].change24 = $scope.listTemp[j].change24;
                 $scope.sent[$scope.listTemp[j].pair].img = $scope.listTemp[j].img;
             }
-            //console.log("sentiments",$scope.sent)
+            console.log("sentiments",$scope.sent)
             $scope.sentiment_list = true
             $scope.$apply()
 
