@@ -158,10 +158,10 @@
                                                         <p class="comments_user-text">
                                                             {[{comment.txt}]}
                                                         </p>
-                                                        <ul class="comments_user-text_reply">
-                                                            Like
-                                                            <li class="mu-reply"> {[{comment.date_from_now}]}</li>
-                                                            <li class="mu-reply"><a>Reply</a></li>
+                                                        <ul  style="margin-left: 30px;" class="comments_user-text_reply">
+                                                            {#Like#}
+                                                            <li style="list-style-type: none" class="mu-reply"> {[{comment.date_from_now}]} ago</li>
+                                                            {#<li class="mu-reply"><a>Reply</a></li>#}
                                                         </ul>
                                                     </div>
                                                     {#<div class="sub-comments">#}

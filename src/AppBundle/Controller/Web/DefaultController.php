@@ -122,7 +122,7 @@ class DefaultController extends Controller
      */
     public function my_profileAction(Request $request)
     {
-        $id = $request->get('client_id');
+        $id = $request->get('field1');
         return $this->render('default/my-profile.html.twig', array("id"=>$id));
     }
 
