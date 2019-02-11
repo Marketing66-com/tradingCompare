@@ -42,7 +42,17 @@ LogButton.controller('LogButton', function ($scope, $window, MemberService) {
         });
     };
 
-    $scope.profile = function() { console.log("in profile")}
+    $scope.profile = function() {
+        console.log("in profile")
+        if($scope.userLoggedIn){
+            var url =  decodeURIComponent(Routing.generate('my-profile'))
+            $window.location= url
+        }
+        else{
+            $('.modal_sigh-up').slideDown();
+        }
+
+    }
 
     $scope.logout = function(){
         firebase.auth().signOut();

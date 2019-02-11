@@ -204,5 +204,30 @@ class MemberSpaceController extends BaseController
         $response= $this->get(ApiClient::class)->AddFollow($data);
         return new JsonResponse($response);
     }
+    /**
+     * @Security("is_granted('ROLE_USER')")
+     * @Route("/get-followers", name="get-followers", options={"i18n"=false})
+     * @throws \Exception
+     */
+    public function get_followersAction()
+    {
+        /** @var User $user */
+        $user = $this->getUser();
 
+        $following = $this->get(ApiClient::class)->getFollowers($user->getIdentifier());
+        return new JsonResponse($following);
+    }
+    /**
+     * @Security("is_granted('ROLE_USER')")
+     * @Route("/get-comments-by-id", name="get-comments-by-id", options={"i18n"=false})
+     * @throws \Exception
+     */
+    public function get_CommentsByIDAction()
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $following = $this->get(ApiClient::class)->getCommentsByID($user->getIdentifier());
+        return new JsonResponse($following);
+    }
 }

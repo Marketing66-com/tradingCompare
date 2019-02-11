@@ -118,22 +118,19 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/my-profile",name="my-profile", options={"expose" = true})
+     * @Route("/profile",name="profile", options={"expose" = true})
+     */
+    public function profileAction(Request $request)
+    {
+        $id = $request->get('client_id');
+        return $this->render('default/user-profile.html.twig', array("id"=>$id));
+    }
+    /**
+     * @Route("/myprofile",name="my-profile", options={"expose" = true})
      */
     public function my_profileAction(Request $request)
     {
-        $id = $request->get('client_id');
-        return $this->render('default/my-profile.html.twig', array("id"=>$id));
-    }
-
-
-    /**
-     * @Route("/profile",name="user-profile", options={"expose" = true})
-     */
-    public function user_profileAction()
-    {
-
-        return $this->render('default/user-profile.html.twig');
+        return $this->render('default/Myprofile.html.twig');
     }
 
     /**

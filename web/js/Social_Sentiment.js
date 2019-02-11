@@ -1,10 +1,11 @@
 var Social_Sentiment_Ctrl = angular.module('Social_Sentiment_Ctrl', ['ui.bootstrap', 'memberService','watchlistService']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');});
 
-Social_Sentiment_Ctrl.controller("Social_Sentiment_Ctrl", function ($scope,$http,$window,MemberService,WatchlistService,$timeout) {
+Social_Sentiment_Ctrl.controller("Social_Sentiment_Ctrl", function ($scope,$http,$location,$window,MemberService,WatchlistService,$timeout) {
 
     $scope.sentStock = []; $scope.sentCrypto = []; $scope.sentForex = [];
     $scope.sent={};
+    $scope.sentarray=[];$scope.sentarray1=[];$scope.sentarray2=[];
     $scope.strStock = "";  $scope.strCrypto = "";  $scope.strForex = ""
     $scope.listTemp =[] ;
     $scope.MyPercent;$scope.Id
@@ -98,6 +99,7 @@ Social_Sentiment_Ctrl.controller("Social_Sentiment_Ctrl", function ($scope,$http
                                     BuildSentimentlist()
                                 })
                                 .then(()=>{
+
                                     var check = function() {
                                         if(  $scope.sentiment_list == true && $scope.leaderbord_list == true) {
                                             $scope.spinner = false
@@ -182,7 +184,18 @@ Social_Sentiment_Ctrl.controller("Social_Sentiment_Ctrl", function ($scope,$http
                 $scope.sent[$scope.listTemp[j].pair].change24 = $scope.listTemp[j].change24;
                 $scope.sent[$scope.listTemp[j].pair].img = $scope.listTemp[j].img;
             }
-            console.log("sentiments",$scope.sent)
+            // console.log("sentiments",$scope.sent)
+           for (var element in $scope.sent){
+                if($scope.sent[element].status=="OPEN") {
+                    $scope.sentarray1.push($scope.sent[element])
+                }
+                else if($scope.sent[element].status=="CLOSE") {
+                    $scope.sentarray2.push($scope.sent[element])
+                }
+           }
+           $scope.sentarray= $scope.sentarray1.concat($scope.sentarray2)
+            // console.log("sentiments",$scope.sentarray)
+
             $scope.sentiment_list = true
             $scope.$apply()
 
@@ -249,12 +262,22 @@ Social_Sentiment_Ctrl.controller("Social_Sentiment_Ctrl", function ($scope,$http
                  break;
          }
 
+
         });
 
 
         promise1.then(function(value) {
             // console.log(value);
             console.log("hello", $scope.sent);
+
+            for (var i=0; i<$scope.sentarray1.length;i++) {
+                if($scope.sentarray1[i].symbol==$scope.sent[item.symbol].symbol) {
+                    $scope.sentarray1.splice(i,1)
+                    $scope.sentarray2.push($scope.sent[item.symbol])
+                }
+            }
+           $scope.sentarray= $scope.sentarray1.concat($scope.sentarray2)
+            $scope.$apply();
 
         $scope.data_to_send ={
             _id: item.user_id,
@@ -275,7 +298,82 @@ Social_Sentiment_Ctrl.controller("Social_Sentiment_Ctrl", function ($scope,$http
             })
     })
     }
+    $scope.clickid= function(id) {
+        console.log('in click')
+        if(id==$scope._id._id){
+            $('body').append($('<form/>', {
+                id: 'form',
+                method: 'POST',
+                action: Routing.generate('my-profile')
+            }));
+        }
+        else {
+            $('body').append($('<form/>', {
+                id: 'form',
+                method: 'POST',
+                action: Routing.generate('profile')
+            }));
+        }
+        $('#form').append($('<input/>', {
+            type: 'hidden',
+            name: 'client_id',
+            value: id
+        }));
 
+        $('#form').submit();
+    }
+    $scope.ActiveChange = function (symbol, name, _locale) {
+
+        var new_array = ['-', ' ', '/', '----', '---', '--']
+        for(var i=0; i<new_array.length;i++) {
+            if (name.indexOf(new_array[i]) > -1) {
+                if (new_array[i] == '-')
+                    name = name.replace(new RegExp(new_array[i], 'g'), ' ')
+                else
+                    name = name.replace(new RegExp(new_array[i], 'g'), '-')
+            }
+            if (name.indexOf("'") > -1) {
+                name = name.replace(/'/g, '')
+            }
+        }
+
+        var url =  decodeURIComponent(Routing.generate('stock_chart',{"symbol" :symbol, "name":name, "_locale": _locale }))
+        //console.log("url",url)
+        $window.location= url
+        return url
+    }
+
+    $scope.ActiveChange_Watchlist = function (symbol, type, name, _locale) {
+        // console.log("currency",symbol, "name",name, "_locale",_locale)
+
+        switch (type) {
+            case "STOCK":
+                $scope.ActiveChange(symbol, name, _locale)
+                break;
+
+            case "CRYPTO":
+                if(name.indexOf(' ') > -1)
+                    name = name.replace(/ /g, '-')
+
+                var url =  decodeURIComponent(Routing.generate('crypto_chart',{"currency" :symbol, "name" :name, "_locale": _locale}))
+                //console.log(Routing.generate('crypto_chart',{"currency" : symbol, "name" :name, "_locale": _locale}))
+                $window.location= url
+                break;
+
+            case "FOREX":
+                var from = symbol.slice(0, 3)
+                var to = symbol.slice(3, 6)
+                symbol = from + "-" + to
+                //console.log("symbol",symbol, _locale)
+                var url =  Routing.generate('forex_chart',{"currency" :symbol, "_locale": _locale})
+                //console.log(Routing.generate('forex_chart',{"currency" :symbol, "_locale": _locale}))
+                $window.location= url
+                break;
+
+            default:
+                break;
+        }
+    }
 })
 
 var dvSocialSentiment = document.getElementById('dvSocialSentiment');

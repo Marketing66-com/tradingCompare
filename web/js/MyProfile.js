@@ -1,9 +1,8 @@
-var ProfileApp = angular.module('ProfileApp', ['ui.bootstrap', 'memberService','watchlistService']).config(function ($interpolateProvider) {
+var MyProfileApp = angular.module('MyProfileApp', ['ui.bootstrap', 'memberService','watchlistService']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');});
 
-ProfileApp.controller('ProfileController', function($scope,$window,$location,$http,MemberService,WatchlistService, $interval,$timeout,$uibModal) {
-    $scope.init = function (Other_id) {
-        console.log('id********', Other_id)
+MyProfileApp.controller('MyProfileController', function($scope,$window,$location,$http,MemberService,WatchlistService, $interval,$timeout,$uibModal) {
+
         $scope.tab = 1;
 
         $scope.setTab = function (newTab) {
@@ -14,8 +13,9 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
             return $scope.tab === tabNum;
         };
 
-        $scope.Other_id = {_id: Other_id}
-        $scope.other_Sentiments = []
+    $scope.the_bio_description = '';
+    $scope.sentarray=[];$scope.sentarray1=[];$scope.sentarray2=[];
+
 /////////Tab2 watchlist//////////////////
         $scope.WStock = [];
         $scope.WCrypto = [];
@@ -33,8 +33,6 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
         $scope.get_following = []
 
 ///////tab5 sentimemt//////////////////
-        $scope.sentarray=[];$scope.sentarray1=[];$scope.sentarray2=[];
-
         $scope.sentStock = [];
         $scope.sentCrypto = [];
         $scope.sentForex = [];
@@ -55,146 +53,124 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
                 user.getIdToken(true).then(function (idToken) {
                     // console.log("getIdToken")
                     $scope.idToken = idToken
+                    $scope.id = user.uid
                     $scope._id = {
                         _id: user.uid
                     }
 
-                    MemberService.createOtherUser($scope.Other_id).then(function (results) {
-                        console.log("$scope.other_User", results.data)
-                        $scope.other_User = results.data
-                        if($scope.other_User.full_name == undefined){
-                            $scope.other_User.full_name=   $scope.other_User.first_name + " "+$scope.other_User.last_name
+                    // MemberService.createOtherUser($scope.Other_id).then(function (results) {
+                    //     console.log("$scope.other_User", results.data)
+                    //     $scope.other_User = results.data
+                    // })
+                    // MemberService.getOtherFollowing($scope.Other_id._id).then(function (results) {
+                    //     // console.log("Other_following", results)
+                    //     $scope.other_following = results
+                    // })
+                    // MemberService.getOtherFollowers($scope.Other_id._id).then(function (results) {
+                    //     // console.log("Other_followers", results)
+                    //     $scope.other_followers = results
+                    // })
+                    // MemberService.getOtherComments($scope.Other_id._id).then(function (results) {
+                    //     // console.log("Other_Comments", results)
+                    //     $scope.other_Comments = results
+                    // })
+                    // MemberService.getOtherSentiments($scope.Other_id._id).then(function (results) {
+                    //     // console.log("Other_Sentiments", results)
+                    //     $scope.other_Sentiments = results
+                    // })
+
+
+                    MemberService.getUsersById($scope.idToken, $scope._id).then(function (results) {
+                        $scope.user = results.data
+                        if($scope.user.description == ""){
+                            $scope.the_bio_description = '- No description yet - Click here to fill your description'
                         }
-                        $scope.other_User.mycountry=$scope.other_User.countryData.country.toLowerCase().replace(/\s+$/, '').replace(' ','-')
-                    })
-                        .catch(function (error) {
-                            console.log('ERROR: ', error)
+                        else{
+                            $scope.the_bio_description = $scope.user.description
+                        }
+/***********************/
+                        MemberService.getSentimentsByUser($scope.idToken, $scope._id).then(function (results) {
+                            // console.log("getSentimentsByUser",results)
+                            $scope.user_sentiments = results
+                            // $scope.user_sentiments = results
                             $scope.$apply();
                         })
-                    /***************/
-                        .then(() => {
-                    MemberService.getUsersById($scope.idToken, $scope._id).then(function (results) {
-                        console.log("getUsersById", results.data)
-                        $scope.user = results.data
-                    })
-
-                        .then(() => {
-                            var promises1 = BuildPost()
-                            var promises2 = BuildWatchlist()
-                            var promises3 = BuildFollowing()
-                            var promises4 = BuildFollower()
-                            var promises5 = BuildSentiments()
-
-                            var all_promises = [promises1, promises2, promises3, promises4, promises5]
-
-                            Promise.all(all_promises).then((Arrays) => {
-
-                                console.log("get in !!!!!")
-                            })
-                                .catch(function (error) {
+                            .catch(function (error) {
                                 console.log('ERROR: ', error)
                                 $scope.$apply();
                             })
-                        })
 
+                        MemberService.getFollowingOfUser($scope.idToken).then(function (results) {
+                            $scope.get_following = results
+                            console.log($scope.get_following)
+
+                        })
+                            .catch(function (error) {
+                                console.log('ERROR: ', error)
+                                $scope.$apply();
+                            })
+
+                        MemberService.getFollowers($scope.idToken).then(function (results) {
+                            $scope.get_followers = results
+                            // $scope.got_followers_flag = true
+                            // console.log("get_followers",$scope.get_followers)
+                        })
+                            .catch(function (error) {
+                                console.log('ERROR: ', error)
+                                $scope.$apply();
+                            })
+
+                        MemberService.getCommentsByID($scope.idToken).then(function (results) {
+                            $scope.get_MyComments = results
+                            // $scope.got_followers_flag = true
+                            // console.log("get_MyComments",$scope.get_MyComments)
+                        })
+                            .catch(function (error) {
+                                console.log('ERROR: ', error)
+                                $scope.$apply();
+                            })
+
+                            .then(() => {
+                                var promises1 = BuildPost()
+                                var promises2 = BuildWatchlist()
+                                var promises3 = BuildFollowing()
+                                var promises4 = BuildFollower()
+                                var promises5 = BuildSentiments()
+
+                                var all_promises = [promises1, promises2, promises3, promises4, promises5]
+
+                                Promise.all(all_promises).then((Arrays) => {
+
+                                    console.log("get in !!!!!")
+                                })
+                                    .catch(function (error) {
+                                        console.log('ERROR: ', error)
+                                        $scope.$apply();
+                                    })
+                            })
+
+                            .catch(function (error) {
+                                console.log('ERROR: ', error)
+                                $scope.$apply();
+                            })
+
+                        /*****************************/
+                        console.log("$scope.user",  $scope.user)
+                        $scope.$apply();
+                    })
                         .catch(function (error) {
                             $scope.data = error;
                             console.log("$scope.data", $scope.data)
                             $scope.$apply();
                         })
 
-                        })
 
-                        .catch(function (error) {
-                            $scope.data = error;
-                            console.log("$scope.data", $scope.data)
-                            $scope.$apply();
-                        })
-                        /***************/
-
-
-
-                    MemberService.getOtherFollowing($scope.Other_id._id).then(function (results) {
-                        // console.log("Other_following", results)
-                        $scope.other_following = results
-                    })
-                        .catch(function (error) {
-                            console.log('ERROR: ', error)
-                            $scope.$apply();
-                        });
-
-                    MemberService.getOtherFollowers($scope.Other_id._id).then(function (results) {
-                        // console.log("Other_followers", results)
-                        $scope.other_followers = results
-                    })
-                        .catch(function (error) {
-                            console.log('ERROR: ', error)
-                            $scope.$apply();
-                        });
-
-                    MemberService.getOtherComments($scope.Other_id._id).then(function (results) {
-                        // console.log("Other_Comments", results)
-                        $scope.other_Comments = results
-                    })
-                        .catch(function (error) {
-                            console.log('ERROR: ', error)
-                            $scope.$apply();
-                        })
-
-                    MemberService.getOtherSentiments($scope.Other_id._id).then(function (results) {
-                        // console.log("Other_Sentiments", results)
-                        $scope.other_Sentiments = results
-                    }).catch(function (error) {
-                        console.log('ERROR: ', error)
-                        $scope.$apply();
-                    })
-
-
-
-                    MemberService.getSentimentsByUser($scope.idToken, $scope._id).then(function (results) {
-                        // console.log("getSentimentsByUser",results)
-                        $scope.user_sentiments = results
-                        // $scope.user_sentiments = results
-                        $scope.$apply();
-                    })
-                        .catch(function (error) {
-                            console.log('ERROR: ', error)
-                            $scope.$apply();
-                        })
-
-                    MemberService.getFollowingOfUser($scope.idToken).then(function (results) {
-                        $scope.get_following = results
-                        // console.log($scope.get_following)
-
-                    }).catch(function (error) {
-                        console.log('ERROR: ', error)
-                        $scope.$apply();
-                    })
-
-                    MemberService.getFollowers($scope.idToken).then(function (results) {
-                        $scope.get_followers = results
-                        // $scope.got_followers_flag = true
-                        // console.log("get_followers",$scope.get_followers)
-                    })
-                        .catch(function (error) {
-                            console.log('ERROR: ', error)
-                            $scope.$apply();
-                        })
-
-                    MemberService.getCommentsByID($scope.idToken).then(function (results) {
-                        $scope.get_MyComments = results
-                        // $scope.got_followers_flag = true
-                        // console.log("get_MyComments",$scope.get_MyComments)
-                    }) .catch(function (error) {
-                        console.log('ERROR: ', error)
-                        $scope.$apply();
-                    })
 
                 })
                     .catch(function (error) {
                         console.log('ERROR: ', error)
                         $scope.$apply();
-                    });
+                    })
             }
             else {
                 $scope.userLoggedIn = false;
@@ -202,7 +178,7 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
                 $scope.$apply();
             }
         })
-    }
+
 
 ///////////////////////////////////tab0////////////////////////////////////////////////////
 // for(var i=0;i<$scope.get_following.length;i++){
@@ -217,93 +193,13 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
 ///////////////////////////////////tab1 ////////////////////////////////////////////////////
     BuildPost= function() {
         return new Promise(function (resolve, reject) {
-            for(var i=0;i<$scope.get_following.length;i++){
-                $scope.Following=false;
-                if($scope.get_following[i]._id==$scope.other_User._id){
-                    $scope.Following=true;
-                }
-            }
+
             $scope.$apply();
-            resolve($scope.other_Comments)
+            resolve($scope.get_MyComments)
         })
     }
 
 
-
-    $scope.add_Following = function() {
-        //console.log('index',index, $scope.Users[index])
-        if ($scope.other_User == undefined || $scope.user == undefined) {
-            return;
-        }
-        $scope.Following = true
-
-        $scope.follow = {
-            id_following: $scope.user._id,
-            id_followed: $scope.other_User._id,
-            nickname_following: $scope.user.nickname,
-            nickname_followed: $scope.other_User.nickname,
-            country_following: $scope.user.countryData.country,
-            country_followed: $scope.other_User.countryData.country,
-            idToken: $scope.idToken
-        }
-
-        $scope.get_following.push({
-            _id: $scope.other_User._id,
-            nickname: $scope.other_User.nickname,
-            country: $scope.other_User.country,
-
-        })
-
-        // for(i=0;i<$scope.other_followers.length;i++){
-        //     if($scope.other_followers[i]._id == $scope.other_following[index]._id){
-        //         // $scope.get_following.splice(i, 1)
-        //         $scope.other_followers[i].myFollow = true
-        //
-        //     }
-        // }
-        //console.log('FOLLOW',$scope.follow,$scope.get_following)
-
-        MemberService.Add_follow($scope.idToken, $scope.follow).then(function (results) {
-            console.log("add-follow11", results)
-        })
-            .catch(function (error) {
-                $scope.data = error;
-                console.log("$scope.data", $scope.data)
-                $scope.$apply();
-            })
-    };
-
-    $scope.remove_Following = function(index) {
-        //console.log('index',index,$scope.Users[index])
-
-        if($scope.other_User== undefined || $scope.user == undefined){
-            return;
-        }
-
-        $scope.Following = false
-
-        $scope.follow = {
-            id_following: $scope.user._id,
-            id_followed: $scope.other_User._id,
-            idToken: $scope.idToken
-        }
-
-        for(j=0;j<$scope.get_following.length;j++){
-            if($scope.get_following[j]._id == $scope.other_User._id) {
-                $scope.get_following.splice(j, 1)
-            }
-        }
-
-
-        MemberService.Remove_follow($scope.idToken, $scope.follow).then(function (results) {
-            console.log("remove-following",results)
-        })
-            .catch(function (error) {
-                $scope.data = error;
-                console.log("$scope.data", $scope.data)
-                $scope.$apply();
-            })
-    };
 ///////////////////////////////////end tab1////////////////////////////////////////////////////
 
 
@@ -312,9 +208,9 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
     BuildWatchlist = function() {
         return new Promise(function (resolve, reject) {
 
-            if ($scope.other_User.watchlist.length > 0) {
+            if ($scope.user.watchlist.length > 0) {
                 //console.log("in if watchlist.lenght>0")
-                $scope.other_User.watchlist.forEach(currencie => {
+                $scope.user.watchlist.forEach(currencie => {
                     if (currencie.type == 'STOCK') {
                         $scope.WStock.push(currencie.symbol)
                         $scope.strWStock += currencie.symbol + ","
@@ -366,9 +262,9 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
                 // console.log("WatchlistTemp",$scope.WatchlistTemp )
                 $scope.$apply()
             }).then(() => {
-                for (i = 0; i < $scope.other_User.watchlist.length; i++) {
+                for (i = 0; i < $scope.user.watchlist.length; i++) {
                     for (j = 0; j < $scope.WatchlistTemp.length; j++) {
-                        if ($scope.other_User.watchlist[i].symbol == $scope.WatchlistTemp[j].pair) {
+                        if ($scope.user.watchlist[i].symbol == $scope.WatchlistTemp[j].pair) {
                             $scope.WatchlistTable.push($scope.WatchlistTemp[j])
                         }
                     }
@@ -488,12 +384,12 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
         }
 
         //delete from watchlist table
-                $scope.WatchlistTable[index].isInMyWL = false
+        //         $scope.WatchlistTable[index].isInMyWL = false
+                $scope.WatchlistTable.splice(index, 1)
 
 
         $scope.data_to_send ={
-            data: {
-                symbol:$scope.WatchlistTable[index].pair,
+            data: { symbol:$scope.WatchlistTable[index].pair,
                 type:$scope.WatchlistTable[index].type
             },
             _id: $scope.user._id
@@ -510,39 +406,39 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
 
     }
 
-    $scope.add_to_watchlist = function(index) {
-        if($scope.user == undefined || $scope.user.length == 0 ){
-            console.log("return")
-            return;
-        }
-
-        if($scope.user.phone_number == ""){
-            $('.modal_sigh-up').slideDown();
-            return;
-        }
-
-        if(!$scope.user.verifyData.is_phone_number_verified){
-            $('.modal_sigh-up').slideDown();
-            return;
-        }
-
-        $scope.WatchlistTable[index].isInMyWL =  true
-
-        $scope.data_to_send ={
-            data: { symbol:$scope.WatchlistTable[index].pair,
-                    type:$scope.WatchlistTable[index].type
-            },
-            _id: $scope.user._id
-        }
-        MemberService.Add_to_watchlist($scope.idToken, $scope.data_to_send).then(function (results) {
-            console.log("results",results)
-        })
-            .catch(function (error) {
-                $scope.data = error;
-                console.log("$scope.data", $scope.data)
-                $scope.$apply();
-            })
-    }
+    // $scope.add_to_watchlist = function(index) {
+    //     if($scope.user == undefined || $scope.user.length == 0 ){
+    //         console.log("return")
+    //         return;
+    //     }
+    //
+    //     if($scope.user.phone_number == ""){
+    //         $('.modal_sigh-up').slideDown();
+    //         return;
+    //     }
+    //
+    //     if(!$scope.user.verifyData.is_phone_number_verified){
+    //         $('.modal_sigh-up').slideDown();
+    //         return;
+    //     }
+    //
+    //     $scope.WatchlistTable[index].isInMyWL =  true
+    //
+    //     $scope.data_to_send ={
+    //         data: { symbol:$scope.WatchlistTable[index].pair,
+    //             type:$scope.WatchlistTable[index].symbol
+    //         },
+    //         _id: $scope.user._id
+    //     }
+    //     MemberService.Add_to_watchlist($scope.idToken, $scope.data_to_send).then(function (results) {
+    //         console.log("results",results)
+    //     })
+    //         .catch(function (error) {
+    //             $scope.data = error;
+    //             console.log("$scope.data", $scope.data)
+    //             $scope.$apply();
+    //         })
+    // }
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -676,91 +572,86 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
     BuildFollowing = function() {
         return new Promise(function (resolve, reject) {
 
-            for(i=0;i<$scope.other_following.length; i++){
-                $scope.other_following[i].myFollow= false
-                $scope.other_following[i].mycountry=$scope.other_following[i].country.toLowerCase().replace(/\s+$/, '').replace(' ','-')
-                for(j=0;j<$scope.get_following.length; j++){
-                    if($scope.other_following[i]._id==$scope.get_following[j]._id){
-                        $scope.other_following[i].myFollow= true
-                    }
-                }
+            for(i=0;i<$scope.get_following.length; i++){
+                $scope.get_following[i].myFollow= true
+                $scope.get_following[i].mycountry=$scope.get_following[i].country.toLowerCase().replace(/\s+$/, '').replace(' ','-')
             }
             $scope.$apply()
             // console.log("*******",$scope.get_following)
 
-            resolve($scope.other_following)
+            resolve($scope.get_following)
         })
     }
-
-    $scope.add_follow = function(index) {
-        //console.log('index',index, $scope.Users[index])
-        if($scope.other_following == undefined || $scope.user == undefined){
-            return;
-        }
-
-        $scope.other_following[index].myFollow = true
-
-        $scope.follow = {
-            id_following: $scope.user._id,
-            id_followed: $scope.other_following[index]._id,
-            nickname_following: $scope.user.nickname,
-            nickname_followed: $scope.other_following[index].nickname,
-            country_following: $scope.user.countryData.country,
-            country_followed: $scope.other_following[index].country,
-            idToken: $scope.idToken
-        }
-
-        $scope.get_following.push({
-            _id: $scope.other_following[index]._id,
-            nickname: $scope.other_following[index].nickname,
-            country: $scope.other_following[index].country,
-
-        })
-
-        for(i=0;i<$scope.other_followers.length;i++){
-            if($scope.other_followers[i]._id == $scope.other_following[index]._id){
-                // $scope.get_following.splice(i, 1)
-                $scope.other_followers[i].myFollow = true
-
-            }
-        }
-        //console.log('FOLLOW',$scope.follow,$scope.get_following)
-
-        MemberService.Add_follow( $scope.idToken, $scope.follow).then(function (results) {
-            console.log("add-follow",results)
-        })
-            .catch(function (error) {
-                $scope.data = error;
-                console.log("$scope.data", $scope.data)
-                $scope.$apply();
-            })
-    };
+    //
+    // $scope.add_follow = function(index) {
+    //     //console.log('index',index, $scope.Users[index])
+    //     if($scope.get_following == undefined || $scope.user == undefined){
+    //         return;
+    //     }
+    //
+    //     $scope.get_following[index].myFollow = true
+    //
+    //     $scope.follow = {
+    //         id_following: $scope.user._id,
+    //         id_followed: $scope.other_following[index]._id,
+    //         nickname_following: $scope.user.nickname,
+    //         nickname_followed: $scope.other_following[index].nickname,
+    //         country_following: $scope.user.countryData.country,
+    //         country_followed: $scope.other_following[index].country,
+    //         idToken: $scope.idToken
+    //     }
+    //
+    //     $scope.get_following.push({
+    //         _id: $scope.other_following[index]._id,
+    //         nickname: $scope.other_following[index].nickname,
+    //         country: $scope.other_following[index].country,
+    //
+    //     })
+    //
+    //     for(i=0;i<$scope.other_followers.length;i++){
+    //         if($scope.other_followers[i]._id == $scope.other_following[index]._id){
+    //             // $scope.get_following.splice(i, 1)
+    //             $scope.other_followers[i].myFollow = true
+    //
+    //         }
+    //     }
+    //     //console.log('FOLLOW',$scope.follow,$scope.get_following)
+    //
+    //     MemberService.Add_follow( $scope.idToken, $scope.follow).then(function (results) {
+    //         console.log("add-follow",results)
+    //     })
+    //         .catch(function (error) {
+    //             $scope.data = error;
+    //             console.log("$scope.data", $scope.data)
+    //             $scope.$apply();
+    //         })
+    // };
 
     $scope.remove_follow = function(index) {
         //console.log('index',index,$scope.Users[index])
 
-        if($scope.other_following== undefined || $scope.user == undefined){
+        if($scope.get_following== undefined || $scope.user == undefined){
             return;
         }
 
-        $scope.other_following[index].myFollow = false
+        $scope.get_following[index].myFollow = false
 
         $scope.follow = {
             id_following: $scope.user._id,
-            id_followed: $scope.other_following[index]._id,
+            id_followed: $scope.get_following[index]._id,
             idToken: $scope.idToken
         }
 
-        for(i=0;i<$scope.other_followers.length;i++){
-            if($scope.other_followers[i]._id == $scope.other_following[index]._id) {
-                $scope.other_followers[i].myFollow = false
+        for(i=0;i<$scope.get_followers.length;i++){
+            if($scope.get_followers[i]._id == $scope.get_following[index]._id) {
+                $scope.get_followers[i].myFollow = false
             }
         }
-        for(j=0;j<$scope.get_following.length;j++){
-            if($scope.get_following[j]._id == $scope.other_following[index]._id) {
-                $scope.get_following.splice(j, 1)
-            }
-        }
+        // for(j=0;j<$scope.get_following.length;j++){
+        //     if($scope.get_following[j]._id == $scope.other_following[index]._id) {
+                $scope.get_following.splice(index, 1)
+        //     }
+        // }
 
 
         MemberService.Remove_follow($scope.idToken, $scope.follow).then(function (results) {
@@ -778,18 +669,18 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
 ///////////////////////////////////tab4 followers////////////////////////////////////////////////////
     BuildFollower = function() {
         return new Promise(function (resolve, reject) {
-             for(i=0;i<$scope.other_followers.length; i++){
-                 $scope.other_followers[i].myFollow= false
-                 $scope.other_followers[i].mycountry=$scope.other_followers[i].country.toLowerCase().replace(/\s+$/, '').replace(' ','-')
+             for(i=0;i<$scope.get_followers.length; i++){
+                 $scope.get_followers[i].myFollow= false
+                 $scope.get_followers[i].mycountry=$scope.get_followers[i].country.toLowerCase().replace(/\s+$/, '').replace(' ','-')
                         for(j=0;j<$scope.get_following.length; j++){
-                            if($scope.other_followers[i]._id==$scope.get_following[j]._id){
-                                $scope.other_followers[i].myFollow= true
+                            if($scope.get_followers[i]._id==$scope.get_following[j]._id){
+                                $scope.get_followers[i].myFollow= true
                             }
                         }
                     }
                     // console.log("*******",$scope.other_followers)
 
-                    resolve($scope.other_followers)
+                    resolve($scope.get_followers)
             $scope.$apply()
 
 
@@ -800,34 +691,34 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
 
     $scope.add_follow_from_followers = function(index) {
         //console.log('index',index, $scope.Users[index])
-        if($scope.other_followers == undefined || $scope.user == undefined){
+        if($scope.get_followers == undefined || $scope.user == undefined){
             return;
         }
 
-        $scope.other_followers[index].myFollow = true
+        $scope.get_followers[index].myFollow = true
 
         $scope.follow = {
             id_following: $scope.user._id,
-            id_followed: $scope.other_followers[index]._id,
+            id_followed: $scope.get_followers[index]._id,
             nickname_following: $scope.user.nickname,
-            nickname_followed: $scope.other_followers[index].nickname,
+            nickname_followed: $scope.get_followers[index].nickname,
             country_following: $scope.user.countryData.country,
-            country_followed: $scope.other_followers[index].country,
+            country_followed: $scope.get_followers[index].country,
             idToken: $scope.idToken
         }
 
         $scope.get_following.push({
-            _id: $scope.other_followers[index]._id,
-            nickname: $scope.other_followers[index].nickname,
-            country: $scope.other_followers[index].country,
-            mycountry:$scope.other_followers[index].country.toLowerCase().replace(/\s+$/, '').replace(' ','-'),
-            myfollow:$scope.other_followers[index].myFollow
+            _id: $scope.get_followers[index]._id,
+            nickname: $scope.get_followers[index].nickname,
+            country: $scope.get_followers[index].country,
+            mycountry:$scope.get_followers[index].country.toLowerCase().replace(/\s+$/, '').replace(' ','-'),
+            myfollow:$scope.get_followers[index].myFollow
         })
 
-        for(i=0;i<$scope.other_following.length;i++){
-            if($scope.other_following[i]._id == $scope.other_followers[index]._id){
+        for(i=0;i<$scope.get_following.length;i++){
+            if($scope.get_following[i]._id == $scope.get_followers[index]._id){
                 // $scope.get_following.splice(i, 1)
-                $scope.other_following[i].myFollow = true
+                $scope.get_following[i].myFollow = true
 
             }
         }
@@ -846,28 +737,25 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
     $scope.remove_follow_from_followers = function(index) {
         //console.log('index',index,$scope.Users[index])
 
-        if($scope.other_followers == undefined || $scope.user == undefined){
+        if($scope.get_followers == undefined || $scope.user == undefined){
             return;
         }
 
-        $scope.other_followers[index].myFollow = false
+        $scope.get_followers[index].myFollow = false
 
         $scope.follow = {
             id_following: $scope.user._id,
-            id_followed: $scope.other_followers[index]._id,
+            id_followed: $scope.get_followers[index]._id,
             idToken: $scope.idToken
         }
 
-        for(i=0;i<$scope.other_following.length;i++){
-            if($scope.other_following[i]._id == $scope.other_followers[index]._id){
-                $scope.other_following[i].myFollow = false
-            }
-        }
-        for(j=0;j<$scope.get_following.length;j++){
-            if($scope.get_following[j]._id == $scope.other_followers[index]._id) {
+        for(i=0;i<$scope.get_following.length;i++){
+            if($scope.get_following[i]._id == $scope.get_followers[index]._id){
+                $scope.get_following[i].myFollow = false
                 $scope.get_following.splice(j, 1)
             }
         }
+
 
         MemberService.Remove_follow($scope.idToken, $scope.follow).then(function (results) {
             //console.log("remove-follow",results)
@@ -905,7 +793,7 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
 
             BuildSentiments1 = function() {
                 return new Promise(function (resolve, reject) {
-                    $scope.sentiment = $scope.other_Sentiments;
+                    $scope.sentiment = $scope.user_sentiments;
                     // console.log("$scope.sentiment",$scope.sentiment)
                     for (var i = 0; i < $scope.sentiment.length; i++) {
 
@@ -993,15 +881,15 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
 
                 // console.log("listTemp",$scope.listTemp,"$scope.sent",$scope.sent )
                 for (var j = 0; j < $scope.listTemp.length; j++) {
-                    for (var k = 0; k < $scope.other_Sentiments.length; k++) {
-                        if ($scope.listTemp[j].pair == $scope.other_Sentiments[k].symbol) {
+                    for (var k = 0; k < $scope.user_sentiments.length; k++) {
+                        if ($scope.listTemp[j].pair == $scope.user_sentiments[k].symbol) {
                             $scope.sent[$scope.listTemp[j].pair].name = $scope.listTemp[j].name;
                             $scope.sent[$scope.listTemp[j].pair].change24 = $scope.listTemp[j].change24;
                             $scope.sent[$scope.listTemp[j].pair].img = $scope.listTemp[j].img;
                         }
                     }
                 }
-                // console.log("sentiments",$scope.sent)
+
                 for (var element in $scope.sent){
                     if($scope.sent[element].status=="OPEN") {
                         $scope.sentarray1.push($scope.sent[element])
@@ -1021,6 +909,100 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
             })
         })
     }
+
+    $scope.close_sentiment = function(item) {
+
+        $scope.sent[item.symbol].bearishOpen = false
+        $scope.sent[item.symbol].bullishOpen = false
+
+        if (item.type == "BEARISH") {
+            $scope.sent[item.symbol].bearishClose = true;
+        }
+
+        if (item.type == "BULLISH") {
+            $scope.sent[item.symbol].bullishClose = true;
+        }
+        var promise1 = new Promise(function(resolve, reject) {
+            switch (item.symbol_type) {
+                case "STOCK":
+                    $http.get("https://websocket-stock.herokuapp.com/Getstocks/" + item.symbol)
+                        .then(function (response) {
+                            $scope.closePrice = response.data.price
+                            $scope.sent[item.symbol].close_price =  $scope.closePrice
+
+                            //date
+                            var mydate = new Date();
+                            var strDate= mydate.toString().split(" ")
+                            var myDate= strDate[1]+" "+strDate[2]+","+strDate[3]
+                            $scope.sent[item.symbol].close_date=myDate
+
+
+                            resolve($scope.closePrice);
+                        })
+                    break;
+                case "CRYPTO":
+                    $http.get("https://crypto.tradingcompare.com/AllPairs/" + item.symbol)
+                        .then(function (response) {
+                            $scope.closePrice = response.data.price
+                            $scope.sent[item.symbol].close_price =  $scope.closePrice
+                            //date
+                            var mydate = new Date();
+                            var strDate= mydate.toString().split(" ")
+                            var myDate= strDate[1]+" "+strDate[2]+","+strDate[3]
+                            $scope.sent[item.symbol].close_date=myDate
+                            resolve($scope.closePrice);
+                        })
+                    break;
+                case "FOREX":
+                    $http.get("https://forex.tradingcompare.com/all_data/" + item.symbol)
+                        .then(function (response) {
+                            $scope.closePrice = response.data.price
+                            $scope.sent[item.symbol].close_price =  $scope.closePrice
+                            //date
+                            var mydate = new Date();
+                            var strDate= mydate.toString().split(" ")
+                            var myDate= strDate[1]+" "+strDate[2]+","+strDate[3]
+                            $scope.sent[item.symbol].close_date=myDate
+                            resolve($scope.closePrice);
+                        })
+                    break;
+            }
+
+        });
+
+
+        promise1.then(function(value) {
+            // console.log(value);
+            console.log("hello", $scope.sent);
+            for (var i=0; i<$scope.sentarray1.length;i++) {
+                if($scope.sentarray1[i].symbol==$scope.sent[item.symbol].symbol) {
+                    $scope.sentarray1.splice(i,1)
+                    $scope.sentarray2.push($scope.sent[item.symbol])
+                }
+            }
+            $scope.sentarray= $scope.sentarray1.concat($scope.sentarray2)
+            $scope.$apply();
+
+            $scope.data_to_send ={
+                _id: item.user_id,
+                symbol:item.symbol,
+                symbol_type: item.symbol_type,
+                close_price: value
+            }
+
+            // console.log($scope.data_to_send)
+
+            MemberService.Close_sentiment($scope.idToken, $scope.data_to_send).then(function (results) {
+                // console.log("results",results.data, $scope.data_to_send)
+            })
+                .catch(function (error) {
+                    $scope.data = error;
+                    console.log("$scope.data", $scope.data)
+                    $scope.$apply();
+                })
+        })
+    }
+
 ///////////////////end tab5//////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1047,6 +1029,7 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
     }
 
     $scope.ActiveChange_Watchlist = function (symbol, type, name, _locale) {
+        // console.log("currency",symbol, "name",name, "_locale",_locale)
 
         switch (type) {
             case "STOCK":
@@ -1077,6 +1060,7 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
         }
     }
 
+
     $scope.clickid= function(id) {
         console.log('in click')
         if(id==$scope._id._id){
@@ -1102,8 +1086,99 @@ ProfileApp.controller('ProfileController', function($scope,$window,$location,$ht
         $('#form').submit();
     }
 
+
 });
-ProfileApp.controller('OpenSentimentCtrl', function($scope, $uibModalInstance, curr) {
+
+MyProfileApp.directive('clickToEdit', function($timeout,MemberService) {
+    return {
+        require: 'ngModel',
+        scope: {
+            model: '=ngModel',
+            idToken: '=tIdtoken',
+            id: '=tUserid',
+            type: '@type'
+        },
+        replace: true,
+        transclude: false,
+        template:
+        '<div class="templateRoot">'+
+        '<div class="hover-edit-trigger" title="click to edit">'+
+        '<div class="hover-text-field" ng-show="!editState" ng-click="toggle()">{[{model}]}<div class="edit-pencil glyphicon glyphicon-pencil"></div></div>'+
+        '<input style="width: 100%;" class="inputText" type="text" ng-model="localModel" ng-enter="save()" ng-show="editState && type == \'inputText\'" />' +
+        '</div>'+
+        '<div class="edit-button-group pull-right" ng-show="editState">'+
+        '<div class="glyphicon glyphicon-ok"  ng-click="save()"></div>'+
+        '<div class="glyphicon glyphicon-remove" ng-click="cancel()"></div>'+
+        '</div>'+
+        '</div>',
+        link: function (scope, element, attrs) {
+            scope.editState = false;
+            scope.localModel = scope.model;
+
+            scope.$watch('model', function(newval, oldval){
+                scope.localModel = scope.model;
+            })
+
+            scope.save = function(){
+
+                if(scope.localModel == undefined ||
+                    typeof scope.localModel == "undefined" ||
+                    scope.localModel== "" ||
+                    scope.localModel== "- No description yet - Click here to fill your description"){
+                    // console.log('in else')
+                    scope.localModel = scope.model;
+                    scope.toggle();
+                }
+                else{
+                    // console.log('in if')
+                    scope.model = scope.localModel;
+                    scope.update_data = {
+                        "description":  scope.model,
+                        "_id":  scope.id
+                    }
+
+                    MemberService.updateUser(scope.idToken, scope.update_data).then(function (results) {
+                        console.log("update",results)
+                    }).catch(function (error) {
+                        scope.data = error;
+                        console.log("scope.data", scope.data)
+                    })
+
+                    scope.toggle();
+                }
+            };
+
+            scope.cancel = function(){
+                scope.localModel = scope.model;
+                scope.toggle();
+            }
+
+            scope.toggle = function () {
+                scope.editState = !scope.editState;
+
+                var x1 = element[0].querySelector("."+scope.type);
+                $timeout(function(){
+                    scope.editState ? x1.focus() : x1.blur();
+                }, 0);
+            }
+        }
+    }
+});
+
+MyProfileApp.directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                });
+                event.preventDefault();
+            }
+        });
+    };
+});
+
+MyProfileApp.controller('OpenSentimentCtrl', function($scope, $uibModalInstance, curr) {
 
     $scope.sentiment_curr = curr.name
 
@@ -1117,8 +1192,8 @@ ProfileApp.controller('OpenSentimentCtrl', function($scope, $uibModalInstance, c
 
 });
 
-var dvProfile = document.getElementById('dvProfile');
+var dvMyProfile = document.getElementById('dvMyProfile');
 angular.element(document).ready(function() {
-    angular.bootstrap(dvProfile, ['ProfileApp']);
+    angular.bootstrap(dvMyProfile, ['MyProfileApp']);
 });
 

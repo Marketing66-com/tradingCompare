@@ -71,14 +71,15 @@ LeaderboardApp.controller('LeaderboardController', function($scope,$window,$loca
                     }
 
                     MemberService.getUsersById($scope.idToken, $scope._id).then(function (results) {
-                        // console.log("getUsersById",results.data)
+                        //console.log("getUsersById",results.data)
                         $scope.user = results.data
                         $scope.got_user = true
                     })
                     .then(()=>{
                         MemberService.getFollowingOfUser($scope.idToken).then(function (results) {
                             $scope.get_following = results
-                            console.log('*******',$scope.get_following)
+                            console.log("get_following)",$scope.get_following)
+
                             $scope.got_following_flag = true
                         })
                         .then(()=>{
@@ -225,7 +226,6 @@ LeaderboardApp.controller('LeaderboardController', function($scope,$window,$loca
                 $scope.currentPage_user = 0;
                 $scope.total_user =  $scope.Users.length;
                 $scope.all_users =  $scope.offset_users($scope.currentPage_user * $scope.userPerPage, $scope.userPerPage);
-
             })
             .then(()=>{
                 $scope.got_flw = true
@@ -334,6 +334,31 @@ $scope.remove_follow = function(index) {
             $scope.$apply();
     })
 };
+
+$scope.clickid= function(id) {
+    console.log('in click')
+    if(id==$scope._id._id){
+        $('body').append($('<form/>', {
+            id: 'form',
+            method: 'POST',
+            action: Routing.generate('my-profile')
+        }));
+    }
+    else {
+        $('body').append($('<form/>', {
+            id: 'form',
+            method: 'POST',
+            action: Routing.generate('profile')
+        }));
+    }
+    $('#form').append($('<input/>', {
+        type: 'hidden',
+        name: 'client_id',
+        value: id
+    }));
+
+    $('#form').submit();
+}
 
 });
 

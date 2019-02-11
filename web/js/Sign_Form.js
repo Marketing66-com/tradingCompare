@@ -80,6 +80,17 @@ signForm.controller('AppForm', function ($scope, $http, $location, MemberService
                     }
                 }
             });
+
+            for(i=0;i< $scope.sign_up_countries.length;i++) {
+                if (contry.country_code == $scope.sign_up_countries[i].code) {
+                    $scope.location = $scope.sign_up_countries[i].name;
+                    $scope.user.countryData.country = $scope.sign_up_countries[i].name;
+                    $scope.location_code = $scope.sign_up_countries[i].dial_code
+                    $scope.user.countryData.dial_code = $scope.sign_up_countries[i].dial_code
+                    break;
+                }
+            }
+
             $scope.$apply();
         }).catch(function (error) {
             $scope.data = error;
