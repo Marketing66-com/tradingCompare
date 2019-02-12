@@ -58,6 +58,8 @@ MyProfileApp.controller('MyProfileController', function($scope,$window,$location
 
                     MemberService.getUsersById($scope.idToken, $scope._id).then(function (results) {
                         $scope.user = results.data
+                        $scope.user.countryData.country=$scope.user.countryData.country.toLowerCase().replace(/\s+$/, '').replace(' ','-')
+
                         if($scope.user.description == ""){
                             $scope.the_bio_description = '- No description yet - Click here to fill your description'
                         }
