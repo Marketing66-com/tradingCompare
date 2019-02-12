@@ -89,6 +89,9 @@
     /*text-align: center;*/
  }
 
+.each_user:hover{
+    background-color: #eaeaea;
+}
 
 /*********** Media ****************/
 @media (max-width: 1200px) {

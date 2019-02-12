@@ -140,7 +140,75 @@ angular.module('memberService', [])
 
             return sendPostHttpRequest(url, token, data);
         };
+        var getFollowers = function (token) {
+            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/get-followers`;
 
+            return sendHttpRequest(url, token);
+        };
+
+        var getCommentsByID = function (token) {
+            const url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api/get-comments-by-id`;
+
+            return sendHttpRequest(url, token);
+        };
+
+
+        var getOtherUser = function (user) {
+            const url = "https://xosignals.herokuapp.com/trading-compare-v2/getUsersById"
+
+            return new Promise(function (resolve, reject) {
+                $http.post(url, user, config).then(function(response){
+                    resolve(response);
+                }).catch(function (error) {
+                    reject(error);
+                });
+            });
+        }
+
+        var getOtherFollowing = function (id) {
+            const url = "https://xosignals.herokuapp.com/trading-compare-v2/get-following/"+id
+            // console.log("url", url)
+            return new Promise(function (resolve, reject) {
+                $http.get(url).then(function (response) {
+                    resolve(response.data);
+                }).catch(function (error) {
+                    reject(error);
+                });
+            });
+        }
+        var getOtherFollowers = function (id) {
+            const url = "https://xosignals.herokuapp.com/trading-compare-v2/get-followers/"+id
+            // console.log("url", url)
+            return new Promise(function (resolve, reject) {
+                $http.get(url).then(function (response) {
+                    resolve(response.data);
+                }).catch(function (error) {
+                    reject(error);
+                });
+            });
+        }
+        var getOtherComments = function (id) {
+            const url = "https://xosignals.herokuapp.com/trading-compare-v2/get-comments-by-id/"+id
+            // console.log("url", url)
+            return new Promise(function (resolve, reject) {
+                $http.get(url).then(function (response) {
+                    resolve(response.data);
+                }).catch(function (error) {
+                    reject(error);
+                });
+            });
+        }
+        var getOtherSentiments = function (id) {
+            const url = "https://xosignals.herokuapp.com/trading-compare-v2/get-sentiments-by-user/"+id
+            // console.log("url", url)
+            return new Promise(function (resolve, reject) {
+                $http.get(url).then(function (response) {
+                    resolve(response.data);
+                }).catch(function (error) {
+                    reject(error);
+                });
+            });
+        }
 
         // var Add_follow = function (user) {
         //     const url = "https://xosignals.herokuapp.com/trading-compare-v2/add-follow"
@@ -172,6 +240,13 @@ angular.module('memberService', [])
             Close_sentiment:Close_sentiment,
             getFollowingOfUser:getFollowingOfUser,
             Remove_follow:Remove_follow,
-            Add_follow:Add_follow
+            Add_follow:Add_follow,
+            getFollowers:getFollowers,
+            getCommentsByID:getCommentsByID,
+            getOtherFollowing:getOtherFollowing,
+            getOtherFollowers:getOtherFollowers,
+            getOtherSentiments:getOtherSentiments,
+            getOtherComments:getOtherComments,
+            getOtherUser:getOtherUser
         };
     });

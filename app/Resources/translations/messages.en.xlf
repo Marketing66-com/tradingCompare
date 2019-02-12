@@ -988,7 +988,7 @@
       </notes>
       <segment>
         <source>description.forex_feed</source>
-        <target>Tradingcompare.com offers free real-time quotes, portfolio, streaming charts, financial news, live forex market data  sentiment from millions of users, a social effect to take your  decisions</target>
+        <target>Get live exchange rates for major currency pairs. FX rates on every currency pair including daily changes and updates.</target>
       </segment>
     </unit>
     <unit id="VZ_fwvb" name="description.stock_feed">
@@ -997,7 +997,7 @@
       </notes>
       <segment>
         <source>description.stock_feed</source>
-        <target>Tradingcompare.com offers free real-time quotes, portfolio, streaming charts, financial news, live Stock market data sentiment from millions of users, a social effect to take your  decisions</target>
+        <target>Find the latest stock quotes, stock charts, company news, social interaction and financial information</target>
       </segment>
     </unit>
     <unit id="SvDbSWy" name="description.chart_crypto1">

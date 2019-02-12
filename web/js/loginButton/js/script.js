@@ -42,12 +42,26 @@ LogButton.controller('LogButton', function ($scope, $window, MemberService) {
         });
     };
 
-    $scope.profile = function() { console.log("in profile")}
+    $scope.profile = function() {
+        console.log("in profile")
+        if($scope.userLoggedIn){
+            var url =  decodeURIComponent(Routing.generate('my-profile'))
+            $window.location= url
+        }
+        else{
+            $('.modal_sigh-up').slideDown();
+        }
+
+    }
 
     $scope.logout = function(){
         firebase.auth().signOut();
 
-        if(window.location.pathname.indexOf('Social-Sentiment')>-1 || window.location.pathname.indexOf('Leaderboard')>-1){
+        if(window.location.pathname.indexOf('market-forecast')>-1 ||
+            window.location.pathname.indexOf('best-forex-traders')>-1 ||
+            window.location.pathname.indexOf('traders-profile')>-1 ||
+            window.location.pathname.indexOf('my-profile')>-1)
+        {
             //console.log('yes',window.location.pathname)
             var url =  decodeURIComponent(Routing.generate('Live_rates_stocks', { 'name': 'United-States','value':'united-states-of-america'}))
             // var url =  decodeURIComponent(Routing.generate('/'))

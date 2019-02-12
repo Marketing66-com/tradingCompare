@@ -7,7 +7,7 @@
 }
 
 .general-list_space, .grid_space_absolut {
-    top: 26%;
+    top: 200px;
 }
 
 .user_coutry_img {
@@ -30,7 +30,7 @@
 .Member_since_last_seen{
     letter-spacing: 0.1px;
     color: #4a4a4a;
-    padding-top:  5%;
+    padding-bottom:  5%;
 }
 
 .bio{
@@ -54,13 +54,15 @@
     border: 1px solid transparent;
     background-color: #12A6F9;
     transition: 0.3s all;
-    margin-left: 6%;}
+    margin-left: 6%;
+}
 .following-btn:hover {
     text-decoration: none;
     color: #12A6F9;
     background-color: white;
     border: 1px solid #12A6F9;
-    cursor: pointer;}
+    cursor: pointer;
+}
 
 .follow-btn {
     line-height: 35px;
@@ -76,6 +78,7 @@
     background-color: white;
     transition: 0.3s all;
     margin-left: 13.5%;}
+
 .follow-btn:hover {
     text-decoration: none;
     color: white;
@@ -89,8 +92,35 @@
     width: 64%;
     text-align: center;
 }
+
+.follow-user,.following-user{
+    margin-left:auto;
+    margin-right: auto;
+}
 .following_in_table{
     margin-top: 0;
+}
+/**************************bullish********************************/
+.button_bullish_open{
+    background-color: #7ED321;
+    color: white;
+    border:2px solid #7ED321 ;
+}
+.button_bearish_open{
+    background-color: #f44336;
+    color: white;
+    border:2px solid  #f44336 ;
+}
+.button_bullish_close{
+    background-color: white;
+    color: #7ED321;
+    border:2px solid #7ED321 ;
+}
+.button_bearish_close{
+    background-color: white;
+    color: #f44336;
+    border:2px solid  #f44336 ;
+
 }
 /*********************************************** TABS **************************************/
 
@@ -211,7 +241,7 @@ hr{
 
 .post_user-cont_name {
     color: #1E375E;
-    font-size: 20px;
+    font-size: 17px;
     font-family: 'Avenir';
     font-weight: 700;
 }
@@ -247,44 +277,20 @@ hr{
     font-size: 13px;
 }
 
-/*********** EDIT BIO ************/
-.templateRoot{
-    display: inline-block;
+.sm-none-sentiment {display: table;}
+.news_space_absolut_text {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 20px;
+    color: #999999;
+    margin: 10px;
+    text-align: left;
 }
-.hover-edit-trigger {
-    padding: 3px;
-}
-.hover-edit-trigger:hover{
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-}
-.edit-pencil{
-    display: none;
-    margin-left: 3px;
-    padding: 3px;
-    border-left: 1px solid #dcdcdc;
-}
-.hover-text-field:hover .edit-pencil{
-    display: inline-block;
-}
-.edit-button-group{
-    border: 1px solid #dcdcdc;
-    border-top: none;
-    border-radius: 4px;
-    padding: 0px 3px 0px 3px;
-}
-.edit-button-group .glyphicon{
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    margin: 1px;
-    cursor: pointer;
-}
+
 /**************************************************************************/
-
-
 @media (max-width: 1200px) {
     .general-list_space, .grid_space_absolut {
-        top: 20%;
+        top: 200px;
     }
     .bio{
         margin-top: 37%;
@@ -296,7 +302,7 @@ hr{
 }
 @media (max-width: 991px) {
     .general-list_space, .grid_space_absolut {
-        top: 25%;
+        top: 150px;
     }
     .user_coutry_img {
         width: 120px;
@@ -334,13 +340,20 @@ hr{
         width: 106%;
         margin-left: -15%;
     }
+
     .following_in_table{
         margin-left: -25px;
     }
+
+    .follow-user{
+        margin-left:-3%;
+        /*margin-right: auto;*/
+    }
+
 }
 @media (max-width: 767px) {
     .general-list_space, .grid_space_absolut {
-        top: 23%;
+        top: 150px;
     }
     .user_coutry_img {
         width: 95px;
@@ -350,7 +363,7 @@ hr{
         font-size: 20px;
     }
     .Member_since_last_seen {
-         padding-top: 0;
+        padding-top: 0;
     }
     .bio {
         margin-top: 73%;
@@ -389,6 +402,10 @@ hr{
         text-align: center!important;
     }
     .review_list_cont-text_profil { width: 33.33%!important;}
+    .sm-none-sentiment{
+        display:none!important;
+    }
+
 }
 @media (max-width: 480px) {
     .mytab li {
@@ -400,6 +417,13 @@ hr{
         margin-left: -15%;
         /*width: 96%;*/
     }
+
+    .follow-user{
+        margin-left:-3%;
+        /*margin-right: auto;*/
+    }
+
+
 }
 @media (max-width: 360px) {
     .general-list_space, .grid_space_absolut {
@@ -413,7 +437,7 @@ hr{
         margin-top: 85%;
     }
     .mytab li > a > .tab_title {
-      font-size: 8.5px;
+        font-size: 8.5px;
     }
 
     .post_user-img {
@@ -435,6 +459,10 @@ hr{
         padding-right: 21%;
     }
 
+    .follow-user{
+        margin-left:-3%;
+        /*margin-right: auto;*/
+    }
 }
 @media (max-width: 330px) {
     .following_in_table{
@@ -443,4 +471,36 @@ hr{
         padding-left: 16.5%;
         padding-right: 16.5%;
     }
+}
+/*********************edit*/
+.templateRoot{
+    display: inline-block;
+}
+.hover-edit-trigger {
+    padding: 3px;
+}
+.hover-edit-trigger:hover{
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+}
+.edit-pencil{
+    display: none;
+    margin-left: 3px;
+    padding: 3px;
+    border-left: 1px solid #dcdcdc;
+}
+.hover-text-field:hover .edit-pencil{
+    display: inline-block;
+}
+.edit-button-group{
+    border: 1px solid #dcdcdc;
+    border-top: none;
+    border-radius: 4px;
+    padding: 0px 3px 0px 3px;
+}
+.edit-button-group .glyphicon{
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    margin: 1px;
+    cursor: pointer;
 }

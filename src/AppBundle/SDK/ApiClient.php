@@ -192,7 +192,30 @@ class ApiClient
         return $this->doPostRequest($uri, $data);
     }
 
+    /**
+     * @param string $userIdentifier
+     *
+     * @return array|mixed
+     * @throws Exception
+     */
+    public function getFollowers(string $userIdentifier)
+    {
+        $uri = 'trading-compare-v2/get-followers/'.$userIdentifier;
 
+        return $this->doGetRequest($uri);
+    }
+    /**
+     * @param string $userIdentifier
+     *
+     * @return array|mixed
+     * @throws Exception
+     */
+    public function getCommentsByID(string $userIdentifier)
+    {
+        $uri = 'trading-compare-v2/get-comments-by-id/'.$userIdentifier;
+
+        return $this->doGetRequest($uri);
+    }
 //    *******************************************************************************
 
 

@@ -16,6 +16,25 @@ use Symfony\Component\BrowserKit\Response;
 class RedirectController extends Controller
 {
 
+    /**
+     * @Route("/Social-Sentiment",name="social_sentiment_old", options={"expose" = true})
+     */
+    public function social_sentimentAction()
+    {
+        return $this->redirectToRoute(
+            'social_sentiment',[], 301
+        );
+    }
+
+    /**
+     * @Route("/Leaderboard",name="leaderboard_old", options={"expose" = true})
+     */
+    public function leaderboardAction()
+    {
+        return $this->redirectToRoute(
+            'leaderboard', array("country_name"=>"United States"), 301
+        );
+    }
     /********************************** BROKERS ***********************************/
 
     /**
@@ -71,7 +90,35 @@ class RedirectController extends Controller
         );
     }
 
+    /**
+     * @Route("/stockcurrencies/streaming-stock-rates-majors-social-sentiment/{name}/{value}", name="Live_rates_stocks_old2", options={"expose" = true})
+     */
+    public function StockAction($name, $value)
+    {
+        return $this->redirectToRoute(
+            'Live_rates_stocks', array("name"=>$name, "value"=>$value), 301
+        );
+    }
 
+    /**
+     * @Route("/currencies/streaming-forex-rates-majors-social-sentiment", name="Live_rates_forex_old")
+     */
+    public function ForexAction()
+    {
+        return $this->redirectToRoute(
+            'Live_rates_forex',[], 301
+        );
+    }
+
+    /**
+     * @Route("/cryptocurrencies/streaming-crypto-rates-majors-social-sentiment", name="Live_rates_crypto_old")
+     */
+    public function CryptoAction()
+    {
+        return $this->redirectToRoute(
+            'Live_rates_crypto',[], 301
+        );
+    }
     /********************************** CHARTS ***********************************/
 
     /**

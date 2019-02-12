@@ -1,14 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block description %}
-    <title>User Profile</title>
-    <meta name="description" content="User Profile Content">
+    <title>My Profile</title>
+    <meta name="description" content="MyProfile Content">
 {% endblock %}
 
 {% block body %}
-    <div id="dvProfile">
-        <div  ng-controller="ProfileController">
-            <div ng-init="init('{{ id }}')" >
+    <div id="dvMyProfile">
+        <div  ng-controller="MyProfileController">
             {#<div  ng-init="init('https://crypto.tradingcompare.com/AllPairs')" >#}
             <div>
                 <section class="table">
@@ -22,31 +21,28 @@
                         {#----> oh no SIGNIN#}
                         <div class="new_grid ng-cloak">
                             <div class="grid_space">
-                                <h2 class="user_profile_title">User Profile</h2>
+                                <h2 class="user_profile_title">My Profile</h2>
                                 <div class="grid_space_absolut">
-                                    <img class="user_coutry_img" src='{{asset("img/Flags1/{[{other_User.mycountry}]}.png")}}' alt={[{other_User.full_name}]}>
-                                    <h2 class="user_profile_name">{[{other_User.full_name}]}</h2>
+                                    <img class="user_coutry_img" src='{{asset("img/Flags1/{[{user.countryData.country}]}.png")}}' alt={[{user.full_name}]}>
+                                    <h2 class="user_profile_name">{[{user.full_name}]}</h2>
 
-                                    {#<p class="grid_space_absolut_text">Your need to have an account to make a watchlist. </p>#}
-                                    <p class="grid_space_absolut_text Member_since_last_seen">Member since {[{other_User.createAccountDate}]} </p>
+                                    <p class="grid_space_absolut_text Member_since_last_seen">Member since {[{user.createAccountDate}]} </p>
                                     {#<p class="grid_space_absolut_text Member_since_last_seen">Last Seen Aug 4, 2018</p>#}
 
-                                    {#<a class="following-btn sm-none" style="">FOLLOWING</a>#}
-                                    {#<a class="follow-btn sm-none" style="">FOLLOW</a>#}
-                                    <a ng-if="Following" ng-click="remove_Following()" class="following-btn following-user sm-none" style="">FOLLOWING</a>
-                                    <a ng-if="!Following" ng-click="add_Following()" class="follow-btn follow_in_table follow-user sm-none" style="">FOLLOW</a>
-
-
                                 </div>
-                                <p class="grid_space_absolut_text bio">Bio: {[{other_User.description}]}</p>
 
+                                <div class="img-rounded">
+                                    <span style="font-weight: 600;margin-left: 2%;font-size: 14px;letter-spacing: 0.1px;">Bio:</span>
+                                    <div style="width: 60%;" class="grid_space_absolut_text bio" click-to-edit t-idtoken="idToken" t-userid="id" type="inputText" ng-model="the_bio_description"></div>
+                                    <br/>
+                                </div>
                                 {#*********************************************************#}
                                 <div >
                                     <ul class="mytab">
                                         <li class="tablinks" ng-class="{ active: isSet(1) }">
                                             <a href ng-click="setTab(1)">
                                                 <p class="tab_title">Post</p>
-                                                <p class="tab_number">{[{other_Comments.length}]}</p>
+                                                <p class="tab_number">{[{get_MyComments.length}]}</p>
                                             </a>
                                         </li>
                                         <li class="tablinks" ng-class="{ active: isSet(2) }">
@@ -58,13 +54,13 @@
                                         <li class="tablinks" ng-class="{ active: isSet(3) }">
                                             <a href ng-click="setTab(3)">
                                                 <p class="tab_title">Following</p>
-                                                <p class="tab_number">{[{other_following.length}]}</p>
+                                                <p class="tab_number">{[{get_following.length}]}</p>
                                             </a>
                                         </li>
                                         <li class="tablinks" ng-class="{ active: isSet(4) }">
                                             <a href ng-click="setTab(4)">
                                                 <p class="tab_title">Followers</p>
-                                                <p class="tab_number">{[{other_followers.length}]}</p>
+                                                <p class="tab_number">{[{get_followers.length}]}</p>
                                             </a>
                                         </li>
                                         <li class="tablinks" ng-class="{ active: isSet(5) }">
@@ -80,8 +76,8 @@
                                         {#/************************************************************************************/#}
                                         <div ng-show="isSet(1)">
                                             <hr >
-                                            <div ng-if="other_Comments.length >0">
-                                                <div  class="post_user-cont" ng-repeat="item in other_Comments">
+                                            <div ng-if="get_MyComments.length >0">
+                                                <div class="post_user-cont" ng-repeat="item in get_MyComments">
                                                     <a class="post_news" style="cursor: context-menu;">
 
                                                         <div class="row">
@@ -101,7 +97,7 @@
 
                                                             <div class="col-md-11 col-sm-11 col-xs-10">
                                                                 <div class="post_user-cont_text">
-                                                                    <p class="post_user-cont_name">{[{other_User.nickname}]} comment {[{item.symbol}]}: "{[{item.txt}]}"</p>
+                                                                    <p class="post_user-cont_name">{[{other_User.nickname}]} comment {[{item.symbol}]} with {[{ item.nickname}]}: "{[{item.txt}]}"</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -114,20 +110,19 @@
                                                 {#</div>#}
                                             </div>
 
-                                            <div ng-if="!other_Comments.length >0">
-                                                <p style="text-align: center;" class="news_space_absolut_text">{[{other_User.full_name}]} didn't post anything yet</p>
+                                            <div ng-if="!get_MyComments.length >0">
+                                                <p style="text-align: center" class="news_space_absolut_text">You didn't post anything yet</p>
                                             </div>
                                         </div>
                                         {#/************************************************************************************/#}
                                         <div ng-show="isSet(2)">
-                                            {#watchlist grid-list#}
+
                                             <div class="row" ng-if="WatchlistTable.length >0">
                                                 <div class="review_list oh_no_signin">
                                                     {% include 'default/title_bar_list_feed.html.twig' %}
 
-                                                    {#----> watchlist exist#}
                                                     <div class="review_list_cont-heder  ng-cloak" ng-repeat="item in WatchlistTable" >
-                                                        <div class="abs" >
+                                                        <div class="abs">
                                                             <div class="general_review_cont-block review_list_name">
                                                                 <div class="review_list_center">
                                                                     <p ng-if="item.isInMyWL" style="cursor: pointer" ng-click="delete_from_watchlist($index)" class="review_list_start review_list_start_active sm-none"><i class="fas fa-star"></i></p>
@@ -217,15 +212,15 @@
                                             </div>
 
                                             <div ng-if="!WatchlistTable.length >0">
-                                                <p style="text-align: center;" class="news_space_absolut_text">The {[{other_User.full_name}]}'s Watchlist is empty</p>
+                                                <p style="text-align: center;" class="news_space_absolut_text">Your Watchlist is empty</p>
                                             </div>
                                         </div>
 
                                         {#/************************************************************************************/#}
                                         <div ng-show="isSet(3)">
                                             <hr >
-                                            <div ng-if="other_following.length >0">
-                                                <div style="cursor: pointer" class="post_user-cont each_post" ng-repeat="item in other_following" >
+                                            <div ng-if="get_following.length >0">
+                                                <div style="cursor: pointer" class="post_user-cont each_post" ng-repeat="item in get_following" >
                                                     <a class="post_news" ng-click="clickid(item._id)" target="_blank">
 
                                                         <div class="row">
@@ -242,7 +237,7 @@
                                                             </div>
 
                                                             <div class="col-md-3 col-sm-3 col-xs-6">
-                                                                <a ng-if="item.myFollow" ng-click="remove_follow($index)" class="following-btn following_in_table sm-none" style="">FOLLOWING</a>
+                                                                <a ng-if="item.myFollow" ng-click="remove_follow($index)" class="following-btn sm-none" style="">FOLLOWING</a>
                                                                 <a ng-if="!item.myFollow" ng-click="add_follow($index)" class="follow-btn follow_in_table sm-none" style="">FOLLOW</a>
                                                             </div>
                                                         </div>
@@ -255,17 +250,17 @@
                                                 {#</div>#}
                                             </div>
 
-                                            <div ng-if="!other_following.length >0">
-                                                <p style="text-align: center;" class="news_space_absolut_text">No following for {[{other_User.full_name}]}</p>
+                                            <div ng-if="!get_following.length>0">
+                                                <p style="text-align: center;" class="news_space_absolut_text">You don't have any following</p>
                                             </div>
                                         </div>
 
                                         {#/************************************************************************************/#}
                                         <div ng-show="isSet(4)">
                                             <hr>
-                                            <div ng-if="other_followers.length >0">
-                                                <div style="cursor: pointer" class="post_user-cont each_post" ng-repeat="item in other_followers">
-                                                    <a class="post_news" ng-click="clickid(item._id)" target="_blank">
+                                            <div ng-if="get_followers.length >0">
+                                                <div style="cursor: pointer" class="post_user-cont each_post" ng-repeat="item in get_followers">
+                                                    <a class="post_news" ng-click="clickid(item._id)"  target="_blank">
 
                                                         <div class="row">
                                                             <div class="col-md-1 col-sm-1 col-xs-2">
@@ -281,7 +276,7 @@
                                                             </div>
 
                                                             <div class="col-md-3 col-sm-3 col-xs-6">
-                                                                <a ng-if="item.myFollow" ng-click="remove_follow_from_followers($index)"  class="following-btn following_in_table sm-none" style="">FOLLOWING</a>
+                                                                <a ng-if="item.myFollow" ng-click="remove_follow_from_followers($index)"  class="following-btn sm-none" style="">FOLLOWING</a>
                                                                 <a  ng-if="!item.myFollow" ng-click="add_follow_from_followers($index)"  class="follow-btn follow_in_table sm-none" style="">FOLLOW</a>
                                                             </div>
                                                         </div>
@@ -294,9 +289,8 @@
                                                 {#</div>#}
                                             </div>
 
-
-                                            <div ng-if="!other_followers.length >0">
-                                                <p style="text-align: center;" class="news_space_absolut_text">No followers for {[{other_User.full_name}]}</p>
+                                            <div ng-if="!get_followers.length >0">
+                                                <p style="text-align: center;" class="news_space_absolut_text">You don't have any following</p>
                                             </div>
                                         </div>
 
@@ -344,35 +338,25 @@
 
                                                     {#----> watchlist exist#}
                                                     <div style="cursor: pointer;padding-bottom: 2%;" class="review_list_cont-heder ng-cloak each_post"  ng-repeat="item in sentarray">
-                                                        <div class="abs"  ng-click="ActiveChange_Watchlist(item.symbol, item.symbol_type, item.name,'{{ app.request.getLocale() }}');" >
-
+                                                        <div class="abs" >
                                                             {#name#}
-                                                            {#Button bullish/bearish in mobile#}
-                                                            <div class="general_review_cont-block review_list_name review_list_name_profil">
+                                                            <div class="general_review_cont-block review_list_name review_list_name_profil"ng-click="ActiveChange_Watchlist(item.symbol, item.symbol_type, item.name,'{{ app.request.getLocale() }}');">
                                                                 <div class="review_list_center">
                                                                     <img class="live_block_top_img sm-none" ng-src="{[{item.img}]}" alt={[{item.symbol}]} onerror="this.src='/img/Stock_Logos/stocks.png'";>
                                                                     <span style="text-align: left" class="live_block_top_title">{[{item.name}]}</span>
-                                                                    {#<p class="mobile-block">#}
-                                                                    {#<span ng-if="item.bullishOpen" class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bullish_open mobile_font sent_mob" target="_blank" style="font-size: small;" ><b>{{ 'button.bullish'|trans }}</b></i></span>#}
-                                                                    {#<span ng-if="item.bearishOpen" class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bearish_open mobile_font sent_mob" target="_blank" style="font-size: small;" ><b>{{ 'button.bearish'|trans }}</b></i></span>#}
-                                                                    {#<span ng-if="item.bullishClose"  class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bullish_close mobile_font sent_mob" target="_blank" style="font-size: small;" ><b>{{ 'button.bullish'|trans }}</b></i></span>#}
-                                                                    {#<span ng-if="item.bearishClose" class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bearish_close mobile_font sent_mob" target="_blank" style="font-size: small;" ><b>{{ 'button.bearish'|trans }}</b></i></span>#}
-                                                                    {#</p>#}
 
                                                                     <span ng-if="item.bullishOpen" style="width: 60%" class="button_sentiment_list button_sentiment_list_mobile button_bullish_list_selected button_bullish_list mobile_font mobile_font_sent">{{ 'button.bullish'|trans }}</span>
                                                                     <span ng-if="item.bearishOpen" style="width: 60%" class="button_sentiment_list button_sentiment_list_mobile button_bearish_list_selected button_bearish_list mobile_font mobile_font_sent">{{  'button.bearish'|trans }}</span>
                                                                     <span ng-if="item.bullishClose" style="width: 60%" class="button_sentiment_list button_sentiment_list_mobile button_bullish_list mobile_font mobile_font_sent">{{ 'button.bullish'|trans }}</span>
                                                                     <span ng-if="item.bearishClose" style="width: 60%" class="button_sentiment_list button_sentiment_list_mobile button_bearish_list mobile_font mobile_font_sent">{{  'button.bearish'|trans }}</span>
 
-
                                                                 </div>
                                                             </div>
 
-                                                            {#Button bullish/bearish in Desktop#}
-                                                            <div class="general_review_cont-block review_list_cont-bar  review_list_cont-bar_profil sm-none">
+                                                            <div class="general_review_cont-block review_list_cont-bar  review_list_cont-bar_profil sm-none"ng-click="ActiveChange_Watchlist(item.symbol, item.symbol_type, item.name,'{{ app.request.getLocale() }}');">
                                                                 <div class="review_list_center">
-                                                                    <p  style="margin: auto; text-align: center;" >
 
+                                                                    <p class="sm-none" ng-if="userLoggedIn" style="margin: auto; text-align: center;" >
                                                                         <span ng-if="item.bullishOpen" class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bullish_open mobile_font mobile_font_sent" target="_blank" style="font-size: small;" ><b>{{ 'button.bullish'|trans }}</b></i></span>
                                                                         <span ng-if="item.bearishOpen" class="chart_bitcoin-reting_prozent_like "><i class="button_sentiment_list button_bearish_open mobile_font mobile_font_sent" target="_blank" style="font-size: small;" ><b>{{ 'button.bearish'|trans }}</b></i></span>
                                                                         <span ng-if="item.bullishClose"  class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bullish_close mobile_font mobile_font_sent" target="_blank" style="font-size: small;" ><b>{{ 'button.bullish'|trans }}</b></i></span>
@@ -382,8 +366,6 @@
                                                                 </div>
                                                             </div>
 
-                                                            {#price#}
-                                                            {#change in mobile#}
                                                             <div class="general_review_cont-block review_list_cont-text review_list_cont-text_profil">
                                                                 <div class="review_list_center">
                                                                     <p class="live_block_money-right">
@@ -394,14 +376,14 @@
                                                                     </p>
                                                                 </div>
                                                             </div>
-
-                                                            {#change in Desktop#}
+                                                            {#change#}
                                                             <div class="general_review_cont-block review_list_cont-text review_list_cont-text_profil sm-none">
                                                                 <div class="review_list_center">
                                                                     <p class="live_block_money-right live_block_money_green " ng-class="{'live_block_money_red live_block_money_border': item.change24 < 0, 'live_block_money_green live_block_money_border_green': item.change24 >= 0}">{[{item.change24}]}%</p>
                                                                 </div>
                                                             </div>
 
+                                                            {#start day#}
                                                             <div class="general_review_cont-block review_list_cont-text review_list_cont-text_profil ">
                                                                 <div class="review_list_center">
                                                                     {#start day in Desktop#}
@@ -409,16 +391,21 @@
 
                                                                     {##start day in Mobile#}
                                                                     {#close price in Mobile#}
-                                                                    <p style="margin-top: 15px;" ng-if="item.bullishOpen||item.bearishOpen" class="live_block_money-right"><span class="live_block_money_bold live_block_top_title button_sentiment_list_mobile">{[{item.myDate}]}</span></p>
+                                                                    <p ng-if="item.bullishOpen||item.bearishOpen" class="live_block_money-right"><span class="live_block_money_bold live_block_top_title button_sentiment_list_mobile">{[{item.myDate}]}</span></p>
+                                                                    <a ng-if="item.bullishOpen||item.bearishOpen" ng-click="close_sentiment(item)" class="live_trade-btn mobile_font button_sentiment_list_mobile live_trade-btn_mobile">CLOSE</a>
                                                                     <div  ng-if="item.bullishClose||item.bearishClose" class="review_list_center mobile-block" style="text-align: center">
                                                                         <a  style="color: #9b9b9b; font-size: small">Close Date: {[{item.close_date}]}<br> Close price: {[{item.close_price}]}</a>
                                                                     </div>
+
+
                                                                 </div>
                                                             </div>
 
-                                                            {#close price in Desktop#}
                                                             <div class="general_review_cont-block review_list_cont-btn review_list_cont-btn_profil sm-none">
-                                                                <div class="review_list_center" >
+                                                                <div class="review_list_center">
+                                                                    <div ng-if="item.bullishOpen||item.bearishOpen" class="review_list_center" style="width: 50%; margin-left: 25%">
+                                                                        <a  class="live_trade-btn mobile_font "ng-click="close_sentiment(item)">CLOSE</a>
+                                                                    </div>
                                                                     <div  ng-if="item.bullishClose||item.bearishClose" class="review_list_center" style="text-align: center">
                                                                         <a  style="color: #9b9b9b;font-size: small">Close Date: {[{item.close_date}]}<br> Close price: {[{item.close_price}]}</a>
                                                                     </div>
@@ -433,7 +420,7 @@
                                             </div>
 
                                             <div ng-if="!sentarray.length >0">
-                                                <p style="text-align: center;" class="news_space_absolut_text">No sentiment from {[{other_User.full_name}]}</p>
+                                                <p style="text-align: center;" class="news_space_absolut_text">You don't have any sentiment</p>
                                             </div>
                                         </div>
 
@@ -449,14 +436,13 @@
 
                 </section>
             </div>
-            </div>
         </div>
     </div>
 
 
     <script data-require="angular-ui-bootstrap@0.3.0" data-semver="2.5.0" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
     {#<script src="{{ asset('js/Feeds/CryptoFeeds.js') }}"></script>#}
-    <script src="{{ asset('js/Profile.js') }}"></script>
+    <script src="{{ asset('js/MyProfile.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/compiled.min.css') }}" >
     <link rel="stylesheet" href="{{ asset('css/compiled-feeds.css') }}" >
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}" >

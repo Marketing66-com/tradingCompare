@@ -83,16 +83,16 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="review_list_cont-heder height_row" ng-repeat = "users in leaderbord_users">
-                                                <div class="abs">
+                                            <div style="cursor: pointer" class="review_list_cont-heder height_row each_user" ng-repeat = "users in leaderbord_users">
+                                                <div class="abs" ng-click="clickid(users._id)">
                                                     <div class="general_review_cont-block number_width">
                                                         <div class="review_list_center"style="padding-left: 5%">
                                                             <span class="live_block_top_title" >{[{ $index + 1 }]}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="general_review_cont-block name_width">
+                                                    <div class="general_review_cont-block name_width"  >
                                                         <div class="review_list_center"style="padding-left: 5%">
-                                                            <img class="live_block_top_img" src="{{ asset('img/Flags1/{[{ users.country }]}.png')}}" alt="name">
+                                                            <img class="live_block_top_img" src="{{ asset('img/Flags1/{[{ users.country }]}.png')}}" alt="name" >
                                                             <h2 class="live_block_top_title" >{[{ users.nickname }]}</h2>
                                                         </div>
                                                     </div>
@@ -121,8 +121,8 @@
                                                     {#</div>#}
                                                 </div>
                                             </div>
-                                            <div class="review_list_cont-heder height_row" ng-repeat = "user in all_users">
-                                                <div class="abs">
+                                            <div style="cursor: pointer" class="review_list_cont-heder height_row each_user" ng-repeat = "user in all_users">
+                                                <div class="abs" ng-click="clickid(user._id)">
                                                     <div class="general_review_cont-block number_width">
                                                         <div class="review_list_center"style="padding-left: 5%">
                                                             <span class="live_block_top_title" style="text-align: center">{[{ $index + 1 }]}</span>

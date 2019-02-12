@@ -54,9 +54,9 @@
             </div>
         </div>
 
-        <div class="review_list_cont-heder ng-cloak" ng-repeat="item in sent">
-            <div class="abs">
-                <div class="general_review_cont-block first_title">
+        <div style="cursor: pointer" class="review_list_cont-heder ng-cloak each_user" ng-repeat="item in sentarray">
+            <div class="abs"  >
+                <div class="general_review_cont-block first_title" ng-click="ActiveChange_Watchlist(item.symbol, item.symbol_type, item.name,'{{ app.request.getLocale() }}');">
                     <div class="review_list_center"style="padding-left: 5%">
                         <img class="live_block_top_img mobile_font hide_mobile" ng-src="{[{item.img}]}" alt={[{item.symbol}]}>
                         <h2 class="live_block_top_title mobile_font_name">{[{item.name}]}</h2>
@@ -69,7 +69,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="general_review_cont-block middle_title hide_mobile">
+                <div class="general_review_cont-block middle_title hide_mobile"ng-click="ActiveChange_Watchlist(item.symbol, item.symbol_type, item.name,'{{ app.request.getLocale() }}');">
                     <div class="review_list_center">
                         <p style="margin: auto; text-align: center;" >
                             <span ng-if="item.bullishOpen" class="chart_bitcoin-reting_prozent_like"><i class="button_sentiment_list button_bullish_open mobile_font mobile_font_sent" target="_blank" style="font-size: small;" ><b>{{ 'button.bullish'|trans }}</b></i></span>
@@ -142,8 +142,8 @@
             </div>
         </div>
 
-        <div class="review_list_cont-heder ng-cloak" ng-repeat="item in leaderbord">
-            <div class="abs">
+        <div style="cursor: pointer" class="review_list_cont-heder ng-cloak each_user" ng-repeat="item in leaderbord">
+            <div class="abs" ng-click="clickid(item._id)" >
                 <div class="general_review_cont-block "style="width: 50%">
                     <div class="review_list_center"style="padding-left: 5%">
                         <img class="live_block_top_img mob_img" ng-src="{{ asset("img/Flags1/{[{item.country.replace(' ','-')}]}.png")}}" alt={[{item.country}]}>
@@ -158,8 +158,8 @@
             </div>
         </div>
         <div ng-show="show">
-            <div class="review_list_cont-heder ng-cloak" ng-repeat="item in leaderEnd">
-                <div class="abs">
+            <div style="cursor: pointer" class="review_list_cont-heder ng-cloak each_user" ng-repeat="item in leaderEnd">
+                <div class="abs" ng-click="clickid(item._id)">
                     <div class="general_review_cont-block "style="width: 50%">
                         <div class="review_list_center"style="padding-left: 5%">
                             <img class="live_block_top_img mob_img" ng-src="{{ asset("img/Flags1/{[{item.country.replace(' ','-')}]}.png")}}" alt={[{item.country}]}>
@@ -168,7 +168,7 @@
                     </div>
                     <div class="general_review_cont-block  "style="width: 50%">
                         <div class="review_list_center">
-                            <p class="live_block_money-right  "style="padding-right: 5%;"><span class="live_block_money_bold">{[{item.total_corect_percent}]} %</span>
+                            <p class="live_block_money-right  "style="padding-right: 5%;"><span class="live_block_money_bold">{[{item.total_corect_percent.toFixed(1)}]} %</span>
                         </div>
                     </div>
                 </div>

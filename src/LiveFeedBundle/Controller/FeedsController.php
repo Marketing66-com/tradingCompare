@@ -24,7 +24,7 @@ class FeedsController extends Controller
     }
 
     /**
-     * @Route("/stockcurrencies/streaming-stock-rates-majors-social-sentiment/{name}/{value}", name="Live_rates_stocks", options={"expose" = true})
+     * @Route("/stock-market/{name}/{value}", name="Live_rates_stocks", options={"expose" = true})
      */
     public function StockAction($name, $value)
     {
@@ -40,7 +40,7 @@ class FeedsController extends Controller
     }
 
     /**
-     * @Route("/cryptocurrencies/streaming-crypto-rates-majors-social-sentiment", name="Live_rates_crypto")
+     * @Route("/cryptocurrency-prices", name="Live_rates_crypto")
      */
     public function CryptoAction()
     {
@@ -50,7 +50,7 @@ class FeedsController extends Controller
 
 
     /**
-     * @Route("/currencies/streaming-forex-rates-majors-social-sentiment", name="Live_rates_forex")
+     * @Route("/forex-rates", name="Live_rates_forex")
      */
     public function ForexAction()
     {

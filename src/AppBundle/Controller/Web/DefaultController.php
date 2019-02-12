@@ -110,7 +110,7 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/Social-Sentiment",name="social_sentiment", options={"expose" = true})
+     * @Route("/market-forecast",name="social_sentiment", options={"expose" = true})
      */
     public function social_sentimentAction()
     {
@@ -118,26 +118,23 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/traders-profile",name="profile", options={"expose" = true})
+     */
+    public function profileAction(Request $request)
+    {
+        $id = $request->get('client_id');
+        return $this->render('default/user-profile.html.twig', array("id"=>$id));
+    }
+    /**
      * @Route("/my-profile",name="my-profile", options={"expose" = true})
      */
-    public function my_profileAction(Request $request)
+    public function my_profileAction()
     {
-        $id = $request->get('field1');
-        return $this->render('default/my-profile.html.twig', array("id"=>$id));
-    }
-
-
-    /**
-     * @Route("/profile",name="user-profile", options={"expose" = true})
-     */
-    public function user_profileAction()
-    {
-
-        return $this->render('default/user-profile.html.twig');
+        return $this->render('default/Myprofile.html.twig');
     }
 
     /**
-     * @Route("/Leaderboard",name="leaderboard", options={"expose" = true})
+     * @Route("/best-forex-traders",name="leaderboard", options={"expose" = true})
      */
     public function leaderboardAction()
     {
@@ -299,12 +296,12 @@ class DefaultController extends Controller
 //        return $this->render('default/test/signup.html.twig');
 //    }
 //
-    /**
-     * @Route("/test", name="test")
-     */
-    public function autocompleteAction()
-    {
-        return $this->render('default/test/signup.html.twig');
-    }
+//    /**
+//     * @Route("/test", name="test")
+//     */
+//    public function autocompleteAction()
+//    {
+//        return $this->render('default/test-profile.html.twig');
+//    }
 
 }

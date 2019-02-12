@@ -26,7 +26,7 @@ LeaderboardApp.controller('LeaderboardController', function($scope,$window,$loca
         $scope.$item = $item;
         $scope.$model = $model;
         $scope.$label = $label;
-        //console.log("$scope.$item",$scope.$item.name,$scope.$model,$scope.$label)
+        console.log("$scope.$item",$scope.$item.name,$scope.$model,$scope.$label)
 
         if($scope.$model.type == 'country'){
             $scope.listUsers = []
@@ -45,12 +45,31 @@ LeaderboardApp.controller('LeaderboardController', function($scope,$window,$loca
                 }
             }
         }
-        // if($scope.$item.name.indexOf(' ') > -1)
-        //     $scope.$item.name = $scope.$item.name.replace(' ', '-')
-        //
-        // if($scope.$item.value.indexOf(' ') > -1)
-        //     $scope.$item.value = $scope.$item.value.replace(' ', '-')
-        //
+        else if($scope.$model.type == 'user'){
+
+            if($scope.$model._id == $scope.user._id){
+                $('body').append($('<form/>', {
+                    id: 'form',
+                    method: 'POST',
+                    action: Routing.generate('my-profile')
+                }));
+            }
+            else {
+                $('body').append($('<form/>', {
+                    id: 'form',
+                    method: 'POST',
+                    action: Routing.generate('profile')
+                }));
+            }
+            $('#form').append($('<input/>', {
+                type: 'hidden',
+                name: 'client_id',
+                value: $scope.$model._id
+            }));
+
+            $('#form').submit();
+        }
+
         // var url =  Routing.generate('Live_rates_stocks',{"name" :$scope.$item.name, "value":$scope.$item.value})
         // //console.log("Routing",Routing.generate('Live_rates_stocks',{"name" :$scope.$item.name, "value":$scope.$item.value}))
         // window.location.href= url
@@ -71,20 +90,21 @@ LeaderboardApp.controller('LeaderboardController', function($scope,$window,$loca
                     }
 
                     MemberService.getUsersById($scope.idToken, $scope._id).then(function (results) {
-                        // console.log("getUsersById",results.data)
+                        //console.log("getUsersById",results.data)
                         $scope.user = results.data
                         $scope.got_user = true
                     })
                     .then(()=>{
                         MemberService.getFollowingOfUser($scope.idToken).then(function (results) {
                             $scope.get_following = results
-                            console.log('*******',$scope.get_following)
+                            //console.log("get_following)",$scope.get_following)
+
                             $scope.got_following_flag = true
                         })
                         .then(()=>{
                             var check = function() {
                                 if($scope.got_flw == false) {
-                                    console.log("wait for following")
+                                   // console.log("wait for following")
                                     $timeout(check, 100);
                                 }
                                 else{
@@ -153,7 +173,7 @@ LeaderboardApp.controller('LeaderboardController', function($scope,$window,$loca
                     }
                     $scope.leaderbord_users[k].country = $scope.leaderbord_users[k].country.toLocaleLowerCase()
                 }
-                console.log(  $scope.leaderbord_users)
+                //console.log(  $scope.leaderbord_users)
             })
             .catch(function (error) {
                 $scope.data = error;
@@ -225,7 +245,6 @@ LeaderboardApp.controller('LeaderboardController', function($scope,$window,$loca
                 $scope.currentPage_user = 0;
                 $scope.total_user =  $scope.Users.length;
                 $scope.all_users =  $scope.offset_users($scope.currentPage_user * $scope.userPerPage, $scope.userPerPage);
-
             })
             .then(()=>{
                 $scope.got_flw = true
@@ -334,6 +353,31 @@ $scope.remove_follow = function(index) {
             $scope.$apply();
     })
 };
+
+$scope.clickid= function(id) {
+    //console.log('in click')
+    if(id==$scope._id._id){
+        $('body').append($('<form/>', {
+            id: 'form',
+            method: 'POST',
+            action: Routing.generate('my-profile')
+        }));
+    }
+    else {
+        $('body').append($('<form/>', {
+            id: 'form',
+            method: 'POST',
+            action: Routing.generate('profile')
+        }));
+    }
+    $('#form').append($('<input/>', {
+        type: 'hidden',
+        name: 'client_id',
+        value: id
+    }));
+
+    $('#form').submit();
+}
 
 });
 

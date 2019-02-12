@@ -29,6 +29,7 @@ class SitemapController extends Controller
 
         $urls[] = ['loc' => $this->get('router')->generate('Live_rates_crypto'), 'changefreq' => 'weekly', 'priority' => '0.7'];
         $urls[] = ['loc' => $this->get('router')->generate('Live_rates_forex'), 'changefreq' => 'weekly', 'priority' => '0.7'];
+        $urls[] = ['loc' => $this->get('router')->generate('Live_rates_stocks'), 'changefreq' => 'weekly', 'priority' => '0.7'];
 
         $urls[] = ['loc' => $this->get('router')->generate('crypto'), 'changefreq' => 'weekly', 'priority' => '0.5'];
         $urls[] = ['loc' => $this->get('router')->generate('forex'), 'changefreq' => 'weekly', 'priority' => '0.5'];
@@ -42,6 +43,10 @@ class SitemapController extends Controller
         $urls[] = ['loc' => $this->get('router')->generate('pepperstone'), 'changefreq' => 'weekly', 'priority' => '0.6'];
         $urls[] = ['loc' => $this->get('router')->generate('alvexo'), 'changefreq' => 'weekly', 'priority' => '0.6'];
         $urls[] = ['loc' => $this->get('router')->generate('market'), 'changefreq' => 'weekly', 'priority' => '0.6'];
+
+        $urls[] = ['loc' => $this->get('router')->generate('social_sentiment'), 'changefreq' => 'weekly', 'priority' => '0.6'];
+        $urls[] = ['loc' => $this->get('router')->generate('leaderboard'), 'changefreq' => 'weekly', 'priority' => '0.6'];
+
 
         $client = new \GuzzleHttp\Client();
         try {
