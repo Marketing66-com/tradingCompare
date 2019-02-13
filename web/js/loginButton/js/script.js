@@ -10,7 +10,7 @@ LogButton.controller('LogButton', function ($scope, $window, MemberService) {
     this.$onInit = function () {
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
-                //console.log("user",user )
+                // console.log("user",user )
                 $scope.userLoggedIn = true;
                 $scope.user.full_name = 'Welcome...'
 
@@ -21,7 +21,7 @@ LogButton.controller('LogButton', function ($scope, $window, MemberService) {
                     }
                     MemberService.getUsersById(idToken,  $scope._id ).then(function (results) {
                         $scope.user = results.data
-                        //console.log(" $scope.user",$scope.user )
+                        console.log(" $scope.user",$scope.user )
                         $scope.$apply();
 
                     }).catch(function (error) {
