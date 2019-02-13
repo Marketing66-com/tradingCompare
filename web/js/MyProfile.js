@@ -55,60 +55,101 @@ MyProfileApp.controller('MyProfileController', function($scope,$window,$location
                     $scope._id = {
                         _id: user.uid
                     }
+                    $scope.MemberServiceUser = new Promise(function (resolve, reject) {
 
-                    MemberService.getUsersById($scope.idToken, $scope._id).then(function (results) {
-                        $scope.user = results.data
-                        $scope.countryVal=$scope.user.countryData.country.toLowerCase().replace(/\s+$/, '').replace(' ','-')
+                            MemberService.getUsersById($scope.idToken, $scope._id).then(function (results) {
+                                $scope.user = results.data
+                                $scope.countryVal = $scope.user.countryData.country.toLowerCase().replace(/\s+$/, '').replace(' ', '-')
 
-                        if($scope.user.description == ""){
-                            $scope.the_bio_description = '- No description yet - Click here to fill your description'
-                        }
-                        else{
-                            $scope.the_bio_description = $scope.user.description
-                        }
+                                if ($scope.user.description == "") {
+                                    $scope.the_bio_description = '- No description yet - Click here to fill your description'
+                                }
+                                else {
+                                    $scope.the_bio_description = $scope.user.description
+                                }
+                                resolve($scope.user)
+                                $scope.$apply();
 
-                        MemberService.getSentimentsByUser($scope.idToken, $scope._id).then(function (results) {
+                            })
+                                .catch(function (error) {
+                                    console.log('ERROR: ', error)
+                                    $scope.$apply();
+                                })
+                        })
+
+                    $scope.MemberServiceSentiment = new Promise(function (resolve, reject) {
+
+                            MemberService.getSentimentsByUser($scope.idToken, $scope._id).then(function (results) {
                             // console.log("getSentimentsByUser",results)
                             $scope.user_sentiments = results
                             // $scope.user_sentiments = results
+                                resolve($scope.user_sentiments)
+                                $scope.$apply();
+
+                            })
+                                .catch(function (error) {
+                                    console.log('ERROR: ', error)
+                                    $scope.$apply();
+                                })
+                        })
+
+                    $scope.MemberServiceFollow =new Promise(function (resolve, reject) {
+
+                            MemberService.getFollowingOfUser($scope.idToken).then(function (results) {
+                                $scope.get_following = results
+                                console.log($scope.get_following)
+                                resolve($scope.get_following)
+                                $scope.$apply();
+
+                            })
+                                .catch(function (error) {
+                                    console.log('ERROR: ', error)
+                                    $scope.$apply();
+                                })
+                        })
+
+                    $scope.MemberServiceFollowers =new Promise(function (resolve, reject) {
+
+                            MemberService.getFollowers($scope.idToken).then(function (results) {
+                                $scope.get_followers = results
+                                // $scope.got_followers_flag = true
+                                // console.log("get_followers",$scope.get_followers)
+                                resolve($scope.get_followers)
+                                $scope.$apply();
+
+                            })
+                                .catch(function (error) {
+                                    console.log('ERROR: ', error)
+                                    $scope.$apply();
+                                })
+                        })
+
+                    $scope.MemberServiceComments =  new Promise(function (resolve, reject) {
+
+                            MemberService.getCommentsByID($scope.idToken).then(function (results) {
+                                $scope.get_MyComments = results
+                                // $scope.got_followers_flag = true
+                                // console.log("get_MyComments",$scope.get_MyComments)
+                                resolve($scope.get_MyComments)
+                                $scope.$apply();
+
+                            })
+                                .catch(function (error) {
+                                    console.log('ERROR: ', error)
+                                    $scope.$apply();
+                                })
+                        })
+
+                    })
+                        .catch(function (error) {
+                            $scope.data = error;
+                            console.log("$scope.data", $scope.data)
                             $scope.$apply();
                         })
-                            .catch(function (error) {
-                                console.log('ERROR: ', error)
-                                $scope.$apply();
-                            })
+                        .then(() => {
+                            var Getall = [$scope.MemberServiceComments, $scope.MemberServiceFollowers, $scope.MemberServiceFollow, $scope.MemberServiceSentiment, $scope.MemberServiceUser]
+                            Promise.all(Getall).then((Arrays1) => {
 
-                        MemberService.getFollowingOfUser($scope.idToken).then(function (results) {
-                            $scope.get_following = results
-                            console.log($scope.get_following)
-
-                        })
-                            .catch(function (error) {
-                                console.log('ERROR: ', error)
-                                $scope.$apply();
-                            })
-
-                        MemberService.getFollowers($scope.idToken).then(function (results) {
-                            $scope.get_followers = results
-                            // $scope.got_followers_flag = true
-                            // console.log("get_followers",$scope.get_followers)
-                        })
-                            .catch(function (error) {
-                                console.log('ERROR: ', error)
-                                $scope.$apply();
-                            })
-
-                        MemberService.getCommentsByID($scope.idToken).then(function (results) {
-                            $scope.get_MyComments = results
-                            // $scope.got_followers_flag = true
-                            // console.log("get_MyComments",$scope.get_MyComments)
-                        })
-                            .catch(function (error) {
-                                console.log('ERROR: ', error)
-                                $scope.$apply();
-                            })
-
-                            .then(() => {
                                 var promises1 = BuildPost()
                                 var promises2 = BuildWatchlist()
                                 var promises3 = BuildFollowing()
@@ -119,30 +160,19 @@ MyProfileApp.controller('MyProfileController', function($scope,$window,$location
 
                                 Promise.all(all_promises).then((Arrays) => {
                                     $scope.spinner = false
-                                   // console.log("get in !!!!!")
+                                    // console.log("get in !!!!!")
                                 })
                                     .catch(function (error) {
                                         console.log('ERROR: ', error)
                                         $scope.$apply();
                                     })
+
                             })
 
-                            .catch(function (error) {
-                                console.log('ERROR: ', error)
-                                $scope.$apply();
-                            })
-                        $scope.$apply();
-                    })
-                        .catch(function (error) {
-                            $scope.data = error;
-                            console.log("$scope.data", $scope.data)
+
                             $scope.$apply();
                         })
-                })
-                    .catch(function (error) {
-                        console.log('ERROR: ', error)
-                        $scope.$apply();
-                    })
+
             }
             else {
                 $scope.userLoggedIn = false;
@@ -642,7 +672,9 @@ MyProfileApp.controller('MyProfileController', function($scope,$window,$location
 ///////////////////////////////////tab4 followers////////////////////////////////////////////////////
     BuildFollower = function() {
         return new Promise(function (resolve, reject) {
-             for(i=0;i<$scope.get_followers.length; i++){
+            // console.log("*******",$scope.get_followers.length,$scope.get_followers)
+
+            for(i=0; i<$scope.get_followers.length; i++){
                  $scope.get_followers[i].myFollow= false
                  $scope.get_followers[i].mycountry=$scope.get_followers[i].country.toLowerCase().replace(/\s+$/, '').replace(' ','-')
                         for(j=0;j<$scope.get_following.length; j++){
@@ -651,7 +683,7 @@ MyProfileApp.controller('MyProfileController', function($scope,$window,$location
                             }
                         }
                     }
-                    // console.log("*******",$scope.other_followers)
+                    // console.log("*******",$scope.get_followers.length,$scope.get_followers)
 
                     resolve($scope.get_followers)
             $scope.$apply()
