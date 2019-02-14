@@ -96,11 +96,16 @@
 
                     <div id="dvLogButton" class="ng-cloak" style="float: left">
                         <div id="logButton" ng-controller="LogButton">
-                            <div style="display: block;position: relative;float: left; width: 50px;margin: 10px 25px;padding: 0;z-index: 999999;" class="select language">
+                            <div ng-if="!userLoggedIn" style="display: block;position: relative;float: left; width: 50px;margin-right: 25px;margin-bottom: 10px;padding: 0;z-index: 999999;" class="select language">
+                                {#<a ng-if="!userLoggedIn" href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/"~app.request.getLocale()~".png")}}' alt="uk_flag"></a>#}
+                                {#<a ng-if="userLoggedIn" href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{ asset("img/Flags1/{[{user.mycountry}]}.png")}}' alt={[{user.country}]}></a>#}
+                                <a href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/"~app.request.getLocale()~".png")}}' alt="uk_flag"></a>
+                            </div>
 
-                                <a ng-if="!userLoggedIn" href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/"~app.request.getLocale()~".png")}}' alt="uk_flag"></a>
-                                <a ng-if="userLoggedIn" href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{ asset("img/Flags1/{[{user.mycountry}]}.png")}}' alt={[{user.country}]}></a>
-
+                            <div ng-if="userLoggedIn" style="display: block;position: relative;float: left; width: 50px;margin-right: 25px;margin-bottom: 10px;margin-top:10px;padding: 0;z-index: 999999;" class="select language">
+                                {#<a ng-if="!userLoggedIn" href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/"~app.request.getLocale()~".png")}}' alt="uk_flag"></a>#}
+                                {#<a ng-if="userLoggedIn" href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{ asset("img/Flags1/{[{user.mycountry}]}.png")}}' alt={[{user.country}]}></a>#}
+                                <a  href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{ asset("img/Flags1/{[{user.mycountry}]}.png")}}' alt={[{user.country}]}></a>
                             </div>
 
 
