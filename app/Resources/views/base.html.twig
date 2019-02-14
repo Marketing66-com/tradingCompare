@@ -106,7 +106,7 @@
                                 {#<a ng-if="!userLoggedIn" href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/"~app.request.getLocale()~".png")}}' alt="uk_flag"></a>#}
                                 {#<a ng-if="userLoggedIn" href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{ asset("img/Flags1/{[{user.mycountry}]}.png")}}' alt={[{user.country}]}></a>#}
                                 <a  href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{ asset("img/Flags1/{[{user.mycountry}]}.png")}}' alt={[{user.country}]}></a>
-                            </div>
+                            </div>        
 
 
                                 <a ng-if="!userLoggedIn" class="login-btn log sm-none v-btn" >{{ 'button.login'|trans }}</a>
