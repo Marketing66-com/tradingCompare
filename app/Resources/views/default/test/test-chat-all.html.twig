@@ -1,116 +1,109 @@
-{% extends 'base.html.twig' %}
-{% block body %}
+{#{% extends 'base.html.twig' %}#}
+{#{% block body %}#}
+    <link rel="stylesheet" href="{{ asset('css/live-chat.css') }}">
 
+    <main class="main">
+        <div  style="z-index: 9999" class="broker_option  live_abs live_abs-active">
+            <h2 class="broker_contact_title live_chat"><span  class="users-chat_text_circle"> </span> Live Chat</h2>
+            <div class="my-row">
 
-<div id="dvSocial">
-    <div ng-controller="SocialController" class="ng-cloak">
-        <div ng-init="init('FB')" >
+                <div class="users-chat">
+                    <p class="users-chat_text">
+                        10,040 registered users<br>
+                        <span  class="users-chat_text_circle"> </span> 550 users chatting now
+                    </p>
+                    <a class="chat_close">
+                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             width="348.333px" height="348.334px" viewBox="0 0 348.333 348.334" style="enable-background:new 0 0 348.333 348.334;"
+                             xml:space="preserve">
+                     <g>
+                         <path fill="#c6c5c5" d="M336.559,68.611L231.016,174.165l105.543,105.549c15.699,15.705,15.699,41.145,0,56.85
+                     		c-7.844,7.844-18.128,11.769-28.407,11.769c-10.296,0-20.581-3.919-28.419-11.769L174.167,231.003L68.609,336.563
+                     		c-7.843,7.844-18.128,11.769-28.416,11.769c-10.285,0-20.563-3.919-28.413-11.769c-15.699-15.698-15.699-41.139,0-56.85
+                     		l105.54-105.549L11.774,68.611c-15.699-15.699-15.699-41.145,0-56.844c15.696-15.687,41.127-15.687,56.829,0l105.563,105.554
+                     		L279.721,11.767c15.705-15.687,41.139-15.687,56.832,0C352.258,27.466,352.258,52.912,336.559,68.611z"/>
+                     </g>
 
-            <section class="table">
-                <div class="container">
-                    <div class="row">
-                        <div class="general-chart">
-                            <div >
-                                <ul class="mytab">
-                                    <li class="tablinks" ng-class="{ active: isSet(1) }">
-                                        <a href ng-click="setTab(1)">COMMENTS</a>
-                                    </li>
-                                </ul>
+                     </svg></a>
+                </div>
+                <div class="users-chat_scroll">
+                    <div class="users-chat_cont">
+                        <div class="message_cont">
+                            <div><img class="message_cont_img" src='{{asset("img/Flags1/france.png")}}' alt="195-france@2x"></div>
+                            <div class="message_cont_block">
+                                <p class="message_cont_block_name">Jaime Lannister <span class="message_cont_block_time">30m</span></p>
+                                <p class="message_cont_block_text">Don’t buy right now!</p>
+                                <p class="message_cont_block_reply">Reply</p>
                             </div>
-                            <div>
-                                <div>
-
-                                    {#/************************************************************************************/#}
-                                    <div ng-show="isSet(1)">
-                                        <hr>
-                                        <form class="comments-form">
-                                            <div class="comments-form_left">
-                                                <textarea class=" touch_your-comment" ng-change="typing()" ng-model="the_comment" placeholder="Your comment..."></textarea>
-                                            </div>
-                                            <div class="comments-form_right ms-none">
-                                                <button ng-if="!userLoggedIn" ng-click="click_on_post()" type="submit" class="comment_btn">POST</button>
-                                                <button ng-if="userLoggedIn" ng-click="post_message()" type="submit" class="comment_btn">POST</button>
-                                            </div>
-                                            <div class="review_cont-btn ms-block">
-                                                <a ng-if="!userLoggedIn" ng-click="click_on_post()" class="review_more-btn">POST YOUR COMMENT</a>
-                                                <a ng-if="userLoggedIn" ng-click="post_message()" class="review_more-btn">POST YOUR COMMENT</a>
-                                            </div>
-                                        </form>
-                                        <div ng-show="is_typing" class="comments_user-cont_text">
-                                            <h4 class="comments_user-cont_name" style="font-size:17px">Someone is typing...</h4>
-                                        </div>
-
-                                        <div ng-if="all_comments.length >0">
-                                            <div class="comments_user-cont" ng-repeat="comment in all_comments">
-                                                <div class="comments_user-cont_img">
-                                                    <img class="comments_user-img" src='{{asset("img/Flags1/{[{comment.country}]}.png")}}'  alt="country">
-                                                </div>
-                                                <div class="comments_user-cont_text">
-                                                    <h4 class="comments_user-cont_name">{[{comment.nickname}]}</h4>
-
-                                                    <p class="comments_user-text">
-                                                        {[{comment.txt}]}
-                                                    </p>
-                                                    <ul class="comments_user-text_reply">
-                                                        Like
-                                                        <li class="mu-reply"> {[{comment.date_from_now}]}</li>
-                                                        <li class="mu-reply"><a>Reply</a></li>
-                                                    </ul>
-                                                </div>
-
-                                            </div>
-                                            <div class="review_cont-btn">
-                                                <a class="review_more-btn" ng-class="nextPageDisabledClass_comments()" ng-style="disabled_comments"
-                                                   ng-click="loadMore_comments()" >MORE COMMENTS</a>
-                                            </div>
-                                        </div>
-
-                                        <div ng-if="!all_comments.length >0">
-                                            <hr>
-                                            {#<p class="news_space_absolut_text">Be the first to comment for {{ symbol }}</p>#}
-                                        </div>
-                                    </div>
-
-                                    {#/************************************************************************************/#}
-                                </div>
+                        </div>
+                        <div class="message_cont">
+                            <div><img class="message_cont_img" src='{{asset("img/Flags1/uk.png")}}' alt="195-france@2x"></div>
+                            <div class="message_cont_block">
+                                <p class="message_cont_block_name">Jon Snow <span class="message_cont_block_time">15m</span></p>
+                                <p class="message_cont_block_text">Anyone know if its any good?</p>
+                                <p class="message_cont_block_reply">Reply</p>
                             </div>
-
-
+                        </div>
+                        <div class="message_cont">
+                            <div><img class="message_cont_img" src='{{asset("img/Flags1/uk.png")}}' alt="195-france@2x"></div>
+                            <div class="message_cont_block">
+                                <p class="message_cont_block_name">White Walker <span class="message_cont_block_time">15m</span></p>
+                                <p class="message_cont_block_text"><span class="message_cont_block_text_blue">jonsnow</span> I would say no</p>
+                                <p class="message_cont_block_reply">Reply</p>
+                            </div>
+                        </div>
+                        <div class="message_cont">
+                            <div><img class="message_cont_img" src='{{asset("img/Flags1/fr.png")}}' alt="195-france@2x"></div>
+                            <div class="message_cont_block">
+                                <p class="message_cont_block_name">Jeyne Poole <span class="message_cont_block_time">3m</span></p>
+                                <p class="message_cont_block_text">I am looking for a good broker</p>
+                                <p class="message_cont_block_reply">Reply</p>
+                            </div>
+                        </div>
+                        <div class="message_cont">
+                            <div><img class="message_cont_img" src='{{asset("img/Flags1/fr.png")}}' alt="195-france@2x"></div>
+                            <div class="message_cont_block">
+                                <p class="message_cont_block_name">Jaime Lannister <span class="message_cont_block_time">30m</span></p>
+                                <p class="message_cont_block_text">Don’t buy right now!</p>
+                                <p class="message_cont_block_reply">Reply</p>
+                            </div>
+                        </div>
+                        <div class="message_cont">
+                            <div><img class="message_cont_img" src='{{asset("img/Flags1/fr.png")}}' alt="195-france@2x"></div>
+                            <div class="message_cont_block">
+                                <p class="message_cont_block_name">Jaime Lannister <span class="message_cont_block_time">30m</span></p>
+                                <p class="message_cont_block_text">Don’t buy right now!</p>
+                                <p class="message_cont_block_reply">Reply</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+                <div class="message_post">
+                    <input class="message_post-tag" type="text" placeholder="Tag users with @ ">
 
+                    <button class="message_post-btn">POST</button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-<script src="{{ asset('js/ChatAll.js') }}"></script>
-<link rel="stylesheet" href="{{ asset('css/comment.css') }}" >
-<script data-require="angular-ui-bootstrap@0.3.0" data-semver="2.5.0" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
-<script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
-<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    </main>
 
-
-
-{% endblock %}
+{#{% endblock %}#}
 
 {#{% block javascripts %}#}
     {#{{ parent() }}#}
-    {#<script>#}
-        {#function loadCSS(hf) {#}
-            {#var ms = document.createElement("link");#}
-            {#ms.rel = "stylesheet";#}
-            {#ms.href = hf;#}
-            {#document.getElementsByTagName("head")[0].appendChild(ms);#}
-        {#}#}
-        {#loadCSS('{{asset("css/footer.css")}}');#}
-        {#loadCSS('{{asset("font/font_avenir.css")}}');#}
-        {#loadCSS("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");#}
-        {#loadCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");#}
-        {#loadCSS('{{asset("css/charts.css")}}')#}
-        {#loadCSS('{{asset("css/comment.css")}}')#}
 
-    {#</script>#}
+    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+
+
+    <script>
+
+        $('.live_chat').click(function () {
+            $('.live_abs').toggleClass('live_abs-active');
+        });
+        $('.chat_close').click(function () {
+            $('.live_abs').removeClass('live_abs-active');
+        });
+    </script>
 
 {#{% endblock %}#}

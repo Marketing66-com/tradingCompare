@@ -296,12 +296,12 @@ class DefaultController extends Controller
 //        return $this->render('default/test/signup.html.twig');
 //    }
 //
-//    /**
-//     * @Route("/test", name="test")
-//     */
-//    public function autocompleteAction()
-//    {
-//        return $this->render('default/test-profile.html.twig');
-//    }
+    /**
+     * @Route("/test", name="test")
+     */
+    public function autocompleteAction()
+    {
+        return $this->render('default/test/test-chat-all.html.twig');
+    }
 
 }
