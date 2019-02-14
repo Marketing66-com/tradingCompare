@@ -21,7 +21,8 @@ LogButton.controller('LogButton', function ($scope, $window, MemberService) {
                     }
                     MemberService.getUsersById(idToken,  $scope._id ).then(function (results) {
                         $scope.user = results.data
-                        console.log(" $scope.user",$scope.user )
+                        // console.log(" $scope.user",$scope.user )
+                        $scope.user.mycountry=$scope.user.countryData.country.toLowerCase().replace(/\s+$/, '').replace(' ','-')
                         $scope.$apply();
 
                     }).catch(function (error) {
