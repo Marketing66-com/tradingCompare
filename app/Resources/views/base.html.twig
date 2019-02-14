@@ -91,22 +91,18 @@
 
             </div>
             <div class="col-md-6 col-sm-6 col-xs-7">
-                <div style="float: right;position: relative;" class="cont-right">
 
+                <div style="float: right;position: relative;" class="cont-right">
 
                     <div id="dvLogButton" class="ng-cloak" style="float: left">
                         <div id="logButton" ng-controller="LogButton">
-                            <div style="display: block;position: relative;float: left; width: 50px;margin: 0px 25px;padding: 0;z-index: 999999;" class="select language">
-                                <a ng-if="!userLoggedIn" href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/"~app.request.getLocale()~".png")}}' alt="uk_flag"></a>
-                                <a ng-if="userLoggedIn" href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 15px auto;display: block;object-fit: cover;" class="img-language" src='{{ asset("img/Flags1/{[{user.mycountry}]}.png")}}' alt={[{user.country}]}></a>
+                            <div style="display: block;position: relative;float: left; width: 50px;margin: 10px 25px;padding: 0;z-index: 999999;" class="select language">
 
-                                <ul class="drop-2">
-                                    <li><a href="{{ path('changelanguage', {'langCode': 'en'}) }}"> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/uk_flag.png" )}}'alt="uk_flag"></a></li>>
-                                    <li><a href="{{ path('changelanguage', {'langCode': 'fr'}) }}"> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src= '{{asset("img/Flags/france.png")}}'alt="france"></a></li>
-                                    <li><a href="{{ path('changelanguage', {'langCode': 'it'}) }}"> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/italii.png")}}' alt="italii"></a></li>
-                                    <li><a href="{{ path('changelanguage', {'langCode': 'en'}) }}"> <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/made.png")}}' alt="made"></a></li>
-                                </ul>
+                                <a ng-if="!userLoggedIn" href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{asset("img/Flags/"~app.request.getLocale()~".png")}}' alt="uk_flag"></a>
+                                <a ng-if="userLoggedIn" href="#" class="slct-2" style="display: block;margin-left: 25px;">  <img style="width: 35px;height: 35px;margin: 3px auto;display: block;object-fit: cover;" class="img-language" src='{{ asset("img/Flags1/{[{user.mycountry}]}.png")}}' alt={[{user.country}]}></a>
+
                             </div>
+
 
                                 <a ng-if="!userLoggedIn" class="login-btn log sm-none v-btn" >{{ 'button.login'|trans }}</a>
                             {#<a class="login-btn log sm-none v-btn" >{{ 'button.login'|trans }}</a>#}
@@ -127,6 +123,8 @@
 
 
                 </div>
+
+
             </div>
 
             {#<div class="col-md-12 col-sm-12 col-xs-11">#}
