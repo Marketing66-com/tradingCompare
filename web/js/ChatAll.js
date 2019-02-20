@@ -72,40 +72,40 @@ SocialApp.controller("SocialController", function ($scope, $http, MemberService)
     }
 
     /********* TAB *********/
-    $scope.setTab = function(newTab){
-        $scope.tab = newTab;
-    };
-
-    $scope.isSet = function(tabNum){
-        return $scope.tab === tabNum;
-    };
-
-    /********* COMMENTS *********/
-    $scope.offset_comments = function(offset, limit) {
-        return  $scope.all_comments_total.slice(offset, offset+limit);
-    }
-
-    $scope.loadMore_comments = function() {
-        $scope.currentPage_comments++;
-        var newItems = $scope.offset_comments($scope.currentPage_comments*$scope.itemsPerPage_comments,
-            $scope.itemsPerPage_comments);
-        $scope.all_comments = $scope.all_comments.concat(newItems);
-    };
-
-    $scope.nextPageDisabledClass_comments = function() {
-        if ($scope.currentPage_comments === $scope.pageCount_comments()-1){
-            $scope.disabled_comments = {
-                'background-color': '#9B9B9B',
-                "color" : "white",
-                'border':'none'
-            }
-        }
-        return $scope.currentPage_comments === $scope.pageCount_comments()-1 ? "disabled" : "";
-    };
-
-    $scope.pageCount_comments = function() {
-        return Math.ceil($scope.total_comments/$scope.itemsPerPage_comments);
-    };
+    // $scope.setTab = function(newTab){
+    //     $scope.tab = newTab;
+    // };
+    //
+    // $scope.isSet = function(tabNum){
+    //     return $scope.tab === tabNum;
+    // };
+    //
+    // /********* COMMENTS *********/
+    // $scope.offset_comments = function(offset, limit) {
+    //     return  $scope.all_comments_total.slice(offset, offset+limit);
+    // }
+    //
+    // $scope.loadMore_comments = function() {
+    //     $scope.currentPage_comments++;
+    //     var newItems = $scope.offset_comments($scope.currentPage_comments*$scope.itemsPerPage_comments,
+    //         $scope.itemsPerPage_comments);
+    //     $scope.all_comments = $scope.all_comments.concat(newItems);
+    // };
+    //
+    // $scope.nextPageDisabledClass_comments = function() {
+    //     if ($scope.currentPage_comments === $scope.pageCount_comments()-1){
+    //         $scope.disabled_comments = {
+    //             'background-color': '#9B9B9B',
+    //             "color" : "white",
+    //             'border':'none'
+    //         }
+    //     }
+    //     return $scope.currentPage_comments === $scope.pageCount_comments()-1 ? "disabled" : "";
+    // };
+    //
+    // $scope.pageCount_comments = function() {
+    //     return Math.ceil($scope.total_comments/$scope.itemsPerPage_comments);
+    // };
 
     // POST COMMENT
     $scope.post_message = function(){
@@ -125,7 +125,7 @@ SocialApp.controller("SocialController", function ($scope, $http, MemberService)
 
     $scope.typing = function(){
         // $scope.is_typing = true
-        $scope.socket.emit("typing", $scope.symbol);
+        $scope.socket.emit("typing", "all");
     }
 
     $scope.click_on_post = function(){
@@ -163,13 +163,7 @@ SocialApp.controller("SocialController", function ($scope, $http, MemberService)
         }
     });
 
-    $scope.socket.on("on_primary_key", (data) => {
-        for (let index = $scope.all_comments_total.length - 1; index > -1; index--) {
-            if (data.user_id == $scope.all_comments_total[index].user_id) {
-                $scope.all_comments_total[index]["primary_key"] = data.primary_key;
-            }
-        }
-    });
+
 });
 
 var dvSocial = document.getElementById('dvSocial');
