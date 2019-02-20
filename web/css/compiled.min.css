@@ -182,6 +182,8 @@
     width: 100%;
     height: 400px;
     overflow-y: auto;
+    transform: rotate(180deg);
+    direction: rtl;
 }
 .users-chat_scroll::-webkit-scrollbar {
     width: 4px;
@@ -208,6 +210,8 @@
 .message_cont{
     padding: 10px 0;
     flex-direction: row;
+    transform: rotate(180deg);
+    direction: ltr;
 }
 .message_cont_img{
     margin-right: 25px;

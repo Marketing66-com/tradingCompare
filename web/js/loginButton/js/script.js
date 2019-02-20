@@ -137,10 +137,10 @@ angular.element(document).ready(function () {
 
 
 //*************************************************************************************//
-const ChatLive = angular.module('ChatLive', []).config(function ($interpolateProvider) {
+const ChatLive = angular.module('ChatLive', ['memberService']).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');});
 
-ChatLive.controller('ChatLiveCtr', function ($scope, $http) {
+ChatLive.controller('ChatLiveCtr', function ($scope, $http, MemberService) {
 
     $scope.socket = io.connect("https://xosignals.herokuapp.com/", { path: "/socket/trading-compare-v2/chat" });
 
@@ -155,9 +155,6 @@ ChatLive.controller('ChatLiveCtr', function ($scope, $http) {
     //         }
     //     }
     // }
-
-
-
 
     this.$onInit = function () {
         // $('#chat_scroll').scrollTop(1000000);
@@ -203,10 +200,8 @@ ChatLive.controller('ChatLiveCtr', function ($scope, $http) {
     // COMMENTS
     $http.get("https://xosignals.herokuapp.com/trading-compare-v2/get-comments/all")
         .then(function(response) {
-            $scope.all_comments_total = response.data
+            $scope.all_comments_total = response.data.reverse()
             console.log("**init $scope.all_comments_total **",$scope.all_comments_total )
-            var elem = document.getElementById('chat_scroll2');
-            elem.scrollTop = elem.scrollHeight;
         },function errorCallback(response) {
             console.log("**error**","$scope.all_comments", $scope.all_comments)
         });
@@ -226,7 +221,7 @@ ChatLive.controller('ChatLiveCtr', function ($scope, $http) {
             $scope.socket.emit("message",$scope.data);
 
             $scope.data["date_from_now"] = 'a few seconds'
-            $scope.all_comments_total.push($scope.data)
+            $scope.all_comments_total.unshift($scope.data)
             $scope.the_comment = ''
         }
         else if(!$scope.userLoggedIn && $scope.the_comment!=undefined){
@@ -263,11 +258,11 @@ ChatLive.controller('ChatLiveCtr', function ($scope, $http) {
 });
 
     $scope.socket.on("on_message", (data) => {
-        console.log('data received',data)
+        //console.log('data received',data)
         if ($scope.socket.id != data.id) {
             //console.log('in if')
             // data.country = data.country.replace(" ", "-");
-            $scope.all_comments_total.push(data)
+            $scope.all_comments_total.unshift(data)
             //console.log($scope.all_comments)
             $scope.$apply();
         }

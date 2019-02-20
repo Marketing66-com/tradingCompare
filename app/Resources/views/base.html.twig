@@ -230,10 +230,10 @@
 
               </svg></a>
         </div>
-        <div id="chat_scroll2" class="users-chat_scroll">
-            <div id="chat_scroll" class="users-chat_cont">
+        <div  class="users-chat_scroll">
+            <div class="users-chat_cont">
                 <div class="message_cont" ng-repeat="item in all_comments_total">
-                    <div><img class="message_cont_img" src='{{asset("img/Flags1/{[{item.country}]}.png")}}' alt="195-france@2x"></div>
+                    <div><img class="message_cont_img" src='{{asset("img/Flags1/{[{item.country}]}.png")}}' alt="country"></div>
                     <div class="message_cont_block">
                         <p class="message_cont_block_name">{[{item.nickname}]}<span class="message_cont_block_time">{[{item.date_from_now}]} ago</span></p>
                         <p class="message_cont_block_text">{[{item.txt}]}</p>
