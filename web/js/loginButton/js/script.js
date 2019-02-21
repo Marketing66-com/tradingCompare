@@ -146,19 +146,7 @@ ChatLive.controller('ChatLiveCtr', function ($scope, $http, MemberService) {
 
     $scope.is_typing = false
 
-    // document.addEventListener('scroll', function (event) {
-    //     if (event.target.id === 'chat_scroll') {
-    //         var x = $('#my_ul').scrollTop() + 195
-    //         if (x > $scope.numLimit * 30) {
-    //             $scope.numLimit = $scope.numLimit + 10
-    //             $scope.$apply();
-    //         }
-    //     }
-    // }
-
     this.$onInit = function () {
-        // $('#chat_scroll').scrollTop(1000000);
-        // $("#chat_scroll").scrollTop($("#chat_scroll")[0].scrollHeight);
 
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
@@ -260,10 +248,12 @@ ChatLive.controller('ChatLiveCtr', function ($scope, $http, MemberService) {
     $scope.socket.on("on_message", (data) => {
         console.log('data received',data)
         if ($scope.socket.id != data.id) {
-            //console.log('in if')
-            // data.country = data.country.replace(" ", "-");
+
+            if(data.country.indexOf(" ")>-1){
+                data.country = data.country.replace(/ /g, "-");
+            }
+            data["date_from_now"] = 'a few seconds'
             $scope.all_comments_total.unshift(data)
-            //console.log($scope.all_comments)
             $scope.$apply();
         }
     });
