@@ -201,7 +201,7 @@ ChatLive.controller('ChatLiveCtr', function ($scope, $http, MemberService) {
     $http.get("https://xosignals.herokuapp.com/trading-compare-v2/get-comments/all")
         .then(function(response) {
             $scope.all_comments_total = response.data.reverse()
-            console.log("**init $scope.all_comments_total **",$scope.all_comments_total )
+            //console.log("**init $scope.all_comments_total **",$scope.all_comments_total )
         },function errorCallback(response) {
             console.log("**error**","$scope.all_comments", $scope.all_comments)
         });
@@ -258,7 +258,7 @@ ChatLive.controller('ChatLiveCtr', function ($scope, $http, MemberService) {
 });
 
     $scope.socket.on("on_message", (data) => {
-        //console.log('data received',data)
+        console.log('data received',data)
         if ($scope.socket.id != data.id) {
             //console.log('in if')
             // data.country = data.country.replace(" ", "-");
