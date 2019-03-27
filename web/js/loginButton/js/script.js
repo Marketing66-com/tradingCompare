@@ -246,7 +246,7 @@ ChatLive.controller('ChatLiveCtr', function ($scope, $http, MemberService) {
 });
 
     $scope.socket.on("on_message", (data) => {
-        console.log('data received',data)
+       //console.log('data received',data)
         if ($scope.socket.id != data.id) {
 
             if(data.country.indexOf(" ")>-1){
