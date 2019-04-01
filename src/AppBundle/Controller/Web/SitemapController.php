@@ -29,7 +29,7 @@ class SitemapController extends Controller
 
         $urls[] = ['loc' => $this->get('router')->generate('Live_rates_crypto'), 'changefreq' => 'weekly', 'priority' => '0.7'];
         $urls[] = ['loc' => $this->get('router')->generate('Live_rates_forex'), 'changefreq' => 'weekly', 'priority' => '0.7'];
-        $urls[] = ['loc' => $this->get('router')->generate('Live_rates_stocks'), 'changefreq' => 'weekly', 'priority' => '0.7'];
+//        $urls[] = ['loc' => $this->get('router')->generate('Live_rates_stocks'), 'changefreq' => 'weekly', 'priority' => '0.7'];
 
         $urls[] = ['loc' => $this->get('router')->generate('crypto'), 'changefreq' => 'weekly', 'priority' => '0.5'];
         $urls[] = ['loc' => $this->get('router')->generate('forex'), 'changefreq' => 'weekly', 'priority' => '0.5'];
@@ -88,6 +88,8 @@ class SitemapController extends Controller
                     $res2 = $client->request('GET', 'https://websocket-stock.herokuapp.com/stocks/' . $data[0][$x]);
                     $data2 = json_decode($res2->getBody(), true);
                     foreach ($data2 as $item) {
+                        if (!isset($item['name'])) { continue ;}
+                        
                         $new_array = array(' ', '/', '----', '---', '--');
                         $item['name'] = str_replace('-', " ", $item['name']);
                         $item['name'] = str_replace("'", "", $item['name']);
