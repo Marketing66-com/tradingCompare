@@ -107,3 +107,11 @@ $('.grid').click(function () {
     $(this).addClass('watchlist-cont_all_active');
     $('.list').removeClass('watchlist-cont_all_active');
 });
+
+
+$('.live_chat').click(function () {
+    $('.live_abs').toggleClass('live_abs-active');
+});
+$('.chat_close').click(function () {
+    $('.live_abs').removeClass('live_abs-active');
+});

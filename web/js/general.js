@@ -333,3 +333,11 @@ $('.grid').click(function () {
     $('.list').removeClass('watchlist-cont_all_active');
 
 });
+
+
+$('.live_chat').click(function () {
+    $('.live_abs').toggleClass('live_abs-active');
+});
+$('.chat_close').click(function () {
+    $('.live_abs').removeClass('live_abs-active');
+});

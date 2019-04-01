@@ -238,14 +238,14 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
         $http.get(crypto_api)
             .then(function(result) {
                 $scope.result = result.data;
-
+                console.log("$scope.result*****",$scope.result)
                 $http.post("https://xosignals.herokuapp.com/trading-compare-v2/get-sentiment-by-type/", {symbol_type: 'CRYPTO'})
                     .then(function (response) {
                         $scope.all_crypto_sentiments = response.data
-                        console.log("all_crypto_sentiments",$scope.all_crypto_sentiments)
+                        //console.log("all_crypto_sentiments",$scope.all_crypto_sentiments)
                     })
                     .then(function () {
-                        //console.log("$scope.result*****",$scope.result)
+                        console.log("$scope.result*****",$scope.result)
                         var i = 0
                         for (const key in $scope.result) {
                             if ($scope.result.hasOwnProperty(key)) {
@@ -304,7 +304,7 @@ CryptoApp.controller('ListController', function($scope,$window,$location,MemberS
                                 i = i + 1;
                             }
                         }
-                        //console.log("itemsDetails",itemsDetails)
+                        console.log("itemsDetails",itemsDetails)
                         $scope.totalItems = itemsDetails.length;
 
                         var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
