@@ -268,6 +268,290 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
             $scope.$apply()
 
         })
+        //************************************************************************
+        $scope.current_room = symbol
+        $scope.chart = new AmCharts.AmStockChart();
+
+
+        function createStockChart(url, type) {
+
+            $scope.type = "STOCK"
+            var stockPanel;
+            // this.chart = new AmCharts.AmStockChart();
+            // console.log("*********111**********",$scope.chart)
+            $scope.chart.balloon.horizontalPadding = 13;
+            var url1 = url + "/a/2019-03-04T09:42:02.000Z/day/1";
+            var url2 = url + "/a/2019-03-04T09:42:02.000Z/minute/60";
+            // var url3 = url + "/a/2019-03-04T09:42:02.000Z/minute/1";
+            // if ($scope.type.toLocaleUpperCase() == "STOCK") {
+            //     url2 = url + "/a/2019-03-04T09:42:02.000Z/minute/60";
+            // } else {
+            //     url2 = url + "/a/2019-03-04T09:42:02.000Z/minute/1";
+            // }
+            console.log("////",url1, url2);
+
+            var field_data = [{
+                fromField: "Open",
+                toField: "open"
+            }, {
+                fromField: "Close",
+                toField: "close"
+            }, {
+                fromField: "High",
+                toField: "high"
+            }, {
+                fromField: "Low",
+                toField: "low"
+            }, {
+                fromField: "Volume",
+                toField: "volume"
+            }, {
+                fromField: "value",
+                toField: "value"
+            }]
+
+            $scope.chart = this.AmCharts.makeChart("chartdiv", {
+                "type": "stock",
+                "theme": "none",
+                "dataSets": [{
+                    "fieldMappings": field_data,
+                    "color": "#7f8da9",
+                    "categoryField": "DT",
+                    "dataLoader": {
+                        "url": url1,
+                        "format": "json"
+                    }
+                },
+                    {
+                        "fieldMappings": field_data,
+                        "color": "#7f8da9",
+                        "categoryField": "DT",
+                        "dataLoader": {
+                            "url": url2,
+                            "format": "json"
+                        }
+                    // },
+                    // {
+                    //     "fieldMappings": field_data,
+                    //     "color": "#7f8da9",
+                    //     "categoryField": "DT",
+                    //     "dataLoader": {
+                    //         "url": url3,
+                    //         "format": "json"
+                    //     }
+                    }],
+                "balloon": {
+                    "horizontalPadding": 13
+
+                },
+                "panels": [{
+                    "title": "Value",
+                    "stockGraphs": [{
+                        "id": "g1",
+                        "type": "candlestick",
+                        "openField": "open",
+                        "closeField": "close",
+                        "highField": "high",
+                        "lowField": "low",
+                        "valueField": "close",
+                        "lineColor": "#05bd9b",
+                        "fillColors": "#05bd9b",
+                        "negativeLineColor": "#ef4364",
+                        "negativeFillColors": "#ef4364",
+                        "fillAlphas": 1,
+                        "balloonText": "open:<b>[[open]]</b><br>close:<b>[[close]]</b><br>low:<b>[[low]]</b><br>high:<b>[[high]]</b>",
+                        "useDataSetColors": false
+                    }]
+                }],
+                "scrollBarSettings": {
+                    "graphType": "line",
+                    "usePeriod": "WW"
+                },
+                "panelsSettings": {
+                    "panEventsEnabled": true
+                },
+                "cursorSettings": {
+                    "valueBalloonsEnabled": true,
+                    "valueLineBalloonEnabled": true,
+                    "valueLineEnabled": true
+                },
+                "periodSelector": {
+                    "position": "bottom",
+                    "periods": [{
+                        period: "DD",
+                        count: 10,
+                        label: "10 days"
+                    }, {
+                        period: "MM",
+                        selected: true,
+                        count: 1,
+                        label: "1 month"
+                    }, {
+                        period: "YYYY",
+                        count: 1,
+                        label: "1 year"
+                    }, {
+                        period: "YTD",
+                        label: "YTD"
+                    }, {
+                        period: "MAX",
+                        label: "MAX"
+                    }]
+                }
+            });
+            // console.log("*********2222**********",$scope.chart)
+
+        }
+
+
+
+        $scope.get_url_and_signals_by_symbol= function () {
+            var type = "STOCK";
+            var symbol = $scope.current_room.toUpperCase();
+
+            var url = "https://interactivecrypto.herokuapp.com/InitialFeed-";
+            switch (type) {
+                case "FOREX":
+                    url += "Forex/";
+                    url += symbol.slice(0, 3)
+                    url += "/"
+                    url += symbol.slice(3, 6);
+                    break;
+                case "CRYPTO":
+                    url += "Crypto/";
+                    url += $scope.from.toUpperCase() + "_" + $scope.to.toUpperCase();
+                    ;
+                    url += "/"
+                    url += "none";
+                    break;
+                case "STOCK":
+                    url += "Stock/";
+                    url += symbol;
+                    url += "/united-states-of-america";
+                    break;
+                default:
+                    break;
+            }
+            // console.log("*****", url);
+
+            // return(url)
+            // createStockChart(url, "STOCK")
+        }
+        $scope.get_url_and_signals_by_symbol()
+
+
+        $scope.changeDataSet = function (index) {
+            // console.log("************",index)
+            // console.log("*******************",$scope.chart)
+
+            if (index == "DD") {
+                $scope.chart.mainDataSet = $scope.chart.dataSets[0];
+                var categoryAxesSettings = {};
+                categoryAxesSettings["minPeriod"] = "DD"
+                // categoryAxesSettings.maxSeries= 10
+                $scope.chart.categoryAxesSettings = categoryAxesSettings
+
+                // PERIOD SELECTOR ///////////////////////////////////
+                var periodSelector = {};
+                periodSelector["position"] = "bottom";
+                periodSelector["periods"] = [{
+                    period: "DD",
+                    count: 10,
+                    label: "10 days"
+                }, {
+                    period: "MM",
+                    count: 1,
+                    selected: true,
+                    label: "1 month"
+                }, {
+                    period: "YYYY",
+                    count: 1,
+                    label: "1 year"
+                }, {
+                    period: "YTD",
+                    label: "YTD"
+                }, {
+                    period: "MAX",
+                    label: "MAX"
+                }];
+                this.chart.periodSelector = periodSelector;
+
+
+            } else if (index == "hh") {
+                $scope.chart.mainDataSet = $scope.chart.dataSets[1];
+                var categoryAxesSettings = {};
+
+
+                // let a =$scope.type.toLocaleUpperCase() == "STOCK"
+                // let b = "mm"
+                // let c = "DD"
+                // let c_label = "1 minute"
+                // if (a == "STOCK") {
+                b = "hh"
+                c = "DD"
+                c_label = "1 DAY"
+                // }
+
+                categoryAxesSettings["minPeriod"] = b
+
+                $scope.chart.categoryAxesSettings = categoryAxesSettings
+                var periodSelector = {};
+                periodSelector["position"] = "bottom";
+                periodSelector["periods"] = [{
+                    period: c,
+                    count: 60,
+                    label: c_label
+                }, {
+                    period: "hh",
+                    count: 60,
+                    selected: true,
+                    label: "1 hour"
+                }];
+                $scope.chart.periodSelector = periodSelector;
+
+
+            }
+            // else if (index == "mm") {
+            //     $scope.chart.mainDataSet = $scope.chart.dataSets[2];
+            //     var categoryAxesSettings = {};
+            //
+            //
+            //     // let a =$scope.type.toLocaleUpperCase() == "STOCK"
+            //     let b = "mm"
+            //     let c = "DD"
+            //     let c_label = "1 minute"
+            //     // if (a == "STOCK") {
+            //     // b = "hh"
+            //     // c = "DD"
+            //     // c_label = "1 DAY"
+            //     // }
+            //
+            //     categoryAxesSettings["minPeriod"] = b
+            //
+            //     $scope.chart.categoryAxesSettings = categoryAxesSettings
+            //     var periodSelector = {};
+            //     periodSelector["position"] = "bottom";
+            //     periodSelector["periods"] = [{
+            //         period: c,
+            //         count: 60,
+            //         label: c_label
+            //     }, {
+            //         period: "hh",
+            //         count: 60,
+            //         selected: true,
+            //         label: "1 hour"
+            //     }];
+            //     $scope.chart.periodSelector = periodSelector;
+            //
+            //
+            // }
+            this.chart.validateNow();
+            this.chart.setDefaultPeriod()
+        }
+
+
+        //*************************************************************************************
+
     }
 
     //******************************************
