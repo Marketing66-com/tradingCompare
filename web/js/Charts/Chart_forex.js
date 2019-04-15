@@ -274,7 +274,7 @@ Chart_forexApp.controller("Chart_forexController", function ($scope,$window,$loc
 
         function createStockChart(url, type) {
 
-            $scope.type = "CRYPTO"
+            $scope.type = "FOREX"
             var stockPanel;
             // this.chart = new AmCharts.AmStockChart();
             // console.log("*********111**********",$scope.chart)

@@ -435,7 +435,7 @@ Chart_stockApp.controller("Chart_stockController", function ($scope,$window,$loc
             // console.log("*****", url);
 
             // return(url)
-            // createStockChart(url, "STOCK")
+            createStockChart(url, "STOCK")
         }
         $scope.get_url_and_signals_by_symbol()
 

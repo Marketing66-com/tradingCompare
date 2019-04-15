@@ -460,7 +460,7 @@ ChartApp.controller('ChartController', function ($scope,$window,$location,Member
             console.log("*****", url);
 
             // return(url)
-            // createStockChart(url, "CRYPTO")
+            createStockChart(url, "CRYPTO")
         }
         $scope.get_url_and_signals_by_symbol()
 
