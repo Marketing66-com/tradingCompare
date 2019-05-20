@@ -282,6 +282,7 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
         $http.get("https://stock.tradingcompare.com/stocks/" + country_value)
             .then(function(result) {
                 $scope.result = result.data;
+                console.log(result.data)
                 $http.post("https://xosignals.herokuapp.com/trading-compare-v2/get-sentiment-by-type/",{symbol_type: 'STOCK'})
                    .then(function(response) {
                      //console.log("response from sentiment-by-type",response.data)
