@@ -278,8 +278,8 @@ stockApp.controller("stockController", function ($scope,$window,$location,Member
         // *********************************
         // ***********************************************************************
 
-        // $http.get("https://websocket-stock.herokuapp.com/stocks/" + country_value)
-        $http.get("https://stock.tradingcompare.com/stocks/" + country_value)
+        $http.get("https://websocket-stock.herokuapp.com/stocks/" + country_value)
+        // $http.get("https://stock.tradingcompare.com/stocks/" + country_value)
             .then(function(result) {
                 $scope.result = result.data;
                 console.log(result.data)
