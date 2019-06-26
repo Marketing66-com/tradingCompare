@@ -43,7 +43,7 @@ class RedirectController extends Controller
     public function crypto_oldAction()
     {
         return $this->redirectToRoute(
-            'crypto', 301
+            'crypto', [],301
         );
     }
 
@@ -53,7 +53,7 @@ class RedirectController extends Controller
     public function commodities2_oldAction()
     {
         return $this->redirectToRoute(
-            'commodities', 301
+            'commodities', [],301
         );
     }
 
@@ -63,7 +63,7 @@ class RedirectController extends Controller
     public function commodities_oldAction()
     {
         return $this->redirectToRoute(
-            'commodities', 301
+            'commodities', [],301
         );
     }
 
@@ -73,7 +73,7 @@ class RedirectController extends Controller
     public function stock2_oldAction()
     {
         return $this->redirectToRoute(
-            'stock', 301
+            'stock',[], 301
         );
     }
 
